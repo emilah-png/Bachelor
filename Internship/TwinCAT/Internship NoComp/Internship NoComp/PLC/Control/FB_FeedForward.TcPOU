@@ -23,12 +23,18 @@ VAR
 	fAp : LREAL := 33.1 / 10000.0;
 	fAa : LREAL := 23.56 / 10000.0;
 	
+	fK02Up : LREAL := 0.78;
 	fK04Up : LREAL := 2.3;
+	fK06Up : LREAL := 3.27;
 	fK07Up : LREAL := 4.54;
+	fK08Up : LREAL := 4.94;
 	fK1Up : LREAL := 5.68;
 	
+	fK02Down : LREAL := -0.75; 
 	fK04Down : LREAL := -2.21; //-1.37;
+	fK06Down : LREAL := -3.45; 
 	fK07Down : LREAL := -3.96; //-2.45;
+	fK08Down : LREAL := -4.61; 
 	fK1Down : LREAL := -4.67; //-2.88;
 	
 	fDeltaP : LREAL;
@@ -47,12 +53,18 @@ IF fXDotRef >= 0.0 THEN // Upwards
 	
 	IF fKRef < 0.0 THEN
 		fUTemp := 0.0;
+	ELSIF fKRef < fK02Up THEN
+		fUTemp := -fKRef/fK02Up * (0.2 - fDeadUp);
 	ELSIF fKRef < fK04Up THEN
-		fUTemp := -fKRef/fK04Up * (0.4-fDeadUp);
+		fUTemp := -(0.2 - fDeadUp) -(fKRef-fK02Up)/(fK04Up-fK02Up) * (0.4-fDeadUp-0.2);
+	ELSIF fKRef < fK06Up THEN
+		fUTemp := -(0.4 - fDeadUp) -(fKRef-fK04Up)/(fK06Up-fK04Up) * (0.6-fDeadUp-0.4);
 	ELSIF fKRef < fK07Up THEN
-		fUTemp := -fKRef/fK07Up * (0.7-fDeadUp);
+		fUTemp := -(0.6 - fDeadUp) -(fKRef-fK06Up)/(fK07Up-fK06Up) * (0.7-fDeadUp-0.6);
+	ELSIF fKRef < fK08Up THEN
+		fUTemp := -(0.7 - fDeadUp) -(fKRef-fK07Up)/(fK08Up-fK07Up) * (0.8-fDeadUp-0.7);
 	ELSIF fKRef < fK1Up THEN
-		fUTemp := -fKRef/fK1Up * (1.0 - fDeadUp);
+		fUTemp := -(0.8 - fDeadUp) -(fKRef-fK08Up)/(fK1Up-fK08Up) * (1.0-fDeadUp-0.8);
 	ELSE
 		fUTemp := -(1-fDeadUp);
 	END_IF
@@ -67,12 +79,18 @@ ELSIF fXDotRef < 0.0 THEN // Downwards
 	
 	IF fKRef > 0.0 THEN
 		fUTemp := 0.0;
+	ELSIF fKRef > fK02Down THEN
+		fUTemp := fKRef/fK02Down * (0.2-fDeadDown);
 	ELSIF fKRef > fK04Down THEN
-		fUTemp := fKRef/fK04Down * (0.4-fDeadDown);
+		fUTemp := (0.2 - fDeadDown) + (fKRef-fK02Down)/(fK04Down-fK02Down) * (0.4 - fDeadDown - 0.2);
+	ELSIF fKRef > fK06Down THEN
+		fUTemp := (0.4 - fDeadDown) + (fKRef-fK04Down)/(fK06Down-fK04Down) * (0.6 - fDeadDown - 0.4);
 	ELSIF fKRef > fK07Down THEN
-		fUTemp := fKRef/fK07Down * (0.7-fDeadDown);
+		fUTemp := (0.6 - fDeadDown) + (fKRef-fK06Down)/(fK07Down-fK06Down) * (0.7 - fDeadDown - 0.6);
+	ELSIF fKRef > fK08Down THEN
+		fUTemp := (0.7 - fDeadDown) + (fKRef-fK07Down)/(fK08Down-fK07Down) * (0.8 - fDeadDown - 0.7);
 	ELSIF fKRef > fK1Down THEN
-		fUTemp := fKRef/fK1Down * (1.0 - fDeadDown);
+		fUTemp := (0.8 - fDeadDown) + (fKRef-fK08Down)/(fK1Down-fK08Down) * (1.0 - fDeadDown - 0.8);
 	ELSE
 		fUTemp := (1.0-fDeadDown);
 	END_IF
@@ -95,7 +113,12 @@ fUFF := fUTemp * fKFF; // Tomec
       <LineId Id="126" Count="0" />
       <LineId Id="140" Count="0" />
       <LineId Id="129" Count="1" />
-      <LineId Id="132" Count="7" />
+      <LineId Id="195" Count="1" />
+      <LineId Id="132" Count="1" />
+      <LineId Id="197" Count="1" />
+      <LineId Id="134" Count="1" />
+      <LineId Id="199" Count="1" />
+      <LineId Id="136" Count="3" />
       <LineId Id="131" Count="0" />
       <LineId Id="141" Count="0" />
       <LineId Id="26" Count="0" />
@@ -105,7 +128,13 @@ fUFF := fUTemp * fKFF; // Tomec
       <LineId Id="29" Count="0" />
       <LineId Id="124" Count="1" />
       <LineId Id="128" Count="0" />
-      <LineId Id="144" Count="9" />
+      <LineId Id="144" Count="1" />
+      <LineId Id="201" Count="1" />
+      <LineId Id="146" Count="1" />
+      <LineId Id="207" Count="1" />
+      <LineId Id="148" Count="1" />
+      <LineId Id="204" Count="1" />
+      <LineId Id="150" Count="3" />
       <LineId Id="143" Count="0" />
       <LineId Id="142" Count="0" />
       <LineId Id="30" Count="0" />
