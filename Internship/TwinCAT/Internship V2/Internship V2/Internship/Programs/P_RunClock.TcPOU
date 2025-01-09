@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="P_RunClock" Id="{d8c930b5-bf90-4658-99e0-6b7148646632}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_RunClock
+VAR
+	fbRunClock : FB_RunClock;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbRunClock(
+	bStart := TRUE,
+	bStop := G_Inputs.bStopButton,
+	fCycleTime := G_Parameter.fCycleTime,
+	
+	fTime => G_OPC.fTime
+);]]></ST>
+    </Implementation>
+    <LineIds Name="P_RunClock">
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="1" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

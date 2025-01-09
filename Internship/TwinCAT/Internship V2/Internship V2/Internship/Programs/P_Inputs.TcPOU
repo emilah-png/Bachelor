@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Inputs" Id="{94ed4cce-6a16-4a20-9eff-b4a1e6338584}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Inputs
+VAR
+	fbNormPa :  FB_Normalize;
+	fbNormPb :  FB_Normalize;
+	fbNormPs :  FB_Normalize;
+	fbNormPaLower : FB_Normalize;
+	
+	fbNormPistonPosition : FB_PositionInputScaling;
+	fbJoystick : FB_JoystickInputScaling;
+
+	fPa : LREAL;
+	fPb : LREAL;
+	fPs : LREAL;
+	fPaLower : LREAL;
+	
+	fPistonPosition : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbNormPa(
+	nRawInput := G_Inputs.nRawPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPa
+);
+
+fbNormPb(
+	nRawInput := G_Inputs.nRawPb,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPb
+);
+
+fbNormPs(
+	nRawInput := G_Inputs.nRawPs,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPs
+);
+
+fbNormPistonPosition(
+	nRawInput := G_Inputs.nRawPistonPosition,
+	fOutput => G_OPC.fPistonPosition
+);
+	
+fbJoystick(
+	nRawInput := G_Inputs.nRawJoystick,
+	bEnable := (G_Mode.bRunning AND G_Mode.bManual),
+	fOutput => G_OPC.fJoystick
+);
+
+fbNormPaLower(
+	nRawInput := G_Inputs.nRawPaLower,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPaLower
+);]]></ST>
+    </Implementation>
+    <LineIds Name="P_Inputs">
+      <LineId Id="17" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="29" Count="4" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="35" Count="4" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="51" Count="2" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="74" Count="1" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="73" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

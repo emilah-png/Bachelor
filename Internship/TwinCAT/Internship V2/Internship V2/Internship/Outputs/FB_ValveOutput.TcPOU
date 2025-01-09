@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_ValveOutput" Id="{b39826ab-3b1e-4df6-8ee9-5d26d1d1ff9d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ValveOutput
+VAR_INPUT
+	bEnable 			: BOOL;
+	fNormalizedInput 	: LREAL;
+END_VAR
+VAR_OUTPUT
+	nOutput : INT; 
+END_VAR
+VAR
+	nOffset 	: LREAL := 19630.0;
+	nMaxValue	: LREAL := 29460.0;
+	nMinValue 	: LREAL :=  9830.0;
+	nTempOutput : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF fNormalizedInput > 0.0 THEN
+	nTempOutput := (fNormalizedInput) * (nMaxValue - nOffset) + nOffset;
+ELSIF fNormalizedInput < 0.0 THEN
+	nTempOutput := (fNormalizedInput) * (nOffset - nMinValue) + nOffset;
+ELSE 
+	nTempOutput := nOffset;
+END_IF
+
+
+
+IF NOT(bEnable) THEN
+	nOutput := LREAL_TO_INT(nOffset);
+ELSIF (bEnable) THEN
+	nOutput := LREAL_TO_INT(nTempOutput);	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ValveOutput">
+      <LineId Id="64" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="70" Count="1" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="73" Count="1" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="57" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

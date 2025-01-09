@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_PressureInputScaling" Id="{b6baeb93-a8de-456f-beee-bdec5c6cc76b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PressureInputScaling
+VAR_INPUT
+	nRawInput : INT;
+END_VAR
+VAR_OUTPUT
+	fOutput : LREAL;
+END_VAR
+VAR
+	fRawInput : LREAL;
+	fNormalizedInput: LREAL;
+	fMinInputValue			: LREAL := 0.0;
+	fMaxInputValue			: LREAL := 32767.0;
+	fMaxOutputValue 		: LREAL := 400.0;
+	fMinOutputValue  		: LREAL := 0.0;			
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fRawInput := INT_TO_LREAL(nRawInput);
+
+fNormalizedInput := (fRawInput - fMinInputValue) / (fMaxInputValue - fMinInputValue);
+
+fOutput := LIMIT(fMinOutputValue, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_PressureInputScaling">
+      <LineId Id="9" Count="0" />
+      <LineId Id="25" Count="2" />
+      <LineId Id="22" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Filtering" Id="{152e0fb1-83f0-480e-9255-787d93a44be7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Filtering
+VAR
+	fbControlBlock : c_FB_ControlBlockWithMonito;
+	fbFilterPa : FB_Filtering;
+	fbFilterPb : FB_Filtering;
+	fbFilterPs : FB_Filtering;
+	fbFilterU : FB_Filtering;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbFilterPa(
+	ssMethodType := 1,
+	Signal := G_Sensors.fPressurePistonSide,
+	Num := G_Parameter.fPressureFilterNum,
+	Denz := G_Parameter.fPressureFilterDenz,
+	Den := G_Parameter.fPressureFilterDen,
+	Initial := G_Parameter.fPressureFilterInit,
+	
+	Signal_Filtered => G_Filtered.fPressurePistonSideFiltered,
+	Signal_Filtered => G_OPC_UA.fPaFiltered
+);
+
+fbFilterPb(
+	ssMethodType := 1,
+	Signal := G_Sensors.fPressureRodSide,
+	Num := G_Parameter.fPressureFilterNum,
+	Denz := G_Parameter.fPressureFilterDenz,
+	Den := G_Parameter.fPressureFilterDen,
+	Initial := G_Parameter.fPressureFilterInit,
+	
+	Signal_Filtered => G_Filtered.fPressureRodSideFiltered,
+	Signal_Filtered => G_OPC_UA.fPbFiltered
+);
+
+fbFilterPs(
+	ssMethodType := 1,
+	Signal := G_Sensors.fPressureSupply,
+	Num := G_Parameter.fPressureFilterNum,
+	Denz := G_Parameter.fPressureFilterDenz,
+	Den := G_Parameter.fPressureFilterDen,
+	Initial := G_Parameter.fPressureFilterInit,
+	
+	Signal_Filtered => G_Filtered.fPressureSupplyFiltered,
+	Signal_Filtered => G_OPC_UA.fPsFiltered
+);
+
+fbFilterU(
+	ssMethodType := 1,
+	Signal := G_Filtered.fValveOutputUnfiltered,
+	Num := G_Parameter.fSignalFilterNum,
+	Denz := G_Parameter.fSignalFilterDenz,
+	Den := G_Parameter.fSignalFilterDen,
+	Initial := G_Parameter.fSignalFilterInit,
+	
+	Signal_Filtered => G_Filtered.fValveOutputFiltered,
+	Signal_Filtered => G_OPC_UA.fFilteredSignal
+);]]></ST>
+    </Implementation>
+    <LineIds Name="P_Filtering">
+      <LineId Id="6" Count="8" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="15" Count="10" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="26" Count="10" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="37" Count="10" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

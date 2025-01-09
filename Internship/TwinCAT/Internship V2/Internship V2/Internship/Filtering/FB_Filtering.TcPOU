@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_Filtering" Id="{14261dac-a247-4f46-86fb-4a529ccfd47b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Filtering
+VAR_INPUT
+	ssMethodType: SINT;
+	Signal: LREAL;
+	Num: LREAL;
+	DenZ: LREAL;
+	Den: LREAL;
+	Initial: LREAL;
+END_VAR
+VAR_OUTPUT
+	Signal_Unfiltered: LREAL;
+	Signal_Filtered: LREAL;
+END_VAR
+VAR
+	DiscreteTransferFcn1_icLoad: USINT;
+	DiscreteTransferFcn1_states: LREAL;
+	c_TmpSignalConversionAtDisc: ARRAY[0..1] OF LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/FB_Filtering' *)
+        (* InitializeConditions for DiscreteTransferFcn: '<S1>/Discrete Transfer Fcn1' *)
+        DiscreteTransferFcn1_icLoad := 1;
+        (* End of SystemInitialize for SubSystem: '<Root>/FB_Filtering' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/FB_Filtering' *)
+        (* SignalConversion: '<S1>/TmpSignal ConversionAtDiscrete Transfer Fcn1Inport3' *)
+        c_TmpSignalConversionAtDisc[0] := DenZ;
+        c_TmpSignalConversionAtDisc[1] := Den;
+        (* DiscreteTransferFcn: '<S1>/Discrete Transfer Fcn1' *)
+
+        IF DiscreteTransferFcn1_icLoad <> 0 THEN 
+            DiscreteTransferFcn1_states := Initial;
+        END_IF;
+
+        Signal_Filtered := Num * DiscreteTransferFcn1_states;
+        (* End of DiscreteTransferFcn: '<S1>/Discrete Transfer Fcn1' *)
+        
+
+        (* SignalConversion: '<S1>/Signal' incorporates:
+         *  Outport: '<Root>/Signal_Unfiltered' *)
+        Signal_Unfiltered := Signal;
+        (* Update for DiscreteTransferFcn: '<S1>/Discrete Transfer Fcn1' incorporates:
+         *  SignalConversion: '<S1>/Signal' *)
+        DiscreteTransferFcn1_icLoad := 0;
+        DiscreteTransferFcn1_states := Signal - (c_TmpSignalConversionAtDisc[1] * DiscreteTransferFcn1_states);
+        (* End of Outputs for SubSystem: '<Root>/FB_Filtering' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Filtering">
+      <LineId Id="3" Count="33" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

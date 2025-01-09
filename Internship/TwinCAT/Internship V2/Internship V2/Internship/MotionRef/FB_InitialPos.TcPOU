@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_InitialPos" Id="{4f6abf03-5486-4a2c-ab9b-8b48fab2886b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_InitialPos
+VAR_INPUT
+	bEnable : BOOL;
+	fCurrentPos : LREAL;
+END_VAR
+VAR_OUTPUT
+	fInitialPos : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnable THEN
+	fInitialPos := fInitialPos;
+ELSE 
+	fInitialPos := fCurrentPos;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_InitialPos">
+      <LineId Id="9" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

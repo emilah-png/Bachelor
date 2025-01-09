@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_PositionInputScaling" Id="{aaf7dedb-496d-4e47-af87-ac12aff46c11}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PositionInputScaling
+VAR_INPUT
+	nRawInput : INT;
+END_VAR
+VAR_OUTPUT
+	fOutput : LREAL;
+END_VAR
+VAR
+	fRawInput : LREAL;
+	fNormalizedInput: LREAL;
+	fMaxInputValue 			: LREAL := 16099.0;
+	fMinInputValue			: LREAL := 125.0;
+	fMaxOutputValue  		: LREAL := 0.5;
+	fMinOutputValue  		: LREAL := 0.0;		
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fRawInput := INT_TO_LREAL(nRawInput);
+
+fNormalizedInput := (fRawInput - fMinInputValue) / (fMaxInputValue - fMinInputValue);
+
+fOutput := LIMIT(fMinOutputValue, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_PositionInputScaling">
+      <LineId Id="9" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="41" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

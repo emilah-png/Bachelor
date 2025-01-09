@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_FeedForward" Id="{202d862f-f86c-42e9-b9cf-42d47a621534}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_FeedForward
+VAR
+	fbFF : FB_FeedForward;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (G_Enables.bEnableFF AND G_Mode.bRunning) THEN
+fbFF(
+	fXDotRef := G_OPC.fXDotRef,
+	fQMaxUp := G_Parameter.fQMaxUp,
+	fQMaxDown := G_Parameter.fQMaxDown,
+	fDeadUp := G_Parameter.fDeadUp,
+	fDeadDown := G_Parameter.fDeadDown,
+	fKFF := G_Parameter.KFF,
+	
+	fPa := G_OPC.fPaLowerFiltered,
+	fPb := G_OPC.fPbFiltered,
+	fPs := G_OPC.fPsFiltered,
+	
+	fUFF => G_OPC.fUFF
+);
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="P_FeedForward">
+      <LineId Id="15" Count="0" />
+      <LineId Id="6" Count="5" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="21" Count="3" />
+      <LineId Id="12" Count="1" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="16" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_OPC" Id="{5ea6be42-d96d-412e-8945-28bb945cf324}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	// Unfiltered Pressures
+	fPa : LREAL;
+	fPb : LREAL;
+	fPs : LREAL;
+	fPaLower : LREAL;
+	
+	// Filtered Pressures
+	fPaFiltered : LREAL;
+	fPbFiltered : LREAL;
+	fPsFiltered : LREAL;
+	fPaLowerFiltered : LREAL;
+	
+	
+	fPistonPosition : LREAL;
+	fJoystick : LREAL;
+	
+	fXRef : LREAL;
+	fXDotRef : LREAL;
+	
+	fU : LREAL;
+	fTime : LREAL;
+	fError : LREAL;
+	fSignalPID : LREAL;
+	fUFF : LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

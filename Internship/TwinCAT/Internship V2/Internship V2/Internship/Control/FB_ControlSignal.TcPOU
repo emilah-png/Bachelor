@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_ControlSignal" Id="{5ec98e7b-f91c-4803-9df2-1eb6eb99ed16}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ControlSignal
+VAR_INPUT
+	fUFF : LREAL;
+	fPID : LREAL;
+	bEnableU : BOOL;
+	fQMaxUp 	: LREAL; // Needs to be positive (22)
+	fQMaxDown 	: LREAL; // Needs to be positive (15)
+	fDeadUp		: LREAL; // Needs to be positive (0.155)
+	fDeadDown 	: LREAL; // Needs to be positive (0.18)
+END_VAR
+VAR_OUTPUT
+	fU : LREAL;
+END_VAR
+VAR
+
+	fUTemp : LREAL;
+	fUTemp2 : LREAL;
+	fUMax : LREAL := 0.9;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnableU THEN
+	fUTemp := fUFF - fPID;
+	
+	// Deadband compensation
+	IF fUTemp <= 0.0 THEN	// Upwards
+		fUTemp2 := fUTemp - fDeadUp;
+	ELSIF fUTemp > 0.0 THEN // Downwards
+		fUTemp2 := fUTemp + fDeadDown;
+	END_IF
+	
+	IF fUTemp2 >= fUMax THEN
+		fU := fUMax;
+	ELSIF fUTemp2 <= -fUMax THEN
+		fU := -fUMax;
+	ELSE
+		fU := fUTemp2;
+	END_IF
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ControlSignal">
+      <LineId Id="9" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="24" Count="3" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

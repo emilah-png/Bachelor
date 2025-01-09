@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_FeedForward" Id="{c7c6c1c3-721c-4ea2-9006-d66030d86044}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward
+VAR_INPUT
+	fXDotRef 	: LREAL; // Motion Referance
+	fQMaxUp 	: LREAL; // Needs to be positive (22)
+	fQMaxDown 	: LREAL; // Needs to be positive (15)
+	fDeadUp		: LREAL; // Needs to be positive (0.155)
+	fDeadDown 	: LREAL; // Needs to be positive (0.18)
+END_VAR
+VAR_OUTPUT
+	fUFF : LREAL;
+END_VAR
+VAR
+	fUTemp : LREAL;
+	fUMax : LREAL := 0.9;
+	fQRef : LREAL;
+	fAp : LREAL := 33.1 / 10000.0;
+	fAa : LREAL := 23.56 / 10000.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF fXDotRef >= 0.0 THEN // Upwards
+	
+	fQRef := fAp * fXDotRef * 60000;
+	fUTemp := -((fQRef/fQMaxUp) * (fUMax-fDeadUp));
+	
+//	IF fUTemp < -fUMax THEN
+//		fUFF := -fUMax;
+	
+//	ELSIF fUTemp > -fDeadUp THEN
+//		fUFF := -fDeadUp;
+//	ELSE
+//		fUFF := fUTemp;
+//	END_IF
+
+ELSIF fXDotRef < 0.0 THEN // Downwards
+	
+	fQRef := fAa * fXDotRef * 60000;
+	fUTemp := -((fQRef/fQMaxDown) * (fUMax-fDeadDown)); // FDeadDown needs to be positive
+	
+//	IF fUTemp > fUMax THEN
+//		fUFF := fUMax;
+	
+//	ELSIF fUTemp < fDeadDown THEN
+//		fUFF := fDeadDown;
+//	ELSE
+//		fUFF := fUTemp;
+//	END_IF
+
+END_IF
+
+fUFF := fUTemp; // Tomec 
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_FeedForward">
+      <LineId Id="65" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="84" Count="1" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="55" Count="6" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="35" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

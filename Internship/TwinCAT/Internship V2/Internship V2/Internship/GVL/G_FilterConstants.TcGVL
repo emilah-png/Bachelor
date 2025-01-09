@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <GVL Name="G_FilterConstants" Id="{454462db-4b24-447f-863f-1528ec74c2bc}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Filter constants
+	fPressureFilterNum :LREAL := 0.003137;
+	fPressureFilterDenz : LREAL := 1.0;
+	fPressureFilterDen : LREAL := -0.9969;
+	fPressureFilterInit : LREAL := 0.0;
+	
+	fSignalFilterNum : LREAL := 0.09516;
+	fSignalFilterDenz : LREAL := 1.0;
+	fSignalFilterDen : LREAL := -0.9048;
+	fSignalFilterInit : LREAL := 0.0;
+	
+	fDerivatorFilterNum : LREAL := 0.0009995;
+	fDerivatorFilterDenz : LREAL := 1.0;
+	fDerivatorFilterDen : LREAL := -0.999;
+	fDerivatorFilterInit : LREAL := 0.0;	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

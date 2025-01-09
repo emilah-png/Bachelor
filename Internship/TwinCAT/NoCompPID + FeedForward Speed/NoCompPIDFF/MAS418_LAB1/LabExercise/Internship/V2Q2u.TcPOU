@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="V2Q2u" Id="{8efb5770-48c6-4830-a612-83b6696c3542}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK V2Q2u
+VAR_INPUT
+	Ps	: LREAL;
+	Pa	: LREAL;
+	Pb	: LREAL;
+	y	: LREAL;
+END_VAR
+VAR_OUTPUT
+	u		: LREAL;
+	Q_lm	: LREAL;
+	dP		: LREAL;
+END_VAR
+VAR
+	phi						: LREAL := 0.7130;
+	A						: LREAL := 0.00331;		// Area
+	BW 						: LREAL := 0;			// Bandwidth 
+	SpoolTravel 			: LREAL := 7.0; 		// Maximum Spool Travel
+	dp0						: LREAL := 7E5;			// Pressure drop with compansator
+	
+	fSlopeCharacteristic	: LREAL ;
+	dpref					: LREAL ;
+	Q						: LREAL ;	
+	Q_star					: LREAL ;
+	X_dot 					: LREAL ;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fSlopeCharacteristic := (SpoolTravel-BW)/25; 	// Valve Slope Characteristic [mm/(L/min)]  
+X_dot := y * 0.1; 
+
+IF X_dot > 0.0 THEN 
+    (* '<S1>:1:11' 
+	Q := x_dot * A; *)(* Wanted Flow *)
+    (* '<S1>:1:12' 
+	dP := (Ps-Pa)*1e5; *)
+    
+    (* '<S1>:1:13'	
+	dp_ref := abs(dP_0/dP); *)
+     
+    (* '<S1>:1:15' 
+	Q_star := (Q * sqrt(dp_ref)) * 6e4; *)
+	Q := X_dot * A; // Wanted Flow
+	dP := (Ps - Pa) * 100000.0;
+    dpref := ABS(dP0 / dP); 
+	//dpref := 1;
+	
+    Q_star := (Q * SQRT(dpref)) * 60000.0;
+    (* Outport: '<Root>/u' *)
+    (* Referance Flow [L/min] *)
+    (* '<S1>:1:16' 
+	u := (Q_star * a + BW)/SpoolTravel; *)
+    u := (Q_star * (fSlopeCharacteristic+BW)) / SpoolTravel; // Control Signal [-1, 1]
+ELSIF X_dot < 0.0 THEN 
+    (* '<S1>:1:18' elseif x_dot < 0 *)
+    Q := X_dot * (A*phi);(* Wanted Flow *)
+    (* '<S1>:1:20' dP := (Ps-Pb)*1e5; *)
+    dP := (Ps - Pb) * 100000.0;
+    (* '<S1>:1:21' dp_ref := abs(dP_0/dP); *)
+    (* dp_ref := 1; *)
+    (* '<S1>:1:23' Q_star := (Q * sqrt(dp_ref)) * 6e4; *)
+	dpref := ABS(dP0 / dP);
+	//dpref := 1;
+	Q_star := (Q * SQRT(dpref)) * 60000.0;
+    (* Outport: '<Root>/u' *)
+    (* Referance Flow [L/min] *)
+    (* '<S1>:1:24' u := (Q_star * a - BW)/SpoolTravel; *)
+	u := (Q_star * (fSlopeCharacteristic - BW)) / SpoolTravel;
+    (* Control Signal [-1, 1] *)
+ELSE 
+    (* '<S1>:1:26' else *)
+    (* '<S1>:1:27' Q_star := 0; *)
+    //Q_star := 0.0;
+    (* '<S1>:1:28' dP := 0; *)
+    //dP := 0.0;
+    (* Outport: '<Root>/u' *)
+    (* '<S1>:1:29' u := 0; *)
+    u := 0.0;
+END_IF;
+
+(* Outport: '<Root>/Q_lm' incorporates:
+ *  MATLAB Function: '<Root>/V2Q2u' *)
+(* '<S1>:1:32' Q_lm := Q_star; *)
+(* Q * 6E4; *)
+Q_lm := Q_star;
+
+IF u > 1.0 THEN 
+    u := 1.0;
+ELSIF u < -1.0 THEN 
+   	u := -1.0;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="V2Q2u">
+      <LineId Id="161" Count="0" />
+      <LineId Id="309" Count="0" />
+      <LineId Id="166" Count="1" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="219" Count="0" />
+      <LineId Id="171" Count="1" />
+      <LineId Id="216" Count="0" />
+      <LineId Id="173" Count="1" />
+      <LineId Id="217" Count="0" />
+      <LineId Id="252" Count="0" />
+      <LineId Id="254" Count="0" />
+      <LineId Id="175" Count="0" />
+      <LineId Id="251" Count="0" />
+      <LineId Id="255" Count="0" />
+      <LineId Id="176" Count="3" />
+      <LineId Id="215" Count="0" />
+      <LineId Id="180" Count="0" />
+      <LineId Id="182" Count="2" />
+      <LineId Id="186" Count="4" />
+      <LineId Id="282" Count="0" />
+      <LineId Id="256" Count="0" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="193" Count="2" />
+      <LineId Id="257" Count="0" />
+      <LineId Id="197" Count="16" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="341" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

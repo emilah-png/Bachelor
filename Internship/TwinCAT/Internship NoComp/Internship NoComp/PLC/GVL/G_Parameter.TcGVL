@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_Parameter" Id="{6529201b-0264-4389-a4a9-6a2e97edbca5}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Motion Ref
+	fAmplitude : LREAL := 0.1;
+	fMean : LREAL := 0.2;
+	fFrequency : LREAL := 0.05;
+	
+	fQMaxDown : LREAL := 15.9;
+	fQMaxUp : LREAL := 24.4;
+	fDeadUp : LREAL := 0.13;
+	fDeadDown : LREAL := 0.12;
+	
+	// Deadband test
+	fConst : LREAL := 0.0; // [-1, 1]
+
+	
+	fCycleTime : LREAL := 0.001; // Time Step [ms]
+	fQConst : LREAL := 15;
+	
+	// PID-constants
+	Kp 	: LREAL := 7.0; // P
+	Ki 	: LREAL := 0.0;	// I
+	Kd 	: LREAL := 0.0;	// D
+	KFF : LREAL := 0.85; // Coefficient of FeedForward
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_Inputs" Id="{6317ec5f-2427-48bd-b03b-e77d1f6db99e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// PLC Rack
+	// Digital Inputs
+	bTest 						AT %I* : BOOL;
+	
+	// RIO Rack
+	// Digital Inputs
+	bAutoModeSelector			AT %I* : BOOL;
+	bManualModeSelector			AT %I* : BOOL;
+	bStartButton				AT %I* : BOOL;
+	bStopButton					AT %I* : BOOL;
+	
+	// Analog Inputs 1
+	stJoyX 						: ST_AnalogInput;
+	stJoyY						: ST_AnalogInput;
+	stCylPos 					: ST_AnalogInput;
+	stSpoolPos 					: ST_AnalogInput;
+	
+	// Analog Inputs 2
+	stPressureSupply 			: ST_AnalogInput;
+	stPressureReturn 			: ST_AnalogInput;
+	stPressureCompensator 		: ST_AnalogInput;
+	stPressurePistonSide 		: ST_AnalogInput;
+	stPressureLhvSide 		    : ST_AnalogInput;
+	stPressureRodSide			: ST_AnalogInput;
+	
+	// Analog Inputs 3 (Multi)
+	stFlowReturnSide			: ST_AnalogInput;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

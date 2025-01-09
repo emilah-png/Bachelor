@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_Enables" Id="{e1def63d-3986-47c4-8643-415c35f39ef1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Enables
+	bEnablePID 		: BOOL := FALSE; // Enable PID Control
+	bEnableU 		: BOOL := FALSE; // Enable Signal to Valve
+	bEnableFF 		: BOOL := FALSE; // Enable FeedForward
+	bMotionSelect 	: BOOL := FALSE; // Switch Motion Reference generator
+	bEnableComp 	: BOOL := FALSE; // Driving with Compensator
+	bDeadBandTest	: BOOL := FALSE; // Enable Dead Band Testing
+END_VAR ]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_Running" Id="{0482d1f2-7e27-4274-b9ba-9a1a0424916f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Running
+VAR_INPUT
+	bManual : BOOL;
+	bStart : BOOL;
+	bStop : BOOL;
+	bAuto : BOOL;
+END_VAR
+VAR_OUTPUT
+	bRunning : BOOL;
+	bAutoMode : BOOL;
+	bManualMode : BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF NOT(bStart) AND NOT(bManual) AND NOT(bAuto) OR (bStop) THEN
+	bRunning := FALSE;
+	bAutoMode := FALSE;
+	bManualMode := FALSE;	
+	
+ELSIF bStart AND bAuto AND NOT(bStop) THEN
+	bRunning := TRUE;
+	bAutoMode := TRUE;
+	bManualMode := FALSE;
+	
+ELSIF bStart AND bManual AND NOT(bStop) THEN
+	bRunning := TRUE;
+	bManualMode := TRUE;
+	bAutoMode := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Running">
+      <LineId Id="23" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="20" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

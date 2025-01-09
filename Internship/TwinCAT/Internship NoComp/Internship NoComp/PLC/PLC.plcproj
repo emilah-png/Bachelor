@@ -1,0 +1,185 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{233260f1-632e-4569-8981-e931d1401c8d}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>PLC</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{5b4f6f68-0de0-409e-9b9a-995f56ac49e7}</Application>
+    <TypeSystem>{ca4714ec-4acd-4582-95aa-bd64f11bfba3}</TypeSystem>
+    <Implicit_Task_Info>{9985eeef-9124-484f-8635-69425ca4533f}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{695a7650-4b68-42a7-9135-7844a80626c7}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{78ab338b-220d-4832-bfcf-c2909961c92c}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{49571095-f701-4902-b5e7-f85e3cfcbc7b}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Control\FB_ControlSignal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\FB_FeedForward.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\FB_PID.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\FB_Running.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\G_Mode.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Filtering\FB_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filtering\G_Filtered.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVL\G_Enables.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVL\G_FilterConstants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVL\G_OPC.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVL\G_Parameter.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Inputs\Function Blocks\FB_JoystickInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\Function Blocks\FB_Normalize.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\Function Blocks\FB_Normalize_Joystick.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\Function Blocks\FB_PositionInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\G_Inputs.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="MotionRef\FB_AutoClock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MotionRef\FB_DeadbandTester.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MotionRef\FB_InitialPos.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MotionRef\FB_MotionRef.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MotionRef\FB_RunClock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Outputs\FB_ValveOutput.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Outputs\G_Output.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_ControlBlock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_FeedForward.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Modes.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Output.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_PID.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_RunClock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XML\FB_Derivator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XML\FB_Integrator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XML\G_Init.TcGVL">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control" />
+    <Folder Include="Filtering" />
+    <Folder Include="GVL" />
+    <Folder Include="Inputs" />
+    <Folder Include="Inputs\Function Blocks" />
+    <Folder Include="MotionRef" />
+    <Folder Include="Outputs" />
+    <Folder Include="Programs" />
+    <Folder Include="XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PLC.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+  </Data>
+  <TypeList>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

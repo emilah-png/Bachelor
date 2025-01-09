@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_Inputs" Id="{5adfdde3-399f-42d5-aa4c-f7f5d0c3a725}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Mode Selector
+	bManual 			AT %I* : BOOL;
+	bAuto	 			AT %I* : BOOL;
+	bStartButton		AT %I* : BOOL;
+	bStopButton			AT %I* : BOOL;
+	
+	// Raw Pressure Values
+	nRawPa 				AT %I*	: INT;
+	nRawPb				AT %I*	: INT;
+	nRawPs				AT %I*	: INT;
+	nRawPaLower			AT %I* 	: INT;
+	
+	// Raw Position Values
+	nRawPistonPosition 	AT %I*	: INT;
+	nRawJoystick		AT %I*	: INT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

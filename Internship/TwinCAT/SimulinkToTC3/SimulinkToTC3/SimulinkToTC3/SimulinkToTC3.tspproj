@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.60">
+	<Project ProjectGUID="{D9454C75-C5E3-4696-8361-FF6B3CB7F0DD}" Target64Bit="true" ShowHideConfigurations="#x6">
+		<Plc>
+			<Project GUID="{42F4990B-5AC4-4D9C-A579-F76D51AE01D8}" Name="SimulinkToTC3" PrjFilePath="SimulinkToTC3\SimulinkToTC3.plcproj" TmcFilePath="SimulinkToTC3\SimulinkToTC3.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e"/>
+		</Plc>
+	</Project>
+</TcSmProject>

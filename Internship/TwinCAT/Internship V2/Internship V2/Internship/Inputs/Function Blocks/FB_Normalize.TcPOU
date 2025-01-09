@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_Normalize" Id="{72f82d73-0f72-40ed-bb1d-a8162c2cf4db}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Normalize
+VAR_INPUT
+	nRawInput : INT;
+	fMaxValue : LREAL;
+END_VAR
+VAR_OUTPUT
+	fNormalizedInput : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fNormalizedInput := (fMaxValue	* INT_TO_LREAL(nRawInput)) / 32767.0;
+
+fNormalizedInput := LIMIT(0, fNormalizedInput, fMaxValue);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Normalize">
+      <LineId Id="9" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

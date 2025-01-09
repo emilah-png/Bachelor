@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_Sensors" Id="{d28c946e-63b0-41ab-8fee-be9b6a0df66e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	fJoystickY 					: LREAL;
+	fPistonPosition 			: LREAL;
+	fPressureSupply				: LREAL;
+	fPressureReturn 			: LREAL;
+	fPressurePistonSide 		: LREAL;
+	fPressureLhvSide  			: LREAL;
+	fPressureRodSide 			: LREAL;
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

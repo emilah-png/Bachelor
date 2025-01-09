@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ValveOutput" Id="{f59c2bfb-80b3-4afa-9ddc-65e6b1ad119e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ValveOutput
+VAR_INPUT
+	bEnable 			: BOOL;
+	stParam 			: ST_Parameters;
+	fNormalizedInput 	: LREAL;
+END_VAR
+VAR_OUTPUT
+	bEnableValveOutput : BOOL;
+	nOutput : INT; 
+END_VAR
+VAR
+	nOffset 	: INT := 19660;
+	nMaxValue	: INT := 29490;
+	nMinValue 	: INT :=  9830;
+	nTempOutput : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fNormalizedInput > 0.0 THEN
+	nTempOutput := LREAL_TO_INT(ABS(fNormalizedInput*(stParam.stValveDeadBand.fPosMax - stParam.stValveDeadBand.fPosMin) + stParam.stValveDeadBand.fPosMin));
+ELSIF fNormalizedInput < 0.0 THEN
+	nTempOutput := LREAL_TO_INT(ABS(fNormalizedInput*(stParam.stValveDeadBand.fNegMax - stParam.stValveDeadBand.fNegMin) - stParam.stValveDeadBand.fNegMin));
+ELSE
+	nTempOutput := nOffset;
+END_IF
+
+IF NOT(bEnable) THEN
+	nOutput := nOffset;
+	bEnableValveOutput := FALSE;
+ELSE
+	nOutput := LIMIT(nMinValue, nTempOutput, nMaxValue);
+	bEnableValveOutput := TRUE; 
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ValveOutput">
+      <LineId Id="46" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="51" Count="3" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="36" Count="2" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="41" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

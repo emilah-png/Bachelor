@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="G_Output" Id="{9f09a37e-4151-41e9-b303-85d293f6f5b3}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Digital Outputs
+	bGreenLight 			AT %Q* : BOOL;
+	bRedLight 				AT %Q* : BOOL;
+	
+	// Analog Outputs
+	nValveOutput 			AT %Q* : INT; 
+	bRunning				AT %Q* : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

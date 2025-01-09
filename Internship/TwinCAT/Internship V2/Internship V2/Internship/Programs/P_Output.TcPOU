@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="P_Output" Id="{ea868c64-71e1-491f-a495-e9db7d8a4d4c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Output
+VAR
+	fbValveOutput : FB_ValveOutput;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbValveOutput(
+	fNormalizedInput := G_OPC.fU,
+	bEnable := G_Enables.bEnableU,
+	nOutput => G_Output.nValveOutput	
+);
+
+IF G_Mode.bRunning THEN
+	G_Output.bGreenLight := TRUE;
+	G_Output.bRedLight := TRUE;
+ELSE
+	G_Output.bGreenLight := FALSE;
+	G_Output.bRedLight := FALSE;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Output">
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="33" Count="1" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

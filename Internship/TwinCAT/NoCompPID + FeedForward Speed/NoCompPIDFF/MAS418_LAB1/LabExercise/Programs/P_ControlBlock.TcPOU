@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="P_ControlBlock" Id="{1c742f8d-99bf-4aa1-ba99-fa370ccce2ab}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_ControlBlock
+VAR
+	fbControlBlock : FB_ControlBlock;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbControlBlock(
+	ssMethodType := BOOL_TO_SINT(G_VirtualControlBox.bGreenLight),
+	X_real:= G_Sensors.fPistonPosition,
+	Pa:= G_Sensors.fPressurePistonSide, 
+	Pb := G_Sensors.fPressureRodSide,
+	Ps:= G_Sensors.fPressureSupply,
+	Clock := 1,
+	u	=> G_Work.fControlOutputNormalized
+);
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_ControlBlock">
+      <LineId Id="5" Count="0" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

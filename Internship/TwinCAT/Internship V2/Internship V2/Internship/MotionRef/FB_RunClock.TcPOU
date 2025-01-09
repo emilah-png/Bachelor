@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_RunClock" Id="{72885421-59e1-4582-bbdc-64c324631609}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RunClock
+VAR_INPUT
+	bStart 		: BOOL;
+	bStop 		: BOOL;
+	fCycleTime  : LREAL;
+END_VAR
+VAR_OUTPUT
+	fTime : LREAL;
+END_VAR
+VAR
+	bOnOff : BOOL;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bStop OR (G_Work.eStatus = E_Status.Off) THEN
+	bOnOff := FALSE;
+	fTime := 0.0;
+ELSIF bOnOff OR bStart THEN
+	bOnOff := TRUE;
+	fTime := fTime + fCycleTime;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RunClock">
+      <LineId Id="36" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="20" Count="1" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

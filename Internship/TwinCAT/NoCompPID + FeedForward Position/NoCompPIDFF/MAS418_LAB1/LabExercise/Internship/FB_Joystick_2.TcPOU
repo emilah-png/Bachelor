@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_Joystick_2" Id="{5e550bf9-a963-4963-aeb5-0a79fe208100}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Joystick_2
+VAR_INPUT
+	ssMethodType: SINT;
+	Joystick: LREAL;
+	XInital: LREAL;
+END_VAR
+VAR_OUTPUT
+	fPositionReferance_m: LREAL;
+	fVelocityReferance_ms: LREAL;
+END_VAR
+VAR
+	c_DiscreteTimeIntegrator_IC: USINT;
+	c_DiscreteTimeIntegrator_DS: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/FB_Joystick' *)
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_IC := 1;
+        (* End of SystemInitialize for SubSystem: '<Root>/FB_Joystick' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/FB_Joystick' *)
+        (* Gain: '<S1>/Gain' *)
+        fVelocityReferance_ms := G_Parameter.fMaxSpeed * Joystick;
+        (* DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+
+        IF c_DiscreteTimeIntegrator_IC <> 0 THEN 
+            c_DiscreteTimeIntegrator_DS := XInital;
+
+            IF c_DiscreteTimeIntegrator_DS > 0.45 THEN 
+                c_DiscreteTimeIntegrator_DS := 0.45;
+            ELSIF c_DiscreteTimeIntegrator_DS < 0.0 THEN 
+                c_DiscreteTimeIntegrator_DS := 0.0;
+            END_IF;
+
+        END_IF;
+
+        (* Outport: '<Root>/fPositionReferance_m' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        fPositionReferance_m := c_DiscreteTimeIntegrator_DS;
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_IC := 0;
+        c_DiscreteTimeIntegrator_DS := (0.001 * fVelocityReferance_ms) + c_DiscreteTimeIntegrator_DS;
+
+        IF c_DiscreteTimeIntegrator_DS > 0.45 THEN 
+            c_DiscreteTimeIntegrator_DS := 0.45;
+        ELSIF c_DiscreteTimeIntegrator_DS < 0.0 THEN 
+            c_DiscreteTimeIntegrator_DS := 0.0;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        (* End of Outputs for SubSystem: '<Root>/FB_Joystick' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Joystick_2">
+      <LineId Id="3" Count="42" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

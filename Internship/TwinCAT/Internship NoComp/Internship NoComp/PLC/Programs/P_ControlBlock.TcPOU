@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_ControlBlock" Id="{34b73f17-fb3f-4014-8571-592d49402d29}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_ControlBlock
+VAR
+	fbDeadBandTester : FB_DeadbandTester;
+	fbAutoClock : FB_AutoClock;
+	fbMotionRef : FB_MotionRef;
+	fbControl : FB_ControlSignal;
+	fbInitialPos : FB_InitialPos;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//fbInitialPos(
+//	bEnable := FALSE,
+//	fCurrentPos := G_OPC.fPistonPosition
+//);
+
+IF G_Mode.bAuto AND G_Mode.bRunning THEN
+	
+fbInitialPos(
+	bEnable := G_Inputs.bStartButton,
+	fCurrentPos := G_OPC.fPistonPosition
+);
+
+fbAutoClock(
+	fStart := G_Inputs.bStartButton,
+	fRunning := G_Mode.bRunning,
+	fCycle := G_Parameter.fCycleTime
+);
+
+fbMotionRef(
+	fTime := fbAutoClock.fTime,
+	fAmplitude := G_Parameter.fAmplitude,
+	fInitialPos := fbInitialPos.fInitialPos,
+	fFrequency := G_Parameter.fFrequency,
+	fXDotRef => G_OPC.fXDotRef,
+	fXRef => G_OPC.fXRef 
+);
+
+fbControl(
+	fUFF := G_OPC.fUFF,
+	fPID := G_OPC.fSignalPID,
+	bEnableU := G_Enables.bEnableU,
+	fQMaxUp := G_Parameter.fQMaxUp,
+	fQMaxDown := G_Parameter.fQMaxDown,
+	fDeadUp := G_Parameter.fDeadUp,
+	fDeadDown := G_Parameter.fDeadDown,
+	
+	fU => G_OPC.fU
+);
+
+ELSIF G_Mode.bManual AND G_Mode.bRunning THEN
+
+fbInitialPos(
+	bEnable := G_Inputs.bStartButton,
+	fCurrentPos := G_OPC.fPistonPosition
+);
+fbDeadBandTester(
+	fInput := G_OPC.fJoystick,
+	bEnable := G_Enables.bDeadBandTest,
+	fConst := G_Parameter.fConst,
+	fOutput => G_OPC.fU
+);
+
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_ControlBlock">
+      <LineId Id="112" Count="3" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="101" Count="1" />
+      <LineId Id="97" Count="2" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="2" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="39" Count="2" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="83" Count="1" />
+      <LineId Id="86" Count="2" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="106" Count="2" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="14" Count="2" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

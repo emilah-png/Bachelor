@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_Derivator" Id="{3f122280-99b0-4728-bda7-c5c76630a2c8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Derivator
+VAR_INPUT
+	ssMethodType: SINT;
+	fSignal: LREAL;
+END_VAR
+VAR_OUTPUT
+	fSignalDerivative: LREAL;
+END_VAR
+VAR
+	rtb_TSamp: LREAL;
+	UD_DSTATE: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Derivator' *)
+        (* InitializeConditions for UnitDelay: '<S2>/UD'
+         *
+         * Block description for '<S2>/UD':
+         *  
+         *  Store in Global RAM *)
+        UD_DSTATE := 0.0;
+        (* End of SystemInitialize for SubSystem: '<Root>/Derivator' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/Derivator' *)
+        (* SampleTimeMath: '<S2>/TSamp'
+         *
+         * About '<S2>/TSamp':
+         *  y = u * K where K = 1 / ( w * Ts )
+         *   *)
+        rtb_TSamp := fSignal * 1000.0;
+        (* Outport: '<Root>/fSignalDerivative' incorporates:
+         *  Sum: '<S2>/Diff'
+         *  UnitDelay: '<S2>/UD'
+         *
+         * Block description for '<S2>/Diff':
+         *  
+         *  Add in CPU
+         *
+         * Block description for '<S2>/UD':
+         *  
+         *  Store in Global RAM *)
+        fSignalDerivative := rtb_TSamp - UD_DSTATE;
+        (* Update for UnitDelay: '<S2>/UD'
+         *
+         * Block description for '<S2>/UD':
+         *  
+         *  Store in Global RAM *)
+        UD_DSTATE := rtb_TSamp;
+        (* End of Outputs for SubSystem: '<Root>/Derivator' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Derivator">
+      <LineId Id="3" Count="41" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

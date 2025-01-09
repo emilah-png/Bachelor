@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_DeadbandTester" Id="{f02d97ee-2672-493c-ab73-399bf476f13a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DeadbandTester
+VAR_INPUT
+	fInput : LREAL;
+	bEnable : BOOL;
+	fConst : LREAL;
+END_VAR
+VAR_OUTPUT
+	fOutput : LREAL;
+END_VAR
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnable THEN
+	fOutput := fInput;
+ELSE
+	fOutput := fConst;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_DeadbandTester">
+      <LineId Id="9" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

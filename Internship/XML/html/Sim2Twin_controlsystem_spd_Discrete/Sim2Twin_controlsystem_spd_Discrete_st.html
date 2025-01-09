@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - Sim2Twin_controlsystem_spd_Discrete.st</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="file:///XML/Sim2Twin_controlsystem_spd_Discrete.st" target="rtwreport_document_frame" id="linkToText_plain">Sim2Twin_controlsystem_spd_Discrete.st</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">(*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * File: Sim2Twin_controlsystem_spd_Discrete.st</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> * IEC 61131-3 Structured Text (ST) code generated for subsystem "Sim2Twin_controlsystem_spd_Discrete/FB_Joystick"</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Model name                      : Sim2Twin_controlsystem_spd_Discrete</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Model version                   : 1.7</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * Model creator                   : Emila</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model last modified by          : Green Crane Testbed</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Model last modified on          : Mon Nov 04 13:47:16 2024</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Model sample time               : 0.001s</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Subsystem name                  : Sim2Twin_controlsystem_spd_Discrete/FB_Joystick</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Subsystem sample time           : 0.001s</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Simulink PLC Coder version      : 24.2 (R2024b) 21-Jun-2024</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * ST code generated on            : Mon Nov 04 14:46:34 2024</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Target IDE selection            : Beckhoff TwinCAT 3</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Test Bench included             : No</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *)</span>
+</span><span><a class="LN" name="22">   22   </a><span class="KW">FUNCTION_BLOCK</span> FB_Joystick
+</span><span><a class="LN" name="23">   23   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="24">   24   </a>    ssMethodType: <span class="KW">SINT</span>;
+</span><span><a class="LN" name="25">   25   </a>    Joystick: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="26">   26   </a>    XRealRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="27">   27   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="28">   28   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="29">   29   </a>    fPositionReferance_m: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="30">   30   </a>    fVelocityReferance_ms: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="31">   31   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="32">   32   </a><span class="KW">VAR</span>
+</span><span><a class="LN" name="33">   33   </a>    c_DiscreteTimeIntegrator_IC: <span class="KW">USINT</span>;
+</span><span><a class="LN" name="34">   34   </a>    c_DiscreteTimeIntegrator_DS: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="35">   35   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="36">   36   </a><span class="KW">CASE</span> ssMethodType <span class="KW">OF</span>
+</span><span><a class="LN" name="37">   37   </a>    SS_INITIALIZE: 
+</span><span><a class="LN" name="38">   38   </a>        <span class="CT">(* SystemInitialize for Atomic SubSystem: '&lt;Root&gt;/FB_Joystick' *)</span>
+</span><span><a class="LN" name="39">   39   </a>        <span class="CT">(* InitializeConditions for DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="40">   40   </a>        c_DiscreteTimeIntegrator_IC := 1;
+</span><span><a class="LN" name="41">   41   </a>        <span class="CT">(* End of SystemInitialize for SubSystem: '&lt;Root&gt;/FB_Joystick' *)</span>
+</span><span><a class="LN" name="42">   42   </a>    SS_STEP: 
+</span><span><a class="LN" name="43">   43   </a>        <span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_Joystick' *)</span>
+</span><span><a class="LN" name="44">   44   </a>        <span class="CT">(* Gain: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:60')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Gain</i></font></a>' *)</span>
+</span><span><a class="LN" name="45">   45   </a>        fVelocityReferance_ms := 0.1 * Joystick;
+</span><span><a class="LN" name="46">   46   </a>        <span class="CT">(* DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="47">   47   </a>        <span class="KW">IF</span> c_DiscreteTimeIntegrator_IC &lt;&gt; 0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="48">   48   </a>            c_DiscreteTimeIntegrator_DS := XRealRef;
+</span><span><a class="LN" name="49">   49   </a>            <span class="KW">IF</span> c_DiscreteTimeIntegrator_DS &gt; 0.45 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="50">   50   </a>                c_DiscreteTimeIntegrator_DS := 0.45;
+</span><span><a class="LN" name="51">   51   </a>            <span class="KW">ELSIF</span> c_DiscreteTimeIntegrator_DS &lt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="52">   52   </a>                c_DiscreteTimeIntegrator_DS := 0.0;
+</span><span><a class="LN" name="53">   53   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="54">   54   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="55">   55   </a>        <span class="CT">(* Outport: '&lt;Root&gt;/fPositionReferance_m' incorporates:</span>
+</span><span><a class="LN" name="56">   56   </a><span class="CT">         *  DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="57">   57   </a>        fPositionReferance_m := c_DiscreteTimeIntegrator_DS;
+</span><span><a class="LN" name="58">   58   </a>        <span class="CT">(* Update for DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="59">   59   </a>        c_DiscreteTimeIntegrator_IC := 0;
+</span><span><a class="LN" name="60">   60   </a>        c_DiscreteTimeIntegrator_DS := (0.001 * fVelocityReferance_ms) + c_DiscreteTimeIntegrator_DS;
+</span><span><a class="LN" name="61">   61   </a>        <span class="KW">IF</span> c_DiscreteTimeIntegrator_DS &gt; 0.45 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="62">   62   </a>            c_DiscreteTimeIntegrator_DS := 0.45;
+</span><span><a class="LN" name="63">   63   </a>        <span class="KW">ELSIF</span> c_DiscreteTimeIntegrator_DS &lt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="64">   64   </a>            c_DiscreteTimeIntegrator_DS := 0.0;
+</span><span><a class="LN" name="65">   65   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="66">   66   </a>        <span class="CT">(* End of Update for DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_spd_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="67">   67   </a>        <span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_Joystick' *)</span>
+</span><span><a class="LN" name="68">   68   </a><span class="KW">END_CASE</span>;
+</span><span><a class="LN" name="69">   69   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="70">   70   </a><span class="KW">VAR_GLOBAL</span> <span class="KW">CONSTANT</span>
+</span><span><a class="LN" name="71">   71   </a>    SS_INITIALIZE: <span class="KW">SINT</span> := 0;
+</span><span><a class="LN" name="72">   72   </a>    SS_STEP: <span class="KW">SINT</span> := 1;
+</span><span><a class="LN" name="73">   73   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="74">   74   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_MotionRef" Id="{354b3a34-d392-4f87-a4eb-f033618b096f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MotionRef
+VAR_INPUT
+	fTime : LREAL;
+	fAmplitude : LREAL;
+	fFrequency : LREAL;
+	fInitialPos : LREAL;
+END_VAR
+VAR_OUTPUT
+	fXDotRef : LREAL;
+	fXRef : LREAL;
+END_VAR
+VAR
+	fPI : LREAL := 3.1415;
+	fMean : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fMean := fAmplitude + fInitialPos; 
+IF G_Inputs.bStartButton THEN
+	fXRef := fMean - fAmplitude * COS(2*fPI * fFrequency * fTime);
+	fXDotRef := 2 * fPI *fFrequency * fAmplitude * SIN(2*fPI * fFrequency * fTime);
+END_IF ]]></ST>
+    </Implementation>
+    <LineIds Name="FB_MotionRef">
+      <LineId Id="24" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="43" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

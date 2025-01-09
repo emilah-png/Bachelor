@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <GVL Name="G_Filtered" Id="{d9539014-b5a8-4af3-b695-54bf1cf81853}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	fPressureSupplyFiltered		: LREAL;
+	fPressurePistonSideFiltered : LREAL;
+	fPressureRodSideFiltered 	: LREAL;
+	fValveOutputFiltered		: LREAL;
+	fValveOutputUnfiltered		: LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

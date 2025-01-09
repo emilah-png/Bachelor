@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_Normalize_Joystick" Id="{f566c25e-ef78-4af9-844d-403d72ec68ca}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Normalize_Joystick
+VAR_INPUT
+	nRawInput : INT;
+END_VAR
+VAR_OUTPUT
+	fNormalizedInput : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fNormalizedInput := (INT_TO_LREAL(nRawInput) - 32767.0/2.0) / (32767.0/2.0);
+
+fNormalizedInput := LIMIT(-1, fNormalizedInput, 1);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Normalize_Joystick">
+      <LineId Id="9" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

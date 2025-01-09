@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_Outputs" Id="{8eab031c-095d-419c-826e-727929929d0a}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// PLC Rack
+	// Digital Outputs
+	bTest					 AT %Q* : BOOL;
+	
+	// RIO Rack
+	// Digital Outputs
+	bGreenLight 			AT %Q* : BOOL;
+	bRedLight 				AT %Q* : BOOL;
+	// Analog Outputs
+	stValveOutput : ST_ValveOutput;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

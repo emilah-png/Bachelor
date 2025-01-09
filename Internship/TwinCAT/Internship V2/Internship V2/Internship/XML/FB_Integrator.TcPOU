@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="FB_Integrator" Id="{ba388259-306e-40da-af33-c63428464cb8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Integrator
+VAR_INPUT
+	ssMethodType: SINT;
+	fSignal: LREAL;
+END_VAR
+VAR_OUTPUT
+	fSignalIntegrated: LREAL;
+END_VAR
+VAR
+	c_DiscreteTimeIntegrator_DS: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Integrator' *)
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := 0.0;
+        (* End of SystemInitialize for SubSystem: '<Root>/Integrator' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/Integrator' *)
+        (* Outport: '<Root>/fSignalIntegrated' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        fSignalIntegrated := c_DiscreteTimeIntegrator_DS;
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := (0.001 * fSignal) + c_DiscreteTimeIntegrator_DS;
+        (* End of Outputs for SubSystem: '<Root>/Integrator' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Integrator">
+      <LineId Id="3" Count="18" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

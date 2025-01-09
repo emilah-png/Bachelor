@@ -1,0 +1,226 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - Sim2Twin_controlsystem_pos_Discrete.st</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="file:///XML/Sim2Twin_controlsystem_pos_Discrete.st" target="rtwreport_document_frame" id="linkToText_plain">Sim2Twin_controlsystem_pos_Discrete.st</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">(*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * File: Sim2Twin_controlsystem_pos_Discrete.st</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> * IEC 61131-3 Structured Text (ST) code generated for subsystem "Sim2Twin_controlsystem_pos_Discrete/FB_ControlBlockWithMonitoring"</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Model name                      : Sim2Twin_controlsystem_pos_Discrete</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Model version                   : 1.15</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * Model creator                   : Emila</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model last modified by          : Green Crane Testbed</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Model last modified on          : Fri Nov 08 12:08:07 2024</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Model sample time               : 0.001s</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Subsystem name                  : Sim2Twin_controlsystem_pos_Discrete/FB_ControlBlockWithMonitoring</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Subsystem sample time           : 0.001s</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Simulink PLC Coder version      : 24.2 (R2024b) 21-Jun-2024</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * ST code generated on            : Fri Nov 08 12:25:28 2024</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Target IDE selection            : Beckhoff TwinCAT 3</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Test Bench included             : No</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *)</span>
+</span><span><a class="LN" name="22">   22   </a><span class="KW">FUNCTION_BLOCK</span> c_FB_ControlBlockWithMonito
+</span><span><a class="LN" name="23">   23   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="24">   24   </a>    ssMethodType: <span class="KW">SINT</span>;
+</span><span><a class="LN" name="25">   25   </a>    X_real: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="26">   26   </a>    X: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="27">   27   </a>    X_dot: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="28">   28   </a>    bEnableU: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="29">   29   </a>    bEnablePID: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="30">   30   </a>    Kp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="31">   31   </a>    Ki: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="32">   32   </a>    Kd: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="33">   33   </a>    Ps: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="34">   34   </a>    Pa: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="35">   35   </a>    Pb: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="36">   36   </a>    u_filtered: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="37">   37   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="38">   38   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="39">   39   </a>    U: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="40">   40   </a>    PID_OUT: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="41">   41   </a>    Error: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="42">   42   </a>    u_Unfiltered: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="43">   43   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="44">   44   </a><span class="KW">VAR</span>
+</span><span><a class="LN" name="45">   45   </a>    c_DiscreteTimeIntegrator_DS: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="46">   46   </a>    DiscreteTransferFcn_states: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="47">   47   </a>    UD_DSTATE: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="48">   48   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="49">   49   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="50">   50   </a>    rtb_TSamp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="51">   51   </a>    temp1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="52">   52   </a>    temp2: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="53">   53   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="54">   54   </a><span class="KW">CASE</span> ssMethodType <span class="KW">OF</span>
+</span><span><a class="LN" name="55">   55   </a>    SS_INITIALIZE: 
+</span><span><a class="LN" name="56">   56   </a>        <span class="CT">(* SystemInitialize for Atomic SubSystem: '&lt;Root&gt;/FB_ControlBlockWithMonitoring' *)</span>
+</span><span><a class="LN" name="57">   57   </a>        <span class="CT">(* InitializeConditions for DiscreteTransferFcn: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:41')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete Transfer Fcn</i></font></a>' *)</span>
+</span><span><a class="LN" name="58">   58   </a>        DiscreteTransferFcn_states := 0.0;
+</span><span><a class="LN" name="59">   59   </a>        <span class="CT">(* InitializeConditions for DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:43')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete-Time Integrator</i></font></a>' *)</span>
+</span><span><a class="LN" name="60">   60   </a>        c_DiscreteTimeIntegrator_DS := 0.0;
+</span><span><a class="LN" name="61">   61   </a>        <span class="CT">(* InitializeConditions for UnitDelay: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>'</span>
+</span><span><a class="LN" name="62">   62   </a><span class="CT">         *</span>
+</span><span><a class="LN" name="63">   63   </a><span class="CT">         * Block description for '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>':</span>
+</span><span><a class="LN" name="64">   64   </a><span class="CT">         *  </span>
+</span><span><a class="LN" name="65">   65   </a><span class="CT">         *  Store in Global RAM *)</span>
+</span><span><a class="LN" name="66">   66   </a>        UD_DSTATE := 0.0;
+</span><span><a class="LN" name="67">   67   </a>        <span class="CT">(* End of SystemInitialize for SubSystem: '&lt;Root&gt;/FB_ControlBlockWithMonitoring' *)</span>
+</span><span><a class="LN" name="68">   68   </a>    SS_STEP: 
+</span><span><a class="LN" name="69">   69   </a>        <span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ControlBlockWithMonitoring' *)</span>
+</span><span><a class="LN" name="70">   70   </a>        <span class="CT">(* Sum: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:29')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sum1</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="71">   71   </a><span class="CT">         *  Outport: '&lt;Root&gt;/Error' *)</span>
+</span><span><a class="LN" name="72">   72   </a>        Error := X - X_real;
+</span><span><a class="LN" name="73">   73   </a>        <span class="CT">(* SampleTimeMath: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:4')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/TSamp</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="74">   74   </a><span class="CT">         *  DiscreteTransferFcn: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:41')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete Transfer Fcn</i></font></a>'</span>
+</span><span><a class="LN" name="75">   75   </a><span class="CT">         *</span>
+</span><span><a class="LN" name="76">   76   </a><span class="CT">         * About '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:4')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/TSamp</i></font></a>':</span>
+</span><span><a class="LN" name="77">   77   </a><span class="CT">         *  y = u * K where K = 1 / ( w * Ts )</span>
+</span><span><a class="LN" name="78">   78   </a><span class="CT">         *   *)</span>
+</span><span><a class="LN" name="79">   79   </a>        rtb_TSamp := (0.0009995 * DiscreteTransferFcn_states) * 1000.0;
+</span><span><a class="LN" name="80">   80   </a>        <span class="CT">(* Switch: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:58')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Switch</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="81">   81   </a><span class="CT">         *  Constant: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:68')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Constant</i></font></a>'</span>
+</span><span><a class="LN" name="82">   82   </a><span class="CT">         *  DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:43')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete-Time Integrator</i></font></a>'</span>
+</span><span><a class="LN" name="83">   83   </a><span class="CT">         *  Outport: '&lt;Root&gt;/Error'</span>
+</span><span><a class="LN" name="84">   84   </a><span class="CT">         *  Product: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:62')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Product</i></font></a>'</span>
+</span><span><a class="LN" name="85">   85   </a><span class="CT">         *  Product: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:63')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Product1</i></font></a>'</span>
+</span><span><a class="LN" name="86">   86   </a><span class="CT">         *  Product: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:64')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Product2</i></font></a>'</span>
+</span><span><a class="LN" name="87">   87   </a><span class="CT">         *  Sum: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:47')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Sum1</i></font></a>'</span>
+</span><span><a class="LN" name="88">   88   </a><span class="CT">         *  Sum: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:3')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/Diff</i></font></a>'</span>
+</span><span><a class="LN" name="89">   89   </a><span class="CT">         *  UnitDelay: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>'</span>
+</span><span><a class="LN" name="90">   90   </a><span class="CT">         *</span>
+</span><span><a class="LN" name="91">   91   </a><span class="CT">         * Block description for '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:3')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/Diff</i></font></a>':</span>
+</span><span><a class="LN" name="92">   92   </a><span class="CT">         *  </span>
+</span><span><a class="LN" name="93">   93   </a><span class="CT">         *  Add in CPU</span>
+</span><span><a class="LN" name="94">   94   </a><span class="CT">         *</span>
+</span><span><a class="LN" name="95">   95   </a><span class="CT">         * Block description for '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>':</span>
+</span><span><a class="LN" name="96">   96   </a><span class="CT">         *  </span>
+</span><span><a class="LN" name="97">   97   </a><span class="CT">         *  Store in Global RAM *)</span>
+</span><span><a class="LN" name="98">   98   </a>        <span class="KW">IF</span> bEnablePID <span class="KW">THEN</span> 
+</span><span><a class="LN" name="99">   99   </a>            U := ((Kp * Error) + (Ki * c_DiscreteTimeIntegrator_DS)) + ((rtb_TSamp - UD_DSTATE) * Kd);
+</span><span><a class="LN" name="100">  100   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="101">  101   </a>            U := 0.0;
+</span><span><a class="LN" name="102">  102   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="103">  103   </a>        <span class="CT">(* End of Switch: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:58')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Switch</i></font></a>' *)</span>
+</span><span><a class="LN" name="104">  104   </a>        
+</span><span><a class="LN" name="105">  105   </a>        <span class="CT">(* Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:85')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation1</i></font></a>' *)</span>
+</span><span><a class="LN" name="106">  106   </a>        <span class="KW">IF</span> U &gt; 1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="107">  107   </a>            PID_OUT := 1.0;
+</span><span><a class="LN" name="108">  108   </a>        <span class="KW">ELSIF</span> U &gt;= -1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="109">  109   </a>            PID_OUT := U;
+</span><span><a class="LN" name="110">  110   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="111">  111   </a>            PID_OUT := -1.0;
+</span><span><a class="LN" name="112">  112   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="113">  113   </a>        <span class="CT">(* End of Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:85')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation1</i></font></a>' *)</span>
+</span><span><a class="LN" name="114">  114   </a>        
+</span><span><a class="LN" name="115">  115   </a>        <span class="CT">(* Switch: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Switch1</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="116">  116   </a><span class="CT">         *  Constant: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:69')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Constant1</i></font></a>'</span>
+</span><span><a class="LN" name="117">  117   </a><span class="CT">         *  Sum: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:28')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sum</i></font></a>' *)</span>
+</span><span><a class="LN" name="118">  118   </a>        <span class="KW">IF</span> bEnableU <span class="KW">THEN</span> 
+</span><span><a class="LN" name="119">  119   </a>            U := u_filtered + PID_OUT;
+</span><span><a class="LN" name="120">  120   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="121">  121   </a>            U := 0.0;
+</span><span><a class="LN" name="122">  122   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="123">  123   </a>        <span class="CT">(* End of Switch: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:61')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Switch1</i></font></a>' *)</span>
+</span><span><a class="LN" name="124">  124   </a>        
+</span><span><a class="LN" name="125">  125   </a>        <span class="CT">(* Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:84')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation</i></font></a>' *)</span>
+</span><span><a class="LN" name="126">  126   </a>        <span class="KW">IF</span> U &gt; 1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="127">  127   </a>            <span class="CT">(* Outport: '&lt;Root&gt;/U' *)</span>
+</span><span><a class="LN" name="128">  128   </a>            U := 1.0;
+</span><span><a class="LN" name="129">  129   </a>        <span class="KW">ELSIF</span> U &lt; -1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="130">  130   </a>            <span class="CT">(* Outport: '&lt;Root&gt;/U' *)</span>
+</span><span><a class="LN" name="131">  131   </a>            U := -1.0;
+</span><span><a class="LN" name="132">  132   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="133">  133   </a>        <span class="CT">(* End of Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:84')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation</i></font></a>' *)</span>
+</span><span><a class="LN" name="134">  134   </a>        
+</span><span><a class="LN" name="135">  135   </a>        <span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/V2Q2u</i></font></a>' *)</span>
+</span><span><a class="LN" name="136">  136   </a>        <span class="CT">(* MATLAB Function 'FB_ControlBlockWithMonitoring/V2Q2u': '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1</i></font></a>' *)</span>
+</span><span><a class="LN" name="137">  137   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:3')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:3</i></font></a>' phi = 0.7130; *)</span>
+</span><span><a class="LN" name="138">  138   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:4')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:4</i></font></a>' A = 33.1/100^2; *)</span>
+</span><span><a class="LN" name="139">  139   </a>        <span class="CT">(* Area *)</span>
+</span><span><a class="LN" name="140">  140   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:5')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:5</i></font></a>' BW = 0; *)</span>
+</span><span><a class="LN" name="141">  141   </a>        <span class="CT">(* deadband *)</span>
+</span><span><a class="LN" name="142">  142   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:6')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:6</i></font></a>' SpoolTravel = 7; *)</span>
+</span><span><a class="LN" name="143">  143   </a>        <span class="CT">(* Maximum Spool Travel *)</span>
+</span><span><a class="LN" name="144">  144   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:7')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:7</i></font></a>' a = (SpoolTravel-BW)/25; *)</span>
+</span><span><a class="LN" name="145">  145   </a>        <span class="CT">(* Valve Slope Characteristic [mm/(L/min)] *)</span>
+</span><span><a class="LN" name="146">  146   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:8')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:8</i></font></a>' dP_0 = 7e5; *)</span>
+</span><span><a class="LN" name="147">  147   </a>        <span class="CT">(* Pressure drop with compansator *)</span>
+</span><span><a class="LN" name="148">  148   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:10')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:10</i></font></a>' if x_dot &gt; 0 *)</span>
+</span><span><a class="LN" name="149">  149   </a>        <span class="KW">IF</span> X_dot &gt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="150">  150   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:11')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:11</i></font></a>' Q = x_dot * A; *)</span>
+</span><span><a class="LN" name="151">  151   </a>            <span class="CT">(* Wanted Flow *)</span>
+</span><span><a class="LN" name="152">  152   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:12')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:12</i></font></a>' dP = (Ps-Pa)*1e5; *)</span>
+</span><span><a class="LN" name="153">  153   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:13')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:13</i></font></a>' dp_ref = abs(dP_0/dP); *)</span>
+</span><span><a class="LN" name="154">  154   </a>            <span class="CT">(* dp_ref = 1; *)</span>
+</span><span><a class="LN" name="155">  155   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:15')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:15</i></font></a>' Q_star = (Q * sqrt(dp_ref)) * 6e4; *)</span>
+</span><span><a class="LN" name="156">  156   </a>            <span class="CT">(* Referance Flow [L/min] *)</span>
+</span><span><a class="LN" name="157">  157   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:16')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:16</i></font></a>' u = (Q_star * a + BW)/SpoolTravel; *)</span>
+</span><span><a class="LN" name="158">  158   </a>            temp2 := <span class="KW">ABS</span>(700000.0 / ((Ps - Pa) * 100000.0));
+</span><span><a class="LN" name="159">  159   </a>            u_Unfiltered := (((<span class="KW">SQRT</span>(temp2) * (X_dot * 0.00331)) * 60000.0) * 0.28) / 7.0;
+</span><span><a class="LN" name="160">  160   </a>            <span class="CT">(* Control Signal [-1, 1] *)</span>
+</span><span><a class="LN" name="161">  161   </a>        <span class="KW">ELSIF</span> X_dot &lt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="162">  162   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:18')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:18</i></font></a>' elseif x_dot &lt; 0 *)</span>
+</span><span><a class="LN" name="163">  163   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:19')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:19</i></font></a>' Q = x_dot * (A*phi); *)</span>
+</span><span><a class="LN" name="164">  164   </a>            <span class="CT">(* Wanted Flow *)</span>
+</span><span><a class="LN" name="165">  165   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:20')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:20</i></font></a>' dP = (Ps-Pb)*1e5; *)</span>
+</span><span><a class="LN" name="166">  166   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:21')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:21</i></font></a>' dp_ref = abs(dP_0/dP); *)</span>
+</span><span><a class="LN" name="167">  167   </a>            <span class="CT">(* dp_ref = 1; *)</span>
+</span><span><a class="LN" name="168">  168   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:23')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:23</i></font></a>' Q_star = (Q * sqrt(dp_ref)) * 6e4; *)</span>
+</span><span><a class="LN" name="169">  169   </a>            <span class="CT">(* Referance Flow [L/min] *)</span>
+</span><span><a class="LN" name="170">  170   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:24')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:24</i></font></a>' u = (Q_star * a - BW)/SpoolTravel; *)</span>
+</span><span><a class="LN" name="171">  171   </a>            temp1 := <span class="KW">ABS</span>(700000.0 / ((Ps - Pb) * 100000.0));
+</span><span><a class="LN" name="172">  172   </a>            u_Unfiltered := (((<span class="KW">SQRT</span>(temp1) * (X_dot * 0.00236003)) * 60000.0) * 0.28) / 7.0;
+</span><span><a class="LN" name="173">  173   </a>            <span class="CT">(* Control Signal [-1, 1] *)</span>
+</span><span><a class="LN" name="174">  174   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="175">  175   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:26')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:26</i></font></a>' else *)</span>
+</span><span><a class="LN" name="176">  176   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33:1:27')" name="code2model"><font color="#117755"><i>&lt;S3&gt;:1:27</i></font></a>' u = 0; *)</span>
+</span><span><a class="LN" name="177">  177   </a>            u_Unfiltered := 0.0;
+</span><span><a class="LN" name="178">  178   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="179">  179   </a>        <span class="CT">(* End of MATLAB Function: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:33')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/V2Q2u</i></font></a>' *)</span>
+</span><span><a class="LN" name="180">  180   </a>        
+</span><span><a class="LN" name="181">  181   </a>        <span class="CT">(* Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:86')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation2</i></font></a>' *)</span>
+</span><span><a class="LN" name="182">  182   </a>        <span class="KW">IF</span> u_Unfiltered &gt; 1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="183">  183   </a>            <span class="CT">(* Outport: '&lt;Root&gt;/u_Unfiltered' *)</span>
+</span><span><a class="LN" name="184">  184   </a>            u_Unfiltered := 1.0;
+</span><span><a class="LN" name="185">  185   </a>        <span class="KW">ELSIF</span> u_Unfiltered &lt; -1.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="186">  186   </a>            <span class="CT">(* Outport: '&lt;Root&gt;/u_Unfiltered' *)</span>
+</span><span><a class="LN" name="187">  187   </a>            u_Unfiltered := -1.0;
+</span><span><a class="LN" name="188">  188   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="189">  189   </a>        <span class="CT">(* End of Saturate: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:86')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Saturation2</i></font></a>' *)</span>
+</span><span><a class="LN" name="190">  190   </a>        
+</span><span><a class="LN" name="191">  191   </a>        <span class="CT">(* Update for DiscreteTransferFcn: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:41')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete Transfer Fcn</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="192">  192   </a><span class="CT">         *  Outport: '&lt;Root&gt;/Error' *)</span>
+</span><span><a class="LN" name="193">  193   </a>        DiscreteTransferFcn_states := Error - (-0.999 * DiscreteTransferFcn_states);
+</span><span><a class="LN" name="194">  194   </a>        <span class="CT">(* Update for DiscreteIntegrator: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:43')" name="code2model"><font color="#117755"><i>&lt;S2&gt;/Discrete-Time Integrator</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="195">  195   </a><span class="CT">         *  Outport: '&lt;Root&gt;/Error' *)</span>
+</span><span><a class="LN" name="196">  196   </a>        c_DiscreteTimeIntegrator_DS := (0.001 * Error) + c_DiscreteTimeIntegrator_DS;
+</span><span><a class="LN" name="197">  197   </a>        <span class="CT">(* Update for UnitDelay: '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>'</span>
+</span><span><a class="LN" name="198">  198   </a><span class="CT">         *</span>
+</span><span><a class="LN" name="199">  199   </a><span class="CT">         * Block description for '<a href="matlab:coder.internal.code2model('Sim2Twin_controlsystem_pos_Discrete:42:5')" name="code2model"><font color="#117755"><i>&lt;S4&gt;/UD</i></font></a>':</span>
+</span><span><a class="LN" name="200">  200   </a><span class="CT">         *  </span>
+</span><span><a class="LN" name="201">  201   </a><span class="CT">         *  Store in Global RAM *)</span>
+</span><span><a class="LN" name="202">  202   </a>        UD_DSTATE := rtb_TSamp;
+</span><span><a class="LN" name="203">  203   </a>        <span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ControlBlockWithMonitoring' *)</span>
+</span><span><a class="LN" name="204">  204   </a><span class="KW">END_CASE</span>;
+</span><span><a class="LN" name="205">  205   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="206">  206   </a><span class="KW">VAR_GLOBAL</span> <span class="KW">CONSTANT</span>
+</span><span><a class="LN" name="207">  207   </a>    SS_INITIALIZE: <span class="KW">SINT</span> := 0;
+</span><span><a class="LN" name="208">  208   </a>    SS_STEP: <span class="KW">SINT</span> := 1;
+</span><span><a class="LN" name="209">  209   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="210">  210   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>
