@@ -12,12 +12,21 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF G_Mode.bAuto AND G_Mode.bRunning THEN
-
 fbInitialPos(
-	bEnable := G_Inputs.bStartButton,
+	bEnable := G_Mode.bRunning,
 	fCurrentPos := G_OPC.fPistonPosition
 );
+
+fbMotionRef(
+	fInitialPos := fbInitialPos.fInitialPos
+);
+
+IF G_Mode.bAuto AND G_Mode.bRunning THEN
+
+//fbInitialPos(
+//	bEnable := G_Inputs.bStartButton,
+//	fCurrentPos := G_OPC.fPistonPosition
+//);
 
 fbAutoClock(
 	fStart := G_Inputs.bStartButton,
@@ -28,7 +37,7 @@ fbAutoClock(
 fbMotionRef(
 	fTime := fbAutoClock.fTime,
 	fAmplitude := G_Parameter.fAmplitude,
-	fInitialPos := fbInitialPos.fInitialPos,
+	//fInitialPos := fbInitialPos.fInitialPos,
 	fFrequency := G_Parameter.fFrequency,
 	fXDotRef => G_OPC.fXDotRef,
 	fXRef => G_OPC.fXRef 
@@ -42,16 +51,18 @@ fbControl(
 	fQMaxDown := G_Parameter.fQMaxDown,
 	fDeadUp := G_Parameter.fDeadUp,
 	fDeadDown := G_Parameter.fDeadDown,
+	fXDotRef := G_OPC.fXDotRef,
+	fError := G_OPC.fError,
 	
 	fU => G_OPC.fU
 );
 
 ELSIF G_Mode.bManual AND G_Mode.bRunning THEN
 
-fbInitialPos(
-	bEnable := G_Inputs.bStartButton,
-	fCurrentPos := G_OPC.fPistonPosition
-);
+//fbInitialPos(
+//	bEnable := G_Inputs.bStartButton,
+//	fCurrentPos := G_OPC.fPistonPosition
+//);
 
 fbDeadBandTester(
 	fInput := G_OPC.fJoystick,
@@ -64,7 +75,12 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="P_ControlBlock">
+      <LineId Id="122" Count="3" />
       <LineId Id="70" Count="0" />
+      <LineId Id="127" Count="1" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="126" Count="0" />
       <LineId Id="56" Count="0" />
       <LineId Id="97" Count="0" />
       <LineId Id="108" Count="2" />
@@ -85,6 +101,7 @@ END_IF
       <LineId Id="83" Count="1" />
       <LineId Id="86" Count="2" />
       <LineId Id="85" Count="0" />
+      <LineId Id="131" Count="1" />
       <LineId Id="47" Count="0" />
       <LineId Id="55" Count="0" />
       <LineId Id="46" Count="0" />

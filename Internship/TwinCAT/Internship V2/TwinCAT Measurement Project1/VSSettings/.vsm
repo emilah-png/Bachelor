@@ -5,8 +5,8 @@
   <Children>
     <Node>
       <Title>ScopeWizard</Title>
-      <Expanded>False</Expanded>
-      <FileName>C:\Users\Green Crane Testbed\OneDrive\Documents\Intership AG EAH\Internship\TwinCAT\Internship V2\TwinCAT Measurement Project1\ScopeWizard.tcscopex</FileName>
+      <Expanded>True</Expanded>
+      <FileName>C:\Users\Green Crane Testbed\OneDrive\Documents\Bachelor IKEA\Bachelor\Internship\TwinCAT\Internship V2\TwinCAT Measurement Project1\ScopeWizard.tcscopex</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>
