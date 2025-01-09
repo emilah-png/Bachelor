@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
-  <GVL Name="GVL_191759331" Id="{b799e90b-5003-4a71-ac9d-326071c18018}">
-    <Declaration><![CDATA[VAR_GLOBAL CONSTANT
-	SS_INITIALIZE: SINT := 0;
-	SS_STEP: SINT := 1;
-END_VAR]]></Declaration>
-  </GVL>
-</TcPlcObject>

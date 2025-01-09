@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.60">
-	<Project ProjectGUID="{0DFC42E0-E93D-4246-92A3-E421FA79785A}" Target64Bit="true" ShowHideConfigurations="#x6"/>
-</TcSmProject>
