@@ -1,0 +1,10 @@
+Kjøre med forskjellige trykk inn på den grønne kranen. I tillegg til å ha varierende statisk last, og prøve med dynamisk last.
+
+Få den elektriske kompanserinen til å virke samme som det den hydrauliske gjør, det er kanskje noe av det først som burde gjøres.
+
+Hva vil det gjøre med en større ventil?
+
+Det er en utfordring med finkjøring på lave signaler, der man ligger rett over dødbåndet.
+
+Gå vekk fra LS-systemet, og heller gå over til en annen forstyrrelse
+
