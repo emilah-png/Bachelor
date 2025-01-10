@@ -23,11 +23,6 @@ fbMotionRef(
 
 IF G_Mode.bAuto AND G_Mode.bRunning THEN
 
-//fbInitialPos(
-//	bEnable := G_Inputs.bStartButton,
-//	fCurrentPos := G_OPC.fPistonPosition
-//);
-
 fbAutoClock(
 	fStart := G_Inputs.bStartButton,
 	fRunning := G_Mode.bRunning,
@@ -37,7 +32,6 @@ fbAutoClock(
 fbMotionRef(
 	fTime := fbAutoClock.fTime,
 	fAmplitude := G_Parameter.fAmplitude,
-	//fInitialPos := fbInitialPos.fInitialPos,
 	fFrequency := G_Parameter.fFrequency,
 	fXDotRef => G_OPC.fXDotRef,
 	fXRef => G_OPC.fXRef 
@@ -82,9 +76,6 @@ END_IF
       <LineId Id="129" Count="0" />
       <LineId Id="126" Count="0" />
       <LineId Id="56" Count="0" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="108" Count="2" />
-      <LineId Id="101" Count="0" />
       <LineId Id="58" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="35" Count="2" />
@@ -92,7 +83,8 @@ END_IF
       <LineId Id="33" Count="0" />
       <LineId Id="24" Count="0" />
       <LineId Id="31" Count="0" />
-      <LineId Id="39" Count="2" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="0" />
       <LineId Id="48" Count="1" />
       <LineId Id="30" Count="0" />
       <LineId Id="45" Count="0" />
