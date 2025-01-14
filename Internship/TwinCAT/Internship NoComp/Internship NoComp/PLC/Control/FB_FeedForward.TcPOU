@@ -23,19 +23,19 @@ VAR
 	fAp : LREAL := 33.1 / 10000.0;
 	fAa : LREAL := 23.56 / 10000.0;
 	
-	fK02Up : LREAL := 0.78;
-	fK04Up : LREAL := 2.3;
-	fK06Up : LREAL := 3.27;
-	fK07Up : LREAL := 4.54;
-	fK08Up : LREAL := 4.94;
-	fK1Up : LREAL := 5.68;
+	fK02Up : LREAL := 0.78; //0.78;
+	fK04Up : LREAL := 2.29; //2.3;
+	fK06Up : LREAL := 3.42;// 3.27;
+	fK07Up : LREAL := 4.59; //4.54;
+	fK08Up : LREAL := 5.09; //4.94;
+	fK1Up : LREAL := 5.71; //5.68;
 	
-	fK02Down : LREAL := -0.75; 
-	fK04Down : LREAL := -2.21; //-1.37;
-	fK06Down : LREAL := -3.45; 
-	fK07Down : LREAL := -3.96; //-2.45;
-	fK08Down : LREAL := -4.61; 
-	fK1Down : LREAL := -4.67; //-2.88;
+	fK02Down : LREAL := -0.75; //-0.75; 
+	fK04Down : LREAL := -2.17; //-2.21; //-1.37;
+	fK06Down : LREAL := -3.39; //-3.45; 
+	fK07Down : LREAL := -3.99; //-3.96; //-2.45;
+	fK08Down : LREAL := -4.55; //-4.61; 
+	fK1Down : LREAL := -4.84; //-4.67; //-2.88;
 	
 	fDeltaP : LREAL;
 	fKRef : LREAL; 
