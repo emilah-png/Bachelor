@@ -64,7 +64,8 @@ fbDeadBandTester(
 	fInput := G_OPC.fJoystick,
 	bEnable := G_Enables.bDeadBandTest,
 	fConst := G_Parameter.fConst,
-	fOutput => G_OPC.fU
+	fOutput => G_OPC.fU,
+	fXDotRef => G_OPC.fXDotRef
 );
 
 END_IF
@@ -104,6 +105,7 @@ END_IF
       <LineId Id="5" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="14" Count="2" />
+      <LineId Id="152" Count="0" />
       <LineId Id="11" Count="0" />
       <LineId Id="60" Count="0" />
       <LineId Id="59" Count="0" />
