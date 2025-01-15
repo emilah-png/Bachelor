@@ -1,0 +1,32 @@
+Mass properties of telescope_1
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 193.55 kilograms
+
+Volume = 0.02 cubic meters
+
+Surface area = 7507573.68  square millimeters
+
+Center of mass: ( millimeters )
+	X = -231.26
+	Y = -98.21
+	Z = 716.69
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = (-0.10,  0.02,  0.99)   	Px = 7238583.58
+	 Iy = ( 0.97,  0.21,  0.10)   	Py = 92962704.61
+	 Iz = (-0.20,  0.98, -0.04)   	Pz = 95208345.04
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 92152805.01	Lxy = 285588.28	Lxz = -8768026.19
+	Lyx = 285588.28	Lyy = 95082896.59	Lyz = 1652417.28
+	Lzx = -8768026.19	Lzy = 1652417.28	Lzz = 8173931.63
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 193435304.83	Ixy = 4681662.68	Ixz = -40847853.81
+	Iyx = 4681662.68	Iyy = 204850146.76	Iyz = -11971046.90
+	Izx = -40847853.81	Izy = -11971046.90	Izz = 20392477.74
