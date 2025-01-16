@@ -5,12 +5,12 @@
   <Children>
     <Node>
       <Title>ScopeWizard</Title>
-      <Expanded>True</Expanded>
-      <FileName>C:\Users\Green Crane Testbed\OneDrive\Documents\Bachelor IKEA\Bachelor\Internship\TwinCAT\Internship NoComp\TwinCAT Measurement Project1\ScopeWizard.tcscopex</FileName>
+      <Expanded>False</Expanded>
+      <FileName>C:\Users\student\Documents\GitHub\Bachelor\Internship\TwinCAT\Internship NoComp\TwinCAT Measurement Project1\ScopeWizard.tcscopex</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
@@ -71,12 +71,12 @@
         </Node>
         <Node>
           <Title>Error</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -91,12 +91,12 @@
         </Node>
         <Node>
           <Title>Pressures</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group (1)</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -123,12 +123,12 @@
         </Node>
         <Node>
           <Title>Singal</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group (2)</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -155,12 +155,12 @@
         </Node>
         <Node>
           <Title>Position</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group (3)</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
