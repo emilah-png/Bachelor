@@ -1,0 +1,32 @@
+Mass properties of 6344321
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 104.85 kilograms
+
+Volume = 0.01 cubic meters
+
+Surface area = 5216658.10  square millimeters
+
+Center of mass: ( millimeters )
+	X = -1312.22
+	Y = 163.36
+	Z = 0.85
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 1.00,  0.00,  0.00)   	Px = 2115911.07
+	 Iy = ( 0.00,  1.00, -0.03)   	Py = 72233408.22
+	 Iz = ( 0.00,  0.03,  1.00)   	Pz = 72866023.48
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 2116148.25	Lxy = 84044.03	Lxz = 98272.78
+	Lyx = 84044.03	Lyy = 72233854.33	Lyz = -18473.73
+	Lzx = 98272.78	Lzy = -18473.73	Lzz = 72865340.19
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 4914294.45	Ixy = -22392060.66	Ixz = -18085.41
+	Iyx = -22392060.66	Iyy = 252778041.66	Iyz = -3988.19
+	Izx = -18085.41	Izy = -3988.19	Izz = 256207523.74
