@@ -1,86 +1,233 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <FileVersion>1.0.0.0</FileVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9d691af9-4de2-48d4-ba3d-091d31547fcb}</ProjectGuid>
+    <ProjectGuid>{e0934695-7c3d-4f8b-b148-fd256502155a}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>true</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>Bsc_NoComp</Name>
-    <ProgramVersion>3.1.4024.0</ProgramVersion>
-    <Application>{9bd073e0-6c1d-4d4e-9996-23efe4523fee}</Application>
-    <TypeSystem>{47683f9e-19cf-4855-a94a-5225efeb65ac}</TypeSystem>
-    <Implicit_Task_Info>{22476f00-fe29-4fc2-a74c-028e8ff3aec1}</Implicit_Task_Info>
-    <Implicit_KindOfTask>{82d65ef1-a8d7-4815-ba78-200b0ebb0591}</Implicit_KindOfTask>
-    <Implicit_Jitter_Distribution>{2b67432b-88e4-427f-adab-3d0ecb066e0c}</Implicit_Jitter_Distribution>
-    <LibraryReferences>{9e4bd447-7399-4d16-b7ec-d625d5efbefc}</LibraryReferences>
+    <Name>LabExercise</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{cfbd269e-3a72-4648-8061-f2c836bfc518}</Application>
+    <TypeSystem>{dcee7254-057b-4b54-89d3-b11c82ebdc2e}</TypeSystem>
+    <Implicit_Task_Info>{cd61e516-8f4a-4637-8e31-7b63fbb9867b}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{34df7bb7-232a-4538-a02a-25647e91eaf9}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{4224d243-f34e-4df1-bd86-ff489306c3ed}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{67e94ca3-5c16-4854-82e9-3284bacb8f35}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Comissioning\Function blocks\FB_ModifyAutomaticControlSettings.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comissioning\GVLs\G_Commissioning.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Comissioning\Struct\ST_AutomaticControlSettings.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comissioning\Struct\ST_ClosedLoopControlSettings.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comissioning\Struct\ST_MotionReferenceGeneratorSettings.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comissioning\Struct\ST_OpenLoopControlSettings.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlBox\Interfaces\I_ControlBox.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlBox\Function blocks\FB_ControlBox.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlBox\Function blocks\FB_RealControlBox.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlBox\Function blocks\FB_VirtualControlBox.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_ActiveDamping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Enums\E_Mode.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Enums\E_Status.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Main blocks\FB_AutomaticControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Main blocks\FB_ManualControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_ClosedLoopControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_Joystick.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_MotionReferenceGenerator_limit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_OpenLoopControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_ResetIntegralController.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Function blocks\Sub blocks\FB_Status.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Functions\F_BarToEng.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Functions\F_LminToEng.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Functions\F_RadToDeg.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\GVLs\G_Parameters.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="CraneControl\GVLs\G_Work.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="CraneControl\Struct\ST_ActiveDamping.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CraneControl\Struct\ST_Parameters.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\G_Enables.TcGVL">
+    <Compile Include="HMI\HMI.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="HMI\Sub\CommissioningHMI.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="HMI\Sub\VirtualControlBox.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="Inputs\FB_JoystickInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\FB_PositionInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\FB_PressureInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\G_Inputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_FilterConstants.TcGVL">
+    <Compile Include="Inputs\G_Sensors.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_Mode.TcGVL">
+    <Compile Include="Inputs\Struct\ST_AnalogInput.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Inputs\Struct\ST_AnalogInputStatus.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Outputs\FB_ValveOutput.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Outputs\G_Outputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_OPC.TcGVL">
+    <Compile Include="Outputs\Struct\ST_pValveDeadBand.TcDUT">
       <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_Parameters.TcGVL">
+    <Compile Include="Outputs\Struct\ST_ValveOutput.TcDUT">
       <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="Input\G_Input.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="Output\G_Output.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Program\MAIN.TcPOU">
+    <Compile Include="ControlBox\GVLs\G_VirtualControlBox.TcGVL">
       <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Programs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Commissioning.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_ControlBox.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_CraneControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Outputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Simulator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Simulator.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Simulator\FB_CraneSimulator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Simulator\G_Simulator.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="Visualization Manager.TcVMO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="XML\FB_Derivator.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="XML\FB_Integrator.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="XML\G_Init.TcGVL">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GVLs" />
+    <Folder Include="Comissioning" />
+    <Folder Include="Comissioning\Function blocks" />
+    <Folder Include="Comissioning\GVLs" />
+    <Folder Include="Comissioning\Struct" />
+    <Folder Include="ControlBox\Function blocks" />
+    <Folder Include="ControlBox\Interfaces" />
+    <Folder Include="CraneControl\Function blocks" />
+    <Folder Include="CraneControl\Function blocks\Main blocks" />
+    <Folder Include="CraneControl\Function blocks\Sub blocks" />
+    <Folder Include="CraneControl\Functions" />
+    <Folder Include="CraneControl\GVLs" />
+    <Folder Include="CraneControl\Enums" />
+    <Folder Include="CraneControl\Struct" />
+    <Folder Include="CraneControl" />
+    <Folder Include="ControlBox" />
+    <Folder Include="ControlBox\GVLs" />
+    <Folder Include="ControlBox\Struct" />
     <Folder Include="HMI" />
-    <Folder Include="Input" />
-    <Folder Include="Output" />
-    <Folder Include="Program" />
-    <Folder Include="XML" />
+    <Folder Include="HMI\Sub" />
+    <Folder Include="Inputs" />
+    <Folder Include="Inputs\Struct" />
+    <Folder Include="Outputs" />
+    <Folder Include="Outputs\Struct" />
+    <Folder Include="Simulator" />
+    <Folder Include="Programs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="CmpBitmapPool">
-      <DefaultResolution>CmpBitmapPool, * (System)</DefaultResolution>
-      <Namespace>CmpBitmapPool</Namespace>
-    </PlaceholderReference>
     <PlaceholderReference Include="System_VisuElemMeter">
       <DefaultResolution>VisuElemMeter, 3.5.13.0 (System)</DefaultResolution>
       <Namespace>VisuElemMeter</Namespace>
@@ -123,6 +270,10 @@
       <SystemLibrary>true</SystemLibrary>
       <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_NCI">
+      <DefaultResolution>Tc2_NCI, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_NCI</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Standard">
       <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Standard</Namespace>
@@ -135,22 +286,21 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="VisuDialogs">
+      <DefaultResolution>VisuDialogs, * (System)</DefaultResolution>
+      <Namespace>VisuDialogs</Namespace>
+    </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Bsc NoComp.tmc">
+    <None Include="LabExercise.tmc">
       <SubType>Content</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryReference Include="VisuSymbols,3.5.10.0,System">
-      <Namespace>VisuSymbols</Namespace>
-    </LibraryReference>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-  <Data>
-    <o xml:space="preserve" t="OptionKey">
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -181,6 +331,12 @@
           </d>
           <d n="Values" t="Hashtable" />
         </o>
+        <v>{8F99A816-E488-41E4-9FA3-846536012284}</v>
+        <o>
+          <v n="Name">"{8F99A816-E488-41E4-9FA3-846536012284}"</v>
+          <d n="SubKeys" t="Hashtable" />
+          <d n="Values" t="Hashtable" />
+        </o>
         <v>{40450F57-0AA3-4216-96F3-5444ECB29763}</v>
         <o>
           <v n="Name">"{40450F57-0AA3-4216-96F3-5444ECB29763}"</v>
@@ -193,14 +349,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-  </Data>
-  <TypeList>
-    <Type n="Boolean">System.Boolean</Type>
-    <Type n="Hashtable">System.Collections.Hashtable</Type>
-    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-    <Type n="String">System.String</Type>
-  </TypeList>
-</XmlArchive>
+        </Data>
+        <TypeList>
+          <Type n="Boolean">System.Boolean</Type>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="P_Inputs" Id="{8b676dbd-393f-42d6-8803-330b6e90ab14}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Inputs
+VAR
+	fbJoystick 				: FB_JoystickInputScaling;
+	fbPositionSensor 		: FB_PositionInputScaling;
+	fbPressureSupplySensor 	: FB_PressureInputScaling;
+	fbPressureReturnSensor 	: FB_PressureInputScaling;
+	fbPressurePistonSide 	: FB_PressureInputScaling;
+	fbPressureLhvSide 		: FB_PressureInputScaling;
+	fbPressureRodSide 		: FB_PressureInputScaling;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbJoystick(
+	bEnable := G_Inputs.bManualModeSelector,
+	nRawInput := G_Inputs.stJoyY.nValue,
+	fOutput => G_Sensors.fJoystickY
+);
+
+fbPositionSensor(
+	nRawInput := G_Inputs.stCylPos.nValue,
+	fOutput => G_Sensors.fPistonPosition
+);
+
+fbPressureSupplySensor(
+	nRawInput := G_Inputs.stPressureSupply.nValue,
+	fOutput => G_Sensors.fPressureSupply
+);
+
+fbPressureReturnSensor(
+	nRawInput := G_Inputs.stPressureReturn.nValue,
+	fOutput => G_Sensors.fPressureReturn
+);
+
+fbPressurePistonSide(
+	nRawInput := G_Inputs.stPressurePistonSide.nValue,
+	fOutput => G_Sensors.fPressurePistonSide
+);
+
+fbPressureLhvSide(
+	nRawInput := G_Inputs.stPressureLhvSide.nValue,
+	fOutput => G_Sensors.fPressureLhvSide
+);
+
+fbPressureRodSide(
+	nRawInput := G_Inputs.stPressureRodSide.nValue,
+	fOutput => G_Sensors.fPressureRodSide
+);
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Inputs">
+      <LineId Id="5" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="20" Count="3" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="39" Count="4" />
+      <LineId Id="45" Count="3" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="50" Count="3" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="55" Count="3" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="60" Count="3" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="38" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
