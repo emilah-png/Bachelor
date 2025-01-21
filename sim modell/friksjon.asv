@@ -54,11 +54,9 @@ aby = (0.223-0.075); %-0.130; %0.223-75
 g = 9.81;
 G1 =100*g;
 G4 = (4*76+16)*g;
-
-G = 440*g; %440*g; %447.10945
-Gx = 3.03499; %3.03499; %3.03499
-Gy = 0.140; %0.2; %0.06071
-
+G = 447.10945*g;
+Gx = 3.03499;
+Gy = 0.06071;
 Cy = -1.040;
 Cx = 0.427;
 ang_CA = atan2(Cy,Cx);
@@ -143,10 +141,9 @@ F_friction = (F_up-F_down)/2;
 
 
 %% PLoting
-Image_hight = 700;
+Image_hight = 500;
 Image_with = 2*Image_hight;
-figure("Position",[570-Image_with, 2510-Image_hight ,Image_with ,Image_hight],"Name","Force Plot")
-% Figure("Name","Force Plot")
+figure("Position",[(1000-430)-, 2510-Image_hight ,Image_with ,Image_hight],"Name","Force Plot")
 plot(X_up,F_tc_up)
 hold on
 plot(X_down,F_tc_down)
