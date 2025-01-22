@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_OPC" Id="{b72851b5-2aab-4c15-b01a-174d2c8931ac}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	fPs : ST_Filter;
+	
+	// MAIN Valve
+	fMainPa 				: ST_Filter; // [Bar]
+	fMainPb					: ST_Filter; // [Bar]
+	fMainPs					: ST_Filter; // [Bar]
+	fMainPaLower			: ST_Filter; // [Bar]
+	fMainPistonPosition 	: ST_Filter; // [m]
+	
+	// JIB Valve
+	fJibPa 					: ST_Filter; // [Bar]
+	fJibPb					: ST_Filter; // [Bar]
+	fJibPs					: ST_Filter; // [Bar]
+	fJibPaLower				: ST_Filter; // [Bar]
+	fJibPbLower				: ST_Filter; // [Bar]
+	fJibPistonPosition		: ST_Filter; // [m]
+	
+	// Joystick Signals
+	fJoystickWinch			: LREAL; // [-1, 1]
+	fJoystickRotation		: LREAL; // [-1, 1]
+	fJoystickMain			: LREAL; // [-1, 1]
+	fJoystickJib			: LREAL; // [-1, 1]
+	fJoystickExtrude		: LREAL; // [-1, 1]
+	
+	// Valve Signals
+	fMainValveOutput		: LREAL; // [-1, 1]
+	fMainValveFF			: LREAL;
+	fMainValvePID			: LREAL;
+	
+	fJibValveOutput			: LREAL; // [-1, 1]
+	fJibValveFF				: LREAL;
+	fJibValvePID			: LREAL;
+
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

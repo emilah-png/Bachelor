@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13">
-	<Project ProjectGUID="{AF978348-7B8C-4C3D-8F5C-95AF4E81204A}" TargetNetId="5.76.250.97.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
+	<Project ProjectGUID="{AF978348-7B8C-4C3D-8F5C-95AF4E81204A}" Target64Bit="true" ShowHideConfigurations="#x6">
 		<System>
 			<Tasks>
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
@@ -10,9 +10,101 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{9DF40969-C38F-40B3-A65F-3AE9AF001198}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{09262860-B921-E302-CB76-069BDF42155B}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>G_Output.bEnableRelay</Name>
+							<Comment><![CDATA[ Digital Outputs]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Output.nMainValveOutput</Name>
+							<Comment><![CDATA[ Analog Outputs]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Output.nJibValveOutput</Name>
+							<Type>INT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>G_Inputs.bEmergencySwitch</Name>
+							<Comment><![CDATA[ Mode Selector]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawMainPa</Name>
+							<Comment><![CDATA[ Raw Values MAIN]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawMainPb</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawMainPs</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawMainPaLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawMainPistonPosition</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPa</Name>
+							<Comment><![CDATA[ Raw Values JIB]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPb</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPs</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPaLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPbLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJibPistonPosition</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJoystickWinch</Name>
+							<Comment><![CDATA[ Joystick Signals]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJoystickRotation</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJoystickMain</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJoystickJib</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawJoystickExtrude</Name>
+							<Type>INT</Type>
+						</Var>
+					</Vars>
 					<Contexts>
 						<Context>
 							<Id>0</Id>
