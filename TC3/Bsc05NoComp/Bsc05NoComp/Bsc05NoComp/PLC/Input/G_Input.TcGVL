@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Input" Id="{2e7d1d5d-f580-4fbc-91c3-d3a9984276d2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Mode Selector
+	bManual 				AT %I* : BOOL;
+	bAuto	 				AT %I* : BOOL;
+	bStartButton			AT %I* : BOOL;
+	bStopButton				AT %I* : BOOL;
+	
+	// Raw Pressure Values MAIN
+	nRawMainPa 				AT %I*	: INT;
+	nRawMainPb				AT %I*	: INT;
+	nRawMainPs				AT %I*	: INT;
+	nRawMainPaLower			AT %I* 	: INT;
+	
+	// Raw Pressure Values JIB
+	nRawJibPa 				AT %I*	: INT;
+	nRawJibPb				AT %I*	: INT;
+	nRawJibPs				AT %I*	: INT;
+	nRawJibPaLower			AT %I* 	: INT;
+	nRawJibPbLower			AT %I* 	: INT;
+	
+	// Raw Position Values
+	nRawMainPistonPosition 	AT %I*	: INT;
+	nRawJibPistonPosition	AT %I*  : INT;
+	
+	// Joystick Signals
+	nRawJoystickWinch		AT %I*	: INT;
+	nRawJoystickRotation	AT %I*	: INT;
+	nRawJoystickMain		AT %I*	: INT;
+	nRawJoystickJib			AT %I*	: INT;
+	nRawJoystickExtrude		AT %I*	: INT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
