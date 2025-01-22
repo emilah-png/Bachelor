@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13">
+	<Project ProjectGUID="{42EC9D57-B17D-4360-9148-F818AB52087D}" Target64Bit="true" ShowHideConfigurations="#x6">
+		<System>
+			<Licenses>
+				<Target>
+					<ManualSelect>{BDCC0070-42D5-49AE-ABF1-1D4434813D60}</ManualSelect>
+				</Target>
+			</Licenses>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="10000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{9D691AF9-4DE2-48D4-BA3D-091D31547FCB}" Name="BscNoComp" PrjFilePath="BscNoComp\BscNoComp.plcproj" TmcFilePath="BscNoComp\BscNoComp.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{7E2C62B1-1612-BBFA-0C1F-C54919631B5C}" TmcPath="Bsc NoComp\Bsc NoComp.tmc">
+					<Name>BscNoComp Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>G_Input.bManual</Name>
+							<Comment><![CDATA[ Mode Selector]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.bAuto</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.bStartButton</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.bStopButton</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawMainPa</Name>
+							<Comment><![CDATA[ Raw Pressure Values MAIN]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawMainPb</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawMainPs</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawMainPaLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPa</Name>
+							<Comment><![CDATA[ Raw Pressure Values JIB]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPb</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPs</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPaLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPbLower</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawMainPistonPosition</Name>
+							<Comment><![CDATA[ Raw Position Values]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJibPistonPosition</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Input.nRawJoystick</Name>
+							<Type>INT</Type>
+						</Var>
+					</Vars>
+					<Contexts>
+						<Context>
+							<Id>0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>1000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+	</Project>
+</TcSmProject>
