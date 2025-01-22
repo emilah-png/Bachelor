@@ -18,7 +18,19 @@
     <LibraryReferences>{7ecf4aae-9e54-47eb-a857-ead4757fc6b7}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Input\G_Input.TcGVL">
+    <Compile Include="GVLs\G_OPC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Input\FB_JoystickInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Input\FB_Normalize.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Input\FB_PositionInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Input\G_Inputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -30,6 +42,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\Derivator.TcPOU">

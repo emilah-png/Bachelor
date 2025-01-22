@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Inputs" Id="{94ed4cce-6a16-4a20-9eff-b4a1e6338584}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Inputs
+VAR
+	fbNormPa :  FB_Normalize;
+	fbNormPb :  FB_Normalize;
+	fbNormPs :  FB_Normalize;
+	fbNormPaLower : FB_Normalize;
+	
+	fbNormPistonPosition : FB_PositionInputScaling;
+	fbJoystick : FB_JoystickInputScaling;
+
+	fPa : LREAL;
+	fPb : LREAL;
+	fPs : LREAL;
+	fPaLower : LREAL;
+	
+	fPistonPosition : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbNormPa(
+	nRawInput := G_Inputs.nRawMainPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPa
+);
+
+fbNormPb(
+	nRawInput := G_Inputs.nRawPb,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPb
+);
+
+fbNormPs(
+	nRawInput := G_Inputs.nRawPs,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPs
+);
+
+fbNormPistonPosition(
+	nRawInput := G_Inputs.nRawPistonPosition,
+	fOutput => G_OPC.fPistonPosition
+);
+	
+fbJoystick(
+	nRawInput := G_Inputs.nRawJoystick,
+	bEnable := (G_Mode.bRunning AND G_Mode.bManual),
+	fOutput => G_OPC.fJoystick
+);
+
+fbNormPaLower(
+	nRawInput := G_Inputs.nRawPaLower,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPaLower
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

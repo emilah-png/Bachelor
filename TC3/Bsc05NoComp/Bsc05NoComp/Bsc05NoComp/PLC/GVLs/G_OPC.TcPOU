@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="G_OPC" Id="{124a1e14-f0b0-4166-9850-db0aba9c2f44}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM G_OPC
+VAR
+	
+	// Raw Values MAIN
+	fMainPa 				: LREAL; // [Bar]
+	fMainPb					: LREAL; // [Bar]
+	fMainPs					: LREAL; // [Bar]
+	fMainPaLower			: LREAL; // [Bar]
+	fMainPistonPosition 	: LREAL; // [m]
+	
+	// Raw Values JIB
+	fJibPa 					: LREAL; // [Bar]
+	fJibPb					: LREAL; // [Bar]
+	fJibPs					: LREAL; // [Bar]
+	fJibPaLower				: LREAL; // [Bar]
+	fJibPbLower				: LREAL; // [Bar]
+	fJibPistonPosition		: LREAL; // [m]
+	
+	// Joystick Signals
+	fJoystickWinch			: LREAL; // [-1, 1]
+	fJoystickRotation		: LREAL; // [-1, 1]
+	fJoystickMain			: LREAL; // [-1, 1]
+	fJoystickJib			: LREAL; // [-1, 1]
+	fJoystickExtrude		: LREAL; // [-1, 1]
+	
+	// Valve Signals
+	fMainValveOutput		: LREAL; // [-1, 1]
+	fJibValveOutput			: LREAL; // [-1, 1]
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

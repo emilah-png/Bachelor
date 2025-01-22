@@ -6,5 +6,20 @@
       <From>GVL_1057460812</From>
       <To>G_Init</To>
     </RenamedType>
+    <RenamedType>
+      <Type guid="a0c6c0d3-0a31-4f44-bc18-b65492836e6e">FB_NORMALIZING01</Type>
+      <From>FB_PositionNormalizing</From>
+      <To>FB_Normalizing</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="2e7d1d5d-f580-4fbc-91c3-d3a9984276d2">G_INPUT</Type>
+      <From>G_Input</From>
+      <To>G_Inputs</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="bd20dd61-a2c0-448c-b6e7-b35d219fce0e">G_OUTPUTS</Type>
+      <From>G_Output</From>
+      <To>G_Output</To>
+    </RenamedType>
   </Renames>
 </Refactors>
