@@ -8,7 +8,7 @@
     <WriteProductVersion>true</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>LabExercise</Name>
-    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <ProgramVersion>3.1.4026.13</ProgramVersion>
     <Application>{cfbd269e-3a72-4648-8061-f2c836bfc518}</Application>
     <TypeSystem>{dcee7254-057b-4b54-89d3-b11c82ebdc2e}</TypeSystem>
     <Implicit_Task_Info>{cd61e516-8f4a-4637-8e31-7b63fbb9867b}</Implicit_Task_Info>
