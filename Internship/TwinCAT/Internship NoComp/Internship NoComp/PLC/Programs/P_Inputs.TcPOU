@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
   <POU Name="P_Inputs" Id="{94ed4cce-6a16-4a20-9eff-b4a1e6338584}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Inputs
 VAR
@@ -10,7 +10,7 @@ VAR
 	
 	fbNormPistonPosition : FB_PositionInputScaling;
 	fbJoystick : FB_JoystickInputScaling;
-	fbFlow : FB_FlowNormalization;
+	fbFlow : FB_FlowTransform;
 
 	fPa : LREAL;
 	fPb : LREAL;

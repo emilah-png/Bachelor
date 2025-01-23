@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="cf40c1a8-0fc0-4809-bdf6-f129a497ed41">FB_FLOWNORMALIZATION</Type>
+      <From>FB_FlowNormalization</From>
+      <To>FB_FlowTransform</To>
+    </RenamedType>
+  </Renames>
+</Refactors>
