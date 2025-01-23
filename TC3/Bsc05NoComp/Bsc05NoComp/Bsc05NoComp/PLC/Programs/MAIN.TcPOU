@@ -3,11 +3,17 @@
   <POU Name="MAIN" Id="{73114a79-e8e7-4c77-9271-864ce29939b0}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	bActiv : BOOL;
+	nCounter :DINT;
 	bTemp : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[// Testing Fjern etter test
+
+IF bActiv THEN
+	nCounter := nCounter + 1;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
