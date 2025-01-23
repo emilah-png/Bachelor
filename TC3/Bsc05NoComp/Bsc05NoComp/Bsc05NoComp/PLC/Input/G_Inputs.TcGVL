@@ -6,17 +6,18 @@ VAR_GLOBAL
 	// Mode Selector
 	bEmergencySwitch		AT %I* : BOOL;
 	
+	// Raw Values SUPPLY
+	nRawSupplyPs			AT %I* : INT;
+	
 	// Raw Values MAIN
 	nRawMainPa 				AT %I* : INT;
 	nRawMainPb				AT %I* : INT;
-	nRawMainPs				AT %I* : INT;
 	nRawMainPaLower			AT %I* : INT;
 	nRawMainPistonPosition 	AT %I* : INT;
 	
 	// Raw Values JIB
 	nRawJibPa 				AT %I* : INT;
 	nRawJibPb				AT %I* : INT;
-	nRawJibPs				AT %I* : INT;
 	nRawJibPaLower			AT %I* : INT;
 	nRawJibPbLower			AT %I* : INT;
 	nRawJibPistonPosition	AT %I* : INT;

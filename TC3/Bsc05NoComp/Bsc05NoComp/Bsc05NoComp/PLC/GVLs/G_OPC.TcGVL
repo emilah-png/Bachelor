@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	
-	fPs : ST_Filter;
+	fPs 					: ST_Filter; // [Bar]
 	
 	// MAIN Valve
 	fMainPa 				: ST_Filter; // [Bar]

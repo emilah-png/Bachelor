@@ -8,7 +8,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[P_Filtering();
-//P_Inputs();
+P_Inputs();
 P_Output();]]></ST>
     </Implementation>
   </POU>
