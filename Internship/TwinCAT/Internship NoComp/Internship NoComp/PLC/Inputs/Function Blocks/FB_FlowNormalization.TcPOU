@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="FB_JoystickInputScaling" Id="{45abe8f1-3862-4b14-9ee2-cf88212f6af6}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_JoystickInputScaling
+  <POU Name="FB_FlowNormalization" Id="{cf40c1a8-0fc0-4809-bdf6-f129a497ed41}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlowNormalization
 VAR_INPUT
 	bEnable : BOOL;
 	nRawInput : INT;
 END_VAR
 VAR_OUTPUT
 	fOutput : LREAL;
+	fOutputBit : LREAL;
 END_VAR
 VAR
 	fRawInput : LREAL;
 	fTempInput : LREAL;
 	fTempOutput : LREAL;
-	fMaxInputValue			: LREAL := 14746.0;
-	fMinInputValue 			: LREAL := 1617.0;
-	fNeutralInputValue  	: LREAL := 8160.0;
+	fMaxInputValue			: LREAL := 15250.0;
+	fMinInputValue 			: LREAL := 0.0;
+	fNeutralInputValue  	: LREAL := 32767.0;
 	fNeutralDeadband		: LREAL := 50.0;
-	fMaxOutputValue  		: LREAL := 1.0;
-	fMinOutputValue  		: LREAL := -1.0;
+	fMaxOutputValue  		: LREAL := 150.0;
+	fMinOutputValue  		: LREAL := -150.0;
 	fNeutralOutputValue  	: LREAL := 0.0;
-END_VAR
-]]></Declaration>
+END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[fRawInput := INT_TO_LREAL(nRawInput);
 
@@ -41,11 +41,14 @@ ELSE
 	fOutput := LIMIT(fMinOutputValue, fTempOutput, fMaxOutputValue);
 END_IF
 
+fOutputBit := INT_TO_LREAL(nRawInput);
 ]]></ST>
     </Implementation>
-    <LineIds Name="FB_JoystickInputScaling">
-      <LineId Id="201" Count="17" />
-      <LineId Id="40" Count="0" />
+    <LineIds Name="FB_FlowNormalization">
+      <LineId Id="48" Count="16" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="9" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

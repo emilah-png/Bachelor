@@ -10,6 +10,7 @@ VAR
 	
 	fbNormPistonPosition : FB_PositionInputScaling;
 	fbJoystick : FB_JoystickInputScaling;
+	fbFlow : FB_FlowNormalization;
 
 	fPa : LREAL;
 	fPb : LREAL;
@@ -53,7 +54,16 @@ fbNormPaLower(
 	nRawInput := G_Inputs.nRawPaLower,
 	fMaxValue := 400.0, 			// [Bar]
 	fNormalizedInput => G_OPC.fPaLower
-);]]></ST>
+);
+
+fbFlow(
+	nRawInput := G_Inputs.nRawFlow,
+	bEnable := TRUE,
+	fOutput => G_OPC.fFlow,
+	fOutputBit => G_OPC.fFlowBit
+);
+
+]]></ST>
     </Implementation>
     <LineIds Name="P_Inputs">
       <LineId Id="17" Count="0" />
@@ -77,6 +87,14 @@ fbNormPaLower(
       <LineId Id="74" Count="1" />
       <LineId Id="77" Count="0" />
       <LineId Id="73" Count="0" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="103" Count="1" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="95" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

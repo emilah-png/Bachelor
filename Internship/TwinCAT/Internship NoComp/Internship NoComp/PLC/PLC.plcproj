@@ -56,6 +56,9 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="Inputs\Function Blocks\FB_FlowNormalization.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Inputs\Function Blocks\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>

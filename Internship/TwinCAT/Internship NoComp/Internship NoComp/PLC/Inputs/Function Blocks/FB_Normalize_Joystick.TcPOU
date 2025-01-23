@@ -4,6 +4,8 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Normalize_Joystick
 VAR_INPUT
 	nRawInput : INT;
+	fMaxSignal : LREAL;
+	fMinSignal : LREAL;
 END_VAR
 VAR_OUTPUT
 	fNormalizedInput : LREAL;
@@ -14,7 +16,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fNormalizedInput := (INT_TO_LREAL(nRawInput) - 32767.0/2.0) / (32767.0/2.0);
 
-fNormalizedInput := LIMIT(-1, fNormalizedInput, 1);]]></ST>
+fNormalizedInput := LIMIT(fMinSignal,fNormalizedInput,fMaxSignal);]]></ST>
     </Implementation>
     <LineIds Name="FB_Normalize_Joystick">
       <LineId Id="9" Count="0" />
