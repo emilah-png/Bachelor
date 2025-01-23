@@ -14,9 +14,12 @@ Pa_CBV_Cyl = Run{5}.extractTimetable;
 Pb = Run{9}.extractTimetable;
 Psupply = Run{12}.extractTimetable;
 Piston_stroke = Run{11}.extractTimetable;
+Ref_stroke = Run{19}.extractTimetable;
 Control_signal = Run{17}.extractTimetable;
 flow_bit = Run{2}.extractTimetable;
 error = Run{1}.extractTimetable;
+U_ff = Run{16}.extractTimetable;
+U_PID = Run{14}.extractTimetable;
 %% plot limits
 time_start = error.Time(1) ; % standard: error.Time(1), for spesific start: seconds(20)
 time_end =error.Time(end) ;    % standrad: error.Time(end), for spesific end:   seconds(50)
@@ -37,12 +40,12 @@ maxerror = max(error.Variables)+0.005;
 minerror = min(error.Variables)-0.005;
 %% ploting parameters
 %----------------------------------------
-singularplot = true;
-subplot_enable = true;
+singular_plot = true;
+subplot_enable = false;
 
 %subplot parameter
 subplot_xplot = 2; %max 2
-subplot_yplot = 3; %max 3
+subplot_yplot = 2; %max 3
 subplot_xsize = 1550/2 * subplot_xplot;
 subplot_ysize = 790;
 
@@ -53,6 +56,14 @@ signal_plasement   = 3;     plot_signal   = true;
 flow_plasement     = 4;     plot_flow     = true;
 error_plasement    = 5;     plot_error    = true;
 
+% control signal
+flip_U = false;
+
+%% backgrund calculations
+if flip_U
+    Control_signal.Variables = -Control_signal.Variables;
+    U_ff.Variables = -U_ff.Variables;
+end
 %% subplot logic
 number_of_subplots = 0;
     if (plot_pressure == true && pressure_plasement > number_of_subplots)
@@ -123,11 +134,13 @@ if subplot_enable == true
     subplot(subplot_yplot,subplot_xplot,stroke_plasement)
     plot(Piston_stroke.Time,Piston_stroke.Variables,"LineWidth",2,Color=[0.6 0.1 0])
     grid on
+    hold on
+    plot(Ref_stroke.Time,Ref_stroke.Variables,"LineWidth",2,Color=[0 0.5 0.5])
     % --------Plot parameters--------------------------
     title("Piston stroke plot")
     xlim([time_start time_end])
     ylim([minstroke maxstroke])
-    legend("Piston stroke")
+    legend("Piston stroke", "Reference stroke")
     %---------------------------------------------------
     end
     %% ploting control signal to valve
@@ -135,11 +148,14 @@ if subplot_enable == true
     subplot(subplot_yplot,subplot_xplot,signal_plasement)
     plot(Control_signal.Time,Control_signal.Variables,"LineWidth",2,Color=[1 0.5 0])
     grid on
+    hold on
+    plot(U_ff.Time,U_ff.Variables,"LineWidth",2,Color=[0.5 0.5 0.5])
+    plot(U_PID.Time,U_PID.Variables,"LineWidth",2,Color=[0 0.5 1])
     % --------Plot parameters--------------------------
     title("Control signal plot")
     xlim([time_start time_end])
     ylim([minsignal maxsignal])
-    legend("Control signal")
+    legend("Total control signal", "Control signal from FF", "Control signal from PID")
     %---------------------------------------------------
     end
     %% ploting flow
@@ -171,7 +187,7 @@ end
 
 %--------------------------------------------------------------------
 
-if singularplot == true
+if singular_plot == true
     %% pressure ploting
     if plot_pressure == true
     %ploting pressure plot
@@ -202,11 +218,13 @@ if singularplot == true
     figure()
     plot(Piston_stroke.Time,Piston_stroke.Variables,"LineWidth",2,Color=[0.6 0.1 0])
     grid on
+    hold on
+    plot(Ref_stroke.Time,Ref_stroke.Variables,"LineWidth",2,Color=[0 0.5 0.5])
     % --------Plot parameters--------------------------
     title("Piston stroke plot")
     xlim([time_start time_end])
     ylim([minstroke maxstroke])
-    legend("Piston stroke")
+    legend("Piston stroke", "Reference stroke")
     %---------------------------------------------------
     end
     %% ploting control signal to valve
@@ -214,11 +232,14 @@ if singularplot == true
     figure()
     plot(Control_signal.Time,Control_signal.Variables,"LineWidth",2,Color=[1 0.5 0])
     grid on
+    hold on
+    plot(U_ff.Time,U_ff.Variables,"LineWidth",2,Color=[0.5 0.5 0.5])
+    plot(U_PID.Time,U_PID.Variables,"LineWidth",2,Color=[0 0.5 1])
     % --------Plot parameters--------------------------
     title("Control signal plot")
     xlim([time_start time_end])
     ylim([minsignal maxsignal])
-    legend("Control signal")
+    legend("Total control signal", "Control signal from FF", "Control signal from PID")
     %---------------------------------------------------
     end
     %% ploting av flow
