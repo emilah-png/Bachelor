@@ -21,6 +21,10 @@
     <Compile Include="GVLs\G_OPC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="Input\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
