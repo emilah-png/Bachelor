@@ -6,20 +6,25 @@ VAR_GLOBAL
 	
 	fPs 					: ST_Filter; // [Bar]
 	
-	// MAIN Valve
+	// MAIN Values
 	fMainPa 				: ST_Filter; // [Bar]
 	fMainPb					: ST_Filter; // [Bar]
-	fMainPs					: ST_Filter; // [Bar]
 	fMainPaLower			: ST_Filter; // [Bar]
 	fMainPistonPosition 	: ST_Filter; // [m]
 	
-	// JIB Valve
+	// JIB Values
 	fJibPa 					: ST_Filter; // [Bar]
 	fJibPb					: ST_Filter; // [Bar]
-	fJibPs					: ST_Filter; // [Bar]
 	fJibPaLower				: ST_Filter; // [Bar]
 	fJibPbLower				: ST_Filter; // [Bar]
 	fJibPistonPosition		: ST_Filter; // [m]
+	
+	// WINCH Values
+	fWinchPa				: ST_Filter; // [Bar]
+	fWinchPb				: ST_Filter; // [Bar]
+	fWinchEncoderA			: ST_Filter;
+	fWinchEncoderB			: ST_Filter;
+	
 	
 	// Joystick Signals
 	fJoystickWinch			: LREAL; // [-1, 1]

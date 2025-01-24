@@ -19,6 +19,12 @@ VAR
 	fbNormJibPbLower 			: FB_Normalize;
 	fbNormJibPistonPosition 	: FB_PositionInputScaling;
 
+	// Jib
+	fbNormWinchPa 				: FB_Normalize;
+	fbNormWinchPb 				: FB_Normalize;
+	fbNormWinchEncoderA			: FB_Normalize;
+	fbNormWinchEncoderB			: FB_Normalize;
+
 	// Joystick
 	fbJoystickWinch 			: FB_JoystickInputScaling;
 	fbJoystickRotation 			: FB_JoystickInputScaling;
@@ -89,6 +95,19 @@ fbNormJibPbLower(
 fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
 	fOutput => G_OPC.fJibPistonPosition.fSignal
+);
+
+// Winch
+fbNormWinchPa(
+	nRawInput := G_Inputs.nRawMainPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPa.fSignal
+);
+
+fbNormWinchPb(
+	nRawInput := G_Inputs.nRawMainPb,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPb.fSignal
 );
 
 // Joystick

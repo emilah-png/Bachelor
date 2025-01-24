@@ -22,6 +22,12 @@ VAR_GLOBAL
 	nRawJibPbLower			AT %I* : INT;
 	nRawJibPistonPosition	AT %I* : INT;
 	
+	// Raw Values WINCH
+	nRawWinchPa				AT %I* : INT;
+	nRawWinchPb				AT %I* : INT;
+	nRawWinchEncoderA		AT %I* : INT;
+	nRawWinchEncoderB		AT %I* : INT;
+	
 	// Joystick Signals
 	nRawJoystickWinch		AT %I* : INT;
 	nRawJoystickRotation	AT %I* : INT;
