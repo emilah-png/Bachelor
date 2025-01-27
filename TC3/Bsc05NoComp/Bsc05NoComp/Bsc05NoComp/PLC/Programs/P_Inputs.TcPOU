@@ -3,57 +3,145 @@
   <POU Name="P_Inputs" Id="{94ed4cce-6a16-4a20-9eff-b4a1e6338584}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Inputs
 VAR
-	fbNormPa :  FB_Normalize;
-	fbNormPb :  FB_Normalize;
-	fbNormPs :  FB_Normalize;
-	fbNormPaLower : FB_Normalize;
+	// Supply
+	fbNormPs 					: FB_Normalize;
 	
-	fbNormPistonPosition : FB_PositionInputScaling;
-	fbJoystick : FB_JoystickInputScaling;
+	// Main
+	fbNormMainPa 				: FB_Normalize;
+	fbNormMainPb 				: FB_Normalize;
+	fbNormMainPaLower 			: FB_Normalize;
+	fbNormMainPistonPosition 	: FB_PositionInputScaling;
+	
+	// Jib
+	fbNormJibPa 				: FB_Normalize;
+	fbNormJibPb 				: FB_Normalize;
+	fbNormJibPaLower 			: FB_Normalize;
+	fbNormJibPbLower 			: FB_Normalize;
+	fbNormJibPistonPosition 	: FB_PositionInputScaling;
 
-	fPa : LREAL;
-	fPb : LREAL;
-	fPs : LREAL;
-	fPaLower : LREAL;
+	// Jib
+	fbNormWinchPa 				: FB_Normalize;
+	fbNormWinchPb 				: FB_Normalize;
+	fbNormWinchEncoderA			: FB_Normalize;
+	fbNormWinchEncoderB			: FB_Normalize;
+
+	// Joystick
+	fbJoystickWinch 			: FB_JoystickInputScaling;
+	fbJoystickRotation 			: FB_JoystickInputScaling;
+	fbJoystickMain 				: FB_JoystickInputScaling;
+	fbJoystickJib 				: FB_JoystickInputScaling;
+	fbJoystickExtrude 			: FB_JoystickInputScaling;
 	
-	fPistonPosition : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbNormPa(
+      <ST><![CDATA[
+// Supply
+fbNormPs(
+	nRawInput := G_Inputs.nRawSupplyPs,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPs.fSignal
+);
+
+// Main
+fbNormMainPa(
 	nRawInput := G_Inputs.nRawMainPa,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fPa
+	fNormalizedInput => G_OPC.fMainPa.fSignal
 );
 
-fbNormPb(
-	nRawInput := G_Inputs.nRawPb,
+fbNormMainPb(
+	nRawInput := G_Inputs.nRawMainPb,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fPb
+	fNormalizedInput => G_OPC.fMainPb.fSignal
 );
 
-fbNormPs(
-	nRawInput := G_Inputs.nRawPs,
+fbNormMainPaLower(
+	nRawInput := G_Inputs.nRawMainPaLower,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fPs
+	fNormalizedInput => G_OPC.fMainPaLower.fSignal
 );
 
-fbNormPistonPosition(
-	nRawInput := G_Inputs.nRawPistonPosition,
-	fOutput => G_OPC.fPistonPosition
+fbNormMainPistonPosition(
+	nRawInput := G_Inputs.nRawMainPistonPosition,
+	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	
-fbJoystick(
-	nRawInput := G_Inputs.nRawJoystick,
-	bEnable := (G_Mode.bRunning AND G_Mode.bManual),
-	fOutput => G_OPC.fJoystick
+// Jib
+fbNormJibPa(
+	nRawInput := G_Inputs.nRawJibPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPa.fSignal
 );
 
-fbNormPaLower(
-	nRawInput := G_Inputs.nRawPaLower,
+fbNormJibPb(
+	nRawInput := G_Inputs.nRawJibPb,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fPaLower
-);]]></ST>
+	fNormalizedInput => G_OPC.fJibPb.fSignal
+);
+
+fbNormJibPaLower(
+	nRawInput := G_Inputs.nRawJibPaLower,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPaLower.fSignal
+);
+
+fbNormJibPbLower(
+	nRawInput := G_Inputs.nRawJibPbLower,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPbLower.fSignal
+);
+
+fbNormJibPistonPosition(
+	nRawInput := G_Inputs.nRawJibPistonPosition,
+	fOutput => G_OPC.fJibPistonPosition.fSignal
+);
+
+// Winch
+fbNormWinchPa(
+	nRawInput := G_Inputs.nRawMainPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPa.fSignal
+);
+
+fbNormWinchPb(
+	nRawInput := G_Inputs.nRawMainPb,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPb.fSignal
+);
+
+// Joystick
+fbJoystickWinch(
+	nRawInput := G_Inputs.nRawJoystickWinch,
+	bEnable := TRUE,
+	fOutput => G_OPC.fJoystickWinch
+);
+
+fbJoystickRotation(
+	nRawInput := G_Inputs.nRawJoystickRotation,
+	bEnable := TRUE,
+	fOutput => G_OPC.fJoystickRotation
+);
+
+fbJoystickMain(
+	nRawInput := G_Inputs.nRawJoystickMain,
+	bEnable := TRUE,
+	fOutput => G_OPC.fJoystickMain
+);
+
+fbJoystickJib(
+	nRawInput := G_Inputs.nRawJoystickJib,
+	bEnable := TRUE,
+	fOutput => G_OPC.fJoystickJib
+);
+
+fbJoystickExtrude(
+	nRawInput := G_Inputs.nRawJoystickExtrude,
+	bEnable := TRUE,
+	fOutput => G_OPC.fJoystickExtrude
+);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
