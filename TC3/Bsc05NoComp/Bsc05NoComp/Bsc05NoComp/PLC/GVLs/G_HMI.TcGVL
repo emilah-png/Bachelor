@@ -7,6 +7,8 @@ VAR_GLOBAL
 	Action2:BOOL;
 	Action3:BOOL;
 	Action4:BOOL;
+	bstepp_button:BOOL;
+	nCounter : INT := 2;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

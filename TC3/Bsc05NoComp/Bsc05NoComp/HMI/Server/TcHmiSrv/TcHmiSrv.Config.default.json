@@ -703,6 +703,76 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.HMI.Action1": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::Action1",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.Action2": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::Action2",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.Action3": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::Action3",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.Action4": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::Action4",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.bstepp_button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::bstepp_button",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.bsteppl_button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::bsteppl_button",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.nCounter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::nCounter",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.MAIN.bActiv": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3615,6 +3685,14 @@
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
                 "ADS.PLC1.G_Inputs.bEmergencySwitch": 3,
+                "ADS.PLC1.HMI.Action1": 3,
+                "ADS.PLC1.HMI.Action2": 3,
+                "ADS.PLC1.HMI.Action3": 3,
+                "ADS.PLC1.HMI.Action4": 3,
+                "ADS.PLC1.HMI.bstepp_button": 3,
+                "ADS.PLC1.HMI.bsteppl_button": 3,
+                "ADS.PLC1.HMI.iCounter": 3,
+                "ADS.PLC1.HMI.nCounter": 3,
                 "ADS.PLC1.MAIN.bActiv": 3,
                 "ADS.PLC1.MAIN.nCounter": 3,
                 "ChangeUserSettings": 3,

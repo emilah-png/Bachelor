@@ -10,14 +10,18 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{09262860-B921-E302-CB76-069BDF42155B}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{6D875494-639F-501D-AB7E-A505917DA26D}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>G_Output.bEnableRelay</Name>
+							<Name>G_Output.bEnableValveOne</Name>
 							<Comment><![CDATA[ Digital Outputs]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>G_Output.bEnableValveTwo</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -38,16 +42,17 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.nRawSupplyPs</Name>
+							<Comment><![CDATA[ Raw Values SUPPLY]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawMainPa</Name>
 							<Comment><![CDATA[ Raw Values MAIN]]></Comment>
 							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawMainPb</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawMainPs</Name>
 							<Type>INT</Type>
 						</Var>
 						<Var>
@@ -68,10 +73,6 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>G_Inputs.nRawJibPs</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
 							<Name>G_Inputs.nRawJibPaLower</Name>
 							<Type>INT</Type>
 						</Var>
@@ -81,6 +82,23 @@
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJibPistonPosition</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawWinchPa</Name>
+							<Comment><![CDATA[ Raw Values WINCH]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawWinchPb</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawWinchEncoderA</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawWinchEncoderB</Name>
 							<Type>INT</Type>
 						</Var>
 						<Var>

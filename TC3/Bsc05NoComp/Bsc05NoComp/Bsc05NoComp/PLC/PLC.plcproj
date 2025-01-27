@@ -32,9 +32,16 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\G_OPC.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="HMI\FB_Button.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Input\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
@@ -65,6 +72,9 @@
     <Compile Include="Programs\P_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_HMI.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +95,7 @@
     <Folder Include="GVLs" />
     <Folder Include="Input" />
     <Folder Include="Filtering" />
+    <Folder Include="HMI" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="VISUs" />
