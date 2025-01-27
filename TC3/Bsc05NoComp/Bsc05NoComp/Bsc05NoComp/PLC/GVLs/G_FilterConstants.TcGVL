@@ -9,6 +9,11 @@ VAR_GLOBAL
 	fPressureFilterDen : LREAL := -0.9969;
 	fPressureFilterInit : LREAL := 0.0;
 	
+	fPosFilterNum :LREAL := 0.003137;
+	fPosFilterDenz : LREAL := 1.0;
+	fPosFilterDen : LREAL := -0.9969;
+	fPosFilterInit : LREAL := 0.0;
+	
 	fSignalFilterNum : LREAL := 0.09516;
 	fSignalFilterDenz : LREAL := 1.0;
 	fSignalFilterDen : LREAL := -0.9048;
