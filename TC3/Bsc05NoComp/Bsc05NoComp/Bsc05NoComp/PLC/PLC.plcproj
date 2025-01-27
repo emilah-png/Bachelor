@@ -18,6 +18,9 @@
     <LibraryReferences>{7ecf4aae-9e54-47eb-a857-ead4757fc6b7}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Control\FB_FeedForward.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +88,7 @@
     <Folder Include="GVLs" />
     <Folder Include="Input" />
     <Folder Include="Filtering" />
+    <Folder Include="Control" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="VISUs" />

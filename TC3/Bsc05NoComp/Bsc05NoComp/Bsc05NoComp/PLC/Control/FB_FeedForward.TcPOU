@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_FeedForward" Id="{5f187efa-a862-40d3-8f44-04c8cf0d06e0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward
+VAR_INPUT
+	fPs 			: LREAL;
+	fPa 			: LREAL;
+	fPb 			: LREAL;
+	fXDot			: LREAL;
+END_VAR
+VAR_OUTPUT
+	fUFF 			: LREAL;
+END_VAR
+VAR
+	fPhi 			: LREAL := 0.713; 								// Relation between Areas
+	fArea 			: LREAL := 33.1/(100.0*100.0); 					// Area of Piston Side
+	fBandWidth		: LREAL := 0.0; 								// Band Width
+	fSpoolTravel 	: LREAL := 7.0; 								// Maximum Spool Travel
+	fSlopeChar		: LREAL := (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
+	fDeltaP_Norm	: LREAL := 7.0 * 100000.0; 						// Pressure Drop with Compansator
+	
+	fFlow			: LREAL; 										// Wanted Flow
+	fDeltaP			: LREAL; 										// Pressure Drop
+	fDeltaP_Ref		: LREAL; 										// Referance Pressure Drop
+	fFlowRef		: LREAL; 										// Refereance Flow
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fXDot > 0.0 THEN
+	
+	fFlow := fXDot * fArea;
+	fDeltaP := (fPs - fPa) * 100000.0;
+	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
+	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
+	fUFF :=	(fFlowRef * fSlopeChar + fBandWidth) / fSpoolTravel;
+	
+ELSIF fXDot < 0.0 THEN
+	
+	fFlow := fXDot * fArea;
+	fDeltaP := (fPs - fPb) * 100000.0;
+	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
+	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
+	fUFF :=	(fFlowRef * fSlopeChar - fBandWidth) / fSpoolTravel;
+	
+ELSE
+	
+	fUFF := 0.0;		
+
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
