@@ -1,4 +1,4 @@
-clc; clear; close all;
+clc; 
 %% load data
 load DataForFriction_170125.mat
 
@@ -158,3 +158,9 @@ ylabel("Force [N]")
 xlabel("Stroke [m]")
 xlim([0 0.5]);
 
+Pa = out.pa * 1e5;
+Pb = out.pb * 1e5;
+x = out.x;
+
+F_tc = Pa*AC_1-Pb*AAC_1;
+plot(x,F_tc)
