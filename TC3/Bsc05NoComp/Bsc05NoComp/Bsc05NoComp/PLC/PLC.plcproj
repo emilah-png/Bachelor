@@ -18,10 +18,21 @@
     <LibraryReferences>{7ecf4aae-9e54-47eb-a857-ead4757fc6b7}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GVLs\G_OPC.TcPOU">
+    <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\HMI.TcGVL">
+    <Compile Include="Filtering\ST_Filter.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\G_Enables.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_FilterConstants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_OPC.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -51,7 +62,13 @@
     <Compile Include="Programs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Output.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\Derivator.TcPOU">
@@ -67,6 +84,7 @@
   <ItemGroup>
     <Folder Include="GVLs" />
     <Folder Include="Input" />
+    <Folder Include="Filtering" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="VISUs" />

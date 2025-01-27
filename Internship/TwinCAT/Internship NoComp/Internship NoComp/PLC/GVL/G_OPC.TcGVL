@@ -19,6 +19,8 @@ VAR_GLOBAL
 	
 	fPistonPosition : LREAL;
 	fJoystick : LREAL;
+	fFlow : LREAL;
+	fFlowBit : LREAL;
 	
 	fXRef : LREAL;
 	fXDotRef : LREAL;

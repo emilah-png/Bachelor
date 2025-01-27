@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="FB_FlowTransform" Id="{cf40c1a8-0fc0-4809-bdf6-f129a497ed41}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlowTransform
+VAR_INPUT
+	bEnable : BOOL;
+	nRawInput : INT;
+END_VAR
+VAR_OUTPUT
+	fOutput : LREAL;
+	fOutputBit : LREAL;
+END_VAR
+VAR
+	fRawInput : LREAL;
+	fTempInput : LREAL;
+	fTempOutput : LREAL;
+	fMaxInputValue			: LREAL := 32767.0;
+	fNeutralInputValue  	: LREAL := 15250.0;
+	fMinInputValue 			: LREAL := 0.0;
+	
+	fNeutralDeadband		: LREAL := 25.0;
+	
+	fMaxOutputValue  		: LREAL := 150.0;
+	fNeutralOutputValue  	: LREAL := 0.0;
+	fMinOutputValue  		: LREAL := -150.0;
+	
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fRawInput := INT_TO_LREAL(nRawInput);
+
+fTempInput := fRawInput - fNeutralInputValue;
+
+IF fTempInput > fNeutralDeadband THEN
+	fTempOutput := fMaxOutputValue * fTempInput/(fMaxInputValue - fNeutralInputValue);
+ELSIF fTempInput < -fNeutralDeadband THEN	
+	fTempOutput := fMinOutputValue * (fTempInput)/(fNeutralInputValue - fMinInputValue);
+ELSE
+	fTempOutput := 0.0;
+END_IF
+
+IF NOT(bEnable) THEN
+	fOutput := 0.0;
+ELSE
+	fOutput := LIMIT(fMinOutputValue, fTempOutput, fMaxOutputValue);
+END_IF
+
+fOutputBit := INT_TO_LREAL(nRawInput);
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_FlowTransform">
+      <LineId Id="48" Count="16" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

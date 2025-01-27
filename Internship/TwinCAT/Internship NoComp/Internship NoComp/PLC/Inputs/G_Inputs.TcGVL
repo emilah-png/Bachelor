@@ -18,6 +18,7 @@ VAR_GLOBAL
 	// Raw Position Values
 	nRawPistonPosition 	AT %I*	: INT;
 	nRawJoystick		AT %I*	: INT;
+	nRawFlow			AT %I*	: INT; // [-150, 150]
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

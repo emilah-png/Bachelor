@@ -51,7 +51,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{233260F1-632E-4569-8981-E931D1401C8D}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{84AEFADF-F8A0-4839-27E0-49ADDC39DFCE}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{B00A7CD2-BCB9-E4CA-3A9A-81F20EC864A3}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -97,6 +97,11 @@
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJoystick</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.nRawFlow</Name>
+							<Comment><![CDATA[ [-150, 150]]]></Comment>
 							<Type>INT</Type>
 						</Var>
 					</Vars>
@@ -1337,6 +1342,9 @@ Bit1: Value smaller than Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawPaLower" VarB="AI Standard Channel 5^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawPb" VarB="AI Standard Channel 6^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawPs" VarB="AI Standard Channel 1^Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 4 (EtherCAT)^RIO (EK1100)^AI3 (EL3174)">
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawFlow" VarB="AI Standard Channel 1^Value"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 4 (EtherCAT)^RIO (EK1100)^AO (EL4104)">
 				<Link VarA="PlcTask Outputs^G_Output.nValveOutput" VarB="AO Output Channel 1^Analog output"/>
