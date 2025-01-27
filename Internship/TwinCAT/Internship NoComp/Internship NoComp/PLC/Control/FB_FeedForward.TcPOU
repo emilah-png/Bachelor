@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
   <POU Name="FB_FeedForward" Id="{c7c6c1c3-721c-4ea2-9006-d66030d86044}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward
 VAR_INPUT
@@ -49,24 +49,24 @@ IF fXDotRef >= 0.0 THEN // Upwards
 	
 	fQRef := fAp * fXDotRef * 60000;
 	fDeltaP := fPs - fPa;
-	fKRef := fQRef / SQRT(fDeltaP);
+	fKRef := fQRef / SQRT(ABS(fDeltaP));
 	
 	IF fKRef < 0.0 THEN
 		fUTemp := 0.0;
 	ELSIF fKRef < fK02Up THEN
 		fUTemp := -fKRef/fK02Up * (0.2 - fDeadUp);
 	ELSIF fKRef < fK04Up THEN
-		fUTemp := -(0.2 - fDeadUp) -(fKRef-fK02Up)/(fK04Up-fK02Up) * (0.4-fDeadUp-0.2);
+		fUTemp := -(0.2 - fDeadUp) -(fKRef - fK02Up) / (fK04Up - fK02Up) * (0.4-fDeadUp-0.2);
 	ELSIF fKRef < fK06Up THEN
-		fUTemp := -(0.4 - fDeadUp) -(fKRef-fK04Up)/(fK06Up-fK04Up) * (0.6-fDeadUp-0.4);
+		fUTemp := -(0.4 - fDeadUp - 0.2) - (0.2 - fDeadUp) - (fKRef - fK04Up) / (fK06Up - fK04Up) * (0.6-fDeadUp-0.4);
 	ELSIF fKRef < fK07Up THEN
-		fUTemp := -(0.6 - fDeadUp) -(fKRef-fK06Up)/(fK07Up-fK06Up) * (0.7-fDeadUp-0.6);
+		fUTemp := -(0.6 - fDeadUp - 0.4) - (0.4 - fDeadUp - 0.2) - (0.2 - fDeadUp) - (fKRef - fK06Up) / (fK07Up - fK06Up) * (0.7 - fDeadUp - 0.6);
 	ELSIF fKRef < fK08Up THEN
-		fUTemp := -(0.7 - fDeadUp) -(fKRef-fK07Up)/(fK08Up-fK07Up) * (0.8-fDeadUp-0.7);
+		fUTemp := -(0.7 - fDeadUp - 0.6) - (0.6 - fDeadUp - 0.4) - (0.4 - fDeadUp - 0.2 ) - (0.2 - fDeadUp) - (fKRef - fK07Up) / (fK08Up - fK07Up) * (0.8-fDeadUp-0.7);
 	ELSIF fKRef < fK1Up THEN
-		fUTemp := -(0.8 - fDeadUp) -(fKRef-fK08Up)/(fK1Up-fK08Up) * (1.0-fDeadUp-0.8);
+		fUTemp := -(0.8 - fDeadUp - 0.7) - (0.7 - fDeadUp - 0.6) - (0.6 - fDeadUp - 0.4) - (0.4 - fDeadUp - 0.2 ) - (0.2 - fDeadUp) - (fKRef - fK08Up) / (fK1Up - fK08Up) * (1.0-fDeadUp-0.8);
 	ELSE
-		fUTemp := -(1-fDeadUp);
+		fUTemp := -(1 - fDeadUp);
 	END_IF
 	
 //	fUTemp := -((fQRef/fQMaxUp) * (fUMax-fDeadUp));
@@ -82,17 +82,17 @@ ELSIF fXDotRef < 0.0 THEN // Downwards
 	ELSIF fKRef > fK02Down THEN
 		fUTemp := fKRef/fK02Down * (0.2-fDeadDown);
 	ELSIF fKRef > fK04Down THEN
-		fUTemp := (0.2 - fDeadDown) + (fKRef-fK02Down)/(fK04Down-fK02Down) * (0.4 - fDeadDown - 0.2);
+		fUTemp := (0.2 - fDeadDown) + (fKRef - fK02Down) / (fK04Down - fK02Down) * (0.4 - fDeadDown - 0.2);
 	ELSIF fKRef > fK06Down THEN
-		fUTemp := (0.4 - fDeadDown) + (fKRef-fK04Down)/(fK06Down-fK04Down) * (0.6 - fDeadDown - 0.4);
+		fUTemp := (0.2 - fDeadDown) + (0.4 - fDeadDown) + (fKRef - fK04Down) / (fK06Down - fK04Down) * (0.6 - fDeadDown - 0.4);
 	ELSIF fKRef > fK07Down THEN
-		fUTemp := (0.6 - fDeadDown) + (fKRef-fK06Down)/(fK07Down-fK06Down) * (0.7 - fDeadDown - 0.6);
+		fUTemp := (0.2 - fDeadDown) + (0.4 - fDeadDown) + (0.6 - fDeadDown) + (fKRef - fK06Down) / (fK07Down - fK06Down) * (0.7 - fDeadDown - 0.6);
 	ELSIF fKRef > fK08Down THEN
-		fUTemp := (0.7 - fDeadDown) + (fKRef-fK07Down)/(fK08Down-fK07Down) * (0.8 - fDeadDown - 0.7);
+		fUTemp := (0.2 - fDeadDown) + (0.4 - fDeadDown) + (0.6 - fDeadDown) + (0.7 - fDeadDown) + (fKRef - fK07Down) / (fK08Down - fK07Down) * (0.8 - fDeadDown - 0.7);
 	ELSIF fKRef > fK1Down THEN
-		fUTemp := (0.8 - fDeadDown) + (fKRef-fK08Down)/(fK1Down-fK08Down) * (1.0 - fDeadDown - 0.8);
+		fUTemp := (0.2 - fDeadDown) + (0.4 - fDeadDown) + (0.6 - fDeadDown) + (0.7 - fDeadDown) + (0.8 - fDeadDown) + (fKRef - fK08Down) / (fK1Down - fK08Down) * (1.0 - fDeadDown - 0.8);
 	ELSE
-		fUTemp := (1.0-fDeadDown);
+		fUTemp := (1.0 - fDeadDown);
 	END_IF
 	
 //	fUTemp := -((fQRef/fQMaxDown) * (fUMax-fDeadDown)); // FDeadDown needs to be positive
