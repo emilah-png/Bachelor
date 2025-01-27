@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Filtering" Id="{f6211b6b-64c8-4b7f-ae9b-1aeeb065cdfa}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Filtering
+VAR
+	//fbControlBlock : c_FB_ControlBlockWithMonito;
+	fbFilterPa : FB_Filtering;
+	fbFilterPb : FB_Filtering;
+	fbFilterPs : FB_Filtering;
+	fbFilterU : FB_Filtering;
+	fbFilterPaLower : FB_Filtering;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF G_Enables.bTest THEN
+
+G_OPC.fMainPa.fSignal := 1.0;
+fbFilterPa(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPa.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPa.fFilteredSignal
+);
+
+ELSE
+	
+	G_OPC.fMainPa.fSignal := 0.0;
+	fbFilterPa(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPa.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPa.fFilteredSignal);
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
