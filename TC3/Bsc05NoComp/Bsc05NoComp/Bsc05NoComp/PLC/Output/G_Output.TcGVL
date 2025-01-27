@@ -4,8 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	// Digital Outputs
-	bEnableValveOne			AT %Q* : BOOL;
-	bEnableValveTwo			AT %Q* : BOOL;
+	bEnableRelay			AT %Q* : BOOL;
 	
 	// Analog Outputs
 	nMainValveOutput 		AT %Q* : INT;
