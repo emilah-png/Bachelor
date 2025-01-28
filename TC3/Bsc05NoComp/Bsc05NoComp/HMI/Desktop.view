@@ -90,7 +90,7 @@
 }
 </script>
 </div>
-<div id="TcHmiToggleSwitch_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="512" data-tchmi-left-unit="px" data-tchmi-text="u" data-tchmi-top="379" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="TcHmiToggleSwitch_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="333" data-tchmi-left-unit="px" data-tchmi-text="U" data-tchmi-top="171" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-toggle-state="%s%ADS.PLC1.G_Enables.bEnableU%/s%">
 
 
 </div>
@@ -211,7 +211,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiEllipse_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="147" data-tchmi-left-unit="px" data-tchmi-top="158" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px">
+<div id="TcHmiEllipse_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="141" data-tchmi-left-unit="px" data-tchmi-top="203" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px">
 
 
 
@@ -753,7 +753,7 @@
   "color": "rgba(83, 82, 82, 1)"
 }
 </script>
-<div id="TcHmiDateTimeDisplay_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDateTimeDisplay" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="224" data-tchmi-left-unit="px" data-tchmi-top="25" data-tchmi-top-unit="px" data-tchmi-width="128" data-tchmi-width-unit="px">
+<div id="Time" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDateTimeDisplay" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="224" data-tchmi-left-unit="px" data-tchmi-top="25" data-tchmi-top-unit="px" data-tchmi-width="128" data-tchmi-width-unit="px" data-tchmi-time-display-layout="Time">
 
 
 
@@ -762,11 +762,15 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
+
+
+
+
 </div>
-<div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="92" data-tchmi-left-unit="px" data-tchmi-text="Clock" data-tchmi-top="122" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center">
+<div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="89" data-tchmi-left-unit="px" data-tchmi-text="Clock" data-tchmi-top="171" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center">
 </div>
-<div id="TcHmiToggleSwitch_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="333" data-tchmi-left-unit="px" data-tchmi-text="Feed forward" data-tchmi-top="343" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="TcHmiToggleSwitch_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="333" data-tchmi-left-unit="px" data-tchmi-text="Feed forward" data-tchmi-top="258" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
 </div>
-<div id="TcHmiToggleSwitch_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="333" data-tchmi-left-unit="px" data-tchmi-text="PID" data-tchmi-top="409" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
+<div id="TcHmiToggleSwitch_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="333" data-tchmi-left-unit="px" data-tchmi-text="PID" data-tchmi-top="343" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px">
 </div>
 </div>

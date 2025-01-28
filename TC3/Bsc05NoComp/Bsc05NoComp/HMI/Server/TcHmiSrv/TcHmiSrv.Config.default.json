@@ -686,6 +686,56 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bEnableFF": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableFF",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnableJib": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableJib",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnableMain": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableMain",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnablePID": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnablePID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnableU": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableU",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Inputs.bEmergencySwitch": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3684,6 +3734,11 @@
                 "ADS.AdsSyncReadStateReq": 3,
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
+                "ADS.PLC1.G_Enables.bEnableFF": 3,
+                "ADS.PLC1.G_Enables.bEnableJib": 3,
+                "ADS.PLC1.G_Enables.bEnableMain": 3,
+                "ADS.PLC1.G_Enables.bEnablePID": 3,
+                "ADS.PLC1.G_Enables.bEnableU": 3,
                 "ADS.PLC1.G_Inputs.bEmergencySwitch": 3,
                 "ADS.PLC1.HMI.Action1": 3,
                 "ADS.PLC1.HMI.Action2": 3,
