@@ -3,6 +3,7 @@
   <POU Name="P_FeedForward" Id="{27679076-0387-4864-af79-9c330260a68e}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_FeedForward
 VAR
+	
 	fbFF : FB_FeedForward;
 	
 END_VAR
