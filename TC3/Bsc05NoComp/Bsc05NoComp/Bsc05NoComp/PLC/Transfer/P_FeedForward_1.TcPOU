@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_FeedForward_1" Id="{06a25b85-bf54-4ee1-9b39-ca8728e6b622}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_FeedForward_1
+VAR
+	
+	fbFF : FB_FeedForward;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

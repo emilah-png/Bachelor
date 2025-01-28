@@ -94,6 +94,21 @@
     <Compile Include="Programs\P_RunClock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transfer\FB_Clock_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transfer\FB_FeedForward_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transfer\FB_MotionRef_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transfer\P_FeedForward_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transfer\P_RunClock_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="XML\Derivator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -110,6 +125,7 @@
     <Folder Include="Filtering" />
     <Folder Include="Control" />
     <Folder Include="Motion" />
+    <Folder Include="Transfer" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="VISUs" />
