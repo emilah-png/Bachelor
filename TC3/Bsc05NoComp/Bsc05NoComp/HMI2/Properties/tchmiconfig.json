@@ -1,0 +1,275 @@
+{
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.14.2.110/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
+  "basePath": "./Beckhoff.TwinCAT.HMI.Framework",
+  "scaleMode": "None",
+  "startupView": "Desktop.view",
+  "loginPage": "",
+  "splash": {
+    "versionSource": "Framework"
+  },
+  "projectVersion": "1.0.0.0",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 20000,
+    "websocketSystemTimeout": 60000,
+    "websocketSubscriptionMode": "Change"
+  },
+  "activeTheme": "Base",
+  "themes": {
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Base-DarkStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base-Dark/Base-Dark.theme",
+          "description": "",
+          "type": "ThemedValues"
+        }
+      ],
+      "replacesThemeForControls": [],
+      "replacesThemeForPackageComponents": []
+    },
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/BaseStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": [],
+      "replacesThemeForPackageComponents": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    }
+  ],
+  "userControls": [],
+  "content": [],
+  "views": [
+    {
+      "url": "Desktop.view",
+      "preload": false,
+      "keepAlive": false,
+      "preloadBindings": false
+    }
+  ],
+  "userFunctions": [],
+  "symbols": {
+    "internal": {},
+    "themedResources": {}
+  },
+  "trigger": [],
+  "actionTemplates": [
+    {
+      "displayname": "ToogleBool",
+      "name": "ToogleBool",
+      "description": "The Action template toggles a boolean value",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "Condition",
+          "active": true,
+          "parts": [
+            {
+              "if": [
+                {
+                  "compare1": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "BoolToToggle"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "False"
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "then": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "BoolToToggle",
+                  "value": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "True"
+                  },
+                  "asyncWait": true
+                }
+              ]
+            },
+            {
+              "else": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "BoolToToggle",
+                  "value": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "False"
+                  },
+                  "asyncWait": true
+                }
+              ]
+            }
+          ],
+          "asyncWait": true
+        }
+      ],
+      "parameters": [
+        {
+          "name": "BoolToToggle",
+          "type": "tchmi:general#/definitions/Boolean",
+          "description": "This is the input parameter"
+        }
+      ]
+    },
+    {
+      "displayname": "lys",
+      "name": "lys",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "Condition",
+          "active": true,
+          "parts": [
+            {
+              "if": [
+                {
+                  "compare1": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "BoolToToggle"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/String",
+                    "value": "True"
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "then": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%ctrl%TcHmiEllipse_1::BackgroundColor%/ctrl%",
+                  "value": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/Color",
+                    "value": {
+                      "color": "rgba(0, 255, 24, 1)"
+                    }
+                  },
+                  "asyncWait": true
+                }
+              ]
+            },
+            {
+              "else": [
+                {
+                  "objectType": "WriteToSymbol",
+                  "active": true,
+                  "symbolExpression": "%ctrl%TcHmiEllipse_1::BackgroundColor%/ctrl%",
+                  "value": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/Color",
+                    "value": {
+                      "color": "rgba(255, 0, 0, 1)"
+                    }
+                  },
+                  "asyncWait": true
+                }
+              ]
+            }
+          ],
+          "asyncWait": true
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Lyser",
+          "type": "tchmi:general#/definitions/Boolean",
+          "description": "Lyset skal blinke grønt når BoolToToggle == True"
+        }
+      ]
+    }
+  ],
+  "languages": {
+    "de": "Localization/de.localization",
+    "en": "Localization/en.localization"
+  },
+  "languageFallback": "",
+  "disableLoadingOptimization": false,
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 800,
+      "defaultHeight": 600
+    }
+  },
+  "binding": {
+    "symbolError": "Ignore"
+  },
+  "packages": [
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Framework",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Functions",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    }
+  ],
+  "keyboardLayouts": [
+    {
+      "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Numpad (plusminus).keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/US - compact.keyboard.json"
+    }
+  ],
+  "systemKeyboard": {
+    "providerName": "",
+    "autoOpen": false,
+    "projectKeyboardMapping": {
+      "de": {
+        "text": "KeyboardLayouts/German - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus).keyboard.json",
+        "numeric": ""
+      },
+      "en": {
+        "text": "KeyboardLayouts/US - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus).keyboard.json",
+        "numeric": ""
+      }
+    }
+  },
+  "systemPopups": {
+    "providerName": "Beckhoff.TcHmiPopups"
+  }
+}
