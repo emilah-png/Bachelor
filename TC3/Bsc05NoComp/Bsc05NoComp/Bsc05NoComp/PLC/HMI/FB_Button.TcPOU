@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Button" Id="{6d28b3f1-4f56-4f8c-bdc4-881946647258}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Button
+VAR_INPUT
+	bButtonPress : BOOL;
+END_VAR
+VAR_OUTPUT
+	nCounter: INT;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT(bButtonPress) THEN
+	nCounter := 2;
+ELSIF
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

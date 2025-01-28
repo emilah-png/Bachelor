@@ -5,12 +5,12 @@
   "EditorSettings": [
     {
       "Path": "Desktop.view",
-      "DesignAreaSplitSize": "Splitted",
-      "CodeAreaSplitSize": "Splitted",
+      "DesignAreaSplitSize": "Full",
+      "CodeAreaSplitSize": "Minimized",
       "Orientation": "Vertical",
       "DesignAreaPosition": "Top",
       "CodeAreaPosition": "Bottom",
-      "SplitPercentage": 0.97092288242730718
+      "SplitPercentage": 1.134453781512605
     }
   ]
 }</TcHmiEditor_SplitAreaStates>
@@ -85,5 +85,88 @@
   300.0,
   300.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_ContextTree>
+    <TcHmiEditor_PermissionsWindowDimension>268;110;1000;700</TcHmiEditor_PermissionsWindowDimension>
+    <RecentColors>[
+  {
+    "counter": 0,
+    "color": "#FFFFFFFF"
+  },
+  {
+    "counter": 0,
+    "color": "#FF535252"
+  },
+  {
+    "counter": 0,
+    "color": "#FF6B6A6A"
+  },
+  {
+    "counter": 0,
+    "color": "#FF616060"
+  },
+  {
+    "counter": 0,
+    "color": "#FF6F6E6E"
+  },
+  {
+    "counter": 0,
+    "color": "#FF4C4B4B"
+  },
+  {
+    "counter": 0,
+    "color": "#FFFDFF05"
+  },
+  {
+    "counter": 0,
+    "color": "#FFD0D212"
+  },
+  {
+    "counter": 0,
+    "color": "#FFD2CA12"
+  },
+  {
+    "counter": 0,
+    "color": "#FF1212D2"
+  },
+  {
+    "counter": 0,
+    "color": "#FF2525A7"
+  },
+  {
+    "counter": 0,
+    "color": "#FFFF0000"
+  },
+  {
+    "counter": 0,
+    "color": "#FF66FF00"
+  },
+  {
+    "counter": 0,
+    "color": "#FF00FF00"
+  },
+  {
+    "counter": 0,
+    "color": "#FF00FF2C"
+  },
+  {
+    "counter": 0,
+    "color": "#FFF40D0D"
+  },
+  {
+    "counter": 0,
+    "color": "#FFBF3737"
+  },
+  {
+    "counter": 0,
+    "color": "#FF5555DC"
+  },
+  {
+    "counter": 0,
+    "color": "#FF4C4CA7"
+  },
+  {
+    "counter": 0,
+    "color": "#FF6D6DDC"
+  }
+]</RecentColors>
   </PropertyGroup>
 </Project>

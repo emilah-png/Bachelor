@@ -5,6 +5,7 @@
 VAR_INPUT
 	bEnable : BOOL;
 	nRawInput : INT;
+	
 END_VAR
 VAR_OUTPUT
 	fOutput : LREAL;
@@ -40,6 +41,10 @@ IF NOT(bEnable) THEN
 ELSE
 	fOutput := LIMIT(fMinOutputValue, fTempOutput, fMaxOutputValue);
 END_IF
+
+
+
+
 ]]></ST>
     </Implementation>
   </POU>
