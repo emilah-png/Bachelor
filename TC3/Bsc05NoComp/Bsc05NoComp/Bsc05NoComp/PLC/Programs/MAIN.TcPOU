@@ -9,7 +9,8 @@ END_VAR
     <Implementation>
       <ST><![CDATA[P_Filtering();
 P_Inputs();
-P_Output();]]></ST>
+P_Output();
+P_RunClock();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
