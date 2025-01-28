@@ -89,6 +89,42 @@
     <RecentColors>[
   {
     "counter": 0,
+    "color": "#FFFFFFFF"
+  },
+  {
+    "counter": 0,
+    "color": "#FF535252"
+  },
+  {
+    "counter": 0,
+    "color": "#FF6B6A6A"
+  },
+  {
+    "counter": 0,
+    "color": "#FF616060"
+  },
+  {
+    "counter": 0,
+    "color": "#FF6F6E6E"
+  },
+  {
+    "counter": 0,
+    "color": "#FF4C4B4B"
+  },
+  {
+    "counter": 0,
+    "color": "#FFFDFF05"
+  },
+  {
+    "counter": 0,
+    "color": "#FFD0D212"
+  },
+  {
+    "counter": 0,
+    "color": "#FFD2CA12"
+  },
+  {
+    "counter": 0,
     "color": "#FF1212D2"
   },
   {
@@ -130,42 +166,6 @@
   {
     "counter": 0,
     "color": "#FF6D6DDC"
-  },
-  {
-    "counter": 0,
-    "color": "#FF5A5A5B"
-  },
-  {
-    "counter": 0,
-    "color": "#FF5B5A5A"
-  },
-  {
-    "counter": 0,
-    "color": "#FF525252"
-  },
-  {
-    "counter": 0,
-    "color": "#FF322D2D"
-  },
-  {
-    "counter": 0,
-    "color": "#FF372F2F"
-  },
-  {
-    "counter": 0,
-    "color": "#FF3F3535"
-  },
-  {
-    "counter": 0,
-    "color": "#FF27ED27"
-  },
-  {
-    "counter": 0,
-    "color": "#FF28DC28"
-  },
-  {
-    "counter": 0,
-    "color": "#FF1FC71F"
   }
 ]</RecentColors>
   </PropertyGroup>
