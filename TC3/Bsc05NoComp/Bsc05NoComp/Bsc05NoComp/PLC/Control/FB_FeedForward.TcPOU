@@ -26,7 +26,9 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF fXDot > 0.0 THEN
+      <ST><![CDATA[
+
+IF fXDot > 0.0 THEN
 	
 	fFlow := fXDot * fArea;
 	fDeltaP := (fPs - fPa) * 100000.0;

@@ -41,6 +41,9 @@ VAR_GLOBAL
 	fJibValveOutput			: LREAL; // [-1, 1]
 	fJibValveFF				: LREAL;
 	fJibValvePID			: LREAL;
+	
+	// 
+	fTime					: LREAL; // [s]
 
 END_VAR
 ]]></Declaration>
