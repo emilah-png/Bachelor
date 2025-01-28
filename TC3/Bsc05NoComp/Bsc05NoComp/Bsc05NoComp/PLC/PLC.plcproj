@@ -16,19 +16,12 @@
     <Implicit_KindOfTask>{5e21304b-4d43-467e-a426-2afd02237514}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{ffceccb4-4d2d-4cf1-8c63-d978e1693afb}</Implicit_Jitter_Distribution>
     <LibraryReferences>{7ecf4aae-9e54-47eb-a857-ead4757fc6b7}</LibraryReferences>
-    <CompilerDefines>VISU_USEPROPERTYINFO</CompilerDefines>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Control\FB_FeedForward.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Filtering\ST_Filter.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\G_Enables.TcGVL">
@@ -39,13 +32,16 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\G_OPC.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_Parameters.TcGVL">
+    <Compile Include="HMI\FB_Button.TcPOU">
       <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="Input\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
@@ -60,12 +56,6 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="Motion\FB_Clock.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\FB_MotionRef.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Output\FB_OutputNormalizing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -79,19 +69,16 @@
     <Compile Include="Programs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_FeedForward.TcPOU">
+    <Compile Include="Programs\P_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_Filtering.TcPOU">
+    <Compile Include="Programs\P_HMI.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_Output.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_RunClock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\Derivator.TcPOU">
@@ -108,62 +95,13 @@
     <Folder Include="GVLs" />
     <Folder Include="Input" />
     <Folder Include="Filtering" />
-    <Folder Include="Control" />
-    <Folder Include="Motion" />
+    <Folder Include="HMI" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="VISUs" />
     <Folder Include="Programs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="System_VisuElemMeter">
-      <DefaultResolution>VisuElemMeter, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElemMeter</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuElems">
-      <DefaultResolution>VisuElems, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElems</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuElemsSpecialControls">
-      <DefaultResolution>VisuElemsSpecialControls, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElemsSpecialControls</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuElemsWinControls">
-      <DefaultResolution>VisuElemsWinControls, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElemsWinControls</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuElemTextEditor">
-      <DefaultResolution>VisuElemTextEditor, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElemTextEditor</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuElemXYChart">
-      <DefaultResolution>VisuElemXYChart, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuElemXYChart</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuInputs">
-      <DefaultResolution>VisuInputs, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuInputs</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
-    <PlaceholderReference Include="System_VisuNativeControl">
-      <DefaultResolution>VisuNativeControl, 4.6.0.0 (System)</DefaultResolution>
-      <Namespace>VisuNativeControl</Namespace>
-      <SystemLibrary>true</SystemLibrary>
-      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
-    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Standard">
       <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Standard</Namespace>
@@ -176,10 +114,6 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
       <SystemLibrary>true</SystemLibrary>
-    </PlaceholderReference>
-    <PlaceholderReference Include="VisuSymbols">
-      <DefaultResolution>VisuSymbols, 4.5.0.0 (System)</DefaultResolution>
-      <Namespace>VisuSymbols</Namespace>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
@@ -199,17 +133,6 @@
           <v n="Name">"{192FAD59-8248-4824-A8DE-9177C94C195A}"</v>
           <d n="SubKeys" t="Hashtable" />
           <d n="Values" t="Hashtable" />
-        </o>
-        <v>{246001F4-279D-43AC-B241-948EB31120E1}</v>
-        <o>
-          <v n="Name">"{246001F4-279D-43AC-B241-948EB31120E1}"</v>
-          <d n="SubKeys" t="Hashtable" />
-          <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
-            <v>GeneralPropertySupport</v>
-            <v>True</v>
-            <v>UnicodeStrings</v>
-            <v>False</v>
-          </d>
         </o>
         <v>{29BD8D0C-3586-4548-BB48-497B9A01693F}</v>
         <o>
