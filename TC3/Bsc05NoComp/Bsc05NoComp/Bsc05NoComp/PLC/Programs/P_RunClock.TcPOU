@@ -7,12 +7,14 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbClock(
+      <ST><![CDATA[
+fbClock(
 	bStartEnable := G_Enables.bTest,
 	fTimeStep := G_Parameters.fTimeStep,
 	
 	fTime => G_OPC.fTime
-);]]></ST>
+);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

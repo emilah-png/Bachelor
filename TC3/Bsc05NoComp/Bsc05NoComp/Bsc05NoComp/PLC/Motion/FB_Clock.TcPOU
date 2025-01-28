@@ -13,8 +13,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-IF NOT(bStartEnable) THEN
+      <ST><![CDATA[IF NOT(bStartEnable) THEN
 	fTime := 0.0;
 ELSE
 	fTime := fTime + fTimeStep;
