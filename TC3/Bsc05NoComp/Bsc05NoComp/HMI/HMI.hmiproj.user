@@ -7,6 +7,7 @@
       "Path": "Desktop.view",
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "DesignAreaSplitSize": "Full",
       "CodeAreaSplitSize": "Minimized",
       "Orientation": "Vertical",
@@ -19,6 +20,8 @@
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolMappedTree>[
   296.79999999999882,
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       "DesignAreaSplitSize": "Splitted",
@@ -115,6 +118,9 @@
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolMappedTree>[
   200.0,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -187,6 +193,7 @@
   300.0,
   300.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_ContextTree>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <TcHmiEditor_PermissionsWindowDimension>268;110;1000;700</TcHmiEditor_PermissionsWindowDimension>
@@ -272,6 +279,8 @@
     "color": "#FF6D6DDC"
   }
 ]</RecentColors>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
