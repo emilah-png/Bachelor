@@ -1,5 +1,1030 @@
 <?xml version="1.0"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000700000001}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..0] OF OTCID</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000D00000001}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..0] OF UDINT</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000400000002}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..1] OF WORD</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{6F5942ED-BFA1-497D-8225-23C6DAAD0A09}" TcBaseType="true">ST_LibVersion</Name>
+			<BitSize>288</BitSize>
+			<SubItem>
+				<Name>iMajor</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>iMinor</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>iBuild</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>iRevision</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nFlags</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sVersion</Name>
+				<Type GUID="{18071995-0000-0000-0000-000100000017}">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}" AutoDeleteType="true">FB_Filtering</Name>
+			<BitSize>832</BitSize>
+			<SubItem>
+				<Name>ssMethodType</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000003}">SINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Signal</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Num</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>DenZ</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Den</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Initial</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Signal_Unfiltered</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>448</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Signal_Filtered</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>512</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>DiscreteTransferFcn1_icLoad</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DiscreteTransferFcn1_states</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>c_TmpSignalConversionAtDisc</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>2</Elements>
+				</ArrayInfo>
+				<BitSize>128</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>PouType</Name>
+					<Value>FunctionBlock</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}" AutoDeleteType="true">FB_Normalize</Name>
+			<BitSize>256</BitSize>
+			<SubItem>
+				<Name>nRawInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fMaxValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fNormalizedInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>PouType</Name>
+					<Value>FunctionBlock</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{BB777E7B-02BE-8A00-1A14-C323B79679E8}" AutoDeleteType="true">FB_PositionInputScaling</Name>
+			<BitSize>576</BitSize>
+			<SubItem>
+				<Name>nRawInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fRawInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fNormalizedInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fMaxInputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+				<Default>
+					<Value>16099</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMinInputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+				<Default>
+					<Value>125</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMaxOutputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>448</BitOffs>
+				<Default>
+					<Value>0.5</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMinOutputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>512</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>PouType</Name>
+					<Value>FunctionBlock</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}" AutoDeleteType="true">FB_JoystickInputScaling</Name>
+			<BitSize>832</BitSize>
+			<SubItem>
+				<Name>bEnable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>nRawInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fRawInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fTempInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fTempOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fMaxInputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+				<Default>
+					<Value>14746</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMinInputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>448</BitOffs>
+				<Default>
+					<Value>1617</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fNeutralInputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>512</BitOffs>
+				<Default>
+					<Value>8160</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fNeutralDeadband</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>576</BitOffs>
+				<Default>
+					<Value>50</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMaxOutputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>640</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fMinOutputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>704</BitOffs>
+				<Default>
+					<Value>-1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>fNeutralOutputValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>768</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>PouType</Name>
+					<Value>FunctionBlock</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{6A591346-EECE-3685-18EA-845859EACA62}" AutoDeleteType="true">FB_OutputNormalizing</Name>
+			<BitSize>512</BitSize>
+			<SubItem>
+				<Name>bEnable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>fNormalizedInput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>nOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>192</BitOffs>
+				<Properties>
+					<Property>
+						<Name>ItemType</Name>
+						<Value>Output</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>nOffset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+				<Default>
+					<Value>19630</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nMaxValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+				<Default>
+					<Value>29460</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nMinValue</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+				<Default>
+					<Value>9830</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nTempOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>PouType</Name>
+					<Value>FunctionBlock</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{9332564C-C59C-75F3-B012-A47AB1461303}" AutoDeleteType="true">ST_Filter</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>fSignal</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fFilteredSignal</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{302277DD-5AD1-433D-B776-5031AECC2BB4}" TcBaseType="true">EPlcPersistentStatus</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[PS_None]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PS_All]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PS_Partial]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<Hides>
+				<Hide GUID="{4591E628-DBCE-4E33-AE0B-7EB853AA256E}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{73AFEB40-50B7-40A0-9843-ED02B1F0E7C2}" TcBaseType="true">PlcAppSystemInfo</Name>
+			<BitSize>2048</BitSize>
+			<SubItem>
+				<Name>ObjId</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TaskCnt</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OnlineChangeCnt</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Flags</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AdsPort</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BootDataLoaded</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OldBootData</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AppTimestamp</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000004C}">DT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>KeepOutputsOnBP</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ShutdownInProgress</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>LicensesPending</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BSODOccured</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>LoggedIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PersistentStatus</Name>
+				<Type GUID="{302277DD-5AD1-433D-B776-5031AECC2BB4}">EPlcPersistentStatus</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TComSrvPtr</Name>
+				<Type GUID="{00000030-0000-0000-E000-000000000064}">ITComObjectServer</Type>
+				<BitSize X64="64">32</BitSize>
+				<BitOffs>256</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcComInterface</Name>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>AppName</Name>
+				<Type GUID="{18071995-0000-0000-0000-00010000003F}">STRING(63)</Type>
+				<BitSize>512</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ProjectName</Name>
+				<Type GUID="{18071995-0000-0000-0000-00010000003F}">STRING(63)</Type>
+				<BitSize>512</BitSize>
+				<BitOffs>1024</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DataID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CodeID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1568</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{D91E046A-A488-4D27-8D43-0F3C40ED5081}"/>
+				<Hide GUID="{5DCEB2BC-E196-43AD-80B7-EBACF31A430B}"/>
+				<Hide GUID="{1B9FDDE4-B3B7-4F0F-AB14-24EDC2F643E7}"/>
+				<Hide GUID="{C1C52E30-BC0B-44CA-BF39-E2FE7F2D145C}"/>
+				<Hide GUID="{5C8FF47F-7F83-4493-8D21-F1FF8A08F75A}"/>
+				<Hide GUID="{941FDF6E-37CE-4C30-AA23-3236AFA461E2}"/>
+				<Hide GUID="{6096F07B-CE2D-45B4-B170-49A834787FA2}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{18990FEE-DAB7-484A-867F-B5550518F883}" TcBaseType="true">PlcTaskSystemInfo</Name>
+			<BitSize>1024</BitSize>
+			<SubItem>
+				<Name>ObjId</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CycleTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AdsPort</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CycleCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DcTaskTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000C}">LINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>LastExecTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FirstCycle</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CycleTimeExceeded</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>InCallAfterOutputUpdate</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RTViolation</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TaskName</Name>
+				<Type GUID="{18071995-0000-0000-0000-00010000003F}">STRING(63)</Type>
+				<BitSize>512</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{6A76D020-03A2-465C-A678-C341951E9EF3}"/>
+				<Hide GUID="{6F7D679F-72A0-4831-A7F1-085F839743ED}"/>
+				<Hide GUID="{56294066-FFF7-46F3-8206-FA06A30B13BA}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{CD0367B0-AC23-73F9-3788-7DA05B7C4D9E}" AutoDeleteType="true">_Implicit_KindOfTask</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[_implicit_cyclic]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[_implicit_event]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[_implicit_external]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[_implicit_freewheeling]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<Properties>
+				<Property>
+					<Name>signature_flag</Name>
+					<Value>256</Value>
+				</Property>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+				<Property>
+					<Name>generate_implicit_init_function</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{167A5CA8-1337-68A5-F81F-229672FD130B}" AutoDeleteType="true">_Implicit_Jitter_Distribution</Name>
+			<BitSize>48</BitSize>
+			<SubItem>
+				<Name>wRangeMax</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>wCountJitterNeg</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>wCountJitterPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>signature_flag</Name>
+					<Value>256</Value>
+				</Property>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{659FF1F2-DCC8-554A-FA96-44EFC9B5F395}" AutoDeleteType="true">_Implicit_Task_Info</Name>
+			<BitSize>896</BitSize>
+			<SubItem>
+				<Name>dwVersion</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>pszName</Name>
+				<Type GUID="{18071995-0000-0000-0000-000100000050}" PointerTo="1">STRING(80)</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nPriority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>KindOf</Name>
+				<Type GUID="{CD0367B0-AC23-73F9-3788-7DA05B7C4D9E}">_Implicit_KindOfTask</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bWatchdog</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bProfilingTask</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwEventFunctionPointer</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}" PointerTo="1">BYTE</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>pszExternalEvent</Name>
+				<Type GUID="{18071995-0000-0000-0000-000100000050}" PointerTo="1">STRING(80)</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwTaskEntryFunctionPointer</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}" PointerTo="1">BYTE</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwWatchdogSensitivity</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwInterval</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwWatchdogTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwLastCycleTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwAverageCycleTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwMaxCycleTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwMinCycleTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>diJitter</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>608</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>diJitterMin</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>diJitterMax</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>672</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwCycleCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>wTaskStatus</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>736</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>wNumOfJitterDistributions</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>752</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>pJitterDistribution</Name>
+				<Type GUID="{167A5CA8-1337-68A5-F81F-229672FD130B}" PointerTo="1">_Implicit_Jitter_Distribution</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bWithinSPSTimeSlicing</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>832</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>byDummy</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>840</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bShouldBlock</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>848</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>856</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dwIECCycleCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>864</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>signature_flag</Name>
+					<Value>256</Value>
+				</Property>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+			</Properties>
+		</DataType>
+	</DataTypes>
 	<Project ProjectGUID="{AF978348-7B8C-4C3D-8F5C-95AF4E81204A}" Target64Bit="true" ShowHideConfigurations="#x6">
 		<System>
 			<Tasks>
@@ -9,120 +1034,1505 @@
 			</Tasks>
 		</System>
 		<Plc>
-			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{5C857792-486C-5C67-2923-4BE4D574C066}" TmcPath="PLC\PLC.tmc">
+			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="C:\Users\Are-Laptop\Documents\Skole\Bachelor\TC3\Bsc05NoComp\Bsc05NoComp\Bsc05NoComp\PLC\PLC.plcproj" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
-					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
-					<Vars VarGrpType="2" AreaNo="1">
-						<Name>PlcTask Outputs</Name>
-						<Var>
-							<Name>G_Output.bEnableValveOne</Name>
-							<Comment><![CDATA[ Digital Outputs]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>G_Output.bEnableValveTwo</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>G_Output.nMainValveOutput</Name>
-							<Comment><![CDATA[ Analog Outputs]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Output.nJibValveOutput</Name>
-							<Type>INT</Type>
-						</Var>
-					</Vars>
-					<Vars VarGrpType="1">
-						<Name>PlcTask Inputs</Name>
-						<Var>
-							<Name>G_Inputs.bEmergencySwitch</Name>
-							<Comment><![CDATA[ Mode Selector]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawSupplyPs</Name>
-							<Comment><![CDATA[ Raw Values SUPPLY]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawMainPa</Name>
-							<Comment><![CDATA[ Raw Values MAIN]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawMainPb</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawMainPaLower</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawMainPistonPosition</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJibPa</Name>
-							<Comment><![CDATA[ Raw Values JIB]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJibPb</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJibPaLower</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJibPbLower</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJibPistonPosition</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchPa</Name>
-							<Comment><![CDATA[ Raw Values WINCH]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchPb</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoderA</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoderB</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJoystickWinch</Name>
-							<Comment><![CDATA[ Joystick Signals]]></Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJoystickRotation</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJoystickMain</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJoystickJib</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawJoystickExtrude</Name>
-							<Type>INT</Type>
-						</Var>
-					</Vars>
+					<TmcDesc GUID="{3D22D212-BEF6-47E2-8019-DF4D03F28DF1}" TcSmClass="TComPlcObjDef">
+						<Name>PLC</Name>
+						<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+						<InitSequence>P</InitSequence>
+						<Contexts>
+							<Context>
+								<Id>0</Id>
+								<Name>PlcTask</Name>
+								<ManualConfig>
+									<OTCID>#x02010030</OTCID>
+								</ManualConfig>
+								<Priority>20</Priority>
+								<CycleTime>1000000</CycleTime>
+							</Context>
+						</Contexts>
+						<Parameters>
+							<Parameter ReadOnly="true">
+								<Name>DeviceLog Filter</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+								<PTCID>#x08508045</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Application Name</Name>
+								<BitSize>72</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000100000008}">STRING(8)</BaseType>
+								<PTCID>#x08500003</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Project Name</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000100000003}">STRING(3)</BaseType>
+								<PTCID>#x0850000c</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Application Port</Name>
+								<BitSize>16</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+								<PTCID>#x08500004</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Auxtask Object Id</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+								<PTCID>#x0850000b</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Application Timestamp</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-00000000004C}">DT</BaseType>
+								<PTCID>#x0850000d</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Symbolic Mapping</Name>
+								<BitSize>8</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+								<PTCID>#x0850801b</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Task Module OIDs</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000700000001}">ARRAY [0..0] OF OTCID</BaseType>
+								<PTCID>#x08500005</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Task Module SortOrders</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000D00000001}">ARRAY [0..0] OF UDINT</BaseType>
+								<PTCID>#x0850800f</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Task Module Names</Name>
+								<BitSize>72</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-001100000008}">MSTRING(8)</BaseType>
+								<PTCID>#x08508019</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Task Caller OIDs</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000700000001}">ARRAY [0..0] OF OTCID</BaseType>
+								<PTCID>#x0850801a</PTCID>
+							</Parameter>
+							<Parameter ReadOnly="true">
+								<Name>Task Module ADI Indices</Name>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{18071995-0000-0000-0000-000400000002}">ARRAY [0..1] OF WORD</BaseType>
+								<PTCID>#x0850801c</PTCID>
+							</Parameter>
+						</Parameters>
+						<DataAreas>
+							<DataArea>
+								<AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
+								<Name>PlcTask Inputs</Name>
+								<ContextId>0</ContextId>
+								<ByteSize>10616832</ByteSize>
+								<Symbol>
+									<Name>G_Inputs.bEmergencySwitch</Name>
+									<Comment><![CDATA[ Mode Selector]]></Comment>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113736</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawSupplyPs</Name>
+									<Comment><![CDATA[ Raw Values SUPPLY]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113744</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawMainPa</Name>
+									<Comment><![CDATA[ Raw Values MAIN]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113760</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawMainPb</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113776</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawMainPaLower</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116288</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawMainPistonPosition</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116304</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJibPa</Name>
+									<Comment><![CDATA[ Raw Values JIB]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116320</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJibPb</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116336</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJibPaLower</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116352</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJibPbLower</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116368</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJibPistonPosition</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116384</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawWinchPa</Name>
+									<Comment><![CDATA[ Raw Values WINCH]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116400</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawWinchPb</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116416</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawWinchEncoderA</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116432</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawWinchEncoderB</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116448</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJoystickWinch</Name>
+									<Comment><![CDATA[ Joystick Signals]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116464</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJoystickRotation</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116480</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJoystickMain</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116496</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJoystickJib</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116512</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Inputs.nRawJoystickExtrude</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116528</BitOffs>
+								</Symbol>
+							</DataArea>
+							<DataArea>
+								<AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
+								<Name>PlcTask Outputs</Name>
+								<ContextId>0</ContextId>
+								<ByteSize>10616832</ByteSize>
+								<Symbol>
+									<Name>G_Output.bEnableValveOne</Name>
+									<Comment><![CDATA[ Digital Outputs]]></Comment>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116544</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Output.bEnableValveTwo</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116552</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Output.nMainValveOutput</Name>
+									<Comment><![CDATA[ Analog Outputs]]></Comment>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116560</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Output.nJibValveOutput</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116576</BitOffs>
+								</Symbol>
+							</DataArea>
+							<DataArea>
+								<AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
+								<Name>PlcTask Internal</Name>
+								<ContextId>0</ContextId>
+								<ByteSize>10616832</ByteSize>
+								<Symbol>
+									<Name>Global_Version.stLibVersion_Tc2_Standard</Name>
+									<BitSize>288</BitSize>
+									<BaseType GUID="{6F5942ED-BFA1-497D-8225-23C6DAAD0A09}">ST_LibVersion</BaseType>
+									<Default>
+										<SubItem>
+											<Name>.iMajor</Name>
+											<Value>3</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iMinor</Name>
+											<Value>4</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iBuild</Name>
+											<Value>5</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iRevision</Name>
+											<Value>0</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.nFlags</Name>
+											<Value>1</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.sVersion</Name>
+											<String><![CDATA[3.4.5.0]]></String>
+										</SubItem>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>const_non_replaced</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3072000</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>Global_Version.stLibVersion_Tc2_System</Name>
+									<BitSize>288</BitSize>
+									<BaseType GUID="{6F5942ED-BFA1-497D-8225-23C6DAAD0A09}">ST_LibVersion</BaseType>
+									<Default>
+										<SubItem>
+											<Name>.iMajor</Name>
+											<Value>3</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iMinor</Name>
+											<Value>6</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iBuild</Name>
+											<Value>4</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iRevision</Name>
+											<Value>0</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.nFlags</Name>
+											<Value>1</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.sVersion</Name>
+											<String><![CDATA[3.6.4.0]]></String>
+										</SubItem>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>const_non_replaced</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3072288</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>Global_Version.stLibVersion_Tc3_Module</Name>
+									<BitSize>288</BitSize>
+									<BaseType GUID="{6F5942ED-BFA1-497D-8225-23C6DAAD0A09}">ST_LibVersion</BaseType>
+									<Default>
+										<SubItem>
+											<Name>.iMajor</Name>
+											<Value>3</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iMinor</Name>
+											<Value>4</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iBuild</Name>
+											<Value>5</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.iRevision</Name>
+											<Value>0</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.nFlags</Name>
+											<Value>1</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.sVersion</Name>
+											<String><![CDATA[3.4.5.0]]></String>
+										</SubItem>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>const_non_replaced</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3072576</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>MAIN.bTemp</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<BitOffs>3096832</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_PreventOnlineChangeGvl.WriteLineIDs</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Default>
+										<Bool>false</Bool>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3096840</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_PreventOnlineChangeGvl.PlcProfilerActive</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Default>
+										<Bool>false</Bool>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3096848</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.Action1</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3096856</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.Action2</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3096880</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.Action3</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3096888</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Filtering.fbFilterPa</Name>
+									<Comment><![CDATA[fbControlBlock : c_FB_ControlBlockWithMonito;]]></Comment>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}">FB_Filtering</BaseType>
+									<BitOffs>3097280</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Filtering.fbFilterPb</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}">FB_Filtering</BaseType>
+									<BitOffs>3098112</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Filtering.fbFilterPs</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}">FB_Filtering</BaseType>
+									<BitOffs>3098944</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Filtering.fbFilterU</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}">FB_Filtering</BaseType>
+									<BitOffs>3099776</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Filtering.fbFilterPaLower</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{7002C6A5-E43E-B4AB-CC80-D31A9ED1DB3A}">FB_Filtering</BaseType>
+									<BitOffs>3100608</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormPs</Name>
+									<Comment><![CDATA[ Supply]]></Comment>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3102592</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormMainPa</Name>
+									<Comment><![CDATA[ Main]]></Comment>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3102848</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormMainPb</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3103104</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormMainPaLower</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3103360</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormMainPistonPosition</Name>
+									<BitSize>576</BitSize>
+									<BaseType GUID="{BB777E7B-02BE-8A00-1A14-C323B79679E8}">FB_PositionInputScaling</BaseType>
+									<BitOffs>3103616</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormJibPa</Name>
+									<Comment><![CDATA[ Jib]]></Comment>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3104192</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormJibPb</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3104448</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormJibPaLower</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3104704</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormJibPbLower</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3104960</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormJibPistonPosition</Name>
+									<BitSize>576</BitSize>
+									<BaseType GUID="{BB777E7B-02BE-8A00-1A14-C323B79679E8}">FB_PositionInputScaling</BaseType>
+									<BitOffs>3105216</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormWinchPa</Name>
+									<Comment><![CDATA[ Jib]]></Comment>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3105792</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormWinchPb</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3106048</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormWinchEncoderA</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3106304</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbNormWinchEncoderB</Name>
+									<BitSize>256</BitSize>
+									<BaseType GUID="{DCE170A3-5AAD-D4FC-6228-6D6E5EF7961C}">FB_Normalize</BaseType>
+									<BitOffs>3106560</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbJoystickWinch</Name>
+									<Comment><![CDATA[ Joystick]]></Comment>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}">FB_JoystickInputScaling</BaseType>
+									<BitOffs>3106816</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbJoystickRotation</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}">FB_JoystickInputScaling</BaseType>
+									<BitOffs>3107648</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbJoystickMain</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}">FB_JoystickInputScaling</BaseType>
+									<BitOffs>3108480</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbJoystickJib</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}">FB_JoystickInputScaling</BaseType>
+									<BitOffs>3109312</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Inputs.fbJoystickExtrude</Name>
+									<BitSize>832</BitSize>
+									<BaseType GUID="{A60A9526-2310-A9C0-9ABC-9D62151F3EEB}">FB_JoystickInputScaling</BaseType>
+									<BitOffs>3110144</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Output.fbMainValveOutput</Name>
+									<BitSize>512</BitSize>
+									<BaseType GUID="{6A591346-EECE-3685-18EA-845859EACA62}">FB_OutputNormalizing</BaseType>
+									<BitOffs>3111360</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>P_Output.fbJibValveOutput</Name>
+									<BitSize>512</BitSize>
+									<BaseType GUID="{6A591346-EECE-3685-18EA-845859EACA62}">FB_OutputNormalizing</BaseType>
+									<BitOffs>3111872</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_PreventOnlineChangeGvl.PlcProfilerConfigChecksum</Name>
+									<BitSize>520</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000100000040}">STRING(64)</BaseType>
+									<Default>
+										<String><![CDATA[]]></String>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112384</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.Action4</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112904</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bEnableU</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112920</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bEnableFF</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112928</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bEnablePID</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112936</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bEnableMain</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112944</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bEnableJib</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112952</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fPressureFilterNum</Name>
+									<Comment><![CDATA[ Filter constants]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0.003137</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3112960</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fPressureFilterDenz</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>1</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113024</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fPressureFilterDen</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>-0.9969</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113088</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fPressureFilterInit</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113152</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fSignalFilterNum</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0.09516</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113216</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fSignalFilterDenz</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>1</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113280</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fSignalFilterDen</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>-0.9048</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113344</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fSignalFilterInit</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113408</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fDerivatorFilterNum</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0.0009995</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113472</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fDerivatorFilterDenz</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>1</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113536</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fDerivatorFilterDen</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>-0.999</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113600</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_FilterConstants.fDerivatorFilterInit</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Default>
+										<Value>0</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113664</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Enables.bTest</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113728</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fPs</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113792</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainPa</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3113920</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainPb</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114048</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainPaLower</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114176</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainPistonPosition</Name>
+									<Comment><![CDATA[ [m]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114304</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibPa</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114432</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibPb</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114560</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibPaLower</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114688</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibPbLower</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114816</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibPistonPosition</Name>
+									<Comment><![CDATA[ [m]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3114944</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fWinchPa</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115072</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fWinchPb</Name>
+									<Comment><![CDATA[ [Bar]]]></Comment>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115200</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fWinchEncoderA</Name>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115328</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fWinchEncoderB</Name>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{9332564C-C59C-75F3-B012-A47AB1461303}">ST_Filter</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115456</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJoystickWinch</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115584</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJoystickRotation</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115648</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJoystickMain</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115712</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJoystickJib</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115776</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJoystickExtrude</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115840</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainValveOutput</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115904</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainValveFF</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3115968</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fMainValvePID</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116032</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibValveOutput</Name>
+									<Comment><![CDATA[ [-1, 1]]]></Comment>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116096</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibValveFF</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116160</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_OPC.fJibValvePID</Name>
+									<BitSize>64</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116224</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Init.SS_INITIALIZE</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000003}">SINT</BaseType>
+									<Default>
+										<Value>0</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116912</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>G_Init.SS_STEP</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000003}">SINT</BaseType>
+									<Default>
+										<Value>1</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116920</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_SystemInfoVarList._AppInfo</Name>
+									<BitSize>2048</BitSize>
+									<BaseType GUID="{73AFEB40-50B7-40A0-9843-ED02B1F0E7C2}">PlcAppSystemInfo</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>no_init</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3116928</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
+									<BitSize>1024</BitSize>
+									<BaseType GUID="{18990FEE-DAB7-484A-867F-B5550518F883}">PlcTaskSystemInfo</BaseType>
+									<ArrayInfo>
+										<LBound>1</LBound>
+										<Elements>1</Elements>
+									</ArrayInfo>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>no_init</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3118976</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</Name>
+									<BitSize>32</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>no_init</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3120000</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_SystemInfoVarList._TaskOid_PlcTask</Name>
+									<BitSize>32</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>no_init</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3120032</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>TwinCAT_SystemInfoVarList.__PlcTask</Name>
+									<BitSize>896</BitSize>
+									<BaseType GUID="{659FF1F2-DCC8-554A-FA96-44EFC9B5F395}">_Implicit_Task_Info</BaseType>
+									<Default>
+										<SubItem>
+											<Name>.dwVersion</Name>
+											<Value>2</Value>
+										</SubItem>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+										<Property>
+											<Name>TcContextName</Name>
+											<Value>PlcTask</Value>
+										</Property>
+									</Properties>
+									<BitOffs>3120064</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.nCounter</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Default>
+										<Value>2</Value>
+									</Default>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3169504</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>HMI.bstepp_button</Name>
+									<BitSize>8</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+									<Properties>
+										<Property>
+											<Name>TcVarGlobal</Name>
+										</Property>
+									</Properties>
+									<BitOffs>3169520</BitOffs>
+								</Symbol>
+							</DataArea>
+						</DataAreas>
+						<Properties>
+							<Property>
+								<Name>ApplicationName</Name>
+								<Value>Port_851</Value>
+							</Property>
+							<Property>
+								<Name>ChangeDate</Name>
+								<Value>2025-01-28T10:25:34</Value>
+							</Property>
+							<Property>
+								<Name>GeneratedCodeSize</Name>
+								<Value>53248</Value>
+							</Property>
+							<Property>
+								<Name>GlobalDataSize</Name>
+								<Value>16384</Value>
+							</Property>
+							<Property>
+								<Name>UTF8EncodedStrings</Name>
+								<Value>false</Value>
+							</Property>
+						</Properties>
+						<ParentOTCID>#x08500000</ParentOTCID>
+						<ParameterValues>
+							<Value>
+								<Name>DeviceLog Filter</Name>
+								<Value>0</Value>
+							</Value>
+							<Value>
+								<Name>Application Name</Name>
+								<String>Port_851</String>
+							</Value>
+							<Value>
+								<Name>Project Name</Name>
+								<String>PLC</String>
+							</Value>
+							<Value>
+								<Name>Application Port</Name>
+								<Value>851</Value>
+							</Value>
+							<Value>
+								<Name>Auxtask Object Id</Name>
+								<Value>139460624</Value>
+							</Value>
+							<Value>
+								<Name>Application Timestamp</Name>
+								<Value>1738059934</Value>
+							</Value>
+							<Value>
+								<Name>Symbolic Mapping</Name>
+								<EnumText>TRUE</EnumText>
+							</Value>
+							<Value>
+								<Name>Task Module OIDs[0]</Name>
+								<Value>139468801</Value>
+							</Value>
+							<Value>
+								<Name>Task Module SortOrders[0]</Name>
+								<Value>0</Value>
+							</Value>
+							<Value>
+								<Name>Task Module Names</Name>
+								<Data>506c635461736b0000</Data>
+							</Value>
+							<Value>
+								<Name>Task Caller OIDs[0]</Name>
+								<Value>33620016</Value>
+							</Value>
+							<Value>
+								<Name>Task Module ADI Indices[0]</Name>
+								<Value>0</Value>
+							</Value>
+							<Value>
+								<Name>Task Module ADI Indices[1]</Name>
+								<Value>1</Value>
+							</Value>
+						</ParameterValues>
+					</TmcDesc>
 					<Contexts>
 						<Context>
 							<Id>0</Id>
