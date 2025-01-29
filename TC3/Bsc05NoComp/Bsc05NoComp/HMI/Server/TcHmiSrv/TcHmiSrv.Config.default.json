@@ -686,6 +686,56 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bEnableFF": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableFF",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnablePID": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnablePID",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bEnableU": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableU",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.bstepp_button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::bstepp_button",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.nCounter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::nCounter",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Inputs.bEmergencySwitch": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -711,7 +761,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.Action2": {
             "ACCESS": 3,
@@ -721,7 +771,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.Action3": {
             "ACCESS": 3,
@@ -731,7 +781,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.Action4": {
             "ACCESS": 3,
@@ -741,7 +791,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.bstepp_button": {
             "ACCESS": 3,
@@ -751,7 +801,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.bsteppl_button": {
             "ACCESS": 3,
@@ -761,7 +811,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.HMI.nCounter": {
             "ACCESS": 3,
@@ -771,7 +821,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.MAIN.bActiv": {
             "ACCESS": 3,
@@ -781,7 +831,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.PLC1.MAIN.nCounter": {
             "ACCESS": 3,
@@ -791,7 +841,7 @@
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/DINT"
             },
-            "USEMAPPING": true
+            "USEMAPPING": false
         },
         "ADS.RuntimePorts": {
             "ACCESS": 3,
@@ -3684,6 +3734,11 @@
                 "ADS.AdsSyncReadStateReq": 3,
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
+                "ADS.PLC1.G_Enables.bEnableFF": 3,
+                "ADS.PLC1.G_Enables.bEnablePID": 3,
+                "ADS.PLC1.G_Enables.bEnableU": 3,
+                "ADS.PLC1.G_HMI.bstepp_button": 3,
+                "ADS.PLC1.G_HMI.nCounter": 3,
                 "ADS.PLC1.G_Inputs.bEmergencySwitch": 3,
                 "ADS.PLC1.HMI.Action1": 3,
                 "ADS.PLC1.HMI.Action2": 3,

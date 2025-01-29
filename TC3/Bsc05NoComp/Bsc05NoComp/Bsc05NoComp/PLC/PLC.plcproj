@@ -39,6 +39,10 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\G_OPC.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
