@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="Derivator" Id="{73430dba-0a59-486b-b0bb-e1f4fb5a9c34}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK Derivator
+  <POU Name="FB_Derivator" Id="{73430dba-0a59-486b-b0bb-e1f4fb5a9c34}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Derivator
 VAR_INPUT
 	ssMethodType: SINT;
 	fSignal: LREAL;

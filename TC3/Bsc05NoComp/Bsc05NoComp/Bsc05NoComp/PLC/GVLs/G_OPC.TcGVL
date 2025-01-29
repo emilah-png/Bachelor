@@ -4,6 +4,8 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	
+	// System Values 
+	fTime					: LREAL; // [s]
 	fPs 					: ST_Filter; // [Bar]
 	
 	// MAIN Values
@@ -42,8 +44,7 @@ VAR_GLOBAL
 	fJibValveFF				: LREAL;
 	fJibValvePID			: LREAL;
 	
-	// 
-	fTime					: LREAL; // [s]
+	
 
 END_VAR
 ]]></Declaration>
