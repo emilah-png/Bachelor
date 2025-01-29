@@ -753,6 +753,33 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fTime": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fTime",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Parameters.fTimeStep": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Parameters::fTimeStep",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.RuntimePorts": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3650,6 +3677,8 @@
                 "ADS.PLC1.G_HMI.bstepp_button": 3,
                 "ADS.PLC1.G_HMI.nCounter": 3,
                 "ADS.PLC1.G_Inputs.bEmergencySwitch": 3,
+                "ADS.PLC1.G_OPC.fTime": 3,
+                "ADS.PLC1.G_Parameters.fTimeStep": 3,
                 "ADS.PLC1.HMI.Action1": 3,
                 "ADS.PLC1.HMI.Action2": 3,
                 "ADS.PLC1.HMI.Action3": 3,

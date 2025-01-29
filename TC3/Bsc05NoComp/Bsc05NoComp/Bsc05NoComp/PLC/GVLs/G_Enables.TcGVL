@@ -9,8 +9,9 @@ VAR_GLOBAL
 	bEnablePID 	: BOOL;
 	
 	bEnableMain	: BOOL;
-	bEnableJib	: BOOL;	
+	bEnableJib	: BOOL;
 	
+	bHoldbutten	: BOOL;
 	bTest		: BOOL;
 END_VAR]]></Declaration>
   </GVL>
