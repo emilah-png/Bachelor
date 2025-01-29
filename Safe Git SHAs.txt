@@ -1,0 +1,6 @@
+To revert to earlier edition in git:
+git reset --hard [commit SHA]
+
+Bakcup SHAs:
+5f321a6 - For HMI fix
+fce24c3 - Main merge fix
