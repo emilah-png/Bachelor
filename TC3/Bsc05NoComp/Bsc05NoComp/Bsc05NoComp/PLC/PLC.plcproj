@@ -113,6 +113,10 @@
     <Compile Include="Transfer\P_RunClock_1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Transfer\Testy.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="XML\Derivator.TcPOU">
       <SubType>Code</SubType>
     </Compile>

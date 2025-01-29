@@ -12,10 +12,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF NOT(bButtonPress) THEN
-	nCounter := 2;
-ELSIF
-END_IF]]></ST>
+      <ST><![CDATA[]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
