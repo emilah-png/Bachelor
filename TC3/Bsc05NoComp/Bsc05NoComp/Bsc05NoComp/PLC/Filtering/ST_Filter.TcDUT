@@ -3,8 +3,8 @@
   <DUT Name="ST_Filter" Id="{ca5d853b-e0f0-4622-8ad3-3c591972b906}">
     <Declaration><![CDATA[TYPE ST_Filter :
 STRUCT
-	fSignal : LREAL;
-	fFilteredSignal : LREAL;
+	fSignal 			: LREAL;
+	fFilteredSignal 	: LREAL;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

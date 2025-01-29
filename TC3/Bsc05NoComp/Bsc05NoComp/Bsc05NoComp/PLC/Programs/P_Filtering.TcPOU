@@ -3,24 +3,24 @@
   <POU Name="P_Filtering" Id="{f6211b6b-64c8-4b7f-ae9b-1aeeb065cdfa}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Filtering
 VAR
-	fbFilterPs : FB_Filtering;
+	fbFilterPs 					: FB_Filtering;
 	
-	fbFilterMainPa : FB_Filtering;
-	fbFilterMainPb : FB_Filtering;
-	fbFilterMainPaLower : FB_Filtering;
-	fbFilterMainPistonPosition : FB_Filtering;
+	fbFilterMainPa 				: FB_Filtering;
+	fbFilterMainPb 				: FB_Filtering;
+	fbFilterMainPaLower 		: FB_Filtering;
+	fbFilterMainPistonPosition 	: FB_Filtering;
 	
-	fbFilterJibPa : FB_Filtering;
-	fbFilterJibPb : FB_Filtering;
-	fbFilterJibPaLower : FB_Filtering;
-	fbFilterJibPbLower : FB_Filtering;
-	fbFilterJibPistonPosition : FB_Filtering;
+	fbFilterJibPa 				: FB_Filtering;
+	fbFilterJibPb 				: FB_Filtering;
+	fbFilterJibPaLower 			: FB_Filtering;
+	fbFilterJibPbLower 			: FB_Filtering;
+	fbFilterJibPistonPosition 	: FB_Filtering;
 	
 	
-	fbFilterWinchPa : FB_Filtering;
-	fbFilterWinchPb : FB_Filtering;
+	fbFilterWinchPa 			: FB_Filtering;
+	fbFilterWinchPb 			: FB_Filtering;
 	
-	fbFilterU : FB_Filtering;
+	fbFilterU 					: FB_Filtering;
 	
 END_VAR
 ]]></Declaration>

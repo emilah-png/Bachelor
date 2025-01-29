@@ -25,6 +25,9 @@
     <Compile Include="Control\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Control\FB_Running.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,10 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\G_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_Modes.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -93,6 +100,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Modes.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_Output.TcPOU">

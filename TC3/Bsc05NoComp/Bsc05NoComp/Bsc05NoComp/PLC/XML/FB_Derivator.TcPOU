@@ -3,15 +3,15 @@
   <POU Name="FB_Derivator" Id="{73430dba-0a59-486b-b0bb-e1f4fb5a9c34}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Derivator
 VAR_INPUT
-	ssMethodType: SINT;
-	fSignal: LREAL;
+	ssMethodType		: SINT;
+	fSignal				: LREAL;
 END_VAR
 VAR_OUTPUT
-	fSignalDerivative: LREAL;
+	fSignalDerivative	: LREAL;
 END_VAR
 VAR
-	rtb_TSamp: LREAL;
-	UD_DSTATE: LREAL;
+	rtb_TSamp			: LREAL;
+	UD_DSTATE			: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>

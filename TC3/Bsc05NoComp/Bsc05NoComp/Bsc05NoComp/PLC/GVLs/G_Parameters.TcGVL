@@ -3,28 +3,29 @@
   <GVL Name="G_Parameters" Id="{71932655-049f-45cd-b617-52f5444e2f77}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	
 	// System Variable
-	fTimeStep : LREAL := 0.001; // [s]
-	fConst : LREAL := 0.0; // [-1, 1]
+	fTimeStep 		: LREAL := 0.001; // [s]
+	fConst 			: LREAL := 0.0; // [-1, 1]
 	
 	// FeedForward Variables
-	fOneMultiFF : LREAL := 1.0; // FeedForward Multipier
-	fTwoMultiFF : LREAL := 1.0; // FeedForward Multipier
+	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
+	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
 	
 	// PID Variables
-	fOneP : LREAL := 0.0; // P
-	fOneI : LREAL := 0.0; // I
-	fOneD : LREAL := 0.0; // D
+	fOneP 			: LREAL := 0.0; // P
+	fOneI 			: LREAL := 0.0; // I
+	fOneD 			: LREAL := 0.0; // D
 	
-	fTwoP : LREAL := 0.0; // P
-	fTwoI : LREAL := 0.0; // I
-	fTwoD : LREAL := 0.0; // D
+	fTwoP 			: LREAL := 0.0; // P
+	fTwoI 			: LREAL := 0.0; // I
+	fTwoD 			: LREAL := 0.0; // D
 	
 	// Valve Variables
-	fQMaxUp : LREAL := 24.4;
-	fQMaxDown : LREAL := 15.9;
-	fDeadUp : LREAL := 0.10;
-	fDeadDown : LREAL := 0.0;
+	fQMaxUp 		: LREAL := 24.4;
+	fQMaxDown 		: LREAL := 15.9;
+	fDeadUp 		: LREAL := 0.10;
+	fDeadDown 		: LREAL := 0.0;
 	
 END_VAR]]></Declaration>
   </GVL>

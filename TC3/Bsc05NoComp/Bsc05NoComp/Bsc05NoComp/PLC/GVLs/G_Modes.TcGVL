@@ -3,6 +3,9 @@
   <GVL Name="G_Modes" Id="{cef963f9-2807-4386-8502-cf4081ad3059}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	bAuto 		: BOOL;
+	bManuel 	: BOOL;
+	bRunning 	: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

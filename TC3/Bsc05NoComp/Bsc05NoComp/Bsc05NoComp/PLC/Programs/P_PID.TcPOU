@@ -3,20 +3,20 @@
   <POU Name="P_PID" Id="{8618f120-26c6-4eb7-b274-74ff26057632}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_PID
 VAR
-	fbOnePID : FB_PID;
-	fbTwoPID : FB_PID;
-	fbIntegrator : FB_Integrator;
-	fbDerivator : FB_Derivator;
-	fbDerivatorFiltering : FB_Filtering;
+	fbOnePID 				: FB_PID;
+	fbTwoPID 				: FB_PID;
+	fbIntegrator 			: FB_Integrator;
+	fbDerivator 			: FB_Derivator;
+	fbDerivatorFiltering 	: FB_Filtering;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF (G_Enables.bEnablePID AND NOT(G_HMI.nCounter = 2)) THEN
+IF (G_Enables.bEnablePID AND G_Modes.bRunning) THEN
 	
 	fbDerivatorFiltering(
 		ssMethodType := 1,
-		Signal := fbPID.fSignalD,
+		Signal := fbOnePID.fSignalD,
 		Num := G_FilterConstants.fDerivatorFilterNum,
 		Denz := G_FilterConstants.fDerivatorFilterDenz,
 		Den := G_FilterConstants.fDerivatorFilterDen,
@@ -25,25 +25,25 @@ IF (G_Enables.bEnablePID AND NOT(G_HMI.nCounter = 2)) THEN
 	);
 	
 	fbIntegrator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bStartButton),
-		fSignal := fbPID.fSignalI,
-		fSignalIntegrated => fbPID.fSignalIntegrated
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		fSignal := fbOnePID.fSignalI,
+		fSignalIntegrated => fbOnePID.fSignalIntegrated
 	);
 	fbDerivator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bStartButton),
-		fSignal := fbPID.fSignalD,
-		fSignalDerivative => fbPID.fSignalDerivated
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		fSignal := fbOnePID.fSignalD,
+		fSignalDerivative => fbOnePID.fSignalDerivated
 	);
 
 	fbOnePID(
 		fX := G_OPC.fXRef,
-		fXReal := G_OPC.fPistonPosition,
-		fKp := G_Parameters.fP,
-		fKi := G_Parameters.fI,
-		fKd := G_Parameters.fD,
+		fXReal := G_OPC.fMainPistonPosition,
+		fKp := G_Parameters.fOneP,
+		fKi := G_Parameters.fOneI,
+		fKd := G_Parameters.fOneD,
 		
-		fError => G_OPC.fError,
-		fSignalAdjusted => G_OPC.fSignalPID
+		fError => G_OPC.fErrorOne,
+		fSignalAdjusted => G_OPC.fValveOnePID
 	);
 
 END_IF

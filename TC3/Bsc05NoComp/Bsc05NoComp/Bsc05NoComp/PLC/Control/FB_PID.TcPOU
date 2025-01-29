@@ -3,13 +3,13 @@
   <POU Name="FB_PID" Id="{c3b9a6ed-2e03-46aa-9312-a6c1264b90f3}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_PID
 VAR_INPUT
-	fX : LREAL;
-	fXReal : LREAL;
-	fSignalIntegrated : LREAL;
-	fSignalDerivated : LREAL;
-	fKp : LREAL;
-	fKi : LREAL;
-	fKd : LREAL;
+	fX 					: LREAL;
+	fXReal 				: LREAL;
+	fSignalIntegrated 	: LREAL;
+	fSignalDerivated 	: LREAL;
+	fKp 				: LREAL;
+	fKi 				: LREAL;
+	fKd 				: LREAL;
 END_VAR
 VAR_OUTPUT
 	fSignalI : LREAL;

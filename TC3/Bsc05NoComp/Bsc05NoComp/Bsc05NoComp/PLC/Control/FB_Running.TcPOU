@@ -3,15 +3,15 @@
   <POU Name="FB_Running" Id="{0482d1f2-7e27-4274-b9ba-9a1a0424916f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Running
 VAR_INPUT
-	bManual : BOOL;
-	bStart : BOOL;
-	bStop : BOOL;
-	bAuto : BOOL;
+	bManual 		: BOOL;
+	bStart 			: BOOL;
+	bStop 			: BOOL;
+	bAuto 			: BOOL;
 END_VAR
 VAR_OUTPUT
-	bRunning : BOOL;
-	bAutoMode : BOOL;
-	bManualMode : BOOL;
+	bRunning 		: BOOL;
+	bAutoMode 		: BOOL;
+	bManualMode 	: BOOL;
 END_VAR
 VAR
 END_VAR

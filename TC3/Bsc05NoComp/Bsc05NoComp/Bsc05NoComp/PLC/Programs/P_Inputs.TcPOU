@@ -32,6 +32,9 @@ VAR
 	fbJoystickJib 				: FB_JoystickInputScaling;
 	fbJoystickExtrude 			: FB_JoystickInputScaling;
 	
+	// Buttons
+	
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
