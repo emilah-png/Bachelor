@@ -292,9 +292,11 @@
 ]
 </script>
 
+
+
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
-  "color": "rgba(0, 0, 0, 1)"
+  "color": "None"
 }
 </script>
 </div>
@@ -996,6 +998,10 @@
 ]
 </script>
 </div>
+
+
+
+
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
