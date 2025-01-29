@@ -240,6 +240,18 @@
     {
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    },
+    {
+      "name": "ET_TcHMI_Framework",
+      "basePath": "/ET_TcHMI_Framework"
+    },
+    {
+      "name": "JB.TcHmiSimpleDoubleRangeSlider",
+      "basePath": "/JB.TcHmiSimpleDoubleRangeSlider"
+    },
+    {
+      "name": "JB.TcHmiSimpleRangeSlider",
+      "basePath": "/JB.TcHmiSimpleRangeSlider"
     }
   ],
   "keyboardLayouts": [

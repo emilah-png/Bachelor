@@ -11351,6 +11351,18 @@
     "VideoSourceList": {
       "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiVideo.VideoSourceList"
     },
+    "TcHmi.Controls.TcHmiSimpleDoubleRangeSlider.TcHmiSimpleDoubleRangeSliderControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "TcHmiSimpleDoubleRangeSliderControl",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiSimpleDoubleRangeSlider"
+    },
+    "TcHmi.Controls.TcHmiSimpleRangeSlider.TcHmiSimpleRangeSliderControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "TcHmiSimpleRangeSliderControl",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiSimpleRangeSlider"
+    },
     "TcHmi.Functions.Beckhoff.Increment.IncrementValueSymbol": {
       "allOf": [
         {
