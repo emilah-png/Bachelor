@@ -11,5 +11,10 @@
       <From>Integrator</From>
       <To>FB_Integrator</To>
     </RenamedType>
+    <RenamedType>
+      <Type guid="cef963f9-2807-4386-8502-cf4081ad3059">G_MODES</Type>
+      <From>G_Modes</From>
+      <To>G_Mode</To>
+    </RenamedType>
   </Renames>
 </Refactors>
