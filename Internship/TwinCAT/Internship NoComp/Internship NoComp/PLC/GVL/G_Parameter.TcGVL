@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
   <GVL Name="G_Parameter" Id="{6529201b-0264-4389-a4a9-6a2e97edbca5}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -17,7 +17,7 @@ VAR_GLOBAL
 	fConst : LREAL := 0.0; // [-1, 1]
 
 	
-	fCycleTime : LREAL := 0.001; // Time Step [ms]
+	fCycleTime : LREAL := 0.001; // Time Step [s]
 	fQConst : LREAL := 15;
 	
 	// PID-constants
