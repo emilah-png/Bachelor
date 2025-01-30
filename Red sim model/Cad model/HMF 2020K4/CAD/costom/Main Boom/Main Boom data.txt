@@ -1,0 +1,32 @@
+Mass properties of selected components
+     Coordinate system: Point B
+
+The center of mass and the moments of inertia are output in the coordinate system of MainBoom
+Mass = 216.5 kilograms
+
+Volume = 0.0277 cubic meters
+
+Surface area = 7.882 square meters
+
+Center of mass: ( meters )
+	X = 1.134
+	Y = 0.1674
+	Z = -0.0018
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.9987,  0.0519,  0.0007)   	Px = 6.083
+	 Iy = ( 0.0056, -0.0933, -0.9956)   	Py = 160
+	 Iz = (-0.0516,  0.9943, -0.0935)   	Pz = 160.7
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 6.5	Lxy = 8.016	Lxz = 0.1093
+	Lyx = 8.016	Lyy = 160.3	Lyz = 0.0666
+	Lzx = 0.1093	Lzy = 0.0666	Lzz = 160
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 12.56	Ixy = 49.09	Ixz = -0.3321
+	Iyx = 49.09	Iyy = 438.5	Iyz = 0.0014
+	Izx = -0.3321	Izy = 0.0014	Izz = 444.3

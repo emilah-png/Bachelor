@@ -1,0 +1,110 @@
+------------------------------------D2E--G2H-------------------------------
+
+Mass properties of 6344163
+     Configuration: 6344163
+     Coordinate system: Point D
+
+Density = 7850 kilograms per cubic meter
+
+Mass = 6.426 kilograms
+
+Volume = 0.0008 cubic meters
+
+Surface area = 0.138 square meters
+
+Center of mass: ( meters )
+	X = 0.245
+	Y = 0
+	Z = 0
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-1,  0,  0)   	Px = 0.0069
+	 Iy = ( 0,  1,  0)   	Py = 0.2419
+	 Iz = ( 0,  0, -1)   	Pz = 0.2485
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.0069	Lxy = 0	Lxz = 0
+	Lyx = 0	Lyy = 0.2419	Lyz = 0
+	Lzx = 0	Lzy = 0	Lzz = 0.2485
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.0069	Ixy = 0	Ixz = 0
+	Iyx = 0	Iyy = 0.6276	Iyz = 0
+	Izx = 0	Izy = 0	Izz = 0.6342
+
+
+------------------------------------E2F------------------------------------
+Mass properties of 15373
+     Configuration: Default
+     Coordinate system: Point E
+
+Density = 7850 kilograms per cubic meter
+
+Mass = 7.076 kilograms
+
+Volume = 0.0009 cubic meters
+
+Surface area = 0.1017 square meters
+
+Center of mass: ( meters )
+	X = 0.0817
+	Y = 0
+	Z = 0.0023
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.984,  0,  0.1782)   	Px = 0.0095
+	 Iy = ( 0, -1,  0)   	Py = 0.0546
+	 Iz = ( 0.1782,  0,  0.984)   	Pz = 0.0603
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.0111	Lxy = 0	Lxz = -0.0089
+	Lyx = 0	Lyy = 0.0546	Lyz = 0
+	Lzx = -0.0089	Lzy = 0	Lzz = 0.0587
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.0112	Ixy = 0	Ixz = -0.0075
+	Iyx = 0	Iyy = 0.1019	Iyz = 0
+	Izx = -0.0075	Izy = 0	Izz = 0.1059
+
+------------------------------------H2I------------------------------------
+
+Mass properties of 15377
+     Configuration: Default
+     Coordinate system: Point H
+
+Density = 7850 kilograms per cubic meter
+
+Mass = 22.05 kilograms
+
+Volume = 0.0028 cubic meters
+
+Surface area = 0.3182 square meters
+
+Center of mass: ( meters )
+	X = 0.1206
+	Y = 0
+	Z = 0
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0,  0,  1)   	Px = 0.1901
+	 Iy = ( 1,  0,  0)   	Py = 0.2636
+	 Iz = ( 0,  1,  0)   	Pz = 0.4184
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 0.2636	Lxy = 0	Lxz = 0
+	Lyx = 0	Lyy = 0.4184	Lyz = 0
+	Lzx = 0	Lzy = 0	Lzz = 0.1901
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 0.2636	Ixy = 0	Ixz = 0
+	Iyx = 0	Iyy = 0.7389	Iyz = 0
+	Izx = 0	Izy = 0	Izz = 0.5106
