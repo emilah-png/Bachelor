@@ -27,6 +27,9 @@ VAR_GLOBAL
 	fDeadUp 		: LREAL := 0.10;
 	fDeadDown 		: LREAL := 0.0;
 	
+	// Piston Variables
+	fMaxStrokeMain 	: LREAL := 0.75;
+	fMaxStrokeJib 	: LREAL := 0.85;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

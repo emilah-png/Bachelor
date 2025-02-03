@@ -8,8 +8,8 @@ VAR_GLOBAL
 	bEnableValveTwo			AT %Q* : BOOL; // PLC DO:2
 	
 	// Analog Outputs
-	nMainValveOutput 		AT %Q* : INT; // PLC AO:1
-	nJibValveOutput			AT %Q* : INT; // PLC AO:2
+	nValveOneOutput 		AT %Q* : INT; // PLC AO:1
+	nValveTwoOutput			AT %Q* : INT; // PLC AO:2
 	
 END_VAR]]></Declaration>
   </GVL>

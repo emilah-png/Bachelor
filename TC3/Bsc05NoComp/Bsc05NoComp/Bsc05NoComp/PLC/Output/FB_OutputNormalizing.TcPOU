@@ -7,7 +7,7 @@ VAR_INPUT
 	fNormalizedInput 	: LREAL;
 END_VAR
 VAR_OUTPUT
-	nOutput 			: INT; 
+	nOutput 			: INT;
 END_VAR
 VAR
 	nOffset 			: LREAL := 19630.0;

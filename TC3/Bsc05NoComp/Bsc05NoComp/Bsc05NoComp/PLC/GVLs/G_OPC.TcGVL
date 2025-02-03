@@ -48,8 +48,6 @@ VAR_GLOBAL
 	fValveTwoFF				: LREAL; // [-1, 1]
 	fValveTwoPID			: LREAL; // [-1, 1]
 	
-	
-
 END_VAR
 ]]></Declaration>
   </GVL>

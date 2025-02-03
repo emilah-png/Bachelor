@@ -67,6 +67,7 @@ fbNormMainPaLower(
 
 fbNormMainPistonPosition(
 	nRawInput := G_Inputs.nRawMainPistonPosition,
+	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
 	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	
@@ -97,6 +98,7 @@ fbNormJibPbLower(
 
 fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
+	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
 	fOutput => G_OPC.fJibPistonPosition.fSignal
 );
 
