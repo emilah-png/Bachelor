@@ -8,8 +8,8 @@ VAR_GLOBAL
 	bEnableFF 	: BOOL;
 	bEnablePID 	: BOOL;
 	
-	bEnableMain	: BOOL;
-	bEnableJib	: BOOL;	
+	bEnableOne	: BOOL;
+	bEnableTwo	: BOOL;	
 	
 	bTest		: BOOL;
 END_VAR]]></Declaration>

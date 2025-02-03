@@ -10,13 +10,13 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fbMainValveOutput(
 	fNormalizedInput := G_OPC.fValveOneOutput,
-	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableMain),
+	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableOne),
 	nOutput => G_Output.nMainValveOutput	
 );
 
 fbJibValveOutput(
 	fNormalizedInput := G_OPC.fValveTwoOutput,
-	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableJib),
+	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableTwo),
 	nOutput => G_Output.nJibValveOutput	
 );
 

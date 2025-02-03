@@ -4,12 +4,12 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	// Digital Outputs
-	bEnableValveOne			AT %Q* : BOOL;
-	bEnableValveTwo			AT %Q* : BOOL;
+	bEnableValveOne			AT %Q* : BOOL; // PLC DO:1
+	bEnableValveTwo			AT %Q* : BOOL; // PLC DO:2
 	
 	// Analog Outputs
-	nMainValveOutput 		AT %Q* : INT;
-	nJibValveOutput			AT %Q* : INT; 
+	nMainValveOutput 		AT %Q* : INT; // PLC AO:1
+	nJibValveOutput			AT %Q* : INT; // PLC AO:2
 	
 END_VAR]]></Declaration>
   </GVL>

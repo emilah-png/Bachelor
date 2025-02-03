@@ -22,6 +22,9 @@
     <Compile Include="Control\FB_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Control\FB_Motion.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Control\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
