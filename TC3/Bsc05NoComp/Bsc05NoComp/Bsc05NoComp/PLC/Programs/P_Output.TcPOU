@@ -3,19 +3,18 @@
   <POU Name="P_Output" Id="{ea868c64-71e1-491f-a495-e9db7d8a4d4c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Output
 VAR
-	fbMainValveOutput 	: FB_OutputNormalizing;
-	fbJibValveOutput 	: FB_OutputNormalizing;
-	
+	fbOneValveOutput 	: FB_OutputNormalizing;
+	fbTwoValveOutput 	: FB_OutputNormalizing;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbMainValveOutput(
+      <ST><![CDATA[fbOneValveOutput(
 	fNormalizedInput := G_OPC.fValveOneOutput,
 	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableOne),
 	nOutput => G_Output.nValveOneOutput	
 );
 
-fbJibValveOutput(
+fbTwoValveOutput(
 	fNormalizedInput := G_OPC.fValveTwoOutput,
 	bEnable := (G_Enables.bEnableU AND G_Enables.bEnableTwo),
 	nOutput => G_Output.nValveTwoOutput	

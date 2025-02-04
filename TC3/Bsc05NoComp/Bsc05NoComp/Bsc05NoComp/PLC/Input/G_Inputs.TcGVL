@@ -3,6 +3,7 @@
   <GVL Name="G_Inputs" Id="{2e7d1d5d-f580-4fbc-91c3-d3a9984276d2}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	
 	// Mode Selector
 	bEmergencySwitch		AT %I* : BOOL;
 	
@@ -36,8 +37,8 @@ VAR_GLOBAL
 	nRawJoystickExtrude		AT %I* : INT;
 
 	// Hawe Valve Values
-	bErrorOne				AT %I* : INT;
-	bErrorTwo				AT %I* : INT;		
+	bErrorOne				AT %I* : BOOL;
+	bErrorTwo				AT %I* : BOOL;		
 	
 END_VAR]]></Declaration>
   </GVL>

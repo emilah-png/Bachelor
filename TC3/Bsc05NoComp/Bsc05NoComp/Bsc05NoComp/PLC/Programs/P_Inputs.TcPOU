@@ -19,7 +19,7 @@ VAR
 	fbNormJibPbLower 			: FB_Normalize;
 	fbNormJibPistonPosition 	: FB_PositionInputScaling;
 
-	// Jib
+	// Winch
 	fbNormWinchPa 				: FB_Normalize;
 	fbNormWinchPb 				: FB_Normalize;
 	fbNormWinchEncoderA			: FB_Normalize;
@@ -30,10 +30,7 @@ VAR
 	fbJoystickRotation 			: FB_JoystickInputScaling;
 	fbJoystickMain 				: FB_JoystickInputScaling;
 	fbJoystickJib 				: FB_JoystickInputScaling;
-	fbJoystickExtrude 			: FB_JoystickInputScaling;
-	
-	// Buttons
-	
+	fbJoystickExtrude 			: FB_JoystickInputScaling;	
 	
 END_VAR
 ]]></Declaration>

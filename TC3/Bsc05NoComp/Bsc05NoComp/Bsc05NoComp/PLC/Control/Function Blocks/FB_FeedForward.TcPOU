@@ -7,6 +7,7 @@ VAR_INPUT
 	fPa 			: LREAL;
 	fPb 			: LREAL;
 	fXDot			: LREAL;
+	fDeltaP0		: LREAL;
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
@@ -17,7 +18,7 @@ VAR
 	fBandWidth		: LREAL := 0.0; 								// Band Width
 	fSpoolTravel 	: LREAL := 7.0; 								// Maximum Spool Travel
 	fSlopeChar		: LREAL := (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
-	fDeltaP_Norm	: LREAL := 7.0 * 100000.0; 						// Pressure Drop with Compansator
+	fDeltaP_Norm	: LREAL := fDeltaP0 * 100000.0; 						// Pressure Drop with Compansator
 	
 	fFlow			: LREAL; 										// Wanted Flow
 	fDeltaP			: LREAL; 										// Pressure Drop

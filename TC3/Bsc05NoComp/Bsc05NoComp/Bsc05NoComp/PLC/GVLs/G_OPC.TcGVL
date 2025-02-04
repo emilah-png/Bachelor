@@ -16,14 +16,14 @@ VAR_GLOBAL
 	fMainPa 				: ST_Filter; // [Bar]
 	fMainPb					: ST_Filter; // [Bar]
 	fMainPaLower			: ST_Filter; // [Bar]
-	fMainPistonPosition 	: ST_Filter; // [m]
+	fMainPistonPosition 	: LREAL; // [m]
 	
 	// JIB Values
 	fJibPa 					: ST_Filter; // [Bar]
 	fJibPb					: ST_Filter; // [Bar]
 	fJibPaLower				: ST_Filter; // [Bar]
 	fJibPbLower				: ST_Filter; // [Bar]
-	fJibPistonPosition		: ST_Filter; // [m]
+	fJibPistonPosition		: LREAL; // [m]
 	
 	// WINCH Values
 	fWinchPa				: ST_Filter; // [Bar]
@@ -48,6 +48,10 @@ VAR_GLOBAL
 	fValveTwoFF				: LREAL; // [-1, 1]
 	fValveTwoPID			: LREAL; // [-1, 1]
 	
+	// Motion Ref
+	fXRef					: LREAL; // [m]
+	fXDotRef				: LREAL; // [m/s]
+
 END_VAR
 ]]></Declaration>
   </GVL>

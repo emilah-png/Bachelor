@@ -26,9 +26,6 @@ ELSIF bManuel AND NOT(bDeadBandTest) THEN
 	fXDotRef := fJoystick * fMaxSpeed;
 ELSIF bManuel AND bDeadBandTest THEN
 	fXRef := fJoystick;
-	
-	
-	
 ELSE
 	fXRef := 0.0;
 	fXDotRef := 0.0;

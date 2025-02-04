@@ -11,6 +11,8 @@ VAR_GLOBAL
 	bEnableOne	: BOOL;
 	bEnableTwo	: BOOL;	
 	
+	bHoldButton : BOOL;
+	
 	bTest		: BOOL;
 END_VAR]]></Declaration>
   </GVL>
