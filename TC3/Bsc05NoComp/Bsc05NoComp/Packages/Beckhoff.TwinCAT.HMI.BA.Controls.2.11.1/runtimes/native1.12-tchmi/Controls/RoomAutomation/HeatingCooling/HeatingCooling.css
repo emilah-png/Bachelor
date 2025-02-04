@@ -1,0 +1,193 @@
+:root {
+    --tchmi-ba-hc-control-heating-zone-background-color: rgba(230, 80, 80, 1);
+    --tchmi-ba-hc-control-heating-zone-background-color-inactive: rgba(200, 150, 150, 1);
+    --tchmi-ba-hc-control-cooling-zone-background-color: rgba(80, 80, 255, 1);
+    --tchmi-ba-hc-control-cooling-zone-background-color-inactive: rgb(190, 200, 255);
+    --tchmi-ba-hc-control-neutral-zone-background-color: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-hc-control-neutral-zone-background-color-pressed: var(--tchmi-ba-global-button-background-pressed);
+    --tchmi-ba-hc-control-neutral-zone-background-color-read-only: var(--tchmi-ba-global-button-background-pressed);
+    --tchmi-ba-hc-control-neutral-zone-background-color-read-only: rgba(180, 180, 150, 1);
+    --tchmi-ba-hc-control-neutral-zone-arrow-color: rgb(150, 150, 150);
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_HeatingCooling.show-displays > div.tchmi-ba-text-handler {
+    align-items: flex-end;
+}
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_HeatingCooling.show-displays > div.tchmi-ba-text-handler > span {
+        z-index: 2;
+    }
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_HeatingCooling.temp-adjust-slider-show-displays div.control-container-element {
+    overflow: visible;
+}
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_HeatingCooling .tchmi-ba-control-container:first-child {
+    padding: 10px;
+}
+
+div.tchmi-ba-base.hc-control-icon {
+    --tchmi-ba-global-icon-color: white;
+}
+
+    div.tchmi-ba-base.hc-control-icon.heating-active {
+        --tchmi-ba-global-icon-color: rgb(255, 0, 0);
+    }
+
+    div.tchmi-ba-base.hc-control-icon.cooling-active {
+        --tchmi-ba-global-icon-color: rgb(0, 0, 255);
+    }
+
+/* TempAdjustSlider */
+div.tchmi-ba-base.temp-adjust-slider {
+    --tchmi-ba-temp-adjust-slider-heating-zone-display-width: 33.33%;
+    --tchmi-ba-temp-adjust-slider-cooling-zone-display-width: 33.33%;
+    --tchmi-ba-temp-adjust-slider-temp-display-background: white;
+    --tchmi-ba-temp-adjust-slider-temp-display-text-color: black;
+    --tchmi-ba-temp-adjust-slider-cursor-color: black;
+    --tchmi-ba-temp-adjust-cursor-weight: 10px;
+    display: flex;
+    border: 1px solid grey;
+}
+
+    div.tchmi-ba-base.temp-adjust-slider > div.zone-display {
+        position: relative;
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-weight: bold;
+        white-space: pre;
+        overflow: hidden;
+    }
+
+        div.tchmi-ba-base.temp-adjust-slider > div.zone-display.heating {
+            width: var(--tchmi-ba-temp-adjust-slider-heating-zone-display-width);
+            background: var(--tchmi-ba-hc-control-heating-zone-background-color);
+            cursor: initial;
+            order: 1;
+            z-index: 1;
+        }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.heating.is-inactive {
+                background: var(--tchmi-ba-hc-control-heating-zone-background-color-inactive);
+            }
+
+        div.tchmi-ba-base.temp-adjust-slider > div.zone-display.cooling {
+            width: var(--tchmi-ba-temp-adjust-slider-cooling-zone-display-width);
+            background: var(--tchmi-ba-hc-control-cooling-zone-background-color);
+            cursor: initial;
+            justify-content: flex-end;
+            order: 3;
+            z-index: 1;
+        }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.cooling.is-inactive {
+                background: var(--tchmi-ba-hc-control-cooling-zone-background-color-inactive);
+            }
+
+        div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral {
+            flex: auto;
+            background: var(--tchmi-ba-hc-control-neutral-zone-background-color);
+            padding: 0 3px 0 3px;
+            order: 2;
+            cursor: pointer;
+        }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral:active {
+                background: var(--tchmi-ba-hc-control-neutral-zone-background-color-pressed);
+            }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral::before,
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral::after {
+                position: relative;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 13px;
+                color: var(--tchmi-ba-hc-control-neutral-zone-arrow-color);
+            }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral::before {
+                content: '\0276C';
+            }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral::after {
+                content: '\0276D';
+                margin-left: auto;
+                right: 0;
+            }
+
+            div.tchmi-ba-base.temp-adjust-slider > div.zone-display.neutral > span.temp-adjust-display {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                text-align: center;
+                display: none;
+            }
+
+        div.tchmi-ba-base.temp-adjust-slider div.temp-display {
+            position: absolute;
+            padding: 0 2px 0 2px;
+            height: 100%;
+            background: var(--tchmi-ba-temp-adjust-slider-temp-display-background);
+            color: var(--tchmi-ba-temp-adjust-slider-temp-display-text-color);
+            border: 1px solid black;
+            white-space: nowrap;
+            display: none;
+            bottom: 100%;
+            z-index: 3;
+        }
+
+    div.tchmi-ba-base.temp-adjust-slider > div.temp-display.minimum-display {
+        left: -20px;
+        top: 100%;
+    }
+
+    div.tchmi-ba-base.temp-adjust-slider > div.temp-display.maximum-display {
+        right: -20px;
+        top: 100%;
+    }
+
+    div.tchmi-ba-base.temp-adjust-slider > div.temp-cursor > div.temp-display.temp-cursor-display {
+        font-weight: bold;
+    }
+
+    div.tchmi-ba-base.temp-adjust-slider.show-displays.show-room-temperature-limits > div.temp-display.minimum-display,
+    div.tchmi-ba-base.temp-adjust-slider.show-displays.show-room-temperature-limits > div.temp-display.maximum-display,
+    div.tchmi-ba-base.temp-adjust-slider.show-displays > div.zone-display.neutral > span.temp-adjust-display.show-temperature-adjust,
+    div.tchmi-ba-base.temp-adjust-slider.show-displays > div.temp-cursor > div.temp-display.temp-cursor-display {
+        display: block;
+    }
+
+    div.tchmi-ba-base.temp-adjust-slider > div.temp-cursor {
+        overflow: visible;
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+        div.tchmi-ba-base.temp-adjust-slider > div.temp-cursor > svg {
+            position: absolute;
+            flex: auto;
+            height: calc(100% + 8px);
+        }
+
+    div.tchmi-ba-base.temp-adjust-slider.read-only > div.zone-display.neutral {
+        background: var(--tchmi-ba-hc-control-neutral-zone-background-color-read-only);
+        cursor: initial;
+    }
+
+        div.tchmi-ba-base.temp-adjust-slider.read-only > div.zone-display.neutral:active {
+            background: var(--tchmi-ba-hc-control-neutral-zone-background-color-read-only);
+        }
+
+        div.tchmi-ba-base.temp-adjust-slider.read-only > div.zone-display.neutral::before,
+        div.tchmi-ba-base.temp-adjust-slider.read-only > div.zone-display.neutral::after {
+            content: '';
+        }

@@ -1,0 +1,15 @@
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Window.has-quick-links .tchmi-ba-control-container {
+    overflow: visible;
+    height: 40px;
+    padding: 0 5px 5px 5px;
+    box-sizing: border-box;
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Window.show-displays > div.tchmi-ba-text-handler {
+    align-items: flex-end;
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Window .tchmi-ba-control-container > div.tchmi-ba-text-handler.slider,
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Window .tchmi-ba-control-container > div.tchmi-ba-text-handler.slider.round-knob {
+    margin: 0 15px 0 15px;
+}

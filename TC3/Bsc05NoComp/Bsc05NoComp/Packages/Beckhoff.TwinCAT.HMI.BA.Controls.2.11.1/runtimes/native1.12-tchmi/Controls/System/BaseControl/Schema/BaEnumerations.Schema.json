@@ -1,0 +1,204 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.DataType": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "options": [
+        {
+          "label": "unknown",
+          "value": 0
+        },
+        {
+          "label": "string",
+          "value": 1
+        },
+        {
+          "label": "number",
+          "value": 2
+        },
+        {
+          "label": "integer",
+          "value": 3
+        },
+        {
+          "label": "boolean",
+          "value": 4
+        },
+        {
+          "label": "object",
+          "value": 5
+        },
+        {
+          "label": "array",
+          "value": 6
+        },
+        {
+          "label": "enum",
+          "value": 7
+        },
+        {
+          "label": "dateTime",
+          "value": 8
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.EventCondition": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "options": [
+        {
+          "label": "Invalid",
+          "value": 0
+        },
+        {
+          "label": "eTypeAlarm",
+          "value": 1
+        },
+        {
+          "label": "eTypeDisturb",
+          "value": 2
+        },
+        {
+          "label": "eTypeMaintenance",
+          "value": 3
+        },
+        {
+          "label": "eTypeNotification",
+          "value": 4
+        },
+        {
+          "label": "eTypeOther",
+          "value": 5
+        },
+        {
+          "label": "eFlagOverridden",
+          "value": 6
+        },
+        {
+          "label": "eFlagOutOfService",
+          "value": 7
+        },
+        {
+          "label": "eFlagFault",
+          "value": 8
+        },
+        {
+          "label": "eFlagActiveEvent",
+          "value": 9
+        },
+        {
+          "label": "ePrioLifeSafety",
+          "value": 10
+        },
+        {
+          "label": "ePrioCritical",
+          "value": 11
+        },
+        {
+          "label": "ePrioManualLocal",
+          "value": 12
+        },
+        {
+          "label": "ePrioManualRemote",
+          "value": 13
+        },
+        {
+          "label": "eLockPrioLocalMedium",
+          "value": 14
+        },
+        {
+          "label": "eLockPrioLocalHigh",
+          "value": 15
+        },
+        {
+          "label": "eLockPrioMedium",
+          "value": 16
+        },
+        {
+          "label": "eLockPrioHigh",
+          "value": 17
+        },
+        {
+          "label": "eEventIconDisplayed",
+          "value": 18
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.EventIconState": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "options": [
+        {
+          "label": "Invalid",
+          "value": 0
+        },
+        {
+          "label": "eNone",
+          "value": 1
+        },
+        {
+          "label": "eIndicatd",
+          "value": 2
+        },
+        {
+          "label": "eGoneAcked",
+          "value": 3
+        },
+        {
+          "label": "eGone",
+          "value": 4
+        },
+        {
+          "label": "ePresentAcked",
+          "value": 5
+        },
+        {
+          "label": "ePresent",
+          "value": 6
+        }
+      ]
+    }
+  }
+}

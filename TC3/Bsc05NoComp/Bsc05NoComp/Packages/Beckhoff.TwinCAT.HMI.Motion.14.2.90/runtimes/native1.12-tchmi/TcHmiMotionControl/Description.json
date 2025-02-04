@@ -1,0 +1,270 @@
+{
+    "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+    "apiVersion": 1,
+    "name": "TcHmiMotionControl",
+    "namespace": "TcHmi.Controls.Beckhoff.TcHmiMotion",
+    "displayName": "Motion Control",
+    "version": {
+        "full": "14.2.90.0",
+        "major": 14,
+        "minor": 2,
+        "build": 90,
+        "revision": 0
+    },
+    "visible": true,
+    "themeable": "Standard",
+    "base": "TcHmi.Controls.System.TcHmiControl",
+    "description": "A control to observe basic axis data and move axes.",
+    "properties": {
+        "containerControl": false,
+        "geometry": {
+            "width": 820,
+            "height": 560
+        }
+    },
+    "template": "Template.html",
+    "icons": [
+        {
+            "name": "Icons/16x16.png",
+            "width": 16,
+            "height": 16
+        }
+    ],
+    "dependencyFiles": [
+        {
+            "name": "TcHmiMotionControl.js",
+            "type": "JavaScript",
+            "description": "Contains all the main logic."
+        },
+        {
+            "name": "Style.css",
+            "type": "Stylesheet",
+            "description": "Theme independent style"
+        }
+    ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+    "attributes": [
+        {
+            "name": "data-tchmi-main-nc",
+            "propertyName": "MainNc",
+            "propertySetterName": "setMainNc",
+            "propertyGetterName": "getMainNc",
+            "displayName": "Main NC",
+            "visible": true,
+            "type": "tchmi:general#/definitions/String",
+            "themeable": "Standard",
+            "category": "Common",
+            "description": "String with the exact name of the NC Runtime on port 500. You can configure the runtime in Server > ADS > Runtimes. \nThe NC Runtime is not optional.",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultValue": "NC",
+            "defaultValueInternal": ""
+        },
+        {
+            "name": "data-tchmi-nc-task",
+            "propertyName": "NcTask",
+            "propertySetterName": "setNcTask",
+            "propertyGetterName": "getNcTask",
+            "displayName": "NC Task",
+            "visible": true,
+            "type": "tchmi:general#/definitions/String",
+            "themeable": "Standard",
+            "category": "Common",
+            "description": "String with the exact name of the NC-Task Runtime on Port 501. You can configure the runtime in Server > ADS > Runtimes. \nThe NC-Task Runtime is not optional.",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultValue": "NC-Task1",
+            "defaultValueInternal": ""
+        },
+        {
+            "name": "data-tchmi-current-axis",
+            "propertyName": "CurrentAxis",
+            "propertySetterName": "setCurrentAxis",
+            "propertyGetterName": "getCurrentAxis",
+            "displayName": "Current Axis",
+            "visible": true,
+            "type": "tchmi:general#/definitions/INT",
+            "themeable": "Standard",
+            "category": "Common",
+            "description": "Selected axis. Only used in direct NC communication.",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultValue": null,
+            "defaultValueInternal": 0
+        },
+        {
+            "name": "data-tchmi-axis-ref",
+            "propertyName": "AxisRef",
+            "propertySetterName": "setAxisRef",
+            "propertyGetterName": "getAxisRef",
+            "displayName": "AXIS_REF",
+            "visible": true,
+            "type": "tchmi:general#/definitions/Object",
+            "themeable": "Standard",
+            "category": "PLC",
+            "displayPriority": 10,
+            "description": "[Optional] The function block 'AXIS_REF' of the 'Tc2_MC2' PLC library. The function block is a reference to a specific axis.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "allowSymbolExpressionsInObject": true
+        },
+        {
+            "name": "data-tchmi-halt",
+            "propertyName": "McHalt",
+            "propertySetterName": "setMcHalt",
+            "propertyGetterName": "getMcHalt",
+            "displayName": "MC_Halt",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 11,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_Halt'  of the 'Tc2_MC2' PLC library. Used to stop the axis movement.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        },
+        {
+            "name": "data-tchmi-home",
+            "propertyName": "McHome",
+            "propertySetterName": "setMcHome",
+            "propertyGetterName": "getMcHome",
+            "displayName": "MC_Home",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 12,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_Home' of the 'Tc2_MC2' PLC library. Used to calibrate the axis.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        },
+        {
+            "name": "data-tchmi-move-absolute",
+            "propertyName": "McMoveAbsolute",
+            "propertySetterName": "setMcMoveAbsolute",
+            "propertyGetterName": "getMcMoveAbsolute",
+            "displayName": "MC_MoveAbsolute",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 13,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_MoveAbsolute' of the 'Tc2_MC2' PLC library. Used to move the axis to an absolut position.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        },
+        {
+            "name": "data-tchmi-move-velocity",
+            "propertyName": "McMoveVelocity",
+            "propertySetterName": "setMcMoveVelocity",
+            "propertyGetterName": "getMcMoveVelocity",
+            "displayName": "MC_MoveVelocity",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 14,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_MoveVelocity' of the 'Tc2_MC2' PLC library. Used to move the axis with a specific velocity.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        },
+        {
+            "name": "data-tchmi-mc-power",
+            "propertyName": "McPower",
+            "propertySetterName": "setMcPower",
+            "propertyGetterName": "getMcPower",
+            "displayName": "MC_Power",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 16,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_Power' of the 'Tc2_MC2' PLC library. Used to enable the axis.\nIf an axis is linked to the PLC you need to use the MC_Power function block to enable the axis.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        },
+        {
+            "name": "data-tchmi-reset",
+            "propertyName": "McReset",
+            "propertySetterName": "setMcReset",
+            "propertyGetterName": "getMcReset",
+            "displayName": "MC_Reset",
+            "visible": true,
+            "themeable": "Advanced",
+            "category": "PLC",
+            "displayPriority": 17,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "description": "[Optional] The function block 'MC_Reset' of the 'Tc2_MC2' PLC library. Used to reset the axis.\nIf this attribute is not set the control will communicate directly to the NC.",
+            "defaultValue": null,
+            "defaultValueInternal": null,
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay"
+        }
+    ],
+    "attributeCategories": [
+        {
+            "name": "PLC",
+            "displayPriority": 220,
+            "defaultCollapsed": false,
+            "description": "Attributes for a PLC communication."
+        }
+    ],
+    "functions": [],
+    "events": [],
+    "dataTypes": [
+        {
+            "schema": "Schema/Types.Schema.json"
+        }
+    ],
+    "languages": {
+        "en": "Lang/en.json",
+        "de": "Lang/de.json"
+    }
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiBaControls.System.Sensor": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.UiIconFdbStp",
+      "frameworkControlType": "Sensor",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    },
+    "TcHmi.BuildingAutomation.Controls.System.Sensor.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "feedback": {
+          "type": "string"
+        }
+      },
+      "required": [ "feedback" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.System.Sensor.SubBaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "SubBaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "description": "Identifier of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "subTemplate",
+          "displayName": "Sensor Analog",
+          "description": "The template description of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "subTemplate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.System.Sensor.BaTemplateDescription"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.System.Sensor.DisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Type",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        30,
+        999,
+        1000
+      ],
+      "options": [
+        {
+          "label": "temperature",
+          "value": 0
+        },
+        {
+          "label": "pressure",
+          "value": 1
+        },
+        {
+          "label": "humidity",
+          "value": 2
+        },
+        {
+          "label": "humidityAbs",
+          "value": 3
+        },
+        {
+          "label": "enthalpy",
+          "value": 4
+        },
+        {
+          "label": "globalRadiation",
+          "value": 5
+        },
+        {
+          "label": "co2",
+          "value": 6
+        },
+        {
+          "label": "voc",
+          "value": 7
+        },
+        {
+          "label": "volumeFlow",
+          "value": 8
+        },
+        {
+          "label": "heatAmount",
+          "value": 9
+        },
+        {
+          "label": "current",
+          "value": 10
+        },
+        {
+          "label": "voltage",
+          "value": 11
+        },
+        {
+          "label": "brightness",
+          "value": 30
+        },
+        {
+          "label": "custom",
+          "value": 999
+        },
+        {
+          "label": "customLetter",
+          "value": 1000
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.System.Sensor.PinLayout": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Type",
+      "type": "integer",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "options": [
+        {
+          "label": "none",
+          "value": -1
+        },
+        {
+          "label": "single",
+          "value": 0
+        },
+        {
+          "label": "parallel",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

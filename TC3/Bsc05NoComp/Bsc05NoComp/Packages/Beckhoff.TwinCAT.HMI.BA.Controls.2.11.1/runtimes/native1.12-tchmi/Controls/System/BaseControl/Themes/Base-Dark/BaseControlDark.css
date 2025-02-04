@@ -1,0 +1,85 @@
+﻿/* Global base theme variables. */
+:root {
+    --tchmi-ba-global-dark-background-color: rgb(73, 74, 78);
+    --tchmi-ba-global-text-color: rgb(255,255,255);
+    --tchmi-ba-global-input-background: #2a3845;
+    --tchmi-ba-global-control-background: #1b1b1f;
+    --tchmi-ba-global-control-border-color: black;
+    --tchmi-ba-global-control-border: 1px solid var(--tchmi-ba-global-control-border-color);
+    --tchmi-ba-global-control-header-color: #2b2b2c;
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-text-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: white
+}
+
+/*--------------------------------------------------------------*/
+/*---------- Styles for helper class ContextMenu. --------------*/
+/*--------------------------------------------------------------*/
+.tchmi-ba-base.context-menu {
+    --row-entry-odd-background-color: rgb(60, 60, 70);
+    --row-entry-even-background-color: rgb(50, 50, 60);
+    --row-entry-hover-background-color: rgb(100, 100, 110);
+}
+
+/* ContentWindow */
+.tchmi-ba-base.content-window {
+    border: var(--tchmi-ba-global-control-border);
+}
+
+    .tchmi-ba-base.content-window > div.header {
+        border-bottom: 1px solid var(--tchmi-ba-global-control-border-color);
+        box-shadow: initial;
+    }
+
+/* DialogWindow */
+.tchmi-ba-base.dialog-window.selected {
+    box-shadow: 0 0 10px 0 rgba(100, 100, 110, 0.9);
+}
+
+.tchmi-ba-base.dialog-window.minimized {
+    box-sizing: initial;
+}
+
+    .tchmi-ba-base.dialog-window.minimized > div.header {
+        border: initial;
+    }
+
+.tchmi-ba-base.dialog-window > div.header.selected {
+    box-shadow: initial;
+}
+
+/* RadioButton */
+.tchmi-ba-text-handler.radio-button {
+    --tchmi-ba-checkbox-checkmark-color: white;
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-input-background);
+    border: var(--tchmi-ba-global-control-border);
+}
+
+/* Table */
+.tchmi-ba-text-handler.table {
+    --tchmi-ba-table-header-row-background: #4c6374;
+    --tchmi-ba-table-cell-background: var(--tchmi-ba-global-dark-background-color);
+    --tchmi-ba-table-cell-border-color: var(--tchmi-ba-global-control-border-color);
+    --tchmi-ba-table-selected-row-border-color: white;
+    --tchmi-ba-table-selected-row-background: rgba(140, 140, 160, 0.3);
+    --tchmi-ba-table-resizer-color: #6c818b;
+    background-color: var(--tchmi-ba-global-dark-background-color);
+    border: var(--tchmi-ba-global-control-border);
+    box-sizing: border-box;
+}
+
+/* EventIcon */
+.tchmi-ba-base.event-icon {
+    overflow: visible;
+    cursor: initial;
+    --tchmi-ba-event-icon-edge-icon-background-color: rgba(120, 120, 140, 0.6);
+    --tchmi-ba-event-icon-edge-icon-stroke-color: rgb(0, 255, 0);
+}
+
+/* Chart */
+div.tchmi-ba-base.chart {
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-control-header-color);
+}

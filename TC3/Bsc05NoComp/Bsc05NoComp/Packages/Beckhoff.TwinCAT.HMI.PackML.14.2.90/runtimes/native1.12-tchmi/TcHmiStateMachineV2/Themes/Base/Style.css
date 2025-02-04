@@ -1,0 +1,4 @@
+/* PackMLStateMachine styles for theme: Base */
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2 {
+    background: var(--tchmi-background-color-1);
+}

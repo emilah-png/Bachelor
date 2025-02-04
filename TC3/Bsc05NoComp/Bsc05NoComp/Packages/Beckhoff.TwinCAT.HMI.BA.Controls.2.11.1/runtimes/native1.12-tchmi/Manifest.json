@@ -1,0 +1,428 @@
+{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.BA.Icons"
+    },
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.BA.Framework"
+    },
+    {
+      "type": "Resource",
+      "path": "Helper/SubjectInfos.js"
+    },
+    {
+      "type": "Resource",
+      "path": "Helper/Helper.js"
+    },
+    {
+      "type": "Resource",
+      "path": "Helper/BA.js"
+    },
+    {
+      "type": "Resource",
+      "path": "Global/Globals.js"
+    },
+    {
+      "type": "Resource",
+      "path": "Global/Globals.css"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "AddBadge.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertHexToRgbaColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertHslToRgbaColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertRgbaToHexColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertRgbaToHslColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertRgbaToSolidColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertSolidToRgbaColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "ConvertUnitToString.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "GetCurrentUserName.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "GetFadeColor.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "LoadUserDependentContent.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "OpenDialogWindow.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "OpenLegendDialog.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "OpenTrendCollectionView.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "UpdateObjectInfo.function.json"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "UseBaObjectsInUserControl.function.json"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/BaseControl",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/BaseTemplate",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:500"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/TextControl",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:500"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/BaseRoomControl",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Button",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Checkbox",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/ColorPicker",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Combobox",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/DateTimeField",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Icon",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/InputBox",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/ManualOverride",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/ManualOverrideBinary",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Slider",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/TabWindow",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Textblock",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Calendar",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Management/Trend",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:420"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/ValueField",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Scale",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/DataGrid",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Management/EventList",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:420"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Management/Schedule",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:420"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/UiIcon",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/UiIconFdbStp",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:500"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Management/ProjectNavigationTextual",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:420"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/BuildingGeneral/BuildingInformation",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:401"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/BuildingGeneral/Legend",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:401"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/BulletPointList",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/Damper",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/Motor",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/Pump",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/Valve",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/VAV",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/System/Sensor",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:500"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/SensorAnalog",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/SensorBinary",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/Cooler",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/ErcPlate",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/ErcRotation",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/HeatingCircuit",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Plants/PreHeater",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:440"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/BuildingGeneral/WeatherStation",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:401"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/RoomAutomation/HeatingCooling",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:450"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/RoomAutomation/Light",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:450"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/RoomAutomation/Sunblind",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:450"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/RoomAutomation/Window",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:450"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/RoomAutomation/RoomControl",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:450"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Common/Paginator",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiBaControls:410"
+    }
+  ],
+  "provideMetadata": {
+    "toolbox": {
+      "TcHmiBaControls": {
+        "401": "BA | Building General",
+        "410": "BA | Common",
+        "420": "BA | Management",
+        "440": "BA | Plants",
+        "450": "BA | Room Automation",
+        "500": "BA | System"
+      }
+    }
+  },
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

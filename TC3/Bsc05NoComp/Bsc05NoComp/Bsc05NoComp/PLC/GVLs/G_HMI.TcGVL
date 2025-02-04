@@ -3,8 +3,12 @@
   <GVL Name="G_HMI" Id="{247e71a7-fde8-4926-9ce7-401ca48c630d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	nCounter:INT;
-	bstepp_button:BOOL;
+	nCounter	:	INT;
+	bstepp_button	:	BOOL;
+	nSlider_1	:	LREAL;
+	nSlider_2	:	LREAL;
+	bButton_Cylinder_1	:	BOOL;
+	bButton_Cylinder_2	:	BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

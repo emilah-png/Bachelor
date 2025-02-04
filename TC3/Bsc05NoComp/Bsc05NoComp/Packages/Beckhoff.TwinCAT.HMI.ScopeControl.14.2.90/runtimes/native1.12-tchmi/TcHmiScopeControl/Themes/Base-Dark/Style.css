@@ -1,0 +1,598 @@
+/** Styles for the theme: Base-Dark */
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-popup {
+    --tchmi-color: var(--tchmi-foreground-color-1);
+    --tchmi-background: var(--tchmi-background-color-1);
+    --tchmi-background-part: var(--tchmi-background-color-3);
+    --tchmi-border-color: var(--tchmi-background-color-2);
+    --tchmi-menubar-option-background: var(--tchmi-background-color-3);
+    --tchmi-tooltip-background: var(--tchmi-background-color-3);
+    --tchmi-tooltip-color: var(--tchmi-foreground-color-1);
+    --tchmi-tooltip-border: var(--tchmi-background-color-2);
+    --tchmi-slider-background: var(--tchmi-background-color-2);
+    --tchmi-slider-knob-background: var(--tchmi-foreground-color-3);
+    --tchmi-slider-color: var(--tchmi-foreground-color-2);
+    --tchmi-placeholder-color: var(--tchmi-background-color-2);
+    --tchmi-popup-background: var(--tchmi-background-color-3);
+    --tchmi-loading-background: var(--tchmi-background-color-3);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl {
+    background: var(--tchmi-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-popup .TcHmi_Controls_Beckhoff_TcHmiButton,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-popup .tchmi-button {
+    font-size: 12px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-popup {
+    background: var(--tchmi-popup-background);
+    box-shadow: var(--tchmi-popup-shadow);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-overview {
+    border-bottom: 5px solid var(--tchmi-background); /** used in internal calculation */
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-legend {
+    background: var(--tchmi-background-part);
+    color: var(--tchmi-color);
+    font-size: 12px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-tool-bar
+    > .TcHmi_Controls_Beckhoff_TcHmiButton,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-tool-bar-dropdown
+    > .TcHmi_Controls_Beckhoff_TcHmiButton {
+    box-shadow: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-tool-bar,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-time-bar {
+    background: var(--tchmi-background-part);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-time-bar > label {
+    color: var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-chart-name {
+    font-size: 12px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-splitter {
+    border-left: 1px solid var(--tchmi-border-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-textblock {
+    color: var(--tchmi-color);
+    font-size: 12px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-trigger-window {
+    background: var(--tchmi-background);
+}
+
+/* Button icons */
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-StartRecordButton > div {
+    background-image: url('Images/startRecord_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-StartRecordButton.down > div {
+    background-image: url('Images/startRecord_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-StopRecordButton > div {
+    background-image: url('Images/stopRecord_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-StopRecordButton.down > div {
+    background-image: url('Images/stopRecord_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-RunButton > div {
+    background-image: url('Images/play_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-RunButton.down > div {
+    background-image: url('Images/play_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PauseButton > div {
+    background-image: url('Images/pause_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PauseButton.down > div {
+    background-image: url('Images/pause_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollBackBigButton > div {
+    background-image: url('Images/scrollBigBack_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollBackBigButton.down > div {
+    background-image: url('Images/scrollBigBack_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollBackSmallButton > div {
+    background-image: url('Images/scrollBack_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollBackSmallButton.down > div {
+    background-image: url('Images/scrollBack_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollForwardSmallButton > div {
+    background-image: url('Images/scrollAhead_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollForwardSmallButton.down > div {
+    background-image: url('Images/scrollAhead_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollForwardBigButton > div {
+    background-image: url('Images/scrollBigAhead_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ScrollForwardBigButton.down > div {
+    background-image: url('Images/scrollBigAhead_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UndoButton > div {
+    background-image: url('Images/undo_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UndoButton.down > div {
+    background-image: url('Images/undo_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-RedoButton > div {
+    background-image: url('Images/redo_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-RedoButton.down > div {
+    background-image: url('Images/redo_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanToggleButton > div {
+    background-image: url('Images/panx_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanToggleButton.down > div {
+    background-image: url('Images/panx_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanXYToggleButton > div {
+    background-image: url('Images/panxy_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanXYToggleButton.down > div {
+    background-image: url('Images/panxy_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanYToggleButton > div {
+    background-image: url('Images/pany_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-PanYToggleButton.down > div {
+    background-image: url('Images/pany_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomToggleButton > div {
+    background-image: url('Images/zoomx_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomToggleButton.down > div {
+    background-image: url('Images/zoomx_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomXYToggleButton > div {
+    background-image: url('Images/zoomxy_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomXYToggleButton.down > div {
+    background-image: url('Images/zoomxy_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomYToggleButton > div {
+    background-image: url('Images/zoomy_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomYToggleButton.down > div {
+    background-image: url('Images/zoomy_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UnzoomButton > div {
+    background-image: url('Images/zoomdel_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UnzoomButton.down > div {
+    background-image: url('Images/zoomdel_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomOutMaxButton > div {
+    background-image: url('Images/zoomOut_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-ZoomOutMaxButton.down > div {
+    background-image: url('Images/zoomOut_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-OverviewButton > div {
+    background-image: url('Images/overviewMode_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-OverviewButton.down > div {
+    background-image: url('Images/overviewMode_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-TriggerWindowButton > div {
+    background-image: url('Images/triggerWindow_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-TriggerWindowButton.down > div {
+    background-image: url('Images/triggerWindow_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-DownloadButton > div {
+    background-image: url('Images/download_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-DownloadButton.down > div {
+    background-image: url('Images/download_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UploadButton > div {
+    background-image: url('Images/upload_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-UploadButton.down > div {
+    background-image: url('Images/upload_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-TimeRangeButton > div {
+    background-image: url('Images/timeRange_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-TimeRangeButton.down > div {
+    background-image: url('Images/timeRange_pressed.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+[data-column-name='delete'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-button::after {
+    background-image: url('Images/delete_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    content: '';
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+[data-column-name='delete'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-button.down::after {
+    background-image: url('Images/delete_pressed.svg');
+}
+
+[data-column-name='download'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-button::after {
+    background-image: url('Images/download_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    content: '';
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+[data-column-name='download'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-button.down::after {
+    background-image: url('Images/download_pressed.svg');
+}
+
+[data-column-name='attach'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-toggle-button::after {
+    background-image: url('Images/attach_normal.svg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    content: '';
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+[data-column-name='attach'] .TcHmi_Controls_Beckhoff_TcHmiDatagrid-toggle-button.down::after {
+    background-image: url('Images/attach_pressed.svg');
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiButton.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-options {
+    box-shadow: none;
+    background: var(--tchmi-menubar-option-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiButton.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-menu-bar-options:before {
+    content: '\25bc';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+/* Tooltip */
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-tooltip-arrow {
+    background: var(--tchmi-tooltip-background);
+    border: solid 1px var(--tchmi-tooltip-border);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-tooltip
+    .TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-tooltip-text {
+    background: var(--tchmi-tooltip-background);
+    color: var(--tchmi-tooltip-color);
+    border-radius: 6px;
+    padding: 5px;
+    border: solid 1px var(--tchmi-tooltip-border);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-dialog,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-dialog-charts {
+    font-size: 12px;
+    color: var(--tchmi-color);
+}
+
+/* Time range dialog */
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-time-range-dialog {
+    font-size: 12px;
+    color: var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-time-range-dialog-container {
+    border: 1px solid var(--tchmi-border-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-time-range-dialog-container
+    li.active
+    .TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-control-for-record {
+    background: var(--tchmi-popup-background);
+    border: 1px solid var(--tchmi-border-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-time-range-dialog-container li:before {
+    border-right: 2px solid var(--tchmi-color);
+    border-bottom: 2px solid var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-time-range-dialog-container li.active:before {
+    border-right: 2px solid var(--tchmi-color);
+    border-bottom: 2px solid var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-value {
+    background: var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-template {
+    background: var(--tchmi-slider-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-value-text {
+    color: var(--tchmi-slider-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-min-value,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-max-value {
+    background: var(--tchmi-slider-knob-background);
+    background-image: var(--tchmi-button-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-max-value .first-slider-element,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-min-value .first-slider-element,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-max-value .second-slider-element,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-slider-knob-min-value .second-slider-element {
+    background: var(--tchmi-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-control-for-record:invalid {
+    background: var(--tchmi-invalid-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-time-range-dialog-no-data-text {
+    color: var(--tchmi-placeholder-color);
+    font-size: 15px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-time-range-dialog-loading-overlay {
+    background-color: var(--tchmi-loading-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-dialog
+    tr.disabled-attach
+    td[data-column-name='attach']::after,
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-template-dialog
+    tr.disabled-download
+    td[data-column-name='download']::after {
+    background-color: var(--tchmi-disabled-color);
+}
+
+/** 
+    Loading Spinner
+    Usage: <div class="TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner-container"><div class="TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+*/
+:root {
+    --TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner-color: var(
+        --tchmi-foreground-color-2
+    );
+}
+
+@keyframes TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid var(--TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner-color);
+    border-radius: 50%;
+    animation: TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner 1.2s
+        cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner-color) transparent
+        transparent transparent;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiScopeControl_TcHmiScopeControl-loading-spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+}

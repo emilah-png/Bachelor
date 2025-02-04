@@ -1,0 +1,49 @@
+<svg
+   version="1.1"
+   width="100" height="100"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 100 100"
+   style="
+      stroke: var(--tchmi-ba-global-icon-color, black);
+      fill: transparent;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 6px;
+   ">
+   <defs>
+        <!-- arrowhead marker definition -->
+        <marker
+            id="arrow" viewBox="0 0 10 10" refX="0" refY="5"
+            markerWidth="4" markerHeight="4"
+            orient="auto-start-reverse"
+            fill="var(--tchmi-ba-global-icon-color, black)"
+            stroke-width="0">
+            <path d="M 0 0 L 10 5 L 0 10 z" />
+        </marker>
+        <g id="damper-flap">
+            <line
+                x1="-20" y1="-20" x2="20" y2="20" />
+        </g> 
+   </defs>
+   <g>
+        <path
+            d="M 75 20 A 70 50 0 0 1 65 90"
+            stroke-linecap="round"
+            marker-start="url(#arrow)"/>/>
+        <use
+            style="transform-origin: 50px 30px;"
+            x="25"
+            y="23"
+            href="#damper-flap" />
+        <use
+            style="transform-origin: 50px 75px;"
+            x="25"
+            y="50"
+            href="#damper-flap" />
+        <use
+            style="transform-origin: 50px 120px;"
+            x="25"
+            y="77"
+            href="#damper-flap" />
+   </g>
+</svg>

@@ -1,0 +1,30 @@
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl {
+    border: var(--tchmi-ba-global-control-border);
+    --tchmi-ba-base-room-control-mode-display-background: var(--tchmi-ba-global-dark-background-color);
+}
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.button {
+        border: initial;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl.small-mode div.control-container-element {
+        background: var(--tchmi-ba-global-control-background);
+        border: 1px solid var(--tchmi-ba-global-control-border-color);
+        left: calc(50% - 76px);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.button.corner-element.top-left,
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl.small-mode > div.tchmi-ba-text-handler.button.corner-element.top-left {
+        border-top: initial;
+        border-left: initial;
+        border-right: var(--tchmi-ba-global-control-border);
+        border-bottom: var(--tchmi-ba-global-control-border);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.button.corner-element.bottom-right,
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl.small-mode > div.tchmi-ba-text-handler.button.corner-element.bottom-right {
+        border-bottom: initial;
+        border-right: initial;
+        border-top: var(--tchmi-ba-global-control-border);
+        border-left: var(--tchmi-ba-global-control-border);
+    }

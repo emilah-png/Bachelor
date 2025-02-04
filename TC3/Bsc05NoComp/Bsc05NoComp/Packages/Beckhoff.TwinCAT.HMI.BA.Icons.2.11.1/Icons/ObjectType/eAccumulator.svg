@@ -1,0 +1,36 @@
+<svg version="1.1"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100"
+    style="
+        stroke: #4794da;
+        fill: #4794da;
+        stroke-width: 6px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    ">
+     <g>
+        <text 
+            stroke="transparent"
+            font-weight="bold"
+            font-size="60px"
+            font-family="Consolas"
+            x="0" y="40">
+            ACC
+        </text>
+        <g>
+            <rect 
+                fill="transparent"
+                x="10" y="52" rx="2" width="80" height="45">
+            </rect>
+            <text
+                stroke="transparent"
+                font-weight="bold"
+                font-size="33px"
+                font-family="Consolas"
+                x="13" y="85">
+                1017
+            </text>
+        </g>
+    </g>
+</svg>

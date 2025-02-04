@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.Motor": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.UiIconFdbStp",
+      "frameworkControlType": "Motor",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Motor.DisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Type",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2, 
+        999
+      ],
+      "options": [
+        {
+          "label": "fan",
+          "value": 0
+        },
+        {
+          "label": "motor",
+          "value": 1
+        },
+        {
+          "label": "pump",
+          "value": 2
+        },
+        {
+          "label": "custom",
+          "value": 999
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Motor.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the motor. (Default: Fdb, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "setpoint",
+          "displayName": "Setpoint",
+          "description": "The setpoint of the motor. (Default: Mdlt, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "command",
+          "displayName": "Command",
+          "description": "The command of the motor. (Default: Cmd, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "feedback": {
+          "type": "string"
+        },
+        "setpoint": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        }
+      },
+      "required": [ "command" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Motor.SubBaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "SubBaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "description": "Identifier of the motor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "subTemplate",
+          "displayName": "Motor",
+          "description": "The template description of the motor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "subTemplate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Motor.BaTemplateDescription"
+        }
+      }
+    }
+  }
+}

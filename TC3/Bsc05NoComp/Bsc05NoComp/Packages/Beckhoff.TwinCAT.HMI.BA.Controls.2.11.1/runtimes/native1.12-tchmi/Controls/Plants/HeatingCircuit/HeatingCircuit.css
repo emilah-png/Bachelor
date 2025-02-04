@@ -1,0 +1,10 @@
+.TcHmi_BuildingAutomation_Controls_Plants_HeatingCircuit > div.TcHmi_BuildingAutomation_Controls_Common_UiIcon.pump {
+    width: 40px;
+    height: 40px;
+    left: calc(50% - 18px + 3px - 20px);
+    top: 195px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_HeatingCircuit > div.TcHmi_BuildingAutomation_Controls_Plants_Valve.valve {
+    top: 270px;
+}

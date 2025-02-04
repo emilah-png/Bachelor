@@ -1,0 +1,99 @@
+﻿.TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation {
+    overflow: visible;
+    color: var(--tchmi-ba-global-text-color);
+}
+
+    .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .group, .groupComp-c, .groupComp-n, .groupComp-nr {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            border: 1px solid black;
+            margin: 5px;
+            background-color: var(--tchmi-ba-global-input-background)
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .title {
+            background-color: var(--tchmi-ba-global-tchmi-blue);
+            padding-left: 5px;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .dataset {
+            display: flex;
+            padding-left: 10px;
+        }
+
+            .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .dataset > .name {
+                width: 130px;
+            }
+
+            .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .dataset > .value {
+                text-align: right;
+                width: 75px;
+                padding-right: 5px;
+            }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .groupComp-c {
+            width: 222px;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups .groupComp-n {
+            width: 100%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-c .compass,
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .compass,
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-nr .compass {
+            align-self: center;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-c .compass {
+            width: 90%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .compass {
+            width: 80%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-nr .compass {
+            width: 97%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .mid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n > .sideT, .sideB {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .sideT {
+            padding-top: 3px;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .sideB {
+            padding-bottom: 3px;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .sideL, .sideR {
+            width: 10%;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .sideL {
+            padding-right: 2px;
+            text-align: right;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_BuildingGeneral_WeatherStation > .groups > .groupComp-n .sideR {
+            padding-left: 2px;
+        }

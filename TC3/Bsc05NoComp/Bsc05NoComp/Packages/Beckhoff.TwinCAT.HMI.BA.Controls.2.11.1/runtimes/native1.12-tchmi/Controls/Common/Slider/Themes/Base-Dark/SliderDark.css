@@ -1,0 +1,30 @@
+﻿/** Styles for the theme: Base-Dark */
+
+.tchmi-ba-text-handler.slider {
+    --tchmi-ba-text-color: var(--tchmi-ba-global-text-color);
+    --tchmi-ba-slider-knob-background: var(--tchmi-ba-global-button-background);
+    /* Knob background for vertical sliders or when min and max switch positions */
+    --tchmi-ba-slider-knob-background-180-deg: var(--tchmi-ba-global-button-background-180-deg);
+    /* Knob background when slider is vertical and min and max switch positions */
+    --tchmi-ba-slider-knob-background-270-deg: var(--tchmi-ba-global-button-background-270-deg);
+    --tchmi-ba-slider-feedback-knob-background: rgba(100, 100, 100, 0.5);
+    border: var(--tchmi-ba-global-control-border);
+    box-shadow: none;
+}
+
+    .tchmi-ba-text-handler.slider > input {
+        left: calc(-0.5 * var(--tchmi-ba-slider-knob-width));
+    }
+
+    .tchmi-ba-text-handler.slider.vertical > input {
+        transform: rotate(-90deg) translateY(calc(-1 * var(--tchmi-ba-slider-width) / 2 + var(--tchmi-ba-slider-height) / 2 - 1px));
+    }
+
+    .tchmi-ba-text-handler.slider > input::-webkit-slider-thumb {
+        border: var(--tchmi-ba-global-control-border);
+    }
+
+    .tchmi-ba-text-handler.slider.tchmi-control-disabled > input::-webkit-slider-thumb {
+        cursor: initial;
+        opacity: 0.7;
+    }

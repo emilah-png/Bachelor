@@ -1,0 +1,13 @@
+﻿/* Styles for base theme. */
+.TcHmi_BuildingAutomation_Controls_Common_Scale {
+}
+    .TcHmi_BuildingAutomation_Controls_Common_Scale > div.header {
+        background-color: var(--tchmi-ba-global-tchmi-blue);
+    }
+    /* Name field*/
+    .TcHmi_BuildingAutomation_Controls_Common_Scale > div.header > div {
+        --tchmi-ba-text-color: white;
+    }
+    .TcHmi_BuildingAutomation_Controls_Common_Scale > div.content-container {
+        background-color: rgb(255, 255, 255);
+    }

@@ -1,0 +1,45 @@
+{
+  "locale": "de",
+  "localizedText": {
+    "TIMEOUT": "Timeout",
+    "CHUNKSIZE": "Chunk-Größe",
+    "AUTOSTART_RECORD": "Aufnahme automatisch starten",
+    "COMPRESSION": "Komprimierung",
+    "scopeConfigs": "Scope-Konfigurationen",
+    "DESC_TIMEOUT": "Standard-Timeout für Anfragen.",
+    "DESC_CHUNKSIZE": "Größe eines Chunk-Pakets beim Herunterladen einer Aufnahme.",
+    "DESC_COMPRESSION": "Definiert, ob beim Herunterladen einer Aufnahme komprimiert werden soll.",
+    "DESC_SCOPE_CONFIGS": "Scope-Konfigurationen.",
+    "DESC_SCOPE_RECORDS": "Scope-Aufnahmen.",
+
+    "CONFIG_FILE": "Datei",
+    "CONFIG_PATH": "Dateipfad",
+    "CONFIG_SOURCE": "Dateiquelle",
+
+    "ERROR_INIT": "Initialisierung der Erweiterung {0} fehlgeschlagen. Weitere Informationen: {1}",
+    "ERROR_CHUNKSIZE_IS_ZERO_OR_SMALLER": "Die Chunk-Größe muss einen gültigen Wert über 0 haben. Aktueller Wert ist: {0}",
+
+    "MESSAGE_SHUTDOWN": "Herunterfahren der Erweiterung {0} war erfolgreich.",
+    "ERROR_SHUTDOWN": "Fehler beim Herunterfahren der Erweiterung {0}. Weitere Informationen: {1}",
+
+    "ERROR_CALL_COMMAND": "Befehl '{0}' fehlgeschlagen! Weitere Informationen: {1}",
+
+    "ERROR_TIMEOUT": "Timeout in der Erweiterung {0}. Weitere Informationen: {1}",
+
+    "ERROR_FUNCTION": "{0} fehlgeschlagen! Weitere Informationen: {1}",
+
+    "ERROR_EVENT": "{0} Ereignis mit der Meldung '{1}' fehlgeschlagen! Weitere Informationen: {2}",
+    "ERROR_CONFIG_EVENT": "{0} Ereignis mit der Config '{1}' fehlgeschlagen! Weitere Informationen: {2}",
+
+    "MESSAGE_MEASUREMENT": "Measurement {0}: {1}",
+
+    "ERROR_CLOSE_SESSION": "Schließen der Session fehlgeschlagen! Weitere Informationen: {0}",
+
+    "ERROR_CLOSE_WEBSOCKET": "Schließen des Websockets fehlgeschlagen! Weitere Informationen: {0}",
+
+    "ERROR_SCOPE_PROJECT_STATE": "Die Scope-Aufnahme befindet sich im falschen Zustand. Der Status muss 'Reply' sein. Aktueller Status: {0}",
+    "ERROR_SCOPE_DELETE_USE_FILE": "Die zu löschende Datei '{0}' wird von einem anderen Client verwendet.",
+    "ERROR_SCOPE_UPLOAD_FILE_EXIST": "Eine Datei mit dem Namen '{0}' existiert bereits.",
+    "ERROR_SCOPE_UPLOAD_NOT_ENOUGH_MEMORY": "Es gibt nicht genug Speicherplatz, um diese Datei hochzuladen. Es werden {0} MB benötigt."
+  }
+}

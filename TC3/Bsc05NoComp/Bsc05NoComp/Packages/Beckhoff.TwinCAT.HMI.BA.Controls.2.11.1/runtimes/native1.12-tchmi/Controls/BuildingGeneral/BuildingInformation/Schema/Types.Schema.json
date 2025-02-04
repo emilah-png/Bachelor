@@ -1,0 +1,76 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.BuildingGeneral.BuildingInformation": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.Common.Button",
+      "frameworkControlType": "BuildingInformation",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.BuildingGeneral"
+    },
+    "TcHmi.BuildingAutomation.Controls.BuildingGeneral.BuildingInformation.FacadeInfo": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "FacadeInfo",
+      "description": "Defines a facade",
+      "engineeringColumns": [
+        "name"
+      ],
+      "propertiesMeta": [
+        {
+          "name": "name",
+          "category": "Common",
+          "displayName": "Name                                           ",
+          "description": "The name of the facade (e.g. west).",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "maintenance",
+          "category": "Common",
+          "displayName": "Maintenance",
+          "description": "Flag if maintenance is active.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "stormProtection",
+          "category": "Common",
+          "displayName": "Storm Protection",
+          "description": "Flag if storm protection is active.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "sunProtection",
+          "category": "Common",
+          "displayName": "Sun Protection",
+          "description": "Flag if sun protection is active.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "maintenance": {
+          "type": "boolean"
+        },
+        "stormProtection": {
+          "type": "boolean"
+        },
+        "sunProtection": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.BuildingGeneral.BuildingInformation.Facades": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "title": "Facades",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.BuildingGeneral.BuildingInformation.FacadeInfo"
+      }
+    }
+  }
+}

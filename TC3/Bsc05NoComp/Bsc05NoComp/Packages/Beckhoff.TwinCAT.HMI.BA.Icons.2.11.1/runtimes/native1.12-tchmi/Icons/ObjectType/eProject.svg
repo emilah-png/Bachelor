@@ -1,0 +1,48 @@
+<svg version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+        fill: transparent;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        font-weight: bold;
+        font-family: Consolas;
+    ">
+    <defs>
+        <g id="tickbox">
+            <rect
+                x="3" y="12" width="10" height="10" />
+            <line x1="25" x2="70" y1="17" y2="17" /> 
+        </g>
+        <g id="tickbox-checked">
+            <rect
+                fill="var(--tchmi-ba-global-icon-color, black)"
+                x="3" y="12" width="10" height="10" />  
+            <line x1="25" x2="70" y1="17" y2="17" /> 
+        </g>
+    </defs>
+    <g>
+        <text 
+            stroke="initial"
+            fill="var(--tchmi-ba-global-icon-color, black)"
+            font-size="60px"
+            x="3" y="40">
+            PRJ
+        </text>
+        <use
+            x="15"
+            y="35"
+            href="#tickbox" />
+        <use
+            x="15"
+            y="55"
+            href="#tickbox-checked" />
+        <use
+            x="15"
+            y="75"
+            href="#tickbox" />
+    </g>
+</svg>

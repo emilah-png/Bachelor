@@ -1,0 +1,41 @@
+<svg
+   version="1.1"
+   width="100" height="150"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 100 150"
+   style="
+      stroke: var(--tchmi-ba-global-icon-color, black);
+      fill: transparent;
+      stroke-linejoin: round;
+      stroke-width: 6px;
+   ">
+   <defs>
+      <g id="damper-flap"
+         style="transform: rotate(90deg)">
+         <line 
+            stroke-width="3"
+            x1="-20" y1="0" x2="20" y2="0" />
+         <circle
+            cx="0" cy="0" r="3"/>
+      </g> 
+   </defs>
+   <g>
+      <rect
+         x="3" y="3" rx="2" width="94" height="144" />
+      <use
+         style="transform-origin: 50px 30px;"
+         x="50"
+         y="30"
+         href="#damper-flap" />
+      <use
+         style="transform-origin: 50px 75px;"
+         x="50"
+         y="75"
+         href="#damper-flap" />
+      <use
+         style="transform-origin: 50px 120px;"
+         x="50"
+         y="120"
+         href="#damper-flap" />
+   </g>
+</svg>
