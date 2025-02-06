@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<TcRegistry>
+	<Key Name="HKLM">
+		<Key Name="Software">
+			<Key Name="Beckhoff">
+				<Key Name="TwinCAT3">
+					<Value Name="CurrentVersion" Type="SZ">3.1</Value>
+					<Key Name="System">
+						<Value Name="RunAsDevice" Type="DW">1</Value>
+						<Value Name="RTimeMode" Type="DW">3</Value>
+						<Value Name="AmsNetId" Type="BIN">0AF51E830102</Value>
+					</Key>
+					<Key Name="3.1">
+						<Value Name="BootDir" Type="SZ">C:\master_2025\redcrane-simulation\TcUmRoot\Boot\</Value>
+						<Value Name="ConfigDir" Type="SZ">C:\master_2025\redcrane-simulation\TcUmRoot\Config\</Value>
+						<Value Name="InstallDir" Type="SZ">C:\master_2025\redcrane-simulation\TcUmRoot\</Value>
+						<Value Name="TargetDir" Type="SZ">C:\master_2025\redcrane-simulation\TcUmRoot\Target\</Value>
+						<Value Name="DriverAutoLoadDir" Type="SZ">C:\master_2025\redcrane-simulation\TcUmRoot\Driver\AutoLoad\</Value>
+					</Key>
+					<Key Name="EventLogger">
+						<Value Name="LastUniqueId" Type="DW">0</Value>
+					</Key>
+				</Key>
+			</Key>
+		</Key>
+		<Key Name="Ident">
+			<Value Name="DeviceType" Type="SZ">PC-WIN-U</Value>
+		</Key>
+	</Key>
+</TcRegistry>

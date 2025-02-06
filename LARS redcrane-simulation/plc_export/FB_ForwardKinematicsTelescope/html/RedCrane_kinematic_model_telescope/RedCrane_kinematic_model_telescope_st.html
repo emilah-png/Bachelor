@@ -1,0 +1,533 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - RedCrane_kinematic_model_telescope.st</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="file:///plc_export/FB_ForwardKinematicsTelescope/RedCrane_kinematic_model_telescope.st" target="rtwreport_document_frame" id="linkToText_plain">RedCrane_kinematic_model_telescope.st</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">(*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * File: RedCrane_kinematic_model_telescope.st</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> * IEC 61131-3 Structured Text (ST) code generated for subsystem "RedCrane_kinematic_model_telescope/FB_ForwardKinematicsTelescope"</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Model name                      : RedCrane_kinematic_model_telescope</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Model version                   : 2.95</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * Model creator                   : sindr</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model last modified by          : larso</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Model last modified on          : Tue Jan 28 15:21:18 2025</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Model sample time               : 0.001s</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Subsystem name                  : RedCrane_kinematic_model_telescope/FB_ForwardKinematicsTelescope</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Subsystem sample time           : 0.001s</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Simulink PLC Coder version      : 24.1 (R2024a) 19-Nov-2023</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * ST code generated on            : Tue Jan 28 15:28:52 2025</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Target IDE selection            : Beckhoff TwinCAT 3</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Test Bench included             : No</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *)</span>
+</span><span><a class="LN" name="22">   22   </a><span class="KW">FUNCTION_BLOCK</span> c_FB_ForwardKinematicsTeles
+</span><span><a class="LN" name="23">   23   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="24">   24   </a>    fSlewAngle: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="25">   25   </a>    fMainAngle: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="26">   26   </a>    fKnuckleAngle: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="27">   27   </a>    fTelescopePos: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="28">   28   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="29">   29   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="30">   30   </a>    fX: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="31">   31   </a>    fY: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="32">   32   </a>    fZ: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="33">   33   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="34">   34   </a><span class="KW">VAR</span>
+</span><span><a class="LN" name="35">   35   </a>    g: <span class="KW">ARRAY</span> [0..14] <span class="KW">OF</span> <span class="KW">SINT</span> := 0,0,1,0,-1,0,0,-1,0,0,1,0,0,0,1;
+</span><span><a class="LN" name="36">   36   </a>    e_a: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">SINT</span> := 1,0,0,0,1,0,0,0,1;
+</span><span><a class="LN" name="37">   37   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="38">   38   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="39">   39   </a>    T: <span class="KW">ARRAY</span> [0..15] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="40">   40   </a>    Slist: <span class="KW">ARRAY</span> [0..29] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="41">   41   </a>    i: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="42">   42   </a>    se3mat: <span class="KW">ARRAY</span> [0..15] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="43">   43   </a>    omgmat: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="44">   44   </a>    a: <span class="KW">ARRAY</span> [0..15] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="45">   45   </a>    c_a: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="46">   46   </a>    V: <span class="KW">ARRAY</span> [0..5] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="47">   47   </a>    b_R: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="48">   48   </a>    b_omgmat: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="49">   49   </a>    b_I: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">SINT</span>;
+</span><span><a class="LN" name="50">   50   </a>    c_rtb_TmpSignalConversionAt: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="51">   51   </a>    qs4_tmp: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="52">   52   </a>    d_rtb_TmpSignalConversionAt: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="53">   53   </a>    a_0: <span class="KW">ARRAY</span> [0..15] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="54">   54   </a>    i_0: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="55">   55   </a>    omgmat_tmp: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="56">   56   </a>    R_tmp: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="57">   57   </a>    c_a_tmp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="58">   58   </a>    b_a_tmp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="59">   59   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="60">   60   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="61">   61   </a><span class="CT">(* SignalConversion: '&lt;S2&gt;/TmpSignal ConversionAt SFunction Inport1' incorporates:</span>
+</span><span><a class="LN" name="62">   62   </a><span class="CT"> *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="63">   63   </a>c_rtb_TmpSignalConversionAt[0] := fSlewAngle;
+</span><span><a class="LN" name="64">   64   </a>c_rtb_TmpSignalConversionAt[1] := fMainAngle;
+</span><span><a class="LN" name="65">   65   </a>c_rtb_TmpSignalConversionAt[2] := fKnuckleAngle;
+</span><span><a class="LN" name="66">   66   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="67">   67   </a><span class="CT">(* Deffine zero configuration trasform and screw axis with telescope *)</span>
+</span><span><a class="LN" name="68">   68   </a><span class="CT">(* Lengths *)</span>
+</span><span><a class="LN" name="69">   69   </a><span class="CT">(* MATLAB Function 'FB_ForwardKinematicsTelescope/MATLAB Function': '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1</i></font></a>' *)</span>
+</span><span><a class="LN" name="70">   70   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:5')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:5</i></font></a>' L1 = 250/1000; *)</span>
+</span><span><a class="LN" name="71">   71   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:6')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:6</i></font></a>' L2 = 1568.50/1000; *)</span>
+</span><span><a class="LN" name="72">   72   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:7')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:7</i></font></a>' L3 = 69.97/1000; *)</span>
+</span><span><a class="LN" name="73">   73   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:8')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:8</i></font></a>' L4 = 2400/1000; *)</span>
+</span><span><a class="LN" name="74">   74   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:9')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:9</i></font></a>' L5 = 2428.99/1000; *)</span>
+</span><span><a class="LN" name="75">   75   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:10')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:10</i></font></a>' L6 = 92.52/1000; *)</span>
+</span><span><a class="LN" name="76">   76   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:11')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:11</i></font></a>' L7 = 336.2/1000; *)</span>
+</span><span><a class="LN" name="77">   77   </a><span class="CT">(* Adjusting L5 based on telescope extention: *)</span>
+</span><span><a class="LN" name="78">   78   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:14')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:14</i></font></a>' L5 = L5 + xTele; *)</span>
+</span><span><a class="LN" name="79">   79   </a><span class="CT">(* zero configuration trasform *)</span>
+</span><span><a class="LN" name="80">   80   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:17')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:17</i></font></a>' M = [1, 0, 0, (L5 + L4 - L1); *)</span>
+</span><span><a class="LN" name="81">   81   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:18')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:18</i></font></a>'     0, 1, 0 (L7); *)</span>
+</span><span><a class="LN" name="82">   82   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:19')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:19</i></font></a>'     0, 0, 1, (L2+ L3 - L6); *)</span>
+</span><span><a class="LN" name="83">   83   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:20')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:20</i></font></a>'     0, 0, 0, 1]; *)</span>
+</span><span><a class="LN" name="84">   84   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="85">   85   </a><span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="86">   86   </a>T[0] := 1.0;
+</span><span><a class="LN" name="87">   87   </a>T[4] := 0.0;
+</span><span><a class="LN" name="88">   88   </a>T[8] := 0.0;
+</span><span><a class="LN" name="89">   89   </a>T[12] := ((fTelescopePos + 2.4289899999999998) + 2.4) - 0.25;
+</span><span><a class="LN" name="90">   90   </a>T[1] := 0.0;
+</span><span><a class="LN" name="91">   91   </a>T[2] := 0.0;
+</span><span><a class="LN" name="92">   92   </a>T[3] := 0.0;
+</span><span><a class="LN" name="93">   93   </a>T[5] := 1.0;
+</span><span><a class="LN" name="94">   94   </a>T[6] := 0.0;
+</span><span><a class="LN" name="95">   95   </a>T[7] := 0.0;
+</span><span><a class="LN" name="96">   96   </a>T[9] := 0.0;
+</span><span><a class="LN" name="97">   97   </a>T[10] := 1.0;
+</span><span><a class="LN" name="98">   98   </a>T[11] := 0.0;
+</span><span><a class="LN" name="99">   99   </a>T[13] := 0.3362;
+</span><span><a class="LN" name="100">  100   </a>T[14] := 1.5459500000000002;
+</span><span><a class="LN" name="101">  101   </a>T[15] := 1.0;
+</span><span><a class="LN" name="102">  102   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="103">  103   </a><span class="CT">(* screw axis *)</span>
+</span><span><a class="LN" name="104">  104   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:23')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:23</i></font></a>' ws1 = [0, 0, 1]'; *)</span>
+</span><span><a class="LN" name="105">  105   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:24')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:24</i></font></a>' ws2 = [0, -1, 0]'; *)</span>
+</span><span><a class="LN" name="106">  106   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:25')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:25</i></font></a>' ws3 = [0, -1, 0]'; *)</span>
+</span><span><a class="LN" name="107">  107   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:26')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:26</i></font></a>' ws4 = [0, 1, 0]'; *)</span>
+</span><span><a class="LN" name="108">  108   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:27')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:27</i></font></a>' ws5 = [0, 0, 1]'; *)</span>
+</span><span><a class="LN" name="109">  109   </a><span class="CT">(* coordinates of an arbitrary point along the screw axis *)</span>
+</span><span><a class="LN" name="110">  110   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:30')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:30</i></font></a>' qs1 = [0, 0, 0]'; *)</span>
+</span><span><a class="LN" name="111">  111   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:31')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:31</i></font></a>' qs2 = [-L1, 0, L2]'; *)</span>
+</span><span><a class="LN" name="112">  112   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:32')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:32</i></font></a>' qs3 = [(L4 - L1), 0, (L2 + L3)]'; *)</span>
+</span><span><a class="LN" name="113">  113   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:33')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:33</i></font></a>' qs4 = [(L5 + L4 - L1), L7, (L2 + L3 - L6)]'; *)</span>
+</span><span><a class="LN" name="114">  114   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:34')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:34</i></font></a>' qs5 = qs4; *)</span>
+</span><span><a class="LN" name="115">  115   </a><span class="CT">(* Building screw axis matrix *)</span>
+</span><span><a class="LN" name="116">  116   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:37')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:37</i></font></a>' ws_mat = [ws1, ws2, ws3, ws4, ws5]; *)</span>
+</span><span><a class="LN" name="117">  117   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:38')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:38</i></font></a>' vs_mat = [cross(qs1, ws1), cross(qs2, ws2), ... *)</span>
+</span><span><a class="LN" name="118">  118   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:39')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:39</i></font></a>'           cross(qs3, ws3), cross(qs4, ws4), ... *)</span>
+</span><span><a class="LN" name="119">  119   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:40')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:40</i></font></a>'           cross(qs5, ws5)]; *)</span>
+</span><span><a class="LN" name="120">  120   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:42')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:42</i></font></a>' SList = [ws_mat; *)</span>
+</span><span><a class="LN" name="121">  121   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:43')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:43</i></font></a>'     vs_mat]; *)</span>
+</span><span><a class="LN" name="122">  122   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="123">  123   </a><span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="124">  124   </a><span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="125">  125   </a>    Slist[6 * i_0] := SINT_TO_LREAL(g[3 * i_0]);
+</span><span><a class="LN" name="126">  126   </a>    Slist[(6 * i_0) + 1] := SINT_TO_LREAL(g[(3 * i_0) + 1]);
+</span><span><a class="LN" name="127">  127   </a>    Slist[(6 * i_0) + 2] := SINT_TO_LREAL(g[(3 * i_0) + 2]);
+</span><span><a class="LN" name="128">  128   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="129">  129   </a>Slist[3] := 0.0;
+</span><span><a class="LN" name="130">  130   </a>Slist[9] := 1.5685;
+</span><span><a class="LN" name="131">  131   </a>Slist[15] := 1.63847;
+</span><span><a class="LN" name="132">  132   </a>Slist[4] := 0.0;
+</span><span><a class="LN" name="133">  133   </a>Slist[10] := 0.0;
+</span><span><a class="LN" name="134">  134   </a>Slist[16] := 0.0;
+</span><span><a class="LN" name="135">  135   </a>Slist[5] := 0.0;
+</span><span><a class="LN" name="136">  136   </a>Slist[11] := 0.25;
+</span><span><a class="LN" name="137">  137   </a>Slist[17] := -2.15;
+</span><span><a class="LN" name="138">  138   </a>Slist[21] := -1.5459500000000002;
+</span><span><a class="LN" name="139">  139   </a>Slist[22] := 0.0;
+</span><span><a class="LN" name="140">  140   </a>Slist[23] := ((fTelescopePos + 2.4289899999999998) + 2.4) - 0.25;
+</span><span><a class="LN" name="141">  141   </a>Slist[27] := 0.3362;
+</span><span><a class="LN" name="142">  142   </a>Slist[28] := 0.0 - (((fTelescopePos + 2.4289899999999998) + 2.4) - 0.25);
+</span><span><a class="LN" name="143">  143   </a>Slist[29] := 0.0;
+</span><span><a class="LN" name="144">  144   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="145">  145   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:45')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:45</i></font></a>' T = zeros(4, 4); *)</span>
+</span><span><a class="LN" name="146">  146   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:46')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:46</i></font></a>' T = FKinSpace(M, SList, thetalist); *)</span>
+</span><span><a class="LN" name="147">  147   </a><span class="CT">(* *** CHAPTER 4: FORWARD KINEMATICS *** *)</span>
+</span><span><a class="LN" name="148">  148   </a><span class="CT">(* Takes M: the home configuration (position and orientation) of the  *)</span>
+</span><span><a class="LN" name="149">  149   </a><span class="CT">(* end-effector, *)</span>
+</span><span><a class="LN" name="150">  150   </a><span class="CT">(* Slist: The joint screw axes in the space frame when the manipulator *)</span>
+</span><span><a class="LN" name="151">  151   </a><span class="CT">(* is at the home position, *)</span>
+</span><span><a class="LN" name="152">  152   </a><span class="CT">(* thetalist: A list of joint coordinates. *)</span>
+</span><span><a class="LN" name="153">  153   </a><span class="CT">(* Returns T in SE(3) representing the end-effector frame, when the joints  *)</span>
+</span><span><a class="LN" name="154">  154   </a><span class="CT">(* are at the specified coordinates (i.t.o Space Frame). *)</span>
+</span><span><a class="LN" name="155">  155   </a><span class="CT">(* Example Inputs: *)</span>
+</span><span><a class="LN" name="156">  156   </a><span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="157">  157   </a><span class="CT">(* M = [[-1, 0, 0, 0]; [0, 1, 0, 6]; [0, 0, -1, 2]; [0, 0, 0, 1]]; *)</span>
+</span><span><a class="LN" name="158">  158   </a><span class="CT">(* Slist = [[0; 0;  1;  4; 0;    0], ... *)</span>
+</span><span><a class="LN" name="159">  159   </a><span class="CT">(* [0; 0;  0;  0; 1;    0], ... *)</span>
+</span><span><a class="LN" name="160">  160   </a><span class="CT">(* [0; 0; -1; -6; 0; -0.1]]; *)</span>
+</span><span><a class="LN" name="161">  161   </a><span class="CT">(* thetalist =[pi / 2; 3; pi]; *)</span>
+</span><span><a class="LN" name="162">  162   </a><span class="CT">(* T = FKinSpace(M, Slist, thetalist) *)</span>
+</span><span><a class="LN" name="163">  163   </a><span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="164">  164   </a><span class="CT">(* T = *)</span>
+</span><span><a class="LN" name="165">  165   </a><span class="CT">(* -0.0000    1.0000         0   -5.0000 *)</span>
+</span><span><a class="LN" name="166">  166   </a><span class="CT">(* 1.0000    0.0000         0    4.0000 *)</span>
+</span><span><a class="LN" name="167">  167   </a><span class="CT">(* 0         0   -1.0000    1.6858 *)</span>
+</span><span><a class="LN" name="168">  168   </a><span class="CT">(* 0         0         0    1.0000 *)</span>
+</span><span><a class="LN" name="169">  169   </a><span class="CT">(* 'FKinSpace:27' T = M; *)</span>
+</span><span><a class="LN" name="170">  170   </a><span class="CT">(* 'FKinSpace:28' for i = size(thetalist, 1): -1: 1 *)</span>
+</span><span><a class="LN" name="171">  171   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="172">  172   </a><span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="173">  173   </a>se3mat[0] := 0.0;
+</span><span><a class="LN" name="174">  174   </a>se3mat[5] := 0.0;
+</span><span><a class="LN" name="175">  175   </a>se3mat[10] := 0.0;
+</span><span><a class="LN" name="176">  176   </a>se3mat[3] := 0.0;
+</span><span><a class="LN" name="177">  177   </a>se3mat[7] := 0.0;
+</span><span><a class="LN" name="178">  178   </a>se3mat[11] := 0.0;
+</span><span><a class="LN" name="179">  179   </a>se3mat[15] := 0.0;
+</span><span><a class="LN" name="180">  180   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="181">  181   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="182">  182   </a><span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="183">  183   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="184">  184   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="185">  185   </a><span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="186">  186   </a><span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="187">  187   </a>    <span class="CT">(* 'FKinSpace:29' T = MatrixExp6(VecTose3(Slist(:, i) * thetalist(i))) * T; *)</span>
+</span><span><a class="LN" name="188">  188   </a>    d_rtb_TmpSignalConversionAt := c_rtb_TmpSignalConversionAt[2 - i];
+</span><span><a class="LN" name="189">  189   </a>    <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 5 <span class="KW">DO</span> 
+</span><span><a class="LN" name="190">  190   </a>        V[i_0] := Slist[((2 - i) * 6) + i_0] * d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="191">  191   </a>    <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="192">  192   </a>    <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="193">  193   </a>    <span class="CT">(* Takes a 6-vector (representing a spatial velocity). *)</span>
+</span><span><a class="LN" name="194">  194   </a>    <span class="CT">(* Returns the corresponding 4x4 se(3) matrix. *)</span>
+</span><span><a class="LN" name="195">  195   </a>    <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="196">  196   </a>    
+</span><span><a class="LN" name="197">  197   </a>    <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="198">  198   </a>    <span class="CT">(* V = [1; 2; 3; 4; 5; 6]; *)</span>
+</span><span><a class="LN" name="199">  199   </a>    <span class="CT">(* se3mat = VecTose3(V) *)</span>
+</span><span><a class="LN" name="200">  200   </a>    
+</span><span><a class="LN" name="201">  201   </a>    <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="202">  202   </a>    <span class="CT">(* se3mat = *)</span>
+</span><span><a class="LN" name="203">  203   </a>    <span class="CT">(* 0    -3     2     4 *)</span>
+</span><span><a class="LN" name="204">  204   </a>    <span class="CT">(* 3     0    -1     5 *)</span>
+</span><span><a class="LN" name="205">  205   </a>    <span class="CT">(* -2     1     0     6 *)</span>
+</span><span><a class="LN" name="206">  206   </a>    <span class="CT">(* 0     0     0     0  *)</span>
+</span><span><a class="LN" name="207">  207   </a>    <span class="CT">(* 'VecTose3:18' se3mat = [VecToso3(V(1: 3)), V(4: 6); 0, 0, 0, 0]; *)</span>
+</span><span><a class="LN" name="208">  208   </a>    <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="209">  209   </a>    <span class="CT">(* Takes a 3-vector (angular velocity). *)</span>
+</span><span><a class="LN" name="210">  210   </a>    <span class="CT">(* Returns the skew symmetric matrix in so(3). *)</span>
+</span><span><a class="LN" name="211">  211   </a>    <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="212">  212   </a>    
+</span><span><a class="LN" name="213">  213   </a>    <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="214">  214   </a>    <span class="CT">(* omg = [1; 2; 3]; *)</span>
+</span><span><a class="LN" name="215">  215   </a>    <span class="CT">(* so3mat = VecToso3(omg) *)</span>
+</span><span><a class="LN" name="216">  216   </a>    
+</span><span><a class="LN" name="217">  217   </a>    <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="218">  218   </a>    <span class="CT">(* so3mat = *)</span>
+</span><span><a class="LN" name="219">  219   </a>    <span class="CT">(* 0    -3     2 *)</span>
+</span><span><a class="LN" name="220">  220   </a>    <span class="CT">(* 3     0    -1 *)</span>
+</span><span><a class="LN" name="221">  221   </a>    <span class="CT">(* -2     1     0 *)</span>
+</span><span><a class="LN" name="222">  222   </a>    <span class="CT">(* 'VecToso3:17' so3mat = [0, -omg(3), omg(2); omg(3), 0, -omg(1); -omg(2), omg(1), 0]; *)</span>
+</span><span><a class="LN" name="223">  223   </a>    se3mat[4] :=  -V[2];
+</span><span><a class="LN" name="224">  224   </a>    se3mat[8] := V[1];
+</span><span><a class="LN" name="225">  225   </a>    se3mat[1] := V[2];
+</span><span><a class="LN" name="226">  226   </a>    se3mat[9] :=  -V[0];
+</span><span><a class="LN" name="227">  227   </a>    se3mat[2] :=  -V[1];
+</span><span><a class="LN" name="228">  228   </a>    se3mat[6] := V[0];
+</span><span><a class="LN" name="229">  229   </a>    se3mat[12] := V[3];
+</span><span><a class="LN" name="230">  230   </a>    se3mat[13] := V[4];
+</span><span><a class="LN" name="231">  231   </a>    se3mat[14] := V[5];
+</span><span><a class="LN" name="232">  232   </a>    <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="233">  233   </a>    <span class="CT">(* Takes a se(3) representation of exponential coordinates. *)</span>
+</span><span><a class="LN" name="234">  234   </a>    <span class="CT">(* Returns a T matrix in SE(3) that is achieved by traveling along/about the  *)</span>
+</span><span><a class="LN" name="235">  235   </a>    <span class="CT">(* screw axis S for a distance theta from an initial configuration T = I. *)</span>
+</span><span><a class="LN" name="236">  236   </a>    <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="237">  237   </a>    
+</span><span><a class="LN" name="238">  238   </a>    <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="239">  239   </a>    <span class="CT">(* se3mat = [ 0,      0,       0,      0; *)</span>
+</span><span><a class="LN" name="240">  240   </a>    <span class="CT">(* 0,      0, -1.5708, 2.3562; *)</span>
+</span><span><a class="LN" name="241">  241   </a>    <span class="CT">(* 0, 1.5708,       0, 2.3562; *)</span>
+</span><span><a class="LN" name="242">  242   </a>    <span class="CT">(* 0,      0,       0,      0] *)</span>
+</span><span><a class="LN" name="243">  243   </a>    <span class="CT">(* T = MatrixExp6(se3mat) *)</span>
+</span><span><a class="LN" name="244">  244   </a>    
+</span><span><a class="LN" name="245">  245   </a>    <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="246">  246   </a>    <span class="CT">(* T = *)</span>
+</span><span><a class="LN" name="247">  247   </a>    <span class="CT">(* 1.0000         0         0         0 *)</span>
+</span><span><a class="LN" name="248">  248   </a>    <span class="CT">(* 0    0.0000   -1.0000   -0.0000 *)</span>
+</span><span><a class="LN" name="249">  249   </a>    <span class="CT">(* 0    1.0000    0.0000    3.0000 *)</span>
+</span><span><a class="LN" name="250">  250   </a>    <span class="CT">(* 0         0         0    1.0000  *)</span>
+</span><span><a class="LN" name="251">  251   </a>    <span class="CT">(* 'MatrixExp6:22' omgtheta = so3ToVec(se3mat(1: 3, 1: 3)); *)</span>
+</span><span><a class="LN" name="252">  252   </a>    <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="253">  253   </a>    <span class="CT">(* Takes a 3x3 skew-symmetric matrix (an element of so(3)). *)</span>
+</span><span><a class="LN" name="254">  254   </a>    <span class="CT">(* Returns the corresponding 3-vector (angular velocity). *)</span>
+</span><span><a class="LN" name="255">  255   </a>    <span class="CT">(* Example Input:  *)</span>
+</span><span><a class="LN" name="256">  256   </a>    
+</span><span><a class="LN" name="257">  257   </a>    <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="258">  258   </a>    <span class="CT">(* so3mat = [[0, -3, 2]; [3, 0, -1]; [-2, 1, 0]]; *)</span>
+</span><span><a class="LN" name="259">  259   </a>    <span class="CT">(* omg = so3ToVec(so3mat)   *)</span>
+</span><span><a class="LN" name="260">  260   </a>    
+</span><span><a class="LN" name="261">  261   </a>    <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="262">  262   </a>    <span class="CT">(* omg = *)</span>
+</span><span><a class="LN" name="263">  263   </a>    <span class="CT">(* 1 *)</span>
+</span><span><a class="LN" name="264">  264   </a>    <span class="CT">(* 2 *)</span>
+</span><span><a class="LN" name="265">  265   </a>    <span class="CT">(* 3 *)</span>
+</span><span><a class="LN" name="266">  266   </a>    <span class="CT">(* 'so3ToVec:17' omg = [so3mat(3, 2); so3mat(1, 3); so3mat(2, 1)]; *)</span>
+</span><span><a class="LN" name="267">  267   </a>    qs4_tmp[0] := V[0];
+</span><span><a class="LN" name="268">  268   </a>    qs4_tmp[1] := V[1];
+</span><span><a class="LN" name="269">  269   </a>    qs4_tmp[2] := V[2];
+</span><span><a class="LN" name="270">  270   </a>    <span class="CT">(* 'MatrixExp6:23' if NearZero(norm(omgtheta)) *)</span>
+</span><span><a class="LN" name="271">  271   </a>    <span class="CT">(* *** BASIC HELPER FUNCTIONS *** *)</span>
+</span><span><a class="LN" name="272">  272   </a>    <span class="CT">(* Takes a scalar. *)</span>
+</span><span><a class="LN" name="273">  273   </a>    <span class="CT">(* Checks if the scalar is small enough to be neglected. *)</span>
+</span><span><a class="LN" name="274">  274   </a>    <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="275">  275   </a>    
+</span><span><a class="LN" name="276">  276   </a>    <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="277">  277   </a>    <span class="CT">(* near = -1e-7; *)</span>
+</span><span><a class="LN" name="278">  278   </a>    <span class="CT">(* judge = NearZero(near) *)</span>
+</span><span><a class="LN" name="279">  279   </a>    
+</span><span><a class="LN" name="280">  280   </a>    <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="281">  281   </a>    <span class="CT">(* judge = *)</span>
+</span><span><a class="LN" name="282">  282   </a>    <span class="CT">(* 1 *)</span>
+</span><span><a class="LN" name="283">  283   </a>    <span class="CT">(* 'NearZero:15' judge = norm(near) &lt; 1e-6; *)</span>
+</span><span><a class="LN" name="284">  284   </a>    d_rtb_TmpSignalConversionAt := norm(x := qs4_tmp);
+</span><span><a class="LN" name="285">  285   </a>    <span class="KW">IF</span> <span class="KW">ABS</span>(d_rtb_TmpSignalConversionAt) &lt; 1.0E-6 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="286">  286   </a>        <span class="CT">(* 'MatrixExp6:24' T = [eye(3), se3mat(1: 3, 4); 0, 0, 0, 1]; *)</span>
+</span><span><a class="LN" name="287">  287   </a>        <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 8 <span class="KW">DO</span> 
+</span><span><a class="LN" name="288">  288   </a>            b_I[i_0] := 0;
+</span><span><a class="LN" name="289">  289   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="290">  290   </a>        b_I[0] := 1;
+</span><span><a class="LN" name="291">  291   </a>        b_I[4] := 1;
+</span><span><a class="LN" name="292">  292   </a>        b_I[8] := 1;
+</span><span><a class="LN" name="293">  293   </a>        <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="294">  294   </a>            R_tmp := DWORD_TO_DINT(<span class="KW">SHL</span>(DINT_TO_DWORD(i_0), 2));
+</span><span><a class="LN" name="295">  295   </a>            a[R_tmp] := SINT_TO_LREAL(b_I[3 * i_0]);
+</span><span><a class="LN" name="296">  296   </a>            a[R_tmp + 1] := SINT_TO_LREAL(b_I[(3 * i_0) + 1]);
+</span><span><a class="LN" name="297">  297   </a>            a[R_tmp + 2] := SINT_TO_LREAL(b_I[(3 * i_0) + 2]);
+</span><span><a class="LN" name="298">  298   </a>            a[i_0 + 12] := se3mat[i_0 + 12];
+</span><span><a class="LN" name="299">  299   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="300">  300   </a>        a[3] := 0.0;
+</span><span><a class="LN" name="301">  301   </a>        a[7] := 0.0;
+</span><span><a class="LN" name="302">  302   </a>        a[11] := 0.0;
+</span><span><a class="LN" name="303">  303   </a>        a[15] := 1.0;
+</span><span><a class="LN" name="304">  304   </a>    <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="305">  305   </a>        <span class="CT">(* 'MatrixExp6:25' else *)</span>
+</span><span><a class="LN" name="306">  306   </a>        <span class="CT">(* 'MatrixExp6:26' [omghat, theta] = AxisAng3(omgtheta); *)</span>
+</span><span><a class="LN" name="307">  307   </a>        <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="308">  308   </a>        <span class="CT">(* Takes A 3-vector of exponential coordinates for rotation. *)</span>
+</span><span><a class="LN" name="309">  309   </a>        <span class="CT">(* Returns the unit rotation axis omghat and the corresponding rotation  *)</span>
+</span><span><a class="LN" name="310">  310   </a>        <span class="CT">(* angle theta. *)</span>
+</span><span><a class="LN" name="311">  311   </a>        <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="312">  312   </a>        
+</span><span><a class="LN" name="313">  313   </a>        <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="314">  314   </a>        <span class="CT">(* expc3 = [1; 2; 3]; *)</span>
+</span><span><a class="LN" name="315">  315   </a>        <span class="CT">(* [omghat, theta] = AxisAng3(expc3)   *)</span>
+</span><span><a class="LN" name="316">  316   </a>        
+</span><span><a class="LN" name="317">  317   </a>        <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="318">  318   </a>        <span class="CT">(* omghat = *)</span>
+</span><span><a class="LN" name="319">  319   </a>        <span class="CT">(* 0.2673 *)</span>
+</span><span><a class="LN" name="320">  320   </a>        <span class="CT">(* 0.5345 *)</span>
+</span><span><a class="LN" name="321">  321   </a>        <span class="CT">(* 0.8018 *)</span>
+</span><span><a class="LN" name="322">  322   </a>        <span class="CT">(* theta = *)</span>
+</span><span><a class="LN" name="323">  323   </a>        <span class="CT">(* 3.7417 *)</span>
+</span><span><a class="LN" name="324">  324   </a>        <span class="CT">(* 'AxisAng3:20' theta = norm(expc3); *)</span>
+</span><span><a class="LN" name="325">  325   </a>        <span class="CT">(* 'AxisAng3:21' omghat = expc3 / theta; *)</span>
+</span><span><a class="LN" name="326">  326   </a>        <span class="CT">(* 'MatrixExp6:27' omgmat = se3mat(1: 3, 1: 3) / theta; *)</span>
+</span><span><a class="LN" name="327">  327   </a>        <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="328">  328   </a>            omgmat_tmp := DWORD_TO_DINT(<span class="KW">SHL</span>(DINT_TO_DWORD(i_0), 2));
+</span><span><a class="LN" name="329">  329   </a>            omgmat[3 * i_0] := se3mat[omgmat_tmp] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="330">  330   </a>            omgmat[(3 * i_0) + 1] := se3mat[omgmat_tmp + 1] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="331">  331   </a>            omgmat[(3 * i_0) + 2] := se3mat[omgmat_tmp + 2] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="332">  332   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="333">  333   </a>        <span class="CT">(* 'MatrixExp6:28' T = [MatrixExp3(se3mat(1: 3, 1: 3)), ... *)</span>
+</span><span><a class="LN" name="334">  334   </a>        <span class="CT">(* 'MatrixExp6:29'          (eye(3) * theta + (1 - cos(theta)) * omgmat ... *)</span>
+</span><span><a class="LN" name="335">  335   </a>        <span class="CT">(* 'MatrixExp6:30'           + (theta - sin(theta)) * omgmat * omgmat) ... *)</span>
+</span><span><a class="LN" name="336">  336   </a>        <span class="CT">(* 'MatrixExp6:31'             * se3mat(1: 3, 4) / theta; *)</span>
+</span><span><a class="LN" name="337">  337   </a>        <span class="CT">(* 'MatrixExp6:32'          0, 0, 0, 1]; *)</span>
+</span><span><a class="LN" name="338">  338   </a>        b_a_tmp := <span class="KW">COS</span>(d_rtb_TmpSignalConversionAt);
+</span><span><a class="LN" name="339">  339   </a>        c_a_tmp := <span class="KW">SIN</span>(d_rtb_TmpSignalConversionAt);
+</span><span><a class="LN" name="340">  340   </a>        c_a := d_rtb_TmpSignalConversionAt - c_a_tmp;
+</span><span><a class="LN" name="341">  341   </a>        <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="342">  342   </a>        <span class="CT">(* Takes a 3x3 so(3) representation of exponential coordinates. *)</span>
+</span><span><a class="LN" name="343">  343   </a>        <span class="CT">(* Returns R in SO(3) that is achieved by rotating about omghat by theta  *)</span>
+</span><span><a class="LN" name="344">  344   </a>        <span class="CT">(* from an initial orientation R = I. *)</span>
+</span><span><a class="LN" name="345">  345   </a>        <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="346">  346   </a>        
+</span><span><a class="LN" name="347">  347   </a>        <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="348">  348   </a>        <span class="CT">(* so3mat = [[0, -3, 2]; [3, 0, -1]; [-2, 1, 0]]; *)</span>
+</span><span><a class="LN" name="349">  349   </a>        <span class="CT">(* R = MatrixExp3(so3mat)   *)</span>
+</span><span><a class="LN" name="350">  350   </a>        
+</span><span><a class="LN" name="351">  351   </a>        <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="352">  352   </a>        <span class="CT">(* R = *)</span>
+</span><span><a class="LN" name="353">  353   </a>        <span class="CT">(* -0.6949    0.7135    0.0893 *)</span>
+</span><span><a class="LN" name="354">  354   </a>        <span class="CT">(* -0.1920   -0.3038    0.9332 *)</span>
+</span><span><a class="LN" name="355">  355   </a>        <span class="CT">(* 0.6930    0.6313    0.3481 *)</span>
+</span><span><a class="LN" name="356">  356   </a>        <span class="CT">(* 'MatrixExp3:18' omgtheta = so3ToVec(so3mat); *)</span>
+</span><span><a class="LN" name="357">  357   </a>        <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="358">  358   </a>        <span class="CT">(* Takes a 3x3 skew-symmetric matrix (an element of so(3)). *)</span>
+</span><span><a class="LN" name="359">  359   </a>        <span class="CT">(* Returns the corresponding 3-vector (angular velocity). *)</span>
+</span><span><a class="LN" name="360">  360   </a>        <span class="CT">(* Example Input:  *)</span>
+</span><span><a class="LN" name="361">  361   </a>        
+</span><span><a class="LN" name="362">  362   </a>        <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="363">  363   </a>        <span class="CT">(* so3mat = [[0, -3, 2]; [3, 0, -1]; [-2, 1, 0]]; *)</span>
+</span><span><a class="LN" name="364">  364   </a>        <span class="CT">(* omg = so3ToVec(so3mat)   *)</span>
+</span><span><a class="LN" name="365">  365   </a>        
+</span><span><a class="LN" name="366">  366   </a>        <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="367">  367   </a>        <span class="CT">(* omg = *)</span>
+</span><span><a class="LN" name="368">  368   </a>        <span class="CT">(* 1 *)</span>
+</span><span><a class="LN" name="369">  369   </a>        <span class="CT">(* 2 *)</span>
+</span><span><a class="LN" name="370">  370   </a>        <span class="CT">(* 3 *)</span>
+</span><span><a class="LN" name="371">  371   </a>        <span class="CT">(* 'so3ToVec:17' omg = [so3mat(3, 2); so3mat(1, 3); so3mat(2, 1)]; *)</span>
+</span><span><a class="LN" name="372">  372   </a>        <span class="CT">(* 'MatrixExp3:19' if NearZero(norm(omgtheta)) *)</span>
+</span><span><a class="LN" name="373">  373   </a>        <span class="CT">(* *** BASIC HELPER FUNCTIONS *** *)</span>
+</span><span><a class="LN" name="374">  374   </a>        <span class="CT">(* Takes a scalar. *)</span>
+</span><span><a class="LN" name="375">  375   </a>        <span class="CT">(* Checks if the scalar is small enough to be neglected. *)</span>
+</span><span><a class="LN" name="376">  376   </a>        <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="377">  377   </a>        
+</span><span><a class="LN" name="378">  378   </a>        <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="379">  379   </a>        <span class="CT">(* near = -1e-7; *)</span>
+</span><span><a class="LN" name="380">  380   </a>        <span class="CT">(* judge = NearZero(near) *)</span>
+</span><span><a class="LN" name="381">  381   </a>        
+</span><span><a class="LN" name="382">  382   </a>        <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="383">  383   </a>        <span class="CT">(* judge = *)</span>
+</span><span><a class="LN" name="384">  384   </a>        <span class="CT">(* 1 *)</span>
+</span><span><a class="LN" name="385">  385   </a>        <span class="CT">(* 'NearZero:15' judge = norm(near) &lt; 1e-6; *)</span>
+</span><span><a class="LN" name="386">  386   </a>        <span class="KW">IF</span> <span class="KW">ABS</span>(d_rtb_TmpSignalConversionAt) &lt; 1.0E-6 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="387">  387   </a>            <span class="CT">(* 'MatrixExp3:20' R = eye(3); *)</span>
+</span><span><a class="LN" name="388">  388   </a>            <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 8 <span class="KW">DO</span> 
+</span><span><a class="LN" name="389">  389   </a>                b_R[i_0] := 0.0;
+</span><span><a class="LN" name="390">  390   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="391">  391   </a>            b_R[0] := 1.0;
+</span><span><a class="LN" name="392">  392   </a>            b_R[4] := 1.0;
+</span><span><a class="LN" name="393">  393   </a>            b_R[8] := 1.0;
+</span><span><a class="LN" name="394">  394   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="395">  395   </a>            <span class="CT">(* 'MatrixExp3:21' else *)</span>
+</span><span><a class="LN" name="396">  396   </a>            <span class="CT">(* 'MatrixExp3:22' [omghat, theta] = AxisAng3(omgtheta); *)</span>
+</span><span><a class="LN" name="397">  397   </a>            <span class="CT">(* *** CHAPTER 3: RIGID-BODY MOTIONS *** *)</span>
+</span><span><a class="LN" name="398">  398   </a>            <span class="CT">(* Takes A 3-vector of exponential coordinates for rotation. *)</span>
+</span><span><a class="LN" name="399">  399   </a>            <span class="CT">(* Returns the unit rotation axis omghat and the corresponding rotation  *)</span>
+</span><span><a class="LN" name="400">  400   </a>            <span class="CT">(* angle theta. *)</span>
+</span><span><a class="LN" name="401">  401   </a>            <span class="CT">(* Example Input: *)</span>
+</span><span><a class="LN" name="402">  402   </a>            
+</span><span><a class="LN" name="403">  403   </a>            <span class="CT">(* clear; clc; *)</span>
+</span><span><a class="LN" name="404">  404   </a>            <span class="CT">(* expc3 = [1; 2; 3]; *)</span>
+</span><span><a class="LN" name="405">  405   </a>            <span class="CT">(* [omghat, theta] = AxisAng3(expc3)   *)</span>
+</span><span><a class="LN" name="406">  406   </a>            
+</span><span><a class="LN" name="407">  407   </a>            <span class="CT">(* Output: *)</span>
+</span><span><a class="LN" name="408">  408   </a>            <span class="CT">(* omghat = *)</span>
+</span><span><a class="LN" name="409">  409   </a>            <span class="CT">(* 0.2673 *)</span>
+</span><span><a class="LN" name="410">  410   </a>            <span class="CT">(* 0.5345 *)</span>
+</span><span><a class="LN" name="411">  411   </a>            <span class="CT">(* 0.8018 *)</span>
+</span><span><a class="LN" name="412">  412   </a>            <span class="CT">(* theta = *)</span>
+</span><span><a class="LN" name="413">  413   </a>            <span class="CT">(* 3.7417 *)</span>
+</span><span><a class="LN" name="414">  414   </a>            <span class="CT">(* 'AxisAng3:20' theta = norm(expc3); *)</span>
+</span><span><a class="LN" name="415">  415   </a>            <span class="CT">(* 'AxisAng3:21' omghat = expc3 / theta; *)</span>
+</span><span><a class="LN" name="416">  416   </a>            <span class="CT">(* 'MatrixExp3:23' omgmat = so3mat / theta; *)</span>
+</span><span><a class="LN" name="417">  417   </a>            <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="418">  418   </a>                omgmat_tmp := DWORD_TO_DINT(<span class="KW">SHL</span>(DINT_TO_DWORD(i_0), 2));
+</span><span><a class="LN" name="419">  419   </a>                b_omgmat[3 * i_0] := se3mat[omgmat_tmp] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="420">  420   </a>                b_omgmat[(3 * i_0) + 1] := se3mat[omgmat_tmp + 1] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="421">  421   </a>                b_omgmat[(3 * i_0) + 2] := se3mat[omgmat_tmp + 2] / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="422">  422   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="423">  423   </a>            <span class="CT">(* 'MatrixExp3:24' R = eye(3) + sin(theta) * omgmat + (1 - cos(theta)) * omgmat * omgmat; *)</span>
+</span><span><a class="LN" name="424">  424   </a>            <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 8 <span class="KW">DO</span> 
+</span><span><a class="LN" name="425">  425   </a>                b_I[i_0] := 0;
+</span><span><a class="LN" name="426">  426   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="427">  427   </a>            b_I[0] := 1;
+</span><span><a class="LN" name="428">  428   </a>            b_I[4] := 1;
+</span><span><a class="LN" name="429">  429   </a>            b_I[8] := 1;
+</span><span><a class="LN" name="430">  430   </a>            <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="431">  431   </a>                <span class="KW">FOR</span> omgmat_tmp := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="432">  432   </a>                    R_tmp := (3 * omgmat_tmp) + i_0;
+</span><span><a class="LN" name="433">  433   </a>                    b_R[R_tmp] := (((((1.0 - b_a_tmp) * b_omgmat[i_0 + 3]) * b_omgmat[(3 * omgmat_tmp) + 1]) + (((1.0 - b_a_tmp) * b_omgmat[i_0]) * b_omgmat[3 * omgmat_tmp])) + ((b_omgmat[i_0 + 6] * (1.0 - b_a_tmp)) * b_omgmat[(3 * omgmat_tmp) + 2])) + ((b_omgmat[R_tmp] * c_a_tmp) + SINT_TO_LREAL(b_I[R_tmp]));
+</span><span><a class="LN" name="434">  434   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="435">  435   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="436">  436   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="437">  437   </a>        <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="438">  438   </a>            c_a_tmp := 0.0;
+</span><span><a class="LN" name="439">  439   </a>            <span class="KW">FOR</span> omgmat_tmp := 0 <span class="KW">TO</span> 2 <span class="KW">DO</span> 
+</span><span><a class="LN" name="440">  440   </a>                R_tmp := (3 * omgmat_tmp) + i_0;
+</span><span><a class="LN" name="441">  441   </a>                c_a_tmp := ((((((omgmat[i_0 + 3] * c_a) * omgmat[(3 * omgmat_tmp) + 1]) + ((c_a * omgmat[i_0]) * omgmat[3 * omgmat_tmp])) + ((omgmat[i_0 + 6] * c_a) * omgmat[(3 * omgmat_tmp) + 2])) + ((SINT_TO_LREAL(e_a[R_tmp]) * d_rtb_TmpSignalConversionAt) + (omgmat[R_tmp] * (1.0 - b_a_tmp)))) * se3mat[omgmat_tmp + 12]) + c_a_tmp;
+</span><span><a class="LN" name="442">  442   </a>                a[omgmat_tmp + (i_0 * 4)] := b_R[(3 * i_0) + omgmat_tmp];
+</span><span><a class="LN" name="443">  443   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="444">  444   </a>            a[i_0 + 12] := c_a_tmp / d_rtb_TmpSignalConversionAt;
+</span><span><a class="LN" name="445">  445   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="446">  446   </a>        a[3] := 0.0;
+</span><span><a class="LN" name="447">  447   </a>        a[7] := 0.0;
+</span><span><a class="LN" name="448">  448   </a>        a[11] := 0.0;
+</span><span><a class="LN" name="449">  449   </a>        a[15] := 1.0;
+</span><span><a class="LN" name="450">  450   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="451">  451   </a>    <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 3 <span class="KW">DO</span> 
+</span><span><a class="LN" name="452">  452   </a>        d_rtb_TmpSignalConversionAt := a[i_0 + 4];
+</span><span><a class="LN" name="453">  453   </a>        b_a_tmp := a[i_0];
+</span><span><a class="LN" name="454">  454   </a>        c_a := a[i_0 + 8];
+</span><span><a class="LN" name="455">  455   </a>        c_a_tmp := a[i_0 + 12];
+</span><span><a class="LN" name="456">  456   </a>        <span class="KW">FOR</span> omgmat_tmp := 0 <span class="KW">TO</span> 3 <span class="KW">DO</span> 
+</span><span><a class="LN" name="457">  457   </a>            R_tmp := DWORD_TO_DINT(<span class="KW">SHL</span>(DINT_TO_DWORD(omgmat_tmp), 2));
+</span><span><a class="LN" name="458">  458   </a>            a_0[i_0 + R_tmp] := (((T[R_tmp + 1] * d_rtb_TmpSignalConversionAt) + (T[R_tmp] * b_a_tmp)) + (T[R_tmp + 2] * c_a)) + (T[R_tmp + 3] * c_a_tmp);
+</span><span><a class="LN" name="459">  459   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="460">  460   </a>    <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="461">  461   </a>    <span class="KW">FOR</span> i_0 := 0 <span class="KW">TO</span> 15 <span class="KW">DO</span> 
+</span><span><a class="LN" name="462">  462   </a>        T[i_0] := a_0[i_0];
+</span><span><a class="LN" name="463">  463   </a>    <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="464">  464   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="465">  465   </a><span class="CT">(* Outport: '&lt;Root&gt;/fX' incorporates:</span>
+</span><span><a class="LN" name="466">  466   </a><span class="CT"> *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="467">  467   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:48')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:48</i></font></a>' x = T(1, 4); *)</span>
+</span><span><a class="LN" name="468">  468   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:49')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:49</i></font></a>' y = T(2, 4); *)</span>
+</span><span><a class="LN" name="469">  469   </a><span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977:1:50')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:50</i></font></a>' z = T(3, 4); *)</span>
+</span><span><a class="LN" name="470">  470   </a>fX := T[12];
+</span><span><a class="LN" name="471">  471   </a><span class="CT">(* Outport: '&lt;Root&gt;/fY' incorporates:</span>
+</span><span><a class="LN" name="472">  472   </a><span class="CT"> *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="473">  473   </a>fY := T[13];
+</span><span><a class="LN" name="474">  474   </a><span class="CT">(* Outport: '&lt;Root&gt;/fZ' incorporates:</span>
+</span><span><a class="LN" name="475">  475   </a><span class="CT"> *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:977')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/MATLAB Function</i></font></a>' *)</span>
+</span><span><a class="LN" name="476">  476   </a>fZ := T[14];
+</span><span><a class="LN" name="477">  477   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_ForwardKinematicsTelescope' *)</span>
+</span><span><a class="LN" name="478">  478   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="479">  479   </a><span class="KW">FUNCTION</span> norm: <span class="KW">LREAL</span>
+</span><span><a class="LN" name="480">  480   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="481">  481   </a>    x: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="482">  482   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="483">  483   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="484">  484   </a>    scale: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="485">  485   </a>    absxk: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="486">  486   </a>    t: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="487">  487   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="488">  488   </a>scale := 3.3121686421112381E-170;
+</span><span><a class="LN" name="489">  489   </a>absxk := <span class="KW">ABS</span>(x[0]);
+</span><span><a class="LN" name="490">  490   </a><span class="KW">IF</span> absxk &gt; 3.3121686421112381E-170 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="491">  491   </a>    norm := 1.0;
+</span><span><a class="LN" name="492">  492   </a>    scale := absxk;
+</span><span><a class="LN" name="493">  493   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="494">  494   </a>    t := absxk / 3.3121686421112381E-170;
+</span><span><a class="LN" name="495">  495   </a>    norm := t * t;
+</span><span><a class="LN" name="496">  496   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="497">  497   </a>absxk := <span class="KW">ABS</span>(x[1]);
+</span><span><a class="LN" name="498">  498   </a><span class="KW">IF</span> absxk &gt; scale <span class="KW">THEN</span> 
+</span><span><a class="LN" name="499">  499   </a>    t := scale / absxk;
+</span><span><a class="LN" name="500">  500   </a>    norm := ((norm * t) * t) + 1.0;
+</span><span><a class="LN" name="501">  501   </a>    scale := absxk;
+</span><span><a class="LN" name="502">  502   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="503">  503   </a>    t := absxk / scale;
+</span><span><a class="LN" name="504">  504   </a>    norm := (t * t) + norm;
+</span><span><a class="LN" name="505">  505   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="506">  506   </a>absxk := <span class="KW">ABS</span>(x[2]);
+</span><span><a class="LN" name="507">  507   </a><span class="KW">IF</span> absxk &gt; scale <span class="KW">THEN</span> 
+</span><span><a class="LN" name="508">  508   </a>    t := scale / absxk;
+</span><span><a class="LN" name="509">  509   </a>    norm := ((norm * t) * t) + 1.0;
+</span><span><a class="LN" name="510">  510   </a>    scale := absxk;
+</span><span><a class="LN" name="511">  511   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="512">  512   </a>    t := absxk / scale;
+</span><span><a class="LN" name="513">  513   </a>    norm := (t * t) + norm;
+</span><span><a class="LN" name="514">  514   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="515">  515   </a>norm := scale * <span class="KW">SQRT</span>(norm);
+</span><span><a class="LN" name="516">  516   </a><span class="KW">END_FUNCTION</span>
+</span><span><a class="LN" name="517">  517   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

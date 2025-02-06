@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<TcEventSources Version="2">
+	<Translations>
+		<Text TxtId="PlcApplication"/>
+		<Text TxtId="{0}"/>
+	</Translations>
+	<Source>
+		<GUID>{6F0D1B61-4EA6-4169-BB4D-B4F1CB768399}</GUID>
+		<Name>PlcApplication</Name>
+		<Event>
+			<Id>1</Id>
+			<Message>{0}</Message>
+		</Event>
+	</Source>
+</TcEventSources>
