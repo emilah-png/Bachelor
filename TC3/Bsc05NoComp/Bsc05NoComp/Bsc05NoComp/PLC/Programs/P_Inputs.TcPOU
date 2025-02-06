@@ -65,7 +65,7 @@ fbNormMainPaLower(
 fbNormMainPistonPosition(
 	nRawInput := G_Inputs.nRawMainPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
-	fOutput => G_OPC.fMainPistonPosition.fSignal
+	fOutput => G_OPC.fMainPistonPosition
 );
 	
 // Jib
@@ -96,7 +96,7 @@ fbNormJibPbLower(
 fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
-	fOutput => G_OPC.fJibPistonPosition.fSignal
+	fOutput => G_OPC.fJibPistonPosition
 );
 
 // Winch

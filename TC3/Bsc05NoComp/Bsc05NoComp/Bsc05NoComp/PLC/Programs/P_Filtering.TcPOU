@@ -73,13 +73,13 @@ fbFilterMainPaLower(
 
 fbFilterMainPistonPosition(
 	ssMethodType := 1,
-	Signal := G_OPC.fMainPistonPosition.fSignal,
+	Signal := G_OPC.fMainPistonPosition,
 	Num := G_FilterConstants.fPosFilterNum,
 	Denz := G_FilterConstants.fPosFilterDenz,
 	Den := G_FilterConstants.fPosFilterDen,
 	Initial := G_FilterConstants.fPosFilterInit,
 	
-	Signal_Filtered => G_OPC.fMainPistonPosition.fFilteredSignal
+	Signal_Filtered => G_OPC.fMainPistonPosition
 );
 
 // JIB
@@ -129,13 +129,13 @@ fbFilterJibPaLower(
 
 fbFilterJibPistonPosition(
 	ssMethodType := 1,
-	Signal := G_OPC.fJibPistonPosition.fSignal,
+	Signal := G_OPC.fJibPistonPosition,
 	Num := G_FilterConstants.fPosFilterNum,
 	Denz := G_FilterConstants.fPosFilterDenz,
 	Den := G_FilterConstants.fPosFilterDen,
 	Initial := G_FilterConstants.fPosFilterInit,
 	
-	Signal_Filtered => G_OPC.fJibPistonPosition.fFilteredSignal
+	Signal_Filtered => G_OPC.fJibPistonPosition
 );
 
 // WINCH

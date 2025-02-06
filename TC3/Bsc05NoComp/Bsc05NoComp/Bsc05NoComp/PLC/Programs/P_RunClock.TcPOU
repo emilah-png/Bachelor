@@ -11,7 +11,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 fbClock(
-	bStartEnable := G_Enables.bTest,
+	bStartEnable := G_Enables.bLocalTest,
 	fTimeStep := G_Parameters.fTimeStep,
 	
 	fTime => G_OPC.fTime

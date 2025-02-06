@@ -76,6 +76,12 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="Local Test\FB_LocalTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Local Test\P_LocalTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Motion\FB_Clock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -134,6 +140,7 @@
     <Folder Include="Control" />
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
+    <Folder Include="Local Test" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="Programs" />

@@ -13,7 +13,7 @@ VAR_GLOBAL
 	
 	bHoldButton : BOOL;
 	
-	bTest		: BOOL;
+	bLocalTest	: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
