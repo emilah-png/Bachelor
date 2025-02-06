@@ -1568,7 +1568,7 @@
       ],
       "properties": {
         "color": {
-          "description": "Defining a color as CSS color: #-hexadecimal, rgb(), rgba(), hsl(), hsla(), lowercase css color keyword or transparent.",
+          "description": "Defining a color as CSS color: #-hexadecimal, rgb(), rgba(), hsl(), hsla(), Cylcase css color keyword or transparent.",
           "type": "string",
           "minLength": 1
         },

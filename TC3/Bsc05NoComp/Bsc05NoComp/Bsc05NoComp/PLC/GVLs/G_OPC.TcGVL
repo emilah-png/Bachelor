@@ -13,22 +13,22 @@ VAR_GLOBAL
 	fSignalTwo				: LREAL; // [-1, 1]
 	
 	// MAIN Values
-	fMainPa 				: ST_Filter; // [Bar]
-	fMainPb					: ST_Filter; // [Bar]
-	fMainPaLower			: ST_Filter; // [Bar]
+	fMainPaDCV				: ST_Filter; // [Bar]
+	fMainPbDCV				: ST_Filter; // [Bar]
+	fMainPaCyl				: ST_Filter; // [Bar]
 	fMainPistonPosition 	: LREAL; // [m]
 	
 	// JIB Values
-	fJibPa 					: ST_Filter; // [Bar]
-	fJibPb					: ST_Filter; // [Bar]
-	fJibPaLower				: ST_Filter; // [Bar]
-	fJibPbLower				: ST_Filter; // [Bar]
+	fJibPaDCV				: ST_Filter; // [Bar]
+	fJibPbDCV				: ST_Filter; // [Bar]
+	fJibPaCyl				: ST_Filter; // [Bar]
+	fJibPbCyl				: ST_Filter; // [Bar]
 	fJibPistonPosition		: LREAL; // [m]
 	
 	// WINCH Values
 	fWinchPa				: ST_Filter; // [Bar]
 	fWinchPb				: ST_Filter; // [Bar]
-	fWinchEncoder			: ST_Filter;
+	fWinchDistance			: LREAL; // [m]
 	
 	
 	// Joystick Signals

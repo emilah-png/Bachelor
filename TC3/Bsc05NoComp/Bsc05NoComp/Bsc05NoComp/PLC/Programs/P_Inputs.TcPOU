@@ -7,23 +7,22 @@ VAR
 	fbNormPs 					: FB_Normalize;
 	
 	// Main
-	fbNormMainPa 				: FB_Normalize;
-	fbNormMainPb 				: FB_Normalize;
-	fbNormMainPaLower 			: FB_Normalize;
+	fbNormMainPaDCV				: FB_Normalize;
+	fbNormMainPbDCV				: FB_Normalize;
+	fbNormMainPaCyl 			: FB_Normalize;
 	fbNormMainPistonPosition 	: FB_PositionInputScaling;
 	
 	// Jib
-	fbNormJibPa 				: FB_Normalize;
-	fbNormJibPb 				: FB_Normalize;
-	fbNormJibPaLower 			: FB_Normalize;
-	fbNormJibPbLower 			: FB_Normalize;
+	fbNormJibPaDCV 				: FB_Normalize;
+	fbNormJibPbDCV 				: FB_Normalize;
+	fbNormJibPaCyl	 			: FB_Normalize;
+	fbNormJibPbCyl	 			: FB_Normalize;
 	fbNormJibPistonPosition 	: FB_PositionInputScaling;
 
 	// Winch
 	fbNormWinchPa 				: FB_Normalize;
 	fbNormWinchPb 				: FB_Normalize;
-	fbNormWinchEncoderA			: FB_Normalize;
-	fbNormWinchEncoderB			: FB_Normalize;
+	fbNormWinchEncoder			: FB_WinchScaling;
 
 	// Joystick
 	fbJoystickWinch 			: FB_JoystickInputScaling;
@@ -44,22 +43,22 @@ fbNormPs(
 );
 
 // Main
-fbNormMainPa(
-	nRawInput := G_Inputs.nRawMainPa,
+fbNormMainPaDCV(
+	nRawInput := G_Inputs.nRawMainPaDCV,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fMainPa.fSignal
+	fNormalizedInput => G_OPC.fMainPaDCV.fSignal
 );
 
-fbNormMainPb(
-	nRawInput := G_Inputs.nRawMainPb,
+fbNormMainPbDCV(
+	nRawInput := G_Inputs.nRawMainPbDCV,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fMainPb.fSignal
+	fNormalizedInput => G_OPC.fMainPbDCV.fSignal
 );
 
-fbNormMainPaLower(
-	nRawInput := G_Inputs.nRawMainPaLower,
+fbNormMainPaCyl(
+	nRawInput := G_Inputs.nRawMainPaCyl,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fMainPaLower.fSignal
+	fNormalizedInput => G_OPC.fMainPaCyl.fSignal
 );
 
 fbNormMainPistonPosition(
@@ -69,28 +68,28 @@ fbNormMainPistonPosition(
 );
 	
 // Jib
-fbNormJibPa(
-	nRawInput := G_Inputs.nRawJibPa,
+fbNormJibPaDCV(
+	nRawInput := G_Inputs.nRawJibPaDCV,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fJibPa.fSignal
+	fNormalizedInput => G_OPC.fJibPaDCV.fSignal
 );
 
-fbNormJibPb(
-	nRawInput := G_Inputs.nRawJibPb,
+fbNormJibPbDCV(
+	nRawInput := G_Inputs.nRawJibPbDCV,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fJibPb.fSignal
+	fNormalizedInput => G_OPC.fJibPbDCV.fSignal
 );
 
-fbNormJibPaLower(
-	nRawInput := G_Inputs.nRawJibPaLower,
+fbNormJibPaCyl(
+	nRawInput := G_Inputs.nRawJibPaCyl,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fJibPaLower.fSignal
+	fNormalizedInput => G_OPC.fJibPaCyl.fSignal
 );
 
-fbNormJibPbLower(
-	nRawInput := G_Inputs.nRawJibPbLower,
+fbNormJibPbCyl(
+	nRawInput := G_Inputs.nRawJibPbCyl,
 	fMaxValue := 400.0, 			// [Bar]
-	fNormalizedInput => G_OPC.fJibPbLower.fSignal
+	fNormalizedInput => G_OPC.fJibPbCyl.fSignal
 );
 
 fbNormJibPistonPosition(
@@ -101,15 +100,21 @@ fbNormJibPistonPosition(
 
 // Winch
 fbNormWinchPa(
-	nRawInput := G_Inputs.nRawMainPa,
+	nRawInput := G_Inputs.nRawWinchPa,
 	fMaxValue := 400.0, 			// [Bar]
 	fNormalizedInput => G_OPC.fWinchPa.fSignal
 );
 
 fbNormWinchPb(
-	nRawInput := G_Inputs.nRawMainPb,
+	nRawInput := G_Inputs.nRawWinchPb,
 	fMaxValue := 400.0, 			// [Bar]
 	fNormalizedInput => G_OPC.fWinchPb.fSignal
+);
+
+fbNormWinchEncoder(
+	nRawInput := G_Inputs.nRawWinchEncoder,
+	fOutput => G_OPC.fWinchDistance
+	
 );
 
 // Joystick

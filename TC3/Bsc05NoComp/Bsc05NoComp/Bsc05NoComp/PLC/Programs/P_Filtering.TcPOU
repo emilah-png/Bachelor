@@ -5,15 +5,15 @@
 VAR
 	fbFilterPs 					: FB_Filtering;
 	
-	fbFilterMainPa 				: FB_Filtering;
-	fbFilterMainPb 				: FB_Filtering;
-	fbFilterMainPaLower 		: FB_Filtering;
+	fbFilterMainPaDCV			: FB_Filtering;
+	fbFilterMainPbDCV			: FB_Filtering;
+	fbFilterMainPaCyl 			: FB_Filtering;
 	fbFilterMainPistonPosition 	: FB_Filtering;
 	
-	fbFilterJibPa 				: FB_Filtering;
-	fbFilterJibPb 				: FB_Filtering;
-	fbFilterJibPaLower 			: FB_Filtering;
-	fbFilterJibPbLower 			: FB_Filtering;
+	fbFilterJibPaDCV			: FB_Filtering;
+	fbFilterJibPbDCV			: FB_Filtering;
+	fbFilterJibPaCyl 			: FB_Filtering;
+	fbFilterJibPbCyl 			: FB_Filtering;
 	fbFilterJibPistonPosition 	: FB_Filtering;
 	
 	
@@ -28,47 +28,47 @@ END_VAR
       <ST><![CDATA[// SUPPLY
 fbFilterPs(
 	ssMethodType := 1,
-	Signal := G_OPC.fMainPa.fSignal,
+	Signal := G_OPC.fPs.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fMainPa.fFilteredSignal
+	Signal_Filtered => G_OPC.fPs.fFilteredSignal
 );
 
 // MAIN
-fbFilterMainPa(
+fbFilterMainPaDCV(
 	ssMethodType := 1,
-	Signal := G_OPC.fMainPa.fSignal,
+	Signal := G_OPC.fMainPaDCV.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fMainPa.fFilteredSignal
+	Signal_Filtered => G_OPC.fMainPaDCV.fFilteredSignal
 );
 
-fbFilterMainPb(
+fbFilterMainPbDCV(
 	ssMethodType := 1,
-	Signal := G_OPC.fMainPb.fSignal,
+	Signal := G_OPC.fMainPbDCV.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fMainPb.fFilteredSignal
+	Signal_Filtered => G_OPC.fMainPbDCV.fFilteredSignal
 );
 
-fbFilterMainPaLower(
+fbFilterMainPaCyl(
 	ssMethodType := 1,
-	Signal := G_OPC.fMainPaLower.fSignal,
+	Signal := G_OPC.fMainPaCyl.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fMainPaLower.fFilteredSignal
+	Signal_Filtered => G_OPC.fMainPaCyl.fFilteredSignal
 );
 
 fbFilterMainPistonPosition(
@@ -83,48 +83,48 @@ fbFilterMainPistonPosition(
 );
 
 // JIB
-fbFilterJibPa(
+fbFilterJibPaDCV(
 	ssMethodType := 1,
-	Signal := G_OPC.fJibPa.fSignal,
+	Signal := G_OPC.fJibPaDCV.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fJibPa.fFilteredSignal
+	Signal_Filtered => G_OPC.fJibPaDCV.fFilteredSignal
 );
 
-fbFilterJibPb(
+fbFilterJibPbDCV(
 	ssMethodType := 1,
-	Signal := G_OPC.fJibPb.fSignal,
+	Signal := G_OPC.fJibPbDCV.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fJibPb.fFilteredSignal
+	Signal_Filtered => G_OPC.fJibPbDCV.fFilteredSignal
 );
 
-fbFilterJibPaLower(
+fbFilterJibPaCyl(
 	ssMethodType := 1,
-	Signal := G_OPC.fJibPaLower.fSignal,
+	Signal := G_OPC.fJibPaCyl.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fJibPaLower.fFilteredSignal
+	Signal_Filtered => G_OPC.fJibPaCyl.fFilteredSignal
 );
 
-fbFilterJibPaLower(
+fbFilterJibPaCyl(
 	ssMethodType := 1,
-	Signal := G_OPC.fJibPbLower.fSignal,
+	Signal := G_OPC.fJibPbCyl.fSignal,
 	Num := G_FilterConstants.fPressureFilterNum,
 	Denz := G_FilterConstants.fPressureFilterDenz,
 	Den := G_FilterConstants.fPressureFilterDen,
 	Initial := G_FilterConstants.fPressureFilterInit,
 	
-	Signal_Filtered => G_OPC.fJibPbLower.fFilteredSignal
+	Signal_Filtered => G_OPC.fJibPbCyl.fFilteredSignal
 );
 
 fbFilterJibPistonPosition(
