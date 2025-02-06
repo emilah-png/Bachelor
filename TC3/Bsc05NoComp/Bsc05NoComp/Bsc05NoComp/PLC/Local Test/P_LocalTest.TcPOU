@@ -11,7 +11,7 @@ END_VAR
 	fTime := G_OPC.fTime,
 	bEnableTest := G_Enables.bLocalTest,
 	
-	fSignal => G_OPC.fSignalOne
+	fSignal => G_OPC.fValveOneOutput
 );]]></ST>
     </Implementation>
   </POU>

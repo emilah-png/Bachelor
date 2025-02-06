@@ -15,7 +15,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF bEnableTest THEN
-	fTempSignal := SIN(0.1 * 2 * Tc2_System.Global_Variables.PI * fTime);
+	fTempSignal := SIN(0.05 * 2 * Tc2_System.Global_Variables.PI * fTime);
 	IF fTempSignal > 1.0 THEN
 		fSignal := 1.0;
 	ELSIF fTempSignal < -1.0 THEN
