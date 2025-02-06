@@ -789,6 +789,26 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_HMI.fSlider_1": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::fSlider_1",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.fSlider_2": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::fSlider_2",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_HMI.nCounter": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -9138,6 +9158,8 @@
                 "ADS.PLC1.G_HMI.bButton_Cylinder_1": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_2": 3,
                 "ADS.PLC1.G_HMI.bstepp_button": 3,
+                "ADS.PLC1.G_HMI.fSlider_1": 3,
+                "ADS.PLC1.G_HMI.fSlider_2": 3,
                 "ADS.PLC1.G_HMI.nCounter": 3,
                 "ADS.PLC1.G_HMI.nSlider_1": 3,
                 "ADS.PLC1.G_HMI.nSlider_2": 3,
