@@ -13,23 +13,23 @@
 					<ManualSelect>{603F24BD-3EEF-47EB-AD62-1BCC3B2D1AE7}</ManualSelect>
 					<ManualSelect>{2752D285-16AD-4E89-AE6C-80E72784D264}</ManualSelect>
 					<ManualSelect>{CB3D4492-5E9E-43BC-AB3B-27CF3896EEC2}</ManualSelect>
-					<ManualSelect>{97127BE5-AB00-4872-8A0E-0120D605FA10}</ManualSelect>
 					<ManualSelect>{8161723B-0C2E-405C-B829-EDC5DAAB5104}</ManualSelect>
-					<ManualSelect>{927A7313-A412-4376-8911-4A8F60EC8651}</ManualSelect>
+					<ManualSelect>{97127BE5-AB00-4872-8A0E-0120D605FA10}</ManualSelect>
 					<ManualSelect>{E8CE55B5-3125-49FB-B21B-4CB7A751D68B}</ManualSelect>
-					<ManualSelect>{1EEBBAAA-51E1-4750-9D6A-7B04116EA32B}</ManualSelect>
+					<ManualSelect>{927A7313-A412-4376-8911-4A8F60EC8651}</ManualSelect>
 					<ManualSelect>{3307E182-A1D1-4076-B983-61CAE690B2F9}</ManualSelect>
+					<ManualSelect>{1EEBBAAA-51E1-4750-9D6A-7B04116EA32B}</ManualSelect>
 					<ManualSelect>{C21D857D-6193-4500-8FE2-026AC427DCC4}</ManualSelect>
 					<ManualSelect>{F1CFF3CF-B042-45EE-A380-4FB3270F0BA5}</ManualSelect>
 					<ManualSelect>{AC534BD2-49E1-4025-9C78-0BC8AE4A36A9}</ManualSelect>
 					<ManualSelect>{5002C16A-02B3-4A8C-8C5C-A65EDD0AE398}</ManualSelect>
-					<ManualSelect>{C1126695-F4A2-4F2D-AA1A-311783D98273}</ManualSelect>
 					<ManualSelect>{2D2E5D68-23A1-4B53-BDF7-41C3861F6DB7}</ManualSelect>
+					<ManualSelect>{C1126695-F4A2-4F2D-AA1A-311783D98273}</ManualSelect>
 					<ManualSelect>{1C20D4D8-C732-464D-AF34-6EA5D2180E06}</ManualSelect>
-					<ManualSelect>{616216B4-125A-402B-85A2-8AE048C5EA53}</ManualSelect>
 					<ManualSelect>{E40D9E9D-E242-457A-9AC7-C915753AC810}</ManualSelect>
-					<ManualSelect>{1A68C527-4912-4445-A36B-B6E9FB967008}</ManualSelect>
+					<ManualSelect>{616216B4-125A-402B-85A2-8AE048C5EA53}</ManualSelect>
 					<ManualSelect>{2B655887-A31B-41BB-A125-30011C24FB71}</ManualSelect>
+					<ManualSelect>{1A68C527-4912-4445-A36B-B6E9FB967008}</ManualSelect>
 					<ManualSelect>{067D1C29-F119-431C-A681-E503451951C7}</ManualSelect>
 					<ManualSelect>{ADDFAE21-8CFE-4AF3-9F46-29C36F985936}</ManualSelect>
 					<ManualSelect>{D58728E0-7762-4145-8A93-80D55E0453A6}</ManualSelect>
@@ -47,7 +47,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{37739B01-40E8-A686-F5E4-79FB73A381B4}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{B0B8C040-064C-5629-1DB8-A6E212FB387E}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
