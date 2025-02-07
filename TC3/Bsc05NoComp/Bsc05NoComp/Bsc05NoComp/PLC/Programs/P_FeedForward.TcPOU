@@ -4,12 +4,31 @@
     <Declaration><![CDATA[PROGRAM P_FeedForward
 VAR
 	
-	fbFF : FB_FeedForward;
+	fbFFOne : FB_FeedForward;
+	fbFFTwo : FB_FeedForward;
 	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[ fbFFOne(
+	fPs := G_OPC.fPs.fFilteredSignal,
+	fPa := G_OPC.fMainPaDCV.fFilteredSignal,
+	fPb := G_OPC.fMainPbDCV.fFilteredSignal,
+	fXDot := 0.0,
+	fDeltaP0 := G_Parameters.fDeltaP0One,
+	
+	fUFF => G_OPC.fValveOneFF
+);
+
+ fbFFTwo(
+	fPs := G_OPC.fPs.fFilteredSignal,
+	fPa := G_OPC.fJibPaDCV.fFilteredSignal,
+	fPb := G_OPC.fJibPbDCV.fFilteredSignal,
+	fXDot := 0.0,
+	fDeltaP0 := G_Parameters.fDeltaP0Two,
+	
+	fUFF => G_OPC.fValveTwoFF
+);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -7,9 +7,9 @@ VAR_GLOBAL
 	// System Values 
 	fTime					: LREAL; // [s]
 	fPs 					: ST_Filter; // [Bar]
-	fErrorOne				: LREAL; // [m]
+	fErrorOne				: LREAL; // []
 	fSignalOne				: LREAL; // [-1, 1]
-	fErrorTwo				: LREAL; // [m]
+	fErrorTwo				: LREAL; // []
 	fSignalTwo				: LREAL; // [-1, 1]
 	
 	// MAIN Values

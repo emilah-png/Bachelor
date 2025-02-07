@@ -2224,6 +2224,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 		</Io>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^PLC^PLC Instance">
 			<OwnerB Name="TIID^PLC (EtherCAT)^PLC (EK1200)^AO (EL4032)">
@@ -2237,6 +2238,10 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 			<OwnerB Name="TIID^PLC (EtherCAT)^PLC (EK1200)^DO (EL2008)">
 				<Link VarA="PlcTask Outputs^G_Output.bEnableValveOne" VarB="Channel 1^Output"/>
 				<Link VarA="PlcTask Outputs^G_Output.bEnableValveTwo" VarB="Channel 2^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^RIO (EtherCAT)^Term 6 (EK1818)">
+				<Link VarA="PlcTask Inputs^G_Inputs.bEmergencySwitch" VarB="Channel 1^Input"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.bEnableButton" VarB="Channel 2^Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^RIO (EtherCAT)^Term 6 (EK1818)^Term 11 (EL4008)">
 				<Link VarA="PlcTask Outputs^G_Output.nExtrudeOutput" VarB="AO Outputs Channel 5^Analog output"/>
