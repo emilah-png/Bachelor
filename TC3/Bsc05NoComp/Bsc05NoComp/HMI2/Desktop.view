@@ -1424,7 +1424,7 @@
 ]
 </script>
 </div>
-<div id="LEDON/OFF_Cylinder_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="696" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+<div id="LEDON/OFF_Cylinder_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="697" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "rgba(0, 0, 0, 1)"
@@ -1436,7 +1436,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_1%/s%",
+    "event": "%s%ADS.PLC1.G_Enables.bEnableOne%/s%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1512,7 +1512,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_2%/s%",
+    "event": "%s%ADS.PLC1.G_Enables.bEnableTwo%/s%",
     "actions": [
       {
         "objectType": "Condition",
