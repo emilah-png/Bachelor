@@ -1204,7 +1204,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_2%/s%"
+                  "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableTwo%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1219,7 +1219,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_2%/s%",
+                "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableTwo%/s%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/BOOL",
@@ -1245,7 +1245,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_2%/s%",
+                "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableTwo%/s%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/BOOL",
@@ -1307,7 +1307,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_1%/s%"
+                  "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableOne%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1322,7 +1322,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_1%/s%",
+                "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableOne%/s%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/BOOL",
@@ -1348,7 +1348,7 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_1%/s%",
+                "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableOne%/s%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/BOOL",
@@ -1424,7 +1424,7 @@
 ]
 </script>
 </div>
-<div id="LEDON/OFF_Cylinder_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="693" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+<div id="LEDON/OFF_Cylinder_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="696" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "rgba(0, 0, 0, 1)"
@@ -1448,7 +1448,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_1%/s%"
+                  "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableOne%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1500,7 +1500,7 @@
 ]
 </script>
 </div>
-<div id="LEDON/OFF_Cylinder_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="892" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
+<div id="LEDON/OFF_Cylinder_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="893" data-tchmi-left-unit="px" data-tchmi-top="116" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "rgba(0, 0, 0, 1)"
@@ -1524,7 +1524,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%ADS.PLC1.G_HMI.bButton_Cylinder_2%/s%"
+                  "symbolExpression": "%s%ADS.PLC1.G_Enables.bEnableTwo%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",

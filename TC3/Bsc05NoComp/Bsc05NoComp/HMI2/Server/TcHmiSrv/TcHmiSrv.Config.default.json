@@ -739,6 +739,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bEnableOne": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableOne",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Enables.bEnablePID": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -749,11 +759,41 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bEnableTwo": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableTwo",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Enables.bEnableU": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::G_Enables::bEnableU",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bHoldButton": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bHoldButton",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bLocalTest": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bLocalTest",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -856,6 +896,499 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fErrorOne": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fErrorOne",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fErrorTwo": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fErrorTwo",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPaCyl.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaCyl::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPaCyl.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaCyl::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPaDCV.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaDCV::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPaDCV.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaDCV::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbCyl.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbCyl::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbCyl.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbCyl::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbDCV.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbDCV::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbDCV.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbDCV::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPistonPosition.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPistonPosition::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPistonPosition.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPistonPosition::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJoystickExtrude": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJoystickExtrude",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJoystickJib": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJoystickJib",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJoystickMain": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJoystickMain",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJoystickRotation": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJoystickRotation",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJoystickWinch": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJoystickWinch",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPaCyl.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaCyl::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPaCyl.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaCyl::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPaDCV.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaDCV::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPaDCV.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaDCV::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPbDCV.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPbDCV::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPbDCV.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPbDCV::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPistonPosition.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPistonPosition::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPistonPosition.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPistonPosition::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fPs.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fPs::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fPs.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fPs::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fSignalOne": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fSignalOne",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fSignalTwo": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fSignalTwo",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fTime": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -868,6 +1401,244 @@
                     },
                     {
                         "comment": "[s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveOneFF": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveOneFF",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveOneOutput": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveOneOutput",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveOnePID": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveOnePID",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveTwoFF": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveTwoFF",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveTwoOutput": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveTwoOutput",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fValveTwoPID": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fValveTwoPID",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchDistance.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchDistance::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchDistance.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchDistance::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchPa.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPa::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchPa.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPa::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchPb.fFilteredSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPb::fFilteredSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchPb.fSignal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPb::fSignal",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fXDotRef": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fXDotRef",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[m/s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fXRef": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fXRef",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[m]"
                     }
                 ]
             },
@@ -9153,8 +9924,12 @@
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
                 "ADS.PLC1.G_Enables.bEnableFF": 3,
+                "ADS.PLC1.G_Enables.bEnableOne": 3,
                 "ADS.PLC1.G_Enables.bEnablePID": 3,
+                "ADS.PLC1.G_Enables.bEnableTwo": 3,
                 "ADS.PLC1.G_Enables.bEnableU": 3,
+                "ADS.PLC1.G_Enables.bHoldButton": 3,
+                "ADS.PLC1.G_Enables.bLocalTest": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_1": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_2": 3,
                 "ADS.PLC1.G_HMI.bstepp_button": 3,
@@ -9164,7 +9939,50 @@
                 "ADS.PLC1.G_HMI.nSlider_1": 3,
                 "ADS.PLC1.G_HMI.nSlider_2": 3,
                 "ADS.PLC1.G_Inputs.bEmergencySwitch": 3,
+                "ADS.PLC1.G_OPC.fErrorOne": 3,
+                "ADS.PLC1.G_OPC.fErrorTwo": 3,
+                "ADS.PLC1.G_OPC.fJibPaCyl.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPaCyl.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPaDCV.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPaDCV.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPbCyl.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPbCyl.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPbDCV.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPbDCV.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPistonPosition.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPistonPosition.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJoystickExtrude": 3,
+                "ADS.PLC1.G_OPC.fJoystickJib": 3,
+                "ADS.PLC1.G_OPC.fJoystickMain": 3,
+                "ADS.PLC1.G_OPC.fJoystickRotation": 3,
+                "ADS.PLC1.G_OPC.fJoystickWinch": 3,
+                "ADS.PLC1.G_OPC.fMainPaCyl.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPaCyl.fSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPaDCV.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPaDCV.fSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPbDCV.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPbDCV.fSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPistonPosition.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPistonPosition.fSignal": 3,
+                "ADS.PLC1.G_OPC.fPs.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fPs.fSignal": 3,
+                "ADS.PLC1.G_OPC.fSignalOne": 3,
+                "ADS.PLC1.G_OPC.fSignalTwo": 3,
                 "ADS.PLC1.G_OPC.fTime": 3,
+                "ADS.PLC1.G_OPC.fValveOneFF": 3,
+                "ADS.PLC1.G_OPC.fValveOneOutput": 3,
+                "ADS.PLC1.G_OPC.fValveOnePID": 3,
+                "ADS.PLC1.G_OPC.fValveTwoFF": 3,
+                "ADS.PLC1.G_OPC.fValveTwoOutput": 3,
+                "ADS.PLC1.G_OPC.fValveTwoPID": 3,
+                "ADS.PLC1.G_OPC.fWinchDistance.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchDistance.fSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchPa.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchPa.fSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchPb.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchPb.fSignal": 3,
+                "ADS.PLC1.G_OPC.fXDotRef": 3,
+                "ADS.PLC1.G_OPC.fXRef": 3,
                 "ADS.PLC1.G_Parameters.fTimeStep": 3,
                 "ADS.PLC1.HMI.Action1": 3,
                 "ADS.PLC1.HMI.Action2": 3,

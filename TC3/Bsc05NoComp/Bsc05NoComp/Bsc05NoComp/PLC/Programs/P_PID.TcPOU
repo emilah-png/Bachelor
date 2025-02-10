@@ -37,7 +37,7 @@ IF (G_Enables.bEnablePID AND G_Mode.bRunning) THEN
 
 	fbOnePID(
 		fX := G_OPC.fXRef,
-		fXReal := G_OPC.fMainPistonPosition,
+		fXReal := G_OPC.fMainPistonPosition.fFilteredSignal,
 		fKp := G_Parameters.fOneP,
 		fKi := G_Parameters.fOneI,
 		fKd := G_Parameters.fOneD,
