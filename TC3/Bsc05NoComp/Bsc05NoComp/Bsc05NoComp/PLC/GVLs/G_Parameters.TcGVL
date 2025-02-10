@@ -35,8 +35,8 @@ VAR_GLOBAL
 	fDeltaP0Two		: LREAL := 5.0; // [Bar]
 	
 	// Piston Variables
-	fMaxStrokeMain 	: LREAL := 0.75;
-	fMaxStrokeJib 	: LREAL := 0.85;
+	fMaxStrokeMain 	: LREAL := 0.73;
+	fMaxStrokeJib 	: LREAL := 0.855;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

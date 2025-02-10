@@ -16,19 +16,19 @@ VAR_GLOBAL
 	fMainPaDCV				: ST_Filter; // [Bar]
 	fMainPbDCV				: ST_Filter; // [Bar]
 	fMainPaCyl				: ST_Filter; // [Bar]
-	fMainPistonPosition 	: LREAL; // [m]
+	fMainPistonPosition 	: ST_Filter; // [m]
 	
 	// JIB Values
 	fJibPaDCV				: ST_Filter; // [Bar]
 	fJibPbDCV				: ST_Filter; // [Bar]
 	fJibPaCyl				: ST_Filter; // [Bar]
 	fJibPbCyl				: ST_Filter; // [Bar]
-	fJibPistonPosition		: LREAL; // [m]
+	fJibPistonPosition		: ST_Filter; // [m]
 	
 	// WINCH Values
 	fWinchPa				: ST_Filter; // [Bar]
 	fWinchPb				: ST_Filter; // [Bar]
-	fWinchDistance			: LREAL; // [m]
+	fWinchDistance			: ST_Filter; // [m]
 	
 	
 	// Joystick Signals
