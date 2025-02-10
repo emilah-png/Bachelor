@@ -3,17 +3,17 @@
   <POU Name="FB_PositionInputScaling" Id="{aaf7dedb-496d-4e47-af87-ac12aff46c11}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_PositionInputScaling
 VAR_INPUT
-	nRawInput : INT;
+	nRawInput 				: INT;
+	fMaxOutputValue  		: LREAL;
 END_VAR
 VAR_OUTPUT
-	fOutput : LREAL;
+	fOutput 				: LREAL;
 END_VAR
 VAR
-	fRawInput : LREAL;
-	fNormalizedInput: LREAL;
+	fRawInput 				: LREAL;
+	fNormalizedInput		: LREAL;
 	fMaxInputValue 			: LREAL := 16099.0;
 	fMinInputValue			: LREAL := 125.0;
-	fMaxOutputValue  		: LREAL := 0.5;
 	fMinOutputValue  		: LREAL := 0.0;		
 END_VAR
 ]]></Declaration>

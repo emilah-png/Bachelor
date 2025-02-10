@@ -19,7 +19,16 @@
     <CompilerDefines>VISU_USEPROPERTYINFO</CompilerDefines>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Control\FB_FeedForward.TcPOU">
+    <Compile Include="Control\Function Blocks\FB_FeedForward.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\Function Blocks\FB_Motion.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\Function Blocks\FB_Running.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
@@ -35,13 +44,12 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\G_FilterConstants.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="GVLs\G_HMI.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_Mode.TcGVL">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\G_OPC.TcGVL">
       <SubType>Code</SubType>
@@ -51,18 +59,35 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="Input\FB_JoystickInputScaling.TcPOU">
+    <Compile Include="GVLs\Static\G_FilterConstants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Static\G_Winch.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Input\Function Blocks\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Input\FB_Normalize.TcPOU">
+    <Compile Include="Input\Function Blocks\FB_Normalize.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Input\FB_PositionInputScaling.TcPOU">
+    <Compile Include="Input\Function Blocks\FB_PositionInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Input\Function Blocks\FB_WinchScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Input\G_Inputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Local Test\FB_LocalTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Local Test\P_LocalTest.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Motion\FB_Clock.TcPOU">
       <SubType>Code</SubType>
@@ -95,51 +120,40 @@
     <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_Modes.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_Output.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_RunClock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Transfer\FB_Clock_1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transfer\FB_FeedForward_1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transfer\FB_MotionRef_1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transfer\P_FeedForward_1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transfer\P_RunClock_1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transfer\Testy.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="XML\Derivator.TcPOU">
+    <Compile Include="XML\FB_Derivator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\G_Init.TcGVL">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="XML\Integrator.TcPOU">
+    <Compile Include="XML\FB_Integrator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Control\Function Blocks" />
     <Folder Include="GVLs" />
+    <Folder Include="GVLs\Static" />
     <Folder Include="Input" />
     <Folder Include="Filtering" />
     <Folder Include="Control" />
+    <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
-    <Folder Include="Transfer" />
+    <Folder Include="Local Test" />
     <Folder Include="Output" />
     <Folder Include="XML" />
-    <Folder Include="VISUs" />
     <Folder Include="Programs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,8 +231,8 @@
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-        <Data>
-          <o xml:space="preserve" t="OptionKey">
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -290,14 +304,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-        </Data>
-        <TypeList>
-          <Type n="Boolean">System.Boolean</Type>
-          <Type n="Hashtable">System.Collections.Hashtable</Type>
-          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-          <Type n="String">System.String</Type>
-        </TypeList>
-      </XmlArchive>
+  </Data>
+  <TypeList>
+    <Type n="Boolean">System.Boolean</Type>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

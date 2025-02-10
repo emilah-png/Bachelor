@@ -4,12 +4,12 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Clock
 VAR_INPUT
 	
-	bStartEnable : BOOL;
-	fTimeStep : LREAL;
+	bStartEnable 	: BOOL;
+	fTimeStep 		: LREAL;
 	
 END_VAR
 VAR_OUTPUT
-	fTime : LREAL;
+	fTime 			: LREAL;
 END_VAR
 VAR
 END_VAR

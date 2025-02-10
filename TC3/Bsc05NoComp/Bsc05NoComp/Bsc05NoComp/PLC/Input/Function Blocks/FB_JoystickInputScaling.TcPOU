@@ -3,17 +3,17 @@
   <POU Name="FB_JoystickInputScaling" Id="{a0c6c0d3-0a31-4f44-bc18-b65492836e6e}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_JoystickInputScaling
 VAR_INPUT
-	bEnable : BOOL;
-	nRawInput : INT;
+	bEnable 				: BOOL;
+	nRawInput 				: INT;
 	
 END_VAR
 VAR_OUTPUT
-	fOutput : LREAL;
+	fOutput 				: LREAL;
 END_VAR
 VAR
-	fRawInput : LREAL;
-	fTempInput : LREAL;
-	fTempOutput : LREAL;
+	fRawInput 				: LREAL;
+	fTempInput 				: LREAL;
+	fTempOutput 			: LREAL;
 	fMaxInputValue			: LREAL := 14746.0;
 	fMinInputValue 			: LREAL := 1617.0;
 	fNeutralInputValue  	: LREAL := 8160.0;

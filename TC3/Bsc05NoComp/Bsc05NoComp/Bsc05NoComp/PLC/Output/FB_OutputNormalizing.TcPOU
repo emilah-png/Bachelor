@@ -7,13 +7,13 @@ VAR_INPUT
 	fNormalizedInput 	: LREAL;
 END_VAR
 VAR_OUTPUT
-	nOutput : INT; 
+	nOutput 			: INT;
 END_VAR
 VAR
-	nOffset 	: LREAL := 19630.0;
-	nMaxValue	: LREAL := 29460.0;
-	nMinValue 	: LREAL :=  9830.0;
-	nTempOutput : LREAL;
+	nOffset 			: LREAL := 0.0;
+	nMaxValue			: LREAL := 32767.0;
+	nMinValue 			: LREAL := -32767.0;
+	nTempOutput 		: LREAL;
 END_VAR
 
 ]]></Declaration>

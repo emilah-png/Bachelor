@@ -3,21 +3,21 @@
   <POU Name="FB_Filtering" Id="{14261dac-a247-4f46-86fb-4a529ccfd47b}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Filtering
 VAR_INPUT
-	ssMethodType: SINT;
-	Signal: LREAL;
-	Num: LREAL;
-	DenZ: LREAL;
-	Den: LREAL;
-	Initial: LREAL;
+	ssMethodType					: SINT;
+	Signal							: LREAL;
+	Num								: LREAL;
+	DenZ							: LREAL;
+	Den								: LREAL;
+	Initial							: LREAL;
 END_VAR
 VAR_OUTPUT
-	Signal_Unfiltered: LREAL;
-	Signal_Filtered: LREAL;
+	Signal_Unfiltered				: LREAL;
+	Signal_Filtered					: LREAL;
 END_VAR
 VAR
-	DiscreteTransferFcn1_icLoad: USINT;
-	DiscreteTransferFcn1_states: LREAL;
-	c_TmpSignalConversionAtDisc: ARRAY[0..1] OF LREAL;
+	DiscreteTransferFcn1_icLoad		: USINT;
+	DiscreteTransferFcn1_states		: LREAL;
+	c_TmpSignalConversionAtDisc		: ARRAY[0..1] OF LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>

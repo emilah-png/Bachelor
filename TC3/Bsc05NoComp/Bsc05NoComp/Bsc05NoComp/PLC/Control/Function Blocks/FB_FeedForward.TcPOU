@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="FB_FeedForward_1" Id="{aa3764ac-029a-4f8c-a288-7fe286fd369f}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward_1
+  <POU Name="FB_FeedForward" Id="{5f187efa-a862-40d3-8f44-04c8cf0d06e0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward
 VAR_INPUT
 	fPs 			: LREAL;
 	fPa 			: LREAL;
 	fPb 			: LREAL;
 	fXDot			: LREAL;
+	fDeltaP0		: LREAL;
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
@@ -17,7 +18,7 @@ VAR
 	fBandWidth		: LREAL := 0.0; 								// Band Width
 	fSpoolTravel 	: LREAL := 7.0; 								// Maximum Spool Travel
 	fSlopeChar		: LREAL := (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
-	fDeltaP_Norm	: LREAL := 7.0 * 100000.0; 						// Pressure Drop with Compansator
+	fDeltaP_Norm	: LREAL := fDeltaP0 * 100000.0; 						// Pressure Drop with Compansator
 	
 	fFlow			: LREAL; 										// Wanted Flow
 	fDeltaP			: LREAL; 										// Pressure Drop

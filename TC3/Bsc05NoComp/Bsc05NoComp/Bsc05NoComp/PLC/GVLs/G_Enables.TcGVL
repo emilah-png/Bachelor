@@ -8,11 +8,15 @@ VAR_GLOBAL
 	bEnableFF 	: BOOL;
 	bEnablePID 	: BOOL;
 	
-	bEnableMain	: BOOL;
-	bEnableJib	: BOOL;
+	bEnableOne	: BOOL;
+	bEnableTwo	: BOOL;	
 	
-	bHoldbutten	: BOOL;
-	bTest		: BOOL;
+	bHoldButton : BOOL;
+	
+	bLocalTest	: BOOL;
+	
+	bErrorOne 	: BOOL;
+	bErrorTwo	: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

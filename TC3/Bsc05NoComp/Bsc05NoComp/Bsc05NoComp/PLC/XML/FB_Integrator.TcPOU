@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="Integrator" Id="{1200ebea-d33a-4080-b39f-2edfc1602a4c}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK Integrator
+  <POU Name="FB_Integrator" Id="{1200ebea-d33a-4080-b39f-2edfc1602a4c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Integrator
 VAR_INPUT
-	ssMethodType: SINT;
-	fSignal: LREAL;
+	ssMethodType				: SINT;
+	fSignal						: LREAL;
 END_VAR
 VAR_OUTPUT
-	fSignalIntegrated: LREAL;
+	fSignalIntegrated			: LREAL;
 END_VAR
 VAR
-	c_DiscreteTimeIntegrator_DS: LREAL;
+	c_DiscreteTimeIntegrator_DS	: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>

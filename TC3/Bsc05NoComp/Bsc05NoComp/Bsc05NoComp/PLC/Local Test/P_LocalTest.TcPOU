@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_LocalTest" Id="{fcefc10f-7bcc-4bcc-b662-2324f5ab3460}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_LocalTest
+VAR
+	fbLocalTest : FB_LocalTest;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLocalTest(
+	fTime := G_OPC.fTime,
+	bEnableTest := G_Enables.bLocalTest,
+	
+	fSignal => G_OPC.fValveOneOutput
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

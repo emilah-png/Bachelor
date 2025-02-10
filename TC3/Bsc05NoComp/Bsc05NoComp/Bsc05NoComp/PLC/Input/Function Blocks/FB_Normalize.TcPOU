@@ -3,11 +3,11 @@
   <POU Name="FB_Normalize" Id="{1cb17eff-b342-48b7-ab9a-2d7d641deba9}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Normalize
 VAR_INPUT
-	nRawInput : INT;
-	fMaxValue : LREAL;
+	nRawInput 			: INT;
+	fMaxValue 			: LREAL;
 END_VAR
 VAR_OUTPUT
-	fNormalizedInput : LREAL;
+	fNormalizedInput 	: LREAL;
 END_VAR
 VAR
 END_VAR

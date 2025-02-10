@@ -8,9 +8,14 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[P_Filtering();
+//P_Modes();
+P_RunClock();
 P_Inputs();
 P_Output();
-P_RunClock();]]></ST>
+P_RunClock();
+P_FeedForward();
+P_PID();
+P_LocalTest();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

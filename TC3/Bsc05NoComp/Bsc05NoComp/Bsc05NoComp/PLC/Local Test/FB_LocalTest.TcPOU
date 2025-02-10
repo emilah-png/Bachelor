@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_LocalTest" Id="{ab35aa25-2060-42c1-93b6-769f7cccc26b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LocalTest
+VAR_INPUT
+	fTime : LREAL;
+	bEnableTest : BOOL;
+END_VAR
+VAR_OUTPUT
+	fSignal : LREAL;
+END_VAR
+VAR
+	fTempSignal : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnableTest THEN
+	fTempSignal := SIN(0.05 * 2 * Tc2_System.Global_Variables.PI * fTime);
+	IF fTempSignal > 1.0 THEN
+		fSignal := 1.0;
+	ELSIF fTempSignal < -1.0 THEN
+		fSignal := -1.0;
+	ELSE
+		fSignal := fTempSignal;
+	END_IF
+ELSE
+	fTempSignal := 0.0;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

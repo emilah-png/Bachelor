@@ -3,7 +3,40 @@
   <GVL Name="G_Parameters" Id="{71932655-049f-45cd-b617-52f5444e2f77}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	fTimeStep : LREAL := 0.001;
+	
+	// System Variable
+	fTimeStep 		: LREAL := 0.001; // [s]
+	fConst 			: LREAL := 0.0; // [-1, 1]
+	
+	// FeedForward Variables
+	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
+	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
+	
+	// PID Variables
+	fOneP 			: LREAL := 0.0; // P
+	fOneI 			: LREAL := 0.0; // I
+	fOneD 			: LREAL := 0.0; // D
+	
+	fTwoP 			: LREAL := 0.0; // P
+	fTwoI 			: LREAL := 0.0; // I
+	fTwoD 			: LREAL := 0.0; // D
+	
+	// Valve Variables
+	fQMaxUpOne 		: LREAL := 24.4; // [L/min]
+	fQMaxDownOne	: LREAL := 15.9; // [L/min]
+	fDeadUpOne 		: LREAL := 0.10;
+	fDeadDownOne	: LREAL := 0.0;
+	fDeltaP0One		: LREAL := 5.0; // [Bar]
+	
+	fQMaxUpTwo 		: LREAL := 24.4; // [L/min]
+	fQMaxDownTwo	: LREAL := 15.9; // [L/min]
+	fDeadUpTwo 		: LREAL := 0.10;
+	fDeadDownTwo	: LREAL := 0.0;
+	fDeltaP0Two		: LREAL := 5.0; // [Bar]
+	
+	// Piston Variables
+	fMaxStrokeMain 	: LREAL := 0.73;
+	fMaxStrokeJib 	: LREAL := 0.855;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
