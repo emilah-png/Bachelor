@@ -1,0 +1,22 @@
+<svg
+    version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: transparent;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+    ">
+    <g>
+        <path
+            d="M 3 12 V 88 m 0 0 h 22 M 3 12 h 22 m 20 0 H 97 m 0 0 V 88 m 0 0 h -55"/>
+        <path
+            d="M 12 20 v 60 m 0 0 l 30 17 M 12 20 l 30 -17 m 0 0 V 97" />
+        <path
+            stroke-width="4"
+            d="M 40 50 h -5 m 0 0 l -8 5" />
+    </g>
+</svg>

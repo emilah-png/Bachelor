@@ -1,0 +1,3421 @@
+:root {
+	--tchmi-ba-global-tchmi-blue: #4794da;
+	--tchmi-ba-global-tchmi-green: #09bf00;
+	--tchmi-ba-global-tchmi-grey: #D7D7D9;
+	--tchmi-ba-global-light-grey: rgb(225,229,232);
+	--tchmi-ba-global-tchmi-dark-grey: rgb(187, 193, 195);
+	--tchmi-ba-global-dark-background-color: var(--tchmi-ba-global-tchmi-grey);
+	--tchmi-ba-global-text-color: rgb(0,0,0);
+	--tchmi-ba-global-input-background: white;
+	--tchmi-ba-global-control-background: white;
+	--tchmi-ba-global-control-border-color: var(--tchmi-ba-global-tchmi-blue);
+	--tchmi-ba-global-control-border: 1px solid var(--tchmi-ba-global-control-border-color);
+	--tchmi-ba-global-control-header-color: var(--tchmi-ba-global-tchmi-blue);
+	--tchmi-ba-global-control-header-icon-color: white;
+	--tchmi-ba-global-control-box-shadow: 0 0 5px 0 rgba(0,0,0,0.6);
+	--tchmi-ba-global-control-box-shadow-inset: inset 0px 0px 0px 1px rgb(0 0 0 / 2%), inset 0px 0px 3px 2px rgb(0 0 0 / 30%);
+	--tchmi-ba-global-icon-color: var(--tchmi-ba-global-tchmi-blue);
+	--tchmi-ba-global-color-active: var(--tchmi-ba-global-tchmi-green);
+	--tchmi-ba-global-color-inactive: var(--tchmi-ba-global-icon-color);
+	--tchmi-ba-global-event-color-alarm: rgb(255, 0, 0);
+	--tchmi-ba-global-event-color-disturb: #F88017;
+	--tchmi-ba-global-event-color-maintenance: #F88017;
+	--tchmi-ba-global-event-color-notification: var(--tchmi-ba-global-icon-color);
+	--tchmi-ba-global-event-color-other: var(--tchmi-ba-global-icon-color);
+	--tchmi-ba-global-active-event-pulse-color-start: rgba(232, 46, 31, 0.3);
+	--tchmi-ba-global-active-event-pulse-color-end: rgba(232, 46, 31, 0.8);
+	--tchmi-ba-global-tchmi-blue-gradient: linear-gradient(to bottom right, #4994da, #4162b0);
+	--tchmi-ba-global-tchmi-blue-gradient-pressed: linear-gradient(to top left, #4994da, #4162b0);
+	--tchmi-ba-global-tchmi-blue-gradient-90-deg: linear-gradient(to bottom left, #4994da, #4162b0);
+	--tchmi-ba-global-tchmi-blue-gradient-180-deg: linear-gradient(to bottom left, #4994da, #4162b0);
+	--tchmi-ba-global-tchmi-blue-gradient-270-deg: linear-gradient(to bottom right, #4994da, #4162b0);
+	/*
+	 * The z-index of the overlay container for modal dialogs.
+	 * If this is edited we need also to edit global css variable.		 * 
+	 * ````ts
+	 * TcHmi.BuildingAutomation.Globals.OverlayContainerZIndex = 6000;
+	 * ````
+	 */
+	--tchmi-ba-global-overlay-container-z-index: 6000;
+}
+
+/* Styling of the scroll bar. */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	/*box-shadow: inset 0 0 5px grey;
+	border-radius: 2px;*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: darkgrey;
+}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: var( --tchmi-ba-global-tchmi-blue);
+	}
+
+/* Overlay */
+.tchmi-ba-overlay-container {
+	position: fixed;
+	z-index: var(--tchmi-ba-global-overlay-container-z-index);
+	pointer-events: none;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+	.tchmi-ba-overlay-container > .tchmi-ba-overlay-backdrop {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: var(--tchmi-ba-global-overlay-container-z-index);
+		pointer-events: auto;
+	}
+
+		.tchmi-ba-overlay-container > .tchmi-ba-overlay-backdrop.dim-background {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+/* only in designer */
+.tchmi-ba-badge-elements-dimensions-rectangle {
+	--tchmi-ba-badge-elements-distance: 15px;
+	width: calc(100% + var(--tchmi-ba-badge-elements-distance) * 2 + 2px);
+	height: calc(100% + var(--tchmi-ba-badge-elements-distance) * 2 + 2px);
+	left: calc(-1 * var(--tchmi-ba-badge-elements-distance) - 1px);
+	top: calc(-1 * var(--tchmi-ba-badge-elements-distance) - 1px);
+	position: absolute;
+	border: 1px dashed grey;
+	box-sizing: border-box;
+}
+
+div.tchmi-ba-base.chart {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-tchmi-grey);
+}
+
+    div.tchmi-ba-base.chart .echarts-container {
+        height: 100%;
+        width: 100%;
+    }
+div.tchmi-ba-base.chart.line-chart.has-right-axis .echarts-container {
+    width: calc(100% - 35px);
+}
+
+div.tchmi-ba-base.chart.line-chart .line-chart-menu-button {
+    right: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+}
+
+div.tchmi-ba-base.chart.line-chart > .tchmi-ba-base.context-menu.line-chart-context-menu {
+    width: -webkit-fill-available;
+    width: -moz-fit-content;
+    width: fit-content;
+    z-index: 2;
+    position: absolute;
+    box-shadow: -2px 2px 5px 0 rgba(0,0,0,0.6);
+    top: 30px;
+    right: 0px;
+}
+
+div.tchmi-ba-base.chart.line-chart.trend {
+    display: flex;
+}
+
+div.tchmi-ba-base.chart.line-chart.trend > div.content-container {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 70%;
+}
+
+    div.tchmi-ba-base.chart.line-chart.trend > div.series-selectors-container {
+        right: 0;
+        height: 100%;
+        width: 0;
+        position: relative;
+        background-color: var(--tchmi-ba-global-tchmi-dark-grey);
+        border: 1px solid var(--tchmi-ba-global-control-border-color);
+        box-sizing: border-box;
+        overflow: auto;
+    }
+
+    div.tchmi-ba-base.chart.line-chart.trend div.tchmi-ba-base.button.open-series-selectors-button {
+        right: 0;
+        width: 20px;
+        height: 100px;
+    }
+
+    div.tchmi-ba-base.chart.line-chart.trend > div.series-selectors-container > .parameter-list > .parameter-list-entry > .content-container > .value-field {
+        width: 20px;
+    }
+
+    div.tchmi-ba-base.chart.line-chart.trend.tchmi-ba-trend-in-dialog > .tchmi-ba-base.context-menu.line-chart-context-menu {
+        top: 0;
+    }
+
+div.tchmi-ba-trend-configurator-grid {
+    width: 100%;
+    height: 100%;
+}
+    div.tchmi-ba-trend-configurator-grid > #tchmi-ba-trend-configurator-name-container {
+        margin: 5px 0 15px 0;
+        height: 25px;
+        position: relative;
+    }
+
+    div.tchmi-ba-trend-configurator-grid > #tchmi-ba-trend-configurator-name-container::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        width: 100%;
+        height: 1px;
+        background: var(--tchmi-ba-global-tchmi-blue);
+    }
+
+    div.tchmi-ba-trend-configurator-grid > #tchmi-ba-trend-configurator-list {
+        height: calc(100% - 25px - 5px - 15px);
+    } 
+.tchmi-ba-background-styler {
+    --tchmi-ba-background-styler-background: initial;
+    --tchmi-ba-background-styler-background-color: initial;
+    --tchmi-ba-background-styler-background-color-transition-duration: initial;
+    --tchmi-ba-background-styler-background-gradient: initial;
+    --tchmi-ba-background-styler-image: initial;
+    --tchmi-ba-background-styler-image-size: auto;
+    --tchmi-ba-background-styler-image-svg-width: initial;
+    --tchmi-ba-background-styler-image-svg-height: initial;
+    --tchmi-ba-background-styler-image-position: 50% 50%;
+    --tchmi-ba-background-styler-image-rotation: initial;
+    --tchmi-ba-background-styler-image-rotation-speed: 4s;
+    --tchmi-ba-background-styler-image-color-transition-duration: initial;
+    --tchmi-ba-background-styler-image-svg-position-top: calc((100% - var(--tchmi-ba-background-styler-image-svg-height)) / 2);
+    --tchmi-ba-background-styler-image-svg-position-left: calc((100% - var(--tchmi-ba-background-styler-image-svg-width)) / 2);
+    background: var(--tchmi-ba-background-styler-background);
+    background-color: var(--tchmi-ba-background-styler-background-color);
+    background-image: var(--tchmi-ba-background-styler-background-gradient);
+    transition: background var(--tchmi-ba-background-styler-background-color-transition-duration) linear;
+}
+
+
+/* Background image handling */
+@keyframes spin-right {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-left {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}
+
+.tchmi-ba-background-styler.use-image::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: var(--tchmi-ba-background-styler-image-size);
+    background-position: var(--tchmi-ba-background-styler-image-position);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border-box;
+    background-clip: border-box;
+    background-origin: padding-box;
+    transform: rotate(var(--tchmi-ba-background-styler-image-rotation));
+    background-image: var(--tchmi-ba-background-styler-image);
+}
+
+    .tchmi-ba-background-styler.use-image.rotate-right::after {
+        animation: spin-right var(--tchmi-ba-background-styler-image-rotation-speed) linear infinite;
+    }
+
+    .tchmi-ba-background-styler.use-image.rotate-left::after {
+        animation: spin-left var(--tchmi-ba-background-styler-image-rotation-speed) linear infinite;
+    }
+
+    /* Background image is svg and svg content is passed directly in DOM. */
+    .tchmi-ba-background-styler > svg.background-image-svg {
+        position: absolute;
+        overflow: visible;
+        width: var(--tchmi-ba-background-styler-image-svg-width);
+        height: var(--tchmi-ba-background-styler-image-svg-height);
+        top: var(--tchmi-ba-background-styler-image-svg-position-top);
+        left: var(--tchmi-ba-background-styler-image-svg-position-left);
+        transform: rotate(var(--tchmi-ba-background-styler-image-rotation));
+        transition: stroke var(--tchmi-ba-background-styler-image-color-transition-duration) linear, fill var(--tchmi-ba-background-styler-image-color-transition-duration) linear;
+    }
+
+    .tchmi-ba-background-styler.rotate-right > svg.background-image-svg {
+        animation: spin-right var(--tchmi-ba-background-styler-image-rotation-speed) linear infinite;
+    }
+
+    .tchmi-ba-background-styler.rotate-left > svg.background-image-svg {
+        animation: spin-left var(--tchmi-ba-background-styler-image-rotation-speed) linear infinite;
+    }
+
+.tchmi-ba-display-flex {
+    display: flex;
+}
+
+.tchmi-ba-display-none {
+    display: none;
+}
+
+/*--------------------------------------------------------------*/
+/*-------------- Styles for helper class Base. -----------------*/
+/*--------------------------------------------------------------*/
+.tchmi-ba-base {
+    --tchmi-ba-base-content-padding: initial;
+    position: absolute;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: var(--tchmi-ba-base-content-padding);
+}
+
+/* Busy handling */
+.tchmi-ba-busy-indicator,
+.tchmi-ba-error-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(rgba(128, 128, 128, 0.8), rgba(128, 128, 128, 0));
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@keyframes loading-spinner-animation {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg)
+    }
+}
+
+@keyframes loading-spinner-circle-animation {
+    0%, 25% {
+        stroke-dashoffset: 280;
+        transform: rotate(0);
+    }
+
+    50%, 75% {
+        stroke-dashoffset: 75;
+        transform: rotate(45deg);
+    }
+
+    100% {
+        stroke-dashoffset: 280;
+        transform: rotate(360deg);
+    }
+}
+
+.tchmi-ba-busy-indicator > svg {
+    animation: 2s linear infinite loading-spinner-animation;
+    max-width: 100px;
+    width: 80%;
+    height: 80%;
+}
+
+    .tchmi-ba-busy-indicator > svg > circle {
+        animation: 1.4s ease-in-out infinite both loading-spinner-circle-animation;
+        display: block;
+        fill: transparent;
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        stroke-linecap: round;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 280;
+        stroke-width: 10px;
+        transform-origin: 50% 50%;
+    }
+
+/* Error handling */
+.tchmi-ba-error-indicator.level-error {
+    --tchmi-ba-global-icon-color: red;
+}
+
+.tchmi-ba-error-indicator.level-connection {
+    --tchmi-ba-global-icon-color: rgb(255, 180, 0);
+}
+
+.tchmi-ba-error-indicator > svg {
+    max-width: 100px;
+    width: 80%;
+    height: 80%;
+}
+
+div.tchmi-ba-control-container {
+    display: flex;
+    justify-content: center;
+}
+
+    div.tchmi-ba-control-container > div.tchmi-ba-base {
+        flex: auto;
+        margin-right: 5px;
+        position: relative;
+        height: 100%;
+    }
+
+    div.tchmi-ba-control-container > div.tchmi-ba-text-handler.read-only {
+        --tchmi-ba-base-content-padding: initial;
+    }
+
+    div.tchmi-ba-control-container > div.tchmi-ba-text-handler.slider {
+        margin-left: 5px;
+    }
+
+        div.tchmi-ba-control-container > div.tchmi-ba-text-handler.slider.round-knob {
+            margin-left: 12px;
+            margin-right: 15px;
+        }
+
+    div.tchmi-ba-control-container > div.tchmi-ba-base:last-of-type {
+        margin-right: initial;
+    }
+
+.tchmi-ba-text-handler {
+    --tchmi-ba-font-size: 12px;
+    --tchmi-ba-font-weight: normal;
+    --tchmi-ba-font-style: normal;
+    --tchmi-ba-font-family: initial;
+    --tchmi-ba-text-color: rgb(0,0,0);
+    --tchmi-ba-text-vertical-alignment: center;
+    --tchmi-ba-text-horizontal-alignment: center;
+    --tchmi-ba-text-content-padding: 0 5px 0 5px;
+    --tchmi-ba-user-select: text;
+    --tchmi-ba-text-decoration-color: rgb(0,0,0);
+    --tchmi-ba-text-decoration-line: initial;
+    --tchmi-ba-text-decoration-style: initial;
+    --tchmi-ba-text-white-space: nowrap;
+    color: var(--tchmi-ba-text-color);
+    align-items: var(--tchmi-ba-text-vertical-alignment);
+    font-size: var(--tchmi-ba-font-size);
+    font-weight: var(--tchmi-ba-font-weight);
+    font-style: var(--tchmi-ba-font-style);
+    font-family: var(--tchmi-ba-font-family);
+    display: flex;
+}
+
+:root.no-user-select .tchmi-ba-text-handler {
+    --tchmi-ba-user-select: none;
+}
+
+    .tchmi-ba-text-handler .text-element {
+        margin: 0;
+        white-space: var(--tchmi-ba-text-white-space);
+        direction: ltr;
+        padding: var(--tchmi-ba-text-content-padding);
+        text-align: var(--tchmi-ba-text-horizontal-alignment);
+        -webkit-user-select: var(--tchmi-ba-user-select);
+        -moz-user-select: var(--tchmi-ba-user-select);
+        -ms-user-select: var(--tchmi-ba-user-select);
+        user-select: var(--tchmi-ba-user-select);
+        position: relative;
+        text-decoration-color: var(--tchmi-ba-text-decoration-color);
+        text-decoration-line: var(--tchmi-ba-text-decoration-line);
+        text-decoration-style: var(--tchmi-ba-text-decoration-style);
+    }
+
+    .tchmi-ba-text-handler.textblock {
+        overflow: hidden;
+    }
+
+        .tchmi-ba-text-handler.textblock > .text-element {
+            width: 100%;
+        }
+
+    .tchmi-ba-text-handler.overflow-ellipsis .text-element {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .tchmi-ba-text-handler.overflow-marquee {
+        overflow: hidden;
+    }
+
+        .tchmi-ba-text-handler.overflow-marquee .text-element {
+            overflow: visible;
+            animation-name: bounce;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            padding: 0;
+        }
+
+@keyframes bounce {
+    0% {
+        transform: translateX(5px)
+    }
+
+    20% {
+        transform: translateX(calc(-100% - 5px))
+    }
+
+    50% {
+        transform: translateX(calc(-100% - 5px))
+    }
+
+    70% {
+        transform: translateX(5px)
+    }
+
+    100% {
+        transform: translateX(5px)
+    }
+}
+:root {
+    --tchmi-ba-global-button-inset-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.3);
+    --tchmi-ba-global-button-background: linear-gradient(to bottom right, #eff1f3, #aeb9c2);
+    --tchmi-ba-global-button-background-pressed: linear-gradient(to top left, #eff1f3, #aeb9c2);
+    --tchmi-ba-global-button-text-color-pressed: black;
+}
+
+.tchmi-ba-text-handler.button {
+    cursor: pointer;
+    display: flex;
+    box-shadow: var(--tchmi-ba-global-control-box-shadow);
+    --tchmi-ba-background-styler-background-gradient: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-text-color: var(--tchmi-ba-global-tchmi-blue);
+}
+
+    .tchmi-ba-text-handler.button.down {
+        box-shadow: var(--tchmi-ba-global-button-inset-box-shadow);
+        --tchmi-ba-background-styler-background-gradient: var(--tchmi-ba-global-button-background-pressed);
+    }
+
+        .tchmi-ba-text-handler.button.down.switch-color-on-down {
+            --tchmi-ba-text-color: var(--tchmi-ba-global-button-text-color-pressed, black);
+            --tchmi-ba-global-icon-color: var(--tchmi-ba-global-button-text-color-pressed, black);
+        }
+
+    .tchmi-ba-text-handler.button.tchmi-control-disabled,
+    .tchmi-ba-text-handler.button.read-only {
+        cursor: initial;
+        box-shadow: none;
+    }
+
+    .tchmi-ba-text-handler.button > .text-element {
+        width: 100%;
+    }
+
+/* Styles for the badge */
+.tchmi-ba-badge {
+    min-width: 14px;
+    min-height: 14px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    padding: 1px;
+    z-index: calc(var(--tchmi-ba-global-overlay-container-z-index) + 1);
+}
+div.tchmi-ba-base.calendar {
+    --ba-color-back-nav: var(--tchmi-ba-global-tchmi-blue);
+    --ba-color-back-head: var(--tchmi-ba-global-tchmi-grey);
+    --ba-color-back-day: var(--tchmi-ba-global-light-grey);
+    --ba-color-back-event: var(--ba-color-back-head);
+    --ba-color-back-event-ref: var(--ba-color-back-event);
+    --ba-color-back-hover-nav: var(--ba-color-font-head);
+    --ba-color-back-hover-event: var(--ba-color-back-nav);
+    --ba-color-border-event: rgb(0, 0, 0);
+    --ba-color-font-head: rgb(255, 255, 255);
+    --ba-color-font-title: rgb(76, 99, 116);
+    --ba-color-font-event: var(--ba-color-font-title);
+    --ba-color-font-hover-event: var(--ba-color-font-head);
+    --ba-color-hover-nav: var(--ba-color-back-nav);
+    --ba-height-min-title-day: 22px;
+    --ba-height-header-week: 25px;
+    --ba-height-header-week-year: 16px;
+    --ba-height-nav-row-c: 35px;
+    --ba-height-nav-row-dp: var(--ba-height-header-week);
+    --ba-height-nav-row: var(--ba-height-nav-row-dp);
+    --ba-offset-nav: calc(2 * var(--ba-height-nav-row));
+    --ba-offset-nav-header: calc(var(--ba-offset-nav) + var(--ba-height-header-week));
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+    /*******************************************************************/
+    /***************************** general *****************************/
+    /*******************************************************************/
+
+    div.tchmi-ba-base.calendar .nav-wrapper {
+        width: 100%;
+    }
+
+    div.tchmi-ba-base.calendar .day-wrapper {
+        height: calc(100% - var(--ba-offset-nav));
+    }
+
+    div .tchmi-ba-base.calendar .day-wrapper .header {
+        display: flex;
+        font-size: 1.2em;
+        height: var(--ba-height-header-week);
+        background-color: var(--ba-color-back-head);
+        color: var(--ba-color-font-title);
+    }
+
+        div.tchmi-ba-base.calendar .day-wrapper .header > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100% / 7);
+            box-sizing: border-box;
+            /*font-size: 1.1em;*/
+        }
+
+        div.tchmi-ba-base.calendar .day-wrapper .days {
+            display: flex;
+            flex-wrap: wrap;
+            height: calc(100% - var(--ba-height-header-week));
+            font-size: 1.1em;
+            background-color: var(--ba-color-back-day);
+        }
+
+
+    /*******************************************************************/
+    /************************ date picker mode *************************/
+    /*******************************************************************/
+
+    /************************** navigation ****************************/
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-dp {
+        display: flex;
+        justify-content: center;
+        font-size: 1.3em;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        height: var(--ba-height-nav-row-dp);
+        user-select: none;
+        color: var(--ba-color-font-head);
+        background-color: var(--ba-color-back-nav);
+    }
+
+        div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+            div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navb-dp {
+                display: flex;
+                justify-content: center;
+                width: 2.8em;
+            }
+
+            div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navt-dp {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+
+    /************************ days properties ***********************/
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-dp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--ba-color-back-day);
+        color: var(--ba-color-font-title);
+    }
+
+
+    /*******************************************************************/
+    /********************** event calendar mode ************************/
+    /*******************************************************************/
+
+    div.tchmi-ba-base.calendar .invis {
+        visibility: hidden;
+    }
+
+    /******************************************************************/
+    /************************** month view ****************************/
+
+    /************************** navigation ****************************/
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c {
+        display: flex;
+        font-size: 1.8em;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        height: var(--ba-height-nav-row-c);
+        user-select: none;
+        color: var(--ba-color-font-head);
+        background-color: var(--ba-color-back-nav);
+    }
+
+        div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c {
+            display: flex;
+            justify-content: center;
+            width: 34%;
+        }
+
+            div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navb-c {
+                display: flex;
+                justify-content: center;
+                width: 1.3em;
+            }
+
+            div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navt-c {
+                display: flex;
+                width: 8em;
+                justify-content: center;
+            }
+
+    div.tchmi-ba-base.calendar .tchmi-ba-base.context-menu-button {
+        position: absolute;
+        right: 3px;
+        width: calc(var(--ba-height-nav-row-c) - 10px);
+        height: calc(var(--ba-height-nav-row-c) - 10px);
+        top: calc(var(--ba-height-nav-row-c) + 5px);
+    }
+
+    div.tchmi-ba-base.calendar .button-header {
+        position: absolute;
+        width: calc(var(--ba-height-nav-row-c) - 10px);
+        height: calc(var(--ba-height-nav-row-c) - 10px);
+        top: calc(var(--ba-height-nav-row-c) + 5px);
+    }
+
+        div.tchmi-ba-base.calendar .button-header.year-month {
+            right: calc((var(--ba-height-nav-row-c) - 10px) + 6px);
+        }
+
+        div.tchmi-ba-base.calendar .button-header.today {
+            right: calc(((var(--ba-height-nav-row-c) - 10px) * 2) + 9px);
+        }
+
+    div.tchmi-ba-base.calendar > ul.tchmi-ba-base.context-menu {
+        position: absolute;
+        max-width: 100px;
+        width: calc(100% - 4px);
+        right: 0px;
+        top: var(--ba-offset-nav);
+    }
+
+    /************************  days properties *************************/
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-c {
+        display: flex;
+        flex-flow: row;
+        color: var(--ba-color-font-title);
+    }
+
+        div.tchmi-ba-base.calendar .day-wrapper .days .day-c .title {
+            display: flex;
+            flex-flow: row;
+            width: 100%;
+            max-height: var(--ba-height-min-title-day);
+        }
+
+            div.tchmi-ba-base.calendar .day-wrapper .days .day-c .title > div {
+                padding-left: 5px;
+            }
+
+    div.tchmi-ba-base.calendar .day-wrapper .days .curtxt,
+    div.tchmi-ba-base.calendar .day-wrapper .days .curbor > div {
+        color: var(--ba-color-font-head);
+        background-color: var(--ba-color-back-nav);
+        font-weight: bold;
+    }
+
+    /*********************** event properties *************************/
+    div.tchmi-ba-base.calendar .event-wrapper {
+        width: 100%;
+        height: calc(100% - var(--ba-offset-nav-header));
+        flex-direction: column;
+        position: absolute;
+        top: var(--ba-offset-nav-header);
+    }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows {
+            height: calc(100% - var(--ba-offset-nav-header));
+        }
+
+            div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row {
+            }
+
+                div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-row-entry {
+                    display: flex;
+                }
+
+                div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer {
+                    min-height: var(--ba-height-min-title-day);
+                }
+
+    /******************************************************************/
+    /************************** year view *****************************/
+
+    div.tchmi-ba-base.calendar .month-wrapper {
+        width: 100%;
+        height: calc(100% - var(--ba-offset-nav));
+        position: absolute;
+        top: var(--ba-offset-nav);
+    }
+
+        div.tchmi-ba-base.calendar .month-wrapper .headers {
+            display: flex;
+            height: var(--ba-height-header-week-year);
+            font-size: 1.0em;
+            background-color: var(--ba-color-back-head);
+            color: var(--ba-color-font-title);
+        }
+
+            div.tchmi-ba-base.calendar .month-wrapper .headers .header {
+                display: flex;
+                width: calc(100% / 3);
+                height: 100%;
+            }
+
+                div.tchmi-ba-base.calendar .month-wrapper .headers .header .head {
+                    display: flex;
+                    width: 100%;
+                }
+
+                    div.tchmi-ba-base.calendar .month-wrapper .headers .header .head > div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: calc(100% / 7);
+                    }
+
+                div.tchmi-ba-base.calendar .month-wrapper .headers .header .spacer {
+                    height: 100%;
+                    width: var(--ba-height-header-week-year);
+                }
+
+        div.tchmi-ba-base.calendar .month-wrapper .months {
+            height: calc(100% - var(--ba-height-header-week-year));
+            display: flex;
+            flex-wrap: wrap;
+            background-color: var(--ba-color-back-day);
+        }
+
+            div.tchmi-ba-base.calendar .month-wrapper .months .month {
+                width: calc(100% / 3);
+                height: calc(100% / 4);
+                box-sizing: border-box;
+                border-width: 1px;
+                border-style: solid;
+                border-top-color: var(--ba-color-back-day);
+                border-bottom-color: var(--ba-color-back-head);
+                border-left-color: var(--ba-color-back-head);
+                border-right-color: var(--ba-color-back-day);
+            }
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month:nth-child(10),
+                div.tchmi-ba-base.calendar .month-wrapper .months .month:nth-child(11),
+                div.tchmi-ba-base.calendar .month-wrapper .months .month:nth-child(12) {
+                    border-bottom-color: var(--ba-color-back-day);
+                }
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month:hover {
+                    border-color: var(--ba-color-back-nav);
+                }
+
+                /************************ days properties ***********************/
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month .month-text {
+                    float: left;
+                    height: 100%;
+                    width: var(--ba-height-header-week-year);
+                    writing-mode: vertical-lr;
+                    text-align: center;
+                    font-size: 1.0em;
+                    transform: rotate(180deg);
+                    background-color: var(--ba-color-back-head);
+                    color: var(--ba-color-font-title);
+                    border-left-width: 1px;
+                    border-left-style: solid;
+                    border-left-color: var(--ba-color-back-day);
+                }
+
+                    div.tchmi-ba-base.calendar .month-wrapper .months .month .month-text.curbor {
+                        color: var(--ba-color-font-head);
+                        background-color: var(--ba-color-back-nav);
+                    }
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month .days {
+                    display: flex;
+                    flex-wrap:wrap;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--ba-color-back-day);
+                    color: var(--ba-color-font-title);
+                }
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month .days .day-c {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                    div.tchmi-ba-base.calendar .month-wrapper .months .month .days .day-c.evt {
+                        box-sizing: border-box;
+                        background-color: var(--ba-color-back-event);
+                        color: var(--ba-color-font-event);
+                        user-select: none;
+                    }
+
+                div.tchmi-ba-base.calendar .month-wrapper .months .month .days .day-c,
+                div.tchmi-ba-base.calendar .month-wrapper .months .month .days .day-spacer {
+                    height: calc(100% / 6);
+                }
+
+   /*******************************************************************/
+   /******************** combined & shared properties *****************/
+   /*******************************************************************/
+
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .navs,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .menu {
+        width: 33%;
+    }
+
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navb-c:hover,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navb-c:active,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navb-dp:hover,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navb-dp:active {
+        color: var(--ba-color-hover-nav);
+        background-color: var(--ba-color-back-hover-nav);
+    }
+
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-c,
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-dp,
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-spacer,
+    div.tchmi-ba-base.calendar .month-wrapper .months .day-c,
+    div.tchmi-ba-base.calendar .month-wrapper .months .day-spacer {
+        width: calc(100% / 7);
+    }
+
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-c,
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-dp,
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-spacer,
+    div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row {
+        height: calc(100% / var(--ba-js-weeks));
+    }
+
+        div.tchmi-ba-base.calendar .day-wrapper .days .selected,
+        div.tchmi-ba-base.calendar .day-wrapper .days .curbor,
+        div.tchmi-ba-base.calendar .day-wrapper .days .day-c:hover,
+        div.tchmi-ba-base.calendar .day-wrapper .days .day-dp:hover {
+            box-sizing: border-box;
+            border-width: 1px;
+            border-color: var(--ba-color-back-nav);
+            border-style: solid;
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-1,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-2,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-3,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-4,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-5,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-6,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-7 {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            background-color: var(--ba-color-back-event);
+            border: 1px solid var(--ba-color-border-event);
+            font-size: 1.0em;
+            color: var(--ba-color-font-event);
+            user-select: none;
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .calref {
+            background-color: var(--ba-color-back-event-ref);
+        }
+
+            div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .calref .col1 {
+                border-right: black;
+                border-style: solid;
+                border-width: thin;
+                border-left-width: 0px;
+                border-top-width: 0px;
+                border-bottom-width: 0px;
+                width: 15px;
+                text-align: center;
+            }
+
+            div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .calref .col2 {
+                width: 100%;
+                text-align: center;
+            }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-row-entry .highlight {
+            color: var(--ba-color-font-hover-event);
+            background-color: var(--ba-color-back-hover-event);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-1,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-1 {
+            width: calc((100% / 7));
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-2,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-2 {
+            width: calc((100% / 7) * 2);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-3,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-3 {
+            width: calc((100% / 7) * 3);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-4,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-4 {
+            width: calc((100% / 7) * 4);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-5,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-5 {
+            width: calc((100% / 7) * 5);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-6,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-6 {
+            width: calc((100% / 7) * 6);
+        }
+
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-7,
+        div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-spacer-7 {
+            width: calc((100% / 7) * 7);
+        }
+
+
+/*******************************************************************/
+/************************** event dialog ***************************/
+/*******************************************************************/
+
+div.tchmi-ba-base.content-window.dialog-window div.event-dialog {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+    div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 100%;
+        height: 100%;
+    }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper > div {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: center;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .date-time-field {
+            position: relative;
+            width: 60px;
+            height: 25px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .radio-button {
+            position: relative;
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .eds {
+            margin-right: 8px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .eds2 {
+            margin-right: 65px;
+        }
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .eds3 {
+            margin-right: 67px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .evd-text {
+            color: var(--tchmi-ba-global-text-color);
+            width: 15px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .t2 {
+            width: 50px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .t3 {
+            width: 55px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .t4 {
+            width: 79px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .combobox {
+            position: relative;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .checkbox {
+            position: relative;
+            margin-right: 5px;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .input-box {
+            position: relative;
+        }
+
+        div.tchmi-ba-base.content-window.dialog-window div.event-dialog .wrapper .button {
+            position: relative;
+        }
+
+    /********************* tab window properties ***********************/
+    div.tchmi-ba-base.content-window.dialog-window div.event-dialog .tchmi-ba-base.tab-window {
+        height: 50%;
+    }
+
+    /******************* daily schedule properties ********************/
+    div.tchmi-ba-base.content-window.dialog-window div.event-dialog .tchmi-ba-base.daily-schedule {
+        height: 40%;
+    }
+
+    /*******************************************************************/
+    /******************** combined & shared properties *****************/
+    /*******************************************************************/
+    div.tchmi-ba-base.content-window.dialog-window div.event-dialog .tchmi-ba-base.tab-window,
+    div.tchmi-ba-base.content-window.dialog-window div.event-dialog .tchmi-ba-base.daily-schedule {
+        position: relative;
+        width: 100%;
+    }
+.tchmi-ba-text-handler.checkbox {
+    --tchmi-ba-checkbox-unchecked-background-color: rgb(150, 150, 160);
+    --tchmi-ba-checkbox-checked-background-color: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-checkbox-checkmark-color: white;
+}
+
+    .tchmi-ba-text-handler.checkbox > div.padding-container {
+        flex: auto;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: var(--tchmi-ba-text-vertical-alignment);
+    }
+
+        .tchmi-ba-text-handler.checkbox > div.padding-container > label.checkbox-container {
+            -webkit-appearance: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            cursor: pointer;
+            align-items: center;
+            outline: none;
+            display: flex;
+            transition: background-color .2s;
+        }
+
+            .tchmi-ba-text-handler.checkbox > div.padding-container > label.checkbox-container > input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                position: absolute;
+            }
+
+    .tchmi-ba-text-handler.checkbox.read-only > div.padding-container > label.checkbox-container {
+        cursor: default;
+    }
+
+
+    .tchmi-ba-text-handler.checkbox > div.padding-container > span.text-element {
+        margin-left: var(--tchmi-ba-checkbox-height);
+        white-space: nowrap;
+        align-items: center;
+        text-align: var(--tchmi-ba-text-horizontal-alignment);
+        user-select: var(--tchmi-ba-user-select);
+        color: var(--tchmi-ba-text-color);
+        width: initial;
+        cursor: pointer;
+    }
+
+    .tchmi-ba-text-handler.checkbox.read-only > div.padding-container > span.text-element {
+        cursor: initial;
+    }
+
+    /* Checkbox */
+    .tchmi-ba-text-handler.checkbox.standard > div.padding-container > label.checkbox-container {
+        background: var(--tchmi-ba-global-input-background);
+        box-shadow: var(--tchmi-ba-global-control-box-shadow-inset);
+    }
+
+    .tchmi-ba-text-handler.checkbox.standard.read-only > div.padding-container > label.checkbox-container {
+        box-shadow: none;
+        border: 1px solid var(--tchmi-ba-global-tchmi-blue);
+        box-sizing: border-box;
+    }
+
+    .tchmi-ba-text-handler.checkbox.standard.use-label > div.padding-container > label.checkbox-container {
+        max-width: var(--tchmi-ba-checkbox-height);
+    }
+
+    .tchmi-ba-text-handler.checkbox.standard.checked > div.padding-container > label.checkbox-container {
+        background: var(--tchmi-ba-checkbox-checked-background-color);
+    }
+
+    .tchmi-ba-text-handler.checkbox.standard > div.padding-container > label.checkbox-container > svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        stroke: var(--tchmi-ba-checkbox-checkmark-color);
+        display: none;
+    }
+
+    .tchmi-ba-text-handler.checkbox.standard.checked > div.padding-container > label.checkbox-container > svg {
+        display: block;
+    }
+
+    /* Toggle switch */
+    .tchmi-ba-text-handler.checkbox.toggle-switch > div.padding-container > span.text-element {
+        margin-left: calc(1.7 * var(--tchmi-ba-checkbox-height));
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.use-label > div.padding-container > label.checkbox-container {
+        max-width: calc(1.7 * var(--tchmi-ba-checkbox-height));
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.read-only > div.padding-container > label.checkbox-container::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: calc(var(--tchmi-ba-checkbox-height) - 8px);
+        z-index: 10;
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch > div.padding-container > label.checkbox-container > span.toggle-switch-slider {
+        position: relative;
+        flex: auto;
+        height: 100%;
+        background-color: var(--tchmi-ba-checkbox-unchecked-background-color);
+        border-radius: calc(var(--tchmi-ba-checkbox-height) - 8px);
+        transition: background-color .4s;
+    }
+
+        .tchmi-ba-text-handler.checkbox.toggle-switch > div.padding-container > label.checkbox-container > span.toggle-switch-slider::before {
+            position: absolute;
+            content: "";
+            height: calc(var(--tchmi-ba-checkbox-height) - 8px);
+            width: calc(var(--tchmi-ba-checkbox-height) - 8px);
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--tchmi-ba-checkbox-checkmark-color);
+            border-radius: 50%;
+            transition: transform .4s;
+        }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch > div.padding-container > label.checkbox-container > input:checked + span.toggle-switch-slider {
+        background-color: var(--tchmi-ba-checkbox-checked-background-color);
+    }
+
+        .tchmi-ba-text-handler.checkbox.toggle-switch > div.padding-container > label.checkbox-container > input:checked + span.toggle-switch-slider::before {
+            transform: translateX(calc(var(--tchmi-ba-checkbox-container-width) - var(--tchmi-ba-checkbox-height)));
+        }
+
+    /* Toggle slider */
+    .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider {
+        --tchmi-ba-toggle-slider-height: var(--tchmi-ba-checkbox-height);
+    }
+
+    .tchmi-ba-text-handler.checkbox.use-label.toggle-switch.toggle-slider {
+        --tchmi-ba-toggle-slider-height: calc(var(--tchmi-ba-checkbox-height) - 5px);
+    }
+
+    .tchmi-ba-text-handler.checkbox.use-label.toggle-switch.read-only.toggle-slider > div.padding-container > label.checkbox-container::before {
+        top: 2.5px;
+        height: var(--tchmi-ba-toggle-slider-height);
+        border-radius: calc(var(--tchmi-ba-toggle-slider-height) - 8px);
+    }
+
+    .tchmi-ba-text-handler.checkbox.use-label.toggle-switch.toggle-slider > div.padding-container > label.checkbox-container {
+        max-width: calc(1.6 * var(--tchmi-ba-toggle-slider-height));
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider > div.padding-container > span.text-element {
+        margin-left: calc(1.6 * var(--tchmi-ba-toggle-slider-height));
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider > div.padding-container > label.checkbox-container > span.toggle-switch-slider {
+        max-height: 10px;
+    }
+
+        .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider > div.padding-container > label.checkbox-container > span.toggle-switch-slider::before {
+            bottom: calc(-1 * var(--tchmi-ba-toggle-slider-height) / 2 + 5px);
+            height: var(--tchmi-ba-toggle-slider-height);
+            width: var(--tchmi-ba-toggle-slider-height);
+            left: 0;
+        }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider > div.padding-container > label.checkbox-container > input:checked + span.toggle-switch-slider::before {
+        transform: translateX(calc(var(--tchmi-ba-checkbox-container-width) - var(--tchmi-ba-toggle-slider-height)));
+        background-color: var(--tchmi-ba-checkbox-checkmark-color);
+    }
+
+    .tchmi-ba-text-handler.checkbox.toggle-switch.toggle-slider > div.padding-container > label.checkbox-container > input:checked + span.toggle-switch-slider {
+        background-color: var(--tchmi-ba-checkbox-unchecked-background-color);
+    }
+
+.tchmi-ba-text-handler.combobox {
+    overflow: hidden;
+    --tchmi-ba-combobox-button-width: 25px;
+    --tchmi-ba-combobox-button-color: var(--tchmi-ba-global-tchmi-blue-gradient);
+    --tchmi-ba-combobox-button-active-color: var(--tchmi-ba-global-tchmi-blue-gradient-pressed);
+    --tchmi-ba-combobox-button-arrow-color: white;
+    --tchmi-ba-text-horizontal-alignment: left;
+}
+
+    .tchmi-ba-text-handler.combobox.read-only > .text-element {
+        padding: 0;
+        width: 100%;
+        text-align-last: var(--tchmi-ba-text-horizontal-alignment);
+    }
+
+    .tchmi-ba-text-handler.combobox.editable {
+        background: var(--tchmi-ba-global-input-background);
+        cursor: pointer;
+    }
+        .tchmi-ba-text-handler.combobox.editable > div.combobox-button {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 0;
+            height: 100%;
+            width: var(--tchmi-ba-combobox-button-width);
+            pointer-events: none;
+            background: var(--tchmi-ba-combobox-button-color);
+            box-shadow: var(--tchmi-ba-global-control-box-shadow);
+            z-index: 1;
+        }
+            .tchmi-ba-text-handler.combobox.editable > div.combobox-button > svg {
+                width: 70%;
+                height: 100%;
+            }
+
+        .tchmi-ba-text-handler.combobox.editable:active > div.combobox-button {
+            background-image: var(--tchmi-ba-combobox-button-active-color);
+            box-shadow: var(--tchmi-ba-global-control-box-shadow-inset);
+        }
+
+        .tchmi-ba-text-handler.combobox.editable select.text-element {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding-right: calc(var(--tchmi-ba-combobox-button-width) + 5px); /* additional offset */
+            outline: none;
+            cursor: pointer;
+            color: var(--tchmi-ba-text-color);
+            background: none;
+            box-shadow: var(--tchmi-ba-global-control-box-shadow-inset);
+            text-align-last: var(--tchmi-ba-text-horizontal-alignment);
+            font: inherit;
+        }
+
+            .tchmi-ba-text-handler.combobox.editable select::-ms-expand {
+                display: none;
+            }
+
+            .tchmi-ba-text-handler.combobox.editable select:focus::-ms-value {
+                background-color: transparent;
+            }
+
+        .tchmi-ba-text-handler.combobox.editable select option {
+            background: var(--tchmi-ba-global-input-background);
+            color: inherit;
+        }
+.tchmi-ba-base.content-window {
+    overflow: visible;
+    --tchmi-ba-content-window-header-height: 35px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    background: var(--tchmi-ba-global-control-background);
+}
+
+    .tchmi-ba-base.content-window > div.header {
+        flex: auto;
+        order: 0;
+        position: relative;
+        min-height: var(--tchmi-ba-content-window-header-height);
+        max-height: var(--tchmi-ba-content-window-header-height);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        box-sizing: initial;
+        background-color: var(--tchmi-ba-global-control-header-color);
+        box-shadow: 0 0 5px 0 rgba(100, 100, 110, 0.5);
+    }
+
+        .tchmi-ba-base.content-window > div.header > div.tchmi-ba-base.header-icon {
+            position: relative;
+            order: 0;
+            margin-right: 4px;
+            width: var(--tchmi-ba-content-window-header-height);
+            height: var(--tchmi-ba-content-window-header-height);
+            --tchmi-ba-global-icon-color: var(--tchmi-ba-global-control-header-icon-color);
+        }
+        .tchmi-ba-base.content-window > div.header > div.tchmi-ba-base.header-icon.apply-border {
+            margin-left: 3px;
+            width: calc(var(--tchmi-ba-content-window-header-height) - 6px);
+            height: calc(var(--tchmi-ba-content-window-header-height) - 6px);
+            border: 1px solid var(--tchmi-ba-global-control-header-icon-color);
+        }
+
+        .tchmi-ba-base.content-window > div.header > div.tchmi-ba-text-handler.textblock {
+            position: relative;
+            order: 1;
+            flex: auto;
+            --tchmi-ba-text-horizontal-alignment: left;
+            --tchmi-ba-font-size: 150%;
+            --tchmi-ba-text-color: white;
+        }
+
+        .tchmi-ba-base.content-window > div.header > div.tchmi-ba-text-handler.overflow-marquee {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .tchmi-ba-base.content-window > div.header > div.controls-container {
+            position: relative;
+            order: 2;
+            height: calc(var(--tchmi-ba-content-window-header-height) - 10px);
+            /*flex: auto;*/
+            margin-right: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .tchmi-ba-base.content-window > div.header > div.controls-container.menu-button {
+                min-width: calc(var(--tchmi-ba-content-window-header-height) - 10px);
+                max-width: calc(var(--tchmi-ba-content-window-header-height) - 10px);
+            }
+
+            .tchmi-ba-base.content-window > div.header > div.controls-container:nth-last-child(1 of .controls-container) {
+                margin-right: 5px;
+            }
+
+            .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler {
+                margin-right: 5px;
+                position: relative;
+                flex: auto;
+            }
+
+                .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler:last-of-type {
+                    margin-right: 0;
+                }
+
+                .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler.button {
+                    width: calc(var(--tchmi-ba-content-window-header-height) - 10px);
+                }
+
+                .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler.checkbox {
+                    width: calc(var(--tchmi-ba-content-window-header-height) - 10px);
+                }
+
+                    .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler.checkbox.use-label {
+                        width: 100px;
+                    }
+
+                .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler.inputbox {
+                    width: 100px;
+                }
+
+                .tchmi-ba-base.content-window > div.header > div.controls-container > div.tchmi-ba-text-handler.combobox {
+                    width: 100px;
+                }
+
+    .tchmi-ba-base.content-window > ul.tchmi-ba-base.context-menu {
+        position: relative;
+        width: 100%;
+        z-index: 5;
+    }
+
+        .tchmi-ba-base.content-window > ul.tchmi-ba-base.context-menu.overlay {
+            top: var(--tchmi-ba-content-window-header-height);
+            position: absolute;
+        }
+
+        .tchmi-ba-base.content-window > ul.tchmi-ba-base.context-menu.sideways {
+            width: 0;
+            right: 0;
+            height: calc(100% - var(--tchmi-ba-content-window-header-height));
+            background-color: var(--row-entry-odd-background-color);
+        }
+
+    .tchmi-ba-base.content-window > div.content-container {
+        flex: auto;
+        order: 1;
+        overflow: auto;
+        position: relative;
+        /*margin-bottom: 8px; --> must be set if the dialog window shall be resizeable */
+        padding: var(--tchmi-ba-content-padding);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .tchmi-ba-base.content-window > div.content-container > div.TcHmi_Controls_System_TcHmiRegion {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+.tchmi-ba-base.context-menu {
+    --row-entry-odd-background-color: rgb(210, 210, 220);
+    --row-entry-even-background-color: rgb(190, 190, 200);
+    --row-entry-hover-background-color: rgb(230, 230, 236);
+    --context-menu-open-animation-duration: 1s;
+    --row-entry-height: 30px;
+    overflow-y: hidden;
+    margin: 0;
+    padding-left: 0;
+    text-align: left;
+    list-style-type: none;
+    height: 0;
+}
+
+    .tchmi-ba-base.context-menu > li.text-control {
+        --tchmi-ba-user-select: none;
+        cursor: pointer;
+        position: relative;
+        background: var(--row-entry-odd-background-color);
+        height: var(--row-entry-height);
+        display: flex;
+        justify-content: center;
+    }
+
+
+        .tchmi-ba-base.context-menu > li.text-control.tchmi-control-disabled {
+            cursor: initial;
+        }
+
+        .tchmi-ba-base.context-menu > li.text-control:nth-child(even) {
+            background-color: var(--row-entry-even-background-color);
+            border-color: var(--row-entry-even-background-color);
+        }
+
+        .tchmi-ba-base.context-menu > li.text-control:hover {
+            background-color: var(--row-entry-hover-background-color);
+        }
+
+            .tchmi-ba-base.context-menu > li.text-control > span.text-element {
+                width: initial;
+            }
+
+        .tchmi-ba-base.context-menu > li.text-control > div.tchmi-ba-control-container {
+            flex: auto;
+            position: relative;
+            height: calc(100% - 10px);
+            margin: 5px;
+            order: 1;
+        }
+
+body > .tchmi-ba-base.context-menu {
+    z-index: calc(var(--tchmi-ba-global-overlay-container-z-index) + 1);
+}
+.tchmi-ba-text-handler.date-time-field {
+    --tchmi-ba-user-select: none;
+    --tchmi-ba-text-horizontal-alignment: left;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    --used-height: 30px;
+}
+
+    .tchmi-ba-text-handler.date-time-field > div.tchmi-ba-text-handler.button {
+        --tchmi-ba-text-overflow: 'unset';
+        flex: auto;
+        order: 0;
+        height: 100%;
+        min-width: var(--used-height);
+        max-width: var(--used-height);
+        --tchmi-ba-font-size: calc(var(--used-height) - 10px);
+        margin-right: 5px;
+        position: relative;
+    }
+
+    .tchmi-ba-text-handler.date-time-field > span {
+        flex: auto;
+        order: 1;
+    }
+
+/*--------------------------------------------------------------*/
+/*-------------- Styles for class DateTimePicker. --------------*/
+/*--------------------------------------------------------------*/
+.tchmi-ba-base.date-time-picker {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 63% calc(37% - 15px);
+    grid-gap: 15px;
+}
+
+    .tchmi-ba-base.date-time-picker > div.tchmi-ba-base.calendar {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .tchmi-ba-base.date-time-picker > div.right-column {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 100%;
+        align-items: center;
+    }
+
+        .tchmi-ba-base.date-time-picker > div.right-column > div.tchmi-ba-base.time-picker {
+            height: 100px;
+            top: 20px;
+            position: relative;
+        }
+
+        .tchmi-ba-base.date-time-picker > div.right-column > div.tchmi-ba-base.date-time-field {
+            position: relative;
+            --tchmi-ba-font-size: 16px;
+            --tchmi-ba-font-weight: bold;
+            --tchmi-ba-text-horizontal-alignment: center;
+        }
+
+    .tchmi-ba-base-node.dialog-window .tchmi-ba-base.date-time-picker {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    /*--------------------------------------------------------------*/
+    /*---------------- Styles for class TimePicker. ----------------*/
+    /*--------------------------------------------------------------*/
+    .tchmi-ba-base.time-picker {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 8px;
+        grid-auto-columns: 1fr;
+        color: var(--tchmi-ba-global-text-color);
+    }
+
+    .tchmi-ba-base.time-picker > div.number-select-field {
+        height: 100%;
+        position: relative;
+    }
+
+        .tchmi-ba-base.time-picker > div.number-select-field:first-child > div.input-box::after {
+            content: ':';
+            position: absolute;
+            right: -6px;
+            font-weight: bold;
+        }
+
+        .tchmi-ba-base.time-picker > div.number-select-field:first-child::before {
+            content: 'HH';
+            position: absolute;
+            top: -20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tchmi-ba-base.time-picker > div.number-select-field:nth-child(2) > div.input-box::after {
+            content: ':';
+            position: absolute;
+            right: -6px;
+            font-weight: bold;
+        }
+
+        .tchmi-ba-base.time-picker > div.number-select-field:nth-child(2)::before {
+            content: 'MM';
+            position: absolute;
+            top: -20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tchmi-ba-base.time-picker > div.number-select-field:nth-child(3)::before {
+            content: 'SS';
+            position: absolute;
+            top: -20px;
+            width: 100%;
+            text-align: center;
+        }
+
+/*--------------------------------------------------------------*/
+/*----------- Styles for class NumberSelectField. --------------*/
+/*--------------------------------------------------------------*/
+.tchmi-ba-base.number-select-field {
+    display: grid;
+    grid-gap: 5px;
+    grid-auto-rows: 1fr;
+}
+
+    .tchmi-ba-base.number-select-field.horizontal {
+        grid-template-columns: auto auto auto;
+    }
+
+    .tchmi-ba-base.number-select-field > div.up-button {
+        position: relative;
+        width: 100%;
+    }
+
+    .tchmi-ba-base.number-select-field > div.input-box {
+        position: relative;
+    }
+
+    .tchmi-ba-base.number-select-field > div.down-button {
+        position: relative;
+        width: 100%;
+    }
+.tchmi-ba-base.dialog-window {
+    width: 80%;
+    height: 70%;
+    background-color: var(--tchmi-ba-global-control-background);
+    box-shadow: 0 0 5px 0 rgba(100, 100, 110, 0.5);
+    --tchmi-ba-content-padding: 10px;
+    --tchmi-ba-dialog-window-z-index: 0;
+    z-index: calc(var(--tchmi-ba-global-overlay-container-z-index) + var(--tchmi-ba-dialog-window-z-index));
+}
+
+    .tchmi-ba-base.dialog-window.resizeable {
+        resize: both;
+        overflow: auto;
+    }
+
+    .tchmi-ba-base.dialog-window.selected {
+        box-shadow: 0 0 10px 0 rgba(100, 100, 110, 0.9);
+    }
+
+    .tchmi-ba-base.dialog-window.maximized {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .tchmi-ba-base.dialog-window.minimized {
+        height: var(--tchmi-ba-content-window-header-height);
+        width: 200px;
+        resize: initial;
+        bottom: 0;
+        top: initial;
+    }
+
+        .tchmi-ba-base.dialog-window.minimized > div.header > div.controls-container,
+        .tchmi-ba-base.dialog-window.minimized > div.header > div.menu-button {
+            width: 0;
+            min-width: 0;
+            visibility: collapse;
+            margin: 0;
+        }
+
+    .tchmi-ba-base.dialog-window > div.header {
+        background-color: var(--tchmi-ba-global-control-header-color);
+        box-shadow: 0 0 5px 0 rgba(100, 100, 110, 0.5);
+    }
+
+        .tchmi-ba-base.dialog-window > div.header.selected {
+            box-shadow: 0 0 10px 0 rgba(100, 100, 110, 0.9);
+        }
+
+        .tchmi-ba-base.dialog-window > div.header > div.tchmi-ba-text-handler {
+            font-size: 150%;
+            --tchmi-ba-text-color: white;
+        }
+
+.dialog-window-alert-content-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+    .dialog-window-alert-content-container > .tchmi-ba-base.textblock.dialog-window-alert-msg {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .dialog-window-alert-content-container.prompt > .tchmi-ba-base.textblock.dialog-window-alert-msg {
+        height: calc(100% - 35px);
+        margin-bottom: 5px;
+        --tchmi-ba-base-content-padding: 0;
+    }
+
+    .dialog-window-alert-content-container.prompt > .tchmi-ba-base.input-box.dialog-window-prompt-input {
+        position: relative;
+        bottom: 0;
+        height: 30px;
+    }
+.tchmi-ba-base.event-icon {
+    overflow: visible;
+    cursor: initial;
+    --tchmi-ba-event-icon-edge-icon-background-color: rgba(120, 120, 150, 0.8);
+    --tchmi-ba-event-icon-edge-icon-stroke-color: rgb(0, 200, 0);
+}
+
+    .tchmi-ba-base.event-icon.clickable {
+        cursor: pointer;
+    }
+
+    .tchmi-ba-base.event-icon > .tchmi-ba-text-handler.button {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tchmi-ba-base.event-icon .tchmi-ba-base.overlay-icon {
+        border-radius: 2px;
+    }
+
+.tchmi-ba-base.overlay-icon {
+    --tchmi-ba-background-styler-image-svg-width: 100%;
+    --tchmi-ba-background-styler-image-svg-height: 100%;
+    z-index: 1;
+}
+
+.tchmi-ba-text-handler.input-box {
+    overflow: visible;
+}
+
+    .tchmi-ba-text-handler.input-box.editable {
+        box-shadow: var(--tchmi-ba-global-control-box-shadow-inset);
+        --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-input-background);
+    }
+
+    .tchmi-ba-text-handler.input-box > .text-element {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tchmi-ba-text-handler.input-box.read-only > .text-element {
+        padding: 0;
+        height: unset;
+    }
+
+    .tchmi-ba-text-handler.input-box > input {
+        outline: none;
+        border: initial;
+        background: none;
+        font: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        color: inherit;
+        z-index: 1;
+    }
+
+@keyframes fadeInInputInfo {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.tchmi-ba-text-handler.input-box.show-input-info::after {
+    content: attr(data-tooltip);
+    pointer-events: none;
+    animation-name: fadeInInputInfo;
+    animation-duration: 3.1s;
+    animation-iteration-count: 1;
+    transition: opacity 0.5s;
+    display: block;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 15px;
+    padding: 0.5em;
+    z-index: 100;
+    color: #000;
+    background-color: #ffebe6;
+    border: solid 1px #c32e04;
+    border-radius: 0.5em;
+}
+.tchmi-ba-base.legend {
+    --tchmi-ba-legend-entry-height: 32px;
+}
+.tchmi-ba-base.legend,
+.tchmi-ba-base.legend .tchmi-ba-base.tab-window,
+.tchmi-ba-base.legend .tchmi-ba-base.content-window {
+    width: 100%;
+    height: 100%;
+}
+
+    .tchmi-ba-base.legend .tchmi-ba-base.tab-window .content-container {
+        overflow: auto;
+    }
+
+        .tchmi-ba-base.legend .tchmi-ba-base.tab-window .content-container .entries {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .tchmi-ba-base.legend .tchmi-ba-base.tab-window .content-container .entries > .entry {
+                width: var(--ba-js-width-entry, 172px);
+                height: var(--tchmi-ba-legend-entry-height);
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 10px;
+                display: flex;
+                flex-direction: row;
+            }
+
+                .tchmi-ba-base.legend .tchmi-ba-base.tab-window .content-container .entries > .entry > .icon {
+                    flex: auto;
+                    height: 30px;
+                    max-width: 30px;
+                    min-width: 30px;
+                    position: relative;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+
+                .tchmi-ba-base.legend .tchmi-ba-base.tab-window .content-container .entries > .entry > .label {
+                    flex: auto;
+                    position: relative;
+                }
+.tchmi-ba-base.manual-override {
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    --tchmi-ba-manual-override-height: 30px;
+    --tchmi-ba-manual-override-manual-active-button-text-color: rgba(248, 128, 23, 1);
+}
+
+    .tchmi-ba-base.manual-override > div.tchmi-ba-base.toggle-button {
+        flex: 1;
+        max-width: var(--tchmi-ba-manual-override-height);
+        height: 100%;
+        position: relative;
+    }
+        .tchmi-ba-base.manual-override > div.tchmi-ba-base.toggle-button.down {
+            --tchmi-ba-global-icon-color: var(--tchmi-ba-manual-override-manual-active-button-text-color);
+        }
+
+    .tchmi-ba-base.manual-override > div.tchmi-ba-base.checkbox,
+    .tchmi-ba-base.manual-override > div.tchmi-ba-base.input-box,
+    .tchmi-ba-base.manual-override > div.tchmi-ba-base.combobox {
+        flex: 1;
+        height: 100%;
+        position: relative;
+    }
+
+.tchmi-ba-base.manual-override-binary {
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    box-shadow: var(--tchmi-ba-global-control-box-shadow);
+    --tchmi-ba-manual-override-binary-auto-color-active: linear-gradient(to top left, rgb(0, 255, 0), rgb(0, 180, 0));
+    --tchmi-ba-manual-override-binary-auto-color-inactive: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-manual-override-binary-off-color-active: linear-gradient(to top left, rgb(209, 211, 213), rgb(144, 155, 164));
+    --tchmi-ba-manual-override-binary-off-color-inactive: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-manual-override-binary-on-color-active: linear-gradient(to top left, rgb(255, 255, 0), rgb(180, 180, 0));
+    --tchmi-ba-manual-override-binary-on-color-inactive: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-manual-override-binary-current-state-color-active: rgb(0, 255, 0);
+    --tchmi-ba-manual-override-binary-current-state-color-inactive: var(--tchmi-ba-global-tchmi-grey);
+}
+
+    .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button {
+        flex: 1;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        --tchmi-ba-background-styler-image-size: 70% 70%, cover;
+        --tchmi-ba-background-styler-image-svg-height: 70%;
+        --tchmi-ba-background-styler-image-svg-width: 70%;
+        --tchmi-ba-font-size: 16px;
+    }
+        .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.down {
+            --tchmi-ba-text-color: black;
+            --tchmi-ba-global-icon-color: rgba(0, 0, 0, 1);
+        }
+
+        .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.tchmi-control-disabled {
+            cursor: initial;
+        }
+
+        .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.auto {
+            background-image: var(--tchmi-ba-manual-override-binary-auto-color-inactive);
+            border-right: 1px solid black;
+        }
+
+            .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.auto.down {
+                background-image: var(--tchmi-ba-manual-override-binary-auto-color-active);
+            }
+
+        .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.off {
+            background-image: var(--tchmi-ba-manual-override-binary-off-color-inactive);
+            border-right: 1px solid black;
+        }
+
+            .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.off.down {
+                background-image: var(--tchmi-ba-manual-override-binary-off-color-active);
+                --tchmi-ba-global-icon-color: rgb(209, 211, 213);
+            }
+
+        .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.on {
+            background-image: var(--tchmi-ba-manual-override-binary-on-color-inactive);
+            --tchmi-ba-global-icon-color: rgb(200, 200, 0);
+        }
+
+            .tchmi-ba-base.manual-override-binary > div.tchmi-ba-base.toggle-button.state-button.on.down {
+                background-image: var(--tchmi-ba-manual-override-binary-on-color-active);
+                --tchmi-ba-global-icon-color: rgba(0, 0, 0, 1);
+            }
+
+    .tchmi-ba-base.manual-override-binary > div.current-state-display {
+        flex: 0.3;
+        background: var(--tchmi-ba-manual-override-binary-current-state-color-inactive);
+        height: 100%;
+    }
+
+        .tchmi-ba-base.manual-override-binary > div.current-state-display.active {
+            background: var(--tchmi-ba-manual-override-binary-current-state-color-active);
+        }
+
+.tchmi-ba-text-handler.radio-button {
+    overflow: visible;
+    --tchmi-ba-checkbox-checkmark-color: var(--tchmi-ba-global-tchmi-blue);
+    background: var(--tchmi-ba-global-input-background);
+    box-shadow: var(--tchmi-ba-global-control-box-shadow-inset);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+    .tchmi-ba-text-handler.radio-button.tchmi-control-disabled::before {
+        border-radius: 50%;
+    }
+
+    .tchmi-ba-text-handler.radio-button.checked {
+        background: var(--tchmi-ba-checkbox-checked-background-color);
+    }
+
+    .tchmi-ba-text-handler.radio-button.read-only {
+        box-shadow: none;
+        border: 1px solid var(--tchmi-ba-global-tchmi-blue);
+    }
+
+    .tchmi-ba-text-handler.radio-button > input {
+        -webkit-appearance: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        cursor: pointer;
+        align-items: center;
+        outline: none;
+        display: flex;
+        color: var(--tchmi-ba-checkbox-checkmark-color);
+    }
+
+    .tchmi-ba-text-handler.radio-button.read-only > input {
+        cursor: default;
+    }
+
+    .tchmi-ba-text-handler.radio-button > input:focus {
+        outline: 0;
+    }
+
+    .tchmi-ba-text-handler.radio-button > input:checked:after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        border-radius: 50%;
+        background: var(--tchmi-ba-checkbox-checkmark-color);
+        box-sizing: border-box;
+        left: 20%;
+    }
+
+    .tchmi-ba-text-handler.radio-button > label.text-element {
+        position: relative;
+        left: calc(100% + 5px);
+        white-space: nowrap;
+        align-items: center;
+        cursor: pointer;
+        text-align: var(--tchmi-ba-text-horizontal-alignment);
+        user-select: var(--tchmi-ba-user-select);
+        color: var(--tchmi-ba-text-color);
+        overflow: visible;
+    }
+
+    .tchmi-ba-text-handler.radio-button.read-only > label.text-element {
+        cursor: initial;
+    }
+
+.tchmi-ba-text-handler.slider {
+    align-items: center;
+    --tchmi-ba-font-size: 14px;
+    --tchmi-ba-font-weight: bold;
+    --tchmi-ba-text-color: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-input-background);
+    --tchmi-ba-slider-knob-background: var(--tchmi-ba-global-tchmi-blue-gradient);
+    /* Knob background for vertical sliders or when min and max switch positions */
+    --tchmi-ba-slider-knob-background-180-deg: var(--tchmi-ba-global-tchmi-blue-gradient-180-deg);
+    /* Knob background when slider is vertical and min and max switch positions */
+    --tchmi-ba-slider-knob-background-270-deg: var(--tchmi-ba-global-tchmi-blue-gradient-270-deg);
+    --tchmi-ba-slider-feedback-knob-background: rgba(100, 100, 100, 0.5);
+    --tchmi-ba-slider-knob-height: 15px;
+    --tchmi-ba-slider-knob-width: 15px;
+    --tchmi-ba-slider-height: 100%;
+    --tchmi-ba-slider-width: 100%;
+    box-shadow: var(--tchmi-ba-global-control-box-shadow);
+}
+
+    .tchmi-ba-text-handler.slider > .text-element {
+        width: 100%;
+    }
+
+/* Current Value display */
+    .tchmi-ba-text-handler.slider > div.text-element.limit-display {
+        width: initial;
+    }
+    .tchmi-ba-text-handler.slider > div.text-element.limit-display.current-value-display {
+        max-height: 20px;
+        padding: initial;
+        position: absolute;
+        top: calc(100% + 15px);
+        text-align: right;
+        right: 0;
+        cursor: pointer;
+    }
+
+        .tchmi-ba-text-handler.slider.vertical > div.text-element.limit-display.current-value-display {
+            top: 0;
+            left: calc(100% + 15px);
+            right: initial;
+            text-align: left;
+        }
+
+    /* Unit display */
+    .tchmi-ba-text-handler.slider > div.text-element.limit-display.unit-display {
+        max-height: 20px;
+        padding: initial;
+        position: absolute;
+        top: calc(100% + 15px);
+        text-align: left;
+        left: 0;
+    }
+
+    .tchmi-ba-text-handler.slider.vertical > div.text-element.limit-display.unit-display {
+        bottom: 0;
+        top: initial;
+        left: calc(100% + 20px);
+        text-align: left;
+    }
+
+    /* Limit displays */
+    .tchmi-ba-text-handler.slider > div.scale-container {
+        width: 100%;
+        bottom: calc(100% + 15px);
+        height: 20px;
+        position: absolute;
+    }
+
+    .tchmi-ba-text-handler.slider.vertical > div.scale-container {
+        height: 100%;
+        right: calc(100% + 15px);
+        min-width: 50px;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .tchmi-ba-text-handler.slider > div.scale-container > div.text-element.limit-display {
+        position: absolute;
+        padding: initial;
+    }
+
+        .tchmi-ba-text-handler.slider > div.scale-container > div.text-element.limit-display.minimum {
+            left: 0;
+            text-align: left;
+            float: left;
+        }
+
+    .tchmi-ba-text-handler.slider.vertical > div.scale-container > div.text-element.limit-display.minimum {
+        bottom: 0;
+        top: initial;
+        left: initial;
+        text-align: right;
+        right: 0;
+    }
+
+    .tchmi-ba-text-handler.slider > div.scale-container > div.text-element.limit-display.maximum {
+        right: 0;
+        text-align: right;
+        float: right;
+    }
+
+    .tchmi-ba-text-handler.slider.vertical > div.scale-container > div.text-element.limit-display.maximum {
+        top: 0;
+        text-align: right;
+    }
+
+    /* Slider input */
+    .tchmi-ba-text-handler.slider > input {
+        width: calc(var(--tchmi-ba-slider-width) + var(--tchmi-ba-slider-knob-width));
+        height: var(--tchmi-ba-slider-height);
+        left: calc(-0.5 * var(--tchmi-ba-slider-knob-width));
+        margin: 0;
+        background: none;
+        position: absolute;
+        -webkit-appearance: none;
+        outline: none;
+        z-index: 1;
+    }       
+
+    .tchmi-ba-text-handler.slider.round-knob > input {
+        width: calc(var(--tchmi-ba-slider-width) + var(--tchmi-ba-slider-knob-height));
+        left: calc(-0.5 * var(--tchmi-ba-slider-knob-height));
+    }
+
+        .tchmi-ba-text-handler.slider.round-knob > input::-webkit-slider-thumb {
+            width: var(--tchmi-ba-slider-knob-height);
+            border-radius: 50%;
+        }
+
+
+    .tchmi-ba-text-handler.slider.tchmi-control-disabled > input::-webkit-slider-thumb {
+        cursor: initial;
+        opacity: 0.4;
+    }
+
+        .tchmi-ba-text-handler.slider.vertical > input {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg) translateY(calc(-1 * var(--tchmi-ba-slider-width) / 2 + var(--tchmi-ba-slider-height) / 2));
+            top: calc(50% - (var(--tchmi-ba-slider-height) / 2));
+        }
+
+    .tchmi-ba-text-handler.slider > input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: var(--tchmi-ba-slider-knob-width);
+        height: var(--tchmi-ba-slider-knob-height);
+        background: var(--tchmi-ba-slider-knob-background);
+        cursor: pointer;
+        box-shadow: var(--tchmi-ba-global-control-box-shadow);
+    }
+    .tchmi-ba-text-handler.slider:not(.tchmi-control-disabled) > input:active::-webkit-slider-thumb {
+        box-shadow: var(--tchmi-ba-global-button-inset-box-shadow);
+    }
+
+    /* Feedback slider */
+    .tchmi-ba-text-handler.slider > input.feedback-slider {
+        z-index: 0;
+    }
+
+        .tchmi-ba-text-handler.slider > input.feedback-slider::-webkit-slider-thumb,
+        .tchmi-ba-text-handler.slider.switch-min-max > input.feedback-slider::-webkit-slider-thumb,
+        .tchmi-ba-text-handler.slider.vertical > input.feedback-slider::-webkit-slider-thumb {
+            background: var(--tchmi-ba-slider-feedback-knob-background);
+        }
+
+
+    .tchmi-ba-text-handler.slider.switch-min-max > input::-webkit-slider-thumb,
+    .tchmi-ba-text-handler.slider.vertical > input::-webkit-slider-thumb {
+        background: var(--tchmi-ba-slider-knob-background-180-deg);
+    }
+    .tchmi-ba-text-handler.slider.vertical.switch-min-max > input::-webkit-slider-thumb {
+        background: var(--tchmi-ba-slider-knob-background-270-deg);
+    }
+
+    /* Styles if min and max switch positions */
+    .tchmi-ba-text-handler.slider.switch-min-max {
+        transform: scale(-1, 1);
+    }
+
+        .tchmi-ba-text-handler.slider.switch-min-max > div.text-element.limit-display.current-value-display {
+            transform: scale(-1, 1);
+        }
+
+        .tchmi-ba-text-handler.slider.switch-min-max > div.text-element.limit-display.unit-display {
+            transform: scale(-1, 1);
+        }
+
+        .tchmi-ba-text-handler.slider.switch-min-max > div.scale-container > div.text-element.limit-display {
+            transform: scale(-1, 1);
+        }
+
+            .tchmi-ba-text-handler.slider.switch-min-max > div.scale-container > div.text-element.limit-display.minimum {
+                text-align: right;
+            }
+
+            .tchmi-ba-text-handler.slider.switch-min-max > div.scale-container > div.text-element.limit-display.maximum {
+                text-align: left;
+            }
+
+    .tchmi-ba-text-handler.slider.vertical.switch-min-max {
+        transform: scale(1, -1);
+    }
+
+        .tchmi-ba-text-handler.slider.vertical.switch-min-max > div.text-element.limit-display.current-value-display {
+            transform: scale(1, -1);
+            bottom: 0;
+            top: initial;
+        }
+
+        .tchmi-ba-text-handler.slider.vertical.switch-min-max > div.text-element.limit-display.unit-display {
+            transform: scale(1, -1);
+            top: 0;
+        }
+
+        .tchmi-ba-text-handler.slider.vertical.switch-min-max > div.scale-container > div.text-element.limit-display {
+            transform: scale(1, -1);
+        }
+
+            .tchmi-ba-text-handler.slider.vertical.switch-min-max > div.scale-container > div.text-element.limit-display.minimum {
+                transform: scale(1, -1);
+            }
+
+            .tchmi-ba-text-handler.slider.vertical.switch-min-max > div.scale-container > div.text-element.limit-display.maximum {
+                transform: scale(1, -1);
+                text-align: right;
+            }
+
+        .tchmi-ba-text-handler.slider.switch-min-max .text-element {
+            transform: scale(-1, 1);
+            z-index: 0;
+        }
+
+     /* Disbled */
+    .tchmi-ba-text-handler.slider.tchmi-control-disabled > div.text-element.limit-display.current-value-display {
+        cursor: initial;
+    }
+
+.tchmi-ba-text-handler.table {
+    --tchmi-ba-table-row-height: 30px;
+    --tchmi-ba-table-header-row-background: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-table-cell-background: white;
+    --tchmi-ba-table-cell-border: 1px solid var(--tchmi-ba-table-cell-border-color);
+    --tchmi-ba-table-cell-border-color: #ededed;
+    --tchmi-ba-table-selected-row-border-color: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-table-selected-row-background: rgba(120, 120, 140, 0.3);
+    --tchmi-ba-table-resizer-color: white;
+    color: var(--tchmi-ba-global-text-color);
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+    .tchmi-ba-text-handler.table > div.table-container {
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .tchmi-ba-text-handler.table > div.table-container > table {
+        table-layout: fixed;
+        border-collapse: collapse;
+        padding: 0px;
+        margin: 0px;
+    }
+        .tchmi-ba-text-handler.table > div.table-container > table tr {
+            height: var(--tchmi-ba-table-row-height);
+        }
+
+        .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr {
+            height: var(--tchmi-ba-table-row-height);
+            border: var(--tchmi-ba-table-cell-border);
+        }
+
+        .tchmi-ba-text-handler.table > div.table-container > table thead {
+            position: relative;
+        }
+        .tchmi-ba-text-handler.table > div.table-container > table td, th {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 3px;
+            border-right: var(--tchmi-ba-table-cell-border);
+        }
+
+        .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr > td {
+            position: relative;
+            background: var(--tchmi-ba-table-cell-background);
+        }
+            .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr > td:first-of-type {
+                border-left: 0;
+            }
+
+            .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr > td > .value-field {
+                width: 100%;
+                height: calc(var(--tchmi-ba-table-row-height) - 6px);
+                position: relative;
+                z-index: 1;
+            }
+
+            .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr > td > .event-icon {
+                width: 100%;
+                height: calc(var(--tchmi-ba-table-row-height) - 6px);
+                position: relative;
+                z-index: 1;
+            }
+
+            .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr > td.use-image {
+                background-size: calc(var(--tchmi-ba-table-row-height) - 10px) calc(var(--tchmi-ba-table-row-height) - 10px);
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+            }
+
+        .tchmi-ba-text-handler.table > div.table-container > table.resizing {
+            cursor: col-resize;
+            user-select: none;
+        }
+
+        .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th {
+            background: var(--tchmi-ba-table-header-row-background);
+            color: white;
+            top: 0;
+            position: -webkit-sticky;
+            position: sticky;
+            z-index: 2;
+            box-shadow: inset 0 0 var(--tchmi-ba-table-cell-border-color), 0 1px var(--tchmi-ba-table-cell-border-color);
+        }
+
+    /* Initialized */
+    .tchmi-ba-text-handler.table.initialized > div.table-container > table > tbody > tr > td {
+        max-width: 0;
+    }
+
+    /* Focused */
+    .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr.focused > td::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: var(--tchmi-ba-table-selected-row-background);
+        border-top: 1px solid var(--tchmi-ba-table-selected-row-border-color);
+        border-bottom: 1px solid var(--tchmi-ba-table-selected-row-border-color);
+        box-sizing: border-box;
+    }
+    .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr.focused > td:first-of-type::after {
+        border-left: 1px solid var(--tchmi-ba-table-selected-row-border-color);
+    }
+    .tchmi-ba-text-handler.table > div.table-container > table > tbody > tr.focused > td:last-of-type::after {
+        border-right: 1px solid var(--tchmi-ba-table-selected-row-border-color);
+    }
+
+    /* Sortable column */
+    .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.sortable::after {
+        cursor: pointer;
+    }
+        .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.sortable.has-title::after {
+            padding-left: 5px;
+        }
+
+    .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.sortable.not-sorted::after {
+        content: url("/Beckhoff.TwinCAT.HMI.Controls/TcHmiDatagrid/Themes/Base/Images/sort.svg");
+    }
+
+    .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.sortable.asc::after {
+        content: url("/Beckhoff.TwinCAT.HMI.Controls/TcHmiDatagrid/Themes/Base/Images/sort_asc.svg");
+    }
+
+    .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.sortable.desc::after {
+        content: url("/Beckhoff.TwinCAT.HMI.Controls/TcHmiDatagrid/Themes/Base/Images/sort_desc.svg");
+    }
+
+    /* Resizeable colum*/
+    .tchmi-ba-text-handler.table > div.table-container > table > thead > tr > th.resizeable > div.resizer {
+        cursor: col-resize;
+        user-select: none;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1em;
+        background-image: linear-gradient(45deg, var(--tchmi-ba-table-resizer-color) 25%, transparent 25%), linear-gradient(-45deg, var(--tchmi-ba-table-resizer-color) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--tchmi-ba-table-resizer-color) 75%), linear-gradient(-45deg, transparent 75%, var(--tchmi-ba-table-resizer-color) 75%);
+        background-size: 2px 2px;
+        background-position: 0 0, 1px 0, 1px -1px, 0px 1px;
+    }
+
+    /* Show row numbers */
+    .tchmi-ba-text-handler.table.show-row-numbers > div.table-container > table {
+        margin-left: var(--tchmi-ba-table-row-height);
+    }
+
+        .tchmi-ba-text-handler.table.show-row-numbers > div.table-container > table > tbody > tr > td:first-of-type::before {
+            user-select: none;
+            content: attr(data-row-index);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: var(--tchmi-ba-table-row-height);
+            background: var(--tchmi-ba-table-header-row-background);
+            color: white;
+            border: var(--tchmi-ba-table-cell-border);
+            border-top: 0;
+            border-left: 0;
+        }
+
+        .tchmi-ba-text-handler.table.show-row-numbers > div.table-container > table > thead > tr > th:first-of-type > div.row-number-place-holder {
+            height: calc(var(--tchmi-ba-table-row-height) - 0.5px);
+            position: absolute;
+            right: calc(100% - 0.5px);
+            top: 0;
+            width: calc(var(--tchmi-ba-table-row-height) + 0.5px);
+            background: var(--tchmi-ba-table-header-row-background);
+            box-shadow: inset 0 0 var(--tchmi-ba-table-cell-border-color), 0 1px var(--tchmi-ba-table-cell-border-color);
+            border-right: var(--tchmi-ba-table-cell-border);
+            box-sizing: border-box;
+        }
+.tchmi-ba-base.tab-window {
+    --tchmi-ba-tab-window-tab-background-color: var(--tchmi-ba-global-tchmi-dark-grey);
+    --tchmi-ba-tab-window-tab-background-color-selected: var(--tchmi-ba-global-light-grey);
+    --tchmi-ba-tab-window-tab-text-color-selected: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-tab-window-padding: 5px;
+    --tchmi-ba-tab-window-tab-distance: 5px;
+    --tchmi-ba-tab-window-tab-cnt: 0;
+    --tchmi-ba-tab-window-tab-container-size: 30px;
+    --tchmi-ba-tab-window-tab-icon-padding: 5px;
+    --tchmi-ba-base-content-padding: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+    .tchmi-ba-base.tab-window > div.content-container {
+        position: relative;
+        flex: auto;
+        background-color: var(--tchmi-ba-tab-window-tab-background-color-selected);
+    }
+
+    .tchmi-ba-base.tab-window.use-animation > div.content-container > div {
+        animation: contentContainerFadeEffect 1s;
+    }
+
+    .tchmi-ba-base.tab-window > div.tab-container {
+        position: relative;
+        display: flex;
+        height: var(--tchmi-ba-tab-window-tab-container-size);
+    }
+
+    .tchmi-ba-base.tab-window.tab-size-auto > div.tab-container {
+        justify-content: space-between;
+        flex-direction: row;
+        column-gap: var(--tchmi-ba-tab-window-tab-distance);
+    }
+
+    .tchmi-ba-base.tab-window.tab-position-top > div.content-container {
+        order: 1;
+    }
+
+    .tchmi-ba-base.tab-window > div.tab-container > div.tab {
+        --tchmi-ba-text-color: var(--tchmi-ba-global-text-color);
+        --tchmi-ba-background-styler-background-color: var(--tchmi-ba-tab-window-tab-background-color);
+        position: relative;
+        margin: 0 var(--tchmi-ba-tab-window-tab-distance) 0 0;
+        cursor: pointer;
+        height: 100%;
+    }
+
+        .tchmi-ba-base.tab-window > div.tab-container > div.tab:last-child {
+            margin: 0;
+        }
+
+    .tchmi-ba-base.tab-window.tab-size-auto > div.tab-container > div.tab {
+        flex: auto;
+        margin: 0;
+        max-width: calc(calc(100% / var(--tchmi-ba-tab-window-tab-cnt)));
+    }
+
+    .tchmi-ba-base.tab-window.tab-position-left,
+    .tchmi-ba-base.tab-window.tab-position-right {
+        flex-direction: row;
+    }
+
+        .tchmi-ba-base.tab-window.tab-position-left > div.content-container {
+            order: 1;
+        }
+
+        .tchmi-ba-base.tab-window.tab-position-left > div.tab-container,
+        .tchmi-ba-base.tab-window.tab-position-right > div.tab-container {
+            height: 100%;
+            width: var(--tchmi-ba-tab-window-tab-container-size);
+            flex-direction: column;
+        }
+
+        .tchmi-ba-base.tab-window.tab-position-left.tab-size-auto > div.tab-container,
+        .tchmi-ba-base.tab-window.tab-position-right.tab-size-auto > div.tab-container {
+            row-gap: var(--tchmi-ba-tab-window-tab-distance);
+        }
+
+        .tchmi-ba-base.tab-window.tab-position-left > div.tab-container > div.tab,
+        .tchmi-ba-base.tab-window.tab-position-right > div.tab-container > div.tab {
+            height: initial;
+            max-width: initial;
+            margin: 0 0 var(--tchmi-ba-tab-window-tab-distance) 0;
+        }
+
+        .tchmi-ba-base.tab-window.tab-position-left.tab-size-auto > div.tab-container > div.tab,
+        .tchmi-ba-base.tab-window.tab-position-right.tab-size-auto > div.tab-container > div.tab {
+            max-height: calc(calc(100% / var(--tchmi-ba-tab-window-tab-cnt)));
+        }
+
+            .tchmi-ba-base.tab-window.tab-position-left > div.tab-container > div.tab:not(.has-icon),
+            .tchmi-ba-base.tab-window.tab-position-right > div.tab-container > div.tab:not(.has-icon) {
+                writing-mode: vertical-rl;
+            }
+
+            .tchmi-ba-base.tab-window.tab-position-left > div.tab-container > div.tab > span.text-element,
+            .tchmi-ba-base.tab-window.tab-position-right > div.tab-container > div.tab > span.text-element {
+                height: 100%;
+                width: initial;
+                padding: 5px;
+                transform: rotate(180deg);
+            }
+
+                .tchmi-ba-base.tab-window.tab-position-left > div.tab-container > div.tab:last-child,
+                .tchmi-ba-base.tab-window.tab-position-right > div.tab-container > div.tab:last-child {
+                    margin: 0;
+                }
+
+        .tchmi-ba-base.tab-window.tab-position-left.tab-size-auto > div.tab-container > div.tab,
+        .tchmi-ba-base.tab-window.tab-position-right.tab-size-auto > div.tab-container > div.tab {
+            margin: 0;
+        }
+
+
+    .tchmi-ba-base.tab-window > div.tab-container > div.tab:hover {
+        --tchmi-ba-background-styler-background-color: var(--tchmi-ba-tab-window-tab-background-color-selected);
+    }
+
+    .tchmi-ba-base.tab-window > div.tab-container > div.tab.selected {
+        --tchmi-ba-text-color: var(--tchmi-ba-tab-window-tab-text-color-selected);
+        --tchmi-ba-background-styler-background-color: var(--tchmi-ba-tab-window-tab-background-color-selected);
+    }
+
+    .tchmi-ba-base.tab-window > div.tab-container > div.tab > span.text-element {
+        --tchmi-ba-text-content-padding: 0 10px;
+        width: 100%;
+        user-select: none;
+    }
+
+    .tchmi-ba-base.tab-window > div.tab-container > div.tab > svg {
+        position: relative;
+        padding: var(--tchmi-ba-tab-window-tab-icon-padding);
+        display: block;
+        height: calc(100% - 10px);
+        width: 100%;
+    }
+
+
+@keyframes contentContainerFadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.tchmi-ba-text-handler.button.ui-icon {
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    --tchmi-ba-ui-icon-connections-width: 0px;
+    --tchmi-ba-ui-icon-display-input-box-height: 18px;
+    --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-icon-color);
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-color-inactive);
+}
+
+/* Pulse */
+@keyframes ui-icon-pulse-color {
+    0% {
+        box-shadow: 0 0 0 5px var(--tchmi-ba-global-active-event-pulse-color-start);
+    }
+
+    20% {
+        box-shadow: 0 0 0 15px var(--tchmi-ba-global-active-event-pulse-color-end);
+    }
+
+    100% {
+        box-shadow: 0 0 0 5px var(--tchmi-ba-global-active-event-pulse-color-start);
+    }
+}
+
+.tchmi-ba-text-handler.button.ui-icon.pulse {
+    animation: ui-icon-pulse-color 1.2s 1 linear;
+}
+
+.tchmi-ba-text-handler.button.ui-icon.shows-pulse {
+    box-shadow: 0 0 0 5px var(--tchmi-ba-global-active-event-pulse-color-start);
+    border-radius: 1px;
+}
+
+.tchmi-ba-text-handler.button.ui-icon > .tchmi-ba-base.event-icon {
+    z-index: 1;
+}
+
+/************ DEPRECATED *************/
+.tchmi-ba-text-handler.button.ui-icon.is-active {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-color-active);
+}
+.tchmi-ba-text-handler.button.ui-icon.has-event-alarm {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-event-color-alarm);
+}
+.tchmi-ba-text-handler.button.ui-icon.has-event-disturb {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-event-color-disturb);
+}
+.tchmi-ba-text-handler.button.ui-icon.has-event-maintenance {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-event-color-maintenance);
+}
+.tchmi-ba-text-handler.button.ui-icon.has-event-notification {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-event-color-notification);
+}
+.tchmi-ba-text-handler.button.ui-icon.has-event-other {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-event-color-other);
+}
+/********************************/
+
+/* Status */
+.tchmi-ba-text-handler.button.ui-icon.icon-status {
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-ui-icon-icon-status-color);
+}
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-alarm {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-event-color-alarm);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-disturb {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-event-color-disturb);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-maintenance {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-event-color-maintenance);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-notification {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-event-color-notification);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-other {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-event-color-other);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-active {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-color-active);
+    }
+    .tchmi-ba-text-handler.button.ui-icon.icon-status.icon-status-inactive {
+        --tchmi-ba-ui-icon-icon-status-color: var(--tchmi-ba-global-color-inactive);
+    }
+.tchmi-ba-text-handler.button.ui-icon.border-status::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid 2px var(--tchmi-ba-ui-icon-border-status-color);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-alarm {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-event-color-alarm);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-disturb {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-event-color-disturb);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-maintenance {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-event-color-maintenance);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-notification {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-event-color-notification);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-other {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-event-color-other);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-active {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-color-active);
+}
+.tchmi-ba-text-handler.button.ui-icon.border-status.border-status-inactive {
+    --tchmi-ba-ui-icon-border-status-color: var(--tchmi-ba-global-color-inactive);
+}
+
+/* Displays */
+.tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    --tchmi-ba-ui-icon-display-number: 0;
+    --tchmi-ba-ui-icon-display-count: 0;
+    --tchmi-ba-font-size: 13px;
+    cursor: initial;
+}
+
+.tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box {
+    width: 100%;
+}
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.top {
+        bottom: calc(100% + 15px + 15px * (var(--tchmi-ba-ui-icon-display-count) - var(--tchmi-ba-ui-icon-display-number) - 1));
+        --tchmi-ba-text-horizontal-alignment: center;
+        --tchmi-ba-text-vertical-alignment: bottom;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.topRight {
+        left: calc(100% + 15px);
+        bottom: calc(100% + 15px * (var(--tchmi-ba-ui-icon-display-count) - var(--tchmi-ba-ui-icon-display-number) - 1));
+        --tchmi-ba-text-horizontal-alignment: left;
+        --tchmi-ba-text-vertical-alignment: top;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.right {
+        left: calc(100% + 15px);
+        --tchmi-ba-text-horizontal-alignment: left;
+        --tchmi-ba-text-vertical-alignment: center;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.bottomRight {
+        left: calc(100% + 15px);
+        top: calc(100% + 15px * var(--tchmi-ba-ui-icon-display-number));
+        --tchmi-ba-text-horizontal-alignment: left;
+        --tchmi-ba-text-vertical-alignment: bottom;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.bottom {
+        top: calc(100% + 15px + 15px * var(--tchmi-ba-ui-icon-display-number));
+        --tchmi-ba-text-horizontal-alignment: center;
+        --tchmi-ba-text-vertical-alignment: top;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.bottomLeft {
+        right: calc(100% + 15px);
+        top: calc(100% + 15px * var(--tchmi-ba-ui-icon-display-number));
+        --tchmi-ba-text-horizontal-alignment: right;
+        --tchmi-ba-text-vertical-alignment: bottom;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.left {
+        right: calc(100% + 15px);
+        --tchmi-ba-text-horizontal-alignment: right;
+        --tchmi-ba-text-vertical-alignment: center;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.topLeft {
+        right: calc(100% + 15px);
+        bottom: calc(100% + 15px * (var(--tchmi-ba-ui-icon-display-count) - var(--tchmi-ba-ui-icon-display-number) - 1));
+        --tchmi-ba-text-horizontal-alignment: right;
+        --tchmi-ba-text-vertical-alignment: top;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.right.count-over-1,
+    .tchmi-ba-text-handler.button.ui-icon > div.tchmi-ba-text-handler.input-box.left.count-over-1 {
+        /*
+            //// formula part 1
+            (
+                //// center every display in the middle and
+                ((100% / 2) - (var(--tchmi-ba-ui-icon-display-input-box-height) / 2))
+                //// move each display down by x-times the height of display (offset)
+                + (var(--tchmi-ba-ui-icon-display-input-box-height) * var(--tchmi-ba-ui-icon-display-number))
+            )
+            -
+            //// formula part 2
+            (
+                //// move each display up by x-times the half of input box height (offset)
+                (var(--tchmi-ba-ui-icon-display-input-box-height) / 2) * (var(--tchmi-ba-ui-icon-display-count) - 1)
+            )
+        */
+        top: calc((((100% / 2) - (var(--tchmi-ba-ui-icon-display-input-box-height) / 2)) + (var(--tchmi-ba-ui-icon-display-input-box-height) * var(--tchmi-ba-ui-icon-display-number))) - ((var(--tchmi-ba-ui-icon-display-input-box-height) / 2) * (var(--tchmi-ba-ui-icon-display-count) - 1)));
+    }
+
+/* Connections */
+.tchmi-ba-text-handler.button.ui-icon > div.connection,
+.tchmi-ba-text-handler.button.ui-icon > div.connection > div.connection.extension {
+    position: absolute;
+    cursor: initial;
+    z-index: -1;
+}
+
+.tchmi-ba-text-handler.button.ui-icon > div.connection {
+    background-color: rgb(144, 185, 234);
+}
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection > div.connection.extension {
+        background-color: inherit;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.top,
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.bottom {
+        width: var(--tchmi-ba-ui-icon-connections-width);
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.top {
+        bottom: 100%;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.bottom {
+        top: 100%;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.left,
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.right {
+        height: var(--tchmi-ba-ui-icon-connections-width);
+        top: calc(50% - var(--tchmi-ba-ui-icon-connections-width) / 2);
+    }
+
+    /* Connection extensions */
+    .tchmi-ba-text-handler.button.ui-icon > div.connection > div.connection.extension.top {
+        bottom: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection > div.connection.extension.left {
+        right: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.left > div.connection.extension,
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.right > div.connection.extension {
+        width: var(--tchmi-ba-ui-icon-connections-width);
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.left > div.connection.extension {
+        right: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.right > div.connection.extension {
+        left: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.left {
+        right: 100%;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.right {
+        left: 100%;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.top > div.connection.extension,
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.bottom > div.connection.extension {
+        height: var(--tchmi-ba-ui-icon-connections-width);
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.top > div.connection.extension {
+        bottom: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.bottom > div.connection.extension {
+        top: calc(100% - var(--tchmi-ba-ui-icon-connections-width));
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.top {
+        bottom: 100%;
+    }
+
+    .tchmi-ba-text-handler.button.ui-icon > div.connection.bottom {
+        top: 100%;
+    }
+
+/* WeeklySchedule */
+.tchmi-ba-base.weekly-schedule {
+    overflow: auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-gap: 15px;
+    padding: 15px;
+}
+
+
+/* DailySchedule */
+.tchmi-ba-base.daily-schedule {
+    --tchmi-ba-daily-schedule-time-cursor-color: black;
+    position: relative;
+    max-height: 100%;
+    min-height: 100px;
+    background-color: var(--tchmi-ba-global-control-header-color);
+    box-sizing: border-box;
+    overflow: visible;
+    --tchmi-ba-daily-schedule-entries-container-color: rgb(203, 213, 223);
+}
+
+.tchmi-ba-base.weekly-schedule > div.tchmi-ba-base.daily-schedule.horizontal:last-child {
+    margin-bottom: 15px;
+}
+
+.tchmi-ba-base.daily-schedule > div.tchmi-ba-text-handler {
+    --tchmi-ba-text-horizontal-alignment: left;
+    --tchmi-ba-text-color: white;
+    left: 0;
+    right: 0;
+    height: 25px;
+}
+
+    .tchmi-ba-base.daily-schedule > div.tchmi-ba-text-handler > div.menu-button {
+        position: absolute;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+.tchmi-ba-base.daily-schedule > ul.tchmi-ba-base.context-menu {
+    position: absolute;
+    z-index: 10;
+    max-width: 100px;
+    width: calc(100% - 4px);
+    right: 2px;
+    top: 25px;
+    box-shadow: -2px 2px 5px 0 rgba(0,0,0,0.6);
+}
+
+.tchmi-ba-base.daily-schedule > div.schedule-entries-container {
+    width: calc(100% - 4px);
+    height: calc(100% - 27px);
+    position: absolute;
+    top: 25px;
+    left: 2px;
+    background-color: var(--tchmi-ba-daily-schedule-entries-container-color);
+}
+
+    .tchmi-ba-base.daily-schedule > div.schedule-entries-container > div.time-cursor {
+        overflow: visible;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        width: 100%;
+        height: 3px;
+        background: var(--tchmi-ba-daily-schedule-time-cursor-color);
+    }
+
+.tchmi-ba-base.daily-schedule.horizontal > div.schedule-entries-container > div.time-cursor {
+    height: 100%;
+    width: 4px;
+}
+
+.tchmi-ba-base.daily-schedule > div.schedule-entries-container > div.time-cursor > div.triangle {
+    height: 10px;
+    width: 10px;
+    position: absolute;
+}
+
+    .tchmi-ba-base.daily-schedule > div.schedule-entries-container > div.time-cursor > div.triangle > svg {
+        position: absolute;
+    }
+
+    .tchmi-ba-base.daily-schedule > div.schedule-entries-container > div.time-cursor > div.triangle.before {
+        transform: rotate(90deg);
+        right: calc(100% - 10px);
+    }
+
+    .tchmi-ba-base.daily-schedule > div.schedule-entries-container > div.time-cursor > div.triangle.after {
+        transform: rotate(-90deg);
+        left: calc(100% - 10px);
+    }
+
+.tchmi-ba-base.daily-schedule.horizontal > div.schedule-entries-container > div.time-cursor > div.triangle.before {
+    transform: rotate(180deg);
+    bottom: calc(100% - 10px);
+    right: initial;
+}
+
+.tchmi-ba-base.daily-schedule.horizontal > div.schedule-entries-container > div.time-cursor > div.triangle.after {
+    transform: initial;
+    top: calc(100% - 10px);
+    left: initial;
+}
+
+/* DailyScheduleEntry */
+.tchmi-ba-base.daily-schedule-entry {
+    box-sizing: border-box;
+    /* Default color when state is not equal eValue.*/
+    --tchmi-ba-background-styler-background-color: rgb(163, 163, 163);
+    --tchmi-ba-weekly-schedule-resizer-color: grey;
+    color: var(--tchmi-ba-global-text-color);
+    cursor: grab;
+    z-index: 1;
+}
+
+    .tchmi-ba-base.daily-schedule-entry.read-only {
+        cursor: initial;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry:active {
+        cursor: grabbing;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry.read-only:active {
+        cursor: initial;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry.horizontal {
+        height: 100%;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry.vertical {
+        width: 100%;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry > div.menu-button {
+        position: absolute;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.6)
+    }
+
+        .tchmi-ba-base.daily-schedule-entry > div.menu-button.vertical {
+            top: 5px;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.menu-button.horizontal {
+            top: 0;
+        }
+
+    .tchmi-ba-base.daily-schedule-entry > div.resizer {
+        border-color: var(--tchmi-ba-weekly-schedule-resizer-color);
+        border-width: 5px;
+        position: absolute;
+        box-sizing: border-box;
+    }
+
+        .tchmi-ba-base.daily-schedule-entry > div.resizer.vertical {
+            min-height: 30px;
+            width: 100%;
+            cursor: s-resize;
+        }
+
+    .tchmi-ba-base.daily-schedule-entry.read-only > div.resizer.vertical {
+        cursor: initial;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry > div.resizer.horizontal {
+        min-width: 30px;
+        height: 100%;
+        cursor: w-resize;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry.read-only > div.resizer.horizontal {
+        cursor: initial;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry > div.resizer.start.vertical {
+        top: 0;
+        border-top-style: solid;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry > div.resizer.start.horizontal {
+        left: 0;
+        border-left-style: solid;
+    }
+
+    .tchmi-ba-base.daily-schedule-entry > ul.tchmi-ba-base.context-menu {
+        width: -webkit-fill-available;
+        width: -moz-fit-content;
+        width: fit-content;
+        z-index: 1;
+        position: absolute;
+        box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.6);
+        width: 120px;
+    }
+
+        .tchmi-ba-base.daily-schedule-entry > ul.tchmi-ba-base.context-menu.vertical {
+            top: 30px;
+            right: 0;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > ul.tchmi-ba-base.context-menu.horizontal {
+            top: 21px;
+            right: 0;
+        }
+
+    .tchmi-ba-base.daily-schedule-entry > div.content-container {
+        position: absolute;
+        margin: 5px;
+        top: 25px;
+        max-width: 150px;
+        height: 30px;
+    }
+
+        .tchmi-ba-base.daily-schedule-entry > div.content-container.vertical {
+            left: 0;
+            right: 0;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.content-container.horizontal {
+            left: 10px;
+            right: 0px;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.content-container > div.value-field {
+            height: 100%;
+            width: 100%;
+            max-width: 300px;
+            --tchmi-ba-text-horizontal-alignment: left;
+        }
+
+    .tchmi-ba-base.daily-schedule-entry > div.time-display {
+        position: absolute;
+        padding: 2px;
+        height: max-content;
+    }
+
+        .tchmi-ba-base.daily-schedule-entry > div.time-display.start.vertical {
+            top: 5px;
+            left: 0;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.time-display.end.vertical {
+            bottom: 5px;
+            left: 0;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.time-display.start.horizontal {
+            top: 0;
+            left: 5px;
+        }
+
+        .tchmi-ba-base.daily-schedule-entry > div.time-display.end.horizontal {
+            top: 0;
+            right: 0;
+        }
+
+.tchmi-ba-base.base-list {
+    --tchmi-ba-base-list-sublist-padding: 15px;
+    --tchmi-ba-base-list-entry-margin-top: initial;
+    --tchmi-ba-base-list-entry-margin-bottom: initial;
+    --tchmi-ba-base-list-entry-padding-left: initial;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: block;
+}
+
+    .tchmi-ba-base.base-list .tchmi-ba-base.base-list.sublist {
+        padding-left: var(--tchmi-ba-base-list-sublist-padding);
+    }
+
+    .tchmi-ba-base.base-list > div.base-list-entry {
+        position: relative;
+        width: 100%;
+        display: list-item;
+        margin-top: var(--tchmi-ba-base-list-entry-margin-top);
+        margin-bottom: var(--tchmi-ba-base-list-entry-margin-bottom);
+    }
+
+        .tchmi-ba-base.base-list > div.base-list-entry.is-closed {
+            border-bottom: 1px solid lightgrey;
+        }
+
+        .tchmi-ba-base.base-list > div.base-list-entry > .tchmi-ba-base.base-list > div.base-list-entry:first-of-type {
+            border-top: 1px solid lightgrey;
+        }
+
+    .tchmi-ba-base.base-list > div.base-list-entry.is-closed:hover {
+        background-color: rgb(71, 148, 218);
+        background-color: rgba(71, 148, 218, 0.1);
+    }
+
+        .tchmi-ba-base.base-list > div.base-list-entry.is-selectable {
+            cursor: pointer;
+        }
+
+.tchmi-ba-base.base-list.control-list {
+    --used-height: 25px;
+}
+
+        .tchmi-ba-base.base-list.control-list > div.control-list-entry > div.content-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 5px;
+        }
+
+            .tchmi-ba-base.base-list.control-list > div.control-list-entry > div.content-container .title {
+                flex: auto;
+                width: 50%;
+                position: relative;
+                order: 0;
+            }
+
+            .tchmi-ba-base.base-list.control-list > div.control-list-entry > div.content-container > div.control-container {
+                flex: auto;
+                position: relative;
+                order: 1;
+                height: var(--used-height);
+            }
+
+.tchmi-ba-text-handler.base-list-entry.parameter-list-entry {
+    --used-height: 25px;
+    overflow: visible;
+}
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry > div.content-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 7px;
+    }
+
+        .tchmi-ba-text-handler.base-list-entry.parameter-list-entry > div.content-container .title {
+            flex: auto;
+            width: 50%;
+            position: relative;
+            order: 0;
+        }
+
+        .tchmi-ba-text-handler.base-list-entry.parameter-list-entry > div.content-container > div.tchmi-ba-text-handler.value-field {
+            position: relative;
+            order: 1;
+            width: 50%;
+            max-height: 30px;
+            height: calc(var(--used-height) - 5px);
+        }
+@keyframes project-navigation-list-pulse-color {
+    0% {
+        background-color: var(--tchmi-ba-global-active-event-pulse-color-start);
+    }
+
+    10% {
+        background-color: var(--tchmi-ba-global-active-event-pulse-color-end);
+    }
+
+    100% {
+        background-color: var(--tchmi-ba-global-active-event-pulse-color-start);
+    }
+}
+
+.tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry {
+    --content-height: 25px;
+    --event-icon-container-size-offset: 1;
+    --used-margin-top: 5px;
+    --used-margin-left: 5px;
+    overflow: visible;
+    width: 100%;
+    height: initial;
+    position: relative;
+    align-items: center;
+}
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry.pulse {
+        animation: project-navigation-list-pulse-color 1.2s 1 linear;
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry.shows-pulse {
+        background-color: var(--tchmi-ba-global-active-event-pulse-color-start);
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.object-type-button {
+        position: relative;
+        max-width: 40px;
+        max-height: 40px;
+        height: var(--content-height);
+        width: var(--content-height);
+        margin: 0 var(--used-margin-left) 0 0;
+        order: 0;
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > span.title-textblock {
+        flex: auto;
+        order: 1;
+        position: relative;
+        margin: 0 var(--used-margin-left) 0 0;
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.tchmi-ba-text-handler.value-field {
+        order: 2;
+        position: relative;
+        max-width: 150px;
+        max-height: 40px;
+        height: var(--content-height);
+        margin: 0 var(--used-margin-left) 0 0;
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.event-icon-container {
+        order: 3;
+        position: relative;
+        cursor: initial;
+        max-height: 40px;
+        height: var(--content-height);
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 5px;
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry.has-no-content-view-button > div.content-container > div.event-icon-container {
+        margin-right: calc(var(--content-height) + (var(--content-height) / 2) + var(--used-margin-left) * 1)
+    }
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.event-icon-container.use-value-field-offset {
+        width: calc(var(--content-height) * var(--event-icon-container-size-offset) + 2 * var(--used-margin-left) * var(--event-icon-container-size-offset));
+    }
+
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.event-icon-container > div.event-icon {
+        width: var(--content-height);
+        height: var(--content-height);
+        max-height: 40px;
+        max-width: 40px;
+        position: relative;
+        float: right;
+        margin-left: calc(2 * var(--used-margin-left));
+    }
+
+        .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.event-icon-container > div.event-icon.first {
+            margin-left: 0;
+        }
+
+
+    .tchmi-ba-text-handler.base-list-entry.parameter-list-entry.project-navigation-list-entry > div.content-container > div.content-view-button {
+        position: relative;
+        max-width: 60px;
+        max-height: 40px;
+        height: var(--content-height);
+        width: calc(var(--content-height) + (var(--content-height) / 2));
+        margin-left: var(--used-margin-left);
+        order: 4;
+    }

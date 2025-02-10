@@ -1,0 +1,117 @@
+﻿.TcHmi_BuildingAutomation_Controls_BuildingGeneral_BuildingInformation {
+    overflow: visible;
+}
+
+    .TcHmi_BuildingAutomation_Controls_BuildingGeneral_BuildingInformation > div.tchmi-ba-base.button {
+        width: 100%;
+        height: 100%;
+    }
+
+.tchmi-ba-building-information-dialog-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: minmax(auto, 40px) auto;
+}
+
+    .tchmi-ba-building-information-dialog-content > .general-information {
+        border: var(--tchmi-ba-global-control-border);
+        box-sizing: border-box;
+        padding: 5px;
+        display: grid;
+        grid-column: 1;
+        grid-row: 1;
+        position: relative;
+        grid-template-columns: 120px 120px 120px 120px;
+    }
+
+    .tchmi-ba-building-information-dialog-content .icon-with-label {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+    }
+
+        .tchmi-ba-building-information-dialog-content .icon-with-label > .icon {
+            flex: auto;
+            height: 30px;
+            max-width: 30px;
+            min-width: 30px;
+            position: relative;
+        }
+
+        .tchmi-ba-building-information-dialog-content .icon-with-label > .label {
+            flex: auto;
+            position: relative;
+        }
+
+.tchmi-ba-building-information-dialog-contentt > .general-information > .icon-with-label.fire {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+}
+
+.tchmi-ba-building-information-dialog-content > .general-information > .icon-with-label.burglar {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+}
+
+.tchmi-ba-building-information-dialog-content > .general-information > .icon-with-label.ice {
+    grid-column: 3;
+    grid-row: 1;
+    position: relative;
+}
+
+/* Facades */
+.tchmi-ba-building-information-dialog-content > .facades {
+    grid-row: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+    .tchmi-ba-building-information-dialog-content > .facades > .facade-info {
+        flex: auto;
+        position: relative;
+        width: 100%;
+        max-height: 65px;
+        display: grid;
+        border: var(--tchmi-ba-global-control-border);
+        box-sizing: border-box;
+        padding: 0 5px 5px 5px;
+        grid-template-rows: minmax(auto, 30px) minmax(auto, 30px);
+        grid-template-columns: 120px 120px 120px 120px;
+        margin-bottom: 5px;
+    }
+
+        .tchmi-ba-building-information-dialog-content > .facades > .facade-info > .name-field {
+            grid-row: 1;
+            grid-column: 1/4;
+            position: relative;
+        }
+
+        .tchmi-ba-building-information-dialog-content > .facades > .facade-info > .icon-with-label.maintenance {
+            grid-row: 2;
+            grid-column: 1;
+            position: relative;
+        }
+
+        .tchmi-ba-building-information-dialog-content > .facades > .facade-info > .icon-with-label.storm {
+            grid-row: 2;
+            grid-column: 2;
+            position: relative;
+        }
+
+        .tchmi-ba-building-information-dialog-content > .facades > .facade-info > .icon-with-label.sun {
+            grid-row: 2;
+            grid-column: 3;
+            position: relative;
+        }
+
+        .tchmi-ba-building-information-dialog-content > .facades > .facade-info > .icon-with-label.thermal {
+            grid-row: 2;
+            grid-column: 4;
+            position: relative;
+        }

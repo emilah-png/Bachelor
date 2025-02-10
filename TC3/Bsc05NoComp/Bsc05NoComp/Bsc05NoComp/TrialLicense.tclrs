@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
-		<SystemId>{86DED147-4C15-11DA-ACAD-B725039D5C10}</SystemId>
-		<IssueTime>2025-02-06T09:57:00</IssueTime>
-		<ExpireTime>2025-02-14T00:00:00</ExpireTime>
-		<LicenseKey>e673c489a347e00400288af3f3fcb374885a335b148453b73b956f794fc225db70afafb301248215624f24e4c0731a9dbc7ba032f017ebf18eaec91753c26f40aa34a4bbacaee160bd8f6c24e51e738027eb592c70e3c271aa60888ea1ce4d02e49219aee1fda2e9643da82cb27bfcca7172622a2b1f0581ca46e86b13870734fbce06b81a5b16dbe8de18827b99dd8581039d35151a85b41541377481cb95cdfdf613055db4c9afb4abcb89041ed668e4bc6ddb6a84473acd2e827b9b7ecc9e0387d775495e5fcae4cb396ca30545913f2fa66951e17c16240311b200e824278a3a10823ade021780c818e44708d2a1559282337fbd86f5276b9aaf42fa2bd5</LicenseKey>
+		<SystemId>{B04BFBFB-2537-72C9-ABD9-237E121E7719}</SystemId>
+		<IssueTime>2025-02-03T12:52:00</IssueTime>
+		<ExpireTime>2025-02-11T00:00:00</ExpireTime>
+		<LicenseKey>14f6009a990f436bffd89d3c87259173004fc368a4ff9e805e137966b0d066d085eb835064e8f91bc3268f555083966a64f491d623e32b424550ccd5c36753704166aba350e0e2289c36a36025ad4e0e7da09d776c5fe99c6c77d72404e5815fbd2cabc966c8145b1b4d8ae18b63e83d25d6bbfc29a39bd4f392e65e2d58d9fb8fc51aaccc9dc6f6e7571c901463eba78c953bf999e5575b8bfeac376c1a31f41343849c7d62ebdba7ba40693ea2d5e0e5e2f1e7bec53e9472e489b147baf2e3b852e075590703fa5cca0012983273f59dfb44f4b9c9e033d0e26126496a30f9bbf36f0f42fd4e5c51f4ee2544292f719e1e1b27a85a50673caf0ba597697af2</LicenseKey>
 		<License>
 			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
 			<Name>TC3 ADS</Name>
@@ -19,6 +19,208 @@
 			<LicenseId>{66689887-CCBD-452C-AC9A-039D997C6E66}</LicenseId>
 			<Name>TC3 PLC</Name>
 			<OrderNo>TC1200</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>
+			<Name>TC3 HMI Clients</Name>
+			<Instances>217</Instances>
+		</License>
+		<License>
+			<LicenseId>{A2091C4C-7D04-4202-B173-9984E7125BC0}</LicenseId>
+			<Name>TC3 HMI Targets</Name>
+			<Instances>217</Instances>
+		</License>
+		<License>
+			<LicenseId>{CCE50C10-2CAA-4243-8182-080F02C5BE3D}</LicenseId>
+			<Name>TC3 Reporting Server</Name>
+		</License>
+		<License>
+			<LicenseId>{796D380F-D49E-4C0C-A05F-500052FAC883}</LicenseId>
+			<Name>TC3 HMI Server</Name>
+			<OrderNo>TF2000</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{99A3CF49-FFBF-49D4-BA30-F4C0593B5161}</LicenseId>
+			<Name>TC3 HMI Clients Pack 5</Name>
+			<OrderNo>TF2025</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{D4390DEA-A64D-494D-9E09-275326DBB0CB}</LicenseId>
+			<Name>TC3 PLC-HMI (RT)</Name>
+		</License>
+		<License>
+			<LicenseId>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</LicenseId>
+			<Name>TC3 PLC-HMI</Name>
+			<OrderNo>TF1800</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</LicenseId>
+			<Name>TC3 Scope Server</Name>
+			<OrderNo>TF3300</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{27326EE5-AB30-4084-B15B-8CCA96CCBF0B}</LicenseId>
+			<Name>TC3 HMI Scope</Name>
+			<OrderNo>TF2300</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{648F394E-7DD1-499C-8112-7C38E161A94C}</LicenseId>
+			<Name>TC3 HMI Clients Pack 3</Name>
+			<OrderNo>TF2020</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{7AFD0713-1333-4A3B-938C-7B9BD0418C8D}</LicenseId>
+			<Name>TC3 PLC-HMI Web</Name>
+			<OrderNo>TF1810</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{777F1598-583B-4503-99BB-7C02E0ABD97E}</LicenseId>
+			<Name>TC3 Controller Toolbox</Name>
+			<OrderNo>TF4100</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{1EEBBAAA-51E1-4750-9D6A-7B04116EA32B}</LicenseId>
+			<Name>TC3 Temperature-Controller</Name>
+			<OrderNo>TF4110</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{EB9E5E6E-B7F6-441E-9C17-3BF17A90B800}</LicenseId>
+			<Name>TC3 HMI Audit Trail Symbols</Name>
+			<Instances>4000</Instances>
+		</License>
+		<License>
+			<LicenseId>{603F24BD-3EEF-47EB-AD62-1BCC3B2D1AE7}</LicenseId>
+			<Name>TC3 HMI Audit Trail Symbols Pack 2000</Name>
+			<OrderNo>TF2440</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{2752D285-16AD-4E89-AE6C-80E72784D264}</LicenseId>
+			<Name>TC3 HMI Clients Pack 1</Name>
+			<OrderNo>TF2010</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{CB3D4492-5E9E-43BC-AB3B-27CF3896EEC2}</LicenseId>
+			<Name>TC3 HMI Clients Pack 2</Name>
+			<OrderNo>TF2015</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{97127BE5-AB00-4872-8A0E-0120D605FA10}</LicenseId>
+			<Name>TC3 HMI Clients Pack 20</Name>
+			<OrderNo>TF2035</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{8161723B-0C2E-405C-B829-EDC5DAAB5104}</LicenseId>
+			<Name>TC3 HMI Clients Pack 10</Name>
+			<OrderNo>TF2030</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{927A7313-A412-4376-8911-4A8F60EC8651}</LicenseId>
+			<Name>TC3 HMI Clients Pack 100</Name>
+			<OrderNo>TF2045</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{E8CE55B5-3125-49FB-B21B-4CB7A751D68B}</LicenseId>
+			<Name>TC3 HMI Clients Pack 25</Name>
+			<OrderNo>TF2040</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{3307E182-A1D1-4076-B983-61CAE690B2F9}</LicenseId>
+			<Name>TC3 HMI Clients Pack 50</Name>
+			<OrderNo>TF2042</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{C21D857D-6193-4500-8FE2-026AC427DCC4}</LicenseId>
+			<Name>TC3 HMI Time Based Clients</Name>
+			<OrderNo>TF2049</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{F1CFF3CF-B042-45EE-A380-4FB3270F0BA5}</LicenseId>
+			<Name>TC3 HMI Targets Pack 1</Name>
+			<OrderNo>TF2050</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{AC534BD2-49E1-4025-9C78-0BC8AE4A36A9}</LicenseId>
+			<Name>TC3 HMI Targets Pack 2</Name>
+			<OrderNo>TF2055</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{5002C16A-02B3-4A8C-8C5C-A65EDD0AE398}</LicenseId>
+			<Name>TC3 HMI Targets Pack 3</Name>
+			<OrderNo>TF2060</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{C1126695-F4A2-4F2D-AA1A-311783D98273}</LicenseId>
+			<Name>TC3 HMI Targets Pack 20</Name>
+			<OrderNo>TF2075</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{2D2E5D68-23A1-4B53-BDF7-41C3861F6DB7}</LicenseId>
+			<Name>TC3 HMI Targets Pack 5</Name>
+			<OrderNo>TF2065</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{1C20D4D8-C732-464D-AF34-6EA5D2180E06}</LicenseId>
+			<Name>TC3 HMI Targets Pack 10</Name>
+			<OrderNo>TF2070</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{616216B4-125A-402B-85A2-8AE048C5EA53}</LicenseId>
+			<Name>TC3 HMI Audit Trail Symbols Pack 250</Name>
+			<OrderNo>TF2410</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{E40D9E9D-E242-457A-9AC7-C915753AC810}</LicenseId>
+			<Name>TC3 HMI Targets Pack 25</Name>
+			<OrderNo>TF2080</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{1A68C527-4912-4445-A36B-B6E9FB967008}</LicenseId>
+			<Name>TC3 HMI Audit Trail Symbols Pack 500</Name>
+			<OrderNo>TF2420</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{2B655887-A31B-41BB-A125-30011C24FB71}</LicenseId>
+			<Name>TC3 HMI Targets Pack 50</Name>
+			<OrderNo>TF2085</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{067D1C29-F119-431C-A681-E503451951C7}</LicenseId>
+			<Name>TC3 HMI Targets Pack 100</Name>
+			<OrderNo>TF2090</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{ADDFAE21-8CFE-4AF3-9F46-29C36F985936}</LicenseId>
+			<Name>TC3 HMI OPC UA</Name>
+			<OrderNo>TF2110</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{D58728E0-7762-4145-8A93-80D55E0453A6}</LicenseId>
+			<Name>TC3 HMI Extension SDK</Name>
+			<OrderNo>TF2200</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{BB5DAC4A-972B-490D-9495-8132C0A46A72}</LicenseId>
+			<Name>TC3 HMI Audit Trail</Name>
+			<OrderNo>TF2400</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{F6C0F890-4CDC-4F0D-9EB7-85F0BFA25E05}</LicenseId>
+			<Name>TC3 HMI Audit Trail Symbols Pack 1000</Name>
+			<OrderNo>TF2430</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{59E590EF-0040-041B-6E51-AB6F6D3596C8}</LicenseId>
+			<Name>TC3 BACnet/SC WebSocketClient</Name>
+		</License>
+		<License>
+			<LicenseId>{CCE4FF6F-8342-4DB6-A976-37835E17161A}</LicenseId>
+			<Name>TC3 BACnet/IP</Name>
+			<OrderNo>TF8020</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{14DB2856-1BFD-49EE-AEAB-78906DBFBEE2}</LicenseId>
+			<Name>TC3 Building Automation</Name>
+			<OrderNo>TF8040</OrderNo>
 		</License>
 	</LicenseInfo>
 </TcLicenseInfo>

@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.Cooler": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseTemplate",
+      "frameworkControlType": "Cooler",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Cooler.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "tempFlow",
+          "displayName": "Flow temperature sensor",
+          "description": "The flow temperature sensor of the cooler. (Default: TFl, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tempReturn",
+          "displayName": "Return temperature sensor",
+          "description": "The return temperature sensor of the cooler. (Default: TRt, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "valve",
+          "displayName": "Valve",
+          "description": "The valve of the cooler. (Default: Vlv, DataType: Valve)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "tempFlow": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "tempReturn": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "valve": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Valve.SubBaTemplateDescription"
+        }
+      }
+    }
+  }
+}

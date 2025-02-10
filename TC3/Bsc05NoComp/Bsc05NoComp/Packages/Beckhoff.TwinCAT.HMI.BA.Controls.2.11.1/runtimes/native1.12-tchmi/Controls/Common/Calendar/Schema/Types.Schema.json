@@ -1,0 +1,41 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Calendar": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "Calendar",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Calendar.CalendarDisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ 0, 1 ],
+      "options": [
+        {
+          "label": "DatePicker",
+          "value": 0
+        },
+        {
+          "label": "EventCalendar",
+          "value": 1
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Calendar.CalendarDisplayView": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ 0, 1 ],
+      "options": [
+        {
+          "label": "Month",
+          "value": 0
+        },
+        {
+          "label": "Year",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

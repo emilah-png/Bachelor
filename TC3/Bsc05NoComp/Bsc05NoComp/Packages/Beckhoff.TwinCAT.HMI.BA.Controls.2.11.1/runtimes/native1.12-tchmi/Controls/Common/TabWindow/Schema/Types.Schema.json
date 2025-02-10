@@ -1,0 +1,67 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.TabWindow": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "TabWindow",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.TabWindow.Data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "TabData",
+        "engineeringColumns": [
+          "ID",
+          "Text"
+        ],
+        "propertiesMeta": [
+          {
+            "name": "ID",
+            "displayName": "ID",
+            "description": "The unique ID of the tab.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "Text",
+            "displayName": "Text",
+            "description": "The text that will be displayed in the tab.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "Icon",
+            "displayName": "Icon",
+            "description": "The icon that will be displayed in the tab.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "Content",
+            "displayName": "Content",
+            "description": "The content that will be displayed when the tab was selected.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "Text": {
+            "type": "string"
+          },
+          "Icon": {
+            "$ref": "tchmi:framework#/definitions/Path"
+          },
+          "Content": {
+            "$ref": "tchmi:framework#/definitions/ContentPath"
+          }
+        },
+        "required": [ "ID", "Content" ]
+      }
+    }
+  }
+}

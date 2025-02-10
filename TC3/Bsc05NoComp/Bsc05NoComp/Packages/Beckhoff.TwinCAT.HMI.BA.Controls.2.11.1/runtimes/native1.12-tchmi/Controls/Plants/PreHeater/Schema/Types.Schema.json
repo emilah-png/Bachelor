@@ -1,0 +1,90 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.PreHeater": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.Plants.HeatingCircuit",
+      "frameworkControlType": "PreHeater",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.PreHeater.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "tempFlow",
+          "displayName": "Flow temperature sensor",
+          "description": "The flow temperature sensor of the pre-heater. (Default: TFl, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tempReturn",
+          "displayName": "Return temperature sensor",
+          "description": "The return temperature sensor of the pre-heater. (Default: TRt, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "valve",
+          "displayName": "Valve",
+          "description": "The valve of the pre-heater. (Default: Vlv, DataType: Valve)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "pump",
+          "displayName": "Pump",
+          "description": "The pump of the pre-heater. (Default: Pu, DataType: Pump)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tempFlowSp",
+          "displayName": "Flow temperature sensor setpoint",
+          "description": "The flow temperature sensor setpoint of the heating circuit. (Default: Sp::SpFlWT, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "frostThermostat",
+          "displayName": "Frost thermostat",
+          "description": "The frost thermostat of the pre-heater. (Default: FrostThermostat, DataType: SensorBinary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tFrost",
+          "displayName": "Temperature frost",
+          "description": "The temperature frost of the pre-heater. (Default: TFrost, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "tempFlow": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "tempReturn": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "valve": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Valve.SubBaTemplateDescription"
+        },
+        "pump": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Pump.SubBaTemplateDescription"
+        },
+        "tempFlowSp": {
+          "type": "string"
+        },
+        "frostThermostat": {
+          "type": "string"
+        },
+        "tFrost": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        }
+      }
+    }
+  }
+}

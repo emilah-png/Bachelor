@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.Valve": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.UiIconFdbStp",
+      "frameworkControlType": "Valve",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Valve.DisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Type",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        999
+      ],
+      "options": [
+        {
+          "label": "twoDirection_0",
+          "value": 0
+        },
+        {
+          "label": "twoDirection_1",
+          "value": 1
+        },
+        {
+          "label": "twoDirection_2",
+          "value": 2
+        },
+        {
+          "label": "twoDirection_3",
+          "value": 3
+        },
+        {
+          "label": "threeDirection_0",
+          "value": 4
+        },
+        {
+          "label": "threeDirection_1",
+          "value": 5
+        },
+        {
+          "label": "threeDirection_2",
+          "value": 6
+        },
+        {
+          "label": "threeDirection_3",
+          "value": 7
+        },
+        {
+          "label": "threeDirection_4",
+          "value": 8
+        },
+        {
+          "label": "custom",
+          "value": 999
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Valve.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the valve. (Default: Fdb / Anlg3Pnt::Pos, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "setpoint",
+          "displayName": "Setpoint",
+          "description": "The setpoint of the valve. (Default: Mdlt, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "command",
+          "displayName": "Command",
+          "description": "The command of the valve. (Default: Cmd, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "feedback": {
+          "type": "string"
+        },
+        "setpoint": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Valve.SubBaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "SubBaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "description": "Identifier of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "subTemplate",
+          "displayName": "Valve",
+          "description": "The template description of the valve.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "subTemplate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Valve.BaTemplateDescription"
+        }
+      }
+    }
+  }
+}

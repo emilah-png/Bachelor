@@ -1,0 +1,8 @@
+﻿/* Dark theme. */
+.tchmi-ba-base.tab-window {
+    --tchmi-ba-tab-window-tab-background-color: var(--tchmi-ba-global-control-header-color);
+    --tchmi-ba-tab-window-tab-background-color-selected: var(--tchmi-ba-global-dark-background-color);
+    --tchmi-ba-tab-window-tab-text-color-selected: var(--tchmi-ba-global-text-color);
+    --tchmi-ba-background-styler-background-color: var(--tchmi-ba-global-control-background);
+    border: var(--tchmi-ba-global-control-border);
+}

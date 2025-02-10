@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Management.ProjectNavigationTextual": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "ProjectNavigationTextual",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Management"
+    },
+    "TcHmi.BuildingAutomation.Controls.Management.ProjectNavigationTextual.BaUsedTitle": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        "InstDescription",
+        "Description",
+        "SymbolPath",
+        "ObjectName",
+        "InstObjectName"
+      ]
+    }
+  }
+}

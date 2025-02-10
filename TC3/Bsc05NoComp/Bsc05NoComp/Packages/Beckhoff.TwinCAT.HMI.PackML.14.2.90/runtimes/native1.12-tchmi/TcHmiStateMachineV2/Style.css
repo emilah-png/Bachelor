@@ -1,0 +1,44 @@
+/* General theme independent control css. */
+
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2 {
+    overflow: hidden;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2-Template {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2-Template .Canvas_nextPlane,
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2-Template .Canvas_StateMachine {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 2px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2-Template .Canvas_nextPlane {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2.forbid-state-change {
+    cursor: not-allowed;
+}
+
+/* The main use for this control is interaction. So mark when this is not allowed. */
+.TcHmi_Controls_Beckhoff_TcHmiPackML_TcHmiStateMachineV2.TcHmi_Controls_System_TcHmiControl-operate-disallowed::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    cursor: not-allowed;
+}

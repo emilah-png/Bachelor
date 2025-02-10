@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="P_HMI" Id="{301a1ba1-dadb-4b00-ad71-34a7efb5fd32}" SpecialFunc="None">
+  <POU Name="P_HMI" Id="{1d09e2f8-ad02-42e7-aee8-b005510e241b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_HMI
 VAR
-	fbButton : FB_Button;
+// 	bSwich_Cylinder_1 				: bButton_Cylinder_1;
+// 	bSwich_Cylinder_2 				: bButton_Cylinder_2;
+// 	nSlider1						: bSlider_1;
+// 	nSlider2						: bSlider_2;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// Counting butten presses to delect mode Manual, Nutral ore Auto
-fbButton(
-	bButtonPress := HMI.bstepp_button,
-	nCounter =>HMI.nCounter
-);]]></ST>
+      <ST><![CDATA[]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

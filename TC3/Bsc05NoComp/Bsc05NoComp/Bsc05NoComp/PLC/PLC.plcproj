@@ -114,6 +114,9 @@
     <Compile Include="Programs\P_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_HMI.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>

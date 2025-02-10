@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "definitions": {
+        "TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2": {
+            "type": "object",
+            "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+            "frameworkControlType": "TcHmiStateMachineV2",
+            "frameworkControlNamespace": "TcHmi.Controls.Beckhoff.TcHmiPackML"
+        },
+        "TcHmiStateMachineV2": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2"
+        },
+        "TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2.State": {
+            "type": "string",
+            "enum": [
+                "Undefined",
+                "Clearing",
+                "Stopped",
+                "Starting",
+                "Idle",
+                "Suspended",
+                "Execute",
+                "Stopping",
+                "Aborting",
+                "Aborted",
+                "Holding",
+                "Held",
+                "Unholding",
+                "Suspending",
+                "Unsuspending",
+                "Resetting",
+                "Completing",
+                "Complete"
+            ]
+        },
+        "TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2.UnitMode": {
+            "type": "string",
+            "enum": ["Invalid", "Production", "Maintenance", "Manual"]
+        }
+    }
+}

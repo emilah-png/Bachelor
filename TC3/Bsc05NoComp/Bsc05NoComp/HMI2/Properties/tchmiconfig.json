@@ -57,7 +57,22 @@
     }
   ],
   "userControls": [],
-  "content": [],
+  "content": [
+    {
+      "url": "/TcHmiOpenHabControls/{content}/BlindsCtrl.content",
+      "preload": true,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "/TcHmiOpenHabControls/{content}/HeatCtrl.content",
+      "preload": true,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    }
+  ],
   "views": [
     {
       "url": "Desktop.view",
@@ -230,8 +245,32 @@
   },
   "packages": [
     {
+      "name": "Beckhoff.TwinCAT.HMI.BA.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BA.Controls"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.BA.Framework",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BA.Framework"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.BA.Icons",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BA.Icons"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.BaseTemplate",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BaseTemplate"
+    },
+    {
       "name": "Beckhoff.TwinCAT.HMI.Controls",
       "basePath": "/Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.EcDiagnosticsControl",
+      "basePath": "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Entertainment",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Entertainment"
     },
     {
       "name": "Beckhoff.TwinCAT.HMI.Framework",
@@ -240,6 +279,46 @@
     {
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Motion",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Motion"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.PackML",
+      "basePath": "/Beckhoff.TwinCAT.HMI.PackML"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.PDFViewer",
+      "basePath": "/Beckhoff.TwinCAT.HMI.PDFViewer"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.ResponsiveNavigation",
+      "basePath": "/Beckhoff.TwinCAT.HMI.ResponsiveNavigation"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.ScopeControl",
+      "basePath": "/Beckhoff.TwinCAT.HMI.ScopeControl"
+    },
+    {
+      "name": "ET_TcHMI_Framework",
+      "basePath": "/ET_TcHMI_Framework"
+    },
+    {
+      "name": "JB.TcHmiProgressBar",
+      "basePath": "/JB.TcHmiProgressBar"
+    },
+    {
+      "name": "JB.TcHmiSimpleDoubleRangeSlider",
+      "basePath": "/JB.TcHmiSimpleDoubleRangeSlider"
+    },
+    {
+      "name": "JB.TcHmiSimpleRangeSlider",
+      "basePath": "/JB.TcHmiSimpleRangeSlider"
+    },
+    {
+      "name": "TcHmiOpenHabControls",
+      "basePath": "/TcHmiOpenHabControls"
     }
   ],
   "keyboardLayouts": [

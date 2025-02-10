@@ -1,0 +1,7 @@
+﻿.TcHmi_BuildingAutomation_Controls_Management_Trend {
+    overflow: visible;
+}
+    .TcHmi_BuildingAutomation_Controls_Management_Trend > div.tchmi-ba-base.graph.line-chart.trend {
+        width: 100%;
+        height: 100%;
+    }

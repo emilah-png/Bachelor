@@ -1,0 +1,194 @@
+<!-- Copyright (c) Beckhoff Automation GmbH & Co. KG. All Rights Reserved. -->
+<Project InitialTargets="TcHmiCopyJsonSchemaFiles" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Condition="'$(TcHmiDisableJsonFilesRemoval)'!='true'">
+    <None Remove="config\ExtensionSettings.Schema.json" />
+    <None Remove="config\Language.Schema.json" />
+  </ItemGroup>
+
+  <UsingTask TaskName="TcHmiSrv.Core.SDK.AddProperty" AssemblyFile="..\tools\TcHmiSrvExtNet.Core.SDK.dll" />
+  <UsingTask TaskName="TcHmiSrv.Core.SDK.ExportSymbols" AssemblyFile="..\tools\TcHmiSrvExtNet.Core.SDK.dll" />
+
+  <Target Name="TcHmiInitializeTcHmiPaths" BeforeTargets="TcHmiAddConfigMetadata;TcHmiAddPackageVersion;TcHmiCopyJsonFiles;TcHmiCopyJsonSchemaFiles;TcHmiExportSymbols" Condition="'$(TcHmiDisableTcHmiPathsInitialization)'!='true'">
+    <Error Text="The property 'ProjectDir' cannot be empty." Condition="'$(ProjectDir)'==''" />
+    <Error Text="The property 'TargetDir' cannot be empty." Condition="'$(TargetDir)'==''" />
+    <Error Text="The property 'TargetName' cannot be empty." Condition="'$(TargetName)'=='' AND '$(TcHmiJsonPrefix)'==''" />
+
+    <PropertyGroup>
+      <TcHmiJsonPrefix Condition="'$(TcHmiJsonPrefix)'==''">$(TargetName)</TcHmiJsonPrefix>
+      <TcHmiConfigDir Condition="'$(TcHmiConfigDir)'==''">$(ProjectDir)config</TcHmiConfigDir>
+      <TcHmiConfigDir Condition="!$(TcHmiConfigDir.EndsWith('\'))">$(TcHmiConfigDir)\</TcHmiConfigDir>
+      <TcHmiConfigJsonName Condition="'$(TcHmiConfigJsonName)'==''">$(TcHmiJsonPrefix).Config.json</TcHmiConfigJsonName>
+      <TcHmiConfigJsonSourcePath Condition="'$(TcHmiConfigJsonSourcePath)'==''">$(TcHmiConfigDir)$(TcHmiConfigJsonName)</TcHmiConfigJsonSourcePath>
+      <TcHmiConfigJsonTargetPath Condition="'$(TcHmiConfigJsonTargetPath)'==''">$(TargetDir)$(TcHmiConfigJsonName)</TcHmiConfigJsonTargetPath>
+      <TcHmiSchemaJsonName Condition="'$(TcHmiSchemaJsonName)'==''">$(TcHmiJsonPrefix).Schema.json</TcHmiSchemaJsonName>
+      <TcHmiSchemaJsonSourcePath Condition="'$(TcHmiSchemaJsonSourcePath)'==''">$(TcHmiConfigDir)$(TcHmiSchemaJsonName)</TcHmiSchemaJsonSourcePath>
+      <TcHmiSchemaJsonTargetPath Condition="'$(TcHmiSchemaJsonTargetPath)'==''">$(TargetDir)$(TcHmiSchemaJsonName)</TcHmiSchemaJsonTargetPath>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="TcHmiCopyJsonSchemaFiles" Condition="'$(TcHmiDisableJsonSchemaFilesCopy)'!='true' AND '$(OS)'=='Windows_NT'">
+    <Error Text="The property 'MSBuildProgramFiles32' cannot be empty." Condition="'$(MSBuildProgramFiles32)'==''" />
+    <Error Text="The property 'TcHmiConfigDir' cannot be empty." Condition="'$(TcHmiConfigDir)'==''" />
+
+    <PropertyGroup>
+      <TcHmiServerDir Condition="'$(TcHmiServerDir)'==''">$(MSBuildProgramFiles32)\Beckhoff\TwinCAT\Functions\TF2000-HMI-Server</TcHmiServerDir>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <TcHmiJsonSchemaPaths Include="$(TcHmiServerDir)\ExtensionSettings.Schema.json" Condition="Exists('$(TcHmiServerDir)\ExtensionSettings.Schema.json')" />
+      <TcHmiJsonSchemaPaths Include="$(TcHmiServerDir)\Language.Schema.json" Condition="Exists('$(TcHmiServerDir)\Language.Schema.json')" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(TcHmiJsonSchemaPaths)" DestinationFolder="$(TcHmiConfigDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="TcHmiCopyJsonFiles" BeforeTargets="Build" Condition="'$(TcHmiDisableJsonFilesCopy)'!='true'">
+    <Error Text="The property 'TcHmiConfigDir' cannot be empty." Condition="'$(TcHmiConfigDir)'==''" />
+    <Error Text="The property 'TargetDir' cannot be empty." Condition="'$(TargetDir)'==''" />
+
+    <ItemGroup>
+      <TcHmiJsonPaths Include="$(TcHmiConfigDir)$(TcHmiJsonPrefix).*.json" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(TcHmiJsonPaths)" DestinationFolder="$(TargetDir)" />
+  </Target>
+
+  <Target Name="TcHmiExportSymbols" AfterTargets="Build" Condition="'$(TcHmiDisableSymbolsExport)'!='true'">
+    <Error Text="The property 'TargetPath' cannot be empty." Condition="'$(TargetPath)'==''" />
+    <Error Text="The property 'TcHmiConfigJsonTargetPath' cannot be empty." Condition="'$(TcHmiConfigJsonTargetPath)'==''" />
+    <Error Text="The property 'TcHmiSchemaJsonTargetPath' cannot be empty." Condition="'$(TcHmiSchemaJsonTargetPath)'==''" />
+    <TcHmiSrv.Core.SDK.ExportSymbols AssemblyFile="$(TargetPath)" SourceFile="$(TcHmiConfigJsonTargetPath)" SchemaSourceFile="$(TcHmiSchemaJsonTargetPath)" />
+  </Target>
+
+  <Target Name="TcHmiAddConfigMetadata" AfterTargets="TcHmiExportSymbols" Condition="'$(TcHmiDisableConfigMetadataAddition)'!='true'">
+    <PropertyGroup>
+      <TcHmiTargetFramework Condition="'$(TcHmiTargetFramework)'==''">$(TargetFramework)</TcHmiTargetFramework>
+      <!-- .NET Framework, .NET Core and .NET versions will be removed here after they reached their end of support: -->
+      <!-- https://docs.microsoft.com/en-us/lifecycle/products/microsoft-net-framework -->
+      <!-- https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core -->
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net48'))">v4.8</TcHmiTargetFrameworkVersion>
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net472'))">v4.7.2</TcHmiTargetFrameworkVersion>
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net5.0'))">v5.0</TcHmiTargetFrameworkVersion>
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net6.0'))">v6.0</TcHmiTargetFrameworkVersion>
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net7.0'))">v7.0</TcHmiTargetFrameworkVersion>
+      <TcHmiTargetFrameworkVersion Condition="'$(TcHmiTargetFrameworkVersion)'=='' AND $(TcHmiTargetFramework.StartsWith('net8.0'))">v8.0</TcHmiTargetFrameworkVersion>
+      <TcHmiPlatformTarget Condition="'$(TcHmiPlatformTarget)'==''">$(PlatformTarget)</TcHmiPlatformTarget>
+      <TcHmiPlatformTarget Condition="'$(TcHmiPlatformTarget)'==''">AnyCPU</TcHmiPlatformTarget>
+      <TcHmiConfiguration Condition="'$(TcHmiConfiguration)'==''">$(Configuration)</TcHmiConfiguration>
+    </PropertyGroup>
+
+    <Error Text="The property 'TcHmiConfigJsonTargetPath' cannot be empty." Condition="'$(TcHmiConfigJsonTargetPath)'==''" />
+
+    <!-- Validate config metadata -->
+    <Error Text="The property 'TcHmiTargetFramework' cannot be empty." Condition="'$(TcHmiTargetFramework)'==''" />
+    <Error Text="The property 'TcHmiTargetFrameworkVersion' cannot be empty. You're probably using an unsupported .NET target framework version: $(TcHmiTargetFramework)" Condition="'$(TcHmiTargetFrameworkVersion)'==''" />
+    <Error Text="The property 'TcHmiPlatformTarget' cannot be empty." Condition="'$(TcHmiPlatformTarget)'==''" />
+    <Error Text="The property 'TcHmiConfiguration' cannot be empty." Condition="'$(TcHmiConfiguration)'==''" />
+
+    <!-- Add config metadata -->
+    <TcHmiSrv.Core.SDK.AddProperty SourceFile="$(TcHmiConfigJsonTargetPath)" Key="dotNetTargetFramework" Value="$(TcHmiTargetFramework)" />
+    <TcHmiSrv.Core.SDK.AddProperty SourceFile="$(TcHmiConfigJsonTargetPath)" Key="dotNetTargetFrameworkVersion" Value="$(TcHmiTargetFrameworkVersion)" />
+    <TcHmiSrv.Core.SDK.AddProperty SourceFile="$(TcHmiConfigJsonTargetPath)" Key="dotNetPlatformTarget" Value="$(TcHmiPlatformTarget)" />
+    <TcHmiSrv.Core.SDK.AddProperty SourceFile="$(TcHmiConfigJsonTargetPath)" Key="dotNetConfiguration" Value="$(TcHmiConfiguration)" />
+  </Target>
+
+  <Target Name="TcHmiChangeBuildOutputTargetFolder" BeforeTargets="TcHmiAddPackageFiles" Condition="'$(TcHmiDisableBuildOutputTargetFolderChange)'!='true'">
+    <PropertyGroup>
+      <TcHmiOsName Condition="'$(TcHmiOsName)'=='' AND $([MSBuild]::IsOSPlatform('Windows'))">win</TcHmiOsName>
+      <TcHmiOsName Condition="'$(TcHmiOsName)'=='' AND $([MSBuild]::IsOSPlatform('OSX'))">osx</TcHmiOsName>
+      <TcHmiOsName Condition="'$(TcHmiOsName)'=='' AND $([MSBuild]::IsOSPlatform('Linux'))">linux</TcHmiOsName>
+      <TcHmiOsName Condition="'$(TcHmiOsName)'=='' AND $([MSBuild]::IsOSPlatform('FreeBSD'))">freebsd</TcHmiOsName>
+      <TcHmiArchitecture Condition="'$(TcHmiArchitecture)'==''">x64</TcHmiArchitecture>
+      <TcHmiRuntimeIdentifier Condition="'$(TcHmiRuntimeIdentifier)'==''">$(TcHmiOsName)-$(TcHmiArchitecture)</TcHmiRuntimeIdentifier>
+      <BuildOutputTargetFolder>runtimes\$(TcHmiRuntimeIdentifier)</BuildOutputTargetFolder>
+    </PropertyGroup>
+
+    <Error Text="The property 'TcHmiRuntimeIdentifier' cannot be empty." Condition="'$(TcHmiRuntimeIdentifier)'==''" />
+  </Target>
+
+  <Target Name="TcHmiAddPackageVersion" BeforeTargets="TcHmiAddPackageFiles" Condition="'$(TcHmiDisablePackageVersionAddition)'!='true'">
+    <Error Text="The property 'TcHmiConfigJsonTargetPath' cannot be empty." Condition="'$(TcHmiConfigJsonTargetPath)'==''" />
+    <Error Text="The property 'PackageVersion' cannot be empty." Condition="'$(PackageVersion)'==''" />
+    <TcHmiSrv.Core.SDK.AddProperty SourceFile="$(TcHmiConfigJsonTargetPath)" Key="packageVersion" Value="$(PackageVersion)" />
+  </Target>
+
+  <Target Name="TcHmiAddPackageFiles" AfterTargets="_GetPackageFiles" Condition="'$(TcHmiDisablePackageFilesAddition)'!='true'">
+    <Error Text="The property 'BuildOutputTargetFolder' cannot be empty." Condition="'$(BuildOutputTargetFolder)'==''" />
+    <Error Text="The property 'TargetFramework' cannot be empty." Condition="'$(TargetFramework)'==''" />
+
+    <ItemGroup>
+      <_PackageFiles Include="$(TargetDir)**" Exclude="**\*.pdb">
+        <BuildAction>None</BuildAction>
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        <Pack>true</Pack>
+        <PackagePath>$(BuildOutputTargetFolder)\$(TargetFramework)</PackagePath>
+      </_PackageFiles>
+    </ItemGroup>
+  </Target>
+
+  <!-- Disable NuGet package generation before running the pack target -->
+  <Target Name="TcHmiDisablePacking" BeforeTargets="GenerateNuspec" Condition="'$(TcHmiDisableUpdatePackageDependencies)'!='true' AND '$(NuspecFile)'==''">
+    <Error Text="Creating a NuGet package for a TwinCAT HMI server extension is not supported on $(OS). Please do that on Windows instead." Condition="'$(OS)'!='Windows_NT'" />
+
+    <PropertyGroup>
+      <ContinuePackingAfterGeneratingNuspec>false</ContinuePackingAfterGeneratingNuspec>
+    </PropertyGroup>
+  </Target>
+
+  <!-- Modify the generated nuspec file and rerun the pack target -->
+  <Target Name="TcHmiEnablePackingAndUpdateDependencies" AfterTargets="Pack" Condition="'$(TcHmiDisableUpdatePackageDependencies)'!='true' AND '$(NuspecFile)'==''">
+    <Error Text="Creating a NuGet package for a TwinCAT HMI server extension is not supported on $(OS). Please do that on Windows instead." Condition="'$(OS)'!='Windows_NT'" />
+
+    <!-- Get the nuspec file name -->
+    <PropertyGroup>
+      <NuGetPackOutputAsProperty>@(NuGetPackOutput)</NuGetPackOutputAsProperty>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <NuGetPackOutputAsItem Remove="@(NuGetPackOutputAsItem)"/>
+      <NuGetPackOutputAsItem Include="$(NuGetPackOutputAsProperty.Split(';'))" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <NuspecFileName>%(NuGetPackOutputAsItem.Identity)</NuspecFileName>
+    </PropertyGroup>
+
+    <!-- Create new dependency group -->
+    <PropertyGroup>
+      <NuspecUpdatedDependencies>
+        <group targetFramework="native1.12-tchmi" />
+      </NuspecUpdatedDependencies>
+    </PropertyGroup>
+
+    <!-- Write updated dependency group to the nuspec file -->
+    <XmlPoke XmlInputPath="$(NuspecFileName)"
+             Value="$(NuspecUpdatedDependencies)"
+             Query="/n:package/n:metadata/n:dependencies"
+             Namespaces="&lt;Namespace Prefix='n' Uri='http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd' /&gt;" />
+
+    <!-- Write empty references to the nuspec file -->
+    <XmlPoke XmlInputPath="$(NuspecFileName)"
+             Value="&lt;reference /&gt;"
+             Query="/n:package/n:metadata/n:references"
+             Namespaces="&lt;Namespace Prefix='n' Uri='http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd' /&gt;" />
+
+    <!-- Write empty framework assemblies to the nuspec file -->
+    <XmlPoke XmlInputPath="$(NuspecFileName)"
+             Value="&lt;frameworkAssembly assemblyName=&quot;&quot; /&gt;"
+             Query="/n:package/n:metadata/n:frameworkAssemblies"
+             Namespaces="&lt;Namespace Prefix='n' Uri='http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd' /&gt;" />
+
+    <!-- Run the pack target again -->
+    <PropertyGroup>
+      <ContinuePackingAfterGeneratingNuspec>true</ContinuePackingAfterGeneratingNuspec>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(NoPackageAnalysis)'==''">
+      <NoPackageAnalysis>true</NoPackageAnalysis>
+    </PropertyGroup>
+
+    <MSBuild Projects="$(MSBuildProjectFullPath)"
+             Properties="NuspecFile=$(NuspecFileName);NoPackageAnalysis=$(NoPackageAnalysis)"
+             Targets="Pack" />
+  </Target>
+</Project>

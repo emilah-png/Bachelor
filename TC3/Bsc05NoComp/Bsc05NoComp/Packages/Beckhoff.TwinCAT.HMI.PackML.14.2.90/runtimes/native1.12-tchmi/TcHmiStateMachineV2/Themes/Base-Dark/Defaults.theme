@@ -1,0 +1,53 @@
+{
+    "$schema": "../../../../TcHmiFramework/Schema/ThemeDescription.Schema.json",
+    "controlTypeValues": {
+        "TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2": {
+            "themedResources": {
+                "fontFamily": "RobotoCondensed, 'Microsoft YaHei', '微软雅黑', 'Hiragino Sans GB', '冬青黑体', 'STXihei', '华文细黑', 'WenQuanYi Micro Hei', 'Meiryo', 'メイリオ', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ ProN', 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans CJK KR', sans-serif",
+                "states/Clearing/color": { "color": "#E4E9ED" },
+                "states/Clearing/highlightColor": { "color": "#E30613" },
+                "states/Stopped/color": { "color": "#c0c0c5" },
+                "states/Stopped/highlightColor": { "color": "#E30613" },
+                "states/Starting/color": { "color": "#E4E9ED" },
+                "states/Starting/highlightColor": { "color": "#6fd50d" },
+                "states/Idle/color": { "color": "#c0c0c5" },
+                "states/Idle/highlightColor": { "color": "#6fd50d" },
+                "states/Suspended/color": { "color": "#c0c0c5" },
+                "states/Suspended/highlightColor": { "color": "#e7e702" },
+                "states/Execute/color": { "color": "#c0c0c5" },
+                "states/Execute/highlightColor": { "color": "#6fd50d" },
+                "states/Stopping/color": { "color": "#E4E9ED" },
+                "states/Stopping/highlightColor": { "color": "#E30613" },
+                "states/Aborting/color": { "color": "#E4E9ED" },
+                "states/Aborting/highlightColor": { "color": "#E30613" },
+                "states/Aborted/color": { "color": "#c0c0c5" },
+                "states/Aborted/highlightColor": { "color": "#E30613" },
+                "states/Holding/color": { "color": "#E4E9ED" },
+                "states/Holding/highlightColor": { "color": "#2775be" },
+                "states/Held/color": { "color": "#c0c0c5" },
+                "states/Held/highlightColor": { "color": "#2775be" },
+                "states/Unholding/color": { "color": "#E4E9ED" },
+                "states/Unholding/highlightColor": { "color": "#6fd50d" },
+                "states/Suspending/color": { "color": "#E4E9ED" },
+                "states/Suspending/highlightColor": { "color": "#e7e702" },
+                "states/Unsuspending/color": { "color": "#E4E9ED" },
+                "states/Unsuspending/highlightColor": { "color": "#00a440" },
+                "states/Resetting/color": { "color": "#E4E9ED" },
+                "states/Resetting/highlightColor": { "color": "#E30613" },
+                "states/Completing/color": { "color": "#E4E9ED" },
+                "states/Completing/highlightColor": { "color": "#6fd50d" },
+                "states/Complete/color": { "color": "#c0c0c5" },
+                "states/Complete/highlightColor": { "color": "#E30613" },
+                "stateTextcolor": { "color": "black" },
+                "stateTextcolorHovered": { "color": "black" },
+                "stateColorHovered": { "color": "#A3B0BB " },
+                "stateBorderColor": { "color": "black" },
+                "transitionColor": { "color": "white" },
+                "transitionTextColor": { "color": "white" },
+                "borderColor": { "color": "rgba(0,0,0,0)" },
+                "baseColor": { "color": "#2b2b2c" },
+                "innerBaseColor": { "color": "#2A3845" }
+            }
+        }
+    }
+}

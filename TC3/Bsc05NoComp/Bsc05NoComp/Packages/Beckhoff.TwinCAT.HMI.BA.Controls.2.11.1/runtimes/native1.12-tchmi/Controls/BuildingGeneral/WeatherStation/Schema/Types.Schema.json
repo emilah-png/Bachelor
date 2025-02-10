@@ -1,0 +1,220 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.BuildingGeneral.WeatherStation": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseTemplate",
+      "frameworkControlType": "WeatherStation",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.BuildingGeneral"
+    },
+    "TcHmi.BuildingAutomation.Controls.BuildingGeneral.WeatherStation.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "Dstb",
+          "displayName": "Dstb",
+          "description": "The disturbance of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Rain",
+          "displayName": "Rain",
+          "description": "The rain of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "WthT",
+          "displayName": "WthT",
+          "description": "The outisde temperature of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "DewPtT",
+          "displayName": "DewPtT",
+          "description": "The dew point of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "PrssAbs",
+          "displayName": "PrssAbs",
+          "description": "The absolute pressure of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "PrssRel",
+          "displayName": "PrssRel",
+          "description": "The relative pressure of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "HumAbs",
+          "displayName": "HumAbs",
+          "description": "The absolute humidty of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "HumRel",
+          "displayName": "HumRel",
+          "description": "The relative humidty of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Brightness_N",
+          "displayName": "Brightness_N",
+          "description": "The brightness in north of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Brightness_E",
+          "displayName": "Brightness_E",
+          "description": "The brightness in east of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Brightness_S",
+          "displayName": "Brightness_S",
+          "description": "The brightness in south of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Brightness_W",
+          "displayName": "Brightness_W",
+          "description": "The brightness in west of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Dawn",
+          "displayName": "Dawn",
+          "description": "The dawn of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "GlobRadn",
+          "displayName": "GlobRadn",
+          "description": "The global radiation of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "WndDir",
+          "displayName": "WndDir",
+          "description": "The wind direction of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "WndSpd",
+          "displayName": "WndSpd",
+          "description": "The wind speed of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Latd",
+          "displayName": "Latd",
+          "description": "The latitude of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "Lngt",
+          "displayName": "Lngt",
+          "description": "The longitude of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "SunAzm",
+          "displayName": "SunAzm",
+          "description": "The sun azemut of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "SunElv",
+          "displayName": "SunElv",
+          "description": "The sun elevation of the weather station.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "Dstb": {
+          "type": "string"
+        },
+        "Rain": {
+          "type": "string"
+        },
+        "WthT": {
+          "type": "string"
+        },
+        "DewPtT": {
+          "type": "string"
+        },
+        "PrssAbs": {
+          "type": "string"
+        },
+        "PrssRel": {
+          "type": "string"
+        },
+        "HumAbs": {
+          "type": "string"
+        },
+        "HumRel": {
+          "type": "string"
+        },
+        "Brightness_N": {
+          "type": "string"
+        },
+        "Brightness_E": {
+          "type": "string"
+        },
+        "Brightness_S": {
+          "type": "string"
+        },
+        "Brightness_W": {
+          "type": "string"
+        },
+        "Dawn": {
+          "type": "string"
+        },
+        "GlobRadn": {
+          "type": "string"
+        },
+        "WndDir": {
+          "type": "string"
+        },
+        "WndSpd": {
+          "type": "string"
+        },
+        "Latd": {
+          "type": "string"
+        },
+        "Lngt": {
+          "type": "string"
+        },
+        "SunAzm": {
+          "type": "string"
+        },
+        "SunElv": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
