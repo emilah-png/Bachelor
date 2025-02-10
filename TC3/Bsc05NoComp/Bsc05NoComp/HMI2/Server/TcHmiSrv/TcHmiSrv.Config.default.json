@@ -779,6 +779,26 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bErrorOne": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bErrorOne",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Enables.bErrorTwo": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bErrorTwo",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Enables.bHoldButton": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -9928,6 +9948,8 @@
                 "ADS.PLC1.G_Enables.bEnablePID": 3,
                 "ADS.PLC1.G_Enables.bEnableTwo": 3,
                 "ADS.PLC1.G_Enables.bEnableU": 3,
+                "ADS.PLC1.G_Enables.bErrorOne": 3,
+                "ADS.PLC1.G_Enables.bErrorTwo": 3,
                 "ADS.PLC1.G_Enables.bHoldButton": 3,
                 "ADS.PLC1.G_Enables.bLocalTest": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_1": 3,
