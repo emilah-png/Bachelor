@@ -10,25 +10,29 @@ END_VAR
       <ST><![CDATA[
 IF G_Enables.bManual THEN
 	
-	G_Output.bEnableValveOne := G_Inputs.bEnableButton;
-	G_Output.bEnableValveTwo := G_Inputs.bEnableButton;
-	G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fJoystickJib * 32767.0);
-	G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fJoystickMain * 32767.0);
+	G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne;
+	G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo;
+	G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fJoystickJib) * 32767;
+	G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fJoystickMain) * 32767;
 	G_Enables.bAuto := FALSE;
 	G_Enables.bManConst := FALSE;
 	
 ELSIF G_Enables.bManConst THEN
 		
-	G_Output.bEnableValveOne := G_Inputs.bEnableButton;
-	G_Output.bEnableValveTwo := G_Inputs.bEnableButton;
-	G_Output.nValveOneOutput := LREAL_TO_INT(G_Parameters.fConst1 * 32767.0);
-	G_Output.nValveTwoOutput := LREAL_TO_INT(G_Parameters.fConst2 * 32767.0);
+	G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne;
+	G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo;
+	G_Output.nValveOneOutput := LREAL_TO_INT(G_Parameters.fConst1) * 32767;
+	G_Output.nValveTwoOutput := LREAL_TO_INT(G_Parameters.fConst2) * 32767;
 	G_Enables.bAuto := FALSE;
 	G_Enables.bManual := FALSE;
 	
 ELSIF G_Enables.bAuto THEN
 	
 	fbMotionRef();
+	G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneOutput) * 32767;
+	G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoOutput) * 32767;
+	G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne;
+	G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo;
 	G_Enables.bManConst := FALSE;
 	G_Enables.bManual := FALSE;
 	

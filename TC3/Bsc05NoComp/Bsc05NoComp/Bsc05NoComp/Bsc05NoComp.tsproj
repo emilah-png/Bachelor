@@ -45,7 +45,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{AD4C7544-06D6-AF2A-1390-47FDE94B9CDA}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{BF95F82D-C638-37C2-441B-92E3CB6DAF3D}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -160,13 +160,13 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.nRawWinchEncoder</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawJoystickWinch</Name>
 							<Comment><![CDATA[ Joystick Signals]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoder</Name>
-							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJoystickRotation</Name>
@@ -377,8 +377,8 @@
 				</Box>
 				<EtherCAT/>
 			</Device>
-			<Device Id="4" DevType="111" DevFlags="#x0003" AmsPort="28676" AmsNetId="5.76.250.97.5.1" RemoteName="Device 4 (EtherCAT)" InfoImageId="5">
-				<Name>Device 4 (EtherCAT)</Name>
+			<Device Id="3" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="5.76.250.97.4.1" RemoteName="Device 3 (EtherCAT)" InfoImageId="5">
+				<Name>Device 3 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
 						<DeviceDesc>Ethernet 2 (TwinCAT-Intel PCI Ethernet Adapter (Gig</DeviceDesc>
@@ -2189,7 +2189,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Box Id="13" BoxType="9099" BoxFlags="#x00000020">
 					<Name>Box 13 (Fraba EtherCAT)</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="3" AdsServerAddress="054cfa61050ef003" PdiType="#x0e05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00004711" ProductCode="#x00000021" RevisionNo="#x00000100" InfoDataAddr="true" InfoDataNetId="true" WdDivider0400="0" DdTime0420="0" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutStateChange1="2000" TimeoutStateChange2="9000" TimeoutMailbox1="1000" TimeoutMailbox2="10000" GenerateOwnNetId="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="Absolute Rotary Encoder IXARC V01.05" Desc="Fraba EtherCAT" PortABoxInfo="#x02000006">
+					<EtherCAT SlaveType="3" AdsServerAddress="054cfa61050ef003" FixedAdsServerNetId="true" PdiType="#x0e05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00004711" ProductCode="#x00000021" RevisionNo="#x00000100" InfoDataAddr="true" InfoDataNetId="true" WdDivider0400="0" DdTime0420="0" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutStateChange1="2000" TimeoutStateChange2="9000" TimeoutMailbox1="1000" TimeoutMailbox2="10000" GenerateOwnNetId="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="Absolute Rotary Encoder IXARC V01.05" Desc="Fraba EtherCAT" PortABoxInfo="#x02000006">
 						<SyncMan>0010800026000100010000002200c0008000001026010000</SyncMan>
 						<SyncMan>0014800022000100020000002200c0008000001422010000</SyncMan>
 						<SyncMan>001800006400000003000000000000000000001864000000</SyncMan>
@@ -2209,7 +2209,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Box Id="14" BoxType="9099" BoxFlags="#x00000020">
 					<Name>Box 14 (Fraba EtherCAT)</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="3" AdsServerAddress="054cfa61050ff103" PdiType="#x0e05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00004711" ProductCode="#x00000021" RevisionNo="#x00000100" InfoDataAddr="true" InfoDataNetId="true" WdDivider0400="0" DdTime0420="0" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutStateChange1="2000" TimeoutStateChange2="9000" TimeoutMailbox1="1000" TimeoutMailbox2="10000" GenerateOwnNetId="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="Absolute Rotary Encoder IXARC V01.05" Desc="Fraba EtherCAT" PortABoxInfo="#x0100000d">
+					<EtherCAT SlaveType="3" AdsServerAddress="054cfa61050ff103" FixedAdsServerNetId="true" PdiType="#x0e05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00004711" ProductCode="#x00000021" RevisionNo="#x00000100" InfoDataAddr="true" InfoDataNetId="true" WdDivider0400="0" DdTime0420="0" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutStateChange1="2000" TimeoutStateChange2="9000" TimeoutMailbox1="1000" TimeoutMailbox2="10000" GenerateOwnNetId="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="Absolute Rotary Encoder IXARC V01.05" Desc="Fraba EtherCAT" PortABoxInfo="#x0100000d">
 						<SyncMan>0010800026000100010000002200c0008000001026010000</SyncMan>
 						<SyncMan>0014800022000100020000002200c0008000001422010000</SyncMan>
 						<SyncMan>001800006400000003000000000000000000001864000000</SyncMan>
@@ -2247,12 +2247,39 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^G_Output.nValveOneOutput" VarB="AO Outputs Channel 1^Analog output"/>
 				<Link VarA="PlcTask Outputs^G_Output.nValveTwoOutput" VarB="AO Outputs Channel 2^Analog output"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 4 (EtherCAT)^Term 6 (EK1818)">
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Box 13 (Fraba EtherCAT)">
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawWinchEncoder" VarB="Encoder^Position Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)">
 				<Link VarA="PlcTask Inputs^G_Inputs.bEnableButton" VarB="Channel 2^Input"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 4 (EtherCAT)^Term 6 (EK1818)^Term 7 (EL3068)">
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)^Term 11 (EL4008)">
+				<Link VarA="PlcTask Outputs^G_Output.nExtrudeOutput" VarB="AO Outputs Channel 5^Analog output"/>
+				<Link VarA="PlcTask Outputs^G_Output.nJibOutput" VarB="AO Outputs Channel 4^Analog output"/>
+				<Link VarA="PlcTask Outputs^G_Output.nMainOutput" VarB="AO Outputs Channel 3^Analog output"/>
+				<Link VarA="PlcTask Outputs^G_Output.nSlewOutput" VarB="AO Outputs Channel 2^Analog output"/>
+				<Link VarA="PlcTask Outputs^G_Output.nWinchOutput" VarB="AO Outputs Channel 1^Analog output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)^Term 7 (EL3068)">
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPistonPosition" VarB="AI Standard Channel 8^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickExtrude" VarB="AI Standard Channel 5^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickJib" VarB="AI Standard Channel 4^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickMain" VarB="AI Standard Channel 3^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickRotation" VarB="AI Standard Channel 2^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickWinch" VarB="AI Standard Channel 1^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawMainPistonPosition" VarB="AI Standard Channel 7^Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)^Term 8 (EL3068)">
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawMainPaCyl" VarB="AI Standard Channel 6^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawMainPaDCV" VarB="AI Standard Channel 4^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawMainPbDCV" VarB="AI Standard Channel 5^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawSupplyPs" VarB="AI Standard Channel 7^Value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)^Term 9 (EL3068)">
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPaCyl" VarB="AI Standard Channel 3^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPaDCV" VarB="AI Standard Channel 6^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPbCyl" VarB="AI Standard Channel 4^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPbDCV" VarB="AI Standard Channel 5^Value"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
