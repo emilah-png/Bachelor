@@ -6,7 +6,8 @@ VAR_GLOBAL
 	
 	// System Variable
 	fTimeStep 		: LREAL := 0.001; // [s]
-	fConst 			: LREAL := 0.0; // [-1, 1]
+	fConst1 			: LREAL := 0.0; // [-1, 1]
+	fConst2 			: LREAL := 0.0; // [-1, 1]
 	
 	// FeedForward Variables
 	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
@@ -37,6 +38,9 @@ VAR_GLOBAL
 	// Piston Variables
 	fMaxStrokeMain 	: LREAL := 0.73;
 	fMaxStrokeJib 	: LREAL := 0.855;
+	
+	fMaxSpeedMain	: LREAL := 0.15;
+	fMaxSpeedJib	: LREAL := 0.15;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

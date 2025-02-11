@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<TreeItem>
+	<ItemName>Device 1 (EtherCAT)</ItemName>
+	<PathName>TIID^Device 1 (EtherCAT)</PathName>
+	<ItemType>2</ItemType>
+	<ItemId>1</ItemId>
+	<ObjectId>#x03010010</ObjectId>
+	<ItemSubType>111</ItemSubType>
+	<ItemSubTypeName>EtherCAT Master</ItemSubTypeName>
+	<ChildCount>5</ChildCount>
+	<Disabled>false</Disabled>
+	<CreateSymbols>false</CreateSymbols>
+	<TreeImageData16x14>424dd6020000000000003600000028000000100000000e0000000100180000000000a002000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0000000c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0000000000000c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0000000000000000000000000000000000000000000c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0000000000000000000000000000000000000000000000000c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c00000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0c0c0c00000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ff0000ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c00000ff0000ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c00000ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff</TreeImageData16x14>
+	<DeviceDef>
+		<AmsPort>28673</AmsPort>
+		<AmsNetId>5.76.250.97.2.1</AmsNetId>
+		<AddressInfo>
+			<Ccat>
+				<Address>-801112064</Address>
+				<Offset>131072</Offset>
+				<Size>8192</Size>
+				<BaseAddr>0</BaseAddr>
+				<BusNo>3</BusNo>
+				<SlotNo>0</SlotNo>
+				<VendorId>5612</VendorId>
+				<DeviceId>20480</DeviceId>
+				<Dma>
+					<Address>0</Address>
+					<Offset>4096</Offset>
+					<Size>256</Size>
+					<BaseAddr>2</BaseAddr>
+					<RxChn>0</RxChn>
+					<TxChn>1</TxChn>
+				</Dma>
+				<Identification>
+					<Value>498694182</Value>
+					<Version>1</Version>
+					<Size>256</Size>
+				</Identification>
+			</Ccat>
+		</AddressInfo>
+		<ScanBoxes>false</ScanBoxes>
+	</DeviceDef>
+	<EtherCAT>
+		<EmergencyScan>
+			<TestFrames>0</TestFrames>
+		</EmergencyScan>
+		<ExportConfigurationFile/>
+		<DC>
+			<AutomaticModeSelect>true</AutomaticModeSelect>
+			<Mode>Disabled</Mode>
+		</DC>
+		<Cdls>
+			<Cdl CdlNo="0">
+				<TaskOid>#x2010030</TaskOid>
+			</Cdl>
+		</Cdls>
+		<ContinuousRuntimeMeasurement>false</ContinuousRuntimeMeasurement>
+		<DisplayDcRefClock64>false</DisplayDcRefClock64>
+		<DcSyncWindow>0</DcSyncWindow>
+		<ContinuousCrcCheck>true</ContinuousCrcCheck>
+		<EBusPowerWarning>true</EBusPowerWarning>
+		<DisplayInputToggle>true</DisplayInputToggle>
+		<ForceReinitAfterCommErr>true</ForceReinitAfterCommErr>
+		<StartupState>O</StartupState>
+		<FrameRepeatCnt>0</FrameRepeatCnt>
+		<AlStatusEvent>false</AlStatusEvent>
+		<InfoDataSupport>true</InfoDataSupport>
+		<InfoDataId>true</InfoDataId>
+		<InfoDataNetId>true</InfoDataNetId>
+		<InfoDataCfgSlaveCnt>true</InfoDataCfgSlaveCnt>
+		<InfoDataDcTimeOffsets>false</InfoDataDcTimeOffsets>
+	</EtherCAT>
+</TreeItem>

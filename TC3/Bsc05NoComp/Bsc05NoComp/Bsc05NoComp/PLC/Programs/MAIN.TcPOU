@@ -15,7 +15,7 @@ P_Output();
 P_RunClock();
 P_FeedForward();
 P_PID();
-P_LocalTest();]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
