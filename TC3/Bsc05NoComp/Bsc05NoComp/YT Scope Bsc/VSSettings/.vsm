@@ -5,7 +5,7 @@
   <Children>
     <Node>
       <Title>YT Scope Project</Title>
-      <Expanded>True</Expanded>
+      <Expanded>False</Expanded>
       <FileName>C:\Users\Are-Laptop\Documents\Skole\Bachelor\TC3\Bsc05NoComp\Bsc05NoComp\YT Scope Bsc\YT Scope Project.tcscopex</FileName>
       <Children>
         <Node>
@@ -16,12 +16,12 @@
         </Node>
         <Node>
           <Title>YT Chart</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -36,7 +36,7 @@
         </Node>
         <Node>
           <Title>YT Chart (2)</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
@@ -49,7 +49,7 @@
         </Node>
         <Node>
           <Title>YT Chart (3)</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
