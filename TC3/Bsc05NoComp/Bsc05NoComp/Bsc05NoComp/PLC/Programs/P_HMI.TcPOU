@@ -10,7 +10,15 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+
+IF G_Enables.bErrorOne THEN
+	G_HMI.fSlider_1 := 0;
+	G_Enables.bEnableOne := FALSE;
+ELSE
+	G_HMI.fSlider_1 := G_HMI.fSlider_1;
+	G_Enables.bEnableOne := G_Enables.bEnableOne;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
