@@ -45,7 +45,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{BF95F82D-C638-37C2-441B-92E3CB6DAF3D}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{618BC8D3-4D24-45C7-C113-4E9BAE4449C2}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -2263,8 +2263,8 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 6 (EK1818)^Term 7 (EL3068)">
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJibPistonPosition" VarB="AI Standard Channel 8^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickExtrude" VarB="AI Standard Channel 5^Value"/>
-				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickJib" VarB="AI Standard Channel 4^Value"/>
-				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickMain" VarB="AI Standard Channel 3^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickJib" VarB="AI Standard Channel 3^Value"/>
+				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickMain" VarB="AI Standard Channel 4^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickRotation" VarB="AI Standard Channel 2^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawJoystickWinch" VarB="AI Standard Channel 1^Value"/>
 				<Link VarA="PlcTask Inputs^G_Inputs.nRawMainPistonPosition" VarB="AI Standard Channel 7^Value"/>

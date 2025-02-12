@@ -7,17 +7,17 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbRunning(
-	bAuto := G_Inputs.bAuto,
-	bManual := G_Inputs.bManual,
-	bStart := G_Inputs.bStartButton,
-	bStop := G_Inputs.bStopButton,
-	
-	bRunning => G_Mode.bRunning,
-	bRunning => G_Output.bRunning,
-	bManualMode => G_Mode.bManual,
-	bAutoMode => G_Mode.bAuto
-);]]></ST>
+      <ST><![CDATA[// fbRunning(
+// 	bAuto := G_Inputs.bAuto,
+// 	bManual := G_Inputs.bManual,
+// 	bStart := G_Inputs.bStartButton,
+// 	bStop := G_Inputs.bStopButton,
+// 	
+// 	bRunning => G_Mode.bRunning,
+// 	bRunning => G_Output.bRunning,
+// 	bManualMode => G_Mode.bManual,
+// 	bAutoMode => G_Mode.bAuto
+// );]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

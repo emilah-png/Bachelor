@@ -12,8 +12,8 @@ IF G_Enables.bManual THEN
 	
 	G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne;
 	G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo;
-	G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fJoystickJib) * 32767;
-	G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fJoystickMain) * 32767;
+	G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fJoystickMain * 32767);
+	G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fJoystickJib * 32767);
 	G_Enables.bAuto := FALSE;
 	G_Enables.bManConst := FALSE;
 	

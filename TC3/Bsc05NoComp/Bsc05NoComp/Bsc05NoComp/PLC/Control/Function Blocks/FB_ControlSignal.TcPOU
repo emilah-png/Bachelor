@@ -22,6 +22,7 @@ VAR
 	fUTemp : LREAL;
 	fUTemp2 : LREAL;
 	fUMax : LREAL := 0.9;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -30,6 +31,7 @@ END_VAR
 	
 	// Deadband compensation
 	IF (fXDotRef > 0 OR fXDotRef < 0) OR fError > 0.002 THEN
+		
 		IF fUTemp <= 0.0 THEN	// Upwards
 			fUTemp2 := fUTemp - fDeadUp;
 		ELSIF fUTemp > 0.0 THEN // Downwards

@@ -29,7 +29,7 @@ fbMotionRefJib(
 	fInitialPos := fbInitPosJib.fInitialPos
 );
 
-IF
+IF 
 fbMotionRefMain(
 	fAmplitude := G_Parameters.fMainAmplitude,
 	fTime := 0.0,

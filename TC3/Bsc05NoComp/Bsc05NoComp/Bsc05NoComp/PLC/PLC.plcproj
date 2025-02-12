@@ -62,6 +62,10 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_Signals.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\Static\G_FilterConstants.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
