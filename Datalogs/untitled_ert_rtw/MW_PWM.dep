@@ -1,0 +1,47 @@
+MW_PWM.o: \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp \
+ C:/PROGRA~1/MATLAB/R2024b/toolbox/target/shared/svd/common/include/MW_PWM.h \
+ C:/PROGRA~1/MATLAB/R2024b/toolbox/target/shared/svd/common/include/MW_SVD.h \
+ C:/Users/Emil/Documents/GitHub/Bachelor/Datalogs/untitled_ert_rtw/rtwtypes.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/include/MW_PWMDriver.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/WCharacter.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/WString.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/HardwareSerial.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Stream.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Print.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Printable.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/USBAPI.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/variants/mega/pins_arduino.h
+
+C:/PROGRA~1/MATLAB/R2024b/toolbox/target/shared/svd/common/include/MW_PWM.h:
+
+C:/PROGRA~1/MATLAB/R2024b/toolbox/target/shared/svd/common/include/MW_SVD.h:
+
+C:/Users/Emil/Documents/GitHub/Bachelor/Datalogs/untitled_ert_rtw/rtwtypes.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/include/MW_PWMDriver.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/WCharacter.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/WString.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/HardwareSerial.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Stream.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Print.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Printable.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/USBAPI.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/variants/mega/pins_arduino.h:

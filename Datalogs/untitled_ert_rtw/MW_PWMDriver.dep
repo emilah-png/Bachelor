@@ -1,0 +1,20 @@
+MW_PWMDriver.o: \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/include/MW_PWMDriver.h \
+ C:/Users/Emil/Documents/GitHub/Bachelor/Datalogs/untitled_ert_rtw/rtwtypes.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/wiring_private.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/variants/mega/pins_arduino.h
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/target/supportpackages/arduinobase/include/MW_PWMDriver.h:
+
+C:/Users/Emil/Documents/GitHub/Bachelor/Datalogs/untitled_ert_rtw/rtwtypes.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/wiring_private.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/aCLI/data/packages/arduino/hardware/avr/1.8.3/variants/mega/pins_arduino.h:
