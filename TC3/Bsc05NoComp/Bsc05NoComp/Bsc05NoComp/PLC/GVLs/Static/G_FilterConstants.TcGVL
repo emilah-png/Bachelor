@@ -23,6 +23,10 @@ VAR_GLOBAL
 	fDerivatorFilterDenz 	: LREAL := 1.0;
 	fDerivatorFilterDen 	: LREAL := -0.999;
 	fDerivatorFilterInit 	: LREAL := 0.0;	
+	
+	fCutoffFreq             : LREAL := 0.1;
+    fDamping                : LREAL := 0.707106781186547;
+	fSampleTime             : LREAL := 0.001;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
