@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Joystick" Id="{ed4b467d-111f-4285-9b00-f69366b73230}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	fMainCyl	: ARRAY[0..2] OF LREAL := [9905.0, 19565.0, 28965.0];
+	fJibCyl		: ARRAY[0..2] OF LREAL := [9620.0, 19344.0, 29119.0];
+	fWinch 		: ARRAY[0..2] OF LREAL := [9743.0, 19375.0, 28931.0];
+	fRotation 	: ARRAY[0..2] OF LREAL := [9893.0, 19484.0, 29093.0];
+	fExtrude 	: ARRAY[0..2] OF LREAL := [9918.0, 19622.0, 29023.0];
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

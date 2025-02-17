@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Signals" Id="{218fe0d9-7406-4ce1-943c-595f996eb195}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// MAIN Values
+	fMainPaDCV				: ST_Filter; // [Bar]
+	fMainPbDCV				: ST_Filter; // [Bar]
+	fMainPaCyl				: ST_Filter; // [Bar]
+	fMainPistonPosition 	: ST_Filter; // [m]
+	
+	// JIB Values
+	fJibPaDCV				: ST_Filter; // [Bar]
+	fJibPbDCV				: ST_Filter; // [Bar]
+	fJibPaCyl				: ST_Filter; // [Bar]
+	fJibPbCyl				: ST_Filter; // [Bar]
+	fJibPistonPosition		: ST_Filter; // [m]
+	
+	// WINCH Values
+	fWinchPa				: ST_Filter; // [Bar]
+	fWinchPb				: ST_Filter; // [Bar]
+	fWinchDistance			: ST_Filter; // [m]
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

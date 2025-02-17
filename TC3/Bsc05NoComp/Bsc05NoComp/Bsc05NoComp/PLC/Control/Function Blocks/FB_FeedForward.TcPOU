@@ -3,31 +3,37 @@
   <POU Name="FB_FeedForward" Id="{5f187efa-a862-40d3-8f44-04c8cf0d06e0}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_FeedForward
 VAR_INPUT
-	fPs 			: LREAL;
-	fPa 			: LREAL;
-	fPb 			: LREAL;
+	fPs 			: LREAL; // [Bar]
+	fPa 			: LREAL; // [Bar]
+	fPb 			: LREAL; // [Bar]
 	fXDot			: LREAL;
-	fDeltaP0		: LREAL;
+	fDeltaP0		: LREAL; // [Bar]
+	fArea			: LREAL; // [mm]
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
 END_VAR
 VAR
-	fPhi 			: LREAL := 0.713; 								// Relation between Areas
-	fArea 			: LREAL := 33.1/(100.0*100.0); 					// Area of Piston Side
-	fBandWidth		: LREAL := 0.0; 								// Band Width
-	fSpoolTravel 	: LREAL := 7.0; 								// Maximum Spool Travel
-	fSlopeChar		: LREAL := (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
-	fDeltaP_Norm	: LREAL := fDeltaP0 * 100000.0; 						// Pressure Drop with Compansator
+	fPhi 			: LREAL; 	// Relation between Areas
+	fBandWidth		: LREAL; 	// Band Width
+	fSpoolTravel 	: LREAL; 	// Maximum Spool Travel
+	fSlopeChar		: LREAL; 	// Valve Slope Characteristic [mm/(L/min)]
+	fDeltaP_Norm	: LREAL; 	// Pressure Drop with Compansator
 	
-	fFlow			: LREAL; 										// Wanted Flow
-	fDeltaP			: LREAL; 										// Pressure Drop
-	fDeltaP_Ref		: LREAL; 										// Referance Pressure Drop
-	fFlowRef		: LREAL; 										// Refereance Flow
+	fFlow			: LREAL; 	// Wanted Flow
+	fDeltaP			: LREAL; 	// Pressure Drop
+	fDeltaP_Ref		: LREAL; 	// Referance Pressure Drop
+	fFlowRef		: LREAL; 	// Refereance Flow
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[fPhi 			:= 0.713; 								// Relation between Areas
+fArea 			:= fArea/(100.0*100.0); 				// Area of Piston Side
+fBandWidth		:= 0.0; 								// Band Width
+fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
+fSlopeChar		:= (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
+fDeltaP_Norm	:= fDeltaP0 * 100000.0;
+	
 IF fXDot > 0.0 THEN
 	
 	fFlow := fXDot * fArea;

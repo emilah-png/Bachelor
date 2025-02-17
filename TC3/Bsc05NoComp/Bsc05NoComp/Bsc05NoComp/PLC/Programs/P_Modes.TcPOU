@@ -3,33 +3,21 @@
   <POU Name="P_Modes" Id="{022044ba-8743-45e6-a82b-2e81f0455edb}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Modes
 VAR
-	//fbRunning : FB_Running;
+	fbRunning : FB_Running;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//fbRunning(
-	//bAuto := G_Inputs.bAuto,
-	//bManual := G_Inputs.bManual,
-	//bStart := G_Inputs.bStartButton,
-	//bStop := G_Inputs.bStopButton,
-	
-	//bRunning => G_Mode.bRunning,
-	//bRunning => G_Output.bRunning,
-	//bManualMode => G_Mode.bManual,
-	//bAutoMode => G_Mode.bAuto
-//);
-
-IF G_HMI.nCounter 		= 	2 THEN
-	G_Mode.bManuel 		:= 	FALSE;
-	G_Mode.bAuto 		:= 	FALSE;
-ELSIF G_HMI.nCounter 	= 	1 THEN
-	G_Mode.bManuel 		:= 	TRUE;
-	G_Mode.bAuto 		:= 	FALSE;
-ELSIF G_HMI.nCounter 	= 	3 THEN
-	G_Mode.bManuel 		:= 	FALSE;
-	G_Mode.bAuto 		:= 	TRUE;
-	
-END_IF]]></ST>
+      <ST><![CDATA[// fbRunning(
+// 	bAuto := G_Inputs.bAuto,
+// 	bManual := G_Inputs.bManual,
+// 	bStart := G_Inputs.bStartButton,
+// 	bStop := G_Inputs.bStopButton,
+// 	
+// 	bRunning => G_Mode.bRunning,
+// 	bRunning => G_Output.bRunning,
+// 	bManualMode => G_Mode.bManual,
+// 	bAutoMode => G_Mode.bAuto
+// );]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

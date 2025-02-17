@@ -5,7 +5,7 @@
 VAR_INPUT
 	bEnable 				: BOOL;
 	nRawInput 				: INT;
-	
+	fBitArray 				: ARRAY [0..2] OF LREAL;
 END_VAR
 VAR_OUTPUT
 	fOutput 				: LREAL;
@@ -14,9 +14,9 @@ VAR
 	fRawInput 				: LREAL;
 	fTempInput 				: LREAL;
 	fTempOutput 			: LREAL;
-	fMaxInputValue			: LREAL := 14746.0;
-	fMinInputValue 			: LREAL := 1617.0;
-	fNeutralInputValue  	: LREAL := 8160.0;
+	fMinInputValue 			: LREAL;
+	fNeutralInputValue  	: LREAL;
+	fMaxInputValue			: LREAL;
 	fNeutralDeadband		: LREAL := 50.0;
 	fMaxOutputValue  		: LREAL := 1.0;
 	fMinOutputValue  		: LREAL := -1.0;
@@ -24,7 +24,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fRawInput := INT_TO_LREAL(nRawInput);
+      <ST><![CDATA[fMinInputValue 			:= fBitArray[0];
+fNeutralInputValue  	:= fBitArray[1];
+fMaxInputValue			:= fBitArray[2];
+
+fRawInput := INT_TO_LREAL(nRawInput);
 
 fTempInput := fRawInput - fNeutralInputValue;
 

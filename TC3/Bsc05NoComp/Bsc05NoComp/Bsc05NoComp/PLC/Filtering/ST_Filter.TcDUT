@@ -5,6 +5,7 @@
 STRUCT
 	fSignal 			: LREAL;
 	fFilteredSignal 	: LREAL;
+	fDanielFilter		: LREAL;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

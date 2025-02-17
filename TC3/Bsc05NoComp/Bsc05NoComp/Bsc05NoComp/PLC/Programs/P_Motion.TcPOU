@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Motion" Id="{e2f87671-7351-4a5e-baec-94080915a986}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Motion
+VAR
+	fbMotionRefMain	: FB_MotionRef;
+	fbMotionRefJib	: FB_MotionRef;
+	
+	fbInitPosMain 	: FB_InitialPos;
+	fbInitPosJib	: FB_InitialPos;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbInitPosMain(
+	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableOne,
+	fCurrentPos := G_OPC.fMainPistonPosition
+);
+
+fbInitPosJib(
+	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableTwo,
+	fCurrentPos := G_OPC.fMainPistonPosition
+);
+
+fbMotionRefMain(
+	fInitialPos := fbInitPosMain.fInitialPos
+);
+
+fbMotionRefJib(
+	fInitialPos := fbInitPosJib.fInitialPos
+);
+
+IF 
+fbMotionRefMain(
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fTime := 0.0,
+	fInitialPos := 0.0
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

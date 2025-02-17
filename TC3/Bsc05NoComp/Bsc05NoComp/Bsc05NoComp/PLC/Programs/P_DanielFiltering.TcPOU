@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_DanielFiltering" Id="{b0ab1a80-8902-48ac-9df1-809cbc187962}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_DanielFiltering
+VAR
+	fbFilterMainPaDCV			: FB_LowpassFilter;
+	fbFilterMainPbDCV			: FB_LowpassFilter;
+	
+	fbFilterJibPaDCV			: FB_LowpassFilter;
+	fbFilterJibPbDCV			: FB_LowpassFilter;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbFilterMainPaDCV(
+	fInput := G_OPC.fMainPaDCV.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fMainPaDCV.fDanielFilter
+	
+);
+
+fbFilterMainPbDCV(
+	fInput := G_OPC.fMainPbDCV.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fMainPbDCV.fDanielFilter
+	
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

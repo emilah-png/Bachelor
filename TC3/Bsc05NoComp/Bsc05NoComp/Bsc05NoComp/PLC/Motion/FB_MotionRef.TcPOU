@@ -3,18 +3,27 @@
   <POU Name="FB_MotionRef" Id="{c8c75e4f-5790-4c91-ac23-d3af2bcb69cb}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_MotionRef
 VAR_INPUT
-	
+	fTime : LREAL;
+	fAmplitude : LREAL;
+	fFrequency : LREAL;
+	fInitialPos : LREAL;
 END_VAR
 VAR_OUTPUT
-	
+	fXDotRef : LREAL;
+	fXRef : LREAL;
 END_VAR
 VAR
-	
+	fMean : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-]]></ST>
+      <ST><![CDATA[fMean := fAmplitude + fInitialPos; 
+IF G_Inputs.bEnableButton THEN
+	fXRef := fMean - fAmplitude * COS(2* Tc2_System.Global_Variables.PI * fFrequency * fTime);
+	fXDotRef := 2 * Tc2_System.Global_Variables.PI *fFrequency * fAmplitude * SIN(2* Tc2_System.Global_Variables.PI * fFrequency * fTime);
+ELSE
+	fXDotRef := 0.0;
+END_IF ]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

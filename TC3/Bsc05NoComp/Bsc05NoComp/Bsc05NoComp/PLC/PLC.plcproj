@@ -22,13 +22,13 @@
     <Compile Include="Control\Function Blocks\FB_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_Motion.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Control\Function Blocks\FB_Running.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\Function Blocks\FB_ControlSignal.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
@@ -38,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\E_Modes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\G_Enables.TcGVL">
@@ -59,16 +62,21 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_Signals.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\Static\G_FilterConstants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Static\G_Joystick.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\Static\G_Winch.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="HMI\FB_ERROR.TcPOU">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Input\Function Blocks\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
@@ -86,13 +94,10 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="Local Test\FB_LocalTest.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Local Test\P_LocalTest.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Motion\FB_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\FB_InitialPos.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Motion\FB_MotionRef.TcPOU">
@@ -111,6 +116,9 @@
     <Compile Include="Programs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_DanielFiltering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +134,9 @@
     <Compile Include="Programs\P_Modes.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_Motion.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_Output.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -136,6 +147,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\FB_Derivator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XML\FB_LowpassFilter.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\G_Init.TcGVL">
@@ -154,8 +168,6 @@
     <Folder Include="Control" />
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
-    <Folder Include="Local Test" />
-    <Folder Include="HMI" />
     <Folder Include="Output" />
     <Folder Include="XML" />
     <Folder Include="Programs" />
