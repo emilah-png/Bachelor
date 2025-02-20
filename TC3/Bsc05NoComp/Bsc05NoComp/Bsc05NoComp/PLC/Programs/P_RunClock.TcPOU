@@ -11,7 +11,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 fbClock(
-	bStartEnable := TRUE,
+	bStartEnable := G_HMI.bstepp_button,
 	fTimeStep := G_Parameters.fTimeStep,
 	
 	fTime => G_OPC.fTime

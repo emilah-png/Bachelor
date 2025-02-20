@@ -64,7 +64,10 @@ fbNormMainPaCyl(
 fbNormMainPistonPosition(
 	nRawInput := G_Inputs.nRawMainPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
-	fOutput => G_OPC.fMainPistonPosition.fFilteredSignal
+	fMaxInputValue := 17285.0,
+	fMinInputValue := 370.0,
+	fMinOutputValue := 0.08,
+	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	
 // Jib
@@ -95,7 +98,10 @@ fbNormJibPbCyl(
 fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
-	fOutput => G_OPC.fJibPistonPosition.fFilteredSignal
+	fMaxInputValue := 24163.0,
+	fMinInputValue := 3021.0,
+	fMinInputValue := 0.0,
+	fOutput => G_OPC.fJibPistonPosition.fSignal
 );
 
 // Winch

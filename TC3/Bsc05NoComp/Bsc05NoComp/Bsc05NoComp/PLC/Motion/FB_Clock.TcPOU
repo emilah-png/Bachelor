@@ -9,6 +9,7 @@ VAR_INPUT
 	
 END_VAR
 VAR_OUTPUT
+	F_GetSystemTime1 : ULINT;
 	fTime 			: LREAL;
 END_VAR
 VAR

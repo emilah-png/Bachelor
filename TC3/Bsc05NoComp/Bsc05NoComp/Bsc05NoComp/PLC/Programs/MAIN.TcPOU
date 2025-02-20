@@ -13,7 +13,6 @@ P_DanielFiltering();
 P_RunClock();
 P_Inputs();
 P_Output();
-P_RunClock();
 P_FeedForward();
 P_PID();
 ]]></ST>

@@ -5,6 +5,9 @@
 VAR_INPUT
 	nRawInput 				: INT;
 	fMaxOutputValue  		: LREAL;
+	fMaxInputValue 			: LREAL;
+	fMinInputValue			: LREAL;
+	fMinOutputValue  		: LREAL;		
 END_VAR
 VAR_OUTPUT
 	fOutput 				: LREAL;
@@ -12,9 +15,8 @@ END_VAR
 VAR
 	fRawInput 				: LREAL;
 	fNormalizedInput		: LREAL;
-	fMaxInputValue 			: LREAL := 16099.0;
-	fMinInputValue			: LREAL := 125.0;
-	fMinOutputValue  		: LREAL := 0.0;		
+	
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -22,7 +24,9 @@ END_VAR
 
 fNormalizedInput := (fRawInput - fMinInputValue) / (fMaxInputValue - fMinInputValue);
 
-fOutput := LIMIT(fMinOutputValue, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);]]></ST>
+fOutput := LIMIT(fMinOutputValue, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

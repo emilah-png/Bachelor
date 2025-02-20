@@ -6,6 +6,7 @@ VAR_GLOBAL
 	
 	// System Variable
 	fTimeStep 		: LREAL := 0.001; // [s]
+	
 	fConst1 		: LREAL := 0.0; // [-1, 1]
 	fConst2 		: LREAL := 0.0; // [-1, 1]
 	
