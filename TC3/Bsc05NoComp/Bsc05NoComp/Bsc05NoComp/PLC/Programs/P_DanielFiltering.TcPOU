@@ -3,15 +3,41 @@
   <POU Name="P_DanielFiltering" Id="{b0ab1a80-8902-48ac-9df1-809cbc187962}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_DanielFiltering
 VAR
+	fbFilterPs 					: FB_LowpassFilter;
+	
 	fbFilterMainPaDCV			: FB_LowpassFilter;
 	fbFilterMainPbDCV			: FB_LowpassFilter;
+	fbFilterMainPaCyl 			: FB_LowpassFilter;
+	fbFilterMainPistonPosition 	: FB_LowpassFilter;
 	
 	fbFilterJibPaDCV			: FB_LowpassFilter;
 	fbFilterJibPbDCV			: FB_LowpassFilter;
+	fbFilterJibPaCyl 			: FB_LowpassFilter;
+	fbFilterJibPbCyl 			: FB_LowpassFilter;
+	fbFilterJibPistonPosition 	: FB_LowpassFilter;
+	
+	
+	fbFilterWinchPa 			: FB_LowpassFilter;
+	fbFilterWinchPb 			: FB_LowpassFilter;
+	fbFilterWinchPosition		: FB_LowpassFilter;
+	
+	fbFilterU 					: FB_LowpassFilter;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbFilterMainPaDCV(
+      <ST><![CDATA[// SUPPLY
+fbFilterPs(
+	fInput := G_OPC.fPs.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fPs.fDanielFilter
+	
+);
+
+// MAIN
+fbFilterMainPaDCV(
 	fInput := G_OPC.fMainPaDCV.fSignal,
 	fDeltaT := G_FilterConstants.fSampleTime,
 	fCutoffFreq := G_FilterConstants.fCutoffFreq,
@@ -29,7 +55,110 @@ fbFilterMainPbDCV(
 	
 	fOutput => G_OPC.fMainPbDCV.fDanielFilter
 	
-);]]></ST>
+);
+
+fbFilterMainPaCyl(
+	fInput := G_OPC.fMainPaCyl.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fMainPaCyl.fDanielFilter
+	
+);
+
+fbFilterMainPistonPosition(
+	fInput := G_OPC.fMainPistonPosition.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fMainPistonPosition.fDanielFilter
+	
+);
+
+//JIB
+fbFilterJibPaDCV(
+	fInput := G_OPC.fJibPaDCV.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fJibPaDCV.fDanielFilter
+	
+);
+
+fbFilterJibPbDCV(
+	fInput := G_OPC.fJibPbDCV.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fJibPbDCV.fDanielFilter
+	
+);
+
+fbFilterJibPaCyl(
+	fInput := G_OPC.fJibPaCyl.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fJibPaCyl.fDanielFilter
+	
+);
+
+fbFilterJibPbCyl(
+	fInput := G_OPC.fJibPbCyl.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fJibPbCyl.fDanielFilter
+	
+);
+
+fbFilterJibPistonPosition(
+	fInput := G_OPC.fJibPistonPosition.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fJibPistonPosition.fDanielFilter
+	
+);
+
+// WINCH
+fbFilterWinchPa(
+	fInput := G_OPC.fWinchPa.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fWinchPa.fDanielFilter
+	
+);
+
+fbFilterWinchPb(
+	fInput := G_OPC.fWinchPb.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fWinchPb.fDanielFilter
+	
+);
+
+fbFilterWinchPosition(
+	fInput := G_OPC.fWinchDistance.fSignal,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fWinchDistance.fDanielFilter
+	
+);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

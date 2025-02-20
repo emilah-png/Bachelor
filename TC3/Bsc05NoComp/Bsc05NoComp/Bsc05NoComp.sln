@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # TcXaeShell Solution File, Format Version 11.00
-VisualStudioVersion = 17.7.34302.85
+VisualStudioVersion = 15.0.34829.251
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "Bsc05NoComp", "Bsc05NoComp\Bsc05NoComp.tsproj", "{AF978348-7B8C-4C3D-8F5C-95AF4E81204A}"
 EndProject
