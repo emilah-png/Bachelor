@@ -66,7 +66,7 @@ fbNormMainPistonPosition(
 	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
 	fMaxInputValue := 17285.0,
 	fMinInputValue := 370.0,
-	fMinOutputValue := 0.08,
+	fMinOutputValue := 0.081,
 	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	
@@ -99,8 +99,8 @@ fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
 	fMaxInputValue := 24163.0,
-	fMinInputValue := 3021.0,
-	fMinInputValue := 0.0,
+	fMinInputValue := 2930.0,
+	fMinOutputValue := 0.006,
 	fOutput => G_OPC.fJibPistonPosition.fSignal
 );
 
