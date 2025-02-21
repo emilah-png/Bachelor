@@ -40,7 +40,7 @@ ploy_c = p_c(1)*xc+p_c(2);
 plot(knuckl_pos.Variables,rad2deg(angle_c.Variables))
 hold on
 plot(main_pos.Variables,rad2deg(angle_b.Variables))
-plot(xb,ploy_b)
-plot(xc,ploy_c)
+%plot(xb,ploy_b)
+%plot(xc,ploy_c)
 grid on
 legend("Angle C as a function of knuckle stroke","Angle B as a function of main stroke","Location","southeast")
