@@ -24,7 +24,7 @@ END_VAR
 
 fNormalizedInput := (fRawInput - fMinInputValue) / (fMaxInputValue - fMinInputValue);
 
-fOutput := LIMIT(fMinOutputValue, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);
+fOutput := LIMIT(0.0, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);
 
 ]]></ST>
     </Implementation>

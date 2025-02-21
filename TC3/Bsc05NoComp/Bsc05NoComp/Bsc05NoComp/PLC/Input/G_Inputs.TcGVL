@@ -32,8 +32,8 @@ VAR_GLOBAL
 	// Joystick Signals
 	nRawJoystickWinch		AT %I* : INT;
 	nRawJoystickRotation	AT %I* : INT;
-	nRawJoystickMain		AT %I* : INT; 
-	nRawJoystickJib			AT %I* : INT;
+	nRawJoystickMain		AT %I* : INT; // [+ = OUT][- = IN]
+	nRawJoystickJib			AT %I* : INT; // [- = OUT][+ = IN]
 	nRawJoystickExtrude		AT %I* : INT;
 
 	// Hawe Valve Values
