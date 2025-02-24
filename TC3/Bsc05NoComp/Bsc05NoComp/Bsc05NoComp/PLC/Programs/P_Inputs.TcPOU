@@ -34,7 +34,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[G_Enables.bEmergencyButton := G_Inputs.bEmergencySwitch;
 // Supply
 fbNormPs(
 	nRawInput := G_Inputs.nRawSupplyPs,

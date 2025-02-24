@@ -1,0 +1,2 @@
+Main pos [min,max] - [370,17285] - [0.01m, 0.755m] Stopper måling på 0.0845m på vei inn
+Jib pos [min,max] - [2930,24163] - [0.011m, 0.8557m]

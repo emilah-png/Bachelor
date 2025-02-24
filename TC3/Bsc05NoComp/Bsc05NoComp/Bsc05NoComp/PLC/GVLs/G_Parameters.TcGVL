@@ -7,8 +7,8 @@ VAR_GLOBAL
 	// System Variable
 	fTimeStep 		: LREAL := 0.010; // [s]
 	
-	fConst1 		: LREAL := 0.0; // [-1, 1]
-	fConst2 		: LREAL := 0.0; // [-1, 1]
+	fConst1 		: LREAL := 0.0; // [-1, 1][+ = OUT][- = IN]
+	fConst2 		: LREAL := 0.0; // [-1, 1][- = OUT][+ = IN]
 	
 	// FeedForward Variables
 	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
