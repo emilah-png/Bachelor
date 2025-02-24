@@ -6,9 +6,9 @@
 {attribute 'to_string'}
 TYPE E_Modes :
 (	
-	Auto,
-	Off,
-	Manuel
+	Manuel := 1,
+	Off := 2,
+	Auto := 3
 );
 END_TYPE
 ]]></Declaration>

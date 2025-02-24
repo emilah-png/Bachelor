@@ -36,7 +36,7 @@ IF (G_Enables.bEnablePID AND G_Mode.bRunning) THEN
 	);
 
 	fbOnePID(
-		fX := G_OPC.fXRef,
+		fX := G_OPC.fXRefOne,
 		fXReal := G_OPC.fMainPistonPosition.fFilteredSignal,
 		fKp := G_Parameters.fOneP,
 		fKi := G_Parameters.fOneI,

@@ -48,8 +48,11 @@ VAR_GLOBAL
 	fValveTwoPID			: LREAL; // [-1, 1]
 	
 	// Motion Ref
-	fXRef					: LREAL; // [m]
-	fXDotRef				: LREAL; // [m/s]
+	fXRefOne				: LREAL; // [m]
+	fXDotRefOne				: LREAL; // [m/s]
+	
+	fXRefTwo				: LREAL; // [m]
+	fXDotRefTwo				: LREAL; // [m/s]
 
 END_VAR
 ]]></Declaration>

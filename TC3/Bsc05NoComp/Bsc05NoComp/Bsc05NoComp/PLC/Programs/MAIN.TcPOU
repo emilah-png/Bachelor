@@ -11,6 +11,7 @@ END_VAR
 P_DanielFiltering();
 //P_Modes();
 P_RunClock();
+P_HMI();
 P_Inputs();
 P_Output();
 P_FeedForward();

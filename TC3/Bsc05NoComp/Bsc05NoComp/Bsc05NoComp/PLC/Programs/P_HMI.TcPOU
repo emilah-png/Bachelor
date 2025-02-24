@@ -10,7 +10,12 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[IF G_HMI.nManuelMode < 0 THEN
+	G_HMI.nManuelMode := 0;
+ELSIF G_HMI.nManuelMode > 2 THEN
+	G_HMI.nManuelMode := 2;
+END_IF
+
 
 IF G_Enables.bErrorOne THEN
 	G_HMI.fSlider_1 := 0;
