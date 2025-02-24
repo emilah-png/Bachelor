@@ -10,6 +10,7 @@ VAR_GLOBAL
 	fSlider_2				:	LREAL;
 	bButton_Cylinder_1		:	BOOL;
 	bButton_Cylinder_2		:	BOOL;
+	nManuelMode				:	INT;
 	
 END_VAR]]></Declaration>
   </GVL>

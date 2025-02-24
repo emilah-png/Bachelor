@@ -18,13 +18,12 @@ VAR_GLOBAL
 	bErrorOne 			: BOOL;
 	bErrorTwo			: BOOL;
 	
-	// Tests
+	// Modes
+	bAuto				: BOOL;
 	bManual				: BOOL;
 	bManDirect			: BOOL;
 	bManConst			: BOOL;
 	bManSpeed			: BOOL;
-	bAuto				: BOOL;
-	
 	
 END_VAR
 ]]></Declaration>

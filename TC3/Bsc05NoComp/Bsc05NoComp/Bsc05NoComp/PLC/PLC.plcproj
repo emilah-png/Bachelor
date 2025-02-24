@@ -40,6 +40,9 @@
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\E_ManuelModes.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\E_Modes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
