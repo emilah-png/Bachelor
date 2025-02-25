@@ -15,18 +15,26 @@ END_VAR
 		fDeadBandUp := G_Parameters.fDeadUpOne,
 		fDeadBandDown := G_Parameters.fDeadUpOne,
 		fXDotRef := G_OPC.fXDotRefOne,
-		fError := G_OPC.fValveOneSignals.fError, 
+		fError := G_OPC.fValveOneSignals.fError,
+
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU, 
 		
 		fU => G_OPC.fValveOneSignals.fU
 	);
 	
-	fbControl1(
+	fbControl2(
 		fFF := G_OPC.fValveTwoSignals.fFF,
 		fPID := G_OPC.fValveTwoSignals.fPID,
 		fDeadBandUp := G_Parameters.fDeadUpTwo,
 		fDeadBandDown := G_Parameters.fDeadUpTwo,
 		fXDotRef := G_OPC.fXDotRefTwo,
 		fError := G_OPC.fValveTwoSignals.fError, 
+		
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU,
 		
 		fU => G_OPC.fValveTwoSignals.fU
 	);

@@ -15,11 +15,11 @@ VAR_GLOBAL
 	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
 	
 	// PID Variables
-	fOneP 			: LREAL := 0.0; // P
+	fOneP 			: LREAL := 1.0; // P
 	fOneI 			: LREAL := 0.0; // I
 	fOneD 			: LREAL := 0.0; // D
 	
-	fTwoP 			: LREAL := 0.0; // P
+	fTwoP 			: LREAL := 1.0; // P
 	fTwoI 			: LREAL := 0.0; // I
 	fTwoD 			: LREAL := 0.0; // D
 	

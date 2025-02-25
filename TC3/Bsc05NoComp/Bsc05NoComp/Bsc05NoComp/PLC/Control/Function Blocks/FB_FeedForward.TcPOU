@@ -47,7 +47,7 @@ IF fXDot > 0.0 THEN
 	fDeltaP_Ref := ABS(fDeltaP_Norm/ (fDeltaP + 1.0));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
 	fUFFTemp :=	(fFlowRef * fSlopeCharUp) / fSpoolTravel;
-	fUFF := fUFFTemp * (1-fDeadBandUp);
+	fUFFTemp := fUFFTemp * (1-fDeadBandUp);
 	
 ELSIF fXDot < 0.0 THEN
 	
@@ -56,12 +56,20 @@ ELSIF fXDot < 0.0 THEN
 	fDeltaP_Ref := ABS(fDeltaP_Norm/(fDeltaP + 1.0));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
 	fUFFTemp :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
-	fUFF := fUFFTemp*(1-fDeadBandDown);
+	fUFFTemp := fUFFTemp*(1-fDeadBandDown);
 	
 ELSE
 	
 	fUFFTemp := 0.0;		
 
+END_IF
+
+IF fUFFTemp > 1.0 THEN
+	fUFF := 1.0;
+ELSIF fUFFTemp < -1.0 THEN
+	fUFF := -1.0;
+ELSE
+	fUFF := fUFFTemp;
 END_IF
 
 

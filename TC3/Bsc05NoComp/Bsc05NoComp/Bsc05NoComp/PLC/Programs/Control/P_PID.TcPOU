@@ -12,7 +12,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF (G_Enables.bEnablePID AND G_Mode.bRunning) THEN
+IF (G_Enables.bEnablePID) THEN
 	// PID One
 	fbDerivatorFiltering(
 		ssMethodType := 1,
