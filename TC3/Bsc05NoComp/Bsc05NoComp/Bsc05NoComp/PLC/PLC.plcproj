@@ -31,12 +31,6 @@
     <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_Running.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Control\Function Blocks\FB_ControlSignal.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
