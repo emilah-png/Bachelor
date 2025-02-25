@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Signals" Id="{1a8d1cb5-ae4d-41a6-919c-e179c49138cd}">
+    <Declaration><![CDATA[TYPE ST_Signals :
+STRUCT
+	fOutSignal 				: LREAL; // Direct Signal
+	fOutCompansated			: LREAL; // DB Compansated
+	fFF						: LREAL; // FeedForward Signal
+	fPID					: LREAL; // PID Signal
+	fU						: LREAL; // FF + PID + DB
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

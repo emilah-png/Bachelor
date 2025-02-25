@@ -43,10 +43,10 @@
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\E_ManuelModes.TcDUT">
+    <Compile Include="GVLs\ENUMs\E_ManuelModes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\E_Modes.TcDUT">
+    <Compile Include="GVLs\ENUMs\E_Modes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\G_Enables.TcGVL">
@@ -84,6 +84,9 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\ST_Signals.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Input\Function Blocks\FB_JoystickInputScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -119,37 +122,37 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\Background PRGs\P_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Background PRGs\P_DanielFiltering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Background PRGs\P_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Control\P_DeadBand.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Control\P_FeedForward.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Control\P_PID.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\IO\P_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\IO\P_Output.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_DanielFiltering.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_DeadBand.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_FeedForward.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_HMI.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_Inputs.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Programs\P_Motion.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_Output.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_PID.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_Clock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\FB_Derivator.TcPOU">
@@ -168,6 +171,7 @@
   <ItemGroup>
     <Folder Include="Control\Function Blocks" />
     <Folder Include="GVLs" />
+    <Folder Include="GVLs\ENUMs" />
     <Folder Include="GVLs\Static" />
     <Folder Include="Input" />
     <Folder Include="Filtering" />
@@ -175,6 +179,9 @@
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
     <Folder Include="Output" />
+    <Folder Include="Programs\Control" />
+    <Folder Include="Programs\IO" />
+    <Folder Include="Programs\Background PRGs" />
     <Folder Include="XML" />
     <Folder Include="Programs" />
   </ItemGroup>
