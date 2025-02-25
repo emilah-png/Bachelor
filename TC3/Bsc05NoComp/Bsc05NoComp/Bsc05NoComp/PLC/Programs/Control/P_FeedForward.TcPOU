@@ -14,8 +14,12 @@ END_VAR
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fMainPaDCV.fDanielFilter,
 	fPb := G_OPC.fMainPbDCV.fDanielFilter,
-	fXDot := 0.0,
+	fXDot := G_OPC.fXDotRefOne,
 	fDeltaP0 := G_Parameters.fDeltaP0One,
+	fMaxFlowUp := G_Parameters.fQMaxUpOne,
+	fMaxFlowDown := G_Parameters.fQMaxUpOne,
+	fArea := G_Parameters.fAreaOne,
+	fPhi := G_Parameters.fAreaRelationOne,
 	
 	fUFF => G_OPC.fValveOneSignals.fFF
 );
@@ -24,8 +28,12 @@ END_VAR
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fJibPaDCV.fDanielFilter,
 	fPb := G_OPC.fJibPbDCV.fDanielFilter,
-	fXDot := 0.0,
+	fXDot := G_OPC.fXDotRefTwo,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
+	fMaxFlowUp := G_Parameters.fQMaxUpTwo,
+	fMaxFlowDown := G_Parameters.fQMaxUpTwo,
+	fArea := G_Parameters.fAreaTwo,
+	fPhi := G_Parameters.fAreaRelationTwo,
 	
 	fUFF => G_OPC.fValveTwoSignals.fFF
 );]]></ST>

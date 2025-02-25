@@ -9,15 +9,17 @@ VAR_INPUT
 	fXDot			: LREAL;
 	fDeltaP0		: LREAL; // [Bar]
 	fArea			: LREAL; // [mm]
+	fPhi			: LREAL; // Relation between Areas
+	fMaxFlowUp		: LREAL; // [L/min]
+	fMaxFlowDown	: LREAL; // [L/min]
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
 END_VAR
 VAR
-	fPhi 			: LREAL; 	// Relation between Areas
-	fBandWidth		: LREAL; 	// Band Width
 	fSpoolTravel 	: LREAL; 	// Maximum Spool Travel
-	fSlopeChar		: LREAL; 	// Valve Slope Characteristic [mm/(L/min)]
+	fSlopeCharUp	: LREAL;	// Valve Slope Characteristic [mm/(L/min)]
+	fSlopeCharDown	: LREAL;	// Valve Slope Characteristic [mm/(L/min)]
 	fDeltaP_Norm	: LREAL; 	// Pressure Drop with Compansator
 	
 	fFlow			: LREAL; 	// Wanted Flow
@@ -29,9 +31,9 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fPhi 			:= 0.713; 								// Relation between Areas
 fArea 			:= fArea/(100.0*100.0); 				// Area of Piston Side
-fBandWidth		:= 0.0; 								// Band Width
-fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
-fSlopeChar		:= (fSpoolTravel - fBandWidth)/25.0; 	// Valve Slope Characteristic [mm/(L/min)]
+fSpoolTravel 	:= 8.0; 								// Maximum Spool Travel
+fSlopeCharUp	:= (fSpoolTravel)/fMaxFlowUp; 	// Valve Slope Characteristic [mm/(L/min)]
+fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 	// Valve Slope Characteristic [mm/(L/min)]
 fDeltaP_Norm	:= fDeltaP0 * 100000.0;
 	
 IF fXDot > 0.0 THEN
@@ -40,7 +42,7 @@ IF fXDot > 0.0 THEN
 	fDeltaP := (fPs - fPa) * 100000.0;
 	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFF :=	(fFlowRef * fSlopeChar + fBandWidth) / fSpoolTravel;
+	fUFF :=	(fFlowRef * fSlopeCharUp) / fSpoolTravel;
 	
 ELSIF fXDot < 0.0 THEN
 	
@@ -48,7 +50,7 @@ ELSIF fXDot < 0.0 THEN
 	fDeltaP := (fPs - fPb) * 100000.0;
 	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFF :=	(fFlowRef * fSlopeChar - fBandWidth) / fSpoolTravel;
+	fUFF :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
 	
 ELSE
 	

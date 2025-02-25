@@ -24,18 +24,21 @@ VAR_GLOBAL
 	fTwoD 			: LREAL := 0.0; // D
 	
 	// Valve Variables
-	// 
 	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
 	fQMaxDownOne	: LREAL := 25.0; // [L/min]
 	fDeadUpOne 		: LREAL := -0.18;
 	fDeadDownOne	: LREAL := 0.205;
 	fDeltaP0One		: LREAL := 6.0; // [Bar]
+	fAreaOne		: LREAL := 3.0; // [cm^2]
+	fAreaRelationOne: LREAL := 0.3;
 	
 	fQMaxUpTwo 		: LREAL := 25.0; // [L/min]
 	fQMaxDownTwo	: LREAL := 25.0; // [L/min]
 	fDeadUpTwo 		: LREAL := 0.175;
 	fDeadDownTwo	: LREAL := -0.155;
 	fDeltaP0Two		: LREAL := 6.0; // [Bar]
+	fAreaTwo		: LREAL := 3.0; // [cm^2]
+	fAreaRelationTwo: LREAL := 0.3;
 	
 	// Piston Variables 
 	fMaxStrokeMain 	: LREAL := 0.755; // [m]
