@@ -5,11 +5,9 @@
 VAR_INPUT
 	
 	bStartEnable 	: BOOL;
-	fTimeStep 		: LREAL;
 	
 END_VAR
 VAR_OUTPUT
-	F_GetSystemTime1 : ULINT;
 	fTime 			: LREAL;
 END_VAR
 VAR
@@ -19,7 +17,7 @@ END_VAR
       <ST><![CDATA[IF NOT(bStartEnable) THEN
 	fTime := 0.0;
 ELSE
-	fTime := fTime + fTimeStep;
+	fTime := fTime + G_Parameters.fTimeStep;
 END_IF]]></ST>
     </Implementation>
   </POU>

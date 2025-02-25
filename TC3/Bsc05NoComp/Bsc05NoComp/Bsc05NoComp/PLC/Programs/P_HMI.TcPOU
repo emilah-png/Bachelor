@@ -16,6 +16,12 @@ ELSIF G_HMI.nManuelMode > 2 THEN
 	G_HMI.nManuelMode := 2;
 END_IF
 
+IF G_HMI.nCounter < 1 THEN
+	G_HMI.nCounter := 1;
+ELSIF G_HMI.nCounter > 3 THEN
+	G_HMI.nCounter := 3; 
+END_IF
+
 
 IF G_Enables.bErrorOne THEN
 	G_HMI.fSlider_1 := 0;

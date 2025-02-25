@@ -11,6 +11,8 @@ VAR_GLOBAL
 	bButton_Cylinder_1		:	BOOL;
 	bButton_Cylinder_2		:	BOOL;
 	nManuelMode				:	INT;
+	fNumPad1				:	LREAL;
+	fNumPad2				:	LREAL;
 	
 END_VAR]]></Declaration>
   </GVL>

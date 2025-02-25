@@ -3,7 +3,7 @@
   <POU Name="P_Output" Id="{ea868c64-71e1-491f-a495-e9db7d8a4d4c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Output
 VAR
-	fbMotionRef : FB_MotionRef;
+	fbMotionRef : FB_SineMotionRef;
 	Mode : E_Modes;
 	ManModes : E_ManuelModes;
 END_VAR
@@ -42,8 +42,8 @@ END_VAR
 			
 				G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
 				G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
-				G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fXDotRefOne * 32767.0) ;
-				G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fXDotRefTwo * 32767.0) ;
+				G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneCompansatedOut * 32767.0) ;
+				G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoCompansatedOut * 32767.0) ;
 				G_Enables.bManDirect := FALSE;
 				G_Enables.bManConst := FALSE;
 				G_Enables.bManSpeed := TRUE;

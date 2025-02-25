@@ -3,8 +3,8 @@
   <POU Name="P_Motion" Id="{e2f87671-7351-4a5e-baec-94080915a986}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Motion
 VAR
-	fbMotionRefMain	: FB_MotionRef;
-	fbMotionRefJib	: FB_MotionRef;
+	fbSineMotionRefMain	: FB_SineMotionRef;
+	fbSineMotionRefJib	: FB_SineMotionRef;
 	
 	fbInitPosMain 	: FB_InitialPos;
 	fbInitPosJib	: FB_InitialPos;
@@ -13,28 +13,47 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fbInitPosMain(
 	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableOne,
-	fCurrentPos := G_OPC.fMainPistonPosition
+	fCurrentPos := G_OPC.fMainPistonPosition.fDanielFilter
 );
 
 fbInitPosJib(
 	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableTwo,
-	fCurrentPos := G_OPC.fMainPistonPosition
+	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
 );
 
-fbMotionRefMain(
+fbSineMotionRefMain(
 	fInitialPos := fbInitPosMain.fInitialPos
 );
 
-fbMotionRefJib(
+fbSineMotionRefJib(
 	fInitialPos := fbInitPosJib.fInitialPos
 );
 
-IF 
-fbMotionRefMain(
-	fAmplitude := G_Parameters.fMainAmplitude,
-	fTime := 0.0,
-	fInitialPos := 0.0
-);]]></ST>
+IF G_Enables.bSineMotion THEN
+	fbSineMotionRefMain(
+		bEnableMotion := G_Enables.bSineMotion,
+		fTime := G_OPC.fMotionTime,
+		fFrequency := G_Parameters.fMainFrequency,
+		fAmplitude := G_Parameters.fMainAmplitude,
+		
+		fXDotRef => G_OPC.fXDotRefOne,
+		fXRef => G_OPC.fXRefOne
+	);
+	
+	fbSineMotionRefJib(
+		bEnableMotion := G_Enables.bSineMotion,
+		fTime := G_OPC.fMotionTime,
+		fFrequency := G_Parameters.fJibFrequency,
+		fAmplitude := G_Parameters.fJibAmplitude,
+		
+		fXDotRef => G_OPC.fXDotRefTwo,
+		fXRef => G_OPC.fXRefTwo
+	);
+	
+	
+END_IF
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

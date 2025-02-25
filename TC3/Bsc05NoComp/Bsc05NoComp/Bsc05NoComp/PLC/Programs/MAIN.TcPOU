@@ -9,13 +9,13 @@ END_VAR
     <Implementation>
       <ST><![CDATA[P_Filtering();
 P_DanielFiltering();
-//P_Modes();
-P_RunClock();
+P_Clock();
 P_HMI();
 P_Inputs();
 P_Output();
 P_FeedForward();
 P_PID();
+P_Motion();
 ]]></ST>
     </Implementation>
   </POU>

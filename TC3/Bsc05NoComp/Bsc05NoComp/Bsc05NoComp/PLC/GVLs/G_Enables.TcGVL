@@ -18,6 +18,8 @@ VAR_GLOBAL
 	bErrorOne 			: BOOL;
 	bErrorTwo			: BOOL;
 	
+	bSineMotion			: BOOL;
+	
 	// Modes
 	bAuto				: BOOL;
 	bManual				: BOOL;

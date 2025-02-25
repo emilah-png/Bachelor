@@ -8,9 +8,7 @@ VAR_GLOBAL
 	fTime					: LREAL; // [s]
 	fPs 					: ST_Filter; // [Bar]
 	fErrorOne				: LREAL; // []
-	fSignalOne				: LREAL; // [-1, 1]
 	fErrorTwo				: LREAL; // []
-	fSignalTwo				: LREAL; // [-1, 1]
 	
 	// MAIN Values
 	fMainPaDCV				: ST_Filter; // [Bar]
@@ -42,12 +40,16 @@ VAR_GLOBAL
 	fValveOneOutput			: LREAL; // [-1, 1]
 	fValveOneFF				: LREAL; // [-1, 1]
 	fValveOnePID			: LREAL; // [-1, 1]
+	fValveOneCompansatedOut : LREAL; // [-1, 1]
 	
 	fValveTwoOutput			: LREAL; // [-1, 1]
 	fValveTwoFF				: LREAL; // [-1, 1]
 	fValveTwoPID			: LREAL; // [-1, 1]
+	fValveTwoCompansatedOut : LREAL; // [-1, 1]
 	
 	// Motion Ref
+	fMotionTime				: LREAL; // [s]
+	
 	fXRefOne				: LREAL; // [m]
 	fXDotRefOne				: LREAL; // [m/s]
 	

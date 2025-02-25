@@ -1,0 +1,3 @@
+DeadBand
+Jib  [UP, Down] - [-0.18, 0.205]
+Main [UP, Down] - [0.175, -0.155]

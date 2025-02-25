@@ -11,9 +11,9 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[ fbFFOne(
-	fPs := G_OPC.fPs.fFilteredSignal,
-	fPa := G_OPC.fMainPaDCV.fFilteredSignal,
-	fPb := G_OPC.fMainPbDCV.fFilteredSignal,
+	fPs := G_OPC.fPs.fDanielFilter,
+	fPa := G_OPC.fMainPaDCV.fDanielFilter,
+	fPb := G_OPC.fMainPbDCV.fDanielFilter,
 	fXDot := 0.0,
 	fDeltaP0 := G_Parameters.fDeltaP0One,
 	
@@ -21,9 +21,9 @@ END_VAR
 );
 
  fbFFTwo(
-	fPs := G_OPC.fPs.fFilteredSignal,
-	fPa := G_OPC.fJibPaDCV.fFilteredSignal,
-	fPb := G_OPC.fJibPbDCV.fFilteredSignal,
+	fPs := G_OPC.fPs.fDanielFilter,
+	fPa := G_OPC.fJibPaDCV.fDanielFilter,
+	fPb := G_OPC.fJibPbDCV.fDanielFilter,
 	fXDot := 0.0,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
 	

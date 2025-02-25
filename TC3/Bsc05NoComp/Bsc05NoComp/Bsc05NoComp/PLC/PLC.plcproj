@@ -19,6 +19,9 @@
     <CompilerDefines>VISU_USEPROPERTYINFO</CompilerDefines>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Control\Function Blocks\FB_DeadBand.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Control\Function Blocks\FB_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -103,7 +106,7 @@
     <Compile Include="Motion\FB_InitialPos.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Motion\FB_MotionRef.TcPOU">
+    <Compile Include="Motion\FB_SineMotionRef.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Output\FB_OutputNormalizing.TcPOU">
@@ -122,6 +125,9 @@
     <Compile Include="Programs\P_DanielFiltering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_DeadBand.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\P_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -134,9 +140,6 @@
     <Compile Include="Programs\P_Inputs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_Modes.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Programs\P_Motion.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -146,7 +149,7 @@
     <Compile Include="Programs\P_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_RunClock.TcPOU">
+    <Compile Include="Programs\P_Clock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\FB_Derivator.TcPOU">
