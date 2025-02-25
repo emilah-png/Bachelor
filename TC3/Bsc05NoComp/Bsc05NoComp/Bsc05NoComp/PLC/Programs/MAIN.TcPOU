@@ -13,6 +13,7 @@ P_Clock();
 P_HMI();
 P_Inputs();
 P_Output();
+P_DeadBand();
 P_FeedForward();
 P_PID();
 P_Motion();

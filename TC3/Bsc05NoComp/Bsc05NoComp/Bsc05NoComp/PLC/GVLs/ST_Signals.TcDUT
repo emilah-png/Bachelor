@@ -3,10 +3,11 @@
   <DUT Name="ST_Signals" Id="{1a8d1cb5-ae4d-41a6-919c-e179c49138cd}">
     <Declaration><![CDATA[TYPE ST_Signals :
 STRUCT
-	fOutSignal 				: LREAL; // Direct Signal
+	fOutSignal 				: LREAL; // Direct Signal, NOT IN USE
 	fOutCompansated			: LREAL; // DB Compansated
 	fFF						: LREAL; // FeedForward Signal
 	fPID					: LREAL; // PID Signal
+	fError					: LREAL; // Signal Error
 	fU						: LREAL; // FF + PID + DB
 END_STRUCT
 END_TYPE

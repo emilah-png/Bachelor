@@ -13,7 +13,7 @@ END_VAR
 	fDeadBandUp := G_Parameters.fDeadUpOne,
 	fDeadBanddown := G_Parameters.fDeadDownOne,
 	fXDotRef := G_Parameters.fMaxSpeedMain * G_OPC.fJoystickMain,
-	fCompansatedSignal =>G_OPC.fValveOneCompansatedOut
+	fCompansatedSignal =>G_OPC.fValveOneSignals.fOutCompansated
 );
 
 fbDeadBandTwo(
@@ -21,7 +21,7 @@ fbDeadBandTwo(
 	fDeadBandUp := G_Parameters.fDeadUpTwo,
 	fDeadBanddown := G_Parameters.fDeadDownTwo,
 	fXDotRef := G_Parameters.fMaxSpeedJib * G_OPC.fJoystickJib,
-	fCompansatedSignal =>G_OPC.fValveTwoCompansatedOut
+	fCompansatedSignal =>G_OPC.fValveTwoSignals.fOutCompansated
 );]]></ST>
     </Implementation>
   </POU>

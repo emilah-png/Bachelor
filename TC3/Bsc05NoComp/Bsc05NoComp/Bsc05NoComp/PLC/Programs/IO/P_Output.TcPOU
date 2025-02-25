@@ -42,8 +42,8 @@ END_VAR
 			
 				G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
 				G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
-				G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneCompansatedOut * 32767.0) ;
-				G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoCompansatedOut * 32767.0) ;
+				G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fOutCompansated * 32767.0) ;
+				G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fOutCompansated * 32767.0) ;
 				G_Enables.bManDirect := FALSE;
 				G_Enables.bManConst := FALSE;
 				G_Enables.bManSpeed := TRUE;
@@ -64,8 +64,8 @@ END_VAR
 
 	E_Modes.Auto:
 		fbMotionRef();
-		G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneOutput * 32767.0);
-		G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoOutput * 32767.0);
+		G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0);
+		G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0);
 		G_Output.bEnableValveOne := G_Inputs.bEnableButton AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
 		G_Output.bEnableValveTwo := G_Inputs.bEnableButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 		G_Enables.bManual := FALSE;

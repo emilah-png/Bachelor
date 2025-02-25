@@ -42,8 +42,8 @@ IF (G_Enables.bEnablePID AND G_Mode.bRunning) THEN
 		fKi := G_Parameters.fOneI,
 		fKd := G_Parameters.fOneD,
 		
-		fError => G_OPC.fErrorOne,
-		fSignalAdjusted => G_OPC.fValveOnePID
+		fError => G_OPC.fValveOneSignals.fError,
+		fSignalAdjusted => G_OPC.fValveOneSignals.fPID
 	);
 
 END_IF

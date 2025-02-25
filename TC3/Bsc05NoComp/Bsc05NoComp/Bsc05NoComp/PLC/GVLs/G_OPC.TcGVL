@@ -7,8 +7,6 @@ VAR_GLOBAL
 	// System Values 
 	fTime					: LREAL; // [s]
 	fPs 					: ST_Filter; // [Bar]
-	fErrorOne				: LREAL; // []
-	fErrorTwo				: LREAL; // []
 	
 	// MAIN Values
 	fMainPaDCV				: ST_Filter; // [Bar]
@@ -37,15 +35,11 @@ VAR_GLOBAL
 	fJoystickExtrude		: LREAL; // [-1, 1]
 	
 	// Valve Signals
+	fValveOneSignals		: ST_Signals; // [-1, 1]
 	fValveOneOutput			: LREAL; // [-1, 1]
-	fValveOneFF				: LREAL; // [-1, 1]
-	fValveOnePID			: LREAL; // [-1, 1]
-	fValveOneCompansatedOut : LREAL; // [-1, 1]
 	
+	fValveTwoSignals		: ST_Signals; // [-1, 1]
 	fValveTwoOutput			: LREAL; // [-1, 1]
-	fValveTwoFF				: LREAL; // [-1, 1]
-	fValveTwoPID			: LREAL; // [-1, 1]
-	fValveTwoCompansatedOut : LREAL; // [-1, 1]
 	
 	// Motion Ref
 	fMotionTime				: LREAL; // [s]

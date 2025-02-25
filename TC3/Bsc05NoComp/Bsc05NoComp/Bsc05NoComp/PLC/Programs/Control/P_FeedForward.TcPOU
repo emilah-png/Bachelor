@@ -17,7 +17,7 @@ END_VAR
 	fXDot := 0.0,
 	fDeltaP0 := G_Parameters.fDeltaP0One,
 	
-	fUFF => G_OPC.fValveOneFF
+	fUFF => G_OPC.fValveOneSignals.fFF
 );
 
  fbFFTwo(
@@ -27,7 +27,7 @@ END_VAR
 	fXDot := 0.0,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
 	
-	fUFF => G_OPC.fValveTwoFF
+	fUFF => G_OPC.fValveTwoSignals.fFF
 );]]></ST>
     </Implementation>
   </POU>
