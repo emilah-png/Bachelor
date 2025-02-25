@@ -36,10 +36,8 @@ VAR_GLOBAL
 	
 	// Valve Signals
 	fValveOneSignals		: ST_Signals; // [-1, 1]
-	fValveOneOutput			: LREAL; // [-1, 1]
 	
 	fValveTwoSignals		: ST_Signals; // [-1, 1]
-	fValveTwoOutput			: LREAL; // [-1, 1]
 	
 	// Motion Ref
 	fMotionTime				: LREAL; // [s]
