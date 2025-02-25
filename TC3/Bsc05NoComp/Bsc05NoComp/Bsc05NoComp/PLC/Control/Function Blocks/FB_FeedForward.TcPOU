@@ -6,12 +6,14 @@ VAR_INPUT
 	fPs 			: LREAL; // [Bar]
 	fPa 			: LREAL; // [Bar]
 	fPb 			: LREAL; // [Bar]
-	fXDot			: LREAL;
+	fXDot			: LREAL; // [m/s]
 	fDeltaP0		: LREAL; // [Bar]
 	fArea			: LREAL; // [mm]
 	fPhi			: LREAL; // Relation between Areas
 	fMaxFlowUp		: LREAL; // [L/min]
 	fMaxFlowDown	: LREAL; // [L/min]
+	fDeadBandUp		: LREAL; 
+	fDeadBandDown	: LREAL;
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
@@ -26,6 +28,8 @@ VAR
 	fDeltaP			: LREAL; 	// Pressure Drop
 	fDeltaP_Ref		: LREAL; 	// Referance Pressure Drop
 	fFlowRef		: LREAL; 	// Refereance Flow
+	
+	fUFFTemp		: LREAL;	// Temp Signal Out
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -40,23 +44,27 @@ IF fXDot > 0.0 THEN
 	
 	fFlow := fXDot * fArea;
 	fDeltaP := (fPs - fPa) * 100000.0;
-	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
+	fDeltaP_Ref := ABS(fDeltaP_Norm/ (fDeltaP + 1.0));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFF :=	(fFlowRef * fSlopeCharUp) / fSpoolTravel;
+	fUFFTemp :=	(fFlowRef * fSlopeCharUp) / fSpoolTravel;
+	fUFF := fUFFTemp * (1-fDeadBandUp);
 	
 ELSIF fXDot < 0.0 THEN
 	
 	fFlow := fXDot * fArea;
 	fDeltaP := (fPs - fPb) * 100000.0;
-	fDeltaP_Ref := ABS(fDeltaP_Norm/fDeltaP);
+	fDeltaP_Ref := ABS(fDeltaP_Norm/(fDeltaP + 1.0));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFF :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
+	fUFFTemp :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
+	fUFF := fUFFTemp*(1-fDeadBandDown);
 	
 ELSE
 	
-	fUFF := 0.0;		
+	fUFFTemp := 0.0;		
 
 END_IF
+
+
 ]]></ST>
     </Implementation>
   </POU>
