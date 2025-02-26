@@ -1,0 +1,18 @@
+﻿{
+    "$schema": "http://json-schema.org/schema#",
+    "definitions": {
+        "ChartDataType": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "title": "ChartDataType",
+            "type": "object",
+            "properties": {
+                "_date": {
+                    "type": "string"
+                },
+                "_value": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                }
+            }
+        }
+    }
+}

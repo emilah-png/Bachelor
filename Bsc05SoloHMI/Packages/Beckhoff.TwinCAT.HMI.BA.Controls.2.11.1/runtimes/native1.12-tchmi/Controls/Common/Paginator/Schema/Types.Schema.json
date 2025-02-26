@@ -1,0 +1,17 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Paginator": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiRegion",
+      "frameworkControlType": "Paginator",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Paginator.Pages": {
+      "type": "array",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/ContentPath"
+      }
+    }
+  }
+}

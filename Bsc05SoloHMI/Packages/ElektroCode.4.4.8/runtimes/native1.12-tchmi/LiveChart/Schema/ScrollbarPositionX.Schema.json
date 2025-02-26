@@ -1,0 +1,11 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "definitions": {
+        "ScrollbarPositionX": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "title": "ScrollbarPositionX",
+            "type": "string",
+            "enum": [ "None", "Top", "Bottom" ]
+        }
+    }
+}

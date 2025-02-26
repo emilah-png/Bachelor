@@ -1,0 +1,231 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Scale": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "Scale",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleSetpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.ICoordinateXY",
+        "title": "ScaleSetpoint",
+        "description": "Defines a scale setpoint"
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleBehavior": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        {
+          "label": "any",
+          "value": 0
+        },
+        {
+          "label": "onlyDecreasing",
+          "value": 1
+        },
+        {
+          "label": "onlyIncreasing",
+          "value": 2
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleEnding": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        {
+          "label": "direct",
+          "value": 0
+        },
+        {
+          "label": "infinity",
+          "value": 1
+        },
+        {
+          "label": "limits",
+          "value": 2
+        },
+        {
+          "label": "cutOff",
+          "value": 3
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Scale.Scales": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Scales",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Scale",
+        "description": "Defines a scale.",
+        "engineeringColumns": [
+          "Title"
+        ],
+        "propertiesMeta": [
+          {
+            "name": "ScaleSetpoints",
+            "category": "Common",
+            "displayName": "ScaleSetpoints",
+            "displayPriority": 10,
+            "description": "",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "YMax",
+            "category": "Common",
+            "displayName": "YMax",
+            "displayPriority": 10,
+            "description": "",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "YMin",
+            "category": "Common",
+            "displayName": "YMin",
+            "displayPriority": 10,
+            "description": "",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "Title",
+            "category": "Common",
+            "displayName": "Title",
+            "displayPriority": 10,
+            "description": "Title of the scale -> used for the axis description.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "Behavior",
+            "category": "Common",
+            "displayName": "Behavior",
+            "displayPriority": 10,
+            "description": "Behavior of the scale",
+            "defaultValue": 0,
+            "defaultValueInternal": 0
+          },
+          {
+            "name": "Ending",
+            "category": "Common",
+            "displayName": "Ending",
+            "displayPriority": 10,
+            "description": "Einding of the scale",
+            "defaultValue": 0,
+            "defaultValueInternal": 0
+          },
+          {
+            "name": "SnapPeriode",
+            "category": "Common",
+            "displayName": "SnapPeriode",
+            "displayPriority": 10,
+            "description": "The periode the Setpoints should snap to after moving.",
+            "defaultValue": 1,
+            "defaultValueInternal": 1
+          },
+          {
+            "name": "AllowVerticalMovement",
+            "category": "Common",
+            "displayName": "AllowVerticalMovement",
+            "displayPriority": 10,
+            "description": "Defines if vertical movement of the Setpoints is allowed.",
+            "defaultValue": true,
+            "defaultValueInternal": true
+          },
+          {
+            "name": "AllowHorizontalMovement",
+            "category": "Common",
+            "displayName": "AllowHorizontalMovement",
+            "displayPriority": 10,
+            "description": "Defines if horizontal movement of the Setpoints is allowed.",
+            "defaultValue": true,
+            "defaultValueInternal": true
+          },
+          {
+            "name": "YAxisExtension",
+            "category": "Common",
+            "displayName": "YAxisExtension",
+            "displayPriority": 10,
+            "description": "Defines how much the y axis is extended from YMin and YMax.",
+            "defaultValue": 0,
+            "defaultValueInternal": 0
+          },
+          {
+            "name": "ReadOnly",
+            "category": "Common",
+            "displayName": "ReadOnly",
+            "displayPriority": 10,
+            "description": "Defines if horizontal movement of the Setpoints is allowed.",
+            "defaultValue": true,
+            "defaultValueInternal": true
+          },
+          {
+            "name": "Unit",
+            "category": "Common",
+            "displayName": "Unit",
+            "displayPriority": 10,
+            "description": "Defines the unit of the y axis.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "ScaleSetpoints": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleSetpoints"
+          },
+          "YMax": {
+            "type": "number"
+          },
+          "YMin": {
+            "type": "number"
+          },
+          "Title": {
+            "type": "string"
+          },
+          "Behavior": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleBehavior"
+          },
+          "Ending": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.Scale.ScaleEnding"
+          },
+          "SnapPeriode": {
+            "type": "number"
+          },
+          "AllowVerticalMovement": {
+            "type": "boolean"
+          },
+          "AllowHorizontalMovement": {
+            "type": "boolean"
+          },
+          "YAxisExtension": {
+            "type": "number"
+          },
+          "ReadOnly": {
+            "type": "boolean"
+          },
+          "Unit": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

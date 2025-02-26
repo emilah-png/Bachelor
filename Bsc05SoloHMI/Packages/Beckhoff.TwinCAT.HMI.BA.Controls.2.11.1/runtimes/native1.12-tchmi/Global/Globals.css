@@ -1,0 +1,15 @@
+/***********************/
+/*** Global Keyboard ***/
+/***********************/
+
+.TcHmi_Controls_Beckhoff_TcHmiKeyboard.ba-kb-gl {
+    --ba-width-kb: 750px;
+    --ba-height-kb: 250px;
+    --ba-width-window: 0px;
+    --ba-height-window: 0px;
+    width: var(--ba-width-kb);
+    height: var(--ba-height-kb);
+    left: calc( (var(--ba-width-window) / 2) - (var(--ba-width-kb) / 2) );
+    top: calc(var(--ba-height-window) - var(--ba-height-kb));
+    padding: 10px;
+}

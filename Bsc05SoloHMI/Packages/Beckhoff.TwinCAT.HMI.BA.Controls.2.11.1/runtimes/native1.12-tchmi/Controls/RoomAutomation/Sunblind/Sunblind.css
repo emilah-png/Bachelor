@@ -1,0 +1,27 @@
+/* Styles if display is shown */
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Sunblind.show-displays > div.tchmi-ba-text-handler {
+    align-items: flex-end;
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Sunblind > .control-container-element > .tchmi-ba-control-container > div.tchmi-ba-text-handler.slider {
+    margin: 0 8px 0 8px;
+}
+
+div.tchmi-ba-base.sunblind-icon > svg {
+    overflow: hidden;
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Sunblind > div.tchmi-ba-text-handler .option-grid {
+    background: var(--tchmi-ba-global-button-background);
+    display: flex;
+    flex: auto;
+    height: 100%;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_Sunblind > div.tchmi-ba-text-handler .option-grid > .tchmi-ba-control-container {
+        padding: 5px;
+    }

@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "IconOptions": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "IconOptions",
+      "type": "string",
+      "enum": [
+        "Use custom boxicon",
+        "<i class='bx bxs-dashboard'></i>",
+        "<i class='bx bxs-bell'></i>",
+        "<i class='bx bxs-receipt'></i>",
+        "<i class='bx bx-repeat'></i>",
+        "<i class='bx bxs-edit-alt'></i>",
+        "<i class='bx bxs-file-plus'></i>",
+        "<i class='bx bxs-folder-minus'></i>",
+        "<i class='bx bxs-hand' ></i>",
+        "<i class='bx bxs-cog' ></i>",
+        "<i class='bx bxs-circle-three-quarter' ></i>",
+        "<i class='bx bxs-data' ></i>"
+      ],
+      "defaultValue": "Use custom boxicon"
+    }
+  }
+}

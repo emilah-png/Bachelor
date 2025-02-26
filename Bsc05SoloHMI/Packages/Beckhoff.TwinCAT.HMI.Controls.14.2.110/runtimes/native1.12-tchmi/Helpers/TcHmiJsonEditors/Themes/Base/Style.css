@@ -1,0 +1,113 @@
+.TcHmi_Controls_Helpers_Editor {
+    --tchmi-selected-background: var(--tchmi-background-color-2);
+    --tchmi-invalid-background: var(--tchmi-error-color);
+    --tchmi-invalid-background-pressed: var(--tchmi-invalid-color);
+}
+
+.TcHmi_Controls_Helpers_Editor .compound-control-container .TcHmi_Controls_Beckhoff_TcHmiButton,
+.TcHmi_Controls_Helpers_Editor.compound-control-container .TcHmi_Controls_Beckhoff_TcHmiButton {
+    --tchmi-button-background: var(--tchmi-highlight-button-background);
+    --tchmi-button-background-pressed: var(--tchmi-highlight-button-background-pressed);
+    --tchmi-button-text-color: var(--tchmi-highlight-button-text-color);
+    --tchmi-button-text-color-pressed: var(--tchmi-highlight-button-text-color);
+    --tchmi-button-border: var(--tchmi-highlight-button-border);
+    --tchmi-button-border-pressed: var(--tchmi-highlight-button-border-pressed);
+    --tchmi-button-box-shadow: var(--tchmi-highlight-button-box-shadow);
+    --tchmi-button-box-shadow-pressed: var(--tchmi-highlight-button-box-shadow-pressed);
+}
+
+.TcHmi_Controls_Helpers_Editor .compound-control-container .TcHmi_Controls_Beckhoff_TcHmiButton.down,
+.TcHmi_Controls_Helpers_Editor.compound-control-container .TcHmi_Controls_Beckhoff_TcHmiButton.down {
+    box-shadow: var(--tchmi-inset-shadow);
+}
+
+.TcHmi_Controls_Helpers_Editor.disabled .value-description {
+    color: var(--tchmi-disabled-text-color);
+}
+
+.TcHmi_Controls_Helpers_Editor.disabled .TcHmi_Controls_Helpers_DirectoryBrowser-path-display::after {
+    background: var(--tchmi-control-background);
+}
+
+.TcHmi_Controls_Helpers_Editor-editor-table tr.selected td {
+    background: var(--tchmi-selected-background);
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-datetimepicker .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/datetimepicker.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-timespanpicker .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/timespanpicker.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-add .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/add.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-add.down .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/add_active.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-remove .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/remove.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-remove.down .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/remove_active.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-up .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/move-up.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-up.down .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/move-up_active.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-down .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/move-down.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor-button-icon-down.down .TcHmi_Controls_Beckhoff_TcHmiButton-template {
+    background-image: url('Images/move-down_active.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.TcHmi_Controls_Helpers_Editor .validation-errors {
+    color: var(--tchmi-invalid-background);
+}
+
+.TcHmi_Controls_Helpers_Editor
+    div.with-validation.invalid
+    :is(.TcHmi_Controls_Beckhoff_TcHmiButton, .TcHmi_Controls_Beckhoff_TcHmiCombobox-template-button) {
+    --tchmi-highlight-button-background: var(--tchmi-invalid-background);
+    --tchmi-highlight-button-background-pressed: var(--tchmi-invalid-background-pressed);
+}
+
+.TcHmi_Controls_Helpers_Editor
+    .disabled
+    div.with-validation.invalid
+    :is(.TcHmi_Controls_Beckhoff_TcHmiButton, .TcHmi_Controls_Beckhoff_TcHmiCombobox-template-button) {
+    --tchmi-highlight-button-background: unset;
+    --tchmi-highlight-button-background-pressed: unset;
+}

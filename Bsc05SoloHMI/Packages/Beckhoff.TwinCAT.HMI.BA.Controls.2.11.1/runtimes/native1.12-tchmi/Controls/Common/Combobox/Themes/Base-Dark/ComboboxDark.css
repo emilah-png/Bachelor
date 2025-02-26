@@ -1,0 +1,7 @@
+﻿/** Styles for the theme: Base-Dark */
+
+.tchmi-ba-text-handler.combobox {
+    --tchmi-ba-combobox-button-color: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-combobox-button-active-color: var(--tchmi-ba-global-button-background-pressed);
+    --tchmi-ba-combobox-button-arrow-color: white;
+}

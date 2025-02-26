@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="700"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 185.20832 185.20832"
+   width="700"
+   style="stroke: var(--tchmi-ba-global-icon-color, black);"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <g
+     id="g2390"
+     transform="translate(1926.4738,268.53889)"
+     style="display:inline;stroke:var(--tchmi-ba-global-icon-color, black);">
+    <ellipse
+       cx="-1833.8696"
+       cy="-222.45903"
+       id="circle2373"
+       rx="41.306015"
+       ry="41.448803"
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke-width:9.26042;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <path
+       d="m -1921.5762,-88.029044 h 175.4132 m -175.4132,2e-6 a 87.974326,86.256897 0 0 1 -0.2678,-6.724292 87.974326,86.256897 0 0 1 87.9743,-86.256896 87.974326,86.256897 0 0 1 87.9744,86.256896 v 0 a 87.974326,86.256897 0 0 1 -0.2679,6.725982"
+       id="path2385"
+       style="fill:none;stroke-width:9.26042;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

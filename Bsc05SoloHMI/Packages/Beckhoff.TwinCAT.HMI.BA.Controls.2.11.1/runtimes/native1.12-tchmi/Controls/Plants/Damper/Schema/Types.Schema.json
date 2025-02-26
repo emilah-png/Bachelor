@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.Damper": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.UiIconFdbStp",
+      "frameworkControlType": "Damper",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Damper.DisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Type",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        999
+      ],
+      "options": [
+        {
+          "label": "damper",
+          "value": 0
+        },
+        {
+          "label": "fireDamper",
+          "value": 1
+        },
+        {
+          "label": "shutOffValve",
+          "value": 2
+        },
+        {
+          "label": "custom",
+          "value": 999
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Damper.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the damper. (Default: Fdb, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "setpoint",
+          "displayName": "Setpoint",
+          "description": "The setpoint of the damper. (Default: Mdlt, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "command",
+          "displayName": "Command",
+          "description": "The command of the damper. (Default: Cmd, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "swiOpn",
+          "displayName": "Switch open",
+          "description": "The switch open of the damper. (Default: SwiOpn, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "swiCls",
+          "displayName": "Switch close",
+          "description": "The switch close of the damper. (Default: SwiCls, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "feedback": {
+          "type": "string"
+        },
+        "setpoint": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        },
+        "swiOpn": {
+          "type": "string"
+        },
+        "swiCls": {
+          "type": "string"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.Damper.SubBaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "SubBaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "description": "Identifier of the damper.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "subTemplate",
+          "displayName": "Damper",
+          "description": "The template description of the damper.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "subTemplate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Damper.BaTemplateDescription"
+        }
+      }
+    }
+  }
+}

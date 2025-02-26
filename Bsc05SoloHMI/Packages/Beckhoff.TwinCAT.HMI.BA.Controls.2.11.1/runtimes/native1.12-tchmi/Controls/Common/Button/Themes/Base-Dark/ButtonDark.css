@@ -1,0 +1,15 @@
+﻿/** Styles for the theme: Base-Dark */
+
+:root {
+    --tchmi-ba-global-button-background: linear-gradient(135deg, #35333d, #141415);
+    --tchmi-ba-global-button-background-pressed: linear-gradient(135deg, #141415 25%, #2a3845);
+    --tchmi-ba-global-button-background-90-deg: linear-gradient(to bottom left, #35333d, #141415);
+    --tchmi-ba-global-button-background-180-deg: linear-gradient(to bottom left, #35333d, #141415);
+    --tchmi-ba-global-button-background-270-deg: linear-gradient(to bottom right, #35333d, #141415);
+    --tchmi-ba-global-button-text-color-pressed: #a3b0bb;
+}
+
+.tchmi-ba-text-handler.button {
+    --tchmi-ba-text-color: var(--tchmi-ba-global-text-color);
+    border: var(--tchmi-ba-global-control-border);
+}

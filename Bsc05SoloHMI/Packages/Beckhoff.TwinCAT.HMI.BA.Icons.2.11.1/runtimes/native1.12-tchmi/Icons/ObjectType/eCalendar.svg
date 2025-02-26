@@ -1,0 +1,30 @@
+<svg version="1.1"
+     width="100" height="100"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: var(--tchmi-ba-global-icon-color, black);
+        stroke-linejoin: round;
+        font-weight: bold;
+        font-family: Consolas;
+    ">
+    <g>
+        <text 
+            stroke="transparent"
+            font-size="60px"
+            x="0" y="40">
+            CAL
+        </text>
+        <g>
+            <rect 
+                fill="transparent"
+                stroke-width="4"
+                x="53" y="52" width="18" height="16"/>
+            <path 
+                fill="transparent"
+                stroke-width="20"
+                d="M 0 60 h 21 m 5 0 h 21 m 31 0 h 21 M 0 85 h 21 m 5 0 h 21 m 5 0 h 21 m 5 0 h 21"/>
+        </g>
+    </g>
+</svg>

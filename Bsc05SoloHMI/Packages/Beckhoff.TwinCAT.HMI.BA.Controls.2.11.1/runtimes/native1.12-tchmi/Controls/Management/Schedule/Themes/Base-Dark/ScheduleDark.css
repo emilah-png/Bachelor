@@ -1,0 +1,9 @@
+﻿/* Styles for dark theme. */
+.tchmi-ba-base.weekly-schedule {
+    --tchmi-ba-weekly-schedule-resizer-color: rgb(147, 151, 168);
+}
+
+/* DailySchedule */
+.tchmi-ba-base.daily-schedule {
+    --tchmi-ba-daily-schedule-entries-container-color: var(--tchmi-ba-global-control-background);
+}
