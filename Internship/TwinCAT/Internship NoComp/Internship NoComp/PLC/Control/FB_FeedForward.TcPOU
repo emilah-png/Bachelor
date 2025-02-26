@@ -49,7 +49,12 @@ IF fXDotRef >= 0.0 THEN // Upwards
 	
 	fQRef := fAp * fXDotRef * 60000;
 	fDeltaP := fPs - fPa;
-	fKRef := fQRef / SQRT(ABS(fDeltaP));
+	IF fDeltaP < 100 THEN
+		fDeltaP := 100;
+	ELSE
+		fDeltaP := fDeltaP;
+	END_IF
+	fKRef := fQRef / SQRT(fDeltaP);
 	
 	IF fKRef < 0.0 THEN
 		fUTemp := 0.0;
@@ -75,6 +80,11 @@ ELSIF fXDotRef < 0.0 THEN // Downwards
 	
 	fQRef := fAa * fXDotRef * 60000;
 	fDeltaP := fPs - fPb;
+	IF fDeltaP < 100 THEN
+		fDeltaP := 100;
+	ELSE
+		fDeltaP := fDeltaP;
+	END_IF
 	fKRef := fQRef / SQRT(fDeltaP);
 	
 	IF fKRef > 0.0 THEN
@@ -110,6 +120,9 @@ fUFF := fUTemp * fKFF; // Tomec
       <LineId Id="64" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="123" Count="0" />
+      <LineId Id="209" Count="1" />
+      <LineId Id="212" Count="1" />
+      <LineId Id="211" Count="0" />
       <LineId Id="126" Count="0" />
       <LineId Id="140" Count="0" />
       <LineId Id="129" Count="1" />
@@ -126,7 +139,10 @@ fUFF := fUTemp * fKFF; // Tomec
       <LineId Id="28" Count="0" />
       <LineId Id="63" Count="0" />
       <LineId Id="29" Count="0" />
-      <LineId Id="124" Count="1" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="215" Count="3" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="125" Count="0" />
       <LineId Id="128" Count="0" />
       <LineId Id="144" Count="1" />
       <LineId Id="201" Count="1" />

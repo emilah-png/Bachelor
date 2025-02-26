@@ -16,6 +16,7 @@ P_Output();
 P_DeadBand();
 P_FeedForward();
 P_PID();
+P_Control();
 P_Motion();
 ]]></ST>
     </Implementation>

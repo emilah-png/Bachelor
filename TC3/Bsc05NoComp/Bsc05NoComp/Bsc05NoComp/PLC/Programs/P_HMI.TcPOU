@@ -22,6 +22,8 @@ ELSIF G_HMI.nCounter > 3 THEN
 	G_HMI.nCounter := 3; 
 END_IF
 
+G_Parameters.fConst1 := G_HMI.fNumPad1/100.0;
+G_Parameters.fConst2 := G_HMI.fNumPad2/100.0;
 
 IF G_Enables.bErrorOne THEN
 	G_HMI.fSlider_1 := 0;

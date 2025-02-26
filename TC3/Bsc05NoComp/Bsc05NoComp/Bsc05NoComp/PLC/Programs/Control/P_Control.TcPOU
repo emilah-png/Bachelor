@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Control" Id="{97b90c20-1ebb-4d5f-92ff-63da301b4f7c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Control
+VAR
+	fbControl1 : FB_Control;
+	fbControl2 : FB_Control;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF G_Enables.bAuto THEN
+	fbControl1(
+		fFF := G_OPC.fValveOneSignals.fFF,
+		fPID := G_OPC.fValveOneSignals.fPID,
+		fDeadBandUp := G_Parameters.fDeadUpOne,
+		fDeadBandDown := G_Parameters.fDeadUpOne,
+		fXDotRef := G_OPC.fXDotRefOne,
+		fError := G_OPC.fValveOneSignals.fError,
+
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU, 
+		
+		fU => G_OPC.fValveOneSignals.fU
+	);
+	
+	fbControl2(
+		fFF := G_OPC.fValveTwoSignals.fFF,
+		fPID := G_OPC.fValveTwoSignals.fPID,
+		fDeadBandUp := G_Parameters.fDeadUpTwo,
+		fDeadBandDown := G_Parameters.fDeadUpTwo,
+		fXDotRef := G_OPC.fXDotRefTwo,
+		fError := G_OPC.fValveTwoSignals.fError, 
+		
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU,
+		
+		fU => G_OPC.fValveTwoSignals.fU
+	);
+ELSE
+	G_OPC.fValveOneSignals.fU := 0.0;
+	G_OPC.fValveTwoSignals.fU := 0.0;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

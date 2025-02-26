@@ -46,7 +46,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{A127D9D1-8C36-170D-703A-4E336C8F0A76}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{9BA0FC37-3932-7CED-2D41-A10C4E260729}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -161,13 +161,13 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.nRawWinchEncoder</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawJoystickWinch</Name>
 							<Comment><![CDATA[ Joystick Signals]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoder</Name>
-							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJoystickRotation</Name>

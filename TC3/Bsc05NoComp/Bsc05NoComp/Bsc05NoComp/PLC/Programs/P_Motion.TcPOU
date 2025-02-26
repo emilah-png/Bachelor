@@ -50,6 +50,13 @@ IF G_Enables.bSineMotion THEN
 		fXRef => G_OPC.fXRefTwo
 	);
 	
+ELSE
+	
+	G_OPC.fXDotRefOne := 0.0;
+	G_OPC.fXRefOne := 0.0;
+	
+	G_OPC.fXDotRefTwo := 0.0;
+	G_OPC.fXRefTwo := 0.0;
 	
 END_IF
 

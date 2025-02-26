@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Control" Id="{0440d2ef-e1d2-4ea5-a6de-0c9a70c43301}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Control
+VAR_INPUT
+	fFF 			: LREAL;
+	fPID			: LREAL;
+	fDeadBandUp		: LREAL;
+	fDeadBandDown	: LREAL;
+	fXDotRef		: LREAL;
+	fError			: LREAL;
+	
+	bPID			: BOOL;
+	bFF				: BOOL;
+	bU				: BOOL;
+END_VAR
+VAR_OUTPUT
+	fU				: LREAL;
+END_VAR
+VAR
+	FF				: LREAL;
+	PID				: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bFF THEN
+	FF := fFF;
+ELSE
+	FF := 0.0;
+END_IF
+
+IF bPID THEN
+	PID := fPID;
+ELSE
+	PID := 0.0;
+END_IF
+
+IF fXDotRef > 0.0 THEN
+	fU := FF + PID + fDeadBandUp;
+ELSIF fXDotRef < 0.0 THEN
+	fU := FF + PID + fDeadBandDown;
+ELSE
+	fU := 0.0;
+END_IF
+
+IF fU < -1.0 THEN
+	fU := -1.0;
+ELSIF fU > 1.0 THEN
+	fU := 1.0;
+ELSE
+	fU := fU;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
