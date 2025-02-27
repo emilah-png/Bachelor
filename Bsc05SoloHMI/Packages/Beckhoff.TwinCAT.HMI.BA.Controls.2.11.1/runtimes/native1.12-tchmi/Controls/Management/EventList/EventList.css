@@ -1,0 +1,85 @@
+﻿.TcHmi_BuildingAutomation_Controls_Management_EventList {
+    flex-direction: column;
+    background-color: var(--tchmi-ba-global-dark-background-color);
+    display: flex;
+    overflow: visible;
+}
+
+/* Is needed because EventGrid normally sets a padding to cells. */
+.TcHmi_Controls_Beckhoff_TcHmiEventGrid-template td.TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell:not([data-column-name='type']):not([data-column-name='severity']), .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-popup td.TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell:not([data-column-name='type']):not([data-column-name='severity']), .tchmi-event-grid-template td.tchmi-datagrid-template-cell:not([data-column-name='type']):not([data-column-name='severity']), .tchmi-event-grid-template-popup td.tchmi-datagrid-template-cell:not([data-column-name='type']):not([data-column-name='severity']) {
+    padding: 0;
+}
+
+.TcHmi_BuildingAutomation_Controls_Management_EventList > div.header {
+    min-height: 40px;
+    max-height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex: auto;
+    order: 0;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.event-toggles-container {
+        flex: auto;
+        height: 30px;
+        max-width: 325px;
+        padding-left: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.event-toggles-container > div.tchmi-ba-text-handler.button {
+            flex: auto;
+            max-width: 60px;
+            position: relative;
+        }
+
+            .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.event-toggles-container > div.tchmi-ba-text-handler.button > svg {
+                left: 5px;
+            }
+
+    .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.history-toggle {
+        flex: auto;
+        height: 30px;
+        max-width: 30px;
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.confirm-button {
+        flex: auto;
+        height: 30px;
+        max-width: 30px;
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Management_EventList > div.header > div.confirm-all-button {
+        flex: auto;
+        height: 30px;
+        max-width: 30px;
+        position: relative;
+        margin-left: 5px;
+    }
+
+
+.TcHmi_BuildingAutomation_Controls_Management_EventList > div.TcHmi_BuildingAutomation_Controls_Common_DataGrid {
+    position: relative;
+    flex: auto;
+}
+
+
+/* Event pulse */
+.TcHmi_BuildingAutomation_Controls_Management_EventList .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-row.shows-event-pulse.pulse > .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell {
+    animation: project-navigation-list-pulse-color 1.25s 1 linear;
+}
+
+.TcHmi_BuildingAutomation_Controls_Management_EventList .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-row.shows-event-pulse > .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell {
+    background-color: var(--tchmi-ba-global-active-event-pulse-color-start);
+}
+
+/* Access */
+.TcHmi_BuildingAutomation_Controls_Management_EventList > .TcHmi_Controls_Beckhoff_TcHmiDatagrid.TcHmi_Controls_System_TcHmiControl-operate-disallowed .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell::after {
+    content: initial;
+}

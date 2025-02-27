@@ -1,0 +1,36 @@
+<svg version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: var(--tchmi-ba-global-icon-color, black);
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        stroke-width: 6px;
+        font-weight: bold;
+        font-family: Consolas;
+    ">
+     <g>
+        <text 
+            stroke="transparent"
+            font-size="60px"
+            x="0" y="40">
+            ACC
+        </text>
+        <g>
+            <rect 
+                class="tchmi-ba-icon-shape"
+                fill="transparent"
+                stroke-width="6"
+                x="10" y="52" rx="2" width="80" height="45">
+            </rect>
+            <text
+            stroke="transparent"
+                font-size="33px"
+                x="13" y="85">
+                1017
+            </text>
+        </g>
+    </g>
+</svg>

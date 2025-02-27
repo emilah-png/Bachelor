@@ -1,0 +1,71 @@
+/** Styles for all themes */
+
+/* Style for the main element */
+.TcHmi_Controls_Beckhoff_TcHmiTachometer {
+    /* Prevent overflow if the border radius is huge */
+    overflow: hidden;
+    --square-size: 300px;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-main-tick,
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-sub-tick {
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-label {
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-range-container path {
+    fill: none;
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-circle-under,
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-circle-over {
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-display-value,
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-display-unit {
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-template-svg {
+    position: relative;
+    height: var(--square-size);
+    width: var(--square-size);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer-invalid-notification {
+    position: absolute;
+    width: 30px; /* is used for internal calc*/
+    height: 30px; /* is used for internal calc*/
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    /* hide generic highlighter which is at the wrong position */
+    display: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiTachometer.TcHmi_Controls_System_TcHmiControl-disabled
+    .TcHmi_Controls_Beckhoff_TcHmiTachometer-template::after {
+    content: '';
+    position: absolute;
+    top: auto;
+    left: auto;
+    z-index: 100;
+    height: calc(var(--square-size));
+    width: calc(var(--square-size));
+    border-radius: calc(var(--square-size) / 2);
+}

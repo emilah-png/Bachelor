@@ -1,0 +1,52 @@
+{
+  "function": {
+    "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json",
+    "apiVersion": 1,
+    "version": null,
+    "dependencies": [
+      {
+        "name": "UpdateLanguageIcon.js",
+        "type": "JavaScript",
+        "description": ""
+      }
+    ],
+    "name": "UpdateLanguageIcon",
+    "namespace": "TcHmi.Functions",
+    "displayName": "UpdateLanguageIcon",
+    "visible": true,
+    "category": "",
+    "context": "",
+    "description": "A function to update the icon of a TcHmiNavigationBar to the flag of the current locale.",
+    "targetType": null,
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String",
+      "description": ""
+    },
+    "arguments": [
+      {
+        "name": "NavBar",
+        "displayName": "NavBar",
+        "type": "tchmi:framework#/definitions/Control",
+        "category": "",
+        "description": "The TcHmiNavigationBar control to update.",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      },
+      {
+        "name": "Locale",
+        "displayName": "Locale",
+        "type": "tchmi:general#/definitions/String",
+        "category": "",
+        "description": "The locale name to set the appropriate flag icon.",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false
+      }
+    ]
+  }
+}

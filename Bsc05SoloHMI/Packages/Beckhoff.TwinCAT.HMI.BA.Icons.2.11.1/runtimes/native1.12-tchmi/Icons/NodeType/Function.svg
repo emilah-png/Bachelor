@@ -1,0 +1,15 @@
+<svg version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: transparent;
+        fill: var(--tchmi-ba-global-icon-color, black);
+        font-family: Helvetica;
+        font-size: 65px;
+    ">
+    <g>
+        <text 
+            x="3" y="70">f(x)</text>
+    </g>
+</svg>

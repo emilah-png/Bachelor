@@ -1,0 +1,40 @@
+﻿div.tchmi-ba-base.calendar {
+    --ba-color-back-nav: var(--tchmi-ba-global-control-header-color);
+    --ba-color-back-head: var(--tchmi-ba-global-input-background);
+    --ba-color-back-day: var(--tchmi-ba-global-dark-background-color);
+    --ba-color-back-hover-nav: rgb(100, 100, 110);
+    --ba-color-back-hover-event: rgb(100, 100, 110);
+    --ba-color-border-event: rgb(0, 0, 0);
+    --ba-color-font-head: var(--tchmi-ba-global-text-color);
+    --ba-color-font-title: var(--ba-color-font-head);
+    --ba-color-font-event: var(--ba-color-font-head);
+    --ba-color-hover-nav: var(--ba-color-back-nav);
+}
+
+    /*******************************************************************/
+    /********************** event calendar mode ************************/
+    /*******************************************************************/
+
+    /******************************************************************/
+    /************************** year view *****************************/
+
+    div.tchmi-ba-base.calendar .month-wrapper .months .month:hover {
+        border-color: var(--ba-color-back-hover-event);
+    }
+
+    /*******************************************************************/
+    /******************** combined & shared properties *****************/
+    /*******************************************************************/
+
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navb-c:hover,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-c .nav-c .navb-c:active,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navb-dp:hover,
+    div.tchmi-ba-base.calendar .nav-wrapper .navc-dp .nav-dp .navb-dp:active {
+        color: var(--ba-color-font-title);
+        background-color: var(--ba-color-back-hover-event);
+    }
+
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-c:hover,
+    div.tchmi-ba-base.calendar .day-wrapper .days .day-dp:hover {
+        border-color: var(--ba-color-back-hover-event);
+    }

@@ -1,0 +1,23 @@
+﻿{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Control",
+      "basePath": "./FC_Sidebar",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    }
+  ],
+  "provideMetadata": {
+    "toolbox": {
+      "FC_SideBar": {
+        "200": "FC_SideBar"
+      }
+    }
+  },
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

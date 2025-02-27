@@ -1,0 +1,20 @@
+.TcHmi_BuildingAutomation_Controls_Common_DataGrid {
+    overflow: hidden;
+    --tchmi-ba-data-grid-row-height: 30px;
+    --tchmi-ba-global-text-color: var(--tchmi-color-cell);
+}
+
+    .TcHmi_BuildingAutomation_Controls_Common_DataGrid .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell > .tchmi-ba-base {
+        width: calc(100% - 5px);
+        height: calc(100% - 5px);
+        margin: 2.5px;
+        position: relative;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_Common_DataGrid .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell > .event-icon,
+        .TcHmi_BuildingAutomation_Controls_Common_DataGrid .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell > .tchmi-ba-base.icon {
+            width: calc(100% - 5px);
+            height: calc(100% - 5px);
+            margin: 2.5px;
+            position: relative;
+        }

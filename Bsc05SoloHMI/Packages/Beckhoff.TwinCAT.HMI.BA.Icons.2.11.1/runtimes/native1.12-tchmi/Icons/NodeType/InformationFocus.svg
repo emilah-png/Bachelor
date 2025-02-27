@@ -1,0 +1,76 @@
+<svg
+  version="1.1"
+  width="100" height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+    style="
+      stroke: var(--tchmi-ba-global-icon-color, black);
+      stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+      fill: transparent;
+      stroke-linecap: round;
+      font-weight: bold;
+      font-family: Consolas;
+      font-size: 30px;
+    ">
+  <defs>
+    <!-- arrowhead marker definition -->
+    <marker
+        id="arrow" viewBox="0 0 20 10" refX="0" refY="5"
+        markerWidth="4" markerHeight="4"
+        orient="auto-start-reverse">
+        <path d="M 0 2 L 5 5 L 0 8 z" />
+    </marker>
+    <g id="sun-beam">
+        <line 
+            x1="-7" x2="5"            
+            marker-end="url(#arrow)" />
+    </g>    
+  </defs>
+  <g>
+    <circle cx="50" cy="50" r="18"/>
+    <text 
+        x="42" y="59"
+        stroke="transparent"
+        fill="var(--tchmi-ba-global-icon-color, black)">i</text>
+    <use 
+          transform="rotate(0, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(45, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(90, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(135, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(180, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(225, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(270, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+    <use 
+          transform="rotate(315, 50 50)"
+          x="10"
+          y="50"
+          href="#sun-beam" />
+  </g>
+</svg>

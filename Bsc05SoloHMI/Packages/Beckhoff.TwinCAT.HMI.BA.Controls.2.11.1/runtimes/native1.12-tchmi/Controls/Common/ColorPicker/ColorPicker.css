@@ -1,0 +1,18 @@
+﻿.TcHmi_BuildingAutomation_Controls_Common_ColorPicker {
+	overflow: visible;
+}
+
+	.TcHmi_BuildingAutomation_Controls_Common_ColorPicker > canvas {
+		position: absolute;
+		cursor: crosshair;
+	}
+
+	.TcHmi_BuildingAutomation_Controls_Common_ColorPicker .selector {
+		width: 10px;
+		height: 10px;
+		border: 1px solid white;
+		border-radius: 50%;
+		box-shadow: 0 0 0 1px black;
+		cursor: crosshair;
+		position: absolute;
+	}

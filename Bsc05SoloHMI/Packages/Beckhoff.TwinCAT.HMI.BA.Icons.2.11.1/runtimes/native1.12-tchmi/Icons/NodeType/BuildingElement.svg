@@ -1,0 +1,19 @@
+<svg version="1.1"
+   width="100" height="100"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 100 100"
+   style="
+      stroke: var(--tchmi-ba-global-icon-color, black);
+      fill: transparent;
+      stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+   ">
+   <g>
+        <path
+            d="M 3 50 l 50 -47 l 44 50 m -10 -10 h -75 m 75 0 v 54 h -40 v -10 c -15 5 -15 -20 0 -15 v -10 h 15 c -5 15 20 15 15 0 h 10" />
+        <path
+            stroke-dasharray="5,8"
+            d="M 10 45 v 52 h 34" />
+   </g>
+</svg>

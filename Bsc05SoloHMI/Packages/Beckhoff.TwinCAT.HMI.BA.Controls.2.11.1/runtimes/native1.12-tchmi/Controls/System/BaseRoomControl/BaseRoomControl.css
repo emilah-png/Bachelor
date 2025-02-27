@@ -1,0 +1,119 @@
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl {
+    --tchmi-ba-base-room-control-box-shadow: var(--tchmi-ba-global-control-box-shadow);
+    --tchmi-ba-base-room-control-background: var(--tchmi-ba-global-button-background);
+    --tchmi-ba-base-room-control-mode-display-background: var(--tchmi-ba-global-tchmi-dark-grey);
+    overflow: visible;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--tchmi-ba-base-room-control-box-shadow);
+    --tchmi-ba-base-control-element-control-container-height: 40px;
+}
+
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl {
+    cursor: pointer;
+}
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl.read-only {
+        cursor: initial;
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.base-element {
+        order: 0;
+        flex: auto;
+        position: relative;
+        box-shadow: initial;
+        --tchmi-ba-font-size: 15px;
+        --tchmi-ba-font-weight: bold;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl.show-displays > div.tchmi-ba-base.base-element > svg {
+        max-height: calc(100% - 25px);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler > .text-element {
+        width: 100%;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl div.control-container-element {
+        order: 1;
+        flex: auto;
+        align-items: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-height: var(--tchmi-ba-base-control-element-control-container-height);
+        min-height: var(--tchmi-ba-base-control-element-control-container-height);
+        width: 100%;
+        background: var(--tchmi-ba-base-room-control-background);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl div.control-container-element {
+        overflow: hidden;
+        box-shadow: var(--tchmi-ba-base-room-control-box-shadow);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > .control-container-element .tchmi-ba-control-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl .tchmi-ba-control-container {
+        order: 1;
+        flex: auto;
+        height: 40px;
+        align-items: center;
+        position: relative;
+        padding: 5px;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl div.control-container-element {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: calc(50% - 75px);
+        width: 150px;
+        height: 0;
+        max-height: initial;
+        min-height: initial;
+        transition: height 200ms linear;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl div.control-container-element.open {
+            height: var(--tchmi-ba-base-control-element-control-container-height);
+        }
+
+div.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-base.corner-element > svg {
+    max-height: initial;
+}
+
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-base.corner-element,
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.corner-element,
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-text-handler.button.corner-element {
+    position: absolute;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+}
+
+    .TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > div.tchmi-ba-base.corner-element.operation-state {
+        background: var(--tchmi-ba-base-room-control-mode-display-background);
+        border: var(--tchmi-ba-global-control-border);
+    }
+
+/* Alarm icons */
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl .show-displays > .tchmi-ba-base.tchmi-ba-room-control-alarm-icon > svg {
+    max-height: initial;
+}
+
+.TcHmi_BuildingAutomation_Controls_System_BaseRoomControl > .tchmi-ba-base.tchmi-ba-room-control-alarm-badge-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--tchmi-ba-global-tchmi-dark-grey);
+    border: var(--tchmi-ba-global-control-border);
+    z-index: 110;
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Management.Schedule": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "Schedule",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Management"
+    },
+    "TcHmi.BuildingAutomation.Conrols.Management.Schedule.StateColors": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "StateColors",
+      "type": "array",
+      "items": {
+        "$schema": "http://json-schema.org/draft-04/schema",
+        "title": "StateColor",
+        "type": "object",
+        "engineeringColumns": [
+          "value",
+          "color"
+        ],
+        "propertiesMeta": [
+          {
+            "name": "value",
+            "category": "Common",
+            "displayName": "Value",
+            "displayPriority": 10,
+            "description": "The value for the color.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "color",
+            "category": "Colors",
+            "displayName": "Color",
+            "displayPriority": 10,
+            "description": "The color which will be the background color of a schedule entry when the value was reached.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "color": {
+            "$ref": "tchmi:framework#/definitions/SolidColor"
+          }
+        },
+        "required": [ "value", "color" ]
+      }
+    },
+    "TcHmi.BuildingAutomation.Conrols.Management.Schedule.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "presentValue",
+          "displayName": "PresentValue",
+          "description": "The current value of the schedule. (DataType: boolean | number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "week",
+          "displayName": "Week",
+          "description": "The weekly schedule entries. (DataType: array)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "exceptions",
+          "displayName": "Exceptions",
+          "description": "The schedule exceptions. (DataType: array)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "calendar",
+          "displayName": "Calendar",
+          "description": "The calendar entries. (DataType: array)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "activeText",
+          "displayName": "Active text",
+          "description": "Text when the checkbox is active. (Default: ActiveText, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "inactiveText",
+          "displayName": "Inactive text",
+          "description": "Text when the checkbox is inactive. (Default: InactiveText, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "stateTexts",
+          "displayName": "State texts",
+          "description": "Array for the texts of the different values. (Default: StateTexts, DataType: string[])",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "description": "Unit for an analog value. (Default: Unit, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "presentValue": {
+          "type": "string"
+        },
+        "week": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "string"
+        },
+        "calendar": {
+          "type": "string"
+        },
+        "activeText": {
+          "type": "string"
+        },
+        "inactiveText": {
+          "type": "string"
+        },
+        "stateTexts": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

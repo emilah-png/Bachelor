@@ -1,0 +1,94 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Combobox": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.TextControl",
+      "frameworkControlType": "Combobox",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Combobox.ComboboxItem": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "ComboboxItem",
+      "description": "Defines a combobox item",
+      "engineeringColumns": [
+        "text",
+        "value"
+      ],
+      "propertiesMeta": [
+        {
+          "name": "text",
+          "category": "Common",
+          "displayName": "Text                                           ",
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": "Entry"
+        },
+        {
+          "name": "value",
+          "category": "Common",
+          "displayName": "Value",
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Combobox.ComboboxItems": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "title": "ComboboxItems",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.Combobox.ComboboxItem"
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Combobox.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "description": "The symbol to set the value. (Default: Value, DataType: integer)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "valueFeedback",
+          "displayName": "Value feedback",
+          "description": "The feedback for the value. (Default: ValueFeedback, DataType: integer)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "stateTexts",
+          "displayName": "State texts",
+          "description": "Array for the texts of the different values. (Default: StateTexts, DataType: string[])",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueFeedback": {
+          "type": "string"
+        },
+        "stateTexts": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Checkbox": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.TextControl",
+      "frameworkControlType": "Checkbox",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Checkbox.Appearance": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        {
+          "label": "checkbox",
+          "value": 0
+        },
+        {
+          "label": "toggleSwitch",
+          "value": 1
+        },
+        {
+          "label": "toggleSlider",
+          "value": 2
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Checkbox.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "state",
+          "displayName": "State",
+          "description": "The symbol to set the state. (Default: State, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "stateFeedback",
+          "displayName": "State feedback",
+          "description": "The feedback for the state. (Default: StateFeedback, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "activeText",
+          "displayName": "Active text",
+          "description": "Text when the checkbox is active. (Default: ActiveText, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "inactiveText",
+          "displayName": "Inactive text",
+          "description": "Text when the checkbox is inactive. (Default: InactiveText, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "stateFeedback": {
+          "type": "string"
+        },
+        "activeText": {
+          "type": "string"
+        },
+        "inactiveText": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

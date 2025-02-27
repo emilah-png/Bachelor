@@ -1,0 +1,33 @@
+{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Resource",
+      "path": "./IconFont/fontello.woff"
+    },
+    {
+      "type": "Function",
+      "basePath": "./Functions",
+      "descriptionFile": "GetBaIconPath.function.json"
+    },
+    {
+      "type": "Resource",
+      "path": "dist/TcHmiBaIcons.css"
+    },
+    {
+      "type": "Resource",
+      "path": "dist/TcHmiBaIcons.min.js"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/Localization",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    }
+  ],
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

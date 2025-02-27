@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.System.BaseControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "BaseControl",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    },
+    "TcHmi.BuildingAutomation.ICoordinateXY": {
+      "type": "object",
+      "title": "ICoordinateXY",
+      "description": "Defines a XY coordinate",
+      "engineeringColumns": [
+        "x",
+        "y"
+      ],
+      "propertiesMeta": [
+        {
+          "name": "x",
+          "category": "Common",
+          "displayName": "X Value"
+        },
+        {
+          "name": "y",
+          "category": "Common",
+          "displayName": "Y Value"
+        }
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": [ "x", "y" ]
+    },
+    "TcHmi.BuildingAutomation.DialogWindowOptions": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "description": "The content that should be displayed in the dialog window.",
+          "defaultValue": null
+        },
+        {
+          "name": "buttons",
+          "displayName": "Buttons",
+          "description": "Buttons for the dialog.",
+          "defaultValue": 0
+        },
+        {
+          "name": "modal",
+          "displayName": "Modal",
+          "description": "Selects if the dialog is opened modal or not.",
+          "defaultValue": true
+        },
+        {
+          "name": "scrolling",
+          "displayName": "Scrolling",
+          "description": "Possible values are No, Yes, Auto.",
+          "defaultValue": "Auto"
+        },
+        {
+          "name": "headline",
+          "displayName": "Headline",
+          "description": "The headline of the dialog.",
+          "defaultValue": "Dialog headline"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "defaultValue": 1000,
+          "defaultValueInternal": 1000
+        },
+        {
+          "name": "widthUnit",
+          "displayName": "Width unit",
+          "refTo": "width",
+          "defaultValue": "px",
+          "defaultValueInternal": "px"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "defaultValue": 500,
+          "defaultValueInternal": 500
+        },
+        {
+          "name": "heightUnit",
+          "displayName": "Height unit",
+          "refTo": "height",
+          "defaultValue": "px",
+          "defaultValueInternal": "px"
+        }
+      ],
+      "properties": {
+        "content": {
+          "$ref": "tchmi:framework#/definitions/ContentPath"
+        },
+        "buttons": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.DialogWindowButtons"
+        },
+        "modal": {
+          "type": "boolean"
+        },
+        "scrolling": {
+          "$ref": "tchmi:framework#/definitions/ScrollMode"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "widthUnit": {
+          "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+        },
+        "height": {
+          "type": "number"
+        },
+        "heightUnit": {
+          "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.UserContents": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "UserContent",
+        "description": "Defines a relation between a user and a content.",
+        "engineeringColumns": [
+          "userName",
+          "content"
+        ],
+        "propertiesMeta": [
+          {
+            "name": "userName",
+            "displayName": "UserName          ",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "content",
+            "displayName": "Content",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "content": {
+            "$ref": "tchmi:framework#/definitions/ContentPath"
+          }
+        },
+        "required": [ "userName", "content" ]
+      }
+    },
+    "TcHmi.BuildingAutomation.StringOrNumber": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "oneOf": [
+        {
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "title": "Number",
+          "type": "number"
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.NumberOrBoolean": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": [ "number", "boolean" ]
+    },
+    "TcHmi.BuildingAutomation.FourSidedColor": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "FourSidedColor",
+      "propertiesMeta": [
+        {
+          "name": "left",
+          "displayName": "Left",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "top",
+          "displayName": "Top",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "right",
+          "displayName": "Right",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "bottom",
+          "displayName": "Bottom",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "left": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        },
+        "top": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        },
+        "right": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        },
+        "bottom": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        }
+      }
+    }
+  }
+}

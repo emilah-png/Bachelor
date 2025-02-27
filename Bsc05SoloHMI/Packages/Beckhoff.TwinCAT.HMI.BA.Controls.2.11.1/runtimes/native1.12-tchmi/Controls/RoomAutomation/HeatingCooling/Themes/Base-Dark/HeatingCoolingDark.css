@@ -1,0 +1,9 @@
+div.tchmi-ba-base.hc-control-icon.cooling-active {
+    --tchmi-ba-global-icon-color: rgb(100, 100, 255);
+}
+
+div.tchmi-ba-base.temp-adjust-slider {
+    --tchmi-ba-temp-adjust-slider-temp-display-background: var(--tchmi-ba-global-input-background);
+    --tchmi-ba-temp-adjust-slider-temp-display-text-color: var(--tchmi-ba-global-text-color);
+    --tchmi-ba-temp-adjust-slider-cursor-color: white;
+}

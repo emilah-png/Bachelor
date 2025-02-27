@@ -1,0 +1,10 @@
+﻿/* Base theme. */
+.TcHmi_BuildingAutomation_Controls_Management_ProjectNavigationTextual {
+    background: white;
+}
+.TcHmi_BuildingAutomation_Controls_Management_ProjectNavigationTextual > div.header {
+    background: var(--tchmi-ba-global-tchmi-blue);
+}
+.TcHmi_BuildingAutomation_Controls_Management_ProjectNavigationTextual > div.header > div.headline {
+    --tchmi-ba-text-color: white;
+}
