@@ -7,7 +7,8 @@ VAR_INPUT
 	fMaxOutputValue  		: LREAL;
 	fMaxInputValue 			: LREAL;
 	fMinInputValue			: LREAL;
-	fMinOutputValue  		: LREAL;		
+	fMinOutputValue  		: LREAL;
+	fOffset					: LREAL;		
 END_VAR
 VAR_OUTPUT
 	fOutput 				: LREAL;
@@ -24,7 +25,7 @@ END_VAR
 
 fNormalizedInput := (fRawInput - fMinInputValue) / (fMaxInputValue - fMinInputValue);
 
-fOutput := LIMIT(0.0, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue), fMaxOutputValue);
+fOutput := LIMIT(0.0, fMinOutputValue + fNormalizedInput*(fMaxOutputValue - fMinOutputValue)- fOffset, fMaxOutputValue);
 
 ]]></ST>
     </Implementation>

@@ -13,9 +13,10 @@ END_VAR
 		fFF := G_OPC.fValveOneSignals.fFF,
 		fPID := G_OPC.fValveOneSignals.fPID,
 		fDeadBandUp := G_Parameters.fDeadUpOne,
-		fDeadBandDown := G_Parameters.fDeadUpOne,
+		fDeadBandDown := G_Parameters.fDeadDownOne,
 		fXDotRef := G_OPC.fXDotRefOne,
 		fError := G_OPC.fValveOneSignals.fError,
+		fKFF := G_Parameters.fOneMultiFF,
 
 		bFF := G_Enables.bEnableFF,
 		bPID := G_Enables.bEnablePID,
@@ -28,9 +29,10 @@ END_VAR
 		fFF := G_OPC.fValveTwoSignals.fFF,
 		fPID := G_OPC.fValveTwoSignals.fPID,
 		fDeadBandUp := G_Parameters.fDeadUpTwo,
-		fDeadBandDown := G_Parameters.fDeadUpTwo,
+		fDeadBandDown := G_Parameters.fDeadDownTwo,
 		fXDotRef := G_OPC.fXDotRefTwo,
-		fError := G_OPC.fValveTwoSignals.fError, 
+		fError := G_OPC.fValveTwoSignals.fError,
+		fKFF := G_Parameters.fTwoMultiFF, 
 		
 		bFF := G_Enables.bEnableFF,
 		bPID := G_Enables.bEnablePID,
@@ -38,6 +40,39 @@ END_VAR
 		
 		fU => G_OPC.fValveTwoSignals.fU
 	);
+ELSIF G_Enables.bManSpeed THEN
+	fbControl1(
+		fFF := G_OPC.fValveOneSignals.fFF,
+		fPID := G_OPC.fValveOneSignals.fPID,
+		fDeadBandUp := G_Parameters.fDeadUpOne,
+		fDeadBandDown := G_Parameters.fDeadDownOne,
+		fXDotRef := G_OPC.fJoystickJib * G_Parameters.fMaxSpeedJib,
+		fError := G_OPC.fValveOneSignals.fError,
+		fKFF := G_Parameters.fOneMultiFF,
+
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU, 
+		
+		fU => G_OPC.fValveOneSignals.fU
+	);
+	
+	fbControl2(
+		fFF := G_OPC.fValveTwoSignals.fFF,
+		fPID := G_OPC.fValveTwoSignals.fPID,
+		fDeadBandUp := G_Parameters.fDeadUpTwo,
+		fDeadBandDown := G_Parameters.fDeadDownTwo,
+		fXDotRef := G_OPC.fJoystickMain * G_Parameters.fMaxSpeedMain,
+		fError := G_OPC.fValveTwoSignals.fError,
+		fKFF := G_Parameters.fTwoMultiFF, 
+		
+		bFF := G_Enables.bEnableFF,
+		bPID := G_Enables.bEnablePID,
+		bU := G_Enables.bEnableU,
+		
+		fU => G_OPC.fValveTwoSignals.fU
+	);
+	
 ELSE
 	G_OPC.fValveOneSignals.fU := 0.0;
 	G_OPC.fValveTwoSignals.fU := 0.0;

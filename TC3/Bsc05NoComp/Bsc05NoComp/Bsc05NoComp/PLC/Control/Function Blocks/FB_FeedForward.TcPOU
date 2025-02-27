@@ -8,7 +8,7 @@ VAR_INPUT
 	fPb 			: LREAL; // [Bar]
 	fXDot			: LREAL; // [m/s]
 	fDeltaP0		: LREAL; // [Bar]
-	fArea			: LREAL; // [mm]
+	fArea			: LREAL; // [mm^2]
 	fPhi			: LREAL; // Relation between Areas
 	fMaxFlowUp		: LREAL; // [L/min]
 	fMaxFlowDown	: LREAL; // [L/min]
@@ -25,6 +25,7 @@ VAR
 	fDeltaP_Norm	: LREAL; 	// Pressure Drop with Compansator
 	
 	fFlow			: LREAL; 	// Wanted Flow
+	fFlowLM			: LREAL;
 	fDeltaP			: LREAL; 	// Pressure Drop
 	fDeltaP_Ref		: LREAL; 	// Referance Pressure Drop
 	fFlowRef		: LREAL; 	// Refereance Flow
@@ -33,16 +34,16 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fPhi 			:= 0.713; 								// Relation between Areas
-fArea 			:= fArea/(100.0*100.0); 				// Area of Piston Side
-fSpoolTravel 	:= 8.0; 								// Maximum Spool Travel
-fSlopeCharUp	:= (fSpoolTravel)/fMaxFlowUp; 	// Valve Slope Characteristic [mm/(L/min)]
-fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 	// Valve Slope Characteristic [mm/(L/min)]
+      <ST><![CDATA[fArea 			:= fArea/(1000000.0); 					// Area of Piston Side
+fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
+// fSlopeCharUp	:= (fSpoolTravel)/fMaxFlowUp; 			// Valve Slope Characteristic [mm/(L/min)]
+// fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 		// Valve Slope Characteristic [mm/(L/min)]
 fDeltaP_Norm	:= fDeltaP0 * 100000.0;
-	
+
 IF fXDot > 0.0 THEN
 	
 	fFlow := fXDot * fArea;
+	fFlowLM := fFlow * 60000;
 	fDeltaP := (fPs - fPa) * 100000.0;
 	IF fDeltaP < 100 THEN
 		fDeltaP := 100;
@@ -51,12 +52,12 @@ IF fXDot > 0.0 THEN
 	END_IF
 	fDeltaP_Ref := ABS(fDeltaP_Norm/ (fDeltaP));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFFTemp :=	(fFlowRef * fSlopeCharUp) / fSpoolTravel;
-	fUFFTemp := fUFFTemp * (1-fDeadBandUp);
+	fUFFTemp := fFlowRef/fMaxFlowUp;
+	fUFFTemp := fUFFTemp * (0.4-fDeadBandUp);
 	
 ELSIF fXDot < 0.0 THEN
 	
-	fFlow := fXDot * fArea;
+	fFlow := fXDot * fArea * fPhi;
 	fDeltaP := (fPs - fPb) * 100000.0;
 	IF fDeltaP < 100 THEN
 		fDeltaP := 100;
@@ -65,8 +66,8 @@ ELSIF fXDot < 0.0 THEN
 	END_IF
 	fDeltaP_Ref := ABS(fDeltaP_Norm/(fDeltaP));
 	fFlowRef := (fFlow * SQRT(fDeltaP_Ref)) * 60000.0;
-	fUFFTemp :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
-	fUFFTemp := fUFFTemp*(1-fDeadBandDown);
+	fUFFTemp := fFlowRef/fMaxFlowDown; //fUFFTemp :=	(fFlowRef * fSlopeCharDown) / fSpoolTravel;
+	fUFFTemp := fUFFTemp*(0.4-fDeadBandDown);
 	
 ELSE
 	

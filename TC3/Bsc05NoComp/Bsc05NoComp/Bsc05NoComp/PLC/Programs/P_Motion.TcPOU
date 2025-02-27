@@ -11,17 +11,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbInitPosMain(
-	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableOne,
-	fCurrentPos := G_OPC.fMainPistonPosition.fDanielFilter
-);
-
-fbInitPosJib(
-	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableTwo,
-	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
-);
-
-fbSineMotionRefMain(
+      <ST><![CDATA[fbSineMotionRefMain(
 	fInitialPos := fbInitPosMain.fInitialPos
 );
 
@@ -29,34 +19,46 @@ fbSineMotionRefJib(
 	fInitialPos := fbInitPosJib.fInitialPos
 );
 
-IF G_Enables.bSineMotion THEN
+fbInitPosMain(
+	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableTwo,
+	fCurrentPos := G_OPC.fMainPistonPosition.fDanielFilter
+);
+
+fbInitPosJib(
+	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableOne,
+	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
+);
+
+
+
+IF G_Enables.bSineMotion AND G_Inputs.bEnableButton THEN
 	fbSineMotionRefMain(
-		bEnableMotion := G_Enables.bSineMotion,
+		bEnableMotion := G_Enables.bSineMotion AND G_Inputs.bEnableButton,
 		fTime := G_OPC.fMotionTime,
 		fFrequency := G_Parameters.fMainFrequency,
 		fAmplitude := G_Parameters.fMainAmplitude,
-		
-		fXDotRef => G_OPC.fXDotRefOne,
-		fXRef => G_OPC.fXRefOne
-	);
-	
-	fbSineMotionRefJib(
-		bEnableMotion := G_Enables.bSineMotion,
-		fTime := G_OPC.fMotionTime,
-		fFrequency := G_Parameters.fJibFrequency,
-		fAmplitude := G_Parameters.fJibAmplitude,
 		
 		fXDotRef => G_OPC.fXDotRefTwo,
 		fXRef => G_OPC.fXRefTwo
 	);
 	
+	fbSineMotionRefJib(
+		bEnableMotion := G_Enables.bSineMotion AND G_Inputs.bEnableButton,
+		fTime := G_OPC.fMotionTime,
+		fFrequency := G_Parameters.fJibFrequency,
+		fAmplitude := G_Parameters.fJibAmplitude,
+		
+		fXDotRef => G_OPC.fXDotRefOne,
+		fXRef => G_OPC.fXRefOne
+	);
+	
 ELSE
 	
 	G_OPC.fXDotRefOne := 0.0;
-	G_OPC.fXRefOne := 0.0;
+	G_OPC.fXRefOne := G_OPC.fJibPistonPosition.fDanielFilter;
 	
 	G_OPC.fXDotRefTwo := 0.0;
-	G_OPC.fXRefTwo := 0.0;
+	G_OPC.fXRefTwo := G_OPC.fMainPistonPosition.fDanielFilter;
 	
 END_IF
 

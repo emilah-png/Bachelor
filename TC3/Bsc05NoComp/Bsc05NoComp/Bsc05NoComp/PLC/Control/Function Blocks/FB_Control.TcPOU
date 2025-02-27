@@ -9,6 +9,7 @@ VAR_INPUT
 	fDeadBandDown	: LREAL;
 	fXDotRef		: LREAL;
 	fError			: LREAL;
+	fKFF			: LREAL;
 	
 	bPID			: BOOL;
 	bFF				: BOOL;
@@ -20,17 +21,18 @@ END_VAR
 VAR
 	FF				: LREAL;
 	PID				: LREAL;
+	fMaxOutput		: LREAL := 0.4;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF bFF THEN
-	FF := fFF;
+	FF := fFF * fKFF ;//* fMaxOutput;
 ELSE
 	FF := 0.0;
 END_IF
 
 IF bPID THEN
-	PID := fPID;
+	PID := fPID * fMaxOutput;
 ELSE
 	PID := 0.0;
 END_IF
@@ -38,7 +40,7 @@ END_IF
 IF fXDotRef > 0.0 THEN
 	fU := FF + PID + fDeadBandUp;
 ELSIF fXDotRef < 0.0 THEN
-	fU := FF + PID + fDeadBandDown;
+	fU := FF + PID - fDeadBandDown;
 ELSE
 	fU := 0.0;
 END_IF

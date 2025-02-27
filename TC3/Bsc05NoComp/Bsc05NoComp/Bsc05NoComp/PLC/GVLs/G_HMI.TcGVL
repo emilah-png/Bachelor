@@ -13,7 +13,6 @@ VAR_GLOBAL
 	nManuelMode				:	INT;
 	fNumPad1				:	LREAL;
 	fNumPad2				:	LREAL;
-	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

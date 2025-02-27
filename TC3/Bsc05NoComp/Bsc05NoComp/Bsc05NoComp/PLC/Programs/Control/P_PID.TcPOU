@@ -25,19 +25,19 @@ IF (G_Enables.bEnablePID) THEN
 	);
 	
 	fbIntegrator(
-		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
 		fSignal := fbOnePID.fSignalI,
 		fSignalIntegrated => fbOnePID.fSignalIntegrated
 	);
 	fbDerivator(
-		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
 		fSignal := fbOnePID.fSignalD,
 		fSignalDerivative => fbOnePID.fSignalDerivated
 	);
 
 	fbOnePID(
 		fX := G_OPC.fXRefOne,
-		fXReal := G_OPC.fMainPistonPosition.fFilteredSignal,
+		fXReal := G_OPC.fJibPistonPosition.fDanielFilter,
 		fKp := G_Parameters.fOneP,
 		fKi := G_Parameters.fOneI,
 		fKd := G_Parameters.fOneD,
@@ -58,19 +58,19 @@ IF (G_Enables.bEnablePID) THEN
 	);
 	
 	fbIntegrator(
-		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
 		fSignal := fbTwoPID.fSignalI,
 		fSignalIntegrated => fbTwoPID.fSignalIntegrated
 	);
 	fbDerivator(
-		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
+		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
 		fSignal := fbTwoPID.fSignalD,
 		fSignalDerivative => fbTwoPID.fSignalDerivated
 	);
 
 	fbTwoPID(
 		fX := G_OPC.fXRefTwo,
-		fXReal := G_OPC.fJibPistonPosition.fFilteredSignal,
+		fXReal := G_OPC.fMainPistonPosition.fDanielFilter,
 		fKp := G_Parameters.fTwoP,
 		fKi := G_Parameters.fTwoI,
 		fKd := G_Parameters.fTwoD,

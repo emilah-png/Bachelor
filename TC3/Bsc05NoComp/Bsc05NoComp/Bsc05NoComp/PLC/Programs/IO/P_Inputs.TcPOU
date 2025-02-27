@@ -35,6 +35,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[G_Enables.bEmergencyButton := G_Inputs.bEmergencySwitch;
+G_Enables.bHoldButton := G_Inputs.bEnableButton;
 
 // Supply
 fbNormPs(
@@ -68,6 +69,7 @@ fbNormMainPistonPosition(
 	fMaxInputValue := 17285.0,
 	fMinInputValue := 370.0,
 	fMinOutputValue := 0.081,
+	fOffset := 0.401,
 	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	
@@ -102,6 +104,7 @@ fbNormJibPistonPosition(
 	fMaxInputValue := 24163.0,
 	fMinInputValue := 2930.0,
 	fMinOutputValue := 0.006,
+	fOffset := 0.0,
 	fOutput => G_OPC.fJibPistonPosition.fSignal
 );
 
@@ -149,6 +152,7 @@ fbJoystickMain(
 fbJoystickJib(
 	nRawInput := G_Inputs.nRawJoystickJib,
 	bEnable := TRUE,
+	bInverse := TRUE,
 	fBitArray := G_Joystick.fJibCyl,
 	fOutput => G_OPC.fJoystickJib
 );

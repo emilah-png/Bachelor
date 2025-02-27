@@ -13,8 +13,8 @@ END_VAR
       <ST><![CDATA[
 fbFFOne(
 	fPs := G_OPC.fPs.fDanielFilter,
-	fPa := G_OPC.fMainPaDCV.fDanielFilter,
-	fPb := G_OPC.fMainPbDCV.fDanielFilter,
+	fPa := G_OPC.fJibPaDCV.fDanielFilter,
+	fPb := G_OPC.fJibPbDCV.fDanielFilter,
 	
 	fXDot := G_OPC.fXDotRefOne,
 	fDeltaP0 := G_Parameters.fDeltaP0One,
@@ -25,16 +25,16 @@ fbFFOne(
 	fDeadBandUp := G_Parameters.fDeadUpOne,
 	fDeadBandDown := G_Parameters.fDeadDownOne,
 	
-	fArea := G_Parameters.fAreaOne,
-	fPhi := G_Parameters.fAreaRelationOne,
+	fArea := G_Parameters.fAreaJib,
+	fPhi := G_Parameters.fAreaRelation2,
 	
 	fUFF => G_OPC.fValveOneSignals.fFF
 );
 
 fbFFTwo(
 	fPs := G_OPC.fPs.fDanielFilter,
-	fPa := G_OPC.fJibPaDCV.fDanielFilter,
-	fPb := G_OPC.fJibPbDCV.fDanielFilter,
+	fPa := G_OPC.fMainPaDCV.fDanielFilter,
+	fPb := G_OPC.fMainPbDCV.fDanielFilter,
 	
 	fXDot := G_OPC.fXDotRefTwo,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
@@ -45,8 +45,8 @@ fbFFTwo(
 	fDeadBandUp := G_Parameters.fDeadUpTwo,
 	fDeadBandDown := G_Parameters.fDeadDownTwo,
 	
-	fArea := G_Parameters.fAreaTwo,
-	fPhi := G_Parameters.fAreaRelationTwo,
+	fArea := G_Parameters.fAreaMain,
+	fPhi := G_Parameters.fAreaRelation1,
 	
 	fUFF => G_OPC.fValveTwoSignals.fFF
 );]]></ST>

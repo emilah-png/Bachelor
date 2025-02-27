@@ -4,6 +4,7 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_JoystickInputScaling
 VAR_INPUT
 	bEnable 				: BOOL;
+	bInverse				: BOOL;
 	nRawInput 				: INT;
 	fBitArray 				: ARRAY [0..2] OF LREAL;
 END_VAR
@@ -42,6 +43,8 @@ END_IF
 
 IF NOT(bEnable) THEN
 	fOutput := 0.0;
+ELSIF bInverse THEN
+	fOutput := LIMIT(fMinOutputValue, -fTempOutput, fMaxOutputValue);
 ELSE
 	fOutput := LIMIT(fMinOutputValue, fTempOutput, fMaxOutputValue);
 END_IF
