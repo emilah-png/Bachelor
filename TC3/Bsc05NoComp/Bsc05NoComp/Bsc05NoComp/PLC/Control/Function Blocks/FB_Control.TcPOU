@@ -37,9 +37,9 @@ ELSE
 	PID := 0.0;
 END_IF
 
-IF fXDotRef > 0.0 THEN
+IF (FF + PID > 0.0) THEN
 	fU := FF + PID + fDeadBandUp;
-ELSIF fXDotRef < 0.0 THEN
+ELSIF (FF + PID < 0.0) THEN
 	fU := FF + PID - fDeadBandDown;
 ELSE
 	fU := 0.0;

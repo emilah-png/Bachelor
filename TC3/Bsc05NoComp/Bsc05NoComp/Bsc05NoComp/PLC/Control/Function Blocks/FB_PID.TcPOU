@@ -44,6 +44,12 @@ ELSE
 	fSignalAdjusted := fTempOut;
 END_IF
 
+IF ABS(fSignalAdjusted) < 1E-5 THEN
+	fSignalAdjusted := 0.0;
+ELSE
+	fSignalAdjusted := fSignalAdjusted;
+END_IF
+
 
 ]]></ST>
     </Implementation>
