@@ -169,6 +169,15 @@
     <Content Include="Images\Arrow rigth.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\john_deer_8rx-removebg-preview.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\motion lab.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\traktor.jpg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Pages\HostContent.content">
       <SubType>Content</SubType>
     </Content>
