@@ -172,7 +172,13 @@
     <Content Include="Images\john_deer_8rx-removebg-preview.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\lastebilkran-scorpion-roar-wilhelmsen-removebg-preview.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\motion lab.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\result.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\traktor.jpg">
