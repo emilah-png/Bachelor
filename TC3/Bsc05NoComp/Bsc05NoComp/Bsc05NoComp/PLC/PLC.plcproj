@@ -19,6 +19,9 @@
     <CompilerDefines>VISU_USEPROPERTYINFO</CompilerDefines>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Control\Function Blocks\FB_Config.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Control\Function Blocks\FB_Control.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -66,6 +69,10 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\G_Signals.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Static\G_Config.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -147,6 +154,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\P_Config.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\P_HMI.TcPOU">

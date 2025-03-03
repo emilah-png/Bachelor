@@ -27,6 +27,8 @@ VAR_GLOBAL
 	bManConst			: BOOL;
 	bManSpeed			: BOOL;
 	
+	// Config Enables
+	bConfigJoysticks	: BOOL;
 END_VAR
 ]]></Declaration>
   </GVL>

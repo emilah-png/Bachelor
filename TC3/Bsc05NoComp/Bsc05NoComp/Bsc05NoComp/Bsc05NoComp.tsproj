@@ -46,7 +46,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{F0C6316E-FA9F-D1BA-D20F-9D802A19A9D0}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{1FBF2766-A835-1CC6-D67B-0F68D05DAD8C}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -109,6 +109,11 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.bErrorOne</Name>
+							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawSupplyPs</Name>
 							<Comment><![CDATA[ Raw Values SUPPLY]]></Comment>
 							<Type>INT</Type>
@@ -161,13 +166,13 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.nRawWinchEncoder</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawJoystickWinch</Name>
 							<Comment><![CDATA[ Joystick Signals]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoder</Name>
-							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJoystickRotation</Name>
@@ -186,11 +191,6 @@
 						<Var>
 							<Name>G_Inputs.nRawJoystickExtrude</Name>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.bErrorOne</Name>
-							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.bErrorTwo</Name>
@@ -2279,7 +2279,6 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
-		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030020"/>
 		<OwnerA Name="TIPC^PLC^PLC Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1008)">
 				<Link VarA="PlcTask Inputs^G_Inputs.bErrorOne" VarB="Channel 3^Input"/>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Config" Id="{d113c0c6-258d-4fc5-9cb4-40e70f57e68f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	faMeasurement 			: ARRAY[0..100] OF LREAL;
+	
+	fJibJoystickAverage 	: LREAL;
+	fConfigTime 			: LREAL;
+	
+	nArrayLength			: INT := 100;
+	
+	bJoystickConfig 		: BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
