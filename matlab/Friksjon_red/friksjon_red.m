@@ -33,6 +33,24 @@ load red_crane_sim_force2.mat
 stroke_knuckle = data{2}{19}.extractTimetable.Variables;
 Force_knuckle = data{2}{1}.extractTimetable.Variables;
 
+load red_crane_sim_force_wire.mat 
+
+stroke_main_wire = data{1}{33}.extractTimetable.Variables;
+Force_main_wire = data{1}{20}.extractTimetable.Variables;
+
+load red_crane_sim_force_wire.mat
+stroke_knuckle_wire = data{2}{19}.extractTimetable.Variables;
+Force_knuckle_wire = data{2}{1}.extractTimetable.Variables;
+
+load red_crane_sim_force_wire2.mat 
+
+stroke_main_wire2 = data{1}{33}.extractTimetable.Variables;
+Force_main_wire2 = data{1}{20}.extractTimetable.Variables;
+
+load red_crane_sim_force_wire2.mat
+stroke_knuckle_wire2 = data{2}{19}.extractTimetable.Variables;
+Force_knuckle_wire2 = data{2}{1}.extractTimetable.Variables;
+
 %% Cylinder data
 % Cylinder main
 sC_main = 0.75; % Stroke
@@ -101,7 +119,9 @@ plot(X_main,F_main_tc)
 hold on 
 plot(stroke_main,Force_main)
 grid on
-legend("Force Main", "Simulated Force")
+plot(stroke_main_wire,Force_main_wire)
+plot(stroke_main_wire2,Force_main_wire2)
+legend("Force Main", "Simulated Force","With wire","With wire+winch")
 ylabel("Force [N]")
 xlabel("Stroke [m]")
 xlim([0 0.75])
@@ -111,8 +131,10 @@ figure("Name","Force Plot Jib")
 plot(X_jib,F_jib_tc)
 hold on 
 plot(stroke_knuckle,Force_knuckle)
+plot(stroke_knuckle_wire,Force_knuckle_wire)
+plot(stroke_knuckle_wire2,Force_knuckle_wire2)
 grid on
-legend("Force Jib", "Simulated Force")
+legend("Force Jib", "Simulated Force","With wire","With wire+winch")
 ylabel("Force [N]")
 xlabel("Stroke [m]")
 xlim([0 0.85]) 
