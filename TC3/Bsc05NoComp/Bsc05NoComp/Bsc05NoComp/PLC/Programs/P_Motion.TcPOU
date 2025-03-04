@@ -20,20 +20,20 @@ fbSineMotionRefJib(
 );
 
 fbInitPosMain(
-	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableTwo,
+	bEnable := G_Enables.bHoldButton AND G_Enables.bEnableTwo,
 	fCurrentPos := G_OPC.fMainPistonPosition.fDanielFilter
 );
 
 fbInitPosJib(
-	bEnable := G_Inputs.bEnableButton AND G_Enables.bEnableOne,
+	bEnable := G_Enables.bHoldButton AND G_Enables.bEnableOne,
 	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
 );
 
 
 
-IF G_Enables.bSineMotion AND G_Inputs.bEnableButton THEN
+IF G_Enables.bSineMotion AND G_Enables.bHoldButton THEN
 	fbSineMotionRefMain(
-		bEnableMotion := G_Enables.bSineMotion AND G_Inputs.bEnableButton,
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton,
 		fTime := G_OPC.fMotionTime,
 		fFrequency := G_Parameters.fMainFrequency,
 		fAmplitude := G_Parameters.fMainAmplitude,
@@ -43,7 +43,7 @@ IF G_Enables.bSineMotion AND G_Inputs.bEnableButton THEN
 	);
 	
 	fbSineMotionRefJib(
-		bEnableMotion := G_Enables.bSineMotion AND G_Inputs.bEnableButton,
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton,
 		fTime := G_OPC.fMotionTime,
 		fFrequency := G_Parameters.fJibFrequency,
 		fAmplitude := G_Parameters.fJibAmplitude,

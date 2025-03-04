@@ -35,7 +35,14 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[G_Enables.bEmergencyButton := G_Inputs.bEmergencySwitch;
-G_Enables.bHoldButton := G_Inputs.bEnableButton;
+
+IF G_Inputs.bEnableButton THEN
+	G_Enables.bHoldButton := G_Inputs.bEnableButton;
+ELSIF G_HMI.bHoldButton_HMI THEN
+	G_Enables.bHoldButton := G_HMI.bHoldButton_HMI;
+ELSE
+	G_Enables.bHoldButton := FALSE;
+END_IF
 
 // Supply
 fbNormPs(

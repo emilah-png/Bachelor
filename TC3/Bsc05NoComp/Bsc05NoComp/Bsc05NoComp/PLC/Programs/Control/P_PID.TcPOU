@@ -25,12 +25,12 @@ IF (G_Enables.bEnablePID) THEN
 	);
 	
 	fbIntegrator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbOnePID.fSignalI,
 		fSignalIntegrated => fbOnePID.fSignalIntegrated
 	);
 	fbDerivator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbOnePID.fSignalD,
 		fSignalDerivative => fbOnePID.fSignalDerivated
 	);
@@ -58,12 +58,12 @@ IF (G_Enables.bEnablePID) THEN
 	);
 	
 	fbIntegrator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbTwoPID.fSignalI,
 		fSignalIntegrated => fbTwoPID.fSignalIntegrated
 	);
 	fbDerivator(
-		ssMethodType := BOOL_TO_SINT(G_Inputs.bEnableButton),
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbTwoPID.fSignalD,
 		fSignalDerivative => fbTwoPID.fSignalDerivated
 	);
