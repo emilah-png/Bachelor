@@ -3,11 +3,11 @@
   <GVL Name="G_Joystick" Id="{ed4b467d-111f-4285-9b00-f69366b73230}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	fMainCyl	: ARRAY[0..2] OF LREAL := [10220.0, 19350.0, 28100.0];
-	fJibCyl		: ARRAY[0..2] OF LREAL := [10420.0, 19344.0, 27990.0];
-	fWinch 		: ARRAY[0..2] OF LREAL := [9743.0, 19375.0, 28931.0];
-	fRotation 	: ARRAY[0..2] OF LREAL := [9893.0, 19484.0, 29093.0];
-	fExtrude 	: ARRAY[0..2] OF LREAL := [9918.0, 19622.0, 29023.0];
+	fMainCyl	: ARRAY[0..2] OF LREAL := [9650.0, 19369.0, 29152.0];
+	fJibCyl		: ARRAY[0..2] OF LREAL := [9939.0, 19580.0, 28981.0];
+	fWinch 		: ARRAY[0..2] OF LREAL := [9760.0, 19393.0, 28952.0];
+	fRotation 	: ARRAY[0..2] OF LREAL := [9907.0, 19502.0, 29115.0];
+	fExtrude 	: ARRAY[0..2] OF LREAL := [9939.0, 19640.0, 28916.0];
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
