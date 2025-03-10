@@ -1466,6 +1466,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Truck.fTruckPosition": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Truck::fTruckPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.RuntimePorts": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -8702,6 +8712,7 @@
                 "ADS.PLC1.G_OPC.fXRefTwo": 3,
                 "ADS.PLC1.G_Parameters.fMaxStrokeJib": 3,
                 "ADS.PLC1.G_Parameters.fMaxStrokeMain": 3,
+                "ADS.PLC1.G_Truck.fTruckPosition": 3,
                 "ChangeUserSettings": 3,
                 "ConfirmAlarm": 3,
                 "CreateEvent": 3,
@@ -8844,14 +8855,12 @@
         "/Beckhoff.TwinCAT.HMI.Motion": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Motion.14.2.90\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.PDFViewer": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.PDFViewer.14.2.90\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.ResponsiveNavigation": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.ResponsiveNavigation.14.2.90\\runtimes\\native1.12-tchmi",
-        "/Beckhoff.TwinCAT.HMI.Scope": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Scope.14.2.6418",
         "/Beckhoff.TwinCAT.HMI.ScopeControl": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.ScopeControl.14.2.90\\runtimes\\native1.12-tchmi",
         "/ET_TcHMI_Framework": "..\\..\\Packages\\ET_TcHMI_Framework.1.0.0\\runtimes\\native1.12-tchmi",
         "/ElektroCode": "..\\..\\Packages\\ElektroCode.4.4.8\\runtimes\\native1.12-tchmi",
         "/FC_SideBar": "..\\..\\Packages\\FC_SideBar.1.1.1\\runtimes\\native1.12-tchmi",
         "/JB.TcHmiProgressBar": "..\\..\\Packages\\JB.TcHmiProgressBar.1.0.0\\runtimes\\native1.12-tchmi",
         "/TcHmiOpenHabControls": "..\\..\\Packages\\TcHmiOpenHabControls.1.1.0\\runtimes\\native1.12-tchmi",
-        "/TcHmiOpenHabExtension": "..\\..\\Packages\\TcHmiOpenHabExtension.1.1.0",
         "/bin": "..\\..\\TcHmiProject1\\bin\\"
     }
 }
