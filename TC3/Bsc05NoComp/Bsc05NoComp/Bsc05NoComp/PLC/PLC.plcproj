@@ -116,6 +116,9 @@
     <Compile Include="Motion\FB_SineMotionRef.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Motion\FB_Vel2Flow.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Output\FB_OutputNormalizing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -133,6 +136,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Background PRGs\P_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Background PRGs\P_Vel2Flow.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Control\P_Control.TcPOU">
@@ -165,6 +171,13 @@
     <Compile Include="Programs\P_Motion.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Truck\G_Truck.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Truck\P_Truck.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="XML\FB_Derivator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -188,6 +201,7 @@
     <Folder Include="Control" />
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
+    <Folder Include="Truck" />
     <Folder Include="Output" />
     <Folder Include="Programs\Control" />
     <Folder Include="Programs\IO" />

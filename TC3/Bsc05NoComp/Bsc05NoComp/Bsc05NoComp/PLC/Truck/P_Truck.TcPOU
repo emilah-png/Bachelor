@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Truck" Id="{902105c5-188f-4e7f-858b-39d2a35839ca}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Truck
+VAR
+	fTimeTraveling	: LREAL := 1.0;
+	fTimeDriveOut	: LREAL := 2.0;
+	fStartPosition	: LREAL := -300.0;
+	fParkPosition	: LREAL := 280.0;
+	fEndPosition	: LREAL := 1950.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF G_OPC.fTime < fTimeTraveling AND NOT(G_HMI.bstepp_button) AND NOT(G_Truck.bParked) THEN
+	G_Truck.fTruckPosition := fStartPosition;
+	
+ELSIF G_OPC.fTime < fTimeTraveling AND G_HMI.bstepp_button THEN
+	G_Truck.fTruckPosition := fStartposition + G_OPC.fTime * (fParkPosition - fStartPosition)/fTimeTraveling;
+
+ELSIF G_OPC.fTime > fTimeTraveling AND G_HMI.bstepp_button THEN
+	G_Truck.bParked := TRUE;
+	G_Truck.fTruckPosition := fParkPosition;	
+
+ELSIF  G_Truck.bParked AND G_Truck.fDriveOutTime < fTimeDriveOut AND NOT(G_HMI.bstepp_button) THEN
+	G_Truck.bDriveOut := TRUE;
+	G_Truck.fTruckPosition := fParkPosition + G_Truck.fDriveOutTime * (fEndPosition - fParkPosition)/fTimeDriveOut;
+	
+ELSIF G_Truck.fTruckPosition = fEndPosition THEN
+	G_Truck.fTruckPosition := fStartPosition;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

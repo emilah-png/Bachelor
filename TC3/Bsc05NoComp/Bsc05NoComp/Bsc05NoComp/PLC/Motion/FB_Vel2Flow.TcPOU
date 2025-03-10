@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Vel2Flow" Id="{aa72372a-9cea-47ae-a42e-0f19852b91fe}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Vel2Flow
+VAR_INPUT
+	fVelocity	: LREAL;
+	fArealUp	: LREAL;
+	fArealDown	: LREAL;
+	fXDotRef	: LREAL;
+END_VAR
+VAR_OUTPUT
+	fFlowA		: LREAL;
+	fFlowB		: LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fXDotRef > 0.0 THEN
+	fFlowA := fVelocity * fArealUp / 60000.0;
+	fFlowB := fVelocity * fArealDown / 60000.0;
+ELSIF fXDotRef < 0.0 THEN
+	fFlowA := fVelocity * fArealUp / 60000.0;
+	fFlowB := fVelocity * fArealDown / 60000.0;
+ELSE
+	fFlowA := 0.0;
+	fFlowB := 0.0;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

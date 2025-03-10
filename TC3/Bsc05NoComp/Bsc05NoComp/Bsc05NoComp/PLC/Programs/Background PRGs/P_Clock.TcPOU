@@ -6,6 +6,7 @@ VAR
 	
 	fbClock : FB_Clock;
 	fbMotionClock : FB_Clock;
+	fbDriveOut : FB_Clock;
 	
 END_VAR
 ]]></Declaration>
@@ -21,6 +22,12 @@ fbMotionClock(
 	bStartEnable := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bAuto, // AND G_HMI.bstepp_button AND G_Enables.bHoldButton,
 	
 	fTime => G_OPC.fMotionTime
+);
+
+fbDriveOut(
+	bStartEnable := G_Truck.bDriveOut AND NOT(G_HMI.bstepp_button),
+	
+	fTime => G_Truck.fDriveOutTime
 );]]></ST>
     </Implementation>
   </POU>

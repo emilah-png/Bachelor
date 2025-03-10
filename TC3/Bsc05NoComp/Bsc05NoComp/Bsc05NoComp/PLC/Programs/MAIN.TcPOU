@@ -16,8 +16,10 @@ P_Output();
 P_DeadBand();
 P_FeedForward();
 P_PID();
+P_Vel2Flow();
 P_Control();
 P_Motion();
+P_Truck();
 ]]></ST>
     </Implementation>
   </POU>
