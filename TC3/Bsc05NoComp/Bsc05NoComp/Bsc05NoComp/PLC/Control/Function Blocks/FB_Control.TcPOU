@@ -21,7 +21,7 @@ END_VAR
 VAR
 	FF				: LREAL;
 	PID				: LREAL;
-	fMaxOutput		: LREAL := 0.4;
+	fMaxOutput		: LREAL := 1.0;
 END_VAR
 ]]></Declaration>
     <Implementation>
