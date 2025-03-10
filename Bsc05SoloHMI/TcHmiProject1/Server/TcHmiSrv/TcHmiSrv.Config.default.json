@@ -1092,6 +1092,23 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fJibPistonVelocity": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPistonVelocity",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[m/s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fJoystickExtrude": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1223,6 +1240,23 @@
                     },
                     {
                         "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPistonVelocity": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPistonVelocity",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "[m/s]"
                     }
                 ]
             },
@@ -8646,6 +8680,7 @@
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fFilteredSignal": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fSignal": 3,
+                "ADS.PLC1.G_OPC.fJibPistonVelocity": 3,
                 "ADS.PLC1.G_OPC.fJoystickExtrude": 3,
                 "ADS.PLC1.G_OPC.fJoystickJib": 3,
                 "ADS.PLC1.G_OPC.fJoystickMain": 3,
@@ -8654,6 +8689,7 @@
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fFilteredSignal": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fSignal": 3,
+                "ADS.PLC1.G_OPC.fMainPistonVelocity": 3,
                 "ADS.PLC1.G_OPC.fTime": 3,
                 "ADS.PLC1.G_OPC.fValveOneFF": 3,
                 "ADS.PLC1.G_OPC.fValveOneOutput": 3,
