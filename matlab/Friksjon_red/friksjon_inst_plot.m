@@ -30,15 +30,15 @@ Force_main = out.Force_main;
 stroke_knuckle = out.Pos_jib;
 Force_knuckle = out.Force_jib;
 
-% load red_crane_sim_force_winchload3.mat 
-% 
-% stroke_main_wire = data{33}.extractTimetable.Variables;
-% Force_main_wire = data{20}.extractTimetable.Variables;
+load red_crane_sim_force_winchload4.mat 
+
+stroke_main_wire = data{1}{37}.extractTimetable.Variables;
+Force_main_wire = data{1}{22}.extractTimetable.Variables;
 
 % load red_crane_sim_force_wire.mat
-% stroke_knuckle_wire = data{2}{19}.extractTimetable.Variables;
-% Force_knuckle_wire = data{2}{1}.extractTimetable.Variables;
-% 
+stroke_knuckle_wire = data{2}{21}.extractTimetable.Variables;
+Force_knuckle_wire = data{2}{1}.extractTimetable.Variables;
+
 % load red_crane_sim_force_wire2.mat 
 % 
 % stroke_main_wire2 = data{1}{33}.extractTimetable.Variables;
@@ -179,17 +179,18 @@ end
 
 
 figure("Name","Force Plot Main Interval")
-plot(X_up_main,F_tc_up_main)
-hold on 
 plot(X_down_main,F_tc_down_main)
+hold on 
+plot(X_up_main,F_tc_up_main)
 plot(stroke_main,Force_main)
-% plot(stroke_main_wire,Force_main_wire)
+plot(stroke_main_wire,Force_main_wire)
 % plot(stroke_main_wire2,Force_main_wire2)
 % legend("Force up", "Force down")
 legend("Force up", "Force down", "Simulated Force","With wire","With wire+winch")
 ylabel("Force [N]")
 xlabel("Stroke [m]")
-xlim([0 0.75])
+xlim([0.15 0.75])
+ylim([0 14e4])
 
 
 figure("Name","Force Plot Jib Interval")
@@ -197,7 +198,7 @@ plot(X_up_jib,F_tc_up_jib)
 hold on 
 plot(X_down_jib,F_tc_down_jib)
 plot(stroke_knuckle,Force_knuckle)
-% plot(stroke_knuckle_wire,Force_knuckle_wire)
+plot(stroke_knuckle_wire,Force_knuckle_wire)
 % plot(stroke_knuckle_wire2,Force_knuckle_wire2)
 % legend("Force up", "Force down")
 legend("Force up", "Force down", "Simulated Force","With wire","With wire+winch")
