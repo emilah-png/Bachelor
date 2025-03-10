@@ -13,6 +13,7 @@ VAR_GLOBAL
 	fMainPbDCV				: ST_Filter; // [Bar]
 	fMainPaCyl				: ST_Filter; // [Bar]
 	fMainPistonPosition 	: ST_Filter; // [m]
+	fMainPistonVelocity		: LREAL; // [m/s]
 	
 	// JIB Values
 	fJibPaDCV				: ST_Filter; // [Bar]
@@ -20,6 +21,7 @@ VAR_GLOBAL
 	fJibPaCyl				: ST_Filter; // [Bar]
 	fJibPbCyl				: ST_Filter; // [Bar]
 	fJibPistonPosition		: ST_Filter; // [m]
+	fJibPistonVelocity		: LREAL; // [m/s]
 	
 	// WINCH Values
 	fWinchPa				: ST_Filter; // [Bar]

@@ -46,7 +46,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{1BF729DA-2402-9BDF-87A6-B40CCB1B7925}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{2FED5891-5A3A-DCB6-EBD8-6C9A06A92C61}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -106,11 +106,6 @@
 						</Var>
 						<Var>
 							<Name>G_Inputs.bEnableButton</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.bErrorOne</Name>
-							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -191,6 +186,11 @@
 						<Var>
 							<Name>G_Inputs.nRawJoystickExtrude</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.bErrorOne</Name>
+							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.bErrorTwo</Name>

@@ -35,8 +35,8 @@ CASE G_HMI.nCounter OF
 			
 				G_Output.bEnableValveOne := G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
 				G_Output.bEnableValveTwo := G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
-				G_Output.nValveOneOutput := LREAL_TO_INT(G_Parameters.fConst1 * 32767.0) ;
-				G_Output.nValveTwoOutput := LREAL_TO_INT(G_Parameters.fConst2 * 32767.0) ;
+				G_Output.nValveOneOutput := LREAL_TO_INT(G_Parameters.fConst1 * 32767.0);
+				G_Output.nValveTwoOutput := LREAL_TO_INT(G_Parameters.fConst2 * 32767.0);
 				G_Enables.bManDirect := FALSE;
 				G_Enables.bManSpeed := FALSE;
 				G_Enables.bManConst := TRUE;

@@ -3,14 +3,39 @@
   <POU Name="P_HMI" Id="{1d09e2f8-ad02-42e7-aee8-b005510e241b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_HMI
 VAR
-// 	bSwich_Cylinder_1 				: bButton_Cylinder_1;
-// 	bSwich_Cylinder_2 				: bButton_Cylinder_2;
-// 	nSlider1						: bSlider_1;
-// 	nSlider2						: bSlider_2;
+	fbDerivatorMainSpeed	: FB_Derivator;
+	fbDerivatorJibSpeed		: FB_Derivator;
+	fMainVelocity			: LREAL;
+	fJibVelocity			: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF G_HMI.nManuelMode < 0 THEN
+      <ST><![CDATA[fbDerivatorMainSpeed(
+	ssMethodType := 1,
+	fSignal := G_OPC.fMainPistonPosition.fDanielFilter,
+	fSignalDerivative => fMainVelocity
+);
+
+fbDerivatorJibSpeed(
+	ssMethodType := 1,
+	fSignal := G_OPC.fJibPistonPosition.fDanielFilter,
+	fSignalDerivative => fJibVelocity
+);
+
+IF fMainVelocity < -0.01 OR fMainVelocity > 0.01 THEN
+	G_OPC.fMainPistonVelocity := fMainVelocity;
+ELSE
+	G_OPC.fMainPistonVelocity := 0.0;
+END_IF
+
+IF fJibVelocity < -0.01 OR fJibVelocity > 0.01 THEN
+	G_OPC.fJibPistonVelocity := fJibVelocity;
+ELSE
+	G_OPC.fJibPistonVelocity := 0.0;
+END_IF
+
+
+IF G_HMI.nManuelMode < 0 THEN
 	G_HMI.nManuelMode := 0;
 ELSIF G_HMI.nManuelMode > 2 THEN
 	G_HMI.nManuelMode := 2;
@@ -22,8 +47,8 @@ ELSIF G_HMI.nCounter > 3 THEN
 	G_HMI.nCounter := 3; 
 END_IF
 
-G_Parameters.fConst1 := G_HMI.fNumPad1/100.0;
-G_Parameters.fConst2 := G_HMI.fNumPad2/100.0;
+G_Parameters.fConst1 := G_HMI.fNumPad1;
+G_Parameters.fConst2 := G_HMI.fNumPad2;
 
 IF G_Enables.bErrorOne THEN
 	G_HMI.fSlider_1 := 0;
@@ -31,6 +56,14 @@ IF G_Enables.bErrorOne THEN
 ELSE
 	G_HMI.fSlider_1 := G_HMI.fSlider_1;
 	G_Enables.bEnableOne := G_Enables.bEnableOne;
+END_IF
+
+IF G_Enables.bErrorTwo THEN
+	G_HMI.fSlider_2 := 0;
+	G_Enables.bEnableTwo := FALSE;
+ELSE
+	G_HMI.fSlider_2 := G_HMI.fSlider_2;
+	G_Enables.bEnableTwo := G_Enables.bEnableTwo;
 END_IF]]></ST>
     </Implementation>
   </POU>
