@@ -1,6 +1,6 @@
 <div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-height-unit="%" data-tchmi-height="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-zindex="10" data-tchmi-creator-viewport-height="1080" data-tchmi-creator-viewport-width="1920">
   
-<div id="TcHmiDesktopGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-left="22" data-tchmi-top="35" data-tchmi-height-unit="%" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-zindex="10">
+<div id="TcHmiDesktopGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-height-unit="%" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-zindex="10">
 
 <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">[
         {
@@ -2907,7 +2907,7 @@
 }
 </script>
 </div>
-<div id="TcHmiNumericInput_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="900" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="200" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-system-keyboard-input-mode="decimal" data-tchmi-value-type="BigInt64" data-tchmi-value-font-size="20" data-tchmi-zindex="9">
+<div id="TcHmiNumericInput_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="3" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="900" data-tchmi-left-unit="px" data-tchmi-max-value="1" data-tchmi-min-value="-1" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="200" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-system-keyboard-input-mode="decimal" data-tchmi-value-type="Number" data-tchmi-value-font-size="20" data-tchmi-zindex="9" data-tchmi-decimal-precision-mode="Truncate">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -3682,7 +3682,7 @@
 }
 </script>
 </div>
-<div id="TcHmiNumericInput_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="900" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-system-keyboard-input-mode="decimal" data-tchmi-value-type="BigInt64" data-tchmi-value-font-size="20" data-tchmi-zindex="9">
+<div id="TcHmiNumericInput_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="3" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="900" data-tchmi-left-unit="px" data-tchmi-max-value="1" data-tchmi-min-value="-1" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-system-keyboard-input-mode="decimal" data-tchmi-value-type="Number" data-tchmi-value-font-size="20" data-tchmi-zindex="9" data-tchmi-decimal-precision-mode="Truncate">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -3861,7 +3861,7 @@
 </div>
 <div id="TcHmiImage_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="134" data-tchmi-height-unit="px" data-tchmi-left="280" data-tchmi-left-unit="px" data-tchmi-src="Images/lastebilkran-scorpion-roar-wilhelmsen-removebg-preview.png" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="206" data-tchmi-width-unit="px" data-tchmi-zindex="2">
 </div>
-<div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="1060" data-tchmi-left-unit="px" data-tchmi-text="Activ" data-tchmi-top="568" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="2">
+<div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="1060" data-tchmi-left-unit="px" data-tchmi-text="Active" data-tchmi-top="568" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="2">
 
 <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
 {
@@ -3945,7 +3945,7 @@
 }
 </script>
 </div>
-<div id="Textblock_8" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="559" data-tchmi-left-unit="px" data-tchmi-text="Valve one active" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="156" data-tchmi-width-unit="px" data-tchmi-zindex="37" data-tchmi-is-enabled="true" data-tchmi-text-font-size="15">
+<div id="Textblock_8" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="559" data-tchmi-left-unit="px" data-tchmi-text="Valve one" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="156" data-tchmi-width-unit="px" data-tchmi-zindex="37" data-tchmi-is-enabled="true" data-tchmi-text-font-size="15">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -4010,7 +4010,7 @@
 ]
 </script>
 </div>
-<div id="Textblock_9" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="717" data-tchmi-left-unit="px" data-tchmi-text="Valve two active" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="157" data-tchmi-width-unit="px" data-tchmi-zindex="37" data-tchmi-is-enabled="true" data-tchmi-text-font-size="15">
+<div id="Textblock_9" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-left="717" data-tchmi-left-unit="px" data-tchmi-text="Valve two" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="157" data-tchmi-width-unit="px" data-tchmi-zindex="37" data-tchmi-is-enabled="true" data-tchmi-text-font-size="15">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
