@@ -1041,6 +1041,40 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fJibPaDCV.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaDCV::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbDCV.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbDCV::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1194,6 +1228,40 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fMainPaDCV.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaDCV::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPbDCV.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPbDCV::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fMainPistonPosition.fDanielFilter": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1257,6 +1325,23 @@
                     },
                     {
                         "comment": "[m/s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fPs.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fPs::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
                     }
                 ]
             },
@@ -8687,6 +8772,8 @@
                 "ADS.PLC1.G_Mode.bRunning": 3,
                 "ADS.PLC1.G_OPC.fErrorOne": 3,
                 "ADS.PLC1.G_OPC.fErrorTwo": 3,
+                "ADS.PLC1.G_OPC.fJibPaDCV.fDanielFilter": 3,
+                "ADS.PLC1.G_OPC.fJibPbDCV.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fFilteredSignal": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fSignal": 3,
@@ -8696,10 +8783,13 @@
                 "ADS.PLC1.G_OPC.fJoystickMain": 3,
                 "ADS.PLC1.G_OPC.fJoystickRotation": 3,
                 "ADS.PLC1.G_OPC.fJoystickWinch": 3,
+                "ADS.PLC1.G_OPC.fMainPaDCV.fDanielFilter": 3,
+                "ADS.PLC1.G_OPC.fMainPbDCV.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fFilteredSignal": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fSignal": 3,
                 "ADS.PLC1.G_OPC.fMainPistonVelocity": 3,
+                "ADS.PLC1.G_OPC.fPs.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fTime": 3,
                 "ADS.PLC1.G_OPC.fValveOneFF": 3,
                 "ADS.PLC1.G_OPC.fValveOneOutput": 3,
