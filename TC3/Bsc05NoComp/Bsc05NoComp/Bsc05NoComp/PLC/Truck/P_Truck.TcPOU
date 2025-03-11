@@ -3,8 +3,8 @@
   <POU Name="P_Truck" Id="{902105c5-188f-4e7f-858b-39d2a35839ca}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Truck
 VAR
-	fTimeTraveling	: LREAL := 1.0;
-	fTimeDriveOut	: LREAL := 2.0;
+	fTimeTraveling	: LREAL := 1.0/3.0;
+	fTimeDriveOut	: LREAL := 1.0;
 	fStartPosition	: LREAL := -300.0;
 	fParkPosition	: LREAL := 280.0;
 	fEndPosition	: LREAL := 1950.0;
@@ -27,6 +27,7 @@ ELSIF  G_Truck.bParked AND G_Truck.fDriveOutTime < fTimeDriveOut AND NOT(G_HMI.b
 	
 ELSIF G_Truck.fTruckPosition = fEndPosition THEN
 	G_Truck.fTruckPosition := fStartPosition;
+	
 END_IF]]></ST>
     </Implementation>
   </POU>
