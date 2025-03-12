@@ -2591,7 +2591,7 @@
 }
 </script>
 </div>
-<div id="TcHmiKeyboard_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="1100" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="167" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="22" data-tchmi-creator-locked="True">
+<div id="TcHmiKeyboard_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="665" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="22" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -2640,7 +2640,7 @@
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
-  "color": "None"
+  "color": "rgba(53, 52, 52, 1)"
 }
 </script>
 </div>
@@ -3587,7 +3587,7 @@
 </div>
 <div id="Textblock_7" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="287" data-tchmi-left-unit="px" data-tchmi-text="Jib" data-tchmi-top="70" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-text-font-size="20" data-tchmi-text-horizontal-alignment="Center" data-tchmi-zindex="20" data-tchmi-creator-locked="True">
 </div>
-<div id="TcHmiKeyboard_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="1100" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="167" data-tchmi-top-unit="px" data-tchmi-width="300" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="22" data-tchmi-creator-locked="True">
+<div id="TcHmiKeyboard_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="665" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="22" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -3634,9 +3634,11 @@
 </script>
 
 
+
+
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
-  "color": "None"
+  "color": "rgba(53, 52, 52, 1)"
 }
 </script>
 </div>

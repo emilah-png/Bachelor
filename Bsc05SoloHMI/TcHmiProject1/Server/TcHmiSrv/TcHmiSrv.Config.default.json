@@ -8945,14 +8945,12 @@
         "/Beckhoff.TwinCAT.HMI.Motion": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Motion.14.2.90\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.PDFViewer": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.PDFViewer.14.2.90\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.ResponsiveNavigation": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.ResponsiveNavigation.14.2.90\\runtimes\\native1.12-tchmi",
-        "/Beckhoff.TwinCAT.HMI.Scope": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Scope.14.2.6418",
         "/Beckhoff.TwinCAT.HMI.ScopeControl": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.ScopeControl.14.2.90\\runtimes\\native1.12-tchmi",
         "/ET_TcHMI_Framework": "..\\..\\Packages\\ET_TcHMI_Framework.1.0.0\\runtimes\\native1.12-tchmi",
         "/ElektroCode": "..\\..\\Packages\\ElektroCode.4.4.8\\runtimes\\native1.12-tchmi",
         "/FC_SideBar": "..\\..\\Packages\\FC_SideBar.1.1.1\\runtimes\\native1.12-tchmi",
         "/JB.TcHmiProgressBar": "..\\..\\Packages\\JB.TcHmiProgressBar.1.0.0\\runtimes\\native1.12-tchmi",
         "/TcHmiOpenHabControls": "..\\..\\Packages\\TcHmiOpenHabControls.1.1.0\\runtimes\\native1.12-tchmi",
-        "/TcHmiOpenHabExtension": "..\\..\\Packages\\TcHmiOpenHabExtension.1.1.0",
         "/bin": "..\\..\\TcHmiProject1\\bin\\"
     }
 }
