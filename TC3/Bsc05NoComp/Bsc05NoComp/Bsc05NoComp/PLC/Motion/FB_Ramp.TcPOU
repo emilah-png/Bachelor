@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Ramp" Id="{0aea8e66-d7a8-409b-9f89-3625b52daf60}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Ramp
+VAR_INPUT
+	bEnableRamp : BOOL;
+	fHeight : LREAL;
+	fRampTime : LREAL;
+	fInitialPos : LREAL;
+	fMaxSpeed : LREAL;
+END_VAR
+VAR_OUTPUT
+	fXRef : LREAL;
+	fXDotRef : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF fRampTime > G_OPC.fMotionTime THEN
+	fXDotRef := fHeight / fRampTime;
+ELSE
+	fXDotRef := 0.0;
+END_IF
+
+fXRef := fInitialPos + fHeight;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

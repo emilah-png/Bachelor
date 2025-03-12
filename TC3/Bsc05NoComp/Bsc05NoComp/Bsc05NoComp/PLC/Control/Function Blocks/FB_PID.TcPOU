@@ -3,6 +3,7 @@
   <POU Name="FB_PID" Id="{c3b9a6ed-2e03-46aa-9312-a6c1264b90f3}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_PID
 VAR_INPUT
+	bEnablePID			: BOOL;
 	fX 					: LREAL;
 	fXReal 				: LREAL;
 	fSignalIntegrated 	: LREAL;
@@ -44,11 +45,18 @@ ELSE
 	fSignalAdjusted := fTempOut;
 END_IF
 
-IF ABS(fSignalAdjusted) < 1E-5 THEN
-	fSignalAdjusted := 0.0;
-ELSE
+// IF ABS(fSignalAdjusted) < 1E-5 THEN
+// 	fSignalAdjusted := 0.0;
+// ELSE
+// 	fSignalAdjusted := fSignalAdjusted;
+// END_IF
+
+IF bEnablePID THEN
 	fSignalAdjusted := fSignalAdjusted;
+ELSE
+	fSignalAdjusted := 0.0;
 END_IF
+
 
 
 ]]></ST>

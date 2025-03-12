@@ -28,7 +28,7 @@ VAR_GLOBAL
 	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
 	fQMaxDownOne	: LREAL := 25.0; // [L/min]
 	fDeadUpOne 		: LREAL := 0.037;
-	fDeadDownOne	: LREAL := 0.126; //0.205;
+	fDeadDownOne	: LREAL := 0.126;
 	fDeltaP0One		: LREAL := 6.0; // [Bar]
 	
 	
