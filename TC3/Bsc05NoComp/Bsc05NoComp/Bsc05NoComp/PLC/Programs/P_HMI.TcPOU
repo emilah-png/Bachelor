@@ -23,13 +23,13 @@ fbDerivatorJibSpeed(
 	fSignalDerivative => fJibVelocity
 );
 
-IF fMainVelocity < -0.01 OR fMainVelocity > 0.01 THEN
+IF fMainVelocity < -0.001 OR fMainVelocity > 0.001 THEN
 	G_OPC.fMainPistonVelocity := fMainVelocity;
 ELSE
 	G_OPC.fMainPistonVelocity := 0.0;
 END_IF
 
-IF fJibVelocity < -0.01 OR fJibVelocity > 0.01 THEN
+IF fJibVelocity < -0.001 OR fJibVelocity > 0.001 THEN
 	G_OPC.fJibPistonVelocity := fJibVelocity;
 ELSE
 	G_OPC.fJibPistonVelocity := 0.0;

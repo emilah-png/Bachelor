@@ -17,11 +17,11 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF fXDotRef > 0.0 THEN
-	fFlowA := fVelocity * fArealUp / 60000.0;
-	fFlowB := fVelocity * fArealDown / 60000.0;
+	fFlowA := fVelocity * fArealUp / 1E6 * 60000.0;
+	fFlowB := fVelocity * fArealDown / 1E6 * 60000.0;
 ELSIF fXDotRef < 0.0 THEN
-	fFlowA := fVelocity * fArealUp / 60000.0;
-	fFlowB := fVelocity * fArealDown / 60000.0;
+	fFlowA := fVelocity * fArealUp / 1E6 * 60000.0;
+	fFlowB := fVelocity * fArealDown / 1E6 * 60000.0;
 ELSE
 	fFlowA := 0.0;
 	fFlowB := 0.0;
