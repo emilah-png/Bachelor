@@ -9,12 +9,14 @@ VAR
 	fbFilterMainPbDCV			: FB_LowpassFilter;
 	fbFilterMainPaCyl 			: FB_LowpassFilter;
 	fbFilterMainPistonPosition 	: FB_LowpassFilter;
+	fbFilterMainPistonVelocity	: FB_LowpassFilter;
 	
 	fbFilterJibPaDCV			: FB_LowpassFilter;
 	fbFilterJibPbDCV			: FB_LowpassFilter;
 	fbFilterJibPaCyl 			: FB_LowpassFilter;
 	fbFilterJibPbCyl 			: FB_LowpassFilter;
 	fbFilterJibPistonPosition 	: FB_LowpassFilter;
+	fbFilterJibPistonVelocity	: FB_LowpassFilter;
 	
 	
 	fbFilterWinchPa 			: FB_LowpassFilter;
@@ -77,6 +79,15 @@ fbFilterMainPistonPosition(
 	
 );
 
+fbFilterMainPistonVelocity(
+	fInput:= G_OPC.fMainPistonPosition.fDanielFilter,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
+	
+	fOutput => G_OPC.fMainPistonPosition.fDanielFilter2
+);
+
 //JIB
 fbFilterJibPaDCV(
 	fInput := G_OPC.fJibPaDCV.fSignal,
@@ -124,8 +135,16 @@ fbFilterJibPistonPosition(
 	fCutoffFreq := G_FilterConstants.fCutoffFreq,
 	fDamping := G_FilterConstants.fDamping,
 	
-	fOutput => G_OPC.fJibPistonPosition.fDanielFilter
+	fOutput => G_OPC.fJibPistonPosition.fDanielFilter	
+);
+
+fbFilterJibPistonVelocity(
+	fInput:= G_OPC.fJibPistonPosition.fDanielFilter,
+	fDeltaT := G_FilterConstants.fSampleTime,
+	fCutoffFreq := G_FilterConstants.fCutoffFreq,
+	fDamping := G_FilterConstants.fDamping,
 	
+	fOutput => G_OPC.fJibPistonPosition.fDanielFilter2
 );
 
 // WINCH

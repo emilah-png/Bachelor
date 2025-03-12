@@ -7,18 +7,19 @@ VAR
 	fbDerivatorJibSpeed		: FB_Derivator;
 	fMainVelocity			: LREAL;
 	fJibVelocity			: LREAL;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbDerivatorMainSpeed(
 	ssMethodType := 1,
-	fSignal := G_OPC.fMainPistonPosition.fDanielFilter,
+	fSignal := G_OPC.fMainPistonPosition.fDanielFilter2,
 	fSignalDerivative => fMainVelocity
 );
 
 fbDerivatorJibSpeed(
 	ssMethodType := 1,
-	fSignal := G_OPC.fJibPistonPosition.fDanielFilter,
+	fSignal := G_OPC.fJibPistonPosition.fDanielFilter2,
 	fSignalDerivative => fJibVelocity
 );
 

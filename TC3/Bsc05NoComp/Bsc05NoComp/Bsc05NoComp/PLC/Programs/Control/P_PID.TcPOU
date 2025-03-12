@@ -36,6 +36,7 @@ IF (G_Enables.bEnablePID) THEN
 	);
 
 	fbOnePID(
+		bEnablePID := G_Enables.bHoldButton AND G_Enables.bEnableTwo ,
 		fX := G_OPC.fXRefOne,
 		fXReal := G_OPC.fJibPistonPosition.fDanielFilter,
 		fKp := G_Parameters.fOneP,
@@ -69,6 +70,7 @@ IF (G_Enables.bEnablePID) THEN
 	);
 
 	fbTwoPID(
+		bEnablePID := G_Enables.bHoldButton AND G_Enables.bEnableTwo,
 		fX := G_OPC.fXRefTwo,
 		fXReal := G_OPC.fMainPistonPosition.fDanielFilter,
 		fKp := G_Parameters.fTwoP,

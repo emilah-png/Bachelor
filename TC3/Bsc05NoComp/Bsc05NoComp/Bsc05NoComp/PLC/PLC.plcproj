@@ -107,16 +107,19 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="Motion\FB_Clock.TcPOU">
+    <Compile Include="Motion\Background\FB_Clock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Motion\FB_InitialPos.TcPOU">
+    <Compile Include="Motion\Background\FB_InitialPos.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\Background\FB_Vel2Flow.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\FB_Ramp.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Motion\FB_SineMotionRef.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\FB_Vel2Flow.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Output\FB_OutputNormalizing.TcPOU">
@@ -201,6 +204,7 @@
     <Folder Include="Control" />
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
+    <Folder Include="Motion\Background" />
     <Folder Include="Truck" />
     <Folder Include="Output" />
     <Folder Include="Programs\Control" />

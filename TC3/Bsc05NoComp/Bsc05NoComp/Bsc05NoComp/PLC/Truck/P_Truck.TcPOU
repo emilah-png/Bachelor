@@ -15,7 +15,7 @@ END_VAR
 	G_Truck.fTruckPosition := fStartPosition;
 	
 ELSIF G_OPC.fTime < fTimeTraveling AND G_HMI.bstepp_button THEN
-	G_Truck.fTruckPosition := fStartposition + G_OPC.fTime * (fParkPosition - fStartPosition)/fTimeTraveling;
+	G_Truck.fTruckPosition := fStartposition + G_OPC.fTime * (fParkPosition - fStartPosition)/fTimeTraveling; 
 
 ELSIF G_OPC.fTime > fTimeTraveling AND G_HMI.bstepp_button THEN
 	G_Truck.bParked := TRUE;
