@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Init" Id="{28b35b70-6f9a-44f1-a1fc-c5baaa7f5751}">
+    <Declaration><![CDATA[VAR_GLOBAL CONSTANT
+	SS_INITIALIZE	: SINT := 0;
+	SS_STEP			: SINT := 1;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
