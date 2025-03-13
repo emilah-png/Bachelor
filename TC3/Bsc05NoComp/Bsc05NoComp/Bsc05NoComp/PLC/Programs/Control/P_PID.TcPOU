@@ -5,38 +5,41 @@
 VAR
 	fbOnePID 				: FB_PID;
 	fbTwoPID 				: FB_PID;
-	fbIntegrator 			: FB_Integrator;
-	fbDerivator 			: FB_Derivator;
-	fbDerivatorFiltering 	: FB_Filtering;
+	fbIntegratorOne 		: FB_Integrator;
+	fbDerivatorOne 			: FB_Derivator;
+	fbDerivatorFilteringOne : FB_Filtering;
+	fbIntegratorTwo 		: FB_Integrator;
+	fbDerivatorTwo 			: FB_Derivator;
+	fbDerivatorFilteringTwo : FB_Filtering;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 IF (G_Enables.bEnablePID) THEN
 	// PID One
-	fbDerivatorFiltering(
+	fbDerivatorFilteringOne(
 		ssMethodType := 1,
 		Signal := fbOnePID.fSignalD,
 		Num := G_FilterConstants.fDerivatorFilterNum,
 		Denz := G_FilterConstants.fDerivatorFilterDenz,
 		Den := G_FilterConstants.fDerivatorFilterDen,
 		Initial := G_FilterConstants.fDerivatorFilterInit,
-		Signal_Filtered => fbDerivator.fSignal
+		Signal_Filtered => fbDerivatorOne.fSignal
 	);
 	
-	fbIntegrator(
+	fbIntegratorOne(
 		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbOnePID.fSignalI,
 		fSignalIntegrated => fbOnePID.fSignalIntegrated
 	);
-	fbDerivator(
+	fbDerivatorOne(
 		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbOnePID.fSignalD,
 		fSignalDerivative => fbOnePID.fSignalDerivated
 	);
 
 	fbOnePID(
-		bEnablePID := G_Enables.bHoldButton AND G_Enables.bEnableTwo ,
+		bEnablePID := G_Enables.bHoldButton AND G_Enables.bEnableOne ,
 		fX := G_OPC.fXRefOne,
 		fXReal := G_OPC.fJibPistonPosition.fDanielFilter,
 		fKp := G_Parameters.fOneP,
@@ -48,22 +51,22 @@ IF (G_Enables.bEnablePID) THEN
 	);
 
 	// PID Two
-	fbDerivatorFiltering(
+	fbDerivatorFilteringTwo(
 		ssMethodType := 1,
 		Signal := fbTwoPID.fSignalD,
 		Num := G_FilterConstants.fDerivatorFilterNum,
 		Denz := G_FilterConstants.fDerivatorFilterDenz,
 		Den := G_FilterConstants.fDerivatorFilterDen,
 		Initial := G_FilterConstants.fDerivatorFilterInit,
-		Signal_Filtered => fbDerivator.fSignal
+		Signal_Filtered => fbDerivatorTwo.fSignal
 	);
 	
-	fbIntegrator(
+	fbIntegratorTwo(
 		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbTwoPID.fSignalI,
 		fSignalIntegrated => fbTwoPID.fSignalIntegrated
 	);
-	fbDerivator(
+	fbDerivatorTwo(
 		ssMethodType := BOOL_TO_SINT(G_Enables.bHoldButton),
 		fSignal := fbTwoPID.fSignalD,
 		fSignalDerivative => fbTwoPID.fSignalDerivated

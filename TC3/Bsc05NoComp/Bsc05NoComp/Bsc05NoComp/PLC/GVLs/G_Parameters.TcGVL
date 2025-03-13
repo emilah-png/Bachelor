@@ -8,19 +8,19 @@ VAR_GLOBAL
 	// System Variable
 	fTimeStep 		: LREAL := 0.010; // [s]
 	
-	fConst1 		: LREAL := 0.0; // [-1, 1][+ = OUT][- = IN]
-	fConst2 		: LREAL := 0.0; // [-1, 1][- = OUT][+ = IN]
+	fConst1 		: LREAL := 0.0; // [-1, 1]
+	fConst2 		: LREAL := 0.0; // [-1, 1]
 	
 	// FeedForward Variables
 	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
 	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
 	
 	// PID Variables
-	fOneP 			: LREAL := 1.0; // P
-	fOneI 			: LREAL := 0.0; // I
+	fOneP 			: LREAL := 25.0; // P
+	fOneI 			: LREAL := 0.5; // I
 	fOneD 			: LREAL := 0.0; // D
 	
-	fTwoP 			: LREAL := 1.0; // P
+	fTwoP 			: LREAL := 20.0; // P
 	fTwoI 			: LREAL := 0.0; // I
 	fTwoD 			: LREAL := 0.0; // D
 	
@@ -28,14 +28,14 @@ VAR_GLOBAL
 	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
 	fQMaxDownOne	: LREAL := 25.0; // [L/min]
 	fDeadUpOne 		: LREAL := 0.037;
-	fDeadDownOne	: LREAL := 0.126;
+	fDeadDownOne	: LREAL := 0.111;
 	fDeltaP0One		: LREAL := 6.0; // [Bar]
 	
 	
 	fQMaxUpTwo 		: LREAL := 25.0; // [L/min]
 	fQMaxDownTwo	: LREAL := 25.0; // [L/min]
-	fDeadUpTwo 		: LREAL := 0.071;
-	fDeadDownTwo	: LREAL := 0.126;
+	fDeadUpTwo 		: LREAL := 0.037;
+	fDeadDownTwo	: LREAL := 0.105;
 	fDeltaP0Two		: LREAL := 6.0; // [Bar]
 	
 	
@@ -63,7 +63,7 @@ VAR_GLOBAL
 	fMainAmplitude 	: LREAL := 0.1; // [m]
 	fMainFrequency	: LREAL := 1.0/40.0; // [Hz]
 	
-	fJibAmplitude	: LREAL := 0.1; // [m]
+	fJibAmplitude	: LREAL := 0.075; // [m]
 	fJibFrequency	: LREAL := 1.0/40.0; // [Hz]
 	
 	

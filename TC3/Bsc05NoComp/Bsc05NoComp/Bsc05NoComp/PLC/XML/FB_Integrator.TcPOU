@@ -28,7 +28,7 @@ CASE ssMethodType OF
          *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
         fSignalIntegrated := c_DiscreteTimeIntegrator_DS;
         (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
-        c_DiscreteTimeIntegrator_DS := (0.001 * fSignal) + c_DiscreteTimeIntegrator_DS;
+        c_DiscreteTimeIntegrator_DS := (0.01 * fSignal) + c_DiscreteTimeIntegrator_DS;
         (* End of Outputs for SubSystem: '<Root>/Integrator' *)
 END_CASE;
 
