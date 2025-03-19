@@ -1238,7 +1238,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiLinearGauge_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="342" data-tchmi-height-unit="px" data-tchmi-label-range="0.1" data-tchmi-left="292" data-tchmi-left-unit="px" data-tchmi-show-labels="true" data-tchmi-show-ticks="true" data-tchmi-show-value-text="true" data-tchmi-start-from-zero="true" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-step="0.05" data-tchmi-orientation="Vertical" data-tchmi-value="%s%ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter%/s%" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-max-value="0.9">
+<div id="TcHmiLinearGauge_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="342" data-tchmi-height-unit="px" data-tchmi-label-range="0.1" data-tchmi-left="292" data-tchmi-left-unit="px" data-tchmi-show-labels="true" data-tchmi-show-ticks="true" data-tchmi-show-value-text="true" data-tchmi-start-from-zero="true" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-step="0.05" data-tchmi-orientation="Vertical" data-tchmi-value="%s%ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter%/s%" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-max-value="0.90">
 <script data-tchmi-target-attribute="data-tchmi-range" type="application/json">
 [
   {
@@ -2690,7 +2690,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiLinearGauge_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="342" data-tchmi-height-unit="px" data-tchmi-label-range="0.1" data-tchmi-left="362" data-tchmi-left-unit="px" data-tchmi-show-labels="false" data-tchmi-show-ticks="false" data-tchmi-show-value-text="false" data-tchmi-start-from-zero="true" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-orientation="Vertical" data-tchmi-value="%s%ADS.PLC1.G_OPC.fXRefOne%/s%" data-tchmi-max-value="0.920" data-tchmi-creator-locked="True" data-tchmi-zindex="0">
+<div id="TcHmiLinearGauge_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="342" data-tchmi-height-unit="px" data-tchmi-label-range="0.1" data-tchmi-left="362" data-tchmi-left-unit="px" data-tchmi-show-labels="false" data-tchmi-show-ticks="false" data-tchmi-show-value-text="false" data-tchmi-start-from-zero="true" data-tchmi-top="174" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-orientation="Vertical" data-tchmi-value="%s%ADS.PLC1.G_OPC.fXRefOne%/s%" data-tchmi-max-value="0.9" data-tchmi-creator-locked="True" data-tchmi-zindex="0">
 
 <script data-tchmi-target-attribute="data-tchmi-value-format" type="application/json">
 {
