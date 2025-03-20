@@ -22,13 +22,13 @@ Pa_jib_bar = Pa_jib_data.Variables; %Bar
 Pb_jib_bar = Pb_jib_data.Variables; %Bar
 X_jib = X_jib_data.Variables; %m
 
-
-% Load data simulink test
-stroke_main = out.Pos_main;
-Force_main = out.Force_main;
-
-stroke_knuckle = out.Pos_jib;
-Force_knuckle = out.Force_jib;
+% 
+% % Load data simulink test
+% stroke_main = out.Pos_main;
+% Force_main = out.Force_main;
+% 
+% stroke_knuckle = out.Pos_jib;
+% Force_knuckle = out.Force_jib;
 
 load red_crane_sim_force_winchload4.mat 
 
@@ -182,8 +182,8 @@ figure("Name","Force Plot Main Interval")
 plot(X_down_main,F_tc_down_main)
 hold on 
 plot(X_up_main,F_tc_up_main)
-plot(stroke_main,Force_main)
-plot(stroke_main_wire,Force_main_wire)
+% plot(stroke_main,Force_main)
+% plot(stroke_main_wire,Force_main_wire)
 % plot(stroke_main_wire2,Force_main_wire2)
 % legend("Force up", "Force down")
 legend("Force up", "Force down", "Simulated Force","With wire","With wire+winch")
@@ -197,8 +197,8 @@ figure("Name","Force Plot Jib Interval")
 plot(X_up_jib,F_tc_up_jib)
 hold on 
 plot(X_down_jib,F_tc_down_jib)
-plot(stroke_knuckle,Force_knuckle)
-plot(stroke_knuckle_wire,Force_knuckle_wire)
+% plot(stroke_knuckle,Force_knuckle)
+% plot(stroke_knuckle_wire,Force_knuckle_wire)
 % plot(stroke_knuckle_wire2,Force_knuckle_wire2)
 % legend("Force up", "Force down")
 legend("Force up", "Force down", "Simulated Force","With wire","With wire+winch")
@@ -206,3 +206,73 @@ ylabel("Force [N]")
 xlabel("Stroke [m]")
 xlim([0 0.9])
 ylim([0 5e4])
+
+
+%%
+index_main_down_025 = find(abs(X_down_main-0.25) < 1e-3,1) ;
+index_main_up_025 = find(abs(X_up_main-0.25) < 1e-3,1); 
+F_down_main_025 = F_tc_down_main(index_main_down_025);
+F_Up_main_025 = F_tc_up_main(index_main_up_025);
+
+index_main_down_04 = find(abs(X_down_main-0.4) < 1e-3,1) ;
+index_main_up_04 = find(abs(X_up_main-0.4) < 1e-3,1); 
+F_down_main_04 = F_tc_down_main(index_main_down_04);
+F_Up_main_04 = F_tc_up_main(index_main_up_04);
+
+index_main_down_06 = find(abs(X_down_main-0.6) < 1e-3,1) ;
+index_main_up_06 = find(abs(X_up_main-0.6) < 1e-3,1); 
+F_down_main_06 = F_tc_down_main(index_main_down_06);
+F_Up_main_06 = F_tc_up_main(index_main_up_06);
+
+F_down_main = [F_down_main_025, F_down_main_04,F_down_main_06];
+F_Up_main = [F_Up_main_025,F_Up_main_04,F_Up_main_06];
+F_main = (F_down_main-F_Up_main)/2;
+X_main_fric = [0.25,0.4,0.6];
+figure()
+plot(X_main_fric,F_main)
+for i = 1:1:(600-250)
+    ref = i/1000+0.25;
+    index_main_down_fric = find(abs(X_down_main-ref) < 1e-3,1) ;
+    index_main_up_fric = find(abs(X_up_main-ref) < 1e-3,1) ;
+    F_down_main_fric(i) = F_tc_down_main(index_main_down_fric);
+    F_Up_main_fric(i) = F_tc_up_main(index_main_up_fric);
+    F_main_fric(i) = (F_down_main_fric(i)-F_Up_main_fric(i))/2;
+    X_main_fric(i) = ref;
+end
+hold on
+plot(X_main_fric,F_main_fric)
+plot(X_main_fric,smoothdata(F_main_fric,"SmoothingFactor",0.5))
+
+index_jib_down_025 = find(abs(X_down_jib-0.25) < 1e-3,1) ;
+index_jib_up_025 = find(abs(X_up_jib-0.25) < 1e-3,1); 
+F_down_jib_025 = F_tc_down_jib(index_jib_down_025);
+F_Up_jib_025 = F_tc_up_jib(index_jib_up_025);
+
+index_jib_down_04 = find(abs(X_down_jib-0.4) < 1e-3,1) ;
+index_jib_up_04 = find(abs(X_up_jib-0.4) < 1e-3,1); 
+F_down_jib_04 = F_tc_down_jib(index_jib_down_04);
+F_Up_jib_04 = F_tc_up_jib(index_jib_up_04);
+
+index_jib_down_06 = find(abs(X_down_jib-0.6) < 1e-3,1) ;
+index_jib_up_06 = find(abs(X_up_jib-0.6) < 1e-3,1); 
+F_down_jib_06 = F_tc_down_jib(index_jib_down_06);
+F_Up_jib_06 = F_tc_up_jib(index_jib_up_06);
+
+F_down_jib = [F_down_jib_025, F_down_jib_04,F_down_jib_06];
+F_Up_jib = [F_Up_jib_025,F_Up_jib_04,F_Up_jib_06];
+F_jib = (-F_down_jib+F_Up_jib)/2;
+X_jib_fric = [0.25,0.4,0.6];
+figure()
+plot(X_jib_fric,F_jib)
+for i = 1:1:(600-250)
+    ref = i/1000+0.25;
+    index_jib_down_fric = find(abs(X_down_jib-ref) < 1e-3,1) ;
+    index_jib_up_fric = find(abs(X_up_jib-ref) < 1e-3,1) ;
+    F_down_jib_fric(i) = F_tc_down_jib(index_jib_down_fric);
+    F_Up_jib_fric(i) = F_tc_up_jib(index_jib_up_fric);
+    F_jib_fric(i) = (-F_down_jib_fric(i)+F_Up_jib_fric(i))/2;
+    X_jib_fric(i) = ref;
+end
+hold on
+plot(X_jib_fric,F_jib_fric)
+plot(X_jib_fric,smoothdata(F_jib_fric,"SmoothingFactor",0.8))
