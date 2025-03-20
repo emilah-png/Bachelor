@@ -45,6 +45,8 @@ VAR_GLOBAL
 
 	fMaxSpeedMain	: LREAL := 0.1; // [m/s]
 	fMaxSpeedJib	: LREAL := 0.1; // [m/s]
+	
+	arrMaxFlowPist	: ARRAY[0..3] OF LREAL := [0.0 , 0.0 , 0.0 , 0.0]; 
 
 	fDiaMain 		: LREAL := 160.0; // [mm]
 	fDiaJib			: LREAL := 150.0; // [mm]

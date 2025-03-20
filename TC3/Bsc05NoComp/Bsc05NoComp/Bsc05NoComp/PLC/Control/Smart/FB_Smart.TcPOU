@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Smart" Id="{aac2b053-c49f-4ea3-b34f-53f530ed70d8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Smart
+VAR_INPUT
+	bEnableSmart : BOOL;
+	fFlowMain : LREAL;
+	fFlowJib : LREAL;
+	fMainDirection : LREAL;
+	fJibDirection : LREAL;
+	arrFlows : ARRAY[0..3] OF LREAL; // [MainDownMax, MainUpMax, JibDownMax, JibUpMax]
+	fSystemMaxFlow : LREAL;
+	
+END_VAR
+VAR_OUTPUT
+	fSmartedFlowMain 	: LREAL;
+	fSmartedFlowJib 	: LREAL;
+END_VAR
+VAR
+	fRelFlowMain		: LREAL;
+	fRelFlowJib		: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF bEnableSmart THEN
+	IF fMainDirection < 0 THEN
+		fRelFlowMain := arrFlows[0] - fFlowMain;
+	ELSIF fMainDirection > 0 THEN
+		fRelFlowMain := arrFlows[1] - fFlowMain;
+	ELSE
+		fRelFlowMain := 0.0;
+	END_IF
+	IF fJibDirection < 0 THEN
+		fRelFlowJib := arrFlows[2] - fFlowJib;
+	ELSIF fJibDirection > 0 THEN
+		fRelFlowJib := arrFlows[3] - fFlowJib;
+	ELSE
+		fRelFlowJib := 0.0;
+	END_IF
+	
+	 
+	
+	
+ELSE
+	fSmartedFlowMain := 0.0;
+	fSmartedFlowJib := 0.0;
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

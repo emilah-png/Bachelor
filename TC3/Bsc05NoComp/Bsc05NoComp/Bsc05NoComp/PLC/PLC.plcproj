@@ -34,6 +34,9 @@
     <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Control\Smart\FB_Smart.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -196,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Control\Function Blocks" />
+    <Folder Include="Control\Smart" />
     <Folder Include="GVLs" />
     <Folder Include="GVLs\ENUMs" />
     <Folder Include="GVLs\Static" />

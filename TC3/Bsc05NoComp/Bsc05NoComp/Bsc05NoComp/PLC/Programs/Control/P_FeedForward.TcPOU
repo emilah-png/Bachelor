@@ -34,7 +34,7 @@ fbFFOne(
 fbFFTwo(
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fMainPaDCV.fDanielFilter,
-	fPb := G_OPC.fMainPbDCV.fDanielFilter,
+	fPb := G_OPC.fMainPaCyl.fDanielFilter,
 	
 	fXDot := G_OPC.fXDotRefTwo,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
