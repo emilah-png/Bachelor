@@ -26,7 +26,7 @@ VAR_GLOBAL
 	
 	// Valve Variables
 	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
-	fQMaxDownOne	: LREAL := 25.0; // [L/min]
+	fQMaxDownOne	: LREAL := 15.0; // [L/min]
 	fDeadUpOne 		: LREAL := 0.037;
 	fDeadDownOne	: LREAL := 0.111;
 	fDeltaP0One		: LREAL := 6.0; // [Bar]
