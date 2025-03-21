@@ -3,13 +3,13 @@
   <POU Name="FB_Smart" Id="{aac2b053-c49f-4ea3-b34f-53f530ed70d8}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Smart
 VAR_INPUT
-	bEnableSmart : BOOL;
-	fFlowMain : LREAL;
-	fFlowJib : LREAL;
-	fMainDirection : LREAL;
-	fJibDirection : LREAL;
-	arrFlows : ARRAY[0..3] OF LREAL; // [MainDownMax, MainUpMax, JibDownMax, JibUpMax]
-	fSystemMaxFlow : LREAL;
+	bEnableSmart 		: BOOL;
+	fFlowMain 			: LREAL;
+	fFlowJib 			: LREAL;
+	fMainXDotRef 		: LREAL;
+	fJibXDotRef 		: LREAL;
+	arrFlows 			: ARRAY[0..3] OF LREAL; // [MainDownMax, MainUpMax, JibDownMax, JibUpMax]
+	fSystemMaxFlow 		: LREAL;
 	
 END_VAR
 VAR_OUTPUT
@@ -18,25 +18,39 @@ VAR_OUTPUT
 END_VAR
 VAR
 	fRelFlowMain		: LREAL;
-	fRelFlowJib		: LREAL;
+	fRelFlowJib			: LREAL;
+	fRelFlowDiff		: LREAL;
+	fRelFlowSum			: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 IF bEnableSmart THEN
-	IF fMainDirection < 0 THEN
-		fRelFlowMain := arrFlows[0] - fFlowMain;
-	ELSIF fMainDirection > 0 THEN
-		fRelFlowMain := arrFlows[1] - fFlowMain;
+	IF fMainXDotRef < 0.0 THEN
+		fRelFlowMain := fFlowMain/arrFlows[0]; // [0,1]
+	ELSIF fMainXDotRef > 0.0 THEN
+		fRelFlowMain := fFlowMain/arrFlows[1]; // [0,1]
 	ELSE
 		fRelFlowMain := 0.0;
 	END_IF
-	IF fJibDirection < 0 THEN
-		fRelFlowJib := arrFlows[2] - fFlowJib;
-	ELSIF fJibDirection > 0 THEN
-		fRelFlowJib := arrFlows[3] - fFlowJib;
+	IF fJibXDotRef < 0.0 THEN
+		fRelFlowJib := fFlowJib/arrFlows[2]; // [0,1]
+	ELSIF fJibXDotRef > 0.0 THEN
+		fRelFlowJib := fFlowJib/arrFlows[3]; // [0,1]
 	ELSE
 		fRelFlowJib := 0.0;
+	END_IF
+	
+	fRelFlowDiff := (fRelFlowMain - fRelFlowJib) / 2.0;// Differance in flow, [0,1] 
+	fRelFlowSum := fRelFlowJib + fRelFlowMain;
+	
+	
+	IF fRelFlowDiff > 0.0 THEN
+		fSmartedFlowMain := fRelFlowMain - fRelFlowDiff;
+		fSmartedFlowJib := fRelFlowJib + fRelFlowDiff;
+	ELSIF fRelFlowDiff < 0.0 THEN
+		fSmartedFlowMain := fRelFlowMain + fRelFlowDiff;
+		fSmartedFlowJib := fRelFlowJib - fRelFlowDiff;
 	END_IF
 	
 	 

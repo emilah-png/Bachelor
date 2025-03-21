@@ -20,7 +20,7 @@ fbFFOne(
 	fDeltaP0 := G_Parameters.fDeltaP0One,
 	
 	fMaxFlowUp := G_Parameters.fQMaxUpOne,
-	fMaxFlowDown := G_Parameters.fQMaxUpOne,
+	fMaxFlowDown := G_Parameters.fQMaxDownOne,
 	
 	fDeadBandUp := G_Parameters.fDeadUpOne,
 	fDeadBandDown := G_Parameters.fDeadDownOne,
@@ -34,13 +34,13 @@ fbFFOne(
 fbFFTwo(
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fMainPaDCV.fDanielFilter,
-	fPb := G_OPC.fMainPaCyl.fDanielFilter,
+	fPb := G_OPC.fMainPbDCV.fDanielFilter,
 	
 	fXDot := G_OPC.fXDotRefTwo,
 	fDeltaP0 := G_Parameters.fDeltaP0Two,
 	
 	fMaxFlowUp := G_Parameters.fQMaxUpTwo,
-	fMaxFlowDown := G_Parameters.fQMaxUpTwo,
+	fMaxFlowDown := G_Parameters.fQMaxDownTwo,
 	
 	fDeadBandUp := G_Parameters.fDeadUpTwo,
 	fDeadBandDown := G_Parameters.fDeadDownTwo,
