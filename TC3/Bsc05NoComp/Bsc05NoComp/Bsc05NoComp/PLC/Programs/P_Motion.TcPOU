@@ -101,6 +101,7 @@ ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
 			fXDotRefMain => G_OPC.fXDotRefTwo,
 			fXDotRefJib => G_OPC.fXDotRefOne
 		);
+	END_IF
 	
 ELSE
 	
