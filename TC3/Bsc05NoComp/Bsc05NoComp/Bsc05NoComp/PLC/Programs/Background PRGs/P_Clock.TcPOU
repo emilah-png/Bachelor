@@ -4,9 +4,10 @@
     <Declaration><![CDATA[PROGRAM P_Clock
 VAR
 	
-	fbClock : FB_Clock;
-	fbMotionClock : FB_Clock;
-	fbDriveOut : FB_Clock;
+	fbClock 		: FB_Clock;
+	fbMotionClock 	: FB_Clock;
+	fbDriveOut 		: FB_Clock;
+	fbHoming		: FB_Clock;
 	
 END_VAR
 ]]></Declaration>
@@ -28,7 +29,14 @@ fbDriveOut(
 	bStartEnable := G_Truck.bDriveOut AND NOT(G_HMI.bstepp_button),
 	
 	fTime => G_Truck.fDriveOutTime
-);]]></ST>
+);
+
+fbHoming(
+	bStartEnable := G_HMI.bstepp_button AND G_HMI.bHoldButton_HMI AND G_Enables.bHoming,
+	
+	fTime => G_OPC.fHomingTime
+);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

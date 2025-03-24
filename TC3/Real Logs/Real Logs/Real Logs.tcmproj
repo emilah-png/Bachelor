@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{06082bff-8380-42fd-acf2-535ee0faf76d}</ProjectGuid>
+    <AssemblyName>Real Logs</AssemblyName>
+    <Name>Real Logs</Name>
+    <RootNamespace>Real Logs</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="FireDragonCrane.tcscopex">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

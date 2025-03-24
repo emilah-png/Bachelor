@@ -119,6 +119,9 @@
     <Compile Include="Motion\Background\FB_Vel2Flow.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Motion\FB_Homing.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Motion\FB_Ramp.TcPOU">
       <SubType>Code</SubType>
     </Compile>

@@ -73,10 +73,10 @@ fbNormMainPaCyl(
 fbNormMainPistonPosition(
 	nRawInput := G_Inputs.nRawMainPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
-	fMaxInputValue := 17285.0,
-	fMinInputValue := 370.0,
+	fMaxInputValue := 25990.0,
+	fMinInputValue := 6639.0,
 	fMinOutputValue := 0.081,
-	fOffset := 0.401,
+	fOffset := 0.0,
 	fOutput => G_OPC.fMainPistonPosition.fSignal
 );
 	

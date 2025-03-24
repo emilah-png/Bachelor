@@ -47,6 +47,7 @@ VAR_GLOBAL
 	
 	// Motion Ref
 	fMotionTime				: LREAL; // [s]
+	fHomingTime				: LREAL; // [s]
 	
 	fXRefOne				: LREAL; // [m]
 	fXDotRefOne				: LREAL; // [m/s]
