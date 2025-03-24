@@ -6,8 +6,14 @@ VAR
 	fbSineMotionRefMain	: FB_SineMotionRef;
 	fbSineMotionRefJib	: FB_SineMotionRef;
 	
-	fbInitPosMain 	: FB_InitialPos;
-	fbInitPosJib	: FB_InitialPos;
+	fbHomingMainTest	: FB_Homing;
+	fbHomingJibTest		: FB_Homing;
+	fbHomingWinchTest	: FB_Homing;
+	
+	fbInitPosMain 		: FB_InitialPos;
+	fbInitPosJib		: FB_InitialPos;
+	
+	fbIntegrator		: FB_Integrator;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -33,7 +39,7 @@ fbInitPosJib(
 
 IF G_Enables.bSineMotion AND G_Enables.bHoldButton THEN
 	fbSineMotionRefMain(
-		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton,
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND NOT(G_Enables.bHoming),
 		fTime := G_OPC.fMotionTime,
 		fFrequency := G_Parameters.fMainFrequency,
 		fAmplitude := G_Parameters.fMainAmplitude,
@@ -43,7 +49,7 @@ IF G_Enables.bSineMotion AND G_Enables.bHoldButton THEN
 	);
 	
 	fbSineMotionRefJib(
-		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton,
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND NOT(G_Enables.bHoming),
 		fTime := G_OPC.fMotionTime,
 		fFrequency := G_Parameters.fJibFrequency,
 		fAmplitude := G_Parameters.fJibAmplitude,
@@ -51,6 +57,51 @@ IF G_Enables.bSineMotion AND G_Enables.bHoldButton THEN
 		fXDotRef => G_OPC.fXDotRefOne,
 		fXRef => G_OPC.fXRefOne
 	);
+	
+ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
+	
+	IF G_HMI.bHomingMainTest THEN
+	
+		fbHomingMainTest(
+			fWantedPositionMain := 0.5,
+			fCurrentPosMain := G_OPC.fMainPistonPosition,
+			fWantedPositionJib := 0.5,
+			fCurrentPosJib := G_OPC.fJibPistonPosition,
+			fClock := G_OPC.fHomingTime,
+			bEnableHoming := G_Enables.bHoming,
+		
+			fXDotRefMain => G_OPC.fXDotRefTwo,
+			fXDotRefJib => G_OPC.fXDotRefOne
+		);
+		
+	ELSIF G_HMI.bHomingJibTest THEN
+		
+		fbHomingJibTest(
+			fWantedPositionMain := 0.5,
+			fCurrentPosMain := G_OPC.fMainPistonPosition,
+			fWantedPositionJib := 0.5,
+			fCurrentPosJib := G_OPC.fJibPistonPosition,
+			fClock := G_OPC.fHomingTime,
+			bEnableHoming := G_Enables.bHoming,
+		
+			fXDotRefMain => G_OPC.fXDotRefTwo,
+			fXDotRefJib => G_OPC.fXDotRefOne
+		);
+		
+	ELSIF G_HMI.bHomingWinchTest THEN
+		
+		fbHomingWinchTest(
+			fWantedPositionMain := 0.5,
+			fCurrentPosMain := G_OPC.fMainPistonPosition,
+			fWantedPositionJib := 0.5,
+			fCurrentPosJib := G_OPC.fJibPistonPosition,
+			fClock := G_OPC.fHomingTime,
+			bEnableHoming := G_Enables.bHoming,
+		
+			fXDotRefMain => G_OPC.fXDotRefTwo,
+			fXDotRefJib => G_OPC.fXDotRefOne
+		);
+	END_IF
 	
 ELSE
 	

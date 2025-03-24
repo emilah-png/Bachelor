@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Homing" Id="{d5cd56b0-8e5b-4e40-bc1a-8118342c4987}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Homing
+VAR_INPUT
+	fWantedPositionMain : LREAL;
+	fCurrentPosMain : LREAL;
+	fWantedPositionJib : LREAL;
+	fCurrentPosJib : LREAL;
+	fClock : LREAL;
+	bEnableHoming : BOOL;
+END_VAR
+VAR_OUTPUT
+	fXDotRefMain : LREAL;
+	fXDotRefJib : LREAL;
+END_VAR
+VAR
+	fDistanceMain : LREAL;
+	fDistanceJib : LREAL;
+	fSpeed : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fSpeed := 0.01;
+fDistanceMain := fWantedPositionMain - fCurrentPosMain;
+fDistanceJib := fWantedPositionJib - fCurrentPosJib;
+
+IF fDistanceMain < 0.0 AND bEnableHoming THEN
+	fXDotRefMain := -fSpeed;
+ELSIF fDistanceMain > 0.0 AND bEnableHoming THEN
+	fXDotRefMain := fSpeed;
+ELSE
+	fXDotRefMain := 0.0;
+END_IF
+
+IF fDistanceJib < 0.0 AND bEnableHoming THEN
+	fXDotRefJib := -fSpeed;
+ELSIF fDistanceJib > 0.0 AND bEnableHoming THEN
+	fXDotRefJib := fSpeed;
+ELSE
+	fXDotRefJib := 0.0;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

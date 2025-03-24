@@ -72,7 +72,7 @@ CASE G_HMI.nCounter OF
 		G_Output.bEnableValveTwo := G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 		G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) * BOOL_TO_INT(G_Enables.bEnableU);
 		G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) * BOOL_TO_INT(G_Enables.bEnableU);
-		G_Enables.bSineMotion := G_Enables.bHoldButton;
+		G_Enables.bSineMotion := G_Enables.bHoldButton AND NOT(G_Enables.bHoming);
 		G_Enables.bManual := FALSE;
 		G_Enables.bAuto := TRUE;
 		

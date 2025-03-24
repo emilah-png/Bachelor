@@ -14,6 +14,10 @@ VAR_GLOBAL
 	fNumPad1				:	LREAL;
 	fNumPad2				:	LREAL;
 	bHoldButton_HMI			:	BOOL;
+	
+	bHomingMainTest			:	BOOL;
+	bHomingJibTest			:	BOOL;
+	bHomingWinchTest		:	BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
