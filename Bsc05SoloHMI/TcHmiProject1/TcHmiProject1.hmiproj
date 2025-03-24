@@ -169,6 +169,9 @@
     <Content Include="Images\Arrow rigth.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\home_2413074.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\john_deer_8rx-removebg-preview.png">
       <SubType>Content</SubType>
     </Content>
