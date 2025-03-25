@@ -3,21 +3,29 @@
   <GVL Name="G_HMI" Id="{247e71a7-fde8-4926-9ce7-401ca48c630d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	// Mode Select
 	nCounter				:	INT;
-	bstepp_button			:	BOOL;
+	nHomingMode				:	INT;
+	nManuelMode				:	INT;
+	
+	// Value Inputs
 	fSlider_1				:	LREAL;
 	fTest_Slider_1 			:	LREAL;
 	fSlider_2				:	LREAL;
-	bButton_Cylinder_1		:	BOOL;
-	bButton_Cylinder_2		:	BOOL;
-	nManuelMode				:	INT;
 	fNumPad1				:	LREAL;
 	fNumPad2				:	LREAL;
-	bHoldButton_HMI			:	BOOL;
 	
+	// HMI Buttons
+	bHoldButton_HMI			:	BOOL;
+	bstepp_button			:	BOOL;
+	bButton_Cylinder_1		:	BOOL;
+	bButton_Cylinder_2		:	BOOL;
+	
+	// Homing Select
 	bHomingMainTest			:	BOOL;
 	bHomingJibTest			:	BOOL;
 	bHomingWinchTest		:	BOOL;
+	bHomingDualTest			: 	BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

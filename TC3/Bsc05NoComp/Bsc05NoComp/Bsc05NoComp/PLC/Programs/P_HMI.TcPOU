@@ -65,6 +65,42 @@ IF G_Enables.bErrorTwo THEN
 ELSE
 	G_HMI.fSlider_2 := G_HMI.fSlider_2;
 	G_Enables.bEnableTwo := G_Enables.bEnableTwo;
+END_IF
+
+IF G_HMI.nHomingMode < 0 THEN 
+	G_HMI.nHomingMode := 0;
+ELSIF G_HMI.nHomingMode > 3 THEN
+	G_HMI.nHomingMode := 3;
+ELSE
+	G_HMI.nHomingMode := G_HMI.nHomingMode;
+END_IF
+
+IF G_HMI.nHomingMode = 0 THEN
+	G_HMI.bHomingMainTest := TRUE;
+	G_HMI.bHomingJibTest := FALSE;
+	G_HMI.bHomingWinchTest := FALSE;
+	G_HMI.bHomingDualTest := FALSE;
+ELSIF G_HMI.nHomingMode = 1 THEN
+	G_HMI.bHomingMainTest := FALSE;
+	G_HMI.bHomingJibTest := TRUE;
+	G_HMI.bHomingWinchTest := FALSE;
+	G_HMI.bHomingDualTest := FALSE;
+ELSIF G_HMI.nHomingMode = 2 THEN
+	G_HMI.bHomingMainTest := FALSE;
+	G_HMI.bHomingJibTest := FALSE;
+	G_HMI.bHomingWinchTest := TRUE;
+	G_HMI.bHomingDualTest := FALSE;
+ELSIF G_HMI.nHomingMode = 3 THEN
+	G_HMI.bHomingMainTest := FALSE;
+	G_HMI.bHomingJibTest := FALSE;
+	G_HMI.bHomingWinchTest := FALSE;
+	G_HMI.bHomingDualTest := TRUE;
+ELSE
+	G_HMI.bHomingMainTest := FALSE;
+	G_HMI.bHomingJibTest := FALSE;
+	G_HMI.bHomingWinchTest := FALSE;
+	G_HMI.bHomingDualTest := FALSE;
+	
 END_IF]]></ST>
     </Implementation>
   </POU>

@@ -46,6 +46,9 @@
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\ENUMs\E_HomingModes.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\ENUMs\E_ManuelModes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -57,6 +60,10 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\G_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_Homing.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>

@@ -9,6 +9,7 @@ VAR
 	fbDriveOut 		: FB_Clock;
 	fbHoming		: FB_Clock;
 	
+	Rounding		: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>

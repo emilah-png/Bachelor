@@ -9,6 +9,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF G_Enables.bAuto THEN
+	
 	fbControl1(
 		fFF := G_OPC.fValveOneSignals.fFF,
 		fPID := G_OPC.fValveOneSignals.fPID,
@@ -40,6 +41,7 @@ END_VAR
 		
 		fU => G_OPC.fValveTwoSignals.fU
 	);
+	
 ELSIF G_Enables.bManSpeed THEN
 	fbControl1(
 		fFF := G_OPC.fValveOneSignals.fFF,

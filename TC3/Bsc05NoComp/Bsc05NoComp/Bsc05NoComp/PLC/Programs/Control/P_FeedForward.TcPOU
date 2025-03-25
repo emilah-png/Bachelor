@@ -11,6 +11,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
+	
 fbFFOne(
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fJibPaDCV.fDanielFilter,
@@ -49,7 +50,8 @@ fbFFTwo(
 	fPhi := G_Parameters.fAreaRelation1,
 	
 	fUFF => G_OPC.fValveTwoSignals.fFF
-);]]></ST>
+);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

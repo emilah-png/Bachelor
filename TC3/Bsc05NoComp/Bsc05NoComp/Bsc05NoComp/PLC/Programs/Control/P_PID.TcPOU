@@ -15,7 +15,8 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF (G_Enables.bEnablePID) THEN
+
+IF G_Enables.bEnablePID AND NOT(G_Enables.bHoming) THEN
 	// PID One
 	fbDerivatorFilteringOne(
 		ssMethodType := 1,
@@ -83,6 +84,77 @@ IF (G_Enables.bEnablePID) THEN
 		fError => G_OPC.fValveTwoSignals.fError,
 		fSignalAdjusted => G_OPC.fValveTwoSignals.fPID
 	);
+	
+ELSIF G_Enables.bEnablePID AND G_Enables.bHoming THEN
+	
+	// PID One
+	fbDerivatorFilteringOne(
+		ssMethodType := 1,
+		Signal := fbOnePID.fSignalD,
+		Num := G_FilterConstants.fDerivatorFilterNum,
+		Denz := G_FilterConstants.fDerivatorFilterDenz,
+		Den := G_FilterConstants.fDerivatorFilterDen,
+		Initial := G_FilterConstants.fDerivatorFilterInit,
+		Signal_Filtered => fbDerivatorOne.fSignal
+	);
+	
+	fbIntegratorOne(
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoming),
+		fSignal := fbOnePID.fSignalI,
+		fSignalIntegrated => fbOnePID.fSignalIntegrated
+	);
+	fbDerivatorOne(
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoming),
+		fSignal := fbOnePID.fSignalD,
+		fSignalDerivative => fbOnePID.fSignalDerivated
+	);
+
+	fbOnePID(
+		bEnablePID := G_Enables.bHoming AND G_Enables.bEnableOne ,
+		fX := G_OPC.fXRefOne,
+		fXReal := G_OPC.fJibPistonPosition.fDanielFilter,
+		fKp := G_Parameters.fOneP,
+		fKi := G_Parameters.fOneI,
+		fKd := G_Parameters.fOneD,
+		
+		fError => G_OPC.fValveOneSignals.fError,
+		fSignalAdjusted => G_OPC.fValveOneSignals.fPID
+	);
+
+	// PID Two
+	fbDerivatorFilteringTwo(
+		ssMethodType := 1,
+		Signal := fbTwoPID.fSignalD,
+		Num := G_FilterConstants.fDerivatorFilterNum,
+		Denz := G_FilterConstants.fDerivatorFilterDenz,
+		Den := G_FilterConstants.fDerivatorFilterDen,
+		Initial := G_FilterConstants.fDerivatorFilterInit,
+		Signal_Filtered => fbDerivatorTwo.fSignal
+	);
+	
+	fbIntegratorTwo(
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoming),
+		fSignal := fbTwoPID.fSignalI,
+		fSignalIntegrated => fbTwoPID.fSignalIntegrated
+	);
+	fbDerivatorTwo(
+		ssMethodType := BOOL_TO_SINT(G_Enables.bHoming),
+		fSignal := fbTwoPID.fSignalD,
+		fSignalDerivative => fbTwoPID.fSignalDerivated
+	);
+
+	fbTwoPID(
+		bEnablePID := G_Enables.bHoming AND G_Enables.bEnableTwo,
+		fX := G_OPC.fXRefTwo,
+		fXReal := G_OPC.fMainPistonPosition.fDanielFilter,
+		fKp := G_Parameters.fTwoP,
+		fKi := G_Parameters.fTwoI,
+		fKd := G_Parameters.fTwoD,
+		
+		fError => G_OPC.fValveTwoSignals.fError,
+		fSignalAdjusted => G_OPC.fValveTwoSignals.fPID
+	);
+	
 END_IF
 
 

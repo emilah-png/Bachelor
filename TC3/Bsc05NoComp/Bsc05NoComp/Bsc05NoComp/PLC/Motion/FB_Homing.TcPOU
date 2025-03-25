@@ -21,7 +21,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fSpeed := 0.01;
+      <ST><![CDATA[fSpeed := 0.015;
 fDistanceMain := fWantedPositionMain - fCurrentPosMain;
 fDistanceJib := fWantedPositionJib - fCurrentPosJib;
 

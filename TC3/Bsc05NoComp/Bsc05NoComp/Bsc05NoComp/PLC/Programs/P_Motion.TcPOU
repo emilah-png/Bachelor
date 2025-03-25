@@ -9,6 +9,7 @@ VAR
 	fbHomingMainTest	: FB_Homing;
 	fbHomingJibTest		: FB_Homing;
 	fbHomingWinchTest	: FB_Homing;
+	fbHomingDualTest	: FB_Homing;
 	
 	fbInitPosMain 		: FB_InitialPos;
 	fbInitPosJib		: FB_InitialPos;
@@ -58,14 +59,14 @@ IF G_Enables.bSineMotion AND G_Enables.bHoldButton THEN
 		fXRef => G_OPC.fXRefOne
 	);
 	
-ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
+ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) THEN
 	
 	IF G_HMI.bHomingMainTest THEN
 	
 		fbHomingMainTest(
-			fWantedPositionMain := 0.5,
+			fWantedPositionMain := G_Homing.fHomingMain[0],
 			fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-			fWantedPositionJib := 0.5,
+			fWantedPositionJib := G_Homing.fHomingJib[0],
 			fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
 			fClock := G_OPC.fHomingTime,
 			bEnableHoming := G_Enables.bHoming,
@@ -73,13 +74,16 @@ ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
 			fXDotRefMain => G_OPC.fXDotRefTwo,
 			fXDotRefJib => G_OPC.fXDotRefOne
 		);
+		
+		G_OPC.fXRefOne := G_Homing.fHomingJib[0];
+		G_OPC.fXRefTwo := G_Homing.fHomingMain[0];
 		
 	ELSIF G_HMI.bHomingJibTest THEN
 		
 		fbHomingJibTest(
-			fWantedPositionMain := 0.5,
+			fWantedPositionMain := G_Homing.fHomingMain[1],
 			fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-			fWantedPositionJib := 0.5,
+			fWantedPositionJib := G_Homing.fHomingJib[1],
 			fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
 			fClock := G_OPC.fHomingTime,
 			bEnableHoming := G_Enables.bHoming,
@@ -87,13 +91,16 @@ ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
 			fXDotRefMain => G_OPC.fXDotRefTwo,
 			fXDotRefJib => G_OPC.fXDotRefOne
 		);
+		
+		G_OPC.fXRefOne := G_Homing.fHomingJib[1];
+		G_OPC.fXRefTwo := G_Homing.fHomingMain[1];
 		
 	ELSIF G_HMI.bHomingWinchTest THEN
 		
 		fbHomingWinchTest(
-			fWantedPositionMain := 0.5,
+			fWantedPositionMain := G_Homing.fHomingMain[2],
 			fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-			fWantedPositionJib := 0.5,
+			fWantedPositionJib := G_Homing.fHomingJib[2],
 			fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
 			fClock := G_OPC.fHomingTime,
 			bEnableHoming := G_Enables.bHoming,
@@ -101,6 +108,27 @@ ELSIF G_Enables.bHoming AND G_Enables.bHoldButton THEN
 			fXDotRefMain => G_OPC.fXDotRefTwo,
 			fXDotRefJib => G_OPC.fXDotRefOne
 		);
+		
+		G_OPC.fXRefOne := G_Homing.fHomingJib[2];
+		G_OPC.fXRefTwo := G_Homing.fHomingMain[2];
+		
+	ELSIF G_HMI.bHomingDualTest THEN
+		
+		fbHomingDualTest(
+			fWantedPositionMain := G_Homing.fHomingMain[3],
+			fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
+			fWantedPositionJib := G_Homing.fHomingJib[3],
+			fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
+			fClock := G_OPC.fHomingTime,
+			bEnableHoming := G_Enables.bHoming,
+		
+			fXDotRefMain => G_OPC.fXDotRefTwo,
+			fXDotRefJib => G_OPC.fXDotRefOne
+		);
+		
+		G_OPC.fXRefOne := G_Homing.fHomingJib[3];
+		G_OPC.fXRefTwo := G_Homing.fHomingMain[3];
+		
 	END_IF
 	
 ELSE
