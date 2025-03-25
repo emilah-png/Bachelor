@@ -5,9 +5,9 @@
 VAR_GLOBAL
 	//Variable  	: ARRAY[0..X] OF LREAL := [MainTest, JibTest, WinchTest, BothTest];
 	
-	fHomingMain 	: ARRAY[0..3] OF LREAL := [0.2, 0.8, 0.0, 0.0]; // Main Position for tests
-	fHomingJib 		: ARRAY[0..3] OF LREAL := [0.4, 0.1, 0.0, 0.0]; //  Jib Position for tests
-	fHomingWinch 	: ARRAY[0..3] OF LREAL := [0.0, 0.0, 0.0, 0.0]; //Winch Position for tests
+	fHomingMain 	: ARRAY[0..3] OF LREAL := [0.30, 0.50, 0.00, 0.00]; // Main Position for tests
+	fHomingJib 		: ARRAY[0..3] OF LREAL := [0.825, 0.07, 0.00, 0.00]; //  Jib Position for tests
+	fHomingWinch 	: ARRAY[0..3] OF LREAL := [0.00, 0.00, 0.00, 0.00]; //Winch Position for tests
 	
 END_VAR]]></Declaration>
   </GVL>

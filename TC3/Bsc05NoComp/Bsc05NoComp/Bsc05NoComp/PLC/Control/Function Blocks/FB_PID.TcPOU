@@ -28,6 +28,12 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fError := fX - fXReal;
 
+// IF ABS(fError) < 0.0001 THEN
+// 	fError := 0.0;	
+// ELSE
+// 	fError := fError;
+// END_IF
+
 fSignalI := fError;
 fSignalD := fError;
 

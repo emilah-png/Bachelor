@@ -6,10 +6,11 @@
 {attribute 'to_string'}
 TYPE E_HomingModes :
 (
+	Off,	
 	MainTest,
 	JibTest,
 	WinchTest,
-	BothTest
+	DualTest
 );
 END_TYPE
 ]]></Declaration>

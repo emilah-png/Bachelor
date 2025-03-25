@@ -18,28 +18,81 @@ VAR
 	fDistanceMain : LREAL;
 	fDistanceJib : LREAL;
 	fSpeed : LREAL;
+	fSlowSpeed : LREAL;
+	fSlowSpace : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fSpeed := 0.015;
+      <ST><![CDATA[fSpeed := 0.01;
+fSlowSpeed := fSpeed / 4.0;
+fSlowSpace := 0.05;
 fDistanceMain := fWantedPositionMain - fCurrentPosMain;
 fDistanceJib := fWantedPositionJib - fCurrentPosJib;
 
-IF fDistanceMain < 0.0 AND bEnableHoming AND ABS(fDistanceMain)>0.0001 THEN
-	fXDotRefMain := -fSpeed;
-ELSIF fDistanceMain > 0.0 AND bEnableHoming AND ABS(fDistanceMain)>0.0001 THEN
-	fXDotRefMain := fSpeed;
+IF ABS(fDistanceMain) < 0.001 THEN
+	fXDotRefMain := 0.0;
+
+ELSIF ABS(fDistanceMain) > 0.001 THEN
+	
+	IF fDistanceMain < -0.001 AND bEnableHoming AND ABS(fDistanceMain) > 0.001 THEN
+		fXDotRefMain := -fSlowSpeed;
+	ELSIF fDistanceMain > 0.001 AND bEnableHoming AND ABS(fDistanceMain) > 0.001 THEN
+		fXDotRefMain := fSlowSpeed;
+	ELSE
+		fXDotRefMain := 0.0;
+	END_IF
+
+ELSIF ABS(fDistanceMain) > fSlowSpace  THEN 
+	
+	IF fDistanceMain < -0.05 AND bEnableHoming THEN
+		fXDotRefMain := -fSpeed;
+	ELSIF fDistanceMain > 0.05 AND bEnableHoming THEN
+		fXDotRefMain := fSpeed;
+	ELSE
+		fXDotRefMain := 0.0;
+	END_IF
+	 
 ELSE
 	fXDotRefMain := 0.0;
 END_IF
 
-IF fDistanceJib < 0.0 AND bEnableHoming AND ABS(fDistanceJib)>0.0001 THEN
-	fXDotRefJib := -fSpeed;
-ELSIF fDistanceJib > 0.0 AND bEnableHoming AND ABS(fDistanceJib)>0.0001 THEN
-	fXDotRefJib := fSpeed;
+IF ABS(fDistanceJib) < 0.001 THEN
+	fXDotRefJib := 0.0;
+	
+ELSIF ABS(fDistanceJib) > 0.001 THEN
+
+	IF fDistanceJib < -0.001 AND bEnableHoming AND ABS(fDistanceJib) > 0.001 THEN
+		fXDotRefJib := -fSlowSpeed;
+	ELSIF fDistanceJib > 0.001 AND bEnableHoming AND ABS(fDistanceJib) > 0.001 THEN
+		fXDotRefJib := fSlowSpeed;
+	ELSE
+		fXDotRefJib := 0.0;
+	END_IF
+ELSIF ABS(fDistanceJib) > fSlowSpace THEN 
+	
+	IF fDistanceJib < -0.05 AND bEnableHoming THEN
+		fXDotRefJib := -fSpeed;
+	ELSIF fDistanceJib > 0.05 AND bEnableHoming THEN
+		fXDotRefJib := fSpeed;
+	ELSE
+		fXDotRefJib := 0.0;
+	END_IF  
 ELSE
 	fXDotRefJib := 0.0;
 END_IF
+
+// IF ABS(fDistanceMAin) < 0.001 AND ABS(fDistanceJib) < 0.001 THEN
+// 	G_HMI.nHomingMode := 0;
+// END_IF
+
+
+// IF ABS(fDistanceJib) > fSlowSpace AND ABS(fDistanceMain) > fSlowSpace THEN 
+// 	G_Enables.bEnablePID := FALSE;
+// ELSIF ABS(fDistanceJib) > fSlowSpace AND ABS(fDistanceJib) > 0.001 AND ABS(fDistanceMain) > fSlowSpace AND ABS(fDistanceMain) > 0.001 THEN
+// 	G_Enables.bEnablePID := TRUE;
+// ELSE 
+// 	G_Enables.bEnablePID := FALSE;
+// END_IF
 ]]></ST>
     </Implementation>
   </POU>
