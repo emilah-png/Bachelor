@@ -59,6 +59,11 @@
       "name": "Functions/UpdateLanguageIcon.js",
       "description": "",
       "type": "JavaScript"
+    },
+    {
+      "name": "Functions/FunctionJS1.js",
+      "description": "",
+      "type": "JavaScript"
     }
   ],
   "userControls": [],
@@ -101,6 +106,9 @@
     }
   ],
   "userFunctions": [
+    {
+      "url": "Functions/FunctionJS1.js"
+    },
     {
       "url": "Functions/UpdateLanguageIcon.js"
     }

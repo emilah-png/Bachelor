@@ -156,6 +156,13 @@
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
     </Content>
+    <Content Include="Functions\FunctionJS1.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Functions\FunctionJS1.js</DependentUpon>
+    </Content>
+    <Content Include="Functions\FunctionJS1.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Functions\UpdateLanguageIcon.function.json">
       <SubType>Content</SubType>
       <DependentUpon>Functions\UpdateLanguageIcon.js</DependentUpon>
@@ -167,6 +174,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\Arrow rigth.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\home.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\home2.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\home_2413074.png">

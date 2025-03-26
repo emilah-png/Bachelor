@@ -827,6 +827,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bHoming": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bHoming",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Enables.bManConst": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -889,6 +899,36 @@
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::G_HMI::bHoldButton_HMI",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.bHomingJibTest": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::bHomingJibTest",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.bHomingMainTest": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::bHomingMainTest",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.bHomingWinchTest": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::bHomingWinchTest",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -979,6 +1019,16 @@
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::G_HMI::nCounter",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_HMI.nHomingMode": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::nHomingMode",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
             },
@@ -1461,6 +1511,23 @@
                     },
                     {
                         "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchDistance.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchDistance::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
                     }
                 ]
             },
@@ -8853,12 +8920,16 @@
                 "ADS.PLC1.G_Enables.bErrorOne": 3,
                 "ADS.PLC1.G_Enables.bErrorTwo": 3,
                 "ADS.PLC1.G_Enables.bHoldButton": 3,
+                "ADS.PLC1.G_Enables.bHoming": 3,
                 "ADS.PLC1.G_Enables.bManConst": 3,
                 "ADS.PLC1.G_Enables.bManual": 3,
                 "ADS.PLC1.G_HMI.bAUTO_Light": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_1": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_2": 3,
                 "ADS.PLC1.G_HMI.bHoldButton_HMI": 3,
+                "ADS.PLC1.G_HMI.bHomingJibTest": 3,
+                "ADS.PLC1.G_HMI.bHomingMainTest": 3,
+                "ADS.PLC1.G_HMI.bHomingWinchTest": 3,
                 "ADS.PLC1.G_HMI.bMan_Light": 3,
                 "ADS.PLC1.G_HMI.bOFF_Light": 3,
                 "ADS.PLC1.G_HMI.bstepp_button": 3,
@@ -8868,6 +8939,7 @@
                 "ADS.PLC1.G_HMI.fSlider_2": 3,
                 "ADS.PLC1.G_HMI.fTest_Slider_1": 3,
                 "ADS.PLC1.G_HMI.nCounter": 3,
+                "ADS.PLC1.G_HMI.nHomingMode": 3,
                 "ADS.PLC1.G_HMI.nManuelMode": 3,
                 "ADS.PLC1.G_Mode.bAuto": 3,
                 "ADS.PLC1.G_Mode.bManuel": 3,
@@ -8899,6 +8971,7 @@
                 "ADS.PLC1.G_OPC.fValveTwoFF": 3,
                 "ADS.PLC1.G_OPC.fValveTwoOutput": 3,
                 "ADS.PLC1.G_OPC.fValveTwoPID": 3,
+                "ADS.PLC1.G_OPC.fWinchDistance.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fWinchDistance.fFilteredSignal": 3,
                 "ADS.PLC1.G_OPC.fXRefOne": 3,
                 "ADS.PLC1.G_OPC.fXRefTwo": 3,
