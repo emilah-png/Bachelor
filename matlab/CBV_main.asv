@@ -16,10 +16,10 @@ po2 = 56;
 alfa = (K2-K1)/(po2-po1);
 beta = K2 - alfa*po2;
 pcr = -beta/alfa;
-po = linspace(30,100,(100-30)*10);
+po = linspace(30,100);
 K_plot = alfa*po+beta;
 plot(K_plot,po)
-xlim([-0.2 1])
+xlim([0,])
 %From data sheet
 Kmax = 40/15^0.5;
 u2 = K2/Kmax; %Opening in approximate point 2

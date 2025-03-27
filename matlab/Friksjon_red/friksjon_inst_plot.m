@@ -1,4 +1,4 @@
-clc; close all;
+clc; 
 %% load data friction test
 load FrictionTest2ndTry_030325.mat
 
