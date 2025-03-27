@@ -20,6 +20,7 @@ P_Vel2Flow();
 P_Control();
 P_Motion();
 P_Truck();
+P_FlowControl();
 ]]></ST>
     </Implementation>
   </POU>

@@ -7,10 +7,14 @@
 TYPE E_HomingModes :
 (
 	Off,	
-	MainTest,
-	JibTest,
-	WinchTest,
-	DualTest
+	MainTest1,
+	MainTest2,
+	JibTest1,
+	JibTest2,
+	DualTest1,
+	DualTest2,
+	DualTest3,
+	DualTest4
 );
 END_TYPE
 ]]></Declaration>

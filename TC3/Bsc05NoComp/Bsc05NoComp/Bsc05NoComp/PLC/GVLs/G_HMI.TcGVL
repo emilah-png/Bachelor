@@ -21,11 +21,6 @@ VAR_GLOBAL
 	bButton_Cylinder_1		:	BOOL;
 	bButton_Cylinder_2		:	BOOL;
 	
-	// Homing Select
-	bHomingMainTest			:	BOOL;
-	bHomingJibTest			:	BOOL;
-	bHomingWinchTest		:	BOOL;
-	bHomingDualTest			: 	BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_WinchDistance" Id="{94130a37-5bc7-4af0-84a0-7628d3b3a55d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_WinchDistance
+VAR_INPUT
+	nWinchRaw : UDINT;
+END_VAR
+VAR_OUTPUT
+	fWinchDistance : LREAL;
+END_VAR
+VAR
+	fWinchRaw : LREAL;
+	fBitPerDistance : LREAL;
+	fOffset : LREAL := 4096404.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fWinchRaw := UDINT_TO_LREAL(nWinchRaw);
+fBitPerDistance := (4589581.0 - 4357176) / 500.0;
+fWinchDistance := (fWinchRaw - fOffset) / (fBitPerDistance) / 1000 - 0.0035;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -312,7 +312,7 @@
                   <Children />
                 </Node>
                 <Node>
-                  <Title>MainVelocity</Title>
+                  <Title>MainPistonVelocity</Title>
                   <Expanded>False</Expanded>
                   <FileName></FileName>
                   <Children />

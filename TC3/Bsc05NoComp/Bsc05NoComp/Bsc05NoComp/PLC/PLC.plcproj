@@ -110,6 +110,9 @@
     <Compile Include="Input\Function Blocks\FB_PositionInputScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Input\Function Blocks\FB_WinchDistance.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Input\Function Blocks\FB_WinchScaling.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -118,6 +121,9 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="Motion\Background\FB_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\Background\FB_FlowControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Motion\Background\FB_InitialPos.TcPOU">
@@ -152,6 +158,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Background PRGs\P_Filtering.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Background PRGs\P_FlowControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Background PRGs\P_Vel2Flow.TcPOU">

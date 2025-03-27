@@ -31,6 +31,8 @@ VAR
 	fbJoystickJib 				: FB_JoystickInputScaling;
 	fbJoystickExtrude 			: FB_JoystickInputScaling;	
 	
+	fbWinchDistance				: FB_WinchDistance;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -169,6 +171,12 @@ fbJoystickExtrude(
 	bEnable := TRUE,
 	fBitArray := G_Joystick.fExtrude,
 	fOutput => G_OPC.fJoystickExtrude
+);
+
+fbWinchDistance(
+	nWinchRaw := G_Inputs.nRawWinchEncoder,
+	
+	fWinchDistance => G_OPC.fWinchDistance.fSignal
 );
 
 ]]></ST>

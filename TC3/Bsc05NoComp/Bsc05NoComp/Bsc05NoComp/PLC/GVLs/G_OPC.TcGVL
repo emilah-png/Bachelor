@@ -54,7 +54,10 @@ VAR_GLOBAL
 	
 	fXRefTwo				: LREAL; // [m]
 	fXDotRefTwo				: LREAL; // [m/s]
-
+	
+	fFlowTest1 : LREAL;
+	fFlowTest2 : LREAL;
+	
 END_VAR
 ]]></Declaration>
   </GVL>

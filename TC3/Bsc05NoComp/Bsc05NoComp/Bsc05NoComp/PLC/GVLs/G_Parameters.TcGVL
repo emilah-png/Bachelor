@@ -16,13 +16,13 @@ VAR_GLOBAL
 	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
 	
 	// PID Variables
-	fOneP 			: LREAL := 30.0; // P
-	fOneI 			: LREAL := 0.2; // I
-	fOneD 			: LREAL := 0.1; // D
+	fOneP 			: LREAL := 22.0; // P
+	fOneI 			: LREAL := 0.0; // I
+	fOneD 			: LREAL := 1.0; // D
 	
-	fTwoP 			: LREAL := 30.0; // P
-	fTwoI 			: LREAL := 2.5; // I
-	fTwoD 			: LREAL := 5.0; // D
+	fTwoP 			: LREAL := 28.0; // P
+	fTwoI 			: LREAL := 0.0; // I
+	fTwoD 			: LREAL := 3.0; // D
 	
 	// Valve Variables
 	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
