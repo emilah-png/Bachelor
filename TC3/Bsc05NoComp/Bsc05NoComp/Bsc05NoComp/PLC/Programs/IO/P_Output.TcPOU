@@ -152,7 +152,7 @@ IF G_Enables.bHoldButton OR G_Enables.bHoming THEN
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
 					G_Enables.bSineMotion := FALSE;
-									
+								
 			END_CASE
 			
 			
@@ -164,6 +164,9 @@ IF G_Enables.bHoldButton OR G_Enables.bHoming THEN
 			G_Enables.bAuto := FALSE;
 			G_Enables.bManual := FALSE;
 	END_CASE
+ELSE
+	G_Output.bEnableValveOne := FALSE;
+	G_Output.bEnableValveTwo := FALSE;
 END_IF
 
 
