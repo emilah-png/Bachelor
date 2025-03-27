@@ -11,12 +11,14 @@ VAR_GLOBAL
 	bEnablePID 			: BOOL;
 	
 	bEnableOne			: BOOL;
-	bEnableTwo			: BOOL;	
+	bEnableTwo			: BOOL;
+	bEnableThree		: BOOL;	
 	
 	bHoldButton 		: BOOL;
 	
 	bErrorOne 			: BOOL;
 	bErrorTwo			: BOOL;
+	bErrorThree			: BOOL;
 	
 	bSineMotion			: BOOL;
 	bHoming				: BOOL;

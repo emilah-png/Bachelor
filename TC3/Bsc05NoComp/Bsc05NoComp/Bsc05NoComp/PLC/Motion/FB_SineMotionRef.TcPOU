@@ -3,6 +3,7 @@
   <POU Name="FB_SineMotionRef" Id="{c8c75e4f-5790-4c91-ac23-d3af2bcb69cb}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_SineMotionRef
 VAR_INPUT
+	bNegative : BOOL;
 	fTime : LREAL;
 	fAmplitude : LREAL;
 	fFrequency : LREAL;
@@ -14,6 +15,8 @@ VAR_OUTPUT
 	fXRef : LREAL;
 END_VAR
 VAR
+	fXDotRefTemp : LREAL;
+	fXRefTemp : LREAL;
 	fMean : LREAL;
 END_VAR
 ]]></Declaration>
@@ -24,7 +27,15 @@ IF bEnableMotion THEN
 	fXDotRef := 2 * Tc2_System.Global_Variables.PI *fFrequency * fAmplitude * SIN(2* Tc2_System.Global_Variables.PI * fFrequency * fTime);
 ELSE
 	fXDotRef := 0.0;
-END_IF ]]></ST>
+END_IF 
+
+IF bNegative THEN
+	fXRef := -fXRefTemp;
+	fXDotRef := -fXDotRefTemp;
+ELSE
+	fXRef := fXRefTemp;
+	fXDotRef := fXDotRefTemp;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
