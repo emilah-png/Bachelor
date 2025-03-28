@@ -1,5 +1,5 @@
 clc; clear; close all;
-Data = readtable("MainSTDTest1_270325.csv" );
+Data = readtable("JibSTDTest2_270325.csv" );
 % Data = readtable("JibSTDTest2_270325.csv" );
 
 %% Reading data

@@ -1,0 +1,33 @@
+clc; clear; close all;
+file="Scope_Project.csv"; %write file name including .csv
+data = readtable(file);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%logic to change variable name
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+data = renamevars(data,"Name","time");
+%%%%%%%%%%%%%%%%%%%%
+%logic to remove NaN
+%%%%%%%%%%%%%%%%%%%%
+% var = data.Name(420);
+% if var>=0
+%     x=1;
+% else
+%     x=0;
+% end
+%data([1,2,4],:) = [];
+%-------------------
+j=1;
+for i = 1:length(data.time)
+    if data.time(i)>=0
+        %Do nothing
+    else
+        Lost_Data_Index(j)=i;
+        j=j+1;
+    end
+end
+data(Lost_Data_Index,:) = [];
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Making Adjusted File
+%%%%%%%%%%%%%%%%%%%%%%
+writetable(data,'Adjusted_'+file);
