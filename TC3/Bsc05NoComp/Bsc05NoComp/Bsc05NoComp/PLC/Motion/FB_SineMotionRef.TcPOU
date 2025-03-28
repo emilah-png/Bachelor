@@ -4,6 +4,7 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_SineMotionRef
 VAR_INPUT
 	bNegative : BOOL;
+	bCOS : BOOL;
 	fTime : LREAL;
 	fAmplitude : LREAL;
 	fFrequency : LREAL;
@@ -13,18 +14,29 @@ END_VAR
 VAR_OUTPUT
 	fXDotRef : LREAL;
 	fXRef : LREAL;
+	fPi : LREAL := Tc2_System.Global_Variables.PI;
 END_VAR
 VAR
 	fXDotRefTemp : LREAL;
 	fXRefTemp : LREAL;
 	fMean : LREAL;
+	fPeriod : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fMean := fAmplitude + fInitialPos; 
-IF bEnableMotion THEN
-	fXRef := fMean - fAmplitude * COS(2* Tc2_System.Global_Variables.PI * fFrequency * fTime);
-	fXDotRef := 2 * Tc2_System.Global_Variables.PI *fFrequency * fAmplitude * SIN(2* Tc2_System.Global_Variables.PI * fFrequency * fTime);
+IF ABS(fFrequency) > 0 THEN 
+	fPeriod := 1 / fFrequency;
+END_IF
+
+IF bEnableMotion AND NOT(bCOS) THEN
+	fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * fTime);
+	fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * fTime);
+ELSIF bEnableMotion AND bCOS THEN
+	IF fTime > fPeriod / 4 THEN
+		fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * fTime);
+		fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * fTime);
+	END_IF
 ELSE
 	fXDotRef := 0.0;
 END_IF 

@@ -196,6 +196,9 @@
     <Compile Include="Programs\P_Motion.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\P_SineTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Truck\G_Truck.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>

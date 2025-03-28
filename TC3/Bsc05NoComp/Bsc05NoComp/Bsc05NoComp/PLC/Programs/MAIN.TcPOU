@@ -21,7 +21,7 @@ P_Control();
 P_Motion();
 P_Truck();
 P_FlowControl();
-]]></ST>
+P_SineTest();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
