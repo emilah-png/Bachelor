@@ -777,6 +777,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_Enables.bEnableThree": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Enables::bEnableThree",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Enables.bEnableTwo": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -8915,6 +8925,7 @@
                 "ADS.PLC1.G_Enables.bEnableFF": 3,
                 "ADS.PLC1.G_Enables.bEnableOne": 3,
                 "ADS.PLC1.G_Enables.bEnablePID": 3,
+                "ADS.PLC1.G_Enables.bEnableThree": 3,
                 "ADS.PLC1.G_Enables.bEnableTwo": 3,
                 "ADS.PLC1.G_Enables.bEnableU": 3,
                 "ADS.PLC1.G_Enables.bErrorOne": 3,
