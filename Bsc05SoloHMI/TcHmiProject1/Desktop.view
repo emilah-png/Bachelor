@@ -3787,7 +3787,7 @@
 }
 </script>
 </div>
-<div id="TcHmiImage_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="134" data-tchmi-height-unit="px" data-tchmi-left="%f%%s%ADS.PLC1.G_Truck.fTruckPosition%/s%%/f%" data-tchmi-left-unit="px" data-tchmi-src="Images/lastebilkran-scorpion-roar-wilhelmsen-removebg-preview.png" data-tchmi-top="-50" data-tchmi-top-unit="px" data-tchmi-width="206" data-tchmi-width-unit="px" data-tchmi-zindex="52" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible">
+<div id="TcHmiImage_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="134" data-tchmi-height-unit="px" data-tchmi-left="%f%%s%ADS.PLC1.G_Truck.fTruckPosition%/s%%/f%" data-tchmi-left-unit="px" data-tchmi-src="Images/lastebilkran-scorpion-roar-wilhelmsen-removebg-preview.png" data-tchmi-top="-50" data-tchmi-top-unit="px" data-tchmi-width="206" data-tchmi-width-unit="px" data-tchmi-zindex="52" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="Hidden">
 </div>
 <div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="917" data-tchmi-left-unit="px" data-tchmi-top="542" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="16" data-tchmi-creator-locked="True">
 
