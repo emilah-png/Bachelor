@@ -3,11 +3,16 @@
   <GVL Name="G_Homing" Id="{f6327981-0de5-47b6-bfb0-0daade4cb36d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
-	nArrLen : SINT := 7;
+	nArrLen 		: SINT := 7;
 	//Variable  	: ARRAY[0..nArrLen] OF LREAL := [Main1, Main2, Jib1, Jib2, Dual1, Dual2, Dual3, Dual4];
 	fHomingMain 	: ARRAY[0..nArrLen] OF LREAL := [0.300, 0.500, 0.50, 0.73, 0.500, 0.450, 0.700, 0.700]; // Main Position for tests
 	fHomingJib 		: ARRAY[0..nArrLen] OF LREAL := [0.825, 0.080, 0.07, 0.25, 0.080, 0.380, 0.750, 0.050]; //  Jib Position for tests
 	fHomingWinch 	: ARRAY[0..nArrLen] OF LREAL := [0.000, 0.000, 0.00, 0.00, 0.000, 0.000, 0.000, 0.000]; //Winch Position for tests
+	
+	bNegMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE];
+	bNegJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE];
+	bCosMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE];
+	bCosJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE];
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

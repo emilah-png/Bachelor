@@ -21,7 +21,9 @@ P_Control();
 P_Motion();
 P_Truck();
 P_FlowControl();
-P_SineTest();]]></ST>
+
+// Test Programs
+//P_SineTest();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
