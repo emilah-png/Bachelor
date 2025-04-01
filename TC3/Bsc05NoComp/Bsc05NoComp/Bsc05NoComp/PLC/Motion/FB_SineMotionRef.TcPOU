@@ -14,13 +14,14 @@ END_VAR
 VAR_OUTPUT
 	fXDotRef : LREAL;
 	fXRef : LREAL;
-	fPi : LREAL := Tc2_System.Global_Variables.PI;
 END_VAR
 VAR
 	fXDotRefTemp : LREAL;
 	fXRefTemp : LREAL;
 	fMean : LREAL;
 	fPeriod : LREAL;
+	fPi : LREAL := Tc2_System.Global_Variables.PI;
+	fDelta : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -34,15 +35,17 @@ IF bEnableMotion AND NOT(bCOS) THEN
 	fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * fTime);
 ELSIF bEnableMotion AND bCOS THEN
 	IF fTime > fPeriod / 4 THEN
-		fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * fTime);
-		fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * fTime);
+		fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * (fTime-fPeriod/4) );
+		fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * (fTime-fPeriod/4));
 	END_IF
 ELSE
 	fXDotRef := 0.0;
 END_IF 
 
+fDelta := fInitialPos - fXRefTemp;
+
 IF bNegative THEN
-	fXRef := -fXRefTemp;
+	fXRef := fInitialPos + fDelta;
 	fXDotRef := -fXDotRefTemp;
 ELSE
 	fXRef := fXRefTemp;

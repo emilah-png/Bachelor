@@ -22,7 +22,7 @@ VAR
 	// Winch
 	fbNormWinchPa 				: FB_Normalize;
 	fbNormWinchPb 				: FB_Normalize;
-	fbNormWinchEncoder			: FB_WinchScaling;
+	fbNormWinchEncoder			: FB_WinchDistance;
 
 	// Joystick
 	fbJoystickWinch 			: FB_JoystickInputScaling;
@@ -131,9 +131,8 @@ fbNormWinchPb(
 );
 
 fbNormWinchEncoder(
-	nRawInput := G_Inputs.nRawWinchEncoder,
-	fOutput => G_OPC.fWinchDistance.fFilteredSignal
-	
+	nWinchRaw := G_Inputs.nRawWinchEncoder,
+	fWinchDistance => G_OPC.fWinchDistance.fSignal
 );
 
 // Joystick
@@ -173,11 +172,6 @@ fbJoystickExtrude(
 	fOutput => G_OPC.fJoystickExtrude
 );
 
-fbWinchDistance(
-	nWinchRaw := G_Inputs.nRawWinchEncoder,
-	
-	fWinchDistance => G_OPC.fWinchDistance.fSignal
-);
 
 ]]></ST>
     </Implementation>

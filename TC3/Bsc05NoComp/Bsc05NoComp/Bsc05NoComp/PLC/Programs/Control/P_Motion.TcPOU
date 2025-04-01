@@ -33,7 +33,8 @@ fbInitPosJib(
 	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
 );
 
-
+G_Parameters.fMinWinchDist	:= ABS(G_Homing.fMinDistWinch[G_HMI.nHomingMode]);
+G_Parameters.fMaxWinchDist	:= ABS(G_Homing.fMaxDistWinch[G_HMI.nHomingMode]);
 
 IF G_Enables.bSineMotion AND G_Enables.bHoldButton AND NOT(G_Enables.bHoming) AND G_HMI.nHomingMode = 0 THEN
 	fbSineMotionRefMain(
@@ -198,8 +199,8 @@ ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) THEN
 	END_CASE
 	
 ELSIF G_Enables.bHoldButton AND G_HMI.nHomingMode > 0 THEN
-	
-	CASE G_HMI.nCounter OF
+
+	CASE G_HMI.nHomingMode OF
 		
 		E_HomingModes.MainTest1:
 			fbSineMotionRefMain(

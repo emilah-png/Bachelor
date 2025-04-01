@@ -4,10 +4,12 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
 	nArrLen 		: SINT := 7;
-	//Variable  	: ARRAY[0..nArrLen] OF LREAL := [Main1, Main2, Jib1, Jib2, Dual1, Dual2, Dual3, Dual4];
-	fHomingMain 	: ARRAY[0..nArrLen] OF LREAL := [0.300, 0.500, 0.50, 0.73, 0.500, 0.450, 0.700, 0.700]; // Main Position for tests
-	fHomingJib 		: ARRAY[0..nArrLen] OF LREAL := [0.825, 0.080, 0.07, 0.25, 0.080, 0.380, 0.750, 0.050]; //  Jib Position for tests
-	fHomingWinch 	: ARRAY[0..nArrLen] OF LREAL := [0.000, 0.000, 0.00, 0.00, 0.000, 0.000, 0.000, 0.000]; //Winch Position for tests
+	//Variable  	: ARRAY[0..nArrLen] OF LREAL := [Main1, Main2, Jib1 , Jib2 , Dual1, Dual2, Dual3, Dual4];
+	fHomingMain 	: ARRAY[0..nArrLen] OF LREAL := [0.300, 0.500, 0.500, 0.730, 0.500, 0.450, 0.700, 0.700]; // Main Position for tests
+	fHomingJib 		: ARRAY[0..nArrLen] OF LREAL := [0.825, 0.080, 0.070, 0.250, 0.080, 0.380, 0.750, 0.050]; //  Jib Position for tests
+	fHomingWinch 	: ARRAY[0..nArrLen] OF LREAL := [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000]; //Winch Position for tests
+	fMinDistWinch	: ARRAY[0..nArrLen+1] OF LREAL := [-2,-2.50, -2.05, -2.05, -2.40, -2.05, -2.40, -2.80, -2.30]; //Winch Min Length
+	fMaxDistWinch	: ARRAY[0..nArrLen+1] OF LREAL := [-10,-3.65, -2.60, -2.65, -5.05, -2.65, -2.75, -8.45, -3.60]; //Winch Max Length
 	
 	bNegMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE];
 	bNegJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE];

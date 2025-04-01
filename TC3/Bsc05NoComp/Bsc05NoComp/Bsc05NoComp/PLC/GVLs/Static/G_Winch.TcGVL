@@ -3,9 +3,12 @@
   <GVL Name="G_Winch" Id="{8f44b33e-e33f-4c04-b80f-3076fdbd6d35}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	fEncoderDia 	: LREAL := 0.0443; 	// [m]
-	fEncoderBit 	: LREAL := 65536.0; // [Bit/turn]
-	fEncoderDist	: LREAL := fEncoderDia * Tc2_System.Global_Variables.PI; // [m]
+	fStartPointPosition : LREAL := 0.0;
+	fEndpointPosition 	: LREAL := 5.0;
+    fStartPointValue 	: LREAL := 3803508.0;
+	fEndPointValue 		: LREAL := 1556369.0;
+	
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

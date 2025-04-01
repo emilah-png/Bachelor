@@ -113,9 +113,6 @@
     <Compile Include="Input\Function Blocks\FB_WinchDistance.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Input\Function Blocks\FB_WinchScaling.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Input\G_Inputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -135,7 +132,7 @@
     <Compile Include="Motion\FB_Homing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Motion\FB_Ramp.TcPOU">
+    <Compile Include="Motion\FB_Step.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Motion\FB_SineMotionRef.TcPOU">
@@ -152,6 +149,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Background PRGs\P_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Programs\Background PRGs\P_Config.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Background PRGs\P_DanielFiltering.TcPOU">
@@ -175,6 +175,9 @@
     <Compile Include="Programs\Control\P_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\Control\P_Motion.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Programs\Control\P_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -187,16 +190,10 @@
     <Compile Include="Programs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_Config.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Programs\P_HMI.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\P_Motion.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Programs\P_SineTest.TcPOU">
+    <Compile Include="Programs\Test\P_SineTest.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Truck\G_Truck.TcGVL">
@@ -231,6 +228,7 @@
     <Folder Include="Input\Function Blocks" />
     <Folder Include="Motion" />
     <Folder Include="Motion\Background" />
+    <Folder Include="Programs\Test" />
     <Folder Include="Truck" />
     <Folder Include="Output" />
     <Folder Include="Programs\Control" />
@@ -314,8 +312,8 @@
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-        <Data>
-          <o xml:space="preserve" t="OptionKey">
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -387,14 +385,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-        </Data>
-        <TypeList>
-          <Type n="Boolean">System.Boolean</Type>
-          <Type n="Hashtable">System.Collections.Hashtable</Type>
-          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-          <Type n="String">System.String</Type>
-        </TypeList>
-      </XmlArchive>
+  </Data>
+  <TypeList>
+    <Type n="Boolean">System.Boolean</Type>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

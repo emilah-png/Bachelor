@@ -9,15 +9,16 @@ VAR_OUTPUT
 	fWinchDistance : LREAL;
 END_VAR
 VAR
-	fWinchRaw : LREAL;
-	fBitPerDistance : LREAL;
-	fOffset : LREAL := 4096404.0;
+	fStartPointPosition : LREAL := 0.0;
+	fEndpointPosition 	: LREAL := 5.0;
+    fStartPointValue 	: LREAL := 3803508.0;
+	fEndPointValue 		: LREAL := 1556369.0;
+	fDxDu				: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fWinchRaw := UDINT_TO_LREAL(nWinchRaw);
-fBitPerDistance := (4589581.0 - 4357176) / 500.0;
-fWinchDistance := (fWinchRaw - fOffset) / (fBitPerDistance) / 1000 - 0.0035;]]></ST>
+      <ST><![CDATA[fDxDu := (fEndpointPosition - fStartPointPosition) / (fEndPointValue - fStartPointValue);
+fWinchDistance:= -fDxDu*(TO_REAL(nWinchRaw) - fStartPointValue) + fStartPointPosition;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

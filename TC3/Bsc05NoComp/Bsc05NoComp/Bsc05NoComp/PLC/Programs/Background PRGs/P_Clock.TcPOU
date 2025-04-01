@@ -8,6 +8,7 @@ VAR
 	fbMotionClock 	: FB_Clock;
 	fbDriveOut 		: FB_Clock;
 	fbHoming		: FB_Clock;
+	fbHoldTime		: FB_Clock;
 	
 	Rounding		: LREAL;
 END_VAR
@@ -37,6 +38,14 @@ fbHoming(
 	
 	fTime => G_OPC.fHomingTime
 );
+
+fbHoldTime(
+	bStartEnable := G_Enables.bHoldButton,
+	
+	fTime => G_OPC.fHoldTime
+);
+
+
 ]]></ST>
     </Implementation>
   </POU>

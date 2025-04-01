@@ -5,6 +5,8 @@
 VAR
 	Mode : E_Modes;
 	ManModes : E_ManuelModes;
+	fbStepMain : FB_Step;
+	fbStepJib : FB_Step;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -42,7 +44,27 @@ IF G_Enables.bHoldButton OR G_Enables.bHoming THEN
 					G_Enables.bManConst := TRUE;
 					
 				E_ManuelModes.ManSpeed:
-				
+					
+					fbStepMain(
+						bEnable := G_Enables.bHoldButton,
+						fTime := G_OPC.fHoldTime,
+						fTimeConst := 2.0,
+						fDivider := 4.0,
+						fSignal := G_Parameters.fConst2,
+						
+						fOutput => G_OPC.fValveTwoSignals.fU
+					);
+					
+					fbStepJib(
+						bEnable := G_Enables.bHoldButton,
+						fTime := G_OPC.fHoldTime,
+						fTimeConst := 2.0,
+						fDivider := 4.0,
+						fSignal := G_Parameters.fConst1,
+						
+						fOutput => G_OPC.fValveOneSignals.fU
+					);
+					
 					G_Output.bEnableValveOne := G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
 					G_Output.bEnableValveTwo := G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
@@ -82,76 +104,76 @@ IF G_Enables.bHoldButton OR G_Enables.bHoming THEN
 					G_Enables.bAuto := TRUE;
 					
 				E_HomingModes.MainTest1:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 				
 				E_HomingModes.MainTest2:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 				
 				E_HomingModes.JibTest1:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 					
 				E_HomingModes.JibTest2:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 					
 				E_HomingModes.DualTest1:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 				
 				E_HomingModes.DualTest2:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 					
 				E_HomingModes.DualTest3:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 					
 				E_HomingModes.DualTest4:
-					G_Output.bEnableValveOne := G_Enables.bHoming AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
-					G_Output.bEnableValveTwo := G_Enables.bHoming AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
+					G_Output.bEnableValveOne := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableOne AND NOT(G_Enables.bErrorOne);
+					G_Output.bEnableValveTwo := (G_Enables.bHoldButton OR G_Enables.bHoming) AND G_Enables.bEnableTwo AND NOT(G_Enables.bErrorTwo);
 					G_Output.nValveOneOutput := LREAL_TO_INT(G_OPC.fValveOneSignals.fU * 32767.0) ;
 					G_Output.nValveTwoOutput := LREAL_TO_INT(G_OPC.fValveTwoSignals.fU * 32767.0) ;
 					G_Enables.bManual := FALSE;
 					G_Enables.bAuto := TRUE;
-					G_Enables.bSineMotion := FALSE;
+					G_Enables.bSineMotion := G_Enables.bHoldButton;
 								
 			END_CASE
 			
