@@ -5,20 +5,32 @@
 VAR_INPUT
 	
 	bStartEnable 	: BOOL;
-	
+	bEnableInt		: BOOL;
 END_VAR
 VAR_OUTPUT
 	fTime 			: LREAL;
+	nTime			: UINT;
 END_VAR
 VAR
+	fTimeTemp		: LREAL;
+	fRest			: LREAL;
+	nRest			: UINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF NOT(bStartEnable) THEN
 	fTime := 0.0;
+	nTime := 0;
 ELSE
 	fTime := fTime + G_Parameters.fTimeStep;
-END_IF]]></ST>
+END_IF
+
+IF bEnableInt THEN
+	nTime := LREAL_TO_UINT(fTime);
+ELSE
+	nTime := 0;
+END_IF
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

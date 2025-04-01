@@ -17,8 +17,10 @@ END_VAR
       <ST><![CDATA[
 fbClock(
 	bStartEnable := G_HMI.bstepp_button,
+	bEnableInt := G_HMI.bstepp_button,
 	
-	fTime => G_OPC.fTime
+	fTime => G_OPC.fTime,
+	nTime => G_OPC.nTime
 );
 
 fbMotionClock(

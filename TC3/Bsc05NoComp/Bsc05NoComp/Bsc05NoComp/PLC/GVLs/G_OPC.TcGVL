@@ -6,6 +6,7 @@ VAR_GLOBAL
 	
 	// System Values 
 	fTime					: LREAL; // [s]
+	nTime					: UINT;  // [s]
 	fHoldTime				: LREAL; // [s]
 	fPs 					: ST_Filter; // [Bar]
 	
