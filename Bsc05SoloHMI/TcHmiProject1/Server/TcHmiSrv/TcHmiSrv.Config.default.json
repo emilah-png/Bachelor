@@ -1101,11 +1101,45 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fJibPaCyl.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPaCyl::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fJibPaDCV.fDanielFilter": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::G_OPC::fJibPaDCV::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fJibPbCyl.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fJibPbCyl::fDanielFilter",
             "SCHEMA": {
                 "allOf": [
                     {
@@ -1283,6 +1317,23 @@
                     },
                     {
                         "comment": "[-1, 1]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fMainPaCyl.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fMainPaCyl::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
                     }
                 ]
             },
@@ -1560,6 +1611,40 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.fWinchPa.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPa::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_OPC.fWinchPb.fDanielFilter": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::fWinchPb::fDanielFilter",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_OPC.fXRefOne": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1594,6 +1679,23 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_OPC.nTime": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_OPC::nTime",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "comment": "[s]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Parameters.fMaxStrokeJib": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1623,6 +1725,33 @@
                     },
                     {
                         "comment": "[m]"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Parameters.fMaxWinchDist": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Parameters::fMaxWinchDist",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.G_Parameters.fMinWinchDist": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_Parameters::fMinWinchDist",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "Winch"
                     }
                 ]
             },
@@ -8957,7 +9086,9 @@
                 "ADS.PLC1.G_Mode.bRunning": 3,
                 "ADS.PLC1.G_OPC.fErrorOne": 3,
                 "ADS.PLC1.G_OPC.fErrorTwo": 3,
+                "ADS.PLC1.G_OPC.fJibPaCyl.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPaDCV.fDanielFilter": 3,
+                "ADS.PLC1.G_OPC.fJibPbCyl.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPbDCV.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fJibPistonPosition.fFilteredSignal": 3,
@@ -8968,6 +9099,7 @@
                 "ADS.PLC1.G_OPC.fJoystickMain": 3,
                 "ADS.PLC1.G_OPC.fJoystickRotation": 3,
                 "ADS.PLC1.G_OPC.fJoystickWinch": 3,
+                "ADS.PLC1.G_OPC.fMainPaCyl.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPaDCV.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPbDCV.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fMainPistonPosition.fDanielFilter": 3,
@@ -8984,10 +9116,15 @@
                 "ADS.PLC1.G_OPC.fValveTwoPID": 3,
                 "ADS.PLC1.G_OPC.fWinchDistance.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fWinchDistance.fFilteredSignal": 3,
+                "ADS.PLC1.G_OPC.fWinchPa.fDanielFilter": 3,
+                "ADS.PLC1.G_OPC.fWinchPb.fDanielFilter": 3,
                 "ADS.PLC1.G_OPC.fXRefOne": 3,
                 "ADS.PLC1.G_OPC.fXRefTwo": 3,
+                "ADS.PLC1.G_OPC.nTime": 3,
                 "ADS.PLC1.G_Parameters.fMaxStrokeJib": 3,
                 "ADS.PLC1.G_Parameters.fMaxStrokeMain": 3,
+                "ADS.PLC1.G_Parameters.fMaxWinchDist": 3,
+                "ADS.PLC1.G_Parameters.fMinWinchDist": 3,
                 "ADS.PLC1.G_Parameters.fOneD": 3,
                 "ADS.PLC1.G_Parameters.fOneI": 3,
                 "ADS.PLC1.G_Parameters.fOneP": 3,
