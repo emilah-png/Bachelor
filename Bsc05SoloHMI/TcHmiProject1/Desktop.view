@@ -6434,7 +6434,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiTrendLineChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-start="First" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Time" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="10" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false">
+<div id="TcHmiTrendLineChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Time" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1000" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="true" data-tchmi-show-menu-bar="false" data-tchmi-grid-line-style="Dashed" data-tchmi-show-grid="true" data-tchmi-y-main-tick-steps="11" data-tchmi-grid-line-width="1" data-tchmi-grid-show-horizontal-lines="true" data-tchmi-grid-show-vertical-lines="false" data-tchmi-start="First">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -6583,8 +6583,10 @@
   "color": "rgba(53, 52, 52, 1)"
 }
 </script>
+
+
 </div>
-<div id="TcHmiTrendLineChart_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-start="First" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-tooltip="%s%ADS.PLC1.G_OPC.nTime%/s%" data-tchmi-interval="10" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false">
+<div id="TcHmiTrendLineChart_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1000" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="true" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="First">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -6750,7 +6752,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTrendLineChart_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-start="First" data-tchmi-top="510" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Winch" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="10" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-menu-bar="false" data-tchmi-show-x-axis-name="false">
+<div id="TcHmiTrendLineChart_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="510" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1000" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="true" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="First">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -6814,16 +6816,16 @@
     "pointDotRadius": 3,
     "pointDotStrokeWidth": 1,
     "lineColor": {
-      "color": "rgba(25, 255, 5, 1)"
+      "color": "rgba(255, 95, 95, 1)"
     },
     "pointDotFillColor": {
-      "color": "rgba(25, 255, 5, 1)"
+      "color": "rgba(255, 95, 95, 1)"
     },
     "pointDotStrokeColor": {
-      "color": "rgba(25, 255, 5, 1)"
+      "color": "rgba(255, 95, 95, 1)"
     },
     "fillColor": {
-      "color": "rgba(25, 255, 5, 1)"
+      "color": "rgba(255, 95, 95, 1)"
     },
     "pointDotInStopMode": false
   },
@@ -6831,7 +6833,7 @@
     "yAxisId": 1,
     "symbol": "ADS.PLC1.G_OPC.fPs.fDanielFilter",
     "lineWidth": 1,
-    "legendName": "Ps",
+    "legendName": "PS",
     "pointDot": false,
     "pointDotRadius": 3,
     "pointDotStrokeWidth": 1,
@@ -6852,16 +6854,6 @@
 ]
 </script>
 
-
-
-<script data-tchmi-target-attribute="data-tchmi-sections-background-color" type="application/json">
-{
-  "color": "rgba(53, 52, 52, 1)"
-}
-</script>
-
-
-
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
   "color": "rgba(53, 52, 52, 1)"
@@ -6869,6 +6861,14 @@
 </script>
 
 <script data-tchmi-target-attribute="data-tchmi-grid-background-color" type="application/json">
+{
+  "color": "rgba(53, 52, 52, 1)"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-sections-background-color" type="application/json">
 {
   "color": "rgba(53, 52, 52, 1)"
 }
