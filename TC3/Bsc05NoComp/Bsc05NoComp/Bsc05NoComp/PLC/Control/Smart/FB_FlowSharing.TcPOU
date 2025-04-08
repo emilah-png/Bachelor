@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_FlowSharing" Id="{9750c49f-cfc9-448f-a54d-f6210237a638}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlowSharing
+VAR_INPUT
+	fMaxFlow	: LREAL;
+	fFlowRefJib 	: LREAL;
+	fFlowRefMain 	: LREAL;
+END_VAR
+VAR_OUTPUT
+	fSmartedFlowRefJib : LREAL;
+	fSmartedFlowRefMain : LREAL;
+	fShareCoff : LREAL;
+END_VAR
+VAR
+	fTotalFlowReq : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fTotalFlowReq := ABS(fFlowRefJib) + (fFlowRefMain);
+IF fTotalFlowReq >= fMaxFlow AND fTotalFlowReq > 0.0 THEN
+	fShareCoff :=  fMaxFlow / fTotalFlowReq;
+ELSE
+	fShareCoff := 1.0;
+END_IF
+
+fSmartedFlowRefJib := fFlowRefJib * fShareCoff;
+fSmartedFlowRefMain := fFlowRefMain * fShareCoff;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

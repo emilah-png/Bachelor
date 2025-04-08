@@ -23,7 +23,7 @@ END_VAR
 		bPID := G_Enables.bEnablePID,
 		bU := G_Enables.bEnableU, 
 		
-		fU => G_OPC.fValveOneSignals.fU
+		fU => G_OPC.fValveOneSignals.fU 
 	);
 	
 	fbControl2(

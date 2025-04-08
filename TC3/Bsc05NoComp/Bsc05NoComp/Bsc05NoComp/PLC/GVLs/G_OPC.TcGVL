@@ -8,6 +8,7 @@ VAR_GLOBAL
 	fTime					: LREAL; // [s]
 	nTime					: UINT;  // [s]
 	fHoldTime				: LREAL; // [s]
+	bMeasurement			: BOOL;
 	fPs 					: ST_Filter; // [Bar]
 	
 	// MAIN Values
@@ -44,8 +45,8 @@ VAR_GLOBAL
 	
 	// Valve Signals
 	fValveOneSignals		: ST_Signals; // [-1, 1]
-	
 	fValveTwoSignals		: ST_Signals; // [-1, 1]
+	fFlowShareCoefficient	: LREAL;
 	
 	// Motion Ref
 	fMotionTime				: LREAL; // [s]
@@ -53,12 +54,18 @@ VAR_GLOBAL
 	
 	fXRefOne				: LREAL; // [m]
 	fXDotRefOne				: LREAL; // [m/s]
+	fFlowRefOne				: LREAL; // [L/min]
+	fSmartFlowRefOne		: LREAL; // [L/min]
+	fSmartVelRefOne			: LREAL; // [m/s]
 	
 	fXRefTwo				: LREAL; // [m]
 	fXDotRefTwo				: LREAL; // [m/s]
+	fFlowRefTwo				: LREAL; // [L/min]
+	fSmartFlowRefTwo		: LREAL; // [L/min]
+	fSmartVelRefTwo			: LREAL; // [m/s]
 	
-	fFlowTest1 : LREAL;
-	fFlowTest2 : LREAL;
+	fFlowTest1 				: LREAL;
+	fFlowTest2 				: LREAL;
 	
 END_VAR
 ]]></Declaration>

@@ -23,7 +23,7 @@ END_VAR
 VAR
 	fC 				: LREAL;
 	fC2 			: LREAL; // c^2
-	fDotOuptut 	: LREAL;
+	fDotOuptut 		: LREAL;
 	fDot2Ouptut 	: LREAL;
 	bFirstRun 		: BOOL := TRUE;
 END_VAR]]></Declaration>

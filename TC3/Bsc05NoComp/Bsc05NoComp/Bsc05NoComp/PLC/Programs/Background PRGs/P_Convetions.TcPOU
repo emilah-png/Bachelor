@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="P_Vel2Flow" Id="{9adcba8d-03ed-4445-8129-8456a4871a89}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM P_Vel2Flow
+  <POU Name="P_Convetions" Id="{9adcba8d-03ed-4445-8129-8456a4871a89}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Convetions
 VAR
 	fbMainVel2Flow	: FB_Vel2Flow;
 	fbJibVel2Flow	: FB_Vel2Flow;

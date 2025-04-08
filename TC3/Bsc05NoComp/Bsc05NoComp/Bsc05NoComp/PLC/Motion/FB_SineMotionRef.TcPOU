@@ -10,6 +10,7 @@ VAR_INPUT
 	fFrequency : LREAL;
 	fInitialPos : LREAL;
 	bEnableMotion : BOOL;
+	fFlowShareCoff : LREAL;
 END_VAR
 VAR_OUTPUT
 	fXDotRef : LREAL;

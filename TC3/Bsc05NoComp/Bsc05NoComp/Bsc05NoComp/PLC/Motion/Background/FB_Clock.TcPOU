@@ -3,7 +3,6 @@
   <POU Name="FB_Clock" Id="{b3566c58-5184-42a7-935d-777afebc62bf}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Clock
 VAR_INPUT
-	
 	bStartEnable 	: BOOL;
 	bEnableInt		: BOOL;
 END_VAR
@@ -12,9 +11,6 @@ VAR_OUTPUT
 	nTime			: UINT;
 END_VAR
 VAR
-	fTimeTemp		: LREAL;
-	fRest			: LREAL;
-	nRest			: UINT;
 END_VAR
 ]]></Declaration>
     <Implementation>

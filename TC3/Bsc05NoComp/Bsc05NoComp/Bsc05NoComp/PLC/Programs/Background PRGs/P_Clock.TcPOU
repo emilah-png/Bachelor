@@ -10,11 +10,11 @@ VAR
 	fbHoming		: FB_Clock;
 	fbHoldTime		: FB_Clock;
 	
-	Rounding		: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
+
 fbClock(
 	bStartEnable := G_HMI.bstepp_button,
 	bEnableInt := G_HMI.bstepp_button,

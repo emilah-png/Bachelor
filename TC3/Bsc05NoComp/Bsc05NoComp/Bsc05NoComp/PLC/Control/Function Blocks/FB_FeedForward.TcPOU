@@ -17,6 +17,7 @@ VAR_INPUT
 END_VAR
 VAR_OUTPUT
 	fUFF 			: LREAL;
+	fFlow			: LREAL; 	// Wanted Flow
 END_VAR
 VAR
 	fSpoolTravel 	: LREAL; 	// Maximum Spool Travel
@@ -24,7 +25,7 @@ VAR
 	fSlopeCharDown	: LREAL;	// Valve Slope Characteristic [mm/(L/min)]
 	fDeltaP_Norm	: LREAL; 	// Pressure Drop with Compansator
 	
-	fFlow			: LREAL; 	// Wanted Flow
+	
 	fFlowLM			: LREAL;
 	fDeltaP			: LREAL; 	// Pressure Drop
 	fDeltaP_Ref		: LREAL; 	// Referance Pressure Drop
@@ -37,7 +38,7 @@ END_VAR
       <ST><![CDATA[fArea 			:= fArea/(1000000.0); 					// Area of Piston Side
 fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
 // fSlopeCharUp	:= (fSpoolTravel)/fMaxFlowUp; 			// Valve Slope Characteristic [mm/(L/min)]
-// fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 		// Valve Slope Characteristic [mm/(L/min)]
+// fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 	// Valve Slope Characteristic [mm/(L/min)]
 fDeltaP_Norm	:= fDeltaP0 * 100000.0;
 
 IF fXDot > 0.0 THEN

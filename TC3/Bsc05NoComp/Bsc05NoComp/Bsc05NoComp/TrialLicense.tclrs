@@ -2,9 +2,28 @@
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
 		<SystemId>{86DED147-4C15-11DA-ACAD-B725039D5C10}</SystemId>
-		<IssueTime>2025-03-25T08:07:00</IssueTime>
-		<ExpireTime>2025-04-02T00:00:00</ExpireTime>
-		<LicenseKey>ab19584a39f096f7ba08aafc5e60c0d65399cd0cd7973249e6bab9e6845f6943545fd37ae573103bcf680d7a04435c7c54145cbf9be711ec7a7af29d50cf7c8cd8f5a07871a9b08814d296dc4b3d23f1e11c085753e4272f6b02844591c63567c6da84a5b02f1141fc1a1a466fd0dc1222706e8898e775ac1384340db66d260b05d75f4b5cc29dccc139aa2f001a1bf1c3957d62a0915215b91b9386dd0f4c140b39103c3971b29fa37f44081f223f0448c5b780988582196f2ed4ed122d7ff870945670f962d95e8de539aef4c52b3aec49246df7dd4b0a99b585d4d8c11b921177ccce87cc309e614f8bf65f0d3cadc78e0eef5416f74d24b722cf2876a007</LicenseKey>
+		<IssueTime>2025-04-02T10:21:00</IssueTime>
+		<ExpireTime>2025-04-10T00:00:00</ExpireTime>
+		<LicenseKey>22c8d28d7d61d3963b3322ba0e0af5f3db9d628069ff51c3f968bb8cd0f631f44e62ccfa7511de3947b6df36e9ba24724537e1028ddd445e484797c33d194fca5c16acde2b8f18b851f1f017de7e81d44d82064b22ada97a174fbc2dc025a1b50d6fb83ab8682e93d2b03750ce619bf675d55300d742ca23613df4eafb85d5198e1584faddf01feafe14cc7992de7e7678c4e9bf5057099534c1ee06563cec84fcc6d6dcbed8dbac55f94da09c8740cb4093312fefb8fa7c56c51c63048fa400f3cf32939a5d23c857b0c7871a90dd49bf7b5e4b35651d8e45a20d632e1bd5fba2f618f385aceabdbb7f1da6024a88667b4ade6f78949a3820b675c0753affe1</LicenseKey>
+		<License>
+			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>
+			<Name>TC3 HMI Clients</Name>
+			<Instances>1</Instances>
+		</License>
+		<License>
+			<LicenseId>{A2091C4C-7D04-4202-B173-9984E7125BC0}</LicenseId>
+			<Name>TC3 HMI Targets</Name>
+			<Instances>1</Instances>
+		</License>
+		<License>
+			<LicenseId>{CCE50C10-2CAA-4243-8182-080F02C5BE3D}</LicenseId>
+			<Name>TC3 Reporting Server</Name>
+		</License>
+		<License>
+			<LicenseId>{796D380F-D49E-4C0C-A05F-500052FAC883}</LicenseId>
+			<Name>TC3 HMI Server</Name>
+			<OrderNo>TF2000</OrderNo>
+		</License>
 		<License>
 			<LicenseId>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</LicenseId>
 			<Name>TC3 Scope Server</Name>
@@ -25,9 +44,17 @@
 			<OrderNo>TF8020</OrderNo>
 		</License>
 		<License>
-			<LicenseId>{A2091C4C-7D04-4202-B173-9984E7125BC0}</LicenseId>
-			<Name>TC3 HMI Targets</Name>
-			<Instances>3</Instances>
+			<LicenseId>{CC0BCBD5-3EA7-D7D4-4C71-A8B125F0DB72}</LicenseId>
+			<Name>TC3 OPC-UA Analytics Read</Name>
+		</License>
+		<License>
+			<LicenseId>{C2B7B285-EBD7-72CF-843F-15F95A86FEEE}</LicenseId>
+			<Name>TC3 OPC-UA Analytics Write</Name>
+		</License>
+		<License>
+			<LicenseId>{BDCC0070-42D5-49AE-ABF1-1D4434813D60}</LicenseId>
+			<Name>TC3 OPC-UA</Name>
+			<OrderNo>TF6100</OrderNo>
 		</License>
 		<License>
 			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
@@ -35,45 +62,14 @@
 			<OrderNo>TC1000</OrderNo>
 		</License>
 		<License>
-			<LicenseId>{C2B7B285-EBD7-72CF-843F-15F95A86FEEE}</LicenseId>
-			<Name>TC3 OPC-UA Analytics Write</Name>
-		</License>
-		<License>
-			<LicenseId>{CC0BCBD5-3EA7-D7D4-4C71-A8B125F0DB72}</LicenseId>
-			<Name>TC3 OPC-UA Analytics Read</Name>
-		</License>
-		<License>
-			<LicenseId>{D4390DEA-A64D-494D-9E09-275326DBB0CB}</LicenseId>
-			<Name>TC3 PLC-HMI (RT)</Name>
-		</License>
-		<License>
-			<LicenseId>{796D380F-D49E-4C0C-A05F-500052FAC883}</LicenseId>
-			<Name>TC3 HMI Server</Name>
-			<OrderNo>TF2000</OrderNo>
-		</License>
-		<License>
 			<LicenseId>{66689887-CCBD-452C-AC9A-039D997C6E66}</LicenseId>
 			<Name>TC3 PLC</Name>
 			<OrderNo>TC1200</OrderNo>
 		</License>
 		<License>
-			<LicenseId>{CCE50C10-2CAA-4243-8182-080F02C5BE3D}</LicenseId>
-			<Name>TC3 Reporting Server</Name>
-		</License>
-		<License>
-			<LicenseId>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</LicenseId>
-			<Name>TC3 PLC-HMI</Name>
-			<OrderNo>TF1800</OrderNo>
-		</License>
-		<License>
-			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>
-			<Name>TC3 HMI Clients</Name>
-			<Instances>3</Instances>
-		</License>
-		<License>
-			<LicenseId>{BDCC0070-42D5-49AE-ABF1-1D4434813D60}</LicenseId>
-			<Name>TC3 OPC-UA</Name>
-			<OrderNo>TF6100</OrderNo>
+			<LicenseId>{4989A799-AEEA-4FEE-88EF-666B99EEFB45}</LicenseId>
+			<Name>TC3 Scope View Professional</Name>
+			<OrderNo>TE1300</OrderNo>
 		</License>
 		<License>
 			<LicenseId>{3FF18E97-7754-401B-93FB-70544DE28A13}</LicenseId>

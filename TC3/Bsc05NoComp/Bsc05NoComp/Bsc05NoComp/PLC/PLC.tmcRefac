@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="9adcba8d-03ed-4445-8129-8456a4871a89">P_VEL2FLOW</Type>
+      <From>P_Vel2Flow</From>
+      <To>P_Convetions</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

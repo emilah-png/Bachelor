@@ -23,6 +23,8 @@ fbDerivatorJibSpeed(
 	fSignalDerivative => fJibVelocity
 );
 
+G_OPC.bMeasurement := G_HMI.bstepp_button;
+
 IF fMainVelocity < -0.001 OR fMainVelocity > 0.001 THEN
 	G_OPC.fMainPistonVelocity := fMainVelocity;
 ELSE

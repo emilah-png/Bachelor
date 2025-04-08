@@ -11,7 +11,6 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-	
 fbFFOne(
 	fPs := G_OPC.fPs.fDanielFilter,
 	fPa := G_OPC.fJibPaDCV.fDanielFilter,
@@ -29,7 +28,8 @@ fbFFOne(
 	fArea := G_Parameters.fAreaJib,
 	fPhi := G_Parameters.fAreaRelation2,
 	
-	fUFF => G_OPC.fValveOneSignals.fFF
+	fUFF => G_OPC.fValveOneSignals.fFF,
+	fFlow => G_OPC.fFlowRefOne
 );
 
 fbFFTwo(
@@ -49,7 +49,8 @@ fbFFTwo(
 	fArea := G_Parameters.fAreaMain,
 	fPhi := G_Parameters.fAreaRelation1,
 	
-	fUFF => G_OPC.fValveTwoSignals.fFF
+	fUFF => G_OPC.fValveTwoSignals.fFF,
+	fFlow => G_OPC.fFlowRefTwo
 );
 ]]></ST>
     </Implementation>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="E_AutoModes" Id="{4ae58ea1-5e8b-4552-80a1-fac51e8a9ac8}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to_string'}
+TYPE E_AutoModes :
+(
+	Normal,
+	FlowSharing,
+	Smart
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

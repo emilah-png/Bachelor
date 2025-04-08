@@ -34,6 +34,9 @@
     <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Control\Smart\FB_FlowSharing.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Control\Smart\FB_Smart.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\ENUMs\E_AutoModes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\ENUMs\E_HomingModes.TcDUT">
@@ -163,7 +169,7 @@
     <Compile Include="Programs\Background PRGs\P_FlowControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\Background PRGs\P_Vel2Flow.TcPOU">
+    <Compile Include="Programs\Background PRGs\P_Convetions.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\Control\P_Control.TcPOU">
