@@ -10,13 +10,17 @@ VAR_INPUT
 	fXDotRef		: LREAL;
 	fError			: LREAL;
 	fKFF			: LREAL;
+	fFlowSharing	: LREAL;
 	
 	bPID			: BOOL;
 	bFF				: BOOL;
 	bU				: BOOL;
+	bValve			: BOOL;
+	bFlowShare		: BOOL;
 END_VAR
 VAR_OUTPUT
 	fU				: LREAL;
+	fUAdj			: LREAL;
 END_VAR
 VAR
 	FF				: LREAL;
@@ -25,22 +29,22 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF bFF THEN
-	FF := fFF * fKFF ;//* fMaxOutput;
+      <ST><![CDATA[IF bFlowShare THEN
+	fFlowSharing := G_OPC.fFlowShareCoefficient;
 ELSE
-	FF := 0.0;
+	fFlowSharing := 1.0;
 END_IF
 
-IF bPID THEN
-	PID := fPID * fMaxOutput;
-ELSE
-	PID := 0.0;
-END_IF
+FF := fFF * fKFF * TO_INT(bFF);//* fMaxOutput;
 
-IF (FF + PID > 0.0) THEN
-	fU := FF + PID + fDeadBandUp;
-ELSIF (FF + PID < 0.0) THEN
-	fU := FF + PID - fDeadBandDown;
+PID := fPID * fMaxOutput * TO_INT(bPID);
+
+fUAdj := (FF+PID)*TO_INT(bValve);
+
+IF (fUAdj > 0.0) THEN
+	fU := fUAdj*fFlowSharing + fDeadBandUp;
+ELSIF (fUAdj < 0.0) THEN
+	fU := fUAdj*fFlowSharing - fDeadBandDown;
 ELSE
 	fU := 0.0;
 END_IF

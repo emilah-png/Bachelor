@@ -10,9 +10,6 @@ VAR_GLOBAL
 	nAutoMode				:	INT;
 	
 	// Value Inputs
-	fSlider_1				:	LREAL;
-	fTest_Slider_1 			:	LREAL;
-	fSlider_2				:	LREAL;
 	fNumPad1				:	LREAL;
 	fNumPad2				:	LREAL;
 	

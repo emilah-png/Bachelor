@@ -26,7 +26,10 @@ fbJibVel2Flow(
 	
 	fFlowA => G_OPC.fJibFlowA,
 	fFlowB => G_OPC.fJibFlowB
-);]]></ST>
+);
+
+G_OPC.fFlowPistonSide := G_OPC.fJibFlowA + G_OPC.fMainFlowA;
+G_OPC.fFlowRodSide := G_OPC.fJibFlowB + G_OPC.fMainFlowB;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

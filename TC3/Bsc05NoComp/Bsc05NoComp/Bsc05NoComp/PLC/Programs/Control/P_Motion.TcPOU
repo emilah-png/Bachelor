@@ -28,10 +28,6 @@ fbInitPosJib(
 	fCurrentPos := G_OPC.fJibPistonPosition.fDanielFilter
 );
 
-fbFlowShare(
-	fShareCoff => G_OPC.fFlowShareCoefficient
-);
-
 fbSineMotionRefMain(
 	fInitialPos := fbInitPosMain.fInitialPos,
 	fTime := G_OPC.fMotionTime,
@@ -66,7 +62,7 @@ IF G_Enables.bSineMotion AND G_Enables.bHoldButton AND NOT(G_Enables.bHoming) AN
 		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
 	);
 	
-ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) THEN
+ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) AND G_HMI.nHomingMode > 0 THEN
 // Homing	
 	fbHome(
 		fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
@@ -75,262 +71,72 @@ ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) THEN
 		fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
 		fClock := G_OPC.fHomingTime,
 		bEnableHoming := G_Enables.bHoming,
+		
+		fXDotRefMain => G_OPC.fXDotRefTwo,
+		fXDotRefJib => G_OPC.fXDotRefOne
 	);
 	
 	G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
 	G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
 	
-// 	CASE G_HMI.nCounter OF
-// 		
-// 		E_HomingModes.MainTest1: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			);
-// 	
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 		
-// 		E_HomingModes.MainTest2: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 			
-// 		E_HomingModes.JibTest1: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 		
-// 		E_HomingModes.JibTest2: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 			
-// 		E_HomingModes.DualTest1: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 		
-// 		E_HomingModes.DualTest2: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 			
-// 		E_HomingModes.DualTest3: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 		
-// 		E_HomingModes.DualTest4: 
-// 		
-// 			fbHome(
-// 				fWantedPositionMain := G_Homing.fHomingMain[G_HMI.nHomingMode - 1],
-// 				fCurrentPosMain := G_OPC.fMainPistonPosition.fDanielFilter,
-// 				fWantedPositionJib := G_Homing.fHomingJib[G_HMI.nHomingMode - 1],
-// 				fCurrentPosJib := G_OPC.fJibPistonPosition.fDanielFilter,
-// 				fClock := G_OPC.fHomingTime,
-// 				bEnableHoming := G_Enables.bHoming,
-// 			
-// 				fXDotRefMain => G_OPC.fXDotRefTwo,
-// 				fXDotRefJib => G_OPC.fXDotRefOne
-// 			);
-// 			
-// 			G_OPC.fXRefOne := G_Homing.fHomingJib[G_HMI.nHomingMode - 1];
-// 			G_OPC.fXRefTwo := G_Homing.fHomingMain[G_HMI.nHomingMode - 1];
-// 	END_CASE
-	
 ELSIF G_Enables.bHoldButton AND G_HMI.nHomingMode > 0 THEN
 // Testing
 	CASE G_HMI.nAutoMode OF
 		E_AutoModes.Normal:
+			
+			G_Enables.bEnableOne := G_Homing.bJibMovement[G_HMI.nHomingMode - 1];
+			G_Enables.bEnableTwo := G_Homing.bMainMovement[G_HMI.nHomingMode - 1];
+			G_Enables.bEnableFlowShare := TO_BOOL(G_HMI.nAutoMode);
+			
 			fbSineMotionRefMain(
 				bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
+				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming) AND G_Homing.bMainMovement[G_HMI.nHomingMode - 1],
 			);
+					
 			fbSineMotionRefJib(
-				bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-				bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
+				bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
+				bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
+				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming) AND G_Homing.bJibMovement[G_HMI.nHomingMode - 1],
 			);
-			
-// 			CASE G_HMI.nHomingMode OF
-// 				E_HomingModes.MainTest1:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 				E_HomingModes.MainTest2:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);		
-// 				
-// 				E_HomingModes.JibTest1:
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 					
-// 				E_HomingModes.JibTest2:
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 				E_HomingModes.DualTest1:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);
-// 					
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 				E_HomingModes.DualTest2:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);
-// 					
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 				E_HomingModes.DualTest3:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);
-// 					
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 				E_HomingModes.DualTest4:
-// 					fbSineMotionRefMain(
-// 						bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
-// 					);
-// 				
-// 					fbSineMotionRefJib(
-// 						bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
-// 						bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-// 						bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
-// 					);
-// 			END_CASE
+
 			
 		E_AutoModes.FlowSharing:
+		
+			G_Enables.bEnableOne := G_Homing.bJibMovement[G_HMI.nHomingMode - 1];
+			G_Enables.bEnableTwo := G_Homing.bMainMovement[G_HMI.nHomingMode - 1];
+			G_Enables.bEnableFlowShare := TO_BOOL(G_HMI.nAutoMode);
+			
 			fbSineMotionRefMain(
 				bNegative := G_Homing.bNegMain[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.bCosMain[G_HMI.nHomingMode - 1],
-				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
+				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming) AND G_Homing.bMainMovement[G_HMI.nHomingMode - 1],
 			);
+			
 			fbSineMotionRefJib(
 				bNegative := G_Homing.bNegJib[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.bCosJib[G_HMI.nHomingMode - 1],
-				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
+				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming) AND G_Homing.bJibMovement[G_HMI.nHomingMode - 1],
 			);
+			
 			fbFlowShare(
-				fFlowRefJib := G_OPC.fFlowRefOne,
-				fFlowRefMain := G_OPC.fFlowRefTwo,
+				fUAdjJib := G_OPC.fValveOneSignals.fUAdj,
+				fUAdjMain := G_OPC.fValveTwoSignals.fUAdj,
+				fMainAreaUp := G_Parameters.fAreaUpTwo,
+				fMainAreaDown := G_Parameters.fAreaDownTwo,
+				fJibAreaUp := G_Parameters.fAreaUpOne,
+				fJibAreaDown := G_Parameters.fAreaDownOne,
+				fCd := G_Parameters.fCd,
+				fRho := G_Parameters.fRho,
 				fMaxFlow := G_Parameters.fMaxFlow,
-						
-				fSmartedFlowRefJib => G_OPC.fSmartFlowRefOne,
-				fSmartedFlowRefMain => G_OPC.fSmartFlowRefTwo
+				fMainPa := G_OPC.fMainPaDCV.fDanielFilter,
+				fMainPb := G_OPC.fMainPbDCV.fDanielFilter,
+				fJibPa := G_OPC.fJibPaDCV.fDanielFilter,
+				fJibPb := G_OPC.fJibPbDCV.fDanielFilter,
+				fPs := G_OPC.fPs.fDanielFilter,
+				
+				fShareCoff => G_OPC.fFlowShareCoefficient,
+				fFlowRef => G_OPC.fFlowRef
 			);
 	
 	END_CASE

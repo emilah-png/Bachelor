@@ -21,9 +21,12 @@ END_VAR
 
 		bFF := G_Enables.bEnableFF,
 		bPID := G_Enables.bEnablePID,
-		bU := G_Enables.bEnableU, 
+		bU := G_Enables.bEnableU,
+		bValve := G_Enables.bEnableOne,
+		bFlowShare := G_Enables.bEnableFlowShare, 
 		
-		fU => G_OPC.fValveOneSignals.fU 
+		fU => G_OPC.fValveOneSignals.fU,
+		fUAdj => G_OPC.fValveOneSignals.fUAdj
 	);
 	
 	fbControl2(
@@ -38,8 +41,11 @@ END_VAR
 		bFF := G_Enables.bEnableFF,
 		bPID := G_Enables.bEnablePID,
 		bU := G_Enables.bEnableU,
+		bValve := G_Enables.bEnableTwo,
+		bFlowShare := G_Enables.bEnableFlowShare,
 		
-		fU => G_OPC.fValveTwoSignals.fU
+		fU => G_OPC.fValveTwoSignals.fU,
+		fUAdj => G_OPC.fValveTwoSignals.fUAdj
 	);
 	
 ELSIF G_Enables.bManSpeed THEN

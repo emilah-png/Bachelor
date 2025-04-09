@@ -9,6 +9,7 @@ VAR_GLOBAL
 	bEnableU 			: BOOL;
 	bEnableFF 			: BOOL;
 	bEnablePID 			: BOOL;
+	bEnableFlowShare	: BOOL;
 	
 	bEnableOne			: BOOL;
 	bEnableTwo			: BOOL;

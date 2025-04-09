@@ -36,7 +36,7 @@ fbDriveOut(
 );
 
 fbHoming(
-	bStartEnable := G_HMI.bstepp_button AND G_HMI.bHoldButton_HMI AND G_Enables.bHoming,
+	bStartEnable := G_HMI.bstepp_button AND G_Enables.bHoming,
 	
 	fTime => G_OPC.fHomingTime
 );

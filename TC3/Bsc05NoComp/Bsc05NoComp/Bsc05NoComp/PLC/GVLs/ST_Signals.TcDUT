@@ -9,6 +9,7 @@ STRUCT
 	fPID					: LREAL; // PID Signal
 	fError					: LREAL; // Signal Error
 	fU						: LREAL; // FF + PID + DB
+	fUAdj					: LREAL;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

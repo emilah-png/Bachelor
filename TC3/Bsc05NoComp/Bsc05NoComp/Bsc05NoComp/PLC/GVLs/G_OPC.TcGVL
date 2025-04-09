@@ -47,6 +47,7 @@ VAR_GLOBAL
 	fValveOneSignals		: ST_Signals; // [-1, 1]
 	fValveTwoSignals		: ST_Signals; // [-1, 1]
 	fFlowShareCoefficient	: LREAL;
+	fFlowRef				: LREAL; // [L/min]
 	
 	// Motion Ref
 	fMotionTime				: LREAL; // [s]
@@ -64,8 +65,8 @@ VAR_GLOBAL
 	fSmartFlowRefTwo		: LREAL; // [L/min]
 	fSmartVelRefTwo			: LREAL; // [m/s]
 	
-	fFlowTest1 				: LREAL;
-	fFlowTest2 				: LREAL;
+	fFlowPistonSide			: LREAL;
+	fFlowRodSide			: LREAL;
 	
 END_VAR
 ]]></Declaration>

@@ -11,7 +11,9 @@ VAR_GLOBAL
 	fConst1 		: LREAL := 0.0; // [-1, 1]
 	fConst2 		: LREAL := 0.0; // [-1, 1]
 	
-	fMaxFlow		: LREAL := 55.0; // [L/min]
+	fMaxFlow		: LREAL := 15.0; // [L/min]
+	fRho			: LREAL := 850.0;
+	fCd				: LREAL := 0.64;
 	
 	// Winch
 	fMinWinchDist	: LREAL ;
@@ -32,18 +34,22 @@ VAR_GLOBAL
 	
 	// Valve Variables
 	// Valve 1 (Jib)
-	fQMaxUpOne 		: LREAL := 25.0; // [L/min]
+	fQMaxUpOne 		: LREAL := 20.0; // [L/min]
 	fQMaxDownOne	: LREAL := 15.0; // [L/min]
 	fDeltaP0One		: LREAL := 6.0; // [Bar]
 	fDeadUpOne 		: LREAL := 0.037;
 	fDeadDownOne	: LREAL := 0.111;
+	fAreaUpOne		: LREAL := (fQMaxUpOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
+	fAreaDownOne	: LREAL := (fQMaxDownOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
 	
 	// Valve 2 (Main)
-	fQMaxUpTwo 		: LREAL := 25.0; // [L/min]
+	fQMaxUpTwo 		: LREAL := 20.0; // [L/min]
 	fQMaxDownTwo	: LREAL := 15.0; // [L/min]
 	fDeltaP0Two		: LREAL := 6.0; // [Bar]
 	fDeadUpTwo 		: LREAL := 0.037;
 	fDeadDownTwo	: LREAL := 0.105;
+	fAreaUpTwo		: LREAL := (fQMaxUpTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
+	fAreaDownTwo	: LREAL := (fQMaxDownTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
 	
 	// Piston Variables 
 	fMaxStrokeMain 	: LREAL := 0.755; // [m]

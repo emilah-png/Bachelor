@@ -35,8 +35,8 @@
 				<Target>
 					<ManualSelect>{4989A799-AEEA-4FEE-88EF-666B99EEFB45}</ManualSelect>
 					<ManualSelect>{27326EE5-AB30-4084-B15B-8CCA96CCBF0B}</ManualSelect>
-					<ManualSelect>{CCE4FF6F-8342-4DB6-A976-37835E17161A}</ManualSelect>
 					<ManualSelect>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</ManualSelect>
+					<ManualSelect>{CCE4FF6F-8342-4DB6-A976-37835E17161A}</ManualSelect>
 					<ManualSelect>{BDCC0070-42D5-49AE-ABF1-1D4434813D60}</ManualSelect>
 				</Target>
 			</Licenses>
@@ -48,7 +48,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{8267945F-BE4C-4251-BE60-E682E85F88DD}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" CopyTpyToTarget="false" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{413B19C2-4D71-0A2A-FBA0-04A1CFB569DE}" TmcPath="PLC\PLC.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{1C5A345F-2538-677B-D7C4-416DFA83C79F}" TmcPath="PLC\PLC.tmc">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -111,11 +111,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>G_Inputs.bErrorOne</Name>
-							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>G_Inputs.nRawSupplyPs</Name>
 							<Comment><![CDATA[ Raw Values SUPPLY]]></Comment>
 							<Type>INT</Type>
@@ -168,13 +163,13 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>G_Inputs.nRawWinchEncoder</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
 							<Name>G_Inputs.nRawJoystickWinch</Name>
 							<Comment><![CDATA[ Joystick Signals]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>G_Inputs.nRawWinchEncoder</Name>
-							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.nRawJoystickRotation</Name>
@@ -191,6 +186,11 @@
 						<Var>
 							<Name>G_Inputs.nRawJoystickExtrude</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>G_Inputs.bErrorOne</Name>
+							<Comment><![CDATA[ Hawe Valve Values]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>G_Inputs.bErrorTwo</Name>
@@ -380,7 +380,7 @@
 				</Box>
 				<EtherCAT/>
 			</Device>
-			<Device Id="3" Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="5.76.250.97.4.1" RemoteName="Device 3 (EtherCAT)" InfoImageId="5">
+			<Device Id="3" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="5.76.250.97.4.1" RemoteName="Device 3 (EtherCAT)" InfoImageId="5">
 				<Name>Device 3 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
@@ -2279,6 +2279,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030020"/>
 		<OwnerA Name="TIPC^PLC^PLC Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1008)">
 				<Link VarA="PlcTask Inputs^G_Inputs.bErrorOne" VarB="Channel 3^Input"/>

@@ -8,19 +8,19 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-
-fbFlowControlMain(
-	fArea1 := G_Parameters.fAreaMain,
-	fArea2 := G_Parameters.fAreaJib,
-	fFlow1 := G_OPC.fMainFlowA,
-	fFlow2 := G_OPC.fJibFlowA,
-	bEqualSpeed := TRUE,
-	
-	fSpeedRef1 => G_OPC.fFlowTest1,
-	fSpeedRef2 => G_OPC.fFlowTest2
-);
-
+      <ST><![CDATA[// 
+// 
+// fbFlowControlMain(
+// 	fArea1 := G_Parameters.fAreaMain,
+// 	fArea2 := G_Parameters.fAreaJib,
+// 	fFlow1 := G_OPC.fMainFlowA,
+// 	fFlow2 := G_OPC.fJibFlowA,
+// 	bEqualSpeed := TRUE,
+// 	
+// 	fSpeedRef1 => G_OPC.fFlowTest1,
+// 	fSpeedRef2 => G_OPC.fFlowTest2
+// );
+// 
 ]]></ST>
     </Implementation>
   </POU>
