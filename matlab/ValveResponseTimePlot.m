@@ -85,20 +85,20 @@ end
 for i =1:length(Main_data_150.time)
     if Main_data_150.MainPistonVelocity(i) >= 0
     %Main_Ku = (sum(Main_K(time_index_02mu([100 190])))/length(time_index_02mu([100 190])))/u_end;
-    Main_U(i) = Main_K(i)/( (20/6e4)/sqrt(6) );
+    Main_U(i) = Main_K(i)/( (20/6e4)/sqrt(6) )+0.071;
     elseif Main_data_150.MainPistonVelocity(i) < 0
     %Main_Ku = (sum(Main_K(time_index_02md([130 190])))/length(time_index_02md([130 190])))/(-u_end);
-    Main_U(i) = Main_K(i)/( (12/6e4)/sqrt(6) );   
+    Main_U(i) = Main_K(i)/( (15/6e4)/sqrt(6) )-0.126;   
     end
 end
 
 for i =1:length(Jib_data_150.time)
     if Jib_data_150.JibVelocity(i) >= 0
     % Jib_Ku = (sum(Jib_K(time_index_02ju([100 160])))/length(time_index_02ju([100 160])))/u_init;
-    Jib_U(i) = Jib_K(i)/( (20/6e4)/sqrt(6) );
+    Jib_U(i) = Jib_K(i)/( (20/6e4)/sqrt(6) )+0.037;
     elseif Jib_data_150.JibVelocity(i) < 0
     % Jib_Ku = (sum(Jib_K(time_index_02jd([130 160])))/length(time_index_02jd([130 160])))/(-u_init);
-    Jib_U(i) = Jib_K(i)/( (15/6e4)/sqrt(6) );   
+    Jib_U(i) = Jib_K(i)/( (15/6e4)/sqrt(6) )-0.126;   
     end
 end
 
@@ -110,9 +110,9 @@ Main_flow_lpm = Main_flow * 6e4;
 Jib_flow_lpm = Jib_flow * 6e4;
 set(0, 'DefaultLineLineWidth', 2);
 figure()
-plot(Main_data_150.time,Main_flow_lpm,Color='b');
+plot(Main_data_150.time,Main_data_150.MainPistonVelocity,Color='b');
 hold on
-plot(Jib_data_150.time,Jib_flow_lpm,Color='r');
+plot(Jib_data_150.time,Jib_data_150.JibVelocity,Color='r');
 
 % figure()
 % plot(Main_data.time,dp_Main,Color='b');
