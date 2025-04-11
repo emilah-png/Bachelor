@@ -479,7 +479,7 @@
 </div><div id="TcHmiNavContentLanguage" data-tchmi-type="TcHmi.Controls.ResponsiveNavigation.TcHmiNavigationContent" data-tchmi-height-mode="Content" data-tchmi-width="100" data-tchmi-height="260" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height-unit="px" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-show-icons-mobile="True" data-tchmi-zindex="44" data-tchmi-close-test="%l%L_CloseText%/l%" data-tchmi-column-element-font-size="130" data-tchmi-subtitle-font-size="140" data-tchmi-column-title-font-size="130" data-tchmi-creator-locked="True">
 
 </div>
-<div id="Slider_2" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Slider" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="1900" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-orientation="0" data-tchmi-min-value="-1" data-tchmi-max-value="1" data-tchmi-step="0.05" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-creator-visibility="Visible">
+<div id="Slider_2" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Slider" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="1900" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-orientation="0" data-tchmi-min-value="-1" data-tchmi-max-value="1" data-tchmi-step="0.05" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="Collapsed">
 
 
 
@@ -575,7 +575,7 @@
 }
 </script>
 </div>
-<div id="Slider_1" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Slider" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="2000" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-orientation="0" data-tchmi-min-value="-1" data-tchmi-max-value="1" data-tchmi-step="0.05" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-creator-visibility="Visible">
+<div id="Slider_1" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Slider" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="2000" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-orientation="0" data-tchmi-min-value="-1" data-tchmi-max-value="1" data-tchmi-step="0.05" data-tchmi-creator-locked="True" data-tchmi-zindex="24" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="Collapsed">
 
 
 
@@ -836,6 +836,17 @@
                   "value": true
                 },
                 "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Toggle_Flow_Shear::IsEnabled%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": true
+                },
+                "asyncWait": true
               }
             ]
           },
@@ -1071,6 +1082,17 @@
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/ToggleState",
                   "value": "Normal"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Toggle_Flow_Shear::IsEnabled%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": false
                 },
                 "asyncWait": true
               },
@@ -1466,7 +1488,7 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
                   "symbolExpression": "%ctrl%Enable_FF::ToggleState%/ctrl%"
                 },
                 "compare2": {
@@ -2892,17 +2914,6 @@
             "then": [
               {
                 "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "0"
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
                 "active": true,
                 "symbolExpression": "%ctrl%Direct::Visibility%/ctrl%",
                 "value": {
@@ -2916,17 +2927,6 @@
           },
           {
             "else": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "20"
-                },
-                "asyncWait": true
-              },
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
@@ -2957,7 +2957,7 @@
     "actions": [
       {
         "objectType": "Condition",
-        "active": true,
+        "active": false,
         "parts": [
           {
             "if": [
@@ -2977,17 +2977,6 @@
               }
             ],
             "then": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "0"
-                },
-                "asyncWait": true
-              },
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
@@ -3069,17 +3058,6 @@
           },
           {
             "else": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "20"
-                },
-                "asyncWait": true
-              },
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
@@ -3189,24 +3167,13 @@
                 "compare2": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/INT",
-                  "value": 2
+                  "value": 0
                 },
-                "compareOperator": "!=",
+                "compareOperator": "==",
                 "logic": null
               }
             ],
             "then": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "0"
-                },
-                "asyncWait": true
-              },
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
@@ -3217,6 +3184,83 @@
                   "value": "Collapsed"
                 },
                 "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_17::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_6::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
               }
             ]
           },
@@ -3224,24 +3268,143 @@
             "else": [
               {
                 "objectType": "WriteToSymbol",
-                "active": false,
-                "symbolExpression": "%ctx%owner::TextFontSize%/ctx%",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_6::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "20"
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
                 },
                 "asyncWait": true
               },
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%Textblock_3::Visibility%/ctrl%",
+                "symbolExpression": "%ctrl%Textblock_17::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Textblock_7::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_2::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput_4::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/INT",
+                          "symbolExpression": "%s%ADS.PLC1.G_HMI.nManuelMode%/s%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/INT",
+                          "value": 2
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%Textblock_3::Visibility%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Visibility",
+                          "value": "Visible"
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%Textblock_2::Visibility%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Visibility",
+                          "value": "Hidden"
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%Textblock_2::Visibility%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Visibility",
+                          "value": "Visible"
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%Textblock_3::Visibility%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Visibility",
+                          "value": "Hidden"
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
                 "asyncWait": true
               }
             ]
@@ -3324,7 +3487,7 @@
 }
 </script>
 </div>
-<div id="TcHmiKeyboard_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="23" data-tchmi-creator-locked="True">
+<div id="TcHmiKeyboard_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="72" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -4367,7 +4530,7 @@
 </div>
 <div id="Textblock_7" data-tchmi-type="TcHmi.BuildingAutomation.Controls.Common.Textblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="287" data-tchmi-left-unit="px" data-tchmi-text="Jib" data-tchmi-top="70" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-text-font-size="20" data-tchmi-text-horizontal-alignment="Center" data-tchmi-zindex="21" data-tchmi-creator-locked="True" data-tchmi-visibility="Hidden">
 </div>
-<div id="TcHmiKeyboard_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="23" data-tchmi-creator-locked="True">
+<div id="TcHmiKeyboard_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="71" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5079,7 +5242,7 @@
 }
 </script>
 </div>
-<div id="Keyboard_Winch" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="54" data-tchmi-visibility="Collapsed">
+<div id="Keyboard_Winch" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="65" data-tchmi-visibility="Collapsed">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5138,7 +5301,7 @@
 }
 </script>
 </div>
-<div id="keyboardP" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="55">
+<div id="keyboardP" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Hidden" data-tchmi-zindex="66">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5197,7 +5360,7 @@
 }
 </script>
 </div>
-<div id="Keyboard_D" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="56">
+<div id="Keyboard_D" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-visibility="Collapsed" data-tchmi-zindex="67">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5343,6 +5506,17 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
+                "symbolExpression": "%ctrl%Toggle_Flow_Shear::ToggleState%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "value": "Active"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
                 "symbolExpression": "%ctrl%TogglePID_One::BackgroundColor%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
@@ -5404,6 +5578,17 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
+                "symbolExpression": "%ctrl%Toggle_Flow_Shear::ToggleState%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "value": "Normal"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
                 "symbolExpression": "%ctrl%TogglePID_One::BackgroundColor%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
@@ -5435,7 +5620,7 @@
 ]
 </script>
 </div>
-<div id="KeyboardI_P_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="58" data-tchmi-visibility="Collapsed">
+<div id="KeyboardI_P_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="68" data-tchmi-visibility="Collapsed">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5494,7 +5679,7 @@
 }
 </script>
 </div>
-<div id="KeyboardI_I_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="59" data-tchmi-visibility="Collapsed">
+<div id="KeyboardI_I_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="69" data-tchmi-visibility="Collapsed">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -5553,7 +5738,7 @@
 }
 </script>
 </div>
-<div id="KeyboardI_D_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="60" data-tchmi-visibility="Collapsed">
+<div id="KeyboardI_D_Two" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="240" data-tchmi-height-unit="px" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/Numpad (plusminus).keyboard.json" data-tchmi-left="820" data-tchmi-left-unit="px" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px" data-tchmi-zindex="70" data-tchmi-visibility="Collapsed">
 <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
 {
   "top": 3,
@@ -6956,7 +7141,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiTrendLineChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Time" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-menu-bar="false" data-tchmi-grid-line-style="Dashed" data-tchmi-show-grid="true" data-tchmi-y-main-tick-steps="11" data-tchmi-grid-line-width="1" data-tchmi-grid-show-horizontal-lines="true" data-tchmi-grid-show-vertical-lines="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M">
+<div id="TcHmiTrendLineChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Time" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-menu-bar="false" data-tchmi-grid-line-style="Dashed" data-tchmi-show-grid="true" data-tchmi-y-main-tick-steps="11" data-tchmi-grid-line-width="1" data-tchmi-grid-show-horizontal-lines="true" data-tchmi-grid-show-vertical-lines="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M" data-tchmi-visibility="Visible">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -7108,7 +7293,7 @@
 
 
 </div>
-<div id="TcHmiTrendLineChart_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M">
+<div id="TcHmiTrendLineChart_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M" data-tchmi-visibility="Visible">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -7274,7 +7459,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTrendLineChart_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="510" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M">
+<div id="TcHmiTrendLineChart_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-end="Latest" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="250" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="510" data-tchmi-top-unit="px" data-tchmi-width="550" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-zindex="61" data-tchmi-reference-lines-position="Background" data-tchmi-interval="1" data-tchmi-show-legend="true" data-tchmi-menu-bar-position="Bottom" data-tchmi-show-x-axis="false" data-tchmi-show-x-sub-ticks="false" data-tchmi-start="PT1M" data-tchmi-visibility="Visible">
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
   {
@@ -7818,6 +8003,132 @@
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Collapsed"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Toggle_Flow_Shear" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-text="Flow Share" data-tchmi-top="690" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-toggle-state-icon-color" type="application/json">
+{
+  "color": "rgba(117, 117, 117, 1)"
+}
+</script>
+
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onStateChanged",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%ADS.PLC1.G_HMI.bFlowShare%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "!=",
+                "logic": null
+              },
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "symbolExpression": "%ctrl%Toggle_Flow_Shear::ToggleState%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ToggleState",
+                  "value": "Active"
+                },
+                "compareOperator": "!=",
+                "logic": "OR"
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%ADS.PLC1.G_HMI.bFlowShare%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::BackgroundColor%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "color": "rgba(255, 255, 255, 1)"
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%ADS.PLC1.G_HMI.bFlowShare%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::BackgroundColor%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": {
+                    "color": "rgba(25, 255, 5, 1)"
+                  }
                 },
                 "asyncWait": true
               }

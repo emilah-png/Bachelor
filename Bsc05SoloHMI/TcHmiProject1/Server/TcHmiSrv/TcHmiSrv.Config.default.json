@@ -904,6 +904,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_HMI.bFlowShare": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::bFlowShare",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_HMI.bHoldButton_HMI": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -9076,6 +9086,7 @@
                 "ADS.PLC1.G_HMI.bAUTO_Light": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_1": 3,
                 "ADS.PLC1.G_HMI.bButton_Cylinder_2": 3,
+                "ADS.PLC1.G_HMI.bFlowShare": 3,
                 "ADS.PLC1.G_HMI.bHoldButton_HMI": 3,
                 "ADS.PLC1.G_HMI.bHomingJibTest": 3,
                 "ADS.PLC1.G_HMI.bHomingMainTest": 3,
