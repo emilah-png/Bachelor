@@ -4,21 +4,23 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	bTemp : BOOL;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[P_Filtering();
+      <ST><![CDATA[
+P_Filtering();
 P_DanielFiltering();
 P_Clock();
 P_HMI();
 P_Inputs();
-P_Output();
 P_DeadBand();
 P_FeedForward();
 P_PID();
 P_Convetions();
 P_Control();
 P_Motion();
+P_Output();
 P_Truck();
 P_FlowControl();
 

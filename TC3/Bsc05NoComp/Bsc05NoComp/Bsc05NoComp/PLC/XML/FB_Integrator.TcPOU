@@ -5,11 +5,13 @@
 VAR_INPUT
 	ssMethodType				: SINT;
 	fSignal						: LREAL;
+	nReset						: SINT;
 END_VAR
 VAR_OUTPUT
 	fSignalIntegrated			: LREAL;
 END_VAR
 VAR
+	c_DiscreteTimeIntegrator_Pr	: SINT;
 	c_DiscreteTimeIntegrator_DS	: LREAL;
 END_VAR
 ]]></Declaration>
@@ -21,15 +23,29 @@ CASE ssMethodType OF
         (* SystemInitialize for Atomic SubSystem: '<Root>/Integrator' *)
         (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
         c_DiscreteTimeIntegrator_DS := 0.0;
+		c_DiscreteTimeIntegrator_Pr := 0;
         (* End of SystemInitialize for SubSystem: '<Root>/Integrator' *)
     SS_STEP: 
         (* Outputs for Atomic SubSystem: '<Root>/Integrator' *)
         (* Outport: '<Root>/fSignalIntegrated' incorporates:
          *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
-        fSignalIntegrated := c_DiscreteTimeIntegrator_DS;
+        IF (nReset <> 0.0) OR (c_DiscreteTimeIntegrator_Pr <> 0) THEN 
+			c_DiscreteTimeIntegrator_DS := 0.0;
+        END_IF;
+
+		fSignalIntegrated := c_DiscreteTimeIntegrator_DS;
         (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
         c_DiscreteTimeIntegrator_DS := (0.01 * fSignal) + c_DiscreteTimeIntegrator_DS;
-        (* End of Outputs for SubSystem: '<Root>/Integrator' *)
+		
+        IF nReset > 0.0 THEN 
+             c_DiscreteTimeIntegrator_Pr := 1;
+        ELSIF nReset < 0.0 THEN 
+            c_DiscreteTimeIntegrator_Pr := -1;
+        ELSIF nReset = 0.0 THEN 
+             c_DiscreteTimeIntegrator_Pr := 0;
+        ELSE 
+             c_DiscreteTimeIntegrator_Pr := 2;
+        END_IF;(* End of Outputs for SubSystem: '<Root>/Integrator' *)
 END_CASE;
 
 

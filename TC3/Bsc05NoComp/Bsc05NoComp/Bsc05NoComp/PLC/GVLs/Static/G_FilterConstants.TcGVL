@@ -2,7 +2,7 @@
 <TcPlcObject Version="1.1.0.1">
   <GVL Name="G_FilterConstants" Id="{454462db-4b24-447f-863f-1528ec74c2bc}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
-VAR_GLOBAL
+VAR_GLOBAL CONSTANT
 	// Filter constants
 	fPressureFilterNum 		: LREAL := 0.003137;
 	fPressureFilterDenz 	: LREAL := 1.0;
@@ -24,7 +24,7 @@ VAR_GLOBAL
 	fDerivatorFilterDen 	: LREAL := -0.999;
 	fDerivatorFilterInit 	: LREAL := 0.0;	
 	
-	fCutoffFreq             : LREAL := 0.1;
+	fCutoffFreq             : LREAL := 0.0159; // 0.1;
     fDamping                : LREAL := 0.707106781186547;
 	fSampleTime             : LREAL := 0.001;
 END_VAR]]></Declaration>

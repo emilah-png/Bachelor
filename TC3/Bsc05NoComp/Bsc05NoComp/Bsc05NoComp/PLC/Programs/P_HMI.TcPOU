@@ -44,6 +44,12 @@ ELSIF G_HMI.nManuelMode > E_ManuelModes.ManSpeed THEN
 	G_HMI.nManuelMode := E_ManuelModes.ManSpeed;
 END_IF
 
+IF G_HMI.nMotionMode < E_Motion.Sine THEN
+	G_HMI.nMotionMode := E_Motion.Sine;
+ELSIF G_HMI.nMotionMode > E_Motion.Ramp THEN
+	G_HMI.nMotionMode := E_Motion.Ramp;
+END_IF
+
 IF G_HMI.nCounter < E_Modes.Manuel THEN
 	G_HMI.nCounter := E_Modes.Manuel;
 ELSIF G_HMI.nCounter > E_Modes.Auto THEN

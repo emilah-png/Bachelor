@@ -4,20 +4,22 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	// Mode Select
-	nCounter				:	INT;
-	nHomingMode				:	INT;
-	nManuelMode				:	INT;
-	nAutoMode				:	INT;
+	nCounter				: INT;
+	nHomingMode				: INT;
+	nManuelMode				: INT;
+	nAutoMode				: INT;
+	nMotionMode				: INT;
 	
 	// Value Inputs
-	fNumPad1				:	LREAL;
-	fNumPad2				:	LREAL;
+	fNumPad1				: LREAL;
+	fNumPad2				: LREAL;
 	
 	// HMI Buttons
-	bHoldButton_HMI			:	BOOL;
-	bstepp_button			:	BOOL;
-	bButton_Cylinder_1		:	BOOL;
-	bButton_Cylinder_2		:	BOOL;
+	bHoldButton_HMI			: BOOL;
+	bstepp_button			: BOOL;
+	bButton_Cylinder_1		: BOOL;
+	bButton_Cylinder_2		: BOOL;
+	bFlowShare				: BOOL;
 	
 END_VAR]]></Declaration>
   </GVL>

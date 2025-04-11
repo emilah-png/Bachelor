@@ -17,12 +17,8 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF bEnable AND fTime < fTimeConst THEN
-	fOutput := fSignal / fDivider;
-ELSIF bEnable AND fTime < 2 * fTimeConst THEN
+IF bEnable THEN
 	fOutput := fSignal;
-ELSIF bEnable AND fTime < 3 * fTimeConst THEN
-	fOutput := 0.0;
 END_IF]]></ST>
     </Implementation>
   </POU>

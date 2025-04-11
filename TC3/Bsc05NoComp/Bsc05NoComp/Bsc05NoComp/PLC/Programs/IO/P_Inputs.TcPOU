@@ -139,21 +139,21 @@ fbNormWinchEncoder(
 fbJoystickWinch(
 	nRawInput := G_Inputs.nRawJoystickWinch,
 	bEnable := TRUE,
-	fBitArray := G_Joystick.fWinch,
+	fBitArray := G_Joystick.aWinch,
 	fOutput => G_OPC.fJoystickWinch
 );
 
 fbJoystickRotation(
 	nRawInput := G_Inputs.nRawJoystickRotation,
 	bEnable := TRUE,
-	fBitArray := G_Joystick.fRotation,
+	fBitArray := G_Joystick.aRotation,
 	fOutput => G_OPC.fJoystickRotation
 );
 
 fbJoystickMain(
 	nRawInput := G_Inputs.nRawJoystickMain,
 	bEnable := TRUE,
-	fBitArray := G_Joystick.fMainCyl,
+	fBitArray := G_Joystick.aMainCyl,
 	fOutput => G_OPC.fJoystickMain
 );
 
@@ -161,14 +161,14 @@ fbJoystickJib(
 	nRawInput := G_Inputs.nRawJoystickJib,
 	bEnable := TRUE,
 	bInverse := TRUE,
-	fBitArray := G_Joystick.fJibCyl,
+	fBitArray := G_Joystick.aJibCyl,
 	fOutput => G_OPC.fJoystickJib
 );
 
 fbJoystickExtrude(
 	nRawInput := G_Inputs.nRawJoystickExtrude,
 	bEnable := TRUE,
-	fBitArray := G_Joystick.fExtrude,
+	fBitArray := G_Joystick.aExtrude,
 	fOutput => G_OPC.fJoystickExtrude
 );
 

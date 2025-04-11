@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Ramp" Id="{24537590-876d-48d5-932f-90f8f70c547d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Ramp
+VAR_INPUT
+	bEnable 	: BOOL;
+
+	fTime 		: LREAL;
+	fMaxSpeed 	: LREAL;
+	fHeight		: LREAL;
+END_VAR
+VAR_OUTPUT
+	fXDotRef 		: LREAL;
+END_VAR
+VAR
+	fStartTime 	: LREAL := 1.0; // [s]
+	fHoldTime 	: LREAL := 1.0; // [s]
+	fRampTime 	: LREAL := 5.0; // [s]
+	fSpeedRef	: LREAL;
+	
+	t1 			: LREAL;
+	t2 			: LREAL;
+	t3 			: LREAL;
+	t4 			: LREAL;
+	t5 			: LREAL;
+	t6 			: LREAL;
+	t7 			: LREAL;
+	t8 			: LREAL;
+	t9 			: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fSpeedRef := fHeight/fRampTime;
+
+IF fSpeedRef > fMaxSpeed THEN
+    fSpeedRef := fMaxSpeed;
+END_IF
+
+t1 := fStartTime;
+t2 := t1 + fRampTime;
+t3 := t2 + fHoldTime;
+t4 := t3 + fRampTime; 
+t5 := t4 + fHoldTime;
+t6 := t5 + fRampTime;
+t7 := t6 + fHoldTime;
+t8 := t7 + fRampTime;
+t9 := t8 + fStartTime;
+
+IF fTime < t1 THEN // Start Delay
+	fXDotRef := 0.0;
+ELSIF fTime < t2 THEN
+	fXDotRef := fSpeedRef * (fTime-t1);
+ELSIF fTime < t3 THEN
+	fXDotRef := fSpeedRef * fRampTime;
+ELSIF fTime < t4 THEN
+	fXDotRef := fSpeedRef * fRampTime - fSpeedRef*(fTime-t3);
+ELSIF fTime < t5 THEN
+	fXDotRef := 0.0;
+ELSIF fTime < t6 THEN
+	fXDotRef := fSpeedRef * (fTime-t5);;
+ELSIF fTime < t7 THEN
+	fXDotRef := fSpeedRef * fRampTime;
+ELSIF fTime < t8 THEN
+	fXDotRef := fSpeedRef * fRampTime + fSpeedRef * (fTime-t7);
+ELSIF fTime < t9 THEN
+	fXDotRef := 0.0;
+END_IF
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

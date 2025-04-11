@@ -7,8 +7,6 @@ VAR_INPUT
 	fPID			: LREAL;
 	fDeadBandUp		: LREAL;
 	fDeadBandDown	: LREAL;
-	fXDotRef		: LREAL;
-	fError			: LREAL;
 	fKFF			: LREAL;
 	fFlowSharing	: LREAL;
 	

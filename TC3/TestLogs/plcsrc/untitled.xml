@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <!--(*
+ *
+ * File: untitled.xml
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "untitled/Subsystem"
+ *
+ * Model name                      : untitled
+ * Model version                   : 1.0
+ * Model creator                   : Are-Laptop
+ * Model last modified by          : Are-Laptop
+ * Model last modified on          : Fri Apr 11 12:39:12 2025
+ * Model sample time               : 0.01s
+ * Subsystem name                  : untitled/Subsystem
+ * Subsystem sample time           : 0.01s
+ * Simulink PLC Coder version      : 24.2 (R2024b) 21-Jun-2024
+ * ST code generated on            : Fri Apr 11 12:42:15 2025
+ *
+ * Target IDE selection            : Beckhoff TwinCAT 3
+ * Test Bench included             : No
+ *
+ *)
+-->
+  <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2025-04-11T12:42:15" productName="Simulink PLC Coder" productRelease="(R2024b)" productVersion="24.2"/>
+  <contentHeader name="untitled">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="0" y="0"/>
+      </fbd>
+      <ld>
+        <scaling x="0" y="0"/>
+      </ld>
+      <sfc>
+        <scaling x="0" y="0"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="Subsystem" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="ssMethodType">
+              <type>
+                <SINT/>
+              </type>
+            </variable>
+            <variable name="In1">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="In2">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="Out1">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="c_DiscreteTimeIntegrator_Pr">
+              <type>
+                <SINT/>
+              </type>
+            </variable>
+            <variable name="c_DiscreteTimeIntegrator_DS">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Subsystem' *)
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := 0.0;
+        c_DiscreteTimeIntegrator_Pr := 0;
+        (* End of SystemInitialize for SubSystem: '<Root>/Subsystem' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/Subsystem' *)
+        (* DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+
+        IF (In2 <> 0.0) OR (c_DiscreteTimeIntegrator_Pr <> 0) THEN 
+            c_DiscreteTimeIntegrator_DS := 0.0;
+        END_IF;
+
+        (* Outport: '<Root>/Out1' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        Out1 := c_DiscreteTimeIntegrator_DS;
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := (0.01 * In1) + c_DiscreteTimeIntegrator_DS;
+
+        IF In2 > 0.0 THEN 
+            c_DiscreteTimeIntegrator_Pr := 1;
+        ELSIF In2 < 0.0 THEN 
+            c_DiscreteTimeIntegrator_Pr := -1;
+        ELSIF In2 = 0.0 THEN 
+            c_DiscreteTimeIntegrator_Pr := 0;
+        ELSE 
+            c_DiscreteTimeIntegrator_Pr := 2;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        (* End of Outputs for SubSystem: '<Root>/Subsystem' *)
+END_CASE;
+
+
+]]></xhtml>
+          </ST>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Configuration">
+        <resource name="untitled_res">
+          <globalVars constant="true">
+            <variable name="SS_INITIALIZE">
+              <type>
+                <SINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+            <variable name="SS_STEP">
+              <type>
+                <SINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="1"/>
+              </initialValue>
+            </variable>
+          </globalVars>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>

@@ -19,31 +19,77 @@
     <CompilerDefines>VISU_USEPROPERTYINFO</CompilerDefines>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Control\Function Blocks\FB_Config.TcPOU">
+    <Compile Include="FBs\Control\Function Blocks\FB_Config.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_Control.TcPOU">
+    <Compile Include="FBs\Control\Function Blocks\FB_Control.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_DeadBand.TcPOU">
+    <Compile Include="FBs\Control\Function Blocks\FB_DeadBand.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_FeedForward.TcPOU">
+    <Compile Include="FBs\Control\Function Blocks\FB_FeedForward.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Function Blocks\FB_PID.TcPOU">
+    <Compile Include="FBs\Control\Function Blocks\FB_PID.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Smart\FB_FlowSharing.TcPOU">
+    <Compile Include="FBs\Control\Smart\FB_FlowSharing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Smart\FB_Smart.TcPOU">
+    <Compile Include="FBs\Control\Smart\FB_Smart.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Filtering\FB_Filtering.TcPOU">
+    <Compile Include="FBs\Filtering\FB_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Filtering\ST_Filter.TcDUT">
+    <Compile Include="FBs\Filtering\ST_Filter.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Input\Function Blocks\FB_JoystickInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Input\Function Blocks\FB_Normalize.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Input\Function Blocks\FB_PositionInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Input\Function Blocks\FB_WinchDistance.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\Background\FB_Clock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\Background\FB_FlowControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\Background\FB_InitialPos.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\Background\FB_Vel2Flow.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\FB_Homing.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\FB_Ramp.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\FB_SineMotionRef.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Motion\FB_Step.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Output\FB_OutputNormalizing.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\Truck\G_Truck.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="FBs\Truck\P_Truck.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
@@ -61,6 +107,9 @@
     <Compile Include="GVLs\ENUMs\E_Modes.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\ENUMs\E_Motion.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\G_Enables.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -73,10 +122,18 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\G_Inputs.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\G_Mode.TcGVL">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\G_OPC.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\G_Output.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -106,50 +163,6 @@
     </Compile>
     <Compile Include="GVLs\ST_Signals.TcDUT">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Input\Function Blocks\FB_JoystickInputScaling.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Input\Function Blocks\FB_Normalize.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Input\Function Blocks\FB_PositionInputScaling.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Input\Function Blocks\FB_WinchDistance.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Input\G_Inputs.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="Motion\Background\FB_Clock.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\Background\FB_FlowControl.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\Background\FB_InitialPos.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\Background\FB_Vel2Flow.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\FB_Homing.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\FB_Step.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Motion\FB_SineMotionRef.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Output\FB_OutputNormalizing.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Output\G_Output.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
@@ -202,13 +215,6 @@
     <Compile Include="Programs\Test\P_SineTest.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Truck\G_Truck.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="Truck\P_Truck.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="XML\FB_Derivator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -223,20 +229,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\Function Blocks" />
-    <Folder Include="Control\Smart" />
+    <Folder Include="FBs\Control" />
+    <Folder Include="FBs\Control\Function Blocks" />
+    <Folder Include="FBs\Control\Smart" />
+    <Folder Include="FBs\Filtering" />
+    <Folder Include="FBs\Input" />
+    <Folder Include="FBs\Input\Function Blocks" />
+    <Folder Include="FBs\Motion" />
+    <Folder Include="FBs\Motion\Background" />
+    <Folder Include="FBs\Output" />
+    <Folder Include="FBs\Truck" />
     <Folder Include="GVLs" />
     <Folder Include="GVLs\ENUMs" />
     <Folder Include="GVLs\Static" />
-    <Folder Include="Input" />
-    <Folder Include="Filtering" />
-    <Folder Include="Control" />
-    <Folder Include="Input\Function Blocks" />
-    <Folder Include="Motion" />
-    <Folder Include="Motion\Background" />
+    <Folder Include="FBs" />
     <Folder Include="Programs\Test" />
-    <Folder Include="Truck" />
-    <Folder Include="Output" />
     <Folder Include="Programs\Control" />
     <Folder Include="Programs\IO" />
     <Folder Include="Programs\Background PRGs" />

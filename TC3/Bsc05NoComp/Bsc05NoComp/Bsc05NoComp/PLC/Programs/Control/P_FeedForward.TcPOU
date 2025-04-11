@@ -10,49 +10,69 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-fbFFOne(
-	fPs := G_OPC.fPs.fDanielFilter,
-	fPa := G_OPC.fJibPaDCV.fDanielFilter,
-	fPb := G_OPC.fJibPbDCV.fDanielFilter,
-	
-	fXDot := G_OPC.fXDotRefOne,
-	fDeltaP0 := G_Parameters.fDeltaP0One,
-	
-	fMaxFlowUp := G_Parameters.fQMaxUpOne,
-	fMaxFlowDown := G_Parameters.fQMaxDownOne,
-	
-	fDeadBandUp := G_Parameters.fDeadUpOne,
-	fDeadBandDown := G_Parameters.fDeadDownOne,
-	
-	fArea := G_Parameters.fAreaJib,
-	fPhi := G_Parameters.fAreaRelation2,
-	
-	fUFF => G_OPC.fValveOneSignals.fFF,
-	fFlow => G_OPC.fFlowRefOne
-);
+      <ST><![CDATA[fbFFOne(
+		fPs := G_OPC.fPs.fDanielFilter,
+		fPa := G_OPC.fJibPaDCV.fDanielFilter,
+		fPb := G_OPC.fJibPbDCV.fDanielFilter,
+		
+		fDeltaP0 := G_Parameters.fDeltaP0One,
+		
+		fMaxFlowUp := G_Parameters.fQMaxUpOne,
+		fMaxFlowDown := G_Parameters.fQMaxDownOne,
+		
+		fDeadBandUp := G_Parameters.fDeadUpOne,
+		fDeadBandDown := G_Parameters.fDeadDownOne,
+		
+		fArea := G_Parameters.fAreaJib,
+		fPhi := G_Parameters.fAreaRelation2,
+	);
 
-fbFFTwo(
-	fPs := G_OPC.fPs.fDanielFilter,
-	fPa := G_OPC.fMainPaDCV.fDanielFilter,
-	fPb := G_OPC.fMainPbDCV.fDanielFilter,
-	
-	fXDot := G_OPC.fXDotRefTwo,
-	fDeltaP0 := G_Parameters.fDeltaP0Two,
-	
-	fMaxFlowUp := G_Parameters.fQMaxUpTwo,
-	fMaxFlowDown := G_Parameters.fQMaxDownTwo,
-	
-	fDeadBandUp := G_Parameters.fDeadUpTwo,
-	fDeadBandDown := G_Parameters.fDeadDownTwo,
-	
-	fArea := G_Parameters.fAreaMain,
-	fPhi := G_Parameters.fAreaRelation1,
-	
-	fUFF => G_OPC.fValveTwoSignals.fFF,
-	fFlow => G_OPC.fFlowRefTwo
-);
-]]></ST>
+	fbFFTwo(
+		fPs := G_OPC.fPs.fDanielFilter,
+		fPa := G_OPC.fMainPaDCV.fDanielFilter,
+		fPb := G_OPC.fMainPbDCV.fDanielFilter,
+		
+		fDeltaP0 := G_Parameters.fDeltaP0Two,
+		
+		fMaxFlowUp := G_Parameters.fQMaxUpTwo,
+		fMaxFlowDown := G_Parameters.fQMaxDownTwo,
+		
+		fDeadBandUp := G_Parameters.fDeadUpTwo,
+		fDeadBandDown := G_Parameters.fDeadDownTwo,
+		
+		fArea := G_Parameters.fAreaMain,
+		fPhi := G_Parameters.fAreaRelation1,
+	); 
+
+IF G_Enables.bAuto THEN
+	fbFFOne(
+		fXDot := G_OPC.fXDotRefOne,
+		
+		fUFF => G_OPC.fValveOneSignals.fFF,
+		fFlow => G_OPC.fFlowRefOne
+	);
+
+	fbFFTwo(
+		fXDot := G_OPC.fXDotRefTwo,
+		
+		fUFF => G_OPC.fValveTwoSignals.fFF,
+		fFlow => G_OPC.fFlowRefTwo
+	);
+ELSIF G_Enables.bManual THEN
+	fbFFOne(
+		fXDot := G_OPC.fJoystickJib * G_Parameters.fMaxSpeedJib,
+		
+		fUFF => G_OPC.fValveOneSignals.fFF,
+		fFlow => G_OPC.fFlowRefOne
+	);
+
+	fbFFTwo(
+		fXDot := G_OPC.fJoystickMain * G_Parameters.fMaxSpeedMain,
+		
+		fUFF => G_OPC.fValveTwoSignals.fFF,
+		fFlow => G_OPC.fFlowRefTwo
+	);
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

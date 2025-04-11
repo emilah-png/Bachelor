@@ -22,6 +22,7 @@ VAR_GLOBAL
 	bErrorThree			: BOOL;
 	
 	bSineMotion			: BOOL;
+	bRampMotion			: BOOL;
 	bHoming				: BOOL;
 	
 	// Modes
