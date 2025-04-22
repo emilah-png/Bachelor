@@ -8103,11 +8103,11 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%ADS.PLC1.G_HMI.nHomingMode%/s%",
+        "symbolExpression": "%s%ADS.PLC1.G_HMI.nMotionMode%/s%",
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/INT",
-          "symbolExpression": "%f%%s%ADS.PLC1.G_HMI.nHomingMode%/s% - 1%/f%"
+          "symbolExpression": "%f%%s%ADS.PLC1.G_HMI.nMotionMode%/s% - 1%/f%"
         },
         "asyncWait": true
       }
@@ -8178,11 +8178,11 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%ADS.PLC1.G_HMI.nHomingMode%/s%",
+        "symbolExpression": "%s%ADS.PLC1.G_HMI.nMotionMode%/s%",
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/INT",
-          "symbolExpression": "%f%%s%ADS.PLC1.G_HMI.nHomingMode%/s% + 1%/f%"
+          "symbolExpression": "%f%%s%ADS.PLC1.G_HMI.nMotionMode%/s% + 1%/f%"
         },
         "asyncWait": true
       }
@@ -8223,7 +8223,7 @@
 }
 </script>
 </div>
-<div id="Automatic_function_text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="325" data-tchmi-left-unit="px" data-tchmi-text="DUAL 4" data-tchmi-top="630" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-visibility="Hidden" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="20">
+<div id="Automatic_function_text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="325" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="630" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-visibility="Visible" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="20" data-tchmi-zindex="74">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
 {
   "color": "rgba(255, 255, 255, 1)"
@@ -8233,7 +8233,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%s%ADS.PLC1.G_HMI.nHomingMode%/s%",
+    "event": "%s%ADS.PLC1.G_HMI.nMotionMode%/s%",
     "actions": [
       {
         "objectType": "Condition",
@@ -8245,12 +8245,12 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/INT",
-                  "symbolExpression": "%s%ADS.PLC1.G_HMI.nHomingMode%/s%"
+                  "symbolExpression": "%s%ADS.PLC1.G_HMI.nMotionMode%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/INT",
-                  "value": 8
+                  "value": 0
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -8260,11 +8260,11 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctx%owner::Visibility%/ctx%",
+                "symbolExpression": "%ctx%owner::Text%/ctx%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/String",
-                  "value": "Visible"
+                  "value": "Sin"
                 },
                 "asyncWait": true
               }
@@ -8275,11 +8275,11 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctx%owner::Visibility%/ctx%",
+                "symbolExpression": "%ctx%owner::Text%/ctx%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/String",
-                  "value": "Collapsed"
+                  "value": "Ramp"
                 },
                 "asyncWait": true
               }

@@ -1074,6 +1074,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.G_HMI.nMotionMode": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::G_HMI::nMotionMode",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.G_Mode.bAuto": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -9103,6 +9113,7 @@
                 "ADS.PLC1.G_HMI.nCounter": 3,
                 "ADS.PLC1.G_HMI.nHomingMode": 3,
                 "ADS.PLC1.G_HMI.nManuelMode": 3,
+                "ADS.PLC1.G_HMI.nMotionMode": 3,
                 "ADS.PLC1.G_Mode.bAuto": 3,
                 "ADS.PLC1.G_Mode.bManuel": 3,
                 "ADS.PLC1.G_Mode.bRunning": 3,
