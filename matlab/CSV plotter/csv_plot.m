@@ -1,5 +1,5 @@
 clc; clear; close all;
-Data = readtable("Adjusted_JibSineTest_230425.csv" );
+Data = readtable("Adjusted_RampDisturbanceTestPID_230425.csv" );
 % Data = readtable("JibSTDTest2_270325.csv" );
 
 %% Reading data
@@ -37,7 +37,7 @@ Jib.PID      = Data.JibPID;
 Jib.U        = Data.JibU;
 Jib.Error    = Data.JibError;
 %% Choosing Plots
-Enable.All = 0;
+Enable.All = 1;
 if Enable.All
 Enable.Main_Pressure = 1;
 Enable.Main_Position = 1;
