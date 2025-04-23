@@ -1,10 +1,10 @@
 clc; clear; close all;
-Data = readtable("JibSTDTest2_270325.csv" );
+Data = readtable("Adjusted_JibSineTest_230425.csv" );
 % Data = readtable("JibSTDTest2_270325.csv" );
 
 %% Reading data
 
-Time = Data.time / 1000;
+Time = Data.time;
 % Main cylinder signals
 Main.PaDCV   = Data.MainPaDCV;
 Main.PaCyl   = Data.MainPaCyl;
@@ -179,7 +179,7 @@ end
 %% Gernral sub plot
 f = figure;
 f.Position = [50 50 1400 700];
-subplot(3,2,1)
+subplot(2,2,1)
     plot(Time, Supply_pressure)
     hold on; grid on
     plot(Time, Main.PaDCV)   % Main Pressure at Directional Control Valve A port
@@ -187,8 +187,8 @@ subplot(3,2,1)
     plot(Time, Main.PaCyl)   % Main Pressure at Counter Balance Valve A port
     title('Pressure at Main cylinder')
     legend('P_{Supply}', 'Pa @DCV', 'Pb @DCV', 'Pa @Cylinder','Position',[0.06 0.874 0 0])
-    ylim([0 160])
-subplot(3,2,2)
+    % ylim([0 160])
+subplot(2,2,2)
     plot(Time, Supply_pressure)
     hold on; grid on
     plot(Time, Jib.PaDCV)   % Main Pressure at Directional Control Valve A port
@@ -197,34 +197,34 @@ subplot(3,2,2)
     plot(Time, Jib.PbCyl)   % Main Pressure at Counter Balance Valve B port
     title('Pressure at Jib cylinder')
     legend('P_{Supply}', 'Pa @DCV', 'Pb @DCV', 'Pa @Cylinder', 'Pb @Cylinder','Position',[0.95 0.863 0 0])
-    ylim([0 160])
-subplot(3,2,3)
+    % ylim([0 160])
+subplot(2,2,3)
     plot(Time, Main.FF)
     hold on; grid on
     plot(Time, Main.PID)
     plot(Time, Main.U)
     title('Control Signals for Main DCV')
     legend('Feedforward', 'PID', 'Control Signal','Position',[0.06 0.589 0 0])
-    ylim([-1 1])
-subplot(3,2,4)
+    % ylim([-1 1])
+subplot(2,2,4)
     plot(Time, Jib.FF)
     hold on; grid on
     plot(Time, Jib.PID)
     plot(Time, Jib.U)
     title('Control Signals for Jib DCV')
     legend('Feedforward', 'PID', 'Control Signal','Position',[0.95 0.589 0 0])
-    ylim([-1 1])
-subplot(3,2,5)
-    plot(Time, Main.Xref)
-    hold on; grid on
-    plot(Time, Main.Xreal)
-    title('Position of Main cylinder')
-    legend('X_{ref}', 'X_{real}','Position',[0.06 0.289 0 0])
-    ylim([0 1])
-subplot(3,2,6)
-    plot(Time, Jib.Xref)
-    hold on; grid on
-    plot(Time, Jib.Xreal)
-    title('Position of Jib cylinder')
-    legend('X_{ref}', 'X_{real}','Position',[0.95 0.289 0 0])
-    ylim([0 1])
+    % ylim([-1 1])
+% subplot(3,2,5)
+%     plot(Time, Main.Xref)
+%     hold on; grid on
+%     plot(Time, Main.Xreal)
+%     title('Position of Main cylinder')
+%     legend('X_{ref}', 'X_{real}','Position',[0.06 0.289 0 0])
+%     ylim([0 1])
+% subplot(3,2,6)
+%     plot(Time, Jib.Xref)
+%     hold on; grid on
+%     plot(Time, Jib.Xreal)
+%     title('Position of Jib cylinder')
+%     legend('X_{ref}', 'X_{real}','Position',[0.95 0.289 0 0])
+%     ylim([0 1])

@@ -1,5 +1,5 @@
 clc; clear; close all;
-file="MainValveResponseTime_3Pressure_010425.csv"; %write file name including .csv
+file="RampDisturbanceTest_230425.csv"; %write file name including .csv
 data = readtable(file);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %logic to change variable name
