@@ -14,7 +14,7 @@ t = 0:dt:t_sys;
 x = median - amplitude * cos(2 * pi * frekvens * t);
 x_dot = amplitude * 2 * pi * frekvens * sin(2 * pi * frekvens * t);
 
-% Plot x over tid
+% Plot
 figure;
 subplot(2,2,1)
 plot(t, x);
@@ -30,7 +30,7 @@ grid on
 a_max = 0.1;
 a_0 = 0;
 v_0 = 0;
-v_max = 0.25;
+v_max = 0.01;
 t_ramp = 5;
 a_ref = v_max/t_ramp;
 start_time = 1;
