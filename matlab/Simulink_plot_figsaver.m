@@ -2,7 +2,7 @@ clc; clear; close all;
 file_path = 'Simulink_Data\';
 PNG_path = 'Simulink_figures\PNG\'; 
 EPS_path = 'Simulink_figures\EPS\';
-file = "Simulink_Dual2SineTest_FlowSharing_230425";
+file = "ResponseTimeTest_omega35_sinus_24042025";
 file_name = file_path+file+'.mat';
 Data = load(file_name);
 
@@ -11,36 +11,36 @@ Data = load(file_name);
 
 Time = Data.data{1}.Values.time;
 % Main cylinder signals
-Main.PaDCV   = Data.data{13}.Values.Data;
-Main.PaCyl   = Data.data{14}.Values.Data;
-Main.Pb      = Data.data{15}.Values.Data;
-Supply_pressure = Data.data{16}.Values.Data;
+Main.PaDCV   = Data.data{27}.Values.Data;
+Main.PaCyl   = Data.data{28}.Values.Data;
+Main.Pb      = Data.data{29}.Values.Data;
+Supply_pressure = Data.data{32}.Values.Data;
 % Main.Xref    = Data.data{--}.Values.Data;
 % Main.Xreal   = Data.data{--}.Values.Data;
 % Main.Vref    = Data.data{--}.Values.Data;
 % Main.Vreal   = Data.data{--}.Values.Data;
 % Main.FlowA   = Data.data{--}.Values.Data;
 % Main.FlowB   = Data.data{--}.Values.Data;
-Main.FF      = Data.data{6}.Values.Data;
-Main.PID     = Data.data{7}.Values.Data;
-Main.U       = Data.data{5}.Values.Data;
-% Main.Error   = Data.data{--}.Values.Data;
+Main.FF      = Data.data{12}.Values.Data;
+Main.PID     = Data.data{15}.Values.Data;
+Main.U       = Data.data{11}.Values.Data;
+Main.Error   = Data.data{16}.Values.Data;
 
 % Jib cylinder signals
-Jib.PaDCV    = Data.data{10}.Values.Data;
-Jib.PaCyl    = Data.data{9}.Values.Data;
-Jib.PbDCV    = Data.data{12}.Values.Data;
-Jib.PbCyl    = Data.data{11}.Values.Data;
-% Jib.Xref     = Data.data{--}.Values.Data;
-% Jib.Xreal    = Data.data{--}.Values.Data;
+Jib.PaDCV    = Data.data{20}.Values.Data;
+Jib.PaCyl    = Data.data{21}.Values.Data;
+Jib.PbDCV    = Data.data{23}.Values.Data;
+Jib.PbCyl    = Data.data{22}.Values.Data;
+Jib.Xref     = Data.data{14}.Values.Data;
+Jib.Xreal    = Data.data{3}.Values.Data;
 % Jib.Vref     = Data.data{--}.Values.Data;
 % Jib.Vreal    = Data.data{--}.Values.Data;
 % Jib.FlowA    = Data.data{--}.Values.Data;
 % Jib.FlowB    = Data.data{--}.Values.Data;
-Jib.FF       = Data.data{2}.Values.Data;
-Jib.PID      = Data.data{4}.Values.Data;
-Jib.U        = Data.data{1}.Values.Data;
-% Jib.Error    = Data.data{--}.Values.Data;
+Jib.FF       = Data.data{6}.Values.Data;
+Jib.PID      = Data.data{8}.Values.Data;
+Jib.U        = Data.data{2}.Values.Data;
+Jib.Error    = Data.data{9}.Values.Data;
 %% Choosing Plots
 Enable.All = 1;
 if Enable.All
@@ -49,22 +49,26 @@ Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
 Enable.Main_ControlSignal = 1;
+Enable.Main_Error =0;
 Enable.Jib_Pressure = 1;
 Enable.Jib_Position = 0;
 Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
 Enable.Jib_ControlSignal = 1;
+Enable.Jib_Error =1;
 else
  Enable.Main_Pressure = 0;
 Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
 Enable.Main_ControlSignal = 0;
+Enable.Main_Error =1;
 Enable.Jib_Pressure = 0;
 Enable.Jib_Position = 0;
 Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
 Enable.Jib_ControlSignal = 0;
+Enable.Jib_Error = 0;
 end
 
 %% Plotting Data
@@ -127,8 +131,17 @@ title('Simulated Control Signals for Main DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.5 0.5])
+ylim([-0.4 0.4])
 end
+if Enable.Main_Error
+% Error
+figure('Name','Error of Main cylinder')
+plot(Time, Main.Error)
+hold on; grid on
+title('Simulated Error of Main cylinder')
+legend('Error')
+ylim([-0.003 0.003])
+end 
 % ------------ Jib Cylinder Plots ---------------
 if Enable.Jib_Pressure
 % Pressure at Jib Cylinder
@@ -186,8 +199,17 @@ title('Simulated Control Signals for Jib DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.5 0.5])
+ylim([-0.4 0.4])
 end
+if Enable.Jib_Error
+% Error
+Jib_Error = figure('Name','Error of Jib cylinder');
+plot(Time, Jib.Error)
+hold on; grid on
+title('Simulated Error of Jib cylinder')
+legend('Error')
+ylim([-0.0045 0.0045])
+end 
 
 %% Gernral sub plot
 % f = figure;
@@ -260,6 +282,10 @@ end
 % saveas(Jib_pressure,PNG_path+file+'_Jib_pressure.png') 
 % % saveas(Jib_pressure,EPS_path+file+'_Jib_pressure.eps') 
 % 
-% % Control Signal
-% saveas(Jib_ControlSignal,PNG_path+file+'_Jib_ControlSignal.png')
-% % saveas(Jib_ControlSignal,EPS_path+file+'_Jib_ControlSignal.eps')
+% Control Signal
+saveas(Jib_ControlSignal,PNG_path+file+'_Jib_ControlSignal.png')
+saveas(Jib_ControlSignal,EPS_path+file+'_Jib_ControlSignal.eps')
+
+% Error
+saveas(Jib_Error,PNG_path+file+'_Jib_Error.png')
+saveas(Jib_Error,EPS_path+file+'_Jib_Error.eps')
