@@ -2,7 +2,7 @@ clc; clear; close all;
 file_path = 'Simulink_Data\';
 PNG_path = 'Simulink_figures\PNG\'; 
 EPS_path = 'Simulink_figures\EPS\';
-file = "Simulink_Dual2SineTest_FlowSharing_230425";
+file = "Simulink_RampDisturbanceTestPID_230425";
 file_name = file_path+file+'.mat';
 Data = load(file_name);
 
@@ -44,16 +44,16 @@ Jib.U        = Data.data{1}.Values.Data;
 %% Choosing Plots
 Enable.All = 1;
 if Enable.All
-Enable.Main_Pressure = 1;
+Enable.Main_Pressure = 0;
 Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
 Enable.Main_ControlSignal = 1;
-Enable.Jib_Pressure = 1;
+Enable.Jib_Pressure = 0;
 Enable.Jib_Position = 0;
 Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
-Enable.Jib_ControlSignal = 1;
+Enable.Jib_ControlSignal = 0;
 else
  Enable.Main_Pressure = 0;
 Enable.Main_Position = 0;
@@ -119,9 +119,9 @@ end
 if Enable.Main_ControlSignal
 % Control Signals (FF, PID, U)
 Main_ControlSignal = figure('Name','Control Signals for Main cylinder');
-plot(Time, Main.FF)
-hold on; grid on
-plot(Time, Main.PID)
+%plot(Time, Main.FF)
+%hold on; grid on
+%plot(Time, Main.PID)
 plot(Time, Main.U)
 title('Simulated Control Signals for Main DCV')
 legend('Feedforward', 'PID', 'Output Signal')
@@ -249,12 +249,12 @@ end
 % % Pressure
 % saveas(Main_pressure,PNG_path+file+'_Main_pressure.png') 
 % % saveas(Main_pressure,EPS_path+file+'_Main_pressure.eps') 
-% 
-% % Control Signal
-% saveas(Main_ControlSignal,PNG_path+file+'_Main_ControlSignal.png')
-% % saveas(Main_ControlSignal,EPS_path+file+'_Main_ControlSignal.eps')
-% 
-% % %%%%%% JIB %%%%%%%%
+
+% Control Signal
+saveas(Main_ControlSignal,PNG_path+file+'_Main_ControlSignal.png')
+% saveas(Main_ControlSignal,EPS_path+file+'_Main_ControlSignal.eps')
+
+% %%%%%% JIB %%%%%%%%
 % % Save images Jib
 % % Pressure
 % saveas(Jib_pressure,PNG_path+file+'_Jib_pressure.png') 

@@ -1,9 +1,10 @@
 clc; clear; close all;
 % Data = readtable("Adjusted_JibSineTest_230425.csv" );
 csv_path = 'CSV plotter\';
-PNG_path = 'csv_'
-file="Adjusted_RampDisturbanceTest_230425"; %write file name including .csv
-Data = readtable(file+'.csv');
+PNG_path = 'csv_figures\PNG\';
+EPS_path = 'csv_figures\EPS\';
+file="Adjusted_Dual2SineTest_230425"; %write file name including .csv
+Data = readtable(csv_path+file+'.csv');
 % Data = readtable("JibSTDTest2_270325.csv" );
 
 %% Reading data
@@ -73,18 +74,17 @@ set(0, 'DefaultLineLineWidth', 2);
 
 % Pressure at Main Cylinder
 if Enable.Main_Pressure
-fig1 = figure('Name','Pressure at Main cylinder');
+Main_pressure = figure('Name','Pressure at Main cylinder');
 plot(Time, Supply_pressure)
 hold on; grid on
 plot(Time, Main.PaDCV)   % Main Pressure at Directional Control Valve A port
 plot(Time, Main.Pb)      % Main Pressure at Directional Control Valve B port
 plot(Time, Main.PaCyl)   % Main Pressure at Counter Balance Valve A port
-title('Pressure at Main cylinder')
+title('Real Pressure at Main cylinder')
 legend('Supply pressure', 'Pa @DCV', 'Pb @DCV', 'Pa @Cylinder')
 xlabel('Time [s]')
 ylabel('Pressure [bar]')
 ylim([0 160])
-saveas(fig1,'New Folder\'+file+'_test.svg')
 end 
 if Enable.Main_Position
 % Position (Xref vs Xreal)
@@ -118,12 +118,12 @@ ylim([0 50])
 end 
 if Enable.Main_ControlSignal
 % Control Signals (FF, PID, U)
-figure('Name','Control Signals for Main cylinder')
+Main_controlsignal = figure('Name','Control Signals for Main cylinder');
 plot(Time, Main.FF)
 hold on; grid on
 plot(Time, Main.PID)
 plot(Time, Main.U)
-title('Control Signals for Main DCV')
+title('Real Control Signals for Main DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
@@ -132,14 +132,14 @@ end
 % ------------ Jib Cylinder Plots ---------------
 if Enable.Jib_Pressure
 % Pressure at Jib Cylinder
-figure('Name','Pressure at Jib cylinder')
+Jib_pressure = figure('Name','Pressure at Jib cylinder');
 plot(Time, Supply_pressure)
 hold on; grid on
 plot(Time, Jib.PaDCV)   % Main Pressure at Directional Control Valve A port
 plot(Time, Jib.PbDCV)   % Main Pressure at Directional Control Valve B port
 plot(Time, Jib.PaCyl)   % Main Pressure at Counter Balance Valve A port
 plot(Time, Jib.PbCyl)   % Main Pressure at Counter Balance Valve B port
-title('Pressure at Jib cylinder')
+title('Real Pressure at Jib cylinder')
 legend('Supply pressure', 'Pa @DCV', 'Pb @DCV', 'Pa @Cylinder', 'Pb @Cylinder')
 xlabel('Time [s]')
 ylabel('Pressure [bar]')
@@ -177,12 +177,12 @@ ylim([0 50])
 end
 if Enable.Jib_ControlSignal
 % Control Signals (FF, PID, U)
-figure('Name','Control Signals for Jib cylinder')
+Jib_controlsignal = figure('Name','Control Signals for Jib cylinder');
 plot(Time, Jib.FF)
 hold on; grid on
 plot(Time, Jib.PID)
 plot(Time, Jib.U)
-title('Control Signals for Jib DCV')
+title('Real Control Signals for Jib DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
@@ -241,3 +241,16 @@ end
 % %     title('Position of Jib cylinder')
 % %     legend('X_{ref}', 'X_{real}','Position',[0.95 0.289 0 0])
 % %     ylim([0 1])
+
+%% saving
+saveas(Main_pressure,PNG_path+file+'_main_pressure.png') 
+saveas(Main_pressure,EPS_path+file+'_main_pressure.eps') 
+
+saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
+saveas(Main_controlsignal,EPS_path+file+'_main_controlsignal.eps')
+
+saveas(Jib_pressure,PNG_path+file+'_jib_pressure.png') 
+saveas(Jib_pressure,EPS_path+file+'_jib_pressure.eps') 
+
+saveas(Jib_controlsignal,PNG_path+file+'_jib_controlsignal.png')
+saveas(Jib_controlsignal,EPS_path+file+'_jib_controlsignal.eps')
