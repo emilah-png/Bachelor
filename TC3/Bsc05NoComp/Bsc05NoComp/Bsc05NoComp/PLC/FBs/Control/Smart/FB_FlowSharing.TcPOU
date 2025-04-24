@@ -105,7 +105,7 @@ ELSIF fShareCoff < 0.0 THEN
 ELSE 
 	fShareCoff := fShareCoff;
 END_IF
-fFlowRef := (ABS(fFlowRefJib) + (fFlowRefMain)) * 6e4;
+
 
 ]]></ST>
     </Implementation>

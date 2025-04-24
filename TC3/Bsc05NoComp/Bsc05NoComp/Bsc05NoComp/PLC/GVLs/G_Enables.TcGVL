@@ -23,6 +23,7 @@ VAR_GLOBAL
 	
 	bSineMotion			: BOOL;
 	bRampMotion			: BOOL;
+	bRampAxis			: BOOL;
 	bHoming				: BOOL;
 	
 	// Modes

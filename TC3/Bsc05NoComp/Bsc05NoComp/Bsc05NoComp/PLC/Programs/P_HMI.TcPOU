@@ -85,7 +85,7 @@ END_IF
 
 IF G_HMI.nHomingMode < 0 THEN 
 	G_HMI.nHomingMode := 0;
-ELSIF G_HMI.nHomingMode > G_Homing.nArrLen+1 THEN
+ELSIF G_HMI.nHomingMode > G_Homing.nArrLen + 1 THEN
 	G_HMI.nHomingMode := G_Homing.nArrLen + 1;
 ELSE
 	G_HMI.nHomingMode := G_HMI.nHomingMode;

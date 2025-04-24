@@ -35,8 +35,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fArea 			:= fArea/(1000000.0); 					// Area of Piston Side
-fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
+      <ST><![CDATA[fSpoolTravel 	:= 7.0; 								// Maximum Spool Travel
 // fSlopeCharUp	:= (fSpoolTravel)/fMaxFlowUp; 			// Valve Slope Characteristic [mm/(L/min)]
 // fSlopeCharDown	:= (fSpoolTravel)/fMaxFlowDown; 	// Valve Slope Characteristic [mm/(L/min)]
 fDeltaP_Norm	:= fDeltaP0 * 100000.0;

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <Task Name="Measuring" Id="{91773906-4d78-473b-b9a4-9dd68dbba3e2}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>5000</CycleTime>
+    <Priority>21</Priority>
+    <PouCall>
+      <Name>P_Inputs</Name>
+    </PouCall>
+    <PouCall>
+      <Name>P_DanielFiltering</Name>
+    </PouCall>
+    <PouCall>
+      <Name>P_Filtering</Name>
+    </PouCall>
+    <TaskFBGuid>{4ed1ef39-cbcc-4f33-92c8-dac885307bdd}</TaskFBGuid>
+    <Fb_init>{72df5c6e-e6d3-441b-b2bd-677229062272}</Fb_init>
+    <Fb_exit>{be8e4f52-070f-4e34-8208-fa2fb94cfa5a}</Fb_exit>
+    <CycleUpdate>{afaac7f7-e3b1-496e-a33d-759395d167fb}</CycleUpdate>
+    <PostCycleUpdate>{802f5fef-39e1-451b-992f-e5ec1aca2f6c}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

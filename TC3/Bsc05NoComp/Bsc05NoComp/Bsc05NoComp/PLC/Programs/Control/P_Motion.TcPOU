@@ -5,6 +5,9 @@
 VAR
 	fbSineMotionRefMain	: FB_SineMotionRef;
 	fbSineMotionRefJib	: FB_SineMotionRef;
+	
+	fbRampMain			: FB_Ramp;
+	fbRampJib			: FB_Ramp;
 
 	fbHome	: FB_Homing;
 
@@ -12,9 +15,13 @@ VAR
 	fbInitPosJib		: FB_InitialPos;
 	
 	fbIntegrator		: FB_Integrator;
+	fbIntegratorMain	: FB_Integrator;
+	fbIntegratorJib		: FB_Integrator;
 	
 	fbFlowShare			: FB_FlowSharing;
 	fbSmart				: FB_Smart;
+	
+	bTest				: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -31,27 +38,36 @@ fbInitPosJib(
 fbSineMotionRefMain(
 	fInitialPos := fbInitPosMain.fInitialPos,
 	fTime := G_OPC.fMotionTime,
-	fFrequency := G_Parameters.fJibFrequency,
-	fAmplitude := G_Parameters.fJibAmplitude,
-	fFlowShareCoff := fbFlowShare.fShareCoff,
-	
-	fXDotRef => G_OPC.fXDotRefTwo,
-	fXRef => G_OPC.fXRefTwo
+	fFrequency := G_Parameters.fMainFrequency,
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fFlowShareCoff := fbFlowShare.fShareCoff
 );
 
 fbSineMotionRefJib(
 	fInitialPos := fbInitPosJib.fInitialPos,
 	fTime := G_OPC.fMotionTime,
-	fFrequency := G_Parameters.fMainFrequency,
-	fAmplitude := G_Parameters.fMainAmplitude,
-	fFlowShareCoff := fbFlowShare.fShareCoff,
-	
-	fXDotRef => G_OPC.fXDotRefOne,
-	fXRef => G_OPC.fXRefOne
+	fFrequency := G_Parameters.fJibFrequency,
+	fAmplitude := G_Parameters.fJibAmplitude,
+	fFlowShareCoff := fbFlowShare.fShareCoff
+);
+
+fbRampMain(
+	fTime := G_OPC.fMotionTime,
+	fHeight := 0.01,
+	fMaxSpeed := G_Parameters.fMaxSpeedMain
+);
+
+fbRampJib(
+	fTime := G_OPC.fMotionTime,
+	fHeight := 0.02,
+	fMaxSpeed := G_Parameters.fMaxSpeedJib
 );
 
 G_Parameters.fMinWinchDist	:= ABS(G_Homing.aMinDistWinch[G_HMI.nHomingMode]);
 G_Parameters.fMaxWinchDist	:= ABS(G_Homing.aMaxDistWinch[G_HMI.nHomingMode]);
+
+
+
 
 IF G_HMI.bFlowShare THEN			
 	fbFlowShare(
@@ -73,26 +89,80 @@ IF G_HMI.bFlowShare THEN
 		fShareCoff => G_OPC.fFlowShareCoefficient,
 		fFlowRef => G_OPC.fFlowRef
 	);
+ELSE
+	G_OPC.fFlowShareCoefficient := 1.0;
 END_IF
 
 CASE G_HMI.nMotionMode OF
 	E_Motion.Sine:
-		G_Enables.bSineMotion := G_Enables.bHoldButton;
+		G_Enables.bSineMotion := TRUE;
 		G_Enables.bRampMotion := FALSE;
 	E_Motion.Ramp:
 		G_Enables.bSineMotion := FALSE;
-		G_Enables.bRampMotion := G_Enables.bHoldButton;
+		G_Enables.bRampMotion := TRUE;
 END_CASE
 
-IF G_Enables.bSineMotion AND G_Enables.bHoldButton AND NOT(G_Enables.bHoming) AND G_HMI.nHomingMode = 0 THEN
+IF G_Enables.bSineMotion AND NOT(G_Enables.bHoming) AND G_HMI.nHomingMode = 0 AND G_HMI.nMotionMode = 0 THEN
+bTest := FALSE;
+	fbIntegrator(
+		ssMethodType := 1
+	);
+	
 	fbSineMotionRefMain(
-		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming),
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo,
+		
+		fXDotRef => G_OPC.fXDotRefTwo,
+		fXRef => G_OPC.fXRefTwo
 	);
 	
 	fbSineMotionRefJib(
-		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming),
+		bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne,
+		
+		fXDotRef => G_OPC.fXDotRefOne,
+		fXRef => G_OPC.fXRefOne
 	);
 
+ELSIF G_Enables.bRampMotion AND NOT(G_Enables.bHoming)  AND G_HMI.nMotionMode = 1 THEN
+
+	IF G_Enables.bRampAxis THEN
+		fbRampJib(
+			bEnable := G_Enables.bRampMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne,
+			fSignalStr := G_Parameters.fRampConstStr,
+		
+			fXDotRef => G_OPC.fXDotRefOne,
+			fConst => G_OPC.fValveTwoSignals.fU
+		);
+		
+		fbIntegratorJib(
+			ssMethodType := TO_SINT(G_Enables.bRampMotion) * TO_SINT(G_OPC.fMotionTime > 0),
+			fSignal := G_OPC.fXDotRefOne,
+			fSignalIntegrated => G_Temp.fRampJibIntegrated
+		);
+		
+		IF G_HMI.nHomingMode > 0 AND G_OPC.fMotionTime > 0 THEN
+			G_OPC.fXRefOne := G_Homing.aHomingJib[G_HMI.nHomingMode - 1] + G_Temp.fRampJibIntegrated;
+		END_IF
+		
+	ELSIF NOT(G_Enables.bRampAxis) THEN
+		
+		fbRampMain(
+			bEnable := G_Enables.bRampMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo,
+			fSignalStr := G_Parameters.fRampConstStr,
+		
+			fXDotRef => G_OPC.fXDotRefTwo,
+			fConst => G_OPC.fValveOneSignals.fU
+		);
+		
+		fbIntegratorMain(
+			ssMethodType := TO_SINT(G_Enables.bRampMotion) * TO_SINT(G_OPC.fMotionTime > 0),
+			fSignal := G_OPC.fXDotRefTwo,
+			fSignalIntegrated => G_Temp.fRampMainIntegrated
+		);
+		
+		IF G_HMI.nHomingMode > 0 AND G_OPC.fMotionTime > 0 THEN
+			G_OPC.fXRefTwo := G_Homing.aHomingMain[G_HMI.nHomingMode - 1] + G_Temp.fRampMainIntegrated;
+		END_IF
+	END_IF
 	
 ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) AND G_HMI.nHomingMode > 0 THEN
 // Homing	
@@ -111,44 +181,56 @@ ELSIF G_Enables.bHoming AND NOT(G_Enables.bHoldButton) AND G_HMI.nHomingMode > 0
 	G_OPC.fXRefOne := G_Homing.aHomingJib[G_HMI.nHomingMode - 1];
 	G_OPC.fXRefTwo := G_Homing.aHomingMain[G_HMI.nHomingMode - 1];
 	
-ELSIF G_Enables.bHoldButton AND G_HMI.nHomingMode > 0 THEN
+ELSIF G_Enables.bHoldButton AND G_HMI.nHomingMode > 0 AND G_HMI.nMotionMode = 0 THEN
 // Testing
 	CASE G_HMI.nAutoMode OF
 		E_AutoModes.Normal:
 			
-			G_Enables.bEnableOne := G_Homing.aJibMovement[G_HMI.nHomingMode - 1];
-			G_Enables.bEnableTwo := G_Homing.aMainMovement[G_HMI.nHomingMode - 1];
-			G_Enables.bEnableFlowShare := TO_BOOL(G_HMI.nAutoMode);
+			G_Enables.bEnableOne := G_Homing.aJibMovement[G_HMI.nHomingMode - 1] AND G_Enables.bEnableThree;
+			G_Enables.bEnableTwo := G_Homing.aMainMovement[G_HMI.nHomingMode - 1] AND G_Enables.bEnableThree;
+			G_Enables.bEnableFlowShare := G_HMI.bFlowShare;
 			
 			fbSineMotionRefMain(
 				bNegative := G_Homing.aNegMain[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.aCosMain[G_HMI.nHomingMode - 1],
 				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming) AND G_Homing.aMainMovement[G_HMI.nHomingMode - 1],
+			
+				fXDotRef => G_OPC.fXDotRefTwo,
+				fXRef => G_OPC.fXRefTwo
 			);
 					
 			fbSineMotionRefJib(
 				bNegative := G_Homing.aNegMain[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.aCosMain[G_HMI.nHomingMode - 1],
 				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming) AND G_Homing.aJibMovement[G_HMI.nHomingMode - 1],
+				
+				fXDotRef => G_OPC.fXDotRefOne,
+				fXRef => G_OPC.fXRefOne
 			);
 
 			
 		E_AutoModes.FlowSharing:
 		
-			G_Enables.bEnableOne := G_Homing.aJibMovement[G_HMI.nHomingMode - 1];
-			G_Enables.bEnableTwo := G_Homing.aMainMovement[G_HMI.nHomingMode - 1];
-			G_Enables.bEnableFlowShare := TO_BOOL(G_HMI.nAutoMode);
+			G_Enables.bEnableOne := G_Homing.aJibMovement[G_HMI.nHomingMode - 1] AND G_Enables.bEnableThree;
+			G_Enables.bEnableTwo := G_Homing.aMainMovement[G_HMI.nHomingMode - 1] AND G_Enables.bEnableThree;
+			G_Enables.bEnableFlowShare := G_HMI.bFlowShare;
 			
 			fbSineMotionRefMain(
 				bNegative := G_Homing.aNegMain[G_HMI.nHomingMode - 1],
 				bCOS := G_Homing.aCosMain[G_HMI.nHomingMode - 1],
 				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo AND NOT(G_Enables.bHoming) AND G_Homing.aMainMovement[G_HMI.nHomingMode - 1],
-			);
 			
+				fXDotRef => G_OPC.fXDotRefTwo,
+				fXRef => G_OPC.fXRefTwo
+			);
+					
 			fbSineMotionRefJib(
-				bNegative := G_Homing.aNegJib[G_HMI.nHomingMode - 1],
-				bCOS := G_Homing.aCosJib[G_HMI.nHomingMode - 1],
+				bNegative := G_Homing.aNegMain[G_HMI.nHomingMode - 1],
+				bCOS := G_Homing.aCosMain[G_HMI.nHomingMode - 1],
 				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming) AND G_Homing.aJibMovement[G_HMI.nHomingMode - 1],
+				
+				fXDotRef => G_OPC.fXDotRefOne,
+				fXRef => G_OPC.fXRefOne
 			);
 			
 	

@@ -24,7 +24,7 @@ fbClock(
 );
 
 fbMotionClock(
-	bStartEnable := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bAuto, // AND G_HMI.bstepp_button AND G_Enables.bHoldButton,
+	bStartEnable := (G_Enables.bSineMotion OR G_Enables.bRampMotion) AND G_Enables.bHoldButton AND G_Enables.bAuto, // AND G_HMI.bstepp_button AND G_Enables.bHoldButton,
 	
 	fTime => G_OPC.fMotionTime
 );

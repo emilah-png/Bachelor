@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Temp" Id="{5b6c0595-2f27-4ccd-8021-7637d62d198a}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	fRampJibIntegrated	: LREAL;
+	fRampMainIntegrated	: LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -9,11 +9,11 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-P_Filtering();
-P_DanielFiltering();
+// P_Filtering();
+// P_DanielFiltering();
+// P_Inputs();
 P_Clock();
 P_HMI();
-P_Inputs();
 P_DeadBand();
 P_FeedForward();
 P_PID();

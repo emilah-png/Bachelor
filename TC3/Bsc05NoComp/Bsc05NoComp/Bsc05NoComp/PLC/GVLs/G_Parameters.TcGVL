@@ -11,7 +11,7 @@ VAR_GLOBAL
 	fConst1 		: LREAL := 0.0; // [-1, 1]
 	fConst2 		: LREAL := 0.0; // [-1, 1]
 	
-	fMaxFlow		: LREAL := 15.0; // [L/min]
+	fMaxFlow		: LREAL := 55.0; // [L/min]
 	fRho			: LREAL := 850.0;
 	fCd				: LREAL := 0.64;
 	
@@ -26,11 +26,11 @@ VAR_GLOBAL
 	// PID Variables
 	fOneP 			: LREAL := 22.0; // P
 	fOneI 			: LREAL := 0.0; // I
-	fOneD 			: LREAL := 1.0; // D
+	fOneD 			: LREAL := 0.0; // D
 	
 	fTwoP 			: LREAL := 28.0; // P
 	fTwoI 			: LREAL := 0.0; // I
-	fTwoD 			: LREAL := 3.0; // D
+	fTwoD 			: LREAL := 0.0; // D
 	
 	// Valve Variables
 	// Valve 1 (Jib)
@@ -65,20 +65,22 @@ VAR_GLOBAL
 	fRodDiaMain		: LREAL := 100.0; // [mm]
 	fRodDiaJib		: LREAL := 100.0; // [mm]
 	
-	fAreaMain		: LREAL := EXPT(fDiaMain/2 , 2) * Tc2_System.Global_Variables.PI; // [mm^2]
-	fAreaMainRod	: LREAL := (EXPT(fDiaMain/2 , 2)-EXPT(fRodDiaMain/2 , 2)) * Tc2_System.Global_Variables.PI; // [mm^2]
+	fAreaMain		: LREAL := EXPT(fDiaMain/2 , 2) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
+	fAreaMainRod	: LREAL := (EXPT(fDiaMain/2 , 2)-EXPT(fRodDiaMain/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
 	fAreaRelation1	: LREAL := fAreaMainRod / fAreaMain;
 
-	fAreaJib		: LREAL := EXPT(fDiaJib/2 , 2) * Tc2_System.Global_Variables.PI; // [mm^2]
-	fAreaJibRod		: LREAL := (EXPT(fDiaJib/2 , 2)- EXPT(fRodDiaJib/2 , 2)) * Tc2_System.Global_Variables.PI; // [mm^2]
+	fAreaJib		: LREAL := EXPT(fDiaJib/2 , 2) * Tc2_System.Global_Variables.PI / 1E6; // [m^2]
+	fAreaJibRod		: LREAL := (EXPT(fDiaJib/2 , 2)- EXPT(fRodDiaJib/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
 	fAreaRelation2	: LREAL := fAreaJibRod/fAreaJib;
 	
 	// MotionRef Variables
-	fMainAmplitude 	: LREAL := 0.1; // [m]
+	fMainAmplitude 	: LREAL := 0.075; // [m]
 	fMainFrequency	: LREAL := 1.0/40.0; // [Hz]
 	
-	fJibAmplitude	: LREAL := 0.075; // [m]
+	fJibAmplitude	: LREAL := 0.1; // [m]
 	fJibFrequency	: LREAL := 1.0/40.0; // [Hz]
+	
+	fRampConstStr	: LREAL := 0.2; // Signal Strength
 	
 	
 END_VAR]]></Declaration>
