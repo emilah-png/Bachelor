@@ -2,7 +2,7 @@ clc; clear; close all;
 file_path = 'Simulink_Data\';
 PNG_path = 'Simulink_figures\PNG\'; 
 EPS_path = 'Simulink_figures\EPS\';
-file = "Simulink_JibSineTest_230425";
+file = "Simulink_Dual2SineTest_FlowSharing_230425";
 file_name = file_path+file+'.mat';
 Data = load(file_name);
 
@@ -127,7 +127,7 @@ title('Simulated Control Signals for Main DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.4 0.4])
+ylim([-0.5 0.5])
 end
 % ------------ Jib Cylinder Plots ---------------
 if Enable.Jib_Pressure
@@ -186,7 +186,7 @@ title('Simulated Control Signals for Jib DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.4 0.4])
+ylim([-0.5 0.5])
 end
 
 %% Gernral sub plot
@@ -243,23 +243,23 @@ end
 %     ylim([0 1])
 
 %% Save images
-
-%%%%%% MAIN %%%%%%%%
-% Save images Main
-% Pressure
-saveas(Main_pressure,PNG_path+file+'_Main_pressure.png') 
-saveas(Main_pressure,EPS_path+file+'_Main_pressure.eps') 
-
-% Control Signal
-saveas(Main_ControlSignal,PNG_path+file+'_Main_ControlSignal.png')
-saveas(Main_ControlSignal,EPS_path+file+'_Main_ControlSignal.eps')
-
-%%%%%% JIB %%%%%%%%
-% Save images Jib
-% Pressure
-saveas(Jib_pressure,PNG_path+file+'_Jib_pressure.png') 
-saveas(Jib_pressure,EPS_path+file+'_Jib_pressure.eps') 
-
-% Control Signal
-saveas(Jib_ControlSignal,PNG_path+file+'_Jib_ControlSignal.png')
-saveas(Jib_ControlSignal,EPS_path+file+'_Jib_ControlSignal.eps')
+% 
+% %%%%%% MAIN %%%%%%%%
+% % Save images Main
+% % Pressure
+% saveas(Main_pressure,PNG_path+file+'_Main_pressure.png') 
+% % saveas(Main_pressure,EPS_path+file+'_Main_pressure.eps') 
+% 
+% % Control Signal
+% saveas(Main_ControlSignal,PNG_path+file+'_Main_ControlSignal.png')
+% % saveas(Main_ControlSignal,EPS_path+file+'_Main_ControlSignal.eps')
+% 
+% % %%%%%% JIB %%%%%%%%
+% % Save images Jib
+% % Pressure
+% saveas(Jib_pressure,PNG_path+file+'_Jib_pressure.png') 
+% % saveas(Jib_pressure,EPS_path+file+'_Jib_pressure.eps') 
+% 
+% % Control Signal
+% saveas(Jib_ControlSignal,PNG_path+file+'_Jib_ControlSignal.png')
+% % saveas(Jib_ControlSignal,EPS_path+file+'_Jib_ControlSignal.eps')
