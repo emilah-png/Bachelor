@@ -14,12 +14,6 @@
           <FileName></FileName>
           <Children>
             <Node>
-              <Title>bMeasurement</Title>
-              <Expanded>False</Expanded>
-              <FileName></FileName>
-              <Children />
-            </Node>
-            <Node>
               <Title>fTime</Title>
               <Expanded>False</Expanded>
               <FileName></FileName>
@@ -27,12 +21,6 @@
             </Node>
             <Node>
               <Title>JibError</Title>
-              <Expanded>False</Expanded>
-              <FileName></FileName>
-              <Children />
-            </Node>
-            <Node>
-              <Title>StartButton</Title>
               <Expanded>False</Expanded>
               <FileName></FileName>
               <Children />
@@ -260,12 +248,6 @@
               <FileName></FileName>
               <Children>
                 <Node>
-                  <Title>MainPaDCV</Title>
-                  <Expanded>False</Expanded>
-                  <FileName></FileName>
-                  <Children />
-                </Node>
-                <Node>
                   <Title>MainPaCyl</Title>
                   <Expanded>False</Expanded>
                   <FileName></FileName>
@@ -279,6 +261,12 @@
                 </Node>
                 <Node>
                   <Title>Ps</Title>
+                  <Expanded>False</Expanded>
+                  <FileName></FileName>
+                  <Children />
+                </Node>
+                <Node>
+                  <Title>MainPaDCV</Title>
                   <Expanded>False</Expanded>
                   <FileName></FileName>
                   <Children />
