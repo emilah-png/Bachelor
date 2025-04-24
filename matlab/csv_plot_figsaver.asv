@@ -3,7 +3,7 @@ clc; clear; close all;
 csv_path = 'CSV plotter\';
 PNG_path = 'csv_figures\PNG\';
 EPS_path = 'csv_figures\EPS\';
-file="Adjusted_Dual2SineTest_230425"; %write file name including .csv
+file="Adjusted_Dual1SineRun_230425"; %write file name including .csv
 Data = readtable(csv_path+file+'.csv');
 % Data = readtable("JibSTDTest2_270325.csv" );
 
@@ -44,13 +44,13 @@ Jib.Error    = Data.JibError;
 %% Choosing Plots
 Enable.All = 1;
 if Enable.All
-Enable.Main_Pressure = 1;
+Enable.Main_Pressure = 0;
 Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
 Enable.Main_ControlSignal = 1;
 Enable.Jib_Pressure = 1;
-Enable.Jib_Position = 0;
+Enable.Jib_Position = 1;
 Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
 Enable.Jib_ControlSignal = 1;
@@ -127,7 +127,7 @@ title('Real Control Signals for Main DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.4 0.4])
+ylim([-0.5 0.5])
 end
 % ------------ Jib Cylinder Plots ---------------
 if Enable.Jib_Pressure
@@ -186,7 +186,7 @@ title('Real Control Signals for Jib DCV')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.4 0.4])
+ylim([-0.5 0.5])
 end
 
 %% Gernral sub plot

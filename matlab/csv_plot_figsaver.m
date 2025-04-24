@@ -3,7 +3,7 @@ clc; clear; close all;
 csv_path = 'CSV plotter\';
 PNG_path = 'csv_figures\PNG\';
 EPS_path = 'csv_figures\EPS\';
-file="Adjusted_Dual1SineRun_230425"; %write file name including .csv
+file="Adjusted_RampDisturbanceTest_230425"; %write file name including .csv
 Data = readtable(csv_path+file+'.csv');
 % Data = readtable("JibSTDTest2_270325.csv" );
 
@@ -44,13 +44,13 @@ Jib.Error    = Data.JibError;
 %% Choosing Plots
 Enable.All = 1;
 if Enable.All
-Enable.Main_Pressure = 1;
-Enable.Main_Position = 1;
+Enable.Main_Pressure = 0;
+Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
-Enable.Main_ControlSignal = 1;
-Enable.Jib_Pressure = 1;
-Enable.Jib_Position = 1;
+Enable.Main_ControlSignal = 0;
+Enable.Jib_Pressure = 0;
+Enable.Jib_Position = 0;
 Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
 Enable.Jib_ControlSignal = 1;
@@ -182,7 +182,7 @@ plot(Time, Jib.FF)
 hold on; grid on
 plot(Time, Jib.PID)
 plot(Time, Jib.U)
-title('Real Control Signals for Jib DCV')
+title('Control Signals for Jib DCV with disturbance')
 legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
@@ -243,14 +243,14 @@ end
 % %     ylim([0 1])
 
 %% saving
-saveas(Main_pressure,PNG_path+file+'_main_pressure.png') 
-saveas(Main_pressure,EPS_path+file+'_main_pressure.eps') 
+% saveas(Main_pressure,PNG_path+file+'_main_pressure.png') 
+% saveas(Main_pressure,EPS_path+file+'_main_pressure.eps') 
 
-saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
-saveas(Main_controlsignal,EPS_path+file+'_main_controlsignal.eps')
+% saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
+% saveas(Main_controlsignal,EPS_path+file+'_main_controlsignal.eps')
 
-saveas(Jib_pressure,PNG_path+file+'_jib_pressure.png') 
-saveas(Jib_pressure,EPS_path+file+'_jib_pressure.eps') 
+% saveas(Jib_pressure,PNG_path+file+'_jib_pressure.png') 
+% saveas(Jib_pressure,EPS_path+file+'_jib_pressure.eps') 
 
 saveas(Jib_controlsignal,PNG_path+file+'_jib_controlsignal.png')
-saveas(Jib_controlsignal,EPS_path+file+'_jib_controlsignal.eps')
+% saveas(Jib_controlsignal,EPS_path+file+'_jib_controlsignal.eps')
