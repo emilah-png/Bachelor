@@ -1,0 +1,34 @@
+﻿/* General theme independed control css. */
+
+.TcHmi_BuildingAutomation_Controls_Common_Paginator {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --tchmi-ba-paginator-navigation-button-width: 60px;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Common_Paginator.show-navigation-buttons > .TcHmi_Controls_System_TcHmiRegion-template {
+        width: calc(100% - var(--tchmi-ba-paginator-navigation-button-width) * 2);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Common_Paginator > div.paginator-transition {
+        transition: left 0.3s ease-out; /* Use transition animation if css property left is changed. */
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Common_Paginator > .navigation-button {
+        height: var(--tchmi-ba-paginator-navigation-button-width);
+        width: var(--tchmi-ba-paginator-navigation-button-width);
+        z-index: 1;
+    }
+        .TcHmi_BuildingAutomation_Controls_Common_Paginator > .navigation-button > svg {
+            cursor: pointer;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_Common_Paginator > .navigation-button.forward {
+            right: 0;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_Common_Paginator > .navigation-button.backward {
+            left: 0;
+        }

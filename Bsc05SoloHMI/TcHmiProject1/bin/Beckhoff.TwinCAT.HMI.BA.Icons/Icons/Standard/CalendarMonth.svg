@@ -1,0 +1,31 @@
+<svg version="1.1"
+	 width="100" height="100"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 100 100"
+	 style="
+		 fill:transparent;
+		 stroke-linecap: round;
+		 stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+		 stroke:var(--tchmi-ba-global-icon-color, black);
+	 ">
+<g>
+	<line id="line1" x1="26.25" y1="2.5" x2="26.25" y2="15"/>
+	<use transform="translate(45 0)" xlink:href="#line1"/>
+</g>
+<g>
+	<path d="m3.675 31.633h92.596v0.08666h-92.596zm-0.6158-21.074h93.882v78.882h-93.882z"/>
+</g> 
+<g style="fill:var(--tchmi-ba-global-icon-color, black);stroke:none">
+	<rect id="cal-month-rect1" x="36" y="39" width="10" height="10"/>
+	<use transform="translate(18)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(36)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(-18 16)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(0 16)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(18 16)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(36 16)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(-18 32)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(0 32)" xlink:href="#cal-month-rect1"/>
+	<use transform="translate(18 32)" xlink:href="#cal-month-rect1"/>
+</g>
+</svg>

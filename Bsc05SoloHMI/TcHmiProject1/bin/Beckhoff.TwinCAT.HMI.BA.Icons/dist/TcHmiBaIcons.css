@@ -1,0 +1,11 @@
+/* General theme independed control css. */
+@font-face {
+    font-family: Fontello;
+    src: url('IconFont/fontello.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --tchmi-ba-global-tchmi-blue: #4794da;
+    --tchmi-ba-global-icon-color: var(--tchmi-ba-global-tchmi-blue);
+}

@@ -1,0 +1,49 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.System.TextControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "TextControl",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    },
+    "TcHmi.BuildingAutomation.Controls.System.TextControl.TextDecorationLine": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ "none", "underline", "overline", "line-through", "initial", "inherit" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.System.TextControl.TextDecorationStyle": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ "solid", "double", "dotted", "dashed", "wavy", "initial", "inherit" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.System.TextControl.UserSelect": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ "auto", "none", "text", "all" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.System.TextControl.TextOverflow": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        {
+          "label": "none",
+          "value": 0
+        },
+        {
+          "label": "ellipsis",
+          "value": 1
+        },
+        {
+          "label": "marquee",
+          "value": 2
+        }
+      ]
+    }
+  }
+}

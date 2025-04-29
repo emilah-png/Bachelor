@@ -1,0 +1,33 @@
+/* General theme independed control css. */
+
+.TcHmi_BuildingAutomation_Controls_Plants_ErcPlate {
+    overflow: visible;
+}
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcPlate > div.TcHmi_BuildingAutomation_Controls_Common_UiIcon.main {
+        top: 70px;
+        left: 130px;
+        width: 50px;
+        height: 225px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcPlate > div.TcHmi_BuildingAutomation_Controls_Plants_Damper {
+        width: 50px;
+        height: 75px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcPlate > div.TcHmi_BuildingAutomation_Controls_Plants_Damper.damper {
+        top: 231px;
+        left: 30px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcPlate > div.TcHmi_BuildingAutomation_Controls_Plants_Damper.damper-by {
+        top: 350px;
+        left: 130px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcPlate > div.TcHmi_BuildingAutomation_Controls_Plants_SensorBinary.diff-prss-swi {
+        top: 0px;
+        left: 135px;
+        width: 40px;
+        height: 40px;
+    }

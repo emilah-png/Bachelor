@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Orientation": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1
+      ],
+      "options": [
+        {
+          "label": "Vertical",
+          "value": 0
+        },
+        {
+          "label": "Horizontal",
+          "value": 1
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Direction": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ],
+      "options": [
+        {
+          "label": "left",
+          "value": 0
+        },
+        {
+          "label": "right",
+          "value": 1
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Position": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Position",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        {
+          "label": "left",
+          "value": 0
+        },
+        {
+          "label": "top",
+          "value": 1
+        },
+        {
+          "label": "right",
+          "value": 2
+        },
+        {
+          "label": "bottom",
+          "value": 3
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.DialogWindowButtons": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "DialogWindowButtons",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        {
+          "label": "Cancel",
+          "value": 0
+        },
+        {
+          "label": "CancelSize",
+          "value": 1
+        },
+        {
+          "label": "OkCancel",
+          "value": 2
+        },
+        {
+          "label": "OkCancelSize",
+          "value": 3
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.DateTimeChoice": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "DateTimeChoice",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        {
+          "label": "Date",
+          "value": 0
+        },
+        {
+          "label": "Time",
+          "value": 1
+        },
+        {
+          "label": "DateTime",
+          "value": 2
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.EventType": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "options": [
+        {
+          "label": "Alarm",
+          "value": 1
+        },
+        {
+          "label": "Disturb",
+          "value": 2
+        },
+        {
+          "label": "Maintenance",
+          "value": 3
+        },
+        {
+          "label": "Notification",
+          "value": 4
+        },
+        {
+          "label": "Other",
+          "value": 5
+        }
+      ]
+    }
+  }
+}

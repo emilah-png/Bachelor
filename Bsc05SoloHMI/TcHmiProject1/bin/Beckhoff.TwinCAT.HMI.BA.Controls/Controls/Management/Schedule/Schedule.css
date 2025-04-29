@@ -1,0 +1,44 @@
+﻿.TcHmi_BuildingAutomation_Controls_Management_Schedule {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule > div.tchmi-ba-base.content-window {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        --tchmi-ba-content-padding: 0;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule div.tchmi-ba-base.tab-window {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: initial;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_Management_Schedule div.tchmi-ba-base.tab-window .weekly-schedule,
+        .TcHmi_BuildingAutomation_Controls_Management_Schedule div.tchmi-ba-base.tab-window .calendar {
+            width: 100%;
+            height: 100%;
+        }
+
+    /* Access */
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule.TcHmi_Controls_System_TcHmiControl-operate-disallowed .tchmi-ba-base.daily-schedule-entry,
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule.TcHmi_Controls_System_TcHmiControl-operate-disallowed .tchmi-ba-base.daily-schedule-entry > div.resizer.vertical,
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule.TcHmi_Controls_System_TcHmiControl-operate-disallowed .tchmi-ba-base.daily-schedule-entry > div.resizer.horizontal {
+        cursor: not-allowed;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule.TcHmi_Controls_System_TcHmiControl-operate-disallowed div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-row-entry .highlight {
+        color: var(--ba-color-font-event);
+        background-color: var(--ba-color-back-event);
+        cursor: not-allowed;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Management_Schedule.TcHmi_Controls_System_TcHmiControl-operate-disallowed div.tchmi-ba-base.calendar .event-wrapper .event-rows .event-row .event-row-entry .calref.highlight {
+        color: var(--ba-color-font-event);
+        background-color: var(--ba-color-back-event-ref);
+    }

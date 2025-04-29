@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.ManualOverride": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "ManualOverride",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.ManualOverride.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "manualEnable",
+          "displayName": "ManualEnable",
+          "description": "The symbol to set ManualEnable. (Default: ManualEnable, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "manualValue",
+          "displayName": "ManualValue",
+          "description": "The symbol to set the ManualValue. (Default: ManualValue, DataType: boolean | number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "autoValue",
+          "displayName": "AutoValue",
+          "description": "The symbol to set the AutoValue. (Default: AutoValue, DataType: boolean | number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "manualEnable": {
+          "type": "string"
+        },
+        "manualValue": {
+          "type": "string"
+        },
+        "autoValue": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

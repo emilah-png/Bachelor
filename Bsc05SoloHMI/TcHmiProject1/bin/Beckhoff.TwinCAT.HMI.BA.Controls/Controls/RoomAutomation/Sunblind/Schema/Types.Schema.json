@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseRoomControl",
+      "frameworkControlType": "Sunblind",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.RoomAutomation"
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind.Controls": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        "buttons",
+        "sliderHorizontal"
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind.Priority": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "options": [
+        {
+          "label": "fire",
+          "value": 1
+        },
+        {
+          "label": "storm",
+          "value": 2
+        },
+        {
+          "label": "ice",
+          "value": 3
+        },
+        {
+          "label": "communicationError",
+          "value": 4
+        },
+        {
+          "label": "burglary",
+          "value": 5
+        },
+        {
+          "label": "maintenance",
+          "value": 6
+        },
+        {
+          "label": "referencing",
+          "value": 7
+        },
+        {
+          "label": "manualActuator",
+          "value": 8
+        },
+        {
+          "label": "manualGroup",
+          "value": 9
+        },
+        {
+          "label": "allDown",
+          "value": 10
+        },
+        {
+          "label": "allUp",
+          "value": 11
+        },
+        {
+          "label": "scene1",
+          "value": 12
+        },
+        {
+          "label": "facadeThermoAutomatic",
+          "value": 13
+        },
+        {
+          "label": "facadeTwilightAutomatic",
+          "value": 14
+        },
+        {
+          "label": "parkPosition",
+          "value": 15
+        },
+        {
+          "label": "scene2",
+          "value": 16
+        },
+        {
+          "label": "scene3",
+          "value": 17
+        },
+        {
+          "label": "sunProtection",
+          "value": 18
+        },
+        {
+          "label": "groupThermoAutomatic",
+          "value": 19
+        },
+        {
+          "label": "groupTwilightAutomatic",
+          "value": 20
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "description": "Name of the sunblind. (Default: sName, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "error",
+          "displayName": "Error",
+          "description": "Defines if an error has occured or not. The error will be displayed. (Default: bErr_Out, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "description": "Priority of the sunblind. (Default: eActualPrio_Out, DataType: integer)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "cmdUp",
+          "displayName": "Command Up",
+          "description": "The command to drive the sunblind up. (Default: bUp_In, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "cmdDown",
+          "displayName": "Command down",
+          "description": "The command to drive the sunblind down. (Default: bDown_In, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "fdbOpen",
+          "displayName": "Feedback open",
+          "description": "The feedback if the sunblind is opened. (Default: bOpened_Out, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "fdbClose",
+          "displayName": "Feedback close",
+          "description": "The feedback if the sunblind is closed. (Default: bClosed_Out, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "initialize",
+          "displayName": "Initialize",
+          "description": "When set to true the sunblind will be initialized. (Default: bInitialize_In, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "resetManual",
+          "displayName": "Reset manual",
+          "description": "Symbol to reset the sunblind into automatic mode. (Default: bResetManual_In, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "positionCmd",
+          "displayName": "Position command",
+          "description": "The command to set the position of the sunblind. (Default: fSunblindPosition_In, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "positionFdb",
+          "displayName": "Position feedback",
+          "description": "The position feedback of the sunblind. (Default: fSunblindPosition_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "angleCmd",
+          "displayName": "Angle command",
+          "description": "The command to set the angle of the sunblind. (Default: fSunblindAngle_In, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "angleFdb",
+          "displayName": "Angle feedback",
+          "description": "The angle feedback of the sunblind. (Default: fSunblindAngle_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "cmdUp": {
+          "type": "string"
+        },
+        "cmdDown": {
+          "type": "string"
+        },
+        "initialize": {
+          "type": "string"
+        },
+        "resetManual": {
+          "type": "string"
+        },
+        "positionCmd": {
+          "type": "string"
+        },
+        "positionFdb": {
+          "type": "string"
+        },
+        "angleFdb": {
+          "type": "string"
+        },
+        "angleCmd": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

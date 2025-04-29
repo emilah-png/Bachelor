@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "GetBaIconPath.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ],
+  "function": {
+    "name": "GetBaIconPath",
+    "namespace": "TcHmi.BuildingAutomation.Functions",
+    "displayName": "GetBaIconPath",
+    "description": "Path to the icon starting e.g. with 'HVAC/...'.",
+    "waitMode": "Synchronous",
+    "category": "Building Automation",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "arguments": [
+      {
+        "name": "path",
+        "displayName": "Path",
+        "type": "tchmi:general#/definitions/String",
+        "description": "Path to the icon starting e.g. with 'HVAC/...'.",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true
+      }
+    ]
+  }
+}

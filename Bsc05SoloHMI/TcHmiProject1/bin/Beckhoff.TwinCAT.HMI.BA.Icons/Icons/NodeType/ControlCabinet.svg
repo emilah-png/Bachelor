@@ -1,0 +1,74 @@
+<svg
+    version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: transparent;
+        stroke-width: var(--tchmi-ba-icon-stroke-width, 5px);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    ">
+    <defs>
+        <circle 
+            id="join"
+            fill="var(--tchmi-ba-global-icon-color, black)"
+            r="3"/>
+        <path
+            id="component"
+            d="M 0 0 v 25 h 16 v -25 h -16 m 0 8 h 16 m -8 0 v 8"/>
+    </defs>
+    <g>
+        <rect
+            x="18"
+            y="10"
+            width="80"
+            height="80"
+            rx="3"/>
+        <g id="door">
+            <path d="M 19 10 l -16 -7 v 94 l 16 -7" />
+            <use
+                x="18"
+                y="30"
+                href="#join" />
+            <use
+                x="18"
+                y="70"
+                href="#join" />
+        </g>
+        <g id="firstRow">
+            <use
+                x="35"
+                y="20"
+                href="#component" />
+            <use
+                x="51"
+                y="20"
+                href="#component" />
+            <use
+                x="67"
+                y="20"
+                href="#component" />
+        </g>
+        <g id="secondRow">
+            <use
+                x="35"
+                y="55"
+                href="#component" />
+            <use
+                x="51"
+                y="55"
+                href="#component" />
+            <use
+                x="67"
+                y="55"
+                href="#component" />
+        </g>
+        <rect
+            x="35"
+            y="20"
+            width="48"
+            height="60"/>
+    </g>
+</svg>

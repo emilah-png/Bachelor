@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.SensorBinary": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.Sensor",
+      "frameworkControlType": "SensorBinary",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.SensorBinary.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "feedback": {
+          "type": "string"
+        }
+      },
+      "required": [ "feedback" ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.SensorBinary.SubBaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "SubBaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "description": "Identifier of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "subTemplate",
+          "displayName": "Sensor Binary",
+          "description": "The template description of the sensor.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "subTemplate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorBinary.BaTemplateDescription"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,595 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.RoomControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "RoomControl",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.RoomAutomation"
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.RoomControl.ControlList": {
+      "title": "ControlList",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "title": "Light",
+            "type": "object",
+            "additionalProperties": false,
+            "engineeringColumns": [
+              "Name"
+            ],
+            "propertiesMeta": [
+              {
+                "name": "baObject",
+                "displayName": "BaObject",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaView of the light.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "baInterface",
+                "displayName": "BaInterface",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaInterface of the light.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "name",
+                "displayName": "Name",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Name of the light.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "error",
+                "displayName": "Error",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Defines if an error has occured or not. The error will be displayed.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "priority",
+                "displayName": "Priority",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Priority of the light.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "brightness",
+                "displayName": "Brightness",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Brightness of the light. When used as data binding the brightness will be written when changed by the user.",
+                "defaultValue": 0,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "brightnessFeedback",
+                "displayName": "BrightnessFeedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback for the brightness of the light.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "resetManualSym",
+                "displayName": "Reset hand mode",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Symbol which is set to true to reset the manual priority.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              }
+            ],
+            "properties": {
+              "baObject": {
+                "type": [ "string", "null" ]
+              },
+              "baInterface": {
+                "type": [ "string", "null" ]
+              },
+              "name": {
+                "type": [ "string", "null" ]
+              },
+              "error": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "priority": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.RoomAutomation.Light.Priority" },
+                  { "type": [ "number", "string", "null" ] }
+                ]
+              },
+              "brightness": {
+                "type": [ "number", "boolean", "string", "null" ]
+              },
+              "brightnessFeedback": {
+                "type": [ "number", "boolean", "string", "null" ]
+              },
+              "resetManualSym": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/Symbol" },
+                  { "type": [ "string", "null" ] }
+                ]
+              }
+            }
+          },
+          {
+            "title": "Sunblind",
+            "type": "object",
+            "additionalProperties": false,
+            "engineeringColumns": [
+              "Name"
+            ],
+            "propertiesMeta": [
+              {
+                "name": "baObject",
+                "displayName": "BaObject",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaView of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "baInterface",
+                "displayName": "BaInterface",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaInterface of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "name",
+                "displayName": "Name",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Name of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "error",
+                "displayName": "Error",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Defines if an error has occured or not. The error will be displayed.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "priority",
+                "displayName": "Priority",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Priority of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "openFeedback",
+                "displayName": "Open Feedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback if the sunblind is opened.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "closeFeedback",
+                "displayName": "Close Feedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback if the sunblind is closed.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "position",
+                "displayName": "Position",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Position of the sunblind. When used as data binding the position will be written when changed by the user.",
+                "defaultValue": null,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "positionFeedback",
+                "displayName": "PositionFeedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback for the position of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "angle",
+                "displayName": "Angle",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Angle of the sunblind. When used as data binding the angle will be written when changed by the user.",
+                "defaultValue": null,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "angleFeedback",
+                "displayName": "AngleFeedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback for the angle of the sunblind.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "resetManualSym",
+                "displayName": "Reset hand mode",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Symbol which is set to true to reset the manual priority.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              }
+            ],
+            "properties": {
+              "baObject": {
+                "type": [ "string", "null" ]
+              },
+              "baInterface": {
+                "type": [ "string", "null" ]
+              },
+              "name": {
+                "type": [ "string", "null" ]
+              },
+              "error": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "priority": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind.Priority" },
+                  { "type": [ "number", "string", "null" ] }
+                ]
+              },
+              "openFeedback": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "closeFeedback": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "position": {
+                "type": [ "number", "string", "null" ]
+              },
+              "positionFeedback": {
+                "type": [ "number", "string", "null" ]
+              },
+              "angle": {
+                "type": [ "number", "string", "null" ]
+              },
+              "angleFeedback": {
+                "type": [ "number", "string", "null" ]
+              },
+              "resetManualSym": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/Symbol" },
+                  { "type": [ "string", "null" ] }
+                ]
+              }
+            }
+          },
+          {
+            "title": "Heating cooling",
+            "type": "object",
+            "additionalProperties": false,
+            "engineeringColumns": [
+              "Name"
+            ],
+            "propertiesMeta": [
+              {
+                "name": "baObject",
+                "displayName": "BaObject",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaView of the heating cooling.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "baInterface",
+                "displayName": "BaInterface",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaInterface of the heating cooling.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "name",
+                "displayName": "Name",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Name of the heating cooling.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "error",
+                "displayName": "Error",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Defines if an error has occured or not. The error will be displayed.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "priority",
+                "displayName": "Priority",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Priority of the heating cooling.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "roomTemp",
+                "displayName": "RoomTemp",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "The current room temperature.",
+                "defaultValue": 0,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "roomTempAdjust",
+                "displayName": "RoomTempAdjust",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "The adjustment for the room temperature setpoint.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "roomTempAdjustFeedback",
+                "displayName": "RoomTempAdjustFeedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback for the room temperature adjustment.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "heatingSetpoint",
+                "displayName": "HeatingSetpoint",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Setpoint of the heating controller. If no cooling setpoint is used it is possible to use the CoolingActive flag to switch between heating and cooling mode.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "coolingSetpoint",
+                "displayName": "CoolingSetpoint",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Setpoint of the cooling controller.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "heatingActive",
+                "displayName": "HeatingActive",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Flag that defines if heating mode is active or not.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "coolingActive",
+                "displayName": "CoolingActive",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Flag that defines if cooling mode is active or not.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "energyLevel",
+                "displayName": "Energy level",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "The energy level of the HeatingCooling. (Default: eActualEnergyLevel_Out, DataType: integer)",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              }
+            ],
+            "properties": {
+              "baObject": {
+                "type": [ "string", "null" ]
+              },
+              "baInterface": {
+                "type": [ "string", "null" ]
+              },
+              "name": {
+                "type": [ "string", "null" ]
+              },
+              "error": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "priority": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.RoomAutomation.Sunblind.Priority" },
+                  { "type": [ "number", "string", "null" ] }
+                ]
+              },
+              "roomTemp": {
+                "type": [ "number", "string", "null" ]
+              },
+              "roomTempAdjust": {
+                "type": [ "number", "string", "null" ]
+              },
+              "roomTempAdjustFeedback": {
+                "type": [ "number", "string", "null" ]
+              },
+              "heatingSetpoint": {
+                "type": [ "number", "string", "null" ]
+              },
+              "coolingSetpoint": {
+                "type": [ "number", "string", "null" ]
+              },
+              "heatingActive": {
+                "type": [ "boolean", "number", "string", "null" ]
+              },
+              "coolingActive": {
+                "type": [ "boolean", "number", "string", "null" ]
+              },
+              "energyLevel": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.RoomAutomation.HeatingCooling.EnergyLevel" },
+                  { "type": [ "number", "string", "null" ] }
+                ]
+              }
+            }
+          },
+          {
+            "title": "Window",
+            "type": "object",
+            "additionalProperties": false,
+            "engineeringColumns": [
+              "Name"
+            ],
+            "propertiesMeta": [
+              {
+                "name": "baObject",
+                "displayName": "BaObject",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaView of the window.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "baInterface",
+                "displayName": "BaInterface",
+                "category": "BA",
+                "displayPriority": 1,
+                "description": "BaInterface of the window.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "name",
+                "displayName": "Name",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Name of the window.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "error",
+                "displayName": "Error",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Defines if an error has occured or not. The error will be displayed.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "windowPosition",
+                "displayName": "Position",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Position of the window. When used as data binding the position will be written when changed by the user.",
+                "defaultValue": null,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "windowPositionFeedback",
+                "displayName": "PositionFeedback",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Feedback for the position of the window.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "resetManualSym",
+                "displayName": "Reset hand mode",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Symbol which is set to true to reset the manual priority.",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              },
+              {
+                "name": "displayMode",
+                "displayName": "DisplayMode",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "Defines the display mode of the window.",
+                "defaultValue": 0,
+                "defaultValueInternal": 0
+              },
+              {
+                "name": "iconRotation",
+                "displayName": "IconRotation",
+                "category": "Common",
+                "displayPriority": 10,
+                "description": "The rotation of the icon in degree (0°-360°).",
+                "defaultValue": null,
+                "defaultValueInternal": null
+              }
+            ],
+            "properties": {
+              "baObject": {
+                "type": [ "string", "null" ]
+              },
+              "baInterface": {
+                "type": [ "string", "null" ]
+              },
+              "name": {
+                "type": [ "string", "null" ]
+              },
+              "error": {
+                "type": [ "boolean", "string", "null" ]
+              },
+              "windowPosition": {
+                "type": [ "number", "boolean", "string", "null" ]
+              },
+              "windowPositionFeedback": {
+                "type": [ "number", "boolean", "string", "null" ]
+              },
+              "resetManualSym": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/Symbol" },
+                  { "type": [ "string", "null" ] }
+                ]
+              },
+              "displayMode": {
+                "oneOf": [
+                  { "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.RoomAutomation.Window.DisplayMode" },
+                  { "type": [ "string", "null" ] }
+                ]
+              },
+              "iconRotation": {
+                "type": [ "number", "null" ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

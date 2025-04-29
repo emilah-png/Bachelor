@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.System.BaseRoomControl": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "BaseRoomControl",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    }
+  }
+}

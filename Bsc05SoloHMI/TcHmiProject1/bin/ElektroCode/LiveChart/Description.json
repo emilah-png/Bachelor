@@ -1,0 +1,229 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "LiveChart",
+  "namespace": "TcHmi.Controls.ElektroCode",
+  "displayName": "LiveChart",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "Icons/24x24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "name": "Icons/32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "Icons/64x64.png",
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "../AmCharts4/core.js",
+      "type": "JavaScript",
+      "description": ""
+    },
+    {
+      "name": "../AmCharts4/charts.js",
+      "type": "JavaScript",
+      "description": ""
+    },
+    {
+      "name": "../AmCharts4/animated.js",
+      "type": "JavaScript",
+      "description": ""
+    },
+    {
+      "name": "LiveChart.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+  "attributes": [
+    {
+      "name": "data-tchmi-chart-value",
+      "displayName": "Chart Value",
+      "propertyName": "ChartValue",
+      "propertySetterName": "setChartValue",
+      "propertyGetterName": "getChartValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Common",
+      "description": "The value to be displayed in the chart.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": "0",
+      "defaultValueInternal": "0"
+    },
+    {
+      "name": "data-tchmi-update-interval",
+      "displayName": "Update Interval",
+      "propertyName": "UpdateInterval",
+      "propertySetterName": "setUpdateInterval",
+      "propertyGetterName": "getUpdateInterval",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Integer",
+      "category": "Common",
+      "description": "Update interval of the chart.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": "0",
+      "defaultValueInternal": "0"
+    },
+    {
+      "name": "data-tchmi-chart-data-type",
+      "displayName": "Chart Datatype",
+      "propertyName": "ChartDataType",
+      "propertySetterName": "setChartDataType",
+      "propertyGetterName": "getChartDataType",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/ChartDataType",
+      "category": "Common",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": {
+        "_date": "2021-08-12 10:10:10.100",
+        "_value": "0"
+      },
+      "defaultValueInternal": {
+        "_date": "2021-08-12 10:10:10.100",
+        "_value": "0"
+      }
+    },
+    {
+      "name": "data-tchmi-chart-points",
+      "displayName": "Chart Points",
+      "propertyName": "ChartPoints",
+      "propertySetterName": "setChartPoints",
+      "propertyGetterName": "getChartPoints",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/ChartPoints",
+      "category": "Common",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": "",
+      "defaultValueInternal": ""
+    },
+    {
+      "name": "data-tchmi-chart-settings",
+      "displayName": "Chart Settings",
+      "propertyName": "ChartSettings",
+      "propertySetterName": "setChartSettings",
+      "propertyGetterName": "getChartSettings",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/ChartSettings",
+      "category": "Common",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": {
+        "axisName": "Default",
+        "axisColor": {
+          "color": "#4794da"
+        },
+        "maxNumberOfPoints": 5000,
+        "isAnimated": true,
+        "scrollbarPositionX": "None",
+        "scrollbarPositionY": "None"
+      },
+      "defaultValueInternal": {
+        "axisName": "Default",
+        "axisColor": {
+          "color": "#4794da"
+        },
+        "maxNumberOfPoints": 5000,
+        "isAnimated": true,
+        "scrollbarPositionX": "None",
+        "scrollbarPositionY": "None"
+      }
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    },
+    {
+      "schema": "Schema/ChartDataType.Schema.json"
+    },
+    {
+      "schema": "Schema/ChartPoints.Schema.json"
+    },
+    {
+      "schema": "Schema/ChartSettings.Schema.json"
+    },
+    {
+      "schema": "Schema/ScrollbarPositionX.Schema.json"
+    },
+    {
+      "schema": "Schema/ScrollbarPositionY.Schema.json"
+    }
+  ]
+}

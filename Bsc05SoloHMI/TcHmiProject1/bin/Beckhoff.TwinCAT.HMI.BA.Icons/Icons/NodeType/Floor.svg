@@ -1,0 +1,29 @@
+<svg version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: transparent;
+        stroke-width: var(--tchmi-ba-icon-stroke-width, 6px);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    ">
+    <defs>
+        <path
+            id="floor"
+            d="M 77 59 l 20 11 l -47 25 l -47 -25 l 20 -11 "/>
+    </defs>
+    <g>
+        <path
+            d="M 50 3 l 47 25 l -47 25 l -47 -25 z"/>
+        <use
+            x="0"
+            y="-20"
+            href="#floor" />
+        <use
+            x="0"
+            y="2"
+            href="#floor" />
+    </g>
+</svg>

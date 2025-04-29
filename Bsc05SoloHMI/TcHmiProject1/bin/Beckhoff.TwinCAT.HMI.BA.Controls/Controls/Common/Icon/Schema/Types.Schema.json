@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Icon": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "Icon",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Icon.Overlay": {
+      "title": "Icon Overlay",
+      "description": "Icon Overlay",
+      "engineeringColumns": [
+        "iconPath"
+      ],
+      "type": "object",
+      "properties": {
+        "iconColor": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        },
+        "backgroundColor": {
+          "$ref": "tchmi:framework#/definitions/SolidColor"
+        },
+        "iconPath": {
+          "$ref": "tchmi:framework#/definitions/Path"
+        },
+        "iconRotation": {
+          "type": [ "number", "null" ]
+        },
+        "iconRotationSpeed": {
+          "type": [ "number", "null" ]
+        },
+        "iconRotationDirection": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Direction"
+        },
+        "width": {
+          "$ref": "tchmi:framework#/definitions/MeasurementValue"
+        },
+        "widthUnit": {
+          "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+        },
+        "height": {
+          "$ref": "tchmi:framework#/definitions/MeasurementValue"
+        },
+        "heightUnit": {
+          "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+        },
+        "horizontalAlignment": {
+          "$ref": "tchmi:framework#/definitions/HorizontalAlignment"
+        },
+        "verticalAlignment": {
+          "$ref": "tchmi:framework#/definitions/VerticalAlignment"
+        },
+        "margin": {
+          "$ref": "tchmi:framework#/definitions/Padding"
+        },
+        "position": {
+          "$ref": "tchmi:framework#/definitions/Padding"
+        }
+      },
+      "propertiesMeta": [
+        {
+          "name": "iconColor",
+          "displayName": "IconColor",
+          "category": "Colors",
+          "displayPriority": 10,
+          "description": "Color of the icon.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "backgroundColor",
+          "displayName": "BackgroundColor",
+          "category": "Colors",
+          "displayPriority": 10,
+          "description": "Color of the background of the icon.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "iconPath",
+          "displayName": "Icon",
+          "category": "Icon",
+          "displayPriority": 10,
+          "description": "Path of the icon.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "iconRotation",
+          "displayName": "Rotation",
+          "category": "Icon",
+          "displayPriority": 200,
+          "description": "Rotation of the icon in degree (0°-360°).",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "iconRotationSpeed",
+          "displayName": "RotationSpeed",
+          "category": "Icon",
+          "displayPriority": 200,
+          "description": "Rotation speed of the icon. Icon rotation will be ignored if set.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "iconRotationDirection",
+          "displayName": "RotationDirection",
+          "category": "Icon",
+          "displayPriority": 200,
+          "description": "Rotation direction of the icon. Icon rotation will be ignored if set.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Width of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "widthUnit",
+          "displayName": "WidthUnit",
+          "refTo": "width",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Width unit of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Height of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "heightUnit",
+          "displayName": "HeightUnit",
+          "refTo": "height",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Height unit of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "horizontalAlignment",
+          "displayName": "HorizontalAlignment",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Horizontal alignment of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "verticalAlignment",
+          "displayName": "VerticalAlignment",
+          "category": "Overlay",
+          "displayPriority": 10,
+          "description": "Vertical alignment of the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "margin",
+          "displayName": "Margin",
+          "category": "Overlay",
+          "displayPriority": 60,
+          "description": "Margin around the overlay.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "category": "Overlay",
+          "displayPriority": 60,
+          "description": "Position of the overlay. This can be used if IconVerticalAlginment and IconHorizontalAlignment is not used or is not sufficient.",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "required": [
+        "icon"
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Icon.OverlayList": {
+      "title": "Overlay List",
+      "description": "Overlay List",
+      "type": "array",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.Icon.Overlay"
+      }
+    }
+  }
+}

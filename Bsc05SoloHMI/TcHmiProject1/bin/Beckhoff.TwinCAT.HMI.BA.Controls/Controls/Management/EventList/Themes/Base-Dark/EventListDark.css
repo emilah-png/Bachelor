@@ -1,0 +1,8 @@
+﻿.TcHmi_BuildingAutomation_Controls_Management_EventList {
+    border: var(--tchmi-ba-global-control-border);
+    background-color: var(--tchmi-ba-global-control-background);
+}
+    .TcHmi_BuildingAutomation_Controls_Management_EventList > div.TcHmi_BuildingAutomation_Controls_Common_DataGrid {
+        border: none;
+        border-top: var(--tchmi-ba-global-control-border);
+    }
