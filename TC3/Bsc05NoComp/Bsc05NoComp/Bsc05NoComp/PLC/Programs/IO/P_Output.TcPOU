@@ -10,8 +10,21 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0;
-G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0;
+      <ST><![CDATA[IF INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 > 0 THEN
+	G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 - G_Parameters.fDeadUpOne;
+ELSIF INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 < 0 THEN
+	G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 - G_Parameters.fDeadDownOne;
+ELSE
+	G_OPC.fValveOneSignals.fOutSignal := 0.0;
+END_IF
+
+IF INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 > 0 THEN
+	G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 - G_Parameters.fDeadUpTwo;
+ELSIF INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 < 0 THEN
+	G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 - G_Parameters.fDeadDownTwo;
+ELSE
+	G_OPC.fValveTwoSignals.fOutSignal := 0.0;
+END_IF
 
 IF G_Enables.bHoldButton OR G_Enables.bHoming THEN
 	CASE G_HMI.nCounter OF

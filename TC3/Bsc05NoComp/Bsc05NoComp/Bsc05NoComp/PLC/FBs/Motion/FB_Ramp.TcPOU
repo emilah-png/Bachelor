@@ -17,7 +17,7 @@ VAR_OUTPUT
 END_VAR
 VAR
 	fStartTime 	: LREAL := 1.0; // [s]
-	fHoldTime 	: LREAL := 5.0; // [s]
+	fHoldTime 	: LREAL := 8.0; // [s]
 	fRampTime 	: LREAL := 2.0; // [s]
 	fSpeedRef	: LREAL;
 	

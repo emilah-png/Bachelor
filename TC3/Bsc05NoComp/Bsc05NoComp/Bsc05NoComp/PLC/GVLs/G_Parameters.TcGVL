@@ -6,81 +6,82 @@
 VAR_GLOBAL
 	
 	// System Variable
-	fTimeStep 		: LREAL := 0.010; // [s]
+	fTimeStep 			: LREAL := 0.010; // [s]
 	
-	fConst1 		: LREAL := 0.0; // [-1, 1]
-	fConst2 		: LREAL := 0.0; // [-1, 1]
+	fConst1 			: LREAL := 0.0; // [-1, 1]
+	fConst2 			: LREAL := 0.0; // [-1, 1]
 	
-	fMaxFlow		: LREAL := 55.0; // [L/min]
-	fRho			: LREAL := 850.0;
-	fCd				: LREAL := 0.64;
+	fMaxFlow			: LREAL := 55.0; // [L/min]
+	fRho				: LREAL := 850.0;
+	fCd					: LREAL := 0.64;
 	
 	// Winch
-	fMinWinchDist	: LREAL;
-	fMaxWinchDist	: LREAL;
+	fMinWinchDist		: LREAL;
+	fMaxWinchDist		: LREAL;
 	
 	// FeedForward Variables
-	fOneMultiFF 	: LREAL := 1.0; // FeedForward Multipier
-	fTwoMultiFF 	: LREAL := 1.0; // FeedForward Multipier
+	fOneMultiFF 		: LREAL := 1.0; // FeedForward Multipier
+	fTwoMultiFF 		: LREAL := 1.0; // FeedForward Multipier
 	
 	// PID Variables
-	fOneP 			: LREAL := 22.0; // P
-	fOneI 			: LREAL := 0.0; // I
-	fOneD 			: LREAL := 0.0; // D
-	
-	fTwoP 			: LREAL := 28.0; // P
-	fTwoI 			: LREAL := 0.0; // I
-	fTwoD 			: LREAL := 0.0; // D
+	fOneP 				: LREAL := 22.0; // P
+	fOneI 				: LREAL := 0.0; // I
+	fOneD 				: LREAL := 0.0; // D
+		
+	fTwoP 				: LREAL := 28.0; // P
+	fTwoI 				: LREAL := 0.0; // I
+	fTwoD 				: LREAL := 0.0; // D
 	
 	// Valve Variables
 	// Valve 1 (Jib)
-	fQMaxUpOne 		: LREAL := 20.0; // [L/min]
-	fQMaxDownOne	: LREAL := 15.0; // [L/min]
-	fDeltaP0One		: LREAL := 6.0; // [Bar]
-	fDeadUpOne 		: LREAL := 0.037;
-	fDeadDownOne	: LREAL := 0.111;
-	fAreaUpOne		: LREAL := (fQMaxUpOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
-	fAreaDownOne	: LREAL := (fQMaxDownOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
+	fQMaxUpOne 			: LREAL := 20.0; // [L/min]
+	fQMaxDownOne		: LREAL := 15.0; // [L/min]
+	fDeltaP0One			: LREAL := 6.0; // [Bar]
+	fDeadUpOne 			: LREAL := 0.037;
+	fDeadDownOne		: LREAL := 0.111;
+	fAreaUpOne			: LREAL := (fQMaxUpOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
+	fAreaDownOne		: LREAL := (fQMaxDownOne/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6; // [mm^2]
 	
 	// Valve 2 (Main)
-	fQMaxUpTwo 		: LREAL := 20.0; // [L/min]
-	fQMaxDownTwo	: LREAL := 15.0; // [L/min]
-	fDeltaP0Two		: LREAL := 6.0; // [Bar]
-	fDeadUpTwo 		: LREAL := 0.037;
-	fDeadDownTwo	: LREAL := 0.105;
-	fAreaUpTwo		: LREAL := (fQMaxUpTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
-	fAreaDownTwo	: LREAL := (fQMaxDownTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
+	fQMaxUpTwo 			: LREAL := 20.0; // [L/min]
+	fQMaxDownTwo		: LREAL := 15.0; // [L/min]
+	fDeltaP0Two			: LREAL := 6.0; // [Bar]
+	fDeadUpTwo 			: LREAL := 0.037;
+	fDeadDownTwo		: LREAL := 0.105;
+	fAreaUpTwo			: LREAL := (fQMaxUpTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
+	fAreaDownTwo		: LREAL := (fQMaxDownTwo/6E4)/(fCd * SQRT(2/fRho * 6E5))*1E6;// [mm^2]
 	
 	// Piston Variables 
-	fMaxStrokeMain 	: LREAL := 0.755; // [m]
-	fMaxStrokeJib 	: LREAL := 0.856; // [m]
+	fMaxStrokeMain 		: LREAL := 0.755; // [m]
+	fMaxStrokeJib 		: LREAL := 0.856; // [m]
 
-	fMaxSpeedMain	: LREAL := 0.1; // [m/s]
-	fMaxSpeedJib	: LREAL := 0.1; // [m/s]
+	fMaxSpeedMain		: LREAL := 0.1; // [m/s]
+	fMaxSpeedJib		: LREAL := 0.1; // [m/s]
 	
-	aMaxFlowPist	: ARRAY[0..3] OF LREAL := [0.0 , 0.0 , 0.0 , 0.0]; 
+	aMaxFlowPist		: ARRAY[0..3] OF LREAL := [0.0 , 0.0 , 0.0 , 0.0]; 
 
-	fDiaMain 		: LREAL := 160.0; // [mm]
-	fDiaJib			: LREAL := 150.0; // [mm]
-	fRodDiaMain		: LREAL := 100.0; // [mm]
-	fRodDiaJib		: LREAL := 100.0; // [mm]
+	fDiaMain 			: LREAL := 160.0; // [mm]
+	fDiaJib				: LREAL := 150.0; // [mm]
+	fRodDiaMain			: LREAL := 100.0; // [mm]
+	fRodDiaJib			: LREAL := 100.0; // [mm]
 	
-	fAreaMain		: LREAL := EXPT(fDiaMain/2 , 2) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
-	fAreaMainRod	: LREAL := (EXPT(fDiaMain/2 , 2)-EXPT(fRodDiaMain/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
-	fAreaRelation1	: LREAL := fAreaMainRod / fAreaMain;
+	fAreaMain			: LREAL := EXPT(fDiaMain/2 , 2) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
+	fAreaMainRod		: LREAL := (EXPT(fDiaMain/2 , 2)-EXPT(fRodDiaMain/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
+	fAreaRelation1		: LREAL := fAreaMainRod / fAreaMain;
 
-	fAreaJib		: LREAL := EXPT(fDiaJib/2 , 2) * Tc2_System.Global_Variables.PI / 1E6; // [m^2]
-	fAreaJibRod		: LREAL := (EXPT(fDiaJib/2 , 2)- EXPT(fRodDiaJib/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
-	fAreaRelation2	: LREAL := fAreaJibRod/fAreaJib;
+	fAreaJib			: LREAL := EXPT(fDiaJib/2 , 2) * Tc2_System.Global_Variables.PI / 1E6; // [m^2]
+	fAreaJibRod			: LREAL := (EXPT(fDiaJib/2 , 2)- EXPT(fRodDiaJib/2 , 2)) * Tc2_System.Global_Variables.PI/1E6; // [m^2]
+	fAreaRelation2		: LREAL := fAreaJibRod/fAreaJib;
 	
 	// MotionRef Variables
-	fMainAmplitude 	: LREAL := 0.075; // [m]
-	fMainFrequency	: LREAL := 1.0/40.0; // [Hz]
+	fMainAmplitude 		: LREAL := 0.075; // [m]
+	fMainFrequency		: LREAL := 1.0/40.0; // [Hz]
 	
-	fJibAmplitude	: LREAL := 0.1; // [m]
-	fJibFrequency	: LREAL := 1.0/40.0; // [Hz]
+	fJibAmplitude		: LREAL := 0.1; // [m]
+	fJibFrequency		: LREAL := 1.0/40.0; // [Hz]
 	
-	fRampConstStr	: LREAL := 0.2; // Signal Strength
+	fRampConstStrJib	: LREAL := 0.4; // Signal Strength
+	fRampConstStrMain	: LREAL := 0.3; // Signal Strength
 	
 	
 END_VAR]]></Declaration>

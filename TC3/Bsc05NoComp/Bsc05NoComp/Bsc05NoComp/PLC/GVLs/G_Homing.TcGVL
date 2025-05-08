@@ -11,10 +11,10 @@ VAR_GLOBAL CONSTANT
 	aMinDistWinch	: ARRAY[0..nArrLen+1] OF LREAL := [-2,-2.50, -2.05, -2.05, -2.40, -2.05, -2.40, -2.80, -2.30]; //Winch Min Length
 	aMaxDistWinch	: ARRAY[0..nArrLen+1] OF LREAL := [-10,-3.65, -2.60, -2.65, -5.05, -2.65, -2.75, -8.45, -3.60]; //Winch Max Length
 	
-	aNegMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE];
-	aNegJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE];
+	aNegMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE , TRUE ];
+	aNegJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE , TRUE , FALSE];
 	aCosMain		: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE];
-	aCosJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE];
+	aCosJib			: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, FALSE, FALSE, FALSE, TRUE , FALSE, TRUE ];
 	
 	aMainMovement	: ARRAY[0..nArrLen] OF BOOL := [TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE];
 	aJibMovement	: ARRAY[0..nArrLen] OF BOOL := [FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE];

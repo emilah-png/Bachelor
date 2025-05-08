@@ -127,7 +127,7 @@ ELSIF G_Enables.bRampMotion AND NOT(G_Enables.bHoming)  AND G_HMI.nMotionMode = 
 	IF G_Enables.bRampAxis THEN
 		fbRampJib(
 			bEnable := G_Enables.bRampMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne,
-			fSignalStr := G_Parameters.fRampConstStr,
+			fSignalStr := G_Parameters.fRampConstStrMain,
 		
 			fXDotRef => G_OPC.fXDotRefOne,
 			fConst => G_OPC.fValveTwoSignals.fU
@@ -143,11 +143,11 @@ ELSIF G_Enables.bRampMotion AND NOT(G_Enables.bHoming)  AND G_HMI.nMotionMode = 
 			G_OPC.fXRefOne := G_Homing.aHomingJib[G_HMI.nHomingMode - 1] + G_Temp.fRampJibIntegrated;
 		END_IF
 		
-	ELSIF NOT(G_Enables.bRampAxis) THEN
+	ELSE
 		
 		fbRampMain(
 			bEnable := G_Enables.bRampMotion AND G_Enables.bHoldButton AND G_Enables.bEnableTwo,
-			fSignalStr := G_Parameters.fRampConstStr,
+			fSignalStr := G_Parameters.fRampConstStrJib,
 		
 			fXDotRef => G_OPC.fXDotRefTwo,
 			fConst => G_OPC.fValveOneSignals.fU
