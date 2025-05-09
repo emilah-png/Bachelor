@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1112"
+   height="435"
+   overflow="hidden"
+   version="1.1"
+   id="svg61"
+   sodipodi:docname="FF_bilder_test.eps"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:dataloss="true"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs61" />
+  <sodipodi:namedview
+     id="namedview61"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0578125"
+     inkscape:cx="523.7223"
+     inkscape:cy="145.11078"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1033"
+     inkscape:window-y="2151"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg61" />
+  <g
+     id="g61"
+     transform="translate(-84.388327,-132.9763)">
+    <rect
+       x="0"
+       y="0"
+       width="1280"
+       height="720"
+       fill="#ffffff"
+       id="rect1" />
+    <rect
+       x="401"
+       y="269"
+       width="130"
+       height="95"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect2" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(442.244,310)"
+       id="text2">Feed</text>
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(425.464,339)"
+       id="text3">Forward</text>
+    <rect
+       x="926"
+       y="415"
+       width="93"
+       height="94"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect3" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(951.816,470)"
+       id="text4">DCV</text>
+    <rect
+       x="424"
+       y="415"
+       width="89"
+       height="94"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect4" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(451.6,470)"
+       id="text5">PID</text>
+    <path
+       d="m 585,462 c 0,-10.493 8.507,-19 19,-19 10.493,0 19,8.507 19,19 0,10.493 -8.507,19 -19,19 -10.493,0 -19,-8.507 -19,-19 z"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       fill-rule="evenodd"
+       id="path5" />
+    <path
+       d="m 326,462 c 0,-10.493 8.507,-19 19,-19 10.493,0 19,8.507 19,19 0,10.493 -8.507,19 -19,19 -10.493,0 -19,-8.507 -19,-19 z"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       fill-rule="evenodd"
+       id="path6" />
+    <path
+       d="m 574,436 h 18.898"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path7" />
+    <path
+       d="M 583,445.898 V 427"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path8" />
+    <path
+       d="m 573,484 h 18.898"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path9" />
+    <path
+       d="M 583,492.898 V 474"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path10" />
+    <path
+       d="M 2.889e-6,-2 62.6803,-1.99991 v 4 L -2.889e-6,2 Z M 60.6803,-5.99991 l 12,6.000014987 -12,5.999985013 z"
+       transform="matrix(1,0,0,-1,513,462)"
+       id="path11" />
+    <path
+       d="m 623,460 h 77.176 v 4 H 623 Z m 75.176,-4 12,6 -12,6 z"
+       id="path12" />
+    <path
+       d="m 364,460 h 49.773 v 4 H 364 Z m 47.773,-4 12,6 -12,6 z"
+       id="path13" />
+    <path
+       d="m 1019,460 h 53.75 v 4 H 1019 Z m 51.75,-4 12,6 -12,6 z"
+       id="path14" />
+    <path
+       d="m 531,315 h 75.796 v 118.268 h -4 V 317 l 2,2 H 531 Z m 79.796,116.268 -6,12 -6,-12 z"
+       id="path15" />
+    <path
+       d="m 192,460 h 124.326 v 4 H 192 Z m 122.326,-4 12,6 -12,6 z"
+       id="path16" />
+    <path
+       d="m 183,315 h 208.077 v 4 H 183 Z m 206.077,-4 12,6 -12,6 z"
+       id="path17" />
+    <path
+       d="m 0,2 h -24.0295 l 2,-2 v 788.121 l -2,-2 h 42.5264 v 4 H -26.0295 V -2 H 0 Z m 16.4969,780.121 12,6 -12,6 z"
+       transform="matrix(0,-1,-1,0,1133.12,509.462)"
+       id="path18" />
+    <path
+       d="m 308,443 h 18.898"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path19" />
+    <path
+       d="M 318,452.898 V 434"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path20" />
+    <path
+       d="m 360,484 h 18.898"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path21" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(235.715,492)"
+       id="text21">𝑋</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(250.162,497)"
+       id="text22">𝑟𝑒𝑓</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(613.253,376)"
+       id="text23">𝑢</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(625.639,381)"
+       id="text24">𝑓𝑓</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(305.166,304)"
+       id="text25">𝑉</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(316.979,308)"
+       id="text26">𝑟𝑒𝑓</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(683.054,560)"
+       id="text27">𝑋</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(697.501,564)"
+       id="text28">𝑚𝑒𝑎𝑠</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(364.696,446)"
+       id="text29">𝑋</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(379.143,451)"
+       id="text30">𝑒𝑟𝑟</text>
+    <text
+       fill="#ff0000"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(697.592,230)"
+       id="text31">𝑝</text>
+    <text
+       fill="#ff0000"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(710.165,235)"
+       id="text32">𝑠𝑢𝑝𝑝𝑙𝑦</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(770.752,230)"
+       id="text33" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(776.085,230)"
+       id="text34" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(781.419,230)"
+       id="text35" />
+    <text
+       fill="#ffc000"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(786.752,230)"
+       id="text36">𝑝</text>
+    <text
+       fill="#ffc000"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(799.145,235)"
+       id="text37">𝐴</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(811.979,230)"
+       id="text38" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(817.312,230)"
+       id="text39" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(822.645,230)"
+       id="text40" />
+    <text
+       fill="#00b050"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(827.979,230)"
+       id="text41">𝑝</text>
+    <text
+       fill="#00b050"
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(840.552,235)"
+       id="text42">𝐵</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(660.073,450)"
+       id="text43">𝑢</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(526.865,445)"
+       id="text44">𝑢</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(539.252,450)"
+       id="text45">𝑓</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(549.752,450)"
+       id="text46">𝑏</text>
+    <rect
+       x="97"
+       y="269"
+       width="129"
+       height="240"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect46" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(125.792,383)"
+       id="text47">Motion</text>
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(112.812,412)"
+       id="text48">Reference</text>
+    <rect
+       x="710"
+       y="415"
+       width="126"
+       height="94"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect48" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(722.974,455)"
+       id="text49">Deadband</text>
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(745.994,484)"
+       id="text50">comp</text>
+    <path
+       d="m 836,460 h 79.587 v 4 H 836 Z m 77.587,-4 12,6 -12,6 z"
+       id="path50" />
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(864.199,449)"
+       id="text51">𝑢</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="18px"
+       transform="translate(878.032,454)"
+       id="text52">𝑡𝑜𝑡</text>
+    <text
+       font-family="'Cambria Math', 'Cambria Math_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(1042.58,450)"
+       id="text53">𝑄</text>
+    <path
+       d="M 1159.52,415.547 1157,149"
+       stroke="#00b050"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path53" />
+    <path
+       d="M 1132.09,416.024 1131,179"
+       stroke="#ffc000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path54" />
+    <path
+       d="M 1104.66,416.612 1104,206"
+       stroke="#ff0000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       id="path55" />
+    <path
+       d="M 0,0 714.319,1.04987e-4"
+       stroke="#00b050"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       transform="matrix(-1,0,0,1,1159.32,152)"
+       id="path56" />
+    <path
+       d="M 0,0 661.781,1.04987e-4"
+       stroke="#ffc000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       transform="matrix(-1,0,0,1,1132.78,179)"
+       id="path57" />
+    <path
+       d="M 0,0 608.245,1.04987e-4"
+       stroke="#ff0000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="none"
+       fill-rule="evenodd"
+       transform="matrix(-1,0,0,1,1106.24,207)"
+       id="path58" />
+    <path
+       d="m 2.00002,10 8e-5,54.7367 H -1.99989 L -1.99998,10 Z m -8,2 L 0,0 6.00002,12 Z"
+       fill="#ff0000"
+       transform="matrix(1,0,0,-1,499,269.737)"
+       id="path59" />
+    <path
+       d="M 2.08282,9.98307 2.76319,92.0569 -1.23668,92.0901 -1.91704,10.0162 Z M -5.90032,12.0493 0,0 6.09927,11.9499 Z"
+       fill="#ffc000"
+       transform="matrix(1,0,0,-1,471,269.073)"
+       id="path60" />
+    <path
+       d="M 2.00001,9.99999 2.0001,120.512 H -1.99989 L -1.99999,10 Z M -5.99999,12 0,0 6.00001,12 Z"
+       fill="#00b050"
+       transform="matrix(1,0,0,-1,445,269.512)"
+       id="path61" />
+    <rect
+       x="1083"
+       y="415"
+       width="100"
+       height="94"
+       stroke="#000000"
+       stroke-width="4"
+       stroke-miterlimit="8"
+       fill="#203864"
+       id="rect61" />
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(1098.37,470)"
+       id="text61">System</text>
+  </g>
+</svg>
