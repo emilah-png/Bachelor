@@ -1,10 +1,10 @@
 clc; clear; close all;
-file="RampDisturbanceTest_230425.csv"; %write file name including .csv
+file="Jib2Test_090525.csv"; %write file name including .csv
 data = readtable(file);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %logic to change variable name
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-data = renamevars(data,"Name","time");
+data = renamevars(data,"Name_1","time");
 %%%%%%%%%%%%%%%%%%%%
 %logic to remove NaN
 %%%%%%%%%%%%%%%%%%%%
