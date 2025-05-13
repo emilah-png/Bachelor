@@ -1,3 +1,4 @@
+clc;
 close all;
 clear;
 pAc = [80.8 65 73.9];
@@ -20,14 +21,16 @@ po = linspace(30,100,(100-30)*10);
 K_plot = alfa*po+beta;
 plot(K_plot,po)
 xlim([-0.2 1])
+
 %From data sheet
-Kmax = 40/15^0.5;
+%Kmax = 40/15^0.5;
+Kmax = 52/15^0.5;
 u2 = K2/Kmax; %Opening in approximate point 2
 dpOpen = (po2 - pcr)/u2; %dpOpen from po2 and u2
 %Compute corresponding orifice data
 Cd = 0.64; %Just pick something
 rho = 850; %Standard
-Kmax_SI = 40/6e4/(15e5)^0.5; %From data-sheet, fully open u = 1 and K = Kmax
+Kmax_SI = 52/6e4/(15e5)^0.5; %From data-sheet, fully open u = 1 and K = Kmax
 Admax_SI = Kmax_SI/(2/rho)^0.5/Cd; %From orifice equation, Admax [m^2]
 Admax = Admax_SI*1e6; %Admax [mm^2]
 %Testing parameters, pcr - dpOpen - Admax

@@ -1,3 +1,4 @@
+clc;
 close all;
 clear;
 format short;
@@ -77,13 +78,13 @@ for i=1:n1
 end
 [nES dummi] = size(time_ES);
 %Check usefulness
-figure;
-plot(time_ES,pA_ES);
-hold on;
-plot(time_ES,pB_ES,'r');
-plot(time_ES,pAc_ES,'g');
-plot(time_ES,pBc_ES,'m');
-grid;
+%figure;
+%plot(time_ES,pA_ES);
+%hold on;
+%plot(time_ES,pB_ES,'r');
+%plot(time_ES,pAc_ES,'g');
+%plot(time_ES,pBc_ES,'m');
+%grid;
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %Crop retraction data 1
@@ -106,13 +107,13 @@ for i=1:n1
 end
 [nRS dummi] = size(time_RS);
 %Check usefulness
-figure;
-plot(time_RS,pA_RS);
-hold on;
-plot(time_RS,pB_RS,'r');
-plot(time_RS,pAc_RS,'g');
-plot(time_RS,pBc_RS,'m');
-grid;
+%figure;
+%plot(time_RS,pA_RS);
+%hold on;
+%plot(time_RS,pB_RS,'r');
+%plot(time_RS,pAc_RS,'g');
+%plot(time_RS,pBc_RS,'m');
+%grid;
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %Crop extension data 2
@@ -177,11 +178,11 @@ grid;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 pOP_ES = alpha*pA_ES + pBc_ES - (alpha + 1)*pB_ES;
 pOP_EF = alpha*pA_EF + pBc_EF - (alpha + 1)*pB_EF;
-figure;
-plot(xCyl_ES,pOP_ES);
-hold on;
-plot(xCyl_EF,pOP_EF,'r');
-grid;
+%figure;
+%plot(xCyl_ES,pOP_ES);
+%hold on;
+%plot(xCyl_EF,pOP_EF,'r');
+%grid;
 %Approcimate CBV volume flow
 vc_ES = (xCyl_ES(nES) - xCyl_ES(1))/(time_ES(nES) - time_ES(1));
 QCBV_ES = vc_ES*Aac*6e4;
@@ -194,11 +195,11 @@ QCBV_EF = vc_EF*Aac*6e4;
 alpha = 2.7; %Pilot area ratio
 pOP_RS = alpha*pB_RS + pAc_RS - (alpha + 1)*pA_RS;
 pOP_RF = alpha*pB_RF + pAc_RF - (alpha + 1)*pA_RF;
-figure;
-plot(xCyl_RS,pOP_RS);
-hold on;
-plot(xCyl_RF,pOP_RF,'r');
-grid;
+%figure;
+%plot(xCyl_RS,pOP_RS);
+%hold on;
+%plot(xCyl_RF,pOP_RF,'r');
+%grid;
 %Approcimate CBV volume flow
 vc_RS = -(xCyl_RS(nRS) - xCyl_RS(1))/(time_RS(nRS) - time_RS(1));
 QCBV_RS = vc_RS*Ac*6e4;
@@ -213,13 +214,13 @@ Fh_ES = (Ac*pAc_ES - Aac*pBc_ES)*1e5;
 Fh_RS = (Ac*pAc_RS - Aac*pBc_RS)*1e5;
 Fh_EF = (Ac*pAc_EF - Aac*pBc_EF)*1e5;
 Fh_RF = (Ac*pAc_RF - Aac*pBc_RF)*1e5;
-figure;
-plot(xCyl_ES, Fh_ES);
-hold on;
-plot(xCyl_RS, Fh_RS, 'r');
-plot(xCyl_EF, Fh_EF, 'g');
-plot(xCyl_RF, Fh_RF, 'm');
-grid;
+%figure;
+%plot(xCyl_ES, Fh_ES);
+%hold on;
+%plot(xCyl_RS, Fh_RS, 'r');
+%plot(xCyl_EF, Fh_EF, 'g');
+%plot(xCyl_RF, Fh_RF, 'm');
+%grid;
 
 %%%%%%%%%%%%%%%%%%%%%%
 %Velocity (average) ES
@@ -252,7 +253,7 @@ roh = 850;
 
 pcr_index = find(abs(plot_R-0.0)<0.02,1);
 pcr_down = po(pcr_index)
-K_down = (40/6e4)/sqrt(15e5); %til figur 4 @ x=430.02
+K_down = (40/6e4)/sqrt(15e5); %til figur 2 @ x=430.02
 Q_R = linspace(1,500);
 P_R = (Q_R/K_down).^2;
 pA_down = 11.1559e5;
@@ -264,7 +265,7 @@ Ad_down_mm = Ad_down*1e6
 
 pcr_index = find(abs(plot_E-0.0)<0.03,1);
 pcr_up = po(pcr_index)
-K_up = (50/6e4)/sqrt(20e5);
+K_up = (50/6e4)/sqrt(20e5);  %til figur 1 @ x=364.96
 Q_E = linspace(1,500);
 P_E = (Q_E/K_up).^2;
 pA_up = 78.7477e5;
