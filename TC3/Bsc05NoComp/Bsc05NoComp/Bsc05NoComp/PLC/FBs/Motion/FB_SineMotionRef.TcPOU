@@ -35,17 +35,24 @@ IF bEnableMotion AND NOT(bCOS) THEN
 	fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * fTime);
 	fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * fTime);
 ELSIF bEnableMotion AND bCOS THEN
-	IF fTime > fPeriod / 4 THEN
+	IF fTime < fPeriod / 4 THEN
+		fXRefTemp := fInitialPos;
+		fXDotRefTemp := 0.0;
+	ELSIF fTime >= fPeriod / 4 THEN
 		fXRefTemp := fMean - fAmplitude * COS(2 * fPi * fFrequency * (fTime-fPeriod/4) );
 		fXDotRefTemp := 2 * fPi *fFrequency * fAmplitude * SIN(2* fPi * fFrequency * (fTime-fPeriod/4));
 	END_IF
 ELSE
-	fXDotRef := 0.0;
+	fXRefTemp := 0.0;
+	fXDotRefTemp := 0.0;
 END_IF 
 
 fDelta := fInitialPos - fXRefTemp;
 
-IF bNegative THEN
+IF NOT(bNegative) AND NOT(bEnableMotion) THEN
+	fXRef := fInitialPos;
+	fXDotRef := 0.0;
+ELSIF bNegative AND bEnableMotion THEN
 	fXRef := fInitialPos + fDelta;
 	fXDotRef := -fXDotRefTemp;
 ELSE

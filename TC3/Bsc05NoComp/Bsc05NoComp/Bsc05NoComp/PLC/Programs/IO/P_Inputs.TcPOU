@@ -110,9 +110,9 @@ fbNormJibPbCyl(
 fbNormJibPistonPosition(
 	nRawInput := G_Inputs.nRawJibPistonPosition,
 	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
-	fMaxInputValue := 24163.0,
-	fMinInputValue := 2930.0,
-	fMinOutputValue := 0.006,
+	fMaxInputValue := 24925.0,
+	fMinInputValue := 3065.0,
+	fMinOutputValue := 0.0,
 	fOffset := 0.0,
 	fOutput => G_OPC.fJibPistonPosition.fSignal
 );

@@ -13,7 +13,7 @@ END_VAR
       <ST><![CDATA[IF INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 > 0 THEN
 	G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 - G_Parameters.fDeadUpOne;
 ELSIF INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 < 0 THEN
-	G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 - G_Parameters.fDeadDownOne;
+	G_OPC.fValveOneSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveOneOutput)/32767.0 + G_Parameters.fDeadDownOne;
 ELSE
 	G_OPC.fValveOneSignals.fOutSignal := 0.0;
 END_IF
@@ -21,7 +21,7 @@ END_IF
 IF INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 > 0 THEN
 	G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 - G_Parameters.fDeadUpTwo;
 ELSIF INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 < 0 THEN
-	G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 - G_Parameters.fDeadDownTwo;
+	G_OPC.fValveTwoSignals.fOutSignal := INT_TO_LREAL(G_Output.nValveTwoOutput)/32767.0 + G_Parameters.fDeadDownTwo;
 ELSE
 	G_OPC.fValveTwoSignals.fOutSignal := 0.0;
 END_IF

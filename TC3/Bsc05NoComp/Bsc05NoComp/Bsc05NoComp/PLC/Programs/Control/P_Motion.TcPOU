@@ -200,8 +200,8 @@ ELSIF G_Enables.bHoldButton AND G_HMI.nHomingMode > 0 AND G_HMI.nMotionMode = 0 
 			);
 					
 			fbSineMotionRefJib(
-				bNegative := G_Homing.aNegMain[G_HMI.nHomingMode - 1],
-				bCOS := G_Homing.aCosMain[G_HMI.nHomingMode - 1],
+				bNegative := G_Homing.aNegJib[G_HMI.nHomingMode - 1],
+				bCOS := G_Homing.aCosJib[G_HMI.nHomingMode - 1],
 				bEnableMotion := G_Enables.bSineMotion AND G_Enables.bHoldButton AND G_Enables.bEnableOne AND NOT(G_Enables.bHoming) AND G_Homing.aJibMovement[G_HMI.nHomingMode - 1],
 				
 				fXDotRef => G_OPC.fXDotRefOne,
@@ -243,7 +243,15 @@ ELSE
 	G_OPC.fXDotRefTwo := 0.0;
 	G_OPC.fXRefTwo := G_OPC.fMainPistonPosition.fDanielFilter;
 	
+	fbSineMotionRefMain(
+		bEnableMotion := FALSE
+		);
+	fbSineMotionRefJib(
+		bEnableMotion := FALSE
+		);
 END_IF
+
+
 
 ]]></ST>
     </Implementation>
