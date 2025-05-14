@@ -186,7 +186,7 @@ hold on; grid on
 plot(Time, Jib.PID)
 plot(Time, Jib.U)
 title('Control Signals for Jib DCV with disturbance')
-legend('Feedforward', 'Feedback', 'Output Signal')
+legend('Feedforward', 'PID', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
 %ylim([-0.5 0.5])
@@ -250,11 +250,11 @@ end
 % saveas(Main_pressure,PNG_path+file+'_main_pressure.png') 
 % saveas(Main_pressure,EPS_path+file+'_main_pressure.eps') 
 
-saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
-saveas(Main_controlsignal,EPS_path+file+'_main_cs.eps')
+% saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
+% saveas(Main_controlsignal,EPS_path+file+'_main_controlsignal.eps')
 
 % saveas(Jib_pressure,PNG_path+file+'_jib_pressure.png') 
 % saveas(Jib_pressure,EPS_path+file+'_jib_pressure.eps') 
 
 saveas(Jib_controlsignal,PNG_path+file+'_jib_controlsignal.png')
-saveas(Jib_controlsignal,EPS_path+file+'_jib_cs.eps')
+% saveas(Jib_controlsignal,EPS_path+file+'_jib_controlsignal.eps')
