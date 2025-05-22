@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Convetions" Id="{9adcba8d-03ed-4445-8129-8456a4871a89}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Convetions
+VAR
+	fbMainVel2Flow	: FB_Vel2Flow;
+	fbJibVel2Flow	: FB_Vel2Flow;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbMainVel2Flow(
+	fVelocity := G_OPC.fMainPistonVelocity,
+	fArealUp := G_Parameters.fAreaMain,
+	fArealDown := G_Parameters.fAreaMainRod,
+	fXDotRef := G_OPC.fMainPistonVelocity,
+	
+	fFlowA => G_OPC.fMainFlowA,
+	fFlowB => G_OPC.fMainFlowB
+);
+
+fbJibVel2Flow(
+	fVelocity := G_OPC.fJibPistonVelocity,
+	fArealUp := G_Parameters.fAreaJib,
+	fArealDown := G_Parameters.fAreaJibRod,
+	fXDotRef := G_OPC.fJibPistonVelocity,
+	
+	fFlowA => G_OPC.fJibFlowA,
+	fFlowB => G_OPC.fJibFlowB
+);
+
+G_OPC.fFlowPistonSide := G_OPC.fJibFlowA + G_OPC.fMainFlowA;
+G_OPC.fFlowRodSide := G_OPC.fJibFlowB + G_OPC.fMainFlowB;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

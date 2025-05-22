@@ -1,0 +1,38 @@
+<svg
+    version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: var(--tchmi-ba-global-icon-color, black);
+        stroke-width: 2px;
+    ">
+    <defs>
+        <path
+            id="sun-beam"
+            transform="rotate(25, 10, 10)"
+            d="m 0 0 c -17 -13 -5 40 25 0 q 3 -5 0 -5  c -3 -1 -17 10 -25 5" />
+    </defs>
+    <g>
+        <circle
+            cx="50"
+            cy="50"
+            r="10"/>
+        <use 
+            transform="rotate(180, 50 50)"
+            x="5"
+            y="50"
+            href="#sun-beam" />
+        <use 
+            transform="rotate(300, 50 50)"
+            x="5"
+            y="50"
+            href="#sun-beam" />
+        <use 
+            transform="rotate(60, 50 50)"
+            x="5"
+            y="50"
+            href="#sun-beam" />
+    </g>
+</svg>

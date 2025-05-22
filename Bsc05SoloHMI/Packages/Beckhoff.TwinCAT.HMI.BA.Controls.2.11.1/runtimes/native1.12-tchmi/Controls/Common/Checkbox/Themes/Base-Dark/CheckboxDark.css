@@ -1,0 +1,9 @@
+﻿/* Theme depended control css. */
+.tchmi-ba-text-handler.checkbox {
+    --tchmi-ba-checkbox-checked-background-color: var(--tchmi-ba-global-tchmi-blue);
+    --tchmi-ba-checkbox-unchecked-background-color: var(--tchmi-ba-global-input-background);
+    --tchmi-ba-checkbox-checkmark-color: white;
+}
+    .tchmi-ba-text-handler.checkbox.toggle-switch {
+        --tchmi-ba-checkbox-checked-background-color: var(--tchmi-ba-global-tchmi-blue);
+    }

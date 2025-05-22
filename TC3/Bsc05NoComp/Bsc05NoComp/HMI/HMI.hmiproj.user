@@ -5,8 +5,6 @@
   "EditorSettings": [
     {
       "Path": "Desktop.view",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
       "DesignAreaSplitSize": "Full",
       "CodeAreaSplitSize": "Minimized",
       "Orientation": "Vertical",
@@ -17,107 +15,7 @@
   ]
 }</TcHmiEditor_SplitAreaStates>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolMappedTree>[
-  296.79999999999882,
-=======
-=======
->>>>>>> Stashed changes
-      "DesignAreaSplitSize": "Splitted",
-      "CodeAreaSplitSize": "Splitted",
-      "Orientation": "Vertical",
-      "DesignAreaPosition": "Top",
-      "CodeAreaPosition": "Bottom",
-      "SplitPercentage": 0.98145806995364515
-    }
-  ]
-}</TcHmiEditor_SplitAreaStates>
-    <RecentColors>[
-  {
-    "counter": 0,
-    "color": "#FF090909"
-  },
-  {
-    "counter": 0,
-    "color": "#FFFF0202"
-  },
-  {
-    "counter": 0,
-    "color": "#FFFF0000"
-  },
-  {
-    "counter": 0,
-    "color": "#FF00FF18"
-  },
-  {
-    "counter": 0,
-    "color": "#FF00FF14"
-  },
-  {
-    "counter": 0,
-    "color": "#FFFF0101"
-  },
-  {
-    "counter": 0,
-    "color": "#FF000000"
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  },
-  {
-    "counter": 0,
-    "color": ""
-  }
-]</RecentColors>
-    <TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolMappedTree>[
-  200.0,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+  302.00000000000045,
   50.0,
   180.0,
   80.0,
@@ -187,8 +85,6 @@
   300.0,
   300.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_ContextTree>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <TcHmiEditor_PermissionsWindowDimension>268;110;1000;700</TcHmiEditor_PermissionsWindowDimension>
     <RecentColors>[
   {
@@ -272,9 +168,5 @@
     "color": "#FF6D6DDC"
   }
 ]</RecentColors>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   </PropertyGroup>
 </Project>

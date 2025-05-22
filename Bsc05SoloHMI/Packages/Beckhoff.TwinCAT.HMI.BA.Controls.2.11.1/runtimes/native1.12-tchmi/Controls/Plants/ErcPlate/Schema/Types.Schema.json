@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.ErcPlate": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseTemplate",
+      "frameworkControlType": "ErcPlate",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.ErcPlate.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "damper",
+          "displayName": "Damper",
+          "description": "The damper of the energy recovery. (Default: Dmp, DataType: Damper)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "damperBy",
+          "displayName": "Damper Bypass",
+          "description": "The damper bypass of the energy recovery. (Default: ByDmp, DataType: Damper)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "diffPrssSwi",
+          "displayName": "Differential pressure",
+          "description": "The differential pressure of the energy recovery. (Default: DiffPrssSwi, DataType: SensorBinary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "damper": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Damper.SubBaTemplateDescription"
+        },
+        "damperBy": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Damper.SubBaTemplateDescription"
+        },
+        "diffPrssSwi": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

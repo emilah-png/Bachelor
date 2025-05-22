@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_FlowControl" Id="{17583641-e3fa-4328-a5c2-5b9466bfcdcc}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlowControl
+VAR_INPUT
+	bEqualSpeed : BOOL;
+	fArea1 : LREAL;
+	fArea2 : LREAL;
+	fFlow1 : LREAL;
+	fFlow2 : LREAL;
+END_VAR
+VAR_OUTPUT
+	fSpeedRef1 : LREAL;
+	fSpeedRef2 : LREAL;
+END_VAR
+VAR
+	fFlowTotal : LREAL;
+	fAreaTotal : LREAL;
+	fFlowRef1 : LREAL;
+	fFlowRef2 : LREAL;
+	fMaxFlow : LREAL := 55.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fFlowTotal := fFlow1 + fFlow2;
+fAreaTotal := fArea1 + fArea2;
+
+
+IF bEqualSpeed THEN
+	 fFlowRef1 := fFlow1/fMaxFlow;
+	 fFlowRef2 := fFlow2/fMaxFlow;
+ELSE
+	fFlowRef1 := 0.0;
+	fFlowRef2 := 0.0;
+END_IF
+
+
+fSpeedRef1 := fFlowRef1/fArea1 * 1E6 / 6E4;
+fSpeedRef2 := fFlowRef2/fArea2 * 1E6 / 6E4;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

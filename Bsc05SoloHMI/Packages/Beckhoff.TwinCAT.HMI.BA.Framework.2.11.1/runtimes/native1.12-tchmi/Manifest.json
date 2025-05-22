@@ -1,0 +1,31 @@
+{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.BA.Icons"
+    },
+    {
+      "type": "Resource",
+      "path": "libs/ECharts/echarts.min.js"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Management/MgmtCtrl",
+      "descriptionFile": "Description.json"
+    },
+    {
+      "type": "Resource",
+      "path": "dist/TcHmiBaFramework.css"
+    },
+    {
+      "type": "Resource",
+      "path": "dist/TcHmiBaFramework.min.js"
+    }
+  ],
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

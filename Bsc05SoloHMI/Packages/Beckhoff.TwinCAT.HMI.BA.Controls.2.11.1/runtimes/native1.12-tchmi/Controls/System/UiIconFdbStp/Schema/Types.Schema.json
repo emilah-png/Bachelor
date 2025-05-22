@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.System.UiIconFdbStp": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.Common.UiIcon",
+      "frameworkControlType": "UiIconFdbStp",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    }
+  }
+}

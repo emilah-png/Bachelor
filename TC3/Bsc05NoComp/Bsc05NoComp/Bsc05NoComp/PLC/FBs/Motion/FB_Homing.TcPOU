@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Homing" Id="{d5cd56b0-8e5b-4e40-bc1a-8118342c4987}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Homing
+VAR_INPUT
+	fWantedPositionMain : LREAL;
+	fCurrentPosMain : LREAL;
+	fWantedPositionJib : LREAL;
+	fCurrentPosJib : LREAL;
+	fClock : LREAL;
+	bEnableHoming : BOOL;
+END_VAR
+VAR_OUTPUT
+	fXDotRefMain : LREAL;
+	fXDotRefJib : LREAL;
+END_VAR
+VAR
+	fDistanceMain : LREAL;
+	fDistanceJib : LREAL;
+	fSpeed : LREAL;
+	fSlowSpeed : LREAL;
+	fSlowSpace : LREAL;
+	fMargin : LREAL; // MArgin of error for XRef
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fMargin := 0.001;
+fSpeed := 0.01;
+fSlowSpeed := fSpeed / 4.0;
+fSlowSpace := 0.05;
+fDistanceMain := fWantedPositionMain - fCurrentPosMain;
+fDistanceJib := fWantedPositionJib - fCurrentPosJib;
+
+
+IF ABS(fDistanceMain) < fMargin THEN
+	fXDotRefMain := 0.0;
+
+ELSIF ABS(fDistanceMain) > fMargin THEN
+	
+	IF fDistanceMain < -fMargin AND bEnableHoming AND ABS(fDistanceMain) > fMargin THEN
+		fXDotRefMain := -fSlowSpeed;
+	ELSIF fDistanceMain > fMargin AND bEnableHoming AND ABS(fDistanceMain) > fMargin THEN
+		fXDotRefMain := fSlowSpeed;
+	ELSE
+		fXDotRefMain := 0.0;
+	END_IF
+
+ELSIF ABS(fDistanceMain) > fSlowSpace  THEN 
+	
+	IF fDistanceMain < -fSlowSpace AND bEnableHoming THEN
+		fXDotRefMain := -fSpeed;
+	ELSIF fDistanceMain > fSlowSpace AND bEnableHoming THEN
+		fXDotRefMain := fSpeed;
+	ELSE
+		fXDotRefMain := 0.0;
+	END_IF
+	 
+ELSE
+	fXDotRefMain := 0.0;
+END_IF
+
+IF ABS(fDistanceJib) < fMargin THEN
+	fXDotRefJib := 0.0;
+	
+ELSIF ABS(fDistanceJib) > fMargin THEN
+
+	IF fDistanceJib < -fMargin AND bEnableHoming AND ABS(fDistanceJib) > fMargin THEN
+		fXDotRefJib := -fSlowSpeed;
+	ELSIF fDistanceJib > fMargin AND bEnableHoming AND ABS(fDistanceJib) > fMargin THEN
+		fXDotRefJib := fSlowSpeed;
+	ELSE
+		fXDotRefJib := 0.0;
+	END_IF
+ELSIF ABS(fDistanceJib) > fSlowSpace THEN 
+	
+	IF fDistanceJib < -fSlowSpace AND bEnableHoming THEN
+		fXDotRefJib := -fSpeed;
+	ELSIF fDistanceJib > fSlowSpace AND bEnableHoming THEN
+		fXDotRefJib := fSpeed;
+	ELSE
+		fXDotRefJib := 0.0;
+	END_IF  
+ELSE
+	fXDotRefJib := 0.0;
+END_IF
+
+// IF ABS(fDistanceMAin) < 0.001 AND ABS(fDistanceJib) < 0.001 THEN
+// 	G_HMI.nHomingMode := 0;
+// END_IF
+
+
+// IF ABS(fDistanceJib) > fSlowSpace AND ABS(fDistanceMain) > fSlowSpace THEN 
+// 	G_Enables.bEnablePID := FALSE;
+// ELSIF ABS(fDistanceJib) > fSlowSpace AND ABS(fDistanceJib) > 0.001 AND ABS(fDistanceMain) > fSlowSpace AND ABS(fDistanceMain) > 0.001 THEN
+// 	G_Enables.bEnablePID := TRUE;
+// ELSE 
+// 	G_Enables.bEnablePID := FALSE;
+// END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

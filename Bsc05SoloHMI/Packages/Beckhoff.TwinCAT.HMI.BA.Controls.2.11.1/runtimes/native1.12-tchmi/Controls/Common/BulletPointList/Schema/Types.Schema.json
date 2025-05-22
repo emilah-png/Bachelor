@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.BulletPointList": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.TextControl",
+      "frameworkControlType": "BulletPointList",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.BulletPointList.Entries": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "title": "Entries",
+      "items": {
+        "$ref": "tchmi:general#/definitions/String"
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.BulletPointList.ListStyleType": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "options": [
+        {
+          "label": "none",
+          "value": 0
+        },
+        {
+          "label": "disc",
+          "value": 1
+        },
+        {
+          "label": "circle",
+          "value": 2
+        },
+        {
+          "label": "square",
+          "value": 3
+        },
+        {
+          "label": "decimal",
+          "value": 4
+        },
+        {
+          "label": "decimal-leading-zero",
+          "value": 5
+        },
+        {
+          "label": "lower-roman",
+          "value": 6
+        },
+        {
+          "label": "upper-roman",
+          "value": 7
+        },
+        {
+          "label": "lower-latin",
+          "value": 8
+        },
+        {
+          "label": "upper-latin",
+          "value": 9
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.BulletPointList.ListStyleTypes": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "oneOf": [
+        {
+          "title": "ListStyleType",
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.BulletPointList.ListStyleType"
+        },
+        {
+          "title": "String",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Clean;Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.props" Condition="Exists('..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" />
   <Import Project="$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -12,7 +14,7 @@
     <HmiTitle>Please enter your Title...</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3001</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiDefaultLanguage>client</HmiDefaultLanguage>
@@ -27,11 +29,13 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>False</TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>
     <Name>HMI2</Name>
-    <HmiCommunicationRouterPort>10100</HmiCommunicationRouterPort>
-    <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
+    <HmiCommunicationRouterPort>10101</HmiCommunicationRouterPort>
+    <HmiCommunicationServerAuthPort>13001</HmiCommunicationServerAuthPort>
     <HmiInitial>14.2.116.1</HmiInitial>
     <HmiRecent>14.2.116.1</HmiRecent>
     <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <TwinCATHmi_Tasks>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.tasks</TwinCATHmi_Tasks>
@@ -135,6 +139,11 @@
     <Folder Include="Imports\Videos" />
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
+    <Folder Include="Server\TcHmiEcDiagnostics" />
+    <Folder Include="Server\TcHmiEventLogger" />
+    <Folder Include="Server\TcHmiScope" />
+    <Folder Include="Server\TcHmiSqliteHistorize" />
+    <Folder Include="Server\TcHmiSqliteLogger" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base-Dark\Images\" />
     <Folder Include="Themes\Base\" />
@@ -146,6 +155,27 @@
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
     </Content>
+    <Content Include="Images\Manifest\dark-background-abstract-background-network-3d-background-7680x4320-8324.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
       <SubType>Content</SubType>
     </Content>
@@ -153,6 +183,24 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiScope\TcHmiScope.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiScope\TcHmiScope.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiScope\TcHmiScope.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiSqliteHistorize\TcHmiSqliteHistorize.Storage.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiSqliteLogger\TcHmiSqliteLogger.Config.default.json">
@@ -393,6 +441,12 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.props'))" />
     <Error Condition="!Exists('$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.props'))" />
+    <Error Condition="!Exists('..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.targets'))" />
   </Target>
   <Import Project="$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('$(SolutionDir)\packages\Microsoft.TypeScript.MSBuild.5.3.2\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.targets" Condition="Exists('..\packages\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.3.0.6418\build\Beckhoff.TwinCAT.HMI.TcHmiSrvExtNet.Core.SDK.targets')" />
 </Project>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_DeadBand" Id="{492067f6-deee-408c-a414-4c49d135cc0d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_DeadBand
+VAR
+	fbDeadBandOne : FB_DeadBand;
+	fbDeadBandTwo : FB_DeadBand;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbDeadBandOne(
+	fSignal := G_OPC.fJoystickJib,
+	fDeadBandUp := G_Parameters.fDeadUpOne,
+	fDeadBanddown := G_Parameters.fDeadDownOne,
+	fXDotRef := G_Parameters.fMaxSpeedMain * G_OPC.fJoystickJib,
+	fCompansatedSignal =>G_OPC.fValveOneSignals.fOutCompansated
+);
+
+fbDeadBandTwo(
+	fSignal := G_OPC.fJoystickMain,
+	fDeadBandUp := G_Parameters.fDeadUpTwo,
+	fDeadBanddown := G_Parameters.fDeadDownTwo,
+	fXDotRef := G_Parameters.fMaxSpeedJib * G_OPC.fJoystickMain,
+	fCompansatedSignal =>G_OPC.fValveTwoSignals.fOutCompansated
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

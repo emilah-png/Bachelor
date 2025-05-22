@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   style="       stroke: var(--tchmi-ba-global-icon-color, black);       fill: var(--tchmi-ba-global-icon-color, black);       stroke-linejoin: round;       stroke-linecap: round;       stroke-width: 6px;    "
+   id="svg12"
+   sodipodi:docname="motor.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="C:\GIT\TcHmiBa\Source\TcHmiBa\TcHmiBaControls\Controls\Plants\Motor\Icons\16x16.png"
+   inkscape:export-xdpi="15.36"
+   inkscape:export-ydpi="15.36"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     inkscape:zoom="8.58"
+     inkscape:cx="65.32634"
+     inkscape:cy="41.550117"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="4472"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g10"
+     inkscape:lockguides="true" />
+  <g
+     id="g10"
+     style="stroke:none;stroke-opacity:1">
+    <rect
+       style="fill:#f0eff1;fill-opacity:1;stroke:#424242;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1015"
+       width="100"
+       height="100"
+       x="5e-07"
+       y="5e-07" />
+    <text
+       stroke="transparent"
+       font-family="Consolas"
+       font-size="65.8531px"
+       font-weight="bold"
+       y="73.546135"
+       x="29.486008"
+       id="text8"
+       style="fill:#424242;fill-opacity:1;stroke:none;stroke-width:6.99999999;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       transform="scale(1.0506588,0.95178378)">M</text>
+    <circle
+       style="fill:none;stroke:#424242;stroke-width:6.82918;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path845"
+       cx="50"
+       cy="50.000004"
+       r="46.585411" />
+  </g>
+</svg>

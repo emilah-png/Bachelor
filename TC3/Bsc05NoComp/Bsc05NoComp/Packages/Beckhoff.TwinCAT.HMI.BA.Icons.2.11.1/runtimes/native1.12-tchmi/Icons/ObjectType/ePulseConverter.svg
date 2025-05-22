@@ -1,0 +1,25 @@
+<svg version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: var(--tchmi-ba-global-icon-color, black);
+        fill: var(--tchmi-ba-global-icon-color, black);
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        stroke-width: 6px;
+        font-weight: bold;
+        font-family: Consolas;
+    ">
+    <g>
+        <text 
+            stroke="transparent"
+            font-size="60px"
+            x="0" y="40">
+            PC
+        </text>
+        <path 
+            fill="transparent"
+            d="M 3 97 h 10 v -50 h 20 v 50 h 20 v -50 h 20 v 50 H 97"/>
+    </g>
+</svg>

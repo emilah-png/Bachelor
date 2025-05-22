@@ -1,0 +1,7 @@
+.tchmi-ba-base.manual-override {
+    --tchmi-ba-manual-override-manual-active-button-background: linear-gradient(to top left, rgb(255, 255, 0), rgb(180, 180, 0));
+    --tchmi-ba-manual-override-manual-active-button-text-color: rgb(0, 0, 0);
+}
+    .tchmi-ba-base.manual-override > div.tchmi-ba-base.toggle-button.down {
+        background: var(--tchmi-ba-manual-override-manual-active-button-background);
+    }

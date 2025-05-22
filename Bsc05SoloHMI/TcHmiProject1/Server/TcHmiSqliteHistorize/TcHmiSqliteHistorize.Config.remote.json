@@ -1,0 +1,73 @@
+{
+    "enableBackup": false,
+    "historizedSymbolList": {
+        "ADS.PLC1.G_OPC.fJibPaCyl.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fJibPaDCV.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fJibPbCyl.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fJibPbDCV.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fMainPaCyl.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fMainPaDCV.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fMainPbDCV.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fPs.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fWinchPa.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.fWinchPb.fDanielFilter": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.G_OPC.nTime": {
+            "interval": "PT0.01S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        }
+    },
+    "inMemory": false,
+    "maxBackups": 1
+}

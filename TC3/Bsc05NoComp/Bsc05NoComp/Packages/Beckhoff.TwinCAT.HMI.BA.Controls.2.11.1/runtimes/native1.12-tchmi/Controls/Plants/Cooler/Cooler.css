@@ -1,0 +1,49 @@
+.TcHmi_BuildingAutomation_Controls_Plants_Cooler {
+    overflow: visible;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.connection {
+        position: absolute;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.connection.flow,
+        .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.connection.return {
+            top: 75px;
+            bottom: 0px;
+            width: 6px;
+        }
+
+        .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.connection.flow {
+            left: calc(50% - 18px);
+        }
+
+        .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.connection.return {
+            right: calc(50% - 18px);
+        }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.TcHmi_BuildingAutomation_Controls_Common_UiIcon.main {
+        width: 50px;
+        height: 75px;
+        left: calc(50% - 25px);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.TcHmi_BuildingAutomation_Controls_Plants_SensorAnalog.flow-temp-sensor {
+        width: 40px;
+        height: 40px;
+        left: 0px;
+        top: 120px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.TcHmi_BuildingAutomation_Controls_Plants_SensorAnalog.return-temp-sensor {
+        width: 40px;
+        height: 40px;
+        right: 0px;
+        top: 120px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_Cooler > div.TcHmi_BuildingAutomation_Controls_Plants_Valve.valve {
+        width: 40px;
+        height: 40px;
+        left: calc(50% - 18px + 3px - 20px);
+        top: 195px;
+    }

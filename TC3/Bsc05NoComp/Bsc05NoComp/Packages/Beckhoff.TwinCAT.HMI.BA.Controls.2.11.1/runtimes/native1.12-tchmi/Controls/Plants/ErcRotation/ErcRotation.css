@@ -1,0 +1,19 @@
+/* General theme independed control css. */
+
+.TcHmi_BuildingAutomation_Controls_Plants_ErcRotation {
+    overflow: visible;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcRotation > div.TcHmi_BuildingAutomation_Controls_Common_UiIcon.main {
+        top: 70px;
+        left: 15px;
+        width: 50px;
+        height: 225px;
+    }
+
+    .TcHmi_BuildingAutomation_Controls_Plants_ErcRotation > div.TcHmi_BuildingAutomation_Controls_Plants_SensorBinary.diff-prss-swi {
+        top: 0px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+    }

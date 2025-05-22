@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{f4c2c0dd-d9d6-45fe-aa4d-38ae6ac6170a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fTimeStep : LREAL := 0.01;
+	fTime : LREAL;
+	fValue : LREAL;
+	fbDerivator : FB_Derivator;
+	bEnable : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fTime := fTime + fTimeStep;
+
+fbDerivator(
+	ssMethodType := BOOL_TO_SINT(bEnable),
+	fSignal := fTime,
+	fSignalDerivative => fValue
+	
+);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

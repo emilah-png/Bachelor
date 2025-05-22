@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.System.BaseTemplate": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "BaseTemplate",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.System"
+    }
+  }
+}

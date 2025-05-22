@@ -1,0 +1,223 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Weekday": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        255,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "options": [
+        {
+          "label": "Unspecified",
+          "value": 255
+        },
+        {
+          "label": "eMonday",
+          "value": 1
+        },
+        {
+          "label": "eTuesday",
+          "value": 2
+        },
+        {
+          "label": "eWednesday",
+          "value": 3
+        },
+        {
+          "label": "eThursday",
+          "value": 4
+        },
+        {
+          "label": "eFriday",
+          "value": 5
+        },
+        {
+          "label": "eSaturday",
+          "value": 6
+        },
+        {
+          "label": "eSunday",
+          "value": 7
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Month": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        255,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "options": [
+        {
+          "label": "Unspecified",
+          "value": 255
+        },
+        {
+          "label": "eJanuary",
+          "value": 1
+        },
+        {
+          "label": "eFebruary",
+          "value": 2
+        },
+        {
+          "label": "eMarch",
+          "value": 3
+        },
+        {
+          "label": "eApril",
+          "value": 4
+        },
+        {
+          "label": "eMay",
+          "value": 5
+        },
+        {
+          "label": "eJune",
+          "value": 6
+        },
+        {
+          "label": "eJuly",
+          "value": 7
+        },
+        {
+          "label": "eAugust",
+          "value": 8
+        },
+        {
+          "label": "eSeptember",
+          "value": 9
+        },
+        {
+          "label": "eOctober",
+          "value": 10
+        },
+        {
+          "label": "eNovember",
+          "value": 11
+        },
+        {
+          "label": "eDecember",
+          "value": 12
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.BaTime": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "nHour",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "nMinute",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "nSecond",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "nHour": {
+          "type": "number"
+        },
+        "nMinute": {
+          "type": "number"
+        },
+        "nSecond": {
+          "type": "number"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.BaDate": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "eDayOfWeek",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "eMonth",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "nDay",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "nYear",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "eDayOfWeek": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Weekday"
+        },
+        "eMonth": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Month"
+        },
+        "nDay": {
+          "type": "number"
+        },
+        "nYear": {
+          "type": "number"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.BaDateTime": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "stDate",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "stTime",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "stDate": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.BaDate"
+        },
+        "stTime": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.BaTime"
+        }
+      }
+    }
+  }
+}

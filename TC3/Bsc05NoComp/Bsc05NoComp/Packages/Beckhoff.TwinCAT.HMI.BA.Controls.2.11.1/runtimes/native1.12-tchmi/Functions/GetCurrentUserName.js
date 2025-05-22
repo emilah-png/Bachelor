@@ -1,0 +1,1 @@
+var TcHmi;!function(n){!function(i){!function(i){i.GetCurrentUserName=function(){return n.Server.getCurrentUser()}}(i.Functions||(i.Functions={}))}(n.BuildingAutomation||(n.BuildingAutomation={}))}(TcHmi||(TcHmi={})),TcHmi.Functions.registerFunctionEx("GetCurrentUserName","TcHmi.BuildingAutomation.Functions",TcHmi.BuildingAutomation.Functions.GetCurrentUserName);

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Truck" Id="{3b489fd7-285a-4fa3-b032-ecf5cf7e815b}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bParked 		: BOOL;
+	bDriveOut		: BOOL;
+	fDriveOutTime	: LREAL;
+	fTruckPosition 	: LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,4183 @@
+{
+  "$schema": "../../../TcHmiSrv/schema/ExtensionSettings.Schema.json",
+  "version": "1.12.760.37",
+  "configVersion": "1.0.0.12",
+  "guid": "2997437c-6969-4fe0-8bc2-3275125f6ebd",
+  "symbols": {
+    "Diagnostics": {
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "readOnly": true,
+        "properties": {
+          "scopeConfigs": {
+            "readOnly": true,
+            "type": "object",
+            "additionalProperties": {
+              "readOnly": true,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "Get information about the scope configurations."
+    },
+    "Init": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          }
+        },
+        "required": [
+          "controlName"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "socketId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "socketId"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'.",
+        "value": {
+          "controlName": "MyScopeYT Chart"
+        }
+      },
+      "description": "Get Data for a specific ScopeChart."
+    },
+    "DetachControl": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Detach control for ScopeChart named 'MyScopeYT Chart'.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Detach control for a specific ScopeChart."
+    },
+    "OpenConnection": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart."
+    },
+    "CloseConnection": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "DeleteScopeServerRecords": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "amsNetId": {
+            "type": "string"
+          },
+          "deleteAllScopeRecords": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "amsNetId",
+          "deleteAllScopeRecords"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Delete all scope records from scope server or only those records which you could attached to and which you started yourself (from all scope servers).",
+        "value": {
+          "amsNetId": "172.17.62.63.1.1",
+          "deleteAllScopeRecords": true
+        }
+      },
+      "description": "Delete all scope records from scope server or only those records which you could attached to and which you started yourself (from all scope servers)."
+    },
+    "CheckIfSaveRecordIsAttached": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "scopeConfigName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "scopeConfigName"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Checks if the saved recording is attached with the scopeConfigName.",
+        "value": {
+          "scopeConfigName": "ScopeConfig"
+        }
+      },
+      "description": "Checks if the saved recording is attached with the scopeConfigName."
+    },
+    "GetMenubar": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "visibleToolstrip": {
+            "type": "boolean"
+          },
+          "visibleTimestrip": {
+            "type": "boolean"
+          },
+          "enabledButtons": {
+            "type": "number"
+          },
+          "enabledTimeLabels": {
+            "type": "number"
+          },
+          "existsHistoricalAcquisition": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "visibleToolstrip",
+          "visibleTimestrip",
+          "backgroundColor",
+          "enabledButtons",
+          "enabledTimeLabels",
+          "existsHistoricalAcquisition"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetLegend": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "activeLegendElements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "text",
+            "enabled",
+            "color"
+          ]
+        }
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "SetChartSize": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "chartWidth": {
+            "type": "number"
+          },
+          "chartHeight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "chartWidth",
+          "chartHeight"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Sets the size for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "chartWidth": 100,
+          "chartHeight": 100
+        }
+      },
+      "description": "Sets the size for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetData": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "overview": {
+            "type": "object",
+            "properties": {
+              "graphs": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "axesData": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "y": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "lineSeries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": {
+                            "type": "number"
+                          },
+                          "lineStates": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "number"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "tooltipDelta": {
+                      "type": "number"
+                    },
+                    "zeroPoint": {
+                      "$ref": "#/definitions/position"
+                    }
+                  },
+                  "required": [
+                    "axesData",
+                    "zeroPoint",
+                    "tooltipDelta"
+                  ]
+                }
+              },
+              "trigger": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "lineWidth": {
+                      "type": "number"
+                    },
+                    "orientation": {
+                      "type": "string"
+                    },
+                    "dimensions": {
+                      "$ref": "#/definitions/dimensions"
+                    },
+                    "position": {
+                      "$ref": "#/definitions/position"
+                    },
+                    "icon": {
+                      "type": "object",
+                      "properties": {
+                        "dimensions": {
+                          "$ref": "#/definitions/dimensions"
+                        },
+                        "position": {
+                          "$ref": "#/definitions/position"
+                        }
+                      }
+                    },
+                    "text": {
+                      "type": "object",
+                      "properties": {
+                        "dimensions": {
+                          "$ref": "#/definitions/dimensions"
+                        },
+                        "position": {
+                          "$ref": "#/definitions/position"
+                        },
+                        "fontSize": {
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "backgroundColor": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "dimensions",
+                        "position",
+                        "color",
+                        "backgroundColor"
+                      ]
+                    },
+                    "label": {
+                      "type": "object",
+                      "properties": {
+                        "fontSize": {
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "position": {
+                          "type": "string",
+                          "enum": [
+                            "Right",
+                            "Left"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "dimensions",
+                        "position",
+                        "color",
+                        "label"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "color",
+                    "lineWidth",
+                    "orientation",
+                    "dimensions",
+                    "position"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "graphs"
+            ]
+          },
+          "charts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "graphs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "axesData": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "y": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "lineSeries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "index": {
+                              "type": "number"
+                            },
+                            "lineStates": {
+                              "type": "array",
+                              "items": {
+                                "type": [
+                                  "number"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "tooltipDelta": {
+                        "type": "number"
+                      },
+                      "zeroPoint": {
+                        "$ref": "#/definitions/position"
+                      }
+                    },
+                    "required": [
+                      "axesData",
+                      "zeroPoint",
+                      "tooltipDelta"
+                    ]
+                  }
+                },
+                "trigger": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "lineWidth": {
+                        "type": "number"
+                      },
+                      "orientation": {
+                        "type": "string"
+                      },
+                      "dimensions": {
+                        "$ref": "#/definitions/dimensions"
+                      },
+                      "position": {
+                        "$ref": "#/definitions/position"
+                      },
+                      "icon": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          }
+                        }
+                      },
+                      "text": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "fontSize": {
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "backgroundColor": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "color",
+                          "backgroundColor"
+                        ]
+                      },
+                      "label": {
+                        "type": "object",
+                        "properties": {
+                          "fontSize": {
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          },
+                          "position": {
+                            "type": "string",
+                            "enum": [
+                              "Right",
+                              "Left"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "color",
+                          "label"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "color",
+                      "lineWidth",
+                      "orientation",
+                      "dimensions",
+                      "position"
+                    ]
+                  }
+                },
+                "xyTrigger": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "lineWidth": {
+                        "type": "number"
+                      },
+                      "marker": {
+                        "type": "object",
+                        "properties": {
+                          "vertical": {
+                            "type": "object",
+                            "properties": {
+                              "point1": {
+                                "$ref": "#/definitions/position"
+                              },
+                              "point2": {
+                                "$ref": "#/definitions/position"
+                              }
+                            }
+                          },
+                          "horizontal": {
+                            "type": "object",
+                            "properties": {
+                              "point1": {
+                                "$ref": "#/definitions/position"
+                              },
+                              "point2": {
+                                "$ref": "#/definitions/position"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "circle": {
+                        "type": "object",
+                        "properties": {
+                          "middlePoint": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "diameter": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "graphs"
+              ]
+            }
+          }
+        },
+        "required": [
+          "charts"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetWindow": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "xAxisStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "xAxisEnd": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "xAxisPosition": {
+            "type": "string",
+            "format": "timespan"
+          },
+          "displayWidth": {
+            "type": "string",
+            "format": "timespan"
+          },
+          "startDisplayTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scopeState": {
+            "type": "string"
+          },
+          "liveState": {
+            "type": "boolean"
+          },
+          "undo": {
+            "type": "boolean"
+          },
+          "redo": {
+            "type": "boolean"
+          },
+          "overviewRect": {
+            "dimensions": {
+              "$ref": "#/definitions/dimensions"
+            },
+            "position": {
+              "$ref": "#/definitions/position"
+            }
+          }
+        },
+        "required": [
+          "xAxisStart",
+          "xAxisEnd",
+          "xAxisPosition",
+          "displayWidth",
+          "startDisplayTime",
+          "scopeState",
+          "liveState",
+          "undo",
+          "redo"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetActualWindow": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "xAxisStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "xAxisEnd": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "displayWidth": {
+            "type": "string",
+            "format": "timespan"
+          },
+          "scopeState": {
+            "type": "string"
+          },
+          "liveState": {
+            "type": "boolean"
+          },
+          "undo": {
+            "type": "boolean"
+          },
+          "redo": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "xAxisStart",
+          "xAxisEnd",
+          "displayWidth",
+          "scopeState",
+          "liveState",
+          "undo",
+          "redo"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetLayout": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "dimensions": {
+            "$ref": "#/definitions/dimensions"
+          },
+          "position": {
+            "$ref": "#/definitions/position"
+          },
+          "gridSize": {
+            "type": "object",
+            "properties": {
+              "dimensions": {
+                "$ref": "#/definitions/dimensions"
+              },
+              "position": {
+                "$ref": "#/definitions/position"
+              }
+            }
+          },
+          "backgroundColor": {
+            "type": "string"
+          },
+          "foregroundColor": {
+            "type": "string"
+          },
+          "gradientBackground": {
+            "type": "boolean"
+          },
+          "gradientBackgroundColor": {
+            "type": "string"
+          },
+          "showTooltip": {
+            "type": "boolean"
+          },
+          "chartType": {
+            "type": "string"
+          },
+          "headline": {
+            "type": "object",
+            "properties": {
+              "dimensions": {
+                "$ref": "#/definitions/dimensions"
+              },
+              "position": {
+                "$ref": "#/definitions/position"
+              },
+              "label": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "fontSize": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "dimensions",
+              "position",
+              "label",
+              "color",
+              "fontSize"
+            ]
+          },
+          "overview": {
+            "type": "object",
+            "properties": {
+              "visible": {
+                "type": "boolean"
+              },
+              "dimensions": {
+                "$ref": "#/definitions/dimensions"
+              },
+              "preferredSize": {
+                "$ref": "#/definitions/dimensions"
+              },
+              "position": {
+                "$ref": "#/definitions/position"
+              },
+              "canvas": {
+                "type": "object",
+                "properties": {
+                  "dimensions": {
+                    "$ref": "#/definitions/dimensions"
+                  },
+                  "position": {
+                    "$ref": "#/definitions/position"
+                  },
+                  "backgroundColor": {
+                    "type": "string"
+                  }
+                }
+              },
+              "verticalAxis": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "visible": {
+                      "type": "boolean"
+                    },
+                    "visibleTicks": {
+                      "type": "boolean"
+                    },
+                    "dimensions": {
+                      "$ref": "#/definitions/dimensions"
+                    },
+                    "position": {
+                      "$ref": "#/definitions/position"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "lineWidth": {
+                      "type": "number"
+                    },
+                    "headline": {
+                      "type": "object",
+                      "properties": {
+                        "dimensions": {
+                          "$ref": "#/definitions/dimensions"
+                        },
+                        "position": {
+                          "$ref": "#/definitions/position"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "fontSize": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "dimensions",
+                        "position",
+                        "label",
+                        "color",
+                        "fontSize"
+                      ]
+                    },
+                    "labels": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "label": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "fontSize": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "label",
+                          "color",
+                          "fontSize"
+                        ]
+                      }
+                    },
+                    "grid": {
+                      "type": "object",
+                      "properties": {
+                        "ticks": {
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "lineWidth": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "ticks",
+                        "color",
+                        "lineWidth"
+                      ]
+                    },
+                    "subGrid": {
+                      "type": "object",
+                      "properties": {
+                        "ticks": {
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "lineWidth": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "ticks",
+                        "color",
+                        "lineWidth"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "visible",
+                    "dimensions",
+                    "position"
+                  ]
+                }
+              },
+              "horizontalAxis": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "visible": {
+                      "type": "boolean"
+                    },
+                    "visibleTicks": {
+                      "type": "boolean"
+                    },
+                    "dimensions": {
+                      "$ref": "#/definitions/dimensions"
+                    },
+                    "position": {
+                      "$ref": "#/definitions/position"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "lineWidth": {
+                      "type": "number"
+                    },
+                    "headline": {
+                      "type": "object",
+                      "properties": {
+                        "dimensions": {
+                          "$ref": "#/definitions/dimensions"
+                        },
+                        "position": {
+                          "$ref": "#/definitions/position"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "fontSize": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "dimensions",
+                        "position",
+                        "label",
+                        "color",
+                        "fontSize"
+                      ]
+                    },
+                    "labels": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "label": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "fontSize": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "label",
+                          "color",
+                          "fontSize"
+                        ]
+                      }
+                    },
+                    "grid": {
+                      "type": "object",
+                      "properties": {
+                        "visible": {
+                          "type": "boolean"
+                        },
+                        "ticks": {
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "lineWidth": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "visible",
+                        "ticks",
+                        "color",
+                        "lineWidth"
+                      ]
+                    },
+                    "subGrid": {
+                      "type": "object",
+                      "properties": {
+                        "visible": {
+                          "type": "boolean"
+                        },
+                        "ticks": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "type": "number"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "lineWidth": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "visible",
+                        "ticks",
+                        "color",
+                        "lineWidth"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "visible",
+                    "dimensions",
+                    "position"
+                  ]
+                }
+              },
+              "graphs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "graphName": {
+                      "type": "string"
+                    },
+                    "graphType": {
+                      "type": "string"
+                    },
+                    "marks": {
+                      "type": "boolean"
+                    },
+                    "lineColor": {
+                      "type": "string"
+                    },
+                    "lineWidth": {
+                      "type": "string"
+                    },
+                    "markColor": {
+                      "type": "string"
+                    },
+                    "markWidth": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "graphType",
+                    "marks",
+                    "lineColor",
+                    "lineWidth",
+                    "lineStyle",
+                    "markColor",
+                    "markWidth",
+                    "markStyle"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "visible",
+              "dimensions",
+              "preferredSize",
+              "position"
+            ]
+          },
+          "charts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "visible": {
+                  "type": "boolean"
+                },
+                "dimensions": {
+                  "$ref": "#/definitions/dimensions"
+                },
+                "preferredSize": {
+                  "$ref": "#/definitions/dimensions"
+                },
+                "position": {
+                  "$ref": "#/definitions/position"
+                },
+                "canvas": {
+                  "type": "object",
+                  "properties": {
+                    "dimensions": {
+                      "$ref": "#/definitions/dimensions"
+                    },
+                    "position": {
+                      "$ref": "#/definitions/position"
+                    },
+                    "backgroundColor": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "headline": {
+                  "type": "object",
+                  "properties": {
+                    "dimensions": {
+                      "$ref": "#/definitions/dimensions"
+                    },
+                    "position": {
+                      "$ref": "#/definitions/position"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "fontSize": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "dimensions",
+                    "position",
+                    "label",
+                    "color",
+                    "fontSize"
+                  ]
+                },
+                "verticalAxis": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "visible": {
+                        "type": "boolean"
+                      },
+                      "visibleTicks": {
+                        "type": "boolean"
+                      },
+                      "dimensions": {
+                        "$ref": "#/definitions/dimensions"
+                      },
+                      "position": {
+                        "$ref": "#/definitions/position"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "lineWidth": {
+                        "type": "number"
+                      },
+                      "headline": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "label": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "fontSize": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "label",
+                          "color",
+                          "fontSize"
+                        ]
+                      },
+                      "labels": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "dimensions": {
+                              "$ref": "#/definitions/dimensions"
+                            },
+                            "position": {
+                              "$ref": "#/definitions/position"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "color": {
+                              "type": "string"
+                            },
+                            "fontSize": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "dimensions",
+                            "position",
+                            "label",
+                            "color",
+                            "fontSize"
+                          ]
+                        }
+                      },
+                      "grid": {
+                        "type": "object",
+                        "properties": {
+                          "ticks": {
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "lineWidth": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "ticks",
+                          "color",
+                          "lineWidth"
+                        ]
+                      },
+                      "subGrid": {
+                        "type": "object",
+                        "properties": {
+                          "ticks": {
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "lineWidth": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "ticks",
+                          "color",
+                          "lineWidth"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "visible",
+                      "dimensions",
+                      "position"
+                    ]
+                  }
+                },
+                "horizontalAxis": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "visible": {
+                        "type": "boolean"
+                      },
+                      "visibleTicks": {
+                        "type": "boolean"
+                      },
+                      "dimensions": {
+                        "$ref": "#/definitions/dimensions"
+                      },
+                      "position": {
+                        "$ref": "#/definitions/position"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "lineWidth": {
+                        "type": "number"
+                      },
+                      "headline": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "$ref": "#/definitions/dimensions"
+                          },
+                          "position": {
+                            "$ref": "#/definitions/position"
+                          },
+                          "label": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "fontSize": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "position",
+                          "label",
+                          "color",
+                          "fontSize"
+                        ]
+                      },
+                      "labels": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "dimensions": {
+                              "$ref": "#/definitions/dimensions"
+                            },
+                            "position": {
+                              "$ref": "#/definitions/position"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "color": {
+                              "type": "string"
+                            },
+                            "fontSize": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "dimensions",
+                            "position",
+                            "label",
+                            "color",
+                            "fontSize"
+                          ]
+                        }
+                      },
+                      "grid": {
+                        "type": "object",
+                        "properties": {
+                          "visible": {
+                            "type": "boolean"
+                          },
+                          "ticks": {
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "lineWidth": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "visible",
+                          "ticks",
+                          "color",
+                          "lineWidth"
+                        ]
+                      },
+                      "subGrid": {
+                        "type": "object",
+                        "properties": {
+                          "visible": {
+                            "type": "boolean"
+                          },
+                          "ticks": {
+                            "dimensions": {
+                              "$ref": "#/definitions/dimensions"
+                            },
+                            "position": {
+                              "$ref": "#/definitions/position"
+                            },
+                            "type": "number"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "lineWidth": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "visible",
+                          "ticks",
+                          "color",
+                          "lineWidth"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "visible",
+                      "dimensions",
+                      "position"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "visible",
+                "dimensions",
+                "preferredSize",
+                "position"
+              ]
+            }
+          },
+          "graphs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "graphName": {
+                  "type": "string"
+                },
+                "graphType": {
+                  "type": "string"
+                },
+                "marks": {
+                  "type": "boolean"
+                },
+                "lineColor": {
+                  "type": "string"
+                },
+                "lineWidth": {
+                  "type": "string"
+                },
+                "lineStyle": {
+                  "type": "string"
+                },
+                "markColor": {
+                  "type": "string"
+                },
+                "markWidth": {
+                  "type": "number"
+                },
+                "markStyle": {
+                  "type": "string"
+                },
+                "fillMode": {
+                  "type": "string"
+                },
+                "fillColor": {
+                  "type": "string"
+                },
+                "fillTransparency": {
+                  "type": "number"
+                },
+                "showEndCap": {
+                  "type": "boolean"
+                },
+                "showStartCap": {
+                  "type": "boolean"
+                },
+                "capSize": {
+                  "type": "number"
+                },
+                "capColor": {
+                  "type": "string"
+                },
+                "antialias": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "graphName",
+                "graphType",
+                "marks",
+                "lineColor",
+                "lineWidth",
+                "lineStyle",
+                "markColor",
+                "markWidth",
+                "markStyle",
+                "antialias"
+              ]
+            }
+          }
+        },
+        "required": [
+          "dimensions",
+          "position",
+          "gridSize",
+          "backgroundColor",
+          "foregroundColor",
+          "showTooltip",
+          "chartType",
+          "overview",
+          "charts",
+          "graphs"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Data for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetTriggerWindow": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "count": {
+              "type": "string"
+            },
+            "triggerGroup": {
+              "type": "string"
+            },
+            "releaseTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "comment": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "count",
+            "triggerGroup",
+            "releaseTime"
+          ]
+        }
+      },
+      "sample": {
+        "description": "Get Triggerdata for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Get Triggerdata for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "StartRecord": {
+      "userGroups": [
+        "__SystemAdministrators"
+      ],
+      "writeValue": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "controlName": {
+                "type": "string",
+                "description": "ScopeChart Name."
+              },
+              "scopeConfig": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "chart"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the scope config."
+                  },
+                  "chart": {
+                    "type": "string",
+                    "description": "Chart name out of the scope config."
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Information for scope config."
+              }
+            },
+            "required": [
+              "controlName",
+              "scopeConfig"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configName": {
+                "type": "string",
+                "description": "Name of the config."
+              }
+            },
+            "required": [
+              "configName"
+            ]
+          }
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Starts the record for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Starts the record for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "StopRecord": {
+      "userGroups": [
+        "__SystemAdministrators"
+      ],
+      "writeValue": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "controlName": {
+                "type": "string",
+                "description": "ScopeChart Name."
+              },
+              "scopeConfig": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "chart"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the scope config."
+                  },
+                  "chart": {
+                    "type": "string",
+                    "description": "Chart name out of the scope config."
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Information for scope config."
+              }
+            },
+            "required": [
+              "controlName",
+              "scopeConfig"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configName": {
+                "type": "string",
+                "description": "Name of the config."
+              },
+              "deleteFromScopeServer": {
+                "type": "boolean",
+                "description": "Specifies whether the recording should also be deleted directly on the ScopeServer."
+              }
+            },
+            "required": [
+              "configName",
+              "deleteFromScopeServer"
+            ]
+          }
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Stops the record for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Stops the record for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "StartDisplay": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Starts the display for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Starts the display for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "StopDisplay": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Stops the display for ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Stops the display for a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Zoom": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "zoom": {
+            "type": "object",
+            "properties": {
+              "chartIndex": {
+                "type": "number"
+              },
+              "mouseMode": {
+                "type": "string"
+              },
+              "startPoint": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "endPoint": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              }
+            },
+            "required": [
+              "chartIndex",
+              "mouseMode",
+              "startPoint",
+              "endPoint"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "zoom"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Zoom into the ScopeChart named 'MyScopeYT Chart' with the zooming start- and endPoint. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "zoom": {
+            "chartIndex": 1,
+            "mouseMode": "Zoom",
+            "startPoint": {
+              "x": 100,
+              "y": 100
+            },
+            "endPoint": {
+              "x": 100,
+              "y": 100
+            }
+          }
+        }
+      },
+      "description": "Zoom into a specific ScopeChart with the zooming start- and endPoint. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Pan": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "pan": {
+            "type": "object",
+            "properties": {
+              "chartIndex": {
+                "type": "number"
+              },
+              "mouseMode": {
+                "type": "string"
+              },
+              "startPoint": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "endPoint": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              }
+            },
+            "required": [
+              "chartIndex",
+              "mouseMode",
+              "startPoint",
+              "endPoint"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "pan"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Pan in the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "pan": {
+            "chartIndex": 1,
+            "mouseMode": "Zoom",
+            "startPoint": {
+              "x": 100,
+              "y": 100
+            },
+            "endPoint": {
+              "x": 100,
+              "y": 100
+            }
+          }
+        }
+      },
+      "description": "Pan in a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Wheel": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "wheel": {
+            "type": "object",
+            "properties": {
+              "chartIndex": {
+                "type": "number"
+              },
+              "mouseMode": {
+                "type": "string"
+              },
+              "delta": {
+                "type": "number"
+              },
+              "mousePosition": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              }
+            },
+            "required": [
+              "chartIndex",
+              "mouseMode",
+              "delta",
+              "mousePosition"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "wheel"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Wheel in/out the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "wheel": {
+            "chartIndex": 1,
+            "mouseMode": "Zoom",
+            "mousePosition": {
+              "x": 100,
+              "y": 100
+            },
+            "delta": 100
+          }
+        }
+      },
+      "description": "Wheel in/out a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ZoomOutMax": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Zoom out the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Zoom out a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ZoomToDefault": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Zoom to default to the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Zoom to default to a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Goto": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "position": {
+            "type": "string",
+            "format": "timespan"
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "position"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Goto position of the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "position": "PT10S"
+        }
+      },
+      "description": "Goto position of a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "SetDisplayWidth": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "displayWidth": {
+            "type": "string",
+            "format": "timespan"
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "displayWidth"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Set DisplayWidth for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "displayWidth": "PT10S"
+        }
+      },
+      "description": "Set DisplayWidth for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Scroll": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "Forward",
+              "Reverse"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "direction"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Scroll forward (or reverse) for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "direction": "Forward"
+        }
+      },
+      "description": "Scroll forward (or reverse) for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ScrollBig": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "Forward",
+              "Reverse"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "direction"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Scroll big (a full page) forward (or reverse) for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "direction": "Forward"
+        }
+      },
+      "description": "Scroll big (a full page) forward (or reverse) for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Undo": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Undo last interaction for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Undo last interaction for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Redo": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Redo last interaction for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Redo last interaction for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "SetOverviewMode": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "showOverview": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "showOverview"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Set Overview for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "showOverview": true
+        }
+      },
+      "description": "Set Overview for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "SetOverviewRect": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "xDirection": {
+            "type": "number"
+          },
+          "sizeChanged": {
+            "width": {
+              "type": "number"
+            },
+            "changedAtBeginning": {
+              "type": "boolean"
+            }
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Set overview rect for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "xDirection": 100,
+          "sizeChanged": {
+            "width": 200,
+            "changedAtBeginning": false
+          }
+        }
+      },
+      "description": "Set overview rect for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetTooltip": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "chartIndex": {
+            "type": "number"
+          },
+          "mousePosition": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "chartIndex",
+          "mousePosition"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "displayText": {
+            "type": "string"
+          },
+          "chartIndex": {
+            "type": "number"
+          },
+          "timeoutMS": {
+            "type": "string",
+            "format": "timespan"
+          },
+          "position": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      },
+      "sample": {
+        "description": "Get tooltip at mousePosition for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "chartIndex": 1,
+          "mousePosition": {
+            "x": 100,
+            "y": 100
+          }
+        }
+      },
+      "description": "Get tooltip at mousePosition for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ResizeCharts": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "resizeOverview": {
+            "type": "boolean"
+          },
+          "charts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chartIndex": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "width",
+                "chartIndex",
+                "height"
+              ]
+            }
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "charts"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Resize charts in the ScopeChart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "charts": [
+            {
+              "chartIndex": 0,
+              "width": 100,
+              "height": 100
+            },
+            {
+              "chartIndex": 1,
+              "width": 200,
+              "height": 100
+            }
+          ]
+        }
+      },
+      "description": "Resize charts in a specific ScopeChart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ChangeChannelState": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control Name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "newState": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "channelId",
+          "newState"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Change channel state for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "channelId": "7ec5d26f-e146-462e-b7bf-c596f418d703",
+          "newState": false
+        }
+      },
+      "description": "Change channel state for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "SetTriggerComment": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "triggerId": {
+            "type": "string",
+            "description": "Id for the trigger."
+          },
+          "newText": {
+            "type": "string",
+            "description": "New text for the trigger."
+          }
+        },
+        "required": [
+          "controlName",
+          "scopeConfig",
+          "triggerId",
+          "newText"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Change trigger comment for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "triggerId": "7ec5d26f-e146-462e-b7bf-c596f418d703",
+          "newText": "New Comment"
+        }
+      },
+      "description": "Change trigger comment for a specific chart. Symbols must be called from the same socket as OpenConnection."
+    },
+    "Upload": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "description": "Name for uploaded .svdx file."
+          },
+          "data": {
+            "type": "string",
+            "description": "Data as base64."
+          },
+          "chunkType": {
+            "type": "number",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "description": "Chunktype: 0=file is sent as a whole, 1=beginning of a file, 2=middle part of a file (any number of times), 3=end of a file"
+          },
+          "fileSize": {
+            "type": "number",
+            "description": "Complete size of .svdx file"
+          },
+          "persist": {
+            "type": "boolean",
+            "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+          }
+        },
+        "required": [
+          "fileName",
+          "data",
+          "chunkType"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'.",
+        "value": {
+          "fileName": "Test.svdx",
+          "data": "SEVMTE8=",
+          "chunkType": 1,
+          "fileSize": 142799,
+          "persist": true
+        }
+      },
+      "description": "Get Data for a specific ScopeChart."
+    },
+    "SaveCurrentRecord": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "scopeConfigName": {
+            "type": "string",
+            "description": "Name of the config file."
+          },
+          "persist": {
+            "type": "boolean",
+            "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+          },
+          "replace": {
+            "type": "boolean",
+            "description": "Whether to overwrite a file (the old file will be deleted)."
+          }
+        },
+        "required": [
+          "scopeConfigName"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'.",
+        "value": {
+          "scopeConfigName": "Test",
+          "persist": true,
+          "replace": true
+        }
+      },
+      "description": "Get Data for a specific ScopeChart."
+    },
+    "GetAllUploadedRecords": {
+      "userGroups": [
+        "__SystemAdministrators"
+      ],
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "description": "Name of the user."
+            },
+            "extensionName": {
+              "type": "string",
+              "description": "Name of the extension."
+            },
+            "fileName": {
+              "type": "string",
+              "description": "Name of file."
+            },
+            "guid": {
+              "type": "string",
+              "description": "Guid of the uploaded record."
+            },
+            "persist": {
+              "type": "boolean",
+              "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+            }
+          }
+        }
+      },
+      "description": "Get all uploaded records."
+    },
+    "GetOwnUploadedRecords": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "description": "Name of the user."
+            },
+            "extensionName": {
+              "type": "string",
+              "description": "Name of the extension."
+            },
+            "fileName": {
+              "type": "string",
+              "description": "Name of the file."
+            },
+            "guid": {
+              "type": "string",
+              "description": "Guid of the uploaded record."
+            },
+            "persist": {
+              "type": "boolean",
+              "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+            }
+          }
+        }
+      },
+      "description": "Get uploaded records for the user."
+    },
+    "GetChartList": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "description": "Name of the user."
+          },
+          "extensionName": {
+            "type": "string",
+            "description": "Name of the extension."
+          },
+          "fileName": {
+            "type": "string",
+            "description": "Name of the file."
+          },
+          "guid": {
+            "type": "string",
+            "description": "Guid of the uploaded record."
+          },
+          "persist": {
+            "type": "boolean",
+            "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+          }
+        },
+        "required": [
+          "userName",
+          "extensionName",
+          "fileName",
+          "guid",
+          "persist"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "sample": {
+        "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "userName": "Julia",
+          "extensionName": "TcHmiScope",
+          "fileName": "Test.svdx",
+          "guid": "2997437c-6969-4fe0-8bc2-3275125f6ebd",
+          "persist": true
+        }
+      },
+      "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection."
+    },
+    "DeleteScopeRecord": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "description": "Name of the user."
+            },
+            "extensionName": {
+              "type": "string",
+              "description": "Name of the extension."
+            },
+            "fileName": {
+              "type": "string",
+              "description": "Name of the file."
+            },
+            "guid": {
+              "type": "string",
+              "description": "Guid of the uploaded record."
+            },
+            "persist": {
+              "type": "boolean",
+              "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+            }
+          },
+          "required": [
+            "userName",
+            "extensionName",
+            "fileName",
+            "guid",
+            "persist"
+          ]
+        }
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection.",
+        "value": [
+          {
+            "userName": "Julia",
+            "extensionName": "TcHmiScope",
+            "fileName": "Test.svdx",
+            "guid": "2997437c-6969-4fe0-8bc2-3275125f6ebd",
+            "persist": true
+          }
+        ]
+      },
+      "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection."
+    },
+    "ChangePersist": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "description": "Name of the user."
+          },
+          "extensionName": {
+            "type": "string",
+            "description": "Name of the extension."
+          },
+          "fileName": {
+            "type": "string",
+            "description": "Name of the file."
+          },
+          "guid": {
+            "type": "string",
+            "description": "Guid of the uploaded record."
+          },
+          "persist": {
+            "type": "boolean",
+            "description": "Whether a file should be persisted (after shutdown of the extension the file will be deleted)."
+          }
+        },
+        "required": [
+          "userName",
+          "extensionName",
+          "fileName",
+          "guid",
+          "persist"
+        ]
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "userName": "Julia",
+          "extensionName": "TcHmiScope",
+          "fileName": "Test.svdx",
+          "guid": "2997437c-6969-4fe0-8bc2-3275125f6ebd",
+          "persist": true
+        }
+      },
+      "description": "Attach to scope record. Symbols must be called from the same socket as OpenConnection."
+    },
+    "OpenConnectionToFile": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "ScopeChart Name."
+          },
+          "uploadFileInformation": {
+            "type": "object",
+            "properties": {
+              "extensionName": {
+                "type": "string",
+                "description": "Name of extension."
+              },
+              "userName": {
+                "type": "string",
+                "description": "Name of user."
+              },
+              "fileName": {
+                "type": "string",
+                "description": "Name of file to connect to."
+              },
+              "chartName": {
+                "type": "string",
+                "description": "Name of chart to show."
+              },
+              "guid": {
+                "type": "string",
+                "description": "Guid of file"
+              },
+              "persist": {
+                "type": "boolean",
+                "description": "Whether to delete the file after extension shutdown. "
+              }
+            },
+            "required": [
+              "extensionName",
+              "userName",
+              "fileName",
+              "chartName",
+              "guid",
+              "persist"
+            ]
+          }
+        },
+        "required": [
+          "controlName",
+          "uploadFileInformation"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The full path of the scope record file."
+          },
+          "chart": {
+            "type": "string",
+            "description": "Chart name out of the scope record file."
+          }
+        },
+        "required": [
+          "name",
+          "chart"
+        ]
+      },
+      "sample": {
+        "description": "Get Data for ScopeChart named 'MyScopeYT Chart'.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "uploadFileInformation": {
+            "extensionName": "TcHmiScope",
+            "userName": "Julia",
+            "fileName": "Test.svdx",
+            "chartName": "Chart",
+            "guid": "2997437c-6969-4fe0-8bc2-3275125f6ebd",
+            "persist": true
+          }
+        }
+      },
+      "description": "Get Data for ScopeChart named 'MyScopeYT Chart'."
+    },
+    "ClickOverviewElement": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "clickPoint": {
+            "type": "object",
+            "description": "The point that was clicked.",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Click on overview marker or trigger for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "clickPoint": {
+            "x": 100,
+            "y": 100
+          }
+        }
+      },
+      "description": "Click on overview marker or trigger for chart named 'MyScopeYT Chart'. Symbols must be called from the same socket as OpenConnection."
+    },
+    "GetAnalyticsData": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        }
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Triggers querying of all historical records from the same target.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Triggers querying of all historical records from the same target."
+    },
+    "GetRecords": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          }
+        }
+      },
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "startTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endTime": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "sample": {
+        "description": "Returns all historical records from the same target.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          }
+        }
+      },
+      "description": "Returns all historical records from the same target."
+    },
+    "SetAnalyticsRecord": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "controlName": {
+            "type": "string",
+            "description": "Control name."
+          },
+          "scopeConfig": {
+            "type": "object",
+            "required": [
+              "name",
+              "chart"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the scope config."
+              },
+              "chart": {
+                "type": "string",
+                "description": "Chart name out of the scope config."
+              }
+            },
+            "additionalProperties": false,
+            "description": "Information for scope config."
+          },
+          "recordId": {
+            "type": "number",
+            "description": "Record id."
+          },
+          "recordName": {
+            "type": "string",
+            "description": "Record name."
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start time for the record."
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "End time for the record."
+          }
+        }
+      },
+      "readValue": {
+        "function": true
+      },
+      "sample": {
+        "description": "Set a historical records with time range for acquisition with the same target.",
+        "value": {
+          "controlName": "MyScopeYT Chart",
+          "scopeConfig": {
+            "name": "ScopeConfig",
+            "chart": "YT Chart"
+          },
+          "recordName": "Record_1",
+          "startTime": "2022-09-19T11:03:40.0821Z",
+          "endTime": "2022-09-19T11:05:40.0821Z"
+        }
+      },
+      "description": "Set a historical records with time range for acquisition with the same target."
+    }
+  },
+  "dotNetTargetFramework": "net472",
+  "dotNetTargetFrameworkVersion": "v4.7.2",
+  "dotNetPlatformTarget": "AnyCPU",
+  "dotNetConfiguration": "Release",
+  "packageVersion": "14.1.100",
+  "productVersion": "1.12.760.37",
+  "signature": "K3nt4a2A5Kaj2l3b2n4U7RWImDWj88He4p+8qqj/GwWJnTchk0F1SEbDLVo3rZ8s1iyauxqP4tH/yX6/rB+OqvzwsMIU5sSsf/SxDGHu/bz/d7O0hGUcz2Jp21jaDXQ1EhuKm+Qp3bEpMczXeP6fCFVpT3LsZA2Vb7FilYErUWyf0GQOtM2GX6bPELDbA9zN3mcIkI9+Xg29cfTCux5I1NoDAFDOTaIHVFQKNV+hdnyvwd08rtiSC0lAHSSEhr/H/ocYIrgMCrzIsLyEEHueahUtuBO3eq+3+/Dcmewv9Y5KfuOmDYRKcxyFlOatrjplFVnAE++122F2+o0A0l2o3A=="
+}

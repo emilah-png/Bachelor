@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Config" Id="{15dc4631-66a8-4477-96d1-0e08eddb5b00}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Config
+VAR
+	fbJibJoystickConfig : FB_Config;
+	fbConfigClock		: FB_Clock;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF G_Enables.bConfigJoysticks THEN
+	fbConfigClock(
+		bStartEnable := G_Enables.bConfigJoysticks,
+		
+		fTime => G_Config.fConfigTime
+	);
+	
+	fbJibJoystickConfig(
+		bEnable := G_Enables.bConfigJoysticks,
+		fSignal := G_Inputs.nRawJoystickJib,
+		
+		fAverage => G_Config.fJibJoystickAverage
+	);
+	
+	
+	IF G_Config.fConfigTime < 2.0 THEN
+		G_Enables.bEnableTwo := FALSE;
+		G_Enables.bEnableOne := FALSE;
+		G_Enables.bEnableU := FALSE;
+		G_Enables.bManual := FALSE;
+		G_Enables.bAuto := FALSE;
+	ELSIF G_Config.fConfigTime = 2.0 THEN
+		G_Enables.bConfigJoysticks := FALSE;
+	END_IF
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

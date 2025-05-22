@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="G_Output" Id="{bd20dd61-a2c0-448c-b6e7-b35d219fce0e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Digital Outputs
+	bEnableValveOne			AT %Q* : BOOL; // PLC DO:1
+	bEnableValveTwo			AT %Q* : BOOL; // PLC DO:2
+	bEnableRelay			AT %Q* : BOOL;
+	
+	// Analog Outputs
+	nValveOneOutput 		AT %Q* : INT; // PLC AO:1
+	nValveTwoOutput			AT %Q* : INT; // PLC AO:2
+	
+	// Analog Outputs RIO
+	nWinchOutput 			AT %Q* : INT;
+	nSlewOutput				AT %Q* : INT;
+	nMainOutput 			AT %Q* : INT;
+	nJibOutput				AT %Q* : INT;
+	nExtrudeOutput 			AT %Q* : INT;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

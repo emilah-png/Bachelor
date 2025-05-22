@@ -1,0 +1,12 @@
+{
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.14.2.110/runtimes/native1.12-tchmi/Schema/LocalizationDescription.Schema.json",
+  "locale": "de",
+  "localizedText": {
+    "L_Language": "Sprache",
+    "L_German": "Deutsch",
+    "L_English": "Englisch",
+    "L_LanguageSelection": "Sprachauswahl",
+    "L_CloseText": "Schließen",
+    "L_RedCrane": "Red Crane"
+  }
+}

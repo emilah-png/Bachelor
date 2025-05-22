@@ -1,0 +1,178 @@
+{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "TcHmiSimpleRangeSlider",
+  "namespace": "TcHmi.Controls.TcHmiSimpleRangeSlider",
+  "displayName": "TcHmiSimpleRangeSlider",
+  "version": {
+    "full": "1.1.0.0",
+    "major": 1,
+    "minor": 1,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "Simple Range Slider.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 300,
+      "height": 50
+    }
+  },
+  "template": "Template.html",
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "Icons/24x24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "name": "Icons/32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "Icons/64x64.png",
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "dependencyFiles": [
+    {
+      "name": "TcHmiSimpleRangeSliderControl.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+    "themes":
+    {
+        "Base":
+        {
+            "resources":
+            [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark":
+        {
+            "resources":
+            [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+  "attributes": [
+    {
+      "name": "data-tchmi-rangeslider-value",
+      "displayName": "Value",
+      "propertyName": "Value",
+      "propertySetterName": "setValue",
+      "propertyGetterName": "getValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "RangeSlider",
+      "description": "Range Slider Value.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": false,
+      "defaultValue": 75,
+      "defaultValueInternal": 75
+    },
+    {
+      "name": "data-tchmi-rangeslider-min",
+      "displayName": "Min",
+      "propertyName": "Min",
+      "propertySetterName": "setMin",
+      "propertyGetterName": "getMin",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "RangeSlider",
+      "description": "Range Slider Min Value.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": false,
+      "defaultValue": 0,
+      "defaultValueInternal": 0
+    },
+    {
+      "name": "data-tchmi-rangeslider-max",
+      "displayName": "Max",
+      "propertyName": "Max",
+      "propertySetterName": "setMax",
+      "propertyGetterName": "getMax",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "RangeSlider",
+      "description": "Range Slider Max Value.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": false,
+      "defaultValue": 100,
+      "defaultValueInternal": 100
+    },
+    {
+      "name": "data-tchmi-rangeslider-stepsize",
+      "displayName": "StepSize",
+      "propertyName": "StepSize",
+      "propertySetterName": "setStepSize",
+      "propertyGetterName": "getStepSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "RangeSlider",
+      "description": "Range Slider Step Size Value.",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": false,
+      "defaultValue": 0,
+      "defaultValueInternal": 0
+    }
+  ],
+  "attributeCategories": [
+    {
+      "name": "RangeSlider",
+      "displayPriority": 10
+    }
+  ],
+  "functions": [],
+  "events": [
+    {
+      "name": ".onSliderInputChanged",
+      "displayName": ".onSliderInputChanged",
+      "visible": true,
+      "displayPriority": 10,
+      "category": "Control",
+      "description": "The onSliderInputChanged event is fired when the slider value has changed.",
+      "heritable": true
+    }
+  ],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

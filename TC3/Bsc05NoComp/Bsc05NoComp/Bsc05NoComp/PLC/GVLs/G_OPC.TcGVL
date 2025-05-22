@@ -4,26 +4,36 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	
+	// System Values 
+	fTime					: LREAL; // [s]
+	nTime					: UINT;  // [s]
+	fHoldTime				: LREAL; // [s]
+	bMeasurement			: BOOL;
 	fPs 					: ST_Filter; // [Bar]
 	
 	// MAIN Values
-	fMainPa 				: ST_Filter; // [Bar]
-	fMainPb					: ST_Filter; // [Bar]
-	fMainPaLower			: ST_Filter; // [Bar]
+	fMainPaDCV				: ST_Filter; // [Bar]
+	fMainPbDCV				: ST_Filter; // [Bar]
+	fMainPaCyl				: ST_Filter; // [Bar]
 	fMainPistonPosition 	: ST_Filter; // [m]
+	fMainPistonVelocity		: LREAL; 	 // [m/s]
+	fMainFlowA				: LREAL;	 // [L/min]
+	fMainFlowB				: LREAL;	 // [L/min]
 	
 	// JIB Values
-	fJibPa 					: ST_Filter; // [Bar]
-	fJibPb					: ST_Filter; // [Bar]
-	fJibPaLower				: ST_Filter; // [Bar]
-	fJibPbLower				: ST_Filter; // [Bar]
+	fJibPaDCV				: ST_Filter; // [Bar]
+	fJibPbDCV				: ST_Filter; // [Bar]
+	fJibPaCyl				: ST_Filter; // [Bar]
+	fJibPbCyl				: ST_Filter; // [Bar]
 	fJibPistonPosition		: ST_Filter; // [m]
+	fJibPistonVelocity		: LREAL; 	 // [m/s]
+	fJibFlowA				: LREAL;	 // [L/min]
+	fJibFlowB				: LREAL;	 // [L/min]
 	
 	// WINCH Values
 	fWinchPa				: ST_Filter; // [Bar]
 	fWinchPb				: ST_Filter; // [Bar]
-	fWinchEncoderA			: ST_Filter;
-	fWinchEncoderB			: ST_Filter;
+	fWinchDistance			: ST_Filter; // [m]
 	
 	
 	// Joystick Signals
@@ -34,17 +44,30 @@ VAR_GLOBAL
 	fJoystickExtrude		: LREAL; // [-1, 1]
 	
 	// Valve Signals
-	fMainValveOutput		: LREAL; // [-1, 1]
-	fMainValveFF			: LREAL;
-	fMainValvePID			: LREAL;
+	fValveOneSignals		: ST_Signals; // [-1, 1]
+	fValveTwoSignals		: ST_Signals; // [-1, 1]
+	fFlowShareCoefficient	: LREAL;
+	fFlowRef				: LREAL; // [L/min]
 	
-	fJibValveOutput			: LREAL; // [-1, 1]
-	fJibValveFF				: LREAL;
-	fJibValvePID			: LREAL;
+	// Motion Ref
+	fMotionTime				: LREAL; // [s]
+	fHomingTime				: LREAL; // [s]
 	
-	// 
-	fTime					: LREAL; // [s]
-
+	fXRefOne				: LREAL; // [m]
+	fXDotRefOne				: LREAL; // [m/s]
+	fFlowRefOne				: LREAL; // [L/min]
+	fSmartFlowRefOne		: LREAL; // [L/min]
+	fSmartVelRefOne			: LREAL; // [m/s]
+	
+	fXRefTwo				: LREAL; // [m]
+	fXDotRefTwo				: LREAL; // [m/s]
+	fFlowRefTwo				: LREAL; // [L/min]
+	fSmartFlowRefTwo		: LREAL; // [L/min]
+	fSmartVelRefTwo			: LREAL; // [m/s]
+	
+	fFlowPistonSide			: LREAL;
+	fFlowRodSide			: LREAL;
+	
 END_VAR
 ]]></Declaration>
   </GVL>

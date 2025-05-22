@@ -1,0 +1,26 @@
+/** Styles for the theme: Base-Dark */
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl {
+    background-color: var(--tchmi-ba-global-control-background);
+    box-shadow: initial;
+}
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.down {
+        background-color: var( --tchmi-ba-global-button-background-pressed);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl div.tchmi-ba-control-container > div.tchmi-ba-base.fixed-size {
+        background: initial;
+        border-radius: initial;
+    }
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit > div.icon-container > div.icon {
+        background: initial;
+        border-radius: initial;
+    }
+
+.tchmi-ba-room-control-side-menu {
+    background: var(--tchmi-ba-global-control-background);
+}
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container.sunblind > div.alarm-container > div.tchmi-ba-base.alarm-icon {
+        background-color: var(--tchmi-ba-global-control-background);
+    }

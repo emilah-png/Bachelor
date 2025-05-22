@@ -1,0 +1,548 @@
+<div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Template tchmi-box">
+    <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Header">
+        <div
+            id="{Id}_TcHmiAxisName"
+            data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+            data-tchmi-text-font-size="17"
+            style="grid-area: 2 / 2 / 3 / 3"
+        ></div>
+        <div
+            id="{Id}_TcHmiComboboxAxis"
+            data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox"
+            data-tchmi-data-height="30"
+            data-tchmi-drop-down-font-size="15"
+            data-tchmi-drop-down-font-size-unit="px"
+            data-tchmi-text-horizontal-alignment="Center"
+            style="grid-area: 2 / 3 / 3 / 4"
+        ></div>
+    </div>
+    <tchmi-content-tabs>
+        <tchmi-tab-links>
+            <tchmi-tab-link active ref="Online" data-tchmi-localized-content-key="Online">Online</tchmi-tab-link>
+            <tchmi-tab-link ref="Functions" data-tchmi-localized-content-key="Functions">Functions</tchmi-tab-link>
+        </tchmi-tab-links>
+        <tchmi-tab-contents>
+            <tchmi-tab-content name="Online">
+                <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-DataScroll" style="height: 80%">
+                    <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Main-Information">
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information">
+                            <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Animation">
+                                <div class="Animation-Container-Backwards">
+                                    <div class="Animation-Container-Forwards">
+                                        <div class="Animation-Part-1"></div>
+                                        <div class="Animation-Part-2"></div>
+                                        <div class="Animation-Part-3"></div>
+                                        <div class="Animation-Part-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="{Id}_TcHmiCurrPos"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                data-tchmi-text-font-size="17"
+                                data-tchmi-text-horizontal-alignment="Right"
+                                style="grid-area: 2 / 4 / 3 / 5"
+                            ></div>
+                            <label
+                                style="grid-area: 2 / 5 / 3 / 6"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information-Unit TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Online-current-position"
+                                >mm</label
+                            >
+                            <div
+                                id="{Id}_TcHmiCurrVel"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                data-tchmi-text-font-size="17"
+                                data-tchmi-text-horizontal-alignment="Right"
+                                style="grid-area: 4 / 4 / 5 / 5"
+                            ></div>
+                            <label
+                                style="grid-area: 4 / 5 / 5 / 6"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information-Unit TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Online-current-velocity"
+                                >mm/s</label
+                            >
+                        </div>
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General">
+                            <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General-Container-1">
+                                <label
+                                    style="grid-area: 2 / 2 / 3 / 3"
+                                    data-tchmi-localized-content-key="SetpointPosition"
+                                    >Setpoint Position</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiSetpointPos"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 3 / 2 / 4 / 3"
+                                ></div>
+
+                                <label
+                                    style="grid-area: 2 / 4 / 3 / 5"
+                                    data-tchmi-localized-content-key="SetpointVelocity"
+                                    >Setpoint Velocity</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiSetpointVel"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 3 / 4 / 4 / 5"
+                                ></div>
+
+                                <label style="grid-area: 5 / 2 / 6 / 3" data-tchmi-localized-content-key="LagDistance"
+                                    >Lag Distance (min/max)</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiLagDis"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 6 / 2 / 7 / 3"
+                                ></div>
+
+                                <label
+                                    style="grid-area: 5 / 4 / 6 / 5"
+                                    data-tchmi-localized-content-key="TotalControlOutput"
+                                    >Total / Control Output%/l%</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiOutput"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 6 / 4 / 7 / 5"
+                                ></div>
+
+                                <label style="grid-area: 8 / 2 / 9 / 3" data-tchmi-localized-content-key="Error"
+                                    >Error</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiError"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 9 / 2 / 10 / 3"
+                                ></div>
+                            </div>
+                            <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General-Container-2">
+                                <label
+                                    style="grid-area: 2 / 2 / 3 / 3"
+                                    data-tchmi-localized-content-key="TargetPosition"
+                                    >Target Position</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiTextTargetPos"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                    data-tchmi-min-value="0"
+                                    data-tchmi-value="0"
+                                    data-tchmi-unit="mm"
+                                    style="grid-area: 3 / 2 / 4 / 3"
+                                ></div>
+
+                                <label
+                                    style="grid-area: 2 / 4 / 3 / 5"
+                                    data-tchmi-localized-content-key="TargetVelocity"
+                                    >Target Velocity</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiTextTargetVel"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                    data-tchmi-min-value="0"
+                                    data-tchmi-value="0"
+                                    data-tchmi-unit="mm/s"
+                                    style="grid-area: 3 / 4 / 4 / 5"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Status">
+                            <div class="Status-log">
+                                <label style="grid-area: 2 / 2 / 3 / 3" data-tchmi-localized-content-key="StatusLog"
+                                    >Status (log.)</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiReady"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 4 / 2 / 5 / 3"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Ready%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiNotMoving"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 6 / 2 / 7 / 3"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::NotMoving%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiCalibrated"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 4 / 4 / 5 / 5"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Calibrated%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiMoveFw"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 6 / 4 / 7 / 5"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::MoveForward%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiHasJob"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 4 / 6 / 5 / 7"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::HasJob%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiMoveBw"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    style="grid-area: 6 / 6 / 7 / 7"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::MoveBackward%/l%"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                            </div>
+                            <div class="Status-phys">
+                                <label style="grid-area: 2 / 2 / 3 / 3" data-tchmi-localized-content-key="StatusPhys"
+                                    >Status (phys.)</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiCoupled"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::CoupledMode%/l%"
+                                    style="grid-area: 4 / 2 / 5 / 3"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiTargetPos"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::InTargetPosition%/l%"
+                                    style="grid-area: 4 / 4 / 5 / 5"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiPosRange"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::InPositionRange%/l%"
+                                    style="grid-area: 4 / 6 / 5 / 7"
+                                    data-tchmi-is-read-only="true"
+                                ></div>
+                            </div>
+                            <div class="Enabling">
+                                <label style="grid-area: 2 / 2 / 3 / 3" data-tchmi-localized-content-key="Enabling"
+                                    >Enabling</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiFeedFw"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::FeedForward%/l%"
+                                    style="grid-area: 4 / 2 / 5 / 3"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiFeedBw"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::FeedBackward%/l%"
+                                    style="grid-area: 4 / 4 / 5 / 5"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiController"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Controller%/l%"
+                                    style="grid-area: 6 / 4 / 7 / 5"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiButtonSetEnablingAll"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::ButtonSetAll%/l%"
+                                    style="grid-area: 4 / 6 / 5 / 7"
+                                ></div>
+                                <div
+                                    id="{Id}_TcHmiButtonSetEnabling"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                                    data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::ButtonSet%/l%"
+                                    style="grid-area: 6 / 6 / 7 / 7"
+                                ></div>
+                                <div class="Override">
+                                    <div
+                                        id="{Id}_TcHmiOverride"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                        data-tchmi-min-value="0"
+                                        data-tchmi-max-value="100"
+                                        data-tchmi-unit="%"
+                                    ></div>
+                                    <label style="grid-area: 1 / 3 / 2 / 4" data-tchmi-localized-content-key="Override"
+                                        >Override</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Buttons">
+                    <div
+                        id="{Id}_TcHmiButtonPlusPlus"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="++"
+                        data-tchmi-text-font-size="20"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Plus-Plus"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonPlus"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="+"
+                        data-tchmi-text-font-size="20"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Plus"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonMinus"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="-"
+                        data-tchmi-text-font-size="27"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Minus"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonMinusMinus"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="--"
+                        data-tchmi-text-font-size="27"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Minus-Minus"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonTargetPos"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Start%/l%"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Target"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonStop"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Stop%/l%"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Stop"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonReset"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Reset%/l%"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Reset"
+                    ></div>
+                    <div
+                        id="{Id}_TcHmiButtonHoming"
+                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                        data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Home%/l%"
+                        class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Home"
+                    ></div>
+                </div>
+            </tchmi-tab-content>
+            <tchmi-tab-content active name="Functions">
+                <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-DataScroll">
+                    <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Functions">
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information">
+                            <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Animation">
+                                <div class="Animation-Container-Backwards">
+                                    <div class="Animation-Container-Forwards">
+                                        <div class="Animation-Part-1"></div>
+                                        <div class="Animation-Part-2"></div>
+                                        <div class="Animation-Part-3"></div>
+                                        <div class="Animation-Part-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="{Id}_TcHmiCurrPos_Functions"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                data-tchmi-text-font-size="17"
+                                data-tchmi-text-horizontal-alignment="Right"
+                                style="grid-area: 2 / 4 / 3 / 5"
+                            ></div>
+                            <label
+                                style="grid-area: 2 / 5 / 3 / 6"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information-Unit TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Functions-current-position"
+                                >mm</label
+                            >
+                            <div
+                                id="{Id}_TcHmiCurrVel_Functions"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                data-tchmi-text-font-size="17"
+                                data-tchmi-text-horizontal-alignment="Right"
+                                style="grid-area: 4 / 4 / 5 / 5"
+                            ></div>
+                            <label
+                                style="grid-area: 4 / 5 / 5 / 6"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information-Unit TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Functions-current-velocity"
+                                >mm/s</label
+                            >
+                        </div>
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start">
+                            <div
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start-Container"
+                            >
+                                <label style="grid-area: 2 / 2 / 3 / 5" data-tchmi-localized-content-key="StartMode"
+                                    >Start Mode</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiComboboxStartMode"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox"
+                                    data-tchmi-drop-down-font-size="15"
+                                    data-tchmi-drop-down-font-size-unit="px"
+                                    data-tchmi-text-horizontal-alignment="Center"
+                                    style="grid-area: 3 / 2 / 4 / 5"
+                                ></div>
+
+                                <label
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Label-ExtendedStartMode-1"
+                                    style="grid-area: 5 / 2 / 6 / 3"
+                                    data-tchmi-localized-content-key="TargetPosition"
+                                    >Target Position</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiNumericExtendedStartMode_1"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                    data-tchmi-min-value="0"
+                                    data-tchmi-value="0"
+                                    data-tchmi-reset-to-last-valid-value="true"
+                                    data-tchmi-unit="mm"
+                                    style="grid-area: 6 / 2 / 7 / 3"
+                                ></div>
+
+                                <label
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Label-ExtendedStartMode-2"
+                                    style="grid-area: 5 / 4 / 6 / 5"
+                                    data-tchmi-localized-content-key="TargetVelocity"
+                                    >Target Velocity</label
+                                >
+                                <div
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input-2"
+                                    style="grid-area: 6 / 4 / 7 / 5"
+                                >
+                                    <div
+                                        id="{Id}_TcHmiCheckboxExtendedStartMode_2"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                        style="grid-area: 1 / 1 / 2 / 2"
+                                    ></div>
+                                    <div
+                                        id="{Id}_TcHmiNumericExtendedStartMode_2"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                        data-tchmi-min-value="0"
+                                        data-tchmi-value="0"
+                                        data-tchmi-reset-to-last-valid-value="true"
+                                        data-tchmi-unit="mm/s"
+                                        style="grid-area: 1 / 3 / 2 / 4"
+                                    ></div>
+                                </div>
+
+                                <label
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Label-ExtendedStartMode-3"
+                                    style="grid-area: 8 / 2 / 9 / 3"
+                                    data-tchmi-localized-content-key="Acceleration"
+                                    >Acceleration</label
+                                >
+                                <div
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input-3"
+                                    style="grid-area: 9 / 2 / 10 / 3"
+                                >
+                                    <div
+                                        id="{Id}_TcHmiCheckboxExtendedStartMode_3"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                        style="grid-area: 1 / 1 / 2 / 2"
+                                    ></div>
+                                    <div
+                                        id="{Id}_TcHmiNumericExtendedStartMode_3"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                        data-tchmi-min-value="0"
+                                        data-tchmi-value="0"
+                                        data-tchmi-reset-to-last-valid-value="true"
+                                        data-tchmi-unit="mm/s²"
+                                        style="grid-area: 1 / 3 / 2 / 4"
+                                    ></div>
+                                </div>
+
+                                <label
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Label-ExtendedStartMode-4"
+                                    style="grid-area: 8 / 4 / 9 / 5"
+                                    data-tchmi-localized-content-key="Deceleration"
+                                    >Deceleration</label
+                                >
+                                <div
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input-4"
+                                    style="grid-area: 9 / 4 / 10 / 5"
+                                >
+                                    <div
+                                        id="{Id}_TcHmiCheckboxExtendedStartMode_4"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                        style="grid-area: 1 / 1 / 2 / 2"
+                                    ></div>
+                                    <div
+                                        id="{Id}_TcHmiNumericExtendedStartMode_4"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                        data-tchmi-min-value="0"
+                                        data-tchmi-value="0"
+                                        data-tchmi-reset-to-last-valid-value="true"
+                                        data-tchmi-unit="mm/s²"
+                                        style="grid-area: 1 / 3 / 2 / 4"
+                                    ></div>
+                                </div>
+
+                                <label
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Label-ExtendedStartMode-5"
+                                    style="grid-area: 11 / 2 / 12 / 3"
+                                    data-tchmi-localized-content-key="Jerk"
+                                    >Jerk</label
+                                >
+                                <div
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Optional-Input-5"
+                                    style="grid-area: 12 / 2 / 13 / 3"
+                                >
+                                    <div
+                                        id="{Id}_TcHmiCheckboxExtendedStartMode_5"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox"
+                                        style="grid-area: 1 / 1 / 2 / 2"
+                                    ></div>
+                                    <div
+                                        id="{Id}_TcHmiNumericExtendedStartMode_5"
+                                        data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+                                        data-tchmi-min-value="0"
+                                        data-tchmi-value="0"
+                                        data-tchmi-reset-to-last-valid-value="true"
+                                        data-tchmi-unit="mm/s³"
+                                        style="grid-area: 1 / 3 / 2 / 4"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start-Info-Container"
+                            >
+                                <label style="grid-area: 2 / 2 / 3 / 3" data-tchmi-localized-content-key="Error"
+                                    >Error</label
+                                >
+                                <div
+                                    id="{Id}_TcHmiError2"
+                                    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock"
+                                    data-tchmi-text-horizontal-alignment="Right"
+                                    class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value"
+                                    style="grid-area: 3 / 2 / 4 / 3"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start-Buttons">
+                            <div
+                                id="{Id}_TcHmiButtonStart_Functions"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                                data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Start%/l%"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Start"
+                                style="grid-area: 1 / 1 / 2 / 2"
+                            ></div>
+
+                            <div
+                                id="{Id}_TcHmiButtonStop_functions"
+                                data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton"
+                                data-tchmi-text="%l%Control::TcHmi.Controls.Beckhoff.TcHmiMotion.TcHmiMotionControl::Stop%/l%"
+                                class="TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Stop"
+                                style="grid-area: 1 / 3 / 2 / 4"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </tchmi-tab-content>
+        </tchmi-tab-contents>
+    </tchmi-content-tabs>
+</div>

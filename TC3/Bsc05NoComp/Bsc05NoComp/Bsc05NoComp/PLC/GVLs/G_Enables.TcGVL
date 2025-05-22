@@ -3,15 +3,39 @@
   <GVL Name="G_Enables" Id="{0aed01c2-6407-4abd-87cb-b561ebe6419c}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+		
+	bEmergencyButton 	: BOOL;
+
+	bEnableU 			: BOOL;
+	bEnableFF 			: BOOL;
+	bEnablePID 			: BOOL;
+	bEnableFlowShare	: BOOL;
 	
-	bEnableU 	: BOOL;
-	bEnableFF 	: BOOL;
-	bEnablePID 	: BOOL;
+	bEnableOne			: BOOL;
+	bEnableTwo			: BOOL;
+	bEnableThree		: BOOL;	
 	
-	bEnableMain	: BOOL;
-	bEnableJib	: BOOL;	
+	bHoldButton 		: BOOL;
 	
-	bTest		: BOOL;
-END_VAR]]></Declaration>
+	bErrorOne 			: BOOL;
+	bErrorTwo			: BOOL;
+	bErrorThree			: BOOL;
+	
+	bSineMotion			: BOOL;
+	bRampMotion			: BOOL;
+	bRampAxis			: BOOL;
+	bHoming				: BOOL;
+	
+	// Modes
+	bAuto				: BOOL;
+	bManual				: BOOL;
+	bManDirect			: BOOL;
+	bManConst			: BOOL;
+	bManSpeed			: BOOL;
+	
+	// Config Enables
+	bConfigJoysticks	: BOOL;
+END_VAR
+]]></Declaration>
   </GVL>
 </TcPlcObject>

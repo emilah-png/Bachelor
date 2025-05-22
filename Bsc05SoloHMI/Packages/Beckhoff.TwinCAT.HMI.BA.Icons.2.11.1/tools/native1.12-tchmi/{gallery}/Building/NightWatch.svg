@@ -1,0 +1,30 @@
+<svg
+    version="1.1"
+    width="100" height="100"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    style="
+        stroke: rgb(0, 0, 255);
+        fill: rgb(0, 0, 255);
+        stroke-width: 6px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    ">
+    <defs>
+        <g>
+        <path
+            id='house'
+            fill="transparent"
+            d="M 0 0 h 40 v -25 h -40 v 25 m 0 -25 l 20 -20 l 20 20 "/>
+    </g>
+    </defs>
+    <g>
+        <path
+            fill="transparent"
+            d="M 50 97 C 90 80 90 30 90 15 C 60 20 50 3 50 3 M 50 97 C 10 80 10 30 10 15 C 40 20 50 3 50 3 "/>
+        <use 
+            x="30"
+            y="65"
+            href="#house" />
+    </g>
+</svg>

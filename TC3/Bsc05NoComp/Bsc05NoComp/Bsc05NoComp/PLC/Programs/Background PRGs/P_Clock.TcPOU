@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Clock" Id="{3607f292-5366-4b7c-810f-569374c051f5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Clock
+VAR
+	
+	fbClock 		: FB_Clock;
+	fbMotionClock 	: FB_Clock;
+	fbDriveOut 		: FB_Clock;
+	fbHoming		: FB_Clock;
+	fbHoldTime		: FB_Clock;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+fbClock(
+	bStartEnable := G_HMI.bstepp_button,
+	bEnableInt := G_HMI.bstepp_button,
+	
+	fTime => G_OPC.fTime,
+	nTime => G_OPC.nTime
+);
+
+fbMotionClock(
+	bStartEnable := (G_Enables.bSineMotion OR G_Enables.bRampMotion) AND G_Enables.bHoldButton AND G_Enables.bAuto, // AND G_HMI.bstepp_button AND G_Enables.bHoldButton,
+	
+	fTime => G_OPC.fMotionTime
+);
+
+fbDriveOut(
+	bStartEnable := G_Truck.bDriveOut AND NOT(G_HMI.bstepp_button),
+	
+	fTime => G_Truck.fDriveOutTime
+);
+
+fbHoming(
+	bStartEnable := G_HMI.bstepp_button AND G_Enables.bHoming,
+	
+	fTime => G_OPC.fHomingTime
+);
+
+fbHoldTime(
+	bStartEnable := G_Enables.bHoldButton,
+	
+	fTime => G_OPC.fHoldTime
+);
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

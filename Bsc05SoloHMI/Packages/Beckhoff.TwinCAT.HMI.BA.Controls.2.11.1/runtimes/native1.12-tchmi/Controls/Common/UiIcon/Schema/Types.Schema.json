@@ -1,0 +1,319 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.UiIcon": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.Common.Button",
+      "frameworkControlType": "UiIcon",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.UiIcon.DisplayPosition": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "DisplayPosition",
+      "type": "string",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "options": [
+        {
+          "label": "left",
+          "value": 0
+        },
+        {
+          "label": "top",
+          "value": 1
+        },
+        {
+          "label": "right",
+          "value": 2
+        },
+        {
+          "label": "bottom",
+          "value": 3
+        },
+        {
+          "label": "topLeft",
+          "value": 4
+        },
+        {
+          "label": "topRight",
+          "value": 5
+        },
+        {
+          "label": "bottomRight",
+          "value": 6
+        },
+        {
+          "label": "bottomLeft",
+          "value": 7
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.UiIcon.DisplaysData": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "DisplayData",
+        "description": "Defines a display for the object.",
+        "propertiesMeta": [
+          {
+            "name": "baObject",
+            "displayName": "BaObject",
+            "category": "BA",
+            "displayPriority": 1,
+            "description": "BaObject for the display.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "value",
+            "category": "Common",
+            "displayName": "Value",
+            "description": "Value that is displayed in the display.",
+            "displayPriority": 10,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "position",
+            "category": "Common",
+            "displayName": "Position",
+            "description": "Position of the display.",
+            "displayPriority": 10,
+            "defaultValue": 1,
+            "defaultValueInternal": 1
+          },
+          {
+            "name": "readOnly",
+            "category": "Common",
+            "displayName": "ReadOnly",
+            "description": "Defines if the display is editable or read only.",
+            "displayPriority": 10,
+            "defaultValue": true,
+            "defaultValueInternal": true
+          },
+          {
+            "name": "unit",
+            "category": "Common",
+            "displayName": "Unit",
+            "description": "The unit will be added to the displayed value if the type of Value is 'number'.",
+            "displayPriority": 10,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "digits",
+            "category": "Common",
+            "displayName": "Digits",
+            "description": "Number of displayed digits.",
+            "displayPriority": 10,
+            "defaultValue": 1,
+            "defaultValueInternal": 1
+          },
+          {
+            "name": "textColor",
+            "category": "Colors",
+            "displayName": "TextColor",
+            "description": "Color of the displayed text.",
+            "displayPriority": 10,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "fontWeight",
+            "category": "Text",
+            "displayName": "FontWeight",
+            "description": "Font weight of the displayed text.",
+            "displayPriority": 10,
+            "defaultValue": "Bold",
+            "defaultValueInternal": "Bold"
+          }
+        ],
+        "properties": {
+          "baObject": {
+            "type": [ "string", "null" ]
+          },
+          "value": {
+            "type": "string"
+          },
+          "position": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Common.UiIcon.DisplayPosition"
+          },
+          "readOnly": {
+            "type": "boolean"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "digits": {
+            "type": "number"
+          },
+          "textColor": {
+            "$ref": "tchmi:framework#/definitions/SolidColor"
+          },
+          "fontWeight": {
+            "$ref": "tchmi:framework#/definitions/FontWeight"
+          }
+        },
+        "required": [ "value", "position" ]
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.UiIcon.EventsData": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "EventData",
+        "description": "Defines an event for the object.",
+        "propertiesMeta": [
+          {
+            "name": "activate",
+            "category": "Common",
+            "displayName": "Activate",
+            "description": "If true the event will be displayed on the UiIcon.",
+            "defaultValue": false,
+            "defaultValueInternal": false
+          },
+          {
+            "name": "eventCondition",
+            "category": "Common",
+            "displayName": "Event condition",
+            "description": "BA event condition. If this is used the icon of the event will be selected automatically.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "eventIconState",
+            "category": "Common",
+            "displayName": "Event state",
+            "description": "BA event icon state. If this is used the icon state of the event will be selected automatically.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "eventCount",
+            "category": "Common",
+            "displayName": "Event count",
+            "description": "If larger than 0 a small number will be displayed on the event. This indicates the number of active events with the same icon.",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "acknowledgeSymbol",
+            "category": "Other",
+            "displayName": "Acknowledge symbol",
+            "description": "Boolean symbol that should be set to true when event icon was pressed.",
+            "displayPriority": 200,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "isAcknowledgeable",
+            "category": "Other",
+            "displayName": "Is Acknowledgeable",
+            "description": "If true the event can be clicked, when false it is not enabled.",
+            "displayPriority": 200,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "icon",
+            "category": "Other",
+            "displayName": "Icon",
+            "description": "Icon path for the displayed icon if 'EventCondition' and 'EventIconState' is not set.",
+            "displayPriority": 200,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "enablePulse",
+            "category": "Other",
+            "displayName": "Enable pulse",
+            "description": "Activates or deactivates the pulse if 'EventCondition' and 'EventIconState' is not set.",
+            "displayPriority": 200,
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "activate": {
+            "type": "boolean"
+          },
+          "eventCondition": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.EventCondition"
+          },
+          "eventIconState": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.EventIconState"
+          },
+          "eventCount": {
+            "type": "number"
+          },
+          "acknowledgeSymbol": {
+            "$ref": "tchmi:framework#/definitions/Symbol"
+          },
+          "isAcknowledgeable": {
+            "type": "boolean"
+          },
+          "icon": {
+            "$ref": "tchmi:framework#/definitions/Path"
+          },
+          "enablePulse": {
+            "type": "boolean"
+          }
+        },
+        "required": [ "activate" ]
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.UiIcon.Status": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        20,
+        21
+      ],
+      "options": [
+        {
+          "label": "Alarm",
+          "value": 1
+        },
+        {
+          "label": "Disturb",
+          "value": 2
+        },
+        {
+          "label": "Maintenance",
+          "value": 3
+        },
+        {
+          "label": "Notification",
+          "value": 4
+        },
+        {
+          "label": "Other",
+          "value": 5
+        },
+        {
+          "label": "Active",
+          "value": 20
+        },
+        {
+          "label": "Inactive",
+          "value": 21
+        }
+      ]
+    }
+  }
+}

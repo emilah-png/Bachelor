@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_LowpassFilter" Id="{2ac87ea1-f8e5-4790-972e-d3bf57d4c9ff}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LowpassFilter
+VAR_INPUT
+	fInput 				: LREAL;		      // Input
+	fDeltaT				: LREAL; 			 // Cycle time [s]
+	// Tuning Parameters 
+	fCutoffFreq 		: LREAL := 0.5; 	  // seconds, value of 0 disables the filter
+	fDamping 			: LREAL := 1/SQRT(2); // Damping ratio --> 0.707106781186547
+	// Optional Parameters (Dont need to be used)
+	bEnableLimits		: BOOL := FALSE;
+	fLimitMax			: LREAL := 1.0;
+	fLimitMin 			: LREAL := -1.0;
+	// Optional Inputs (Dont need to be used)
+	fDotInput_bypass 	: LREAL := 0;	      // Additional velocity input that bypasses the filter [unit/s]
+	bReset 				: BOOL;				 // Resets the filter, and Sets Output = Input
+END_VAR
+VAR_OUTPUT
+	fOutput 			: LREAL := fInput;	 // Output
+	bError 				: BOOL;				 // TRUE if error
+END_VAR
+VAR
+	fC 				: LREAL;
+	fC2 			: LREAL; // c^2
+	fDotOuptut 		: LREAL;
+	fDot2Ouptut 	: LREAL;
+	bFirstRun 		: BOOL := TRUE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bError := FALSE;
+
+IF (fCutoffFreq < 1E-10) THEN
+	fOutput := fInput;
+	bReset := TRUE;
+END_IF
+
+IF NOT bReset THEN
+	fC := 2*PI*fDeltaT/fCutoffFreq;
+	IF (fC <= 0) THEN
+		bError := TRUE;
+		bReset := TRUE;
+	ELSIF (fC >= 0.9) THEN
+		fC := 0.9;
+	END_IF
+END_IF
+
+IF bReset OR bFirstRun THEN
+	bFirstRun := FALSE;
+	bReset := FALSE;
+	fOutput := fInput;
+	fDotOuptut  := 0;
+	fDot2Ouptut := 0;
+	RETURN;
+END_IF
+
+IF bError THEN RETURN; END_IF
+
+fC2 := EXPT(fC, 2.0);
+
+fDot2Ouptut := (fInput - fOutput)*fC2 - 2*fDamping*fC*fDotOuptut;
+
+fDotOuptut := fDotOuptut + fDot2Ouptut;
+fOutput := fOutput + fDotOuptut + fDotInput_bypass*fDeltaT;
+
+IF ABS(fOutput) < 1E-10 THEN
+	fOutput := 0;
+END_IF
+
+IF bEnableLimits THEN
+	fOutput := LIMIT(fLimitMin,fOutput,fLimitMax);	
+ELSE 
+	fOutput := fOutput; 
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

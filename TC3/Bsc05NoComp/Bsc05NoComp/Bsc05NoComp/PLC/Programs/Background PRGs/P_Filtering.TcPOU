@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Filtering" Id="{f6211b6b-64c8-4b7f-ae9b-1aeeb065cdfa}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Filtering
+VAR
+	fbFilterPs 					: FB_Filtering;
+	
+	fbFilterMainPaDCV			: FB_Filtering;
+	fbFilterMainPbDCV			: FB_Filtering;
+	fbFilterMainPaCyl 			: FB_Filtering;
+	fbFilterMainPistonPosition 	: FB_Filtering;
+	
+	fbFilterJibPaDCV			: FB_Filtering;
+	fbFilterJibPbDCV			: FB_Filtering;
+	fbFilterJibPaCyl 			: FB_Filtering;
+	fbFilterJibPbCyl 			: FB_Filtering;
+	fbFilterJibPistonPosition 	: FB_Filtering;
+	
+	
+	fbFilterWinchPa 			: FB_Filtering;
+	fbFilterWinchPb 			: FB_Filtering;
+	fbFilterWinchPosition		: FB_Filtering;
+	
+	fbFilterU 					: FB_Filtering;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// SUPPLY
+fbFilterPs(
+	ssMethodType := 1,
+	Signal := G_OPC.fPs.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fPs.fFilteredSignal
+);
+
+// MAIN
+fbFilterMainPaDCV(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPaDCV.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPaDCV.fFilteredSignal
+);
+
+fbFilterMainPbDCV(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPbDCV.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPbDCV.fFilteredSignal
+);
+
+fbFilterMainPaCyl(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPaCyl.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPaCyl.fFilteredSignal
+);
+
+fbFilterMainPistonPosition(
+	ssMethodType := 1,
+	Signal := G_OPC.fMainPistonPosition.fSignal,
+	Num := G_FilterConstants.fPosFilterNum,
+	Denz := G_FilterConstants.fPosFilterDenz,
+	Den := G_FilterConstants.fPosFilterDen,
+	Initial := G_FilterConstants.fPosFilterInit,
+	
+	Signal_Filtered => G_OPC.fMainPistonPosition.fFilteredSignal
+);
+
+// JIB
+fbFilterJibPaDCV(
+	ssMethodType := 1,
+	Signal := G_OPC.fJibPaDCV.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fJibPaDCV.fFilteredSignal
+);
+
+fbFilterJibPbDCV(
+	ssMethodType := 1,
+	Signal := G_OPC.fJibPbDCV.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fJibPbDCV.fFilteredSignal
+);
+
+fbFilterJibPaCyl(
+	ssMethodType := 1,
+	Signal := G_OPC.fJibPaCyl.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fJibPaCyl.fFilteredSignal
+);
+
+fbFilterJibPaCyl(
+	ssMethodType := 1,
+	Signal := G_OPC.fJibPbCyl.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fJibPbCyl.fFilteredSignal
+);
+
+fbFilterJibPistonPosition(
+	ssMethodType := 1,
+	Signal := G_OPC.fJibPistonPosition.fSignal,
+	Num := G_FilterConstants.fPosFilterNum,
+	Denz := G_FilterConstants.fPosFilterDenz,
+	Den := G_FilterConstants.fPosFilterDen,
+	Initial := G_FilterConstants.fPosFilterInit,
+	
+	Signal_Filtered => G_OPC.fJibPistonPosition.fFilteredSignal
+);
+
+// WINCH
+fbFilterWinchPa(
+	ssMethodType := 1,
+	Signal := G_OPC.fWinchPa.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fWinchPa.fFilteredSignal
+);
+
+fbFilterWinchPb(
+	ssMethodType := 1,
+	Signal := G_OPC.fWinchPb.fSignal,
+	Num := G_FilterConstants.fPressureFilterNum,
+	Denz := G_FilterConstants.fPressureFilterDenz,
+	Den := G_FilterConstants.fPressureFilterDen,
+	Initial := G_FilterConstants.fPressureFilterInit,
+	
+	Signal_Filtered => G_OPC.fWinchPb.fFilteredSignal
+);
+
+fbFilterWinchPosition(
+	ssMethodType := 1,
+	Signal := G_OPC.fWinchDistance.fSignal,
+	Num := G_FilterConstants.fPosFilterNum,
+	Denz := G_FilterConstants.fPosFilterDenz,
+	Den := G_FilterConstants.fPosFilterDen,
+	Initial := G_FilterConstants.fPosFilterInit,
+	
+	Signal_Filtered => G_OPC.fWinchDistance.fFilteredSignal
+);
+
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

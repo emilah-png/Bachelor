@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_PID" Id="{c3b9a6ed-2e03-46aa-9312-a6c1264b90f3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PID
+VAR_INPUT
+	bEnablePID			: BOOL;
+	fX 					: LREAL;
+	fXReal 				: LREAL;
+	fSignalIntegrated 	: LREAL;
+	fSignalDerivated 	: LREAL;
+	fKp 				: LREAL;
+	fKi 				: LREAL;
+	fKd 				: LREAL;
+END_VAR
+VAR_OUTPUT
+	fSignalI : LREAL;
+	fSignalD : LREAL;
+	fSignalAdjusted : LREAL;
+	fError  : LREAL;
+END_VAR
+VAR
+	fTempP : LREAL;
+	fTempI : LREAL;
+	fTempD : LREAL;
+	fTempOut : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fError := fX - fXReal;
+
+// IF ABS(fError) < 0.0001 THEN
+// 	fError := 0.0;	
+// ELSE
+// 	fError := fError;
+// END_IF
+
+fSignalI := fError;
+fSignalD := fError;
+
+fTempP := fError * fKp;
+fTempI := fSignalIntegrated * fKi;
+fTempD := fSignalDerivated * fKd;
+
+fTempOut := fTempP + fTempI + fTempD;
+
+IF fTempOut > 1.0 THEN
+	fSignalAdjusted := 1.0;
+ELSIF fTempOut < -1.0 THEN
+	fSignalAdjusted := -1.0;
+ELSE
+	fSignalAdjusted := fTempOut;
+END_IF
+
+// IF ABS(fSignalAdjusted) < 1E-5 THEN
+// 	fSignalAdjusted := 0.0;
+// ELSE
+// 	fSignalAdjusted := fSignalAdjusted;
+// END_IF
+
+IF bEnablePID THEN
+	fSignalAdjusted := fSignalAdjusted;
+ELSE
+	fSignalAdjusted := 0.0;
+END_IF
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

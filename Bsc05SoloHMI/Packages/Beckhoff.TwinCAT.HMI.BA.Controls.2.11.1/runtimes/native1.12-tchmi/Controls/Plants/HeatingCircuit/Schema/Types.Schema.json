@@ -1,0 +1,70 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.HeatingCircuit": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.Plants.Cooler",
+      "frameworkControlType": "HeatingCircuit",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.HeatingCircuit.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "tempFlow",
+          "displayName": "Flow temperature sensor",
+          "description": "The flow temperature sensor of the heating circuit. (Default: TFl, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tempReturn",
+          "displayName": "Return temperature sensor",
+          "description": "The return temperature sensor of the heating circuit. (Default: TRt, DataType: SensorAnalog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "valve",
+          "displayName": "Valve",
+          "description": "The valve of the heating circuit. (Default: Vlv, DataType: Valve)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "pump",
+          "displayName": "Pump",
+          "description": "The pump of the heating circuit. (Default: Pu, DataType: Pump)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "tempFlowSp",
+          "displayName": "Flow temperature sensor setpoint",
+          "description": "The flow temperature sensor setpoint of the heating circuit. (Default: Sp::SpFlWT, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "tempFlow": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "tempReturn": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.SensorAnalog.SubBaTemplateDescription"
+        },
+        "valve": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Valve.SubBaTemplateDescription"
+        },
+        "pump": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Plants.Pump.SubBaTemplateDescription"
+        },
+        "tempFlowSp": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

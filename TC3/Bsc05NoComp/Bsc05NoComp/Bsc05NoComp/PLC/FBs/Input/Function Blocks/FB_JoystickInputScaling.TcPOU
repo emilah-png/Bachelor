@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_JoystickInputScaling" Id="{a0c6c0d3-0a31-4f44-bc18-b65492836e6e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_JoystickInputScaling
+VAR_INPUT
+	bEnable 				: BOOL;
+	bInverse				: BOOL;
+	nRawInput 				: INT;
+	fBitArray 				: ARRAY [0..2] OF LREAL;
+END_VAR
+VAR_OUTPUT
+	fOutput 				: LREAL;
+END_VAR
+VAR
+	fRawInput 				: LREAL;
+	fTempInput 				: LREAL;
+	fTempOutput 			: LREAL;
+	fMinInputValue 			: LREAL;
+	fNeutralInputValue  	: LREAL;
+	fMaxInputValue			: LREAL;
+	fNeutralDeadband		: LREAL := 50.0;
+	fMaxOutputValue  		: LREAL := 1.0;
+	fMinOutputValue  		: LREAL := -1.0;
+	fNeutralOutputValue  	: LREAL := 0.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fMinInputValue 			:= fBitArray[0];
+fNeutralInputValue  	:= fBitArray[1];
+fMaxInputValue			:= fBitArray[2];
+
+fRawInput := INT_TO_LREAL(nRawInput);
+
+fTempInput := fRawInput - fNeutralInputValue;
+
+IF fTempInput > fNeutralDeadband THEN
+	fTempOutput := fTempInput/(fMaxInputValue - fNeutralInputValue);
+ELSIF fTempInput < -fNeutralDeadband THEN	
+	fTempOutput := fTempInput/(fNeutralInputValue - fMinInputValue);
+ELSE
+	fTempOutput := 0.0;
+END_IF
+
+IF NOT(bEnable) THEN
+	fOutput := 0.0;
+ELSIF bInverse THEN
+	fOutput := LIMIT(fMinOutputValue, -fTempOutput, fMaxOutputValue);
+ELSE
+	fOutput := LIMIT(fMinOutputValue, fTempOutput, fMaxOutputValue);
+END_IF
+
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,43 @@
+<svg
+  version="1.1"
+  width="100" height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  style="
+    stroke: rgb(0, 0, 255);
+    fill: rgb(0, 0, 255);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6px;
+  ">
+  <defs>
+    <path
+      id="ice-alarm-part"
+      d="M 0 -18 V 18 l -3 3 m 3 -3 l 3 3 M 0 -18 l -3 -3 m 3 3 l 3 -3" />
+  </defs>
+  <g>
+    <path
+        fill="transparent"
+        d="M 3 97 H 97 L 50 3 L 3 97"/>
+    <use 
+        transform="rotate(0, 50 50)"
+        x="50"
+        y="67"
+        href="#ice-alarm-part" />
+    <use
+        transform="rotate(45, 50 50)"
+        x="62"
+        y="62"
+        href="#ice-alarm-part" />
+    <use
+        transform="rotate(90, 50 50)"
+        x="67"
+        y="50"
+        href="#ice-alarm-part" />
+    <use
+        transform="rotate(135, 50 50)"
+        x="62"
+        y="38"
+        href="#ice-alarm-part" />
+  </g>
+</svg>

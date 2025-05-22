@@ -1,0 +1,224 @@
+{
+  "$schema": "../../TcHmiSrv/schema/ExtensionSettings.Schema.json",
+  "version": "14.2.102.0",
+  "configVersion": "1.0.1.1",
+  "guid": "EB1F70B7-D988-4EFE-8AB5-6D46DD4CED09",
+  "visibility": "AlwaysShow",
+  "policies": [
+    "StrictPropertyValidation"
+  ],
+  "symbols": {
+    "GetTrendLineData": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "chartName": {
+            "type": "string",
+            "description": "descChartName"
+          },
+          "xAxisStart": {
+            "$ref": "#/definitions/stringTypeArray"
+          },
+          "xAxisEnd": {
+            "$ref": "#/definitions/stringTypeArray"
+          },
+          "displayWidth": {
+            "type": "number",
+            "minimum": 2.0
+          },
+          "yAxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "symbol"
+              ],
+              "properties": {
+                "symbol": {
+                  "type": "string",
+                  "description": "descSymbolName"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "chartName",
+          "yAxes",
+          "xAxisStart",
+          "displayWidth"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "axesData": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "descAxisDataX"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "descAxisDataY"
+                  },
+                  "error": {
+                    "type": "number"
+                  },
+                  "flags": {
+                    "type": "string",
+                    "description": "descAxisDataFlags"
+                  }
+                }
+              }
+            },
+            "description": "descAxisData"
+          }
+        }
+      }
+    },
+    "GetTrendLineWindow": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "chartName": {
+            "type": "string",
+            "description": "descChartName"
+          },
+          "xAxisStart": {
+            "$ref": "#/definitions/stringTypeArray"
+          },
+          "xAxisEnd": {
+            "$ref": "#/definitions/stringTypeArray"
+          },
+          "yAxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "symbol"
+              ],
+              "properties": {
+                "symbol": {
+                  "type": "string",
+                  "description": "descSymbolName"
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "descTrendLineAxisY"
+          }
+        },
+        "required": [
+          "chartName",
+          "yAxes",
+          "xAxisStart"
+        ]
+      },
+      "readValue": {
+        "function": true,
+        "type": "object",
+        "properties": {
+          "xAxisStart": {
+            "type": "string",
+            "format": "date-time",
+            "description": "descTrendLineAxisStartX"
+          },
+          "xAxisEnd": {
+            "type": "string",
+            "format": "date-time",
+            "description": "descTrendLineAxisEndX"
+          }
+        }
+      }
+    },
+    "HistorizeData": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "function": true
+      }
+    },
+    "Diagnostics": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "type": "object",
+        "function": true,
+        "properties": {
+          "databaseSize": {
+            "propertyOrder": 1,
+            "type": "number",
+            "unit": "byte"
+          },
+          "numEntries": {
+            "type": "integer",
+            "propertyOrder": 2,
+            "configDescription": "descNumEntries"
+          },
+          "numEntriesLifetime": {
+            "type": "number",
+            "propertyOrder": 3,
+            "configDescription": "descNumEntries"
+          },
+          "recordingTime": {
+            "type": "string",
+            "format": "timespan",
+            "propertyOrder": 4
+          },
+          "estimatedDatabaseSize": {
+            "propertyOrder": 5,
+            "type": "number",
+            "unit": "byte"
+          },
+          "estimatedDatabaseSizePerSymbol": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "unit": "byte"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "DeleteDatabaseEntries": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "function": true
+      },
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "symbolName": {
+            "type": "string"
+          },
+          "disableRecording": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "packageVersion": "22.0.6418",
+  "productVersion": "14.2.102.0",
+  "signature": "UY3scsGzwq2m9bzDKPz2I5gShNhtRlvNkjwP4DfxU+xbeqpLXT3ESFB3NMnhUBeGVDGR3f2oKIpQcx5pwa19ZJNFIJndvdAKXAuhBih2gEuBw+6gXush9E5Z6kIF4Rmz7XEMummZA6n3FIBfq9x2SGGxOsHEzlOrjLyTXfNKcsUbMDGx96sej4RXs9iLq5babOl8GQsRcMDslUGU8rZYuB1a49D0AR+oG5xJ5qsTGodN+a6NGWQI8Zvic8ROxlo0uCqktNdGW4lDQp2/1nrMY/++0B48XyHUDC9S5CrDcAyZ4hINnRbccbpXd3OwDBp4zlgiaDGoT51oE/f/GcV9Jg=="
+}

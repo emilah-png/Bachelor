@@ -1,0 +1,132 @@
+/* TcHmiMotion styles for theme Base-Dark */
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl {
+    --tchmi-motion-background: var(--tchmi-background-color-1);
+    --tchmi-motion-header-background: var(--tchmi-background-color-3);
+    --tchmi-motion-container-background: var(--tchmi-background-color-4);
+    --tchmi-motion-textblock-background: var(--tchmi-background-color-3);
+    --tchmi-motion-status-background: var(--tchmi-background-color-1);
+    --tchmi-motion-border-color: var(--tchmi-background-color-2);
+    --tchmi-motion-color: var(--tchmi-foreground-color-1);
+    --tchmi-motion-animation: var(--tchmi-highlight-color-1);
+    --tchmi-motion-user-input-color: var(--tchmi-user-input-color);
+    --tchmi-motion-invalid-color: var(--tchmi-invalid-color);
+    --tchmi-motion-stop-button-background: var(--tchmi-error-color);
+    --tchmi-motion-stop-button-background-pressed: var(--tchmi-invalid-color);
+    --tchmi-motion-stop-button-color: var(--tchmi-foreground-color-1);
+    --tchmi-motion-stop-button-color-pressed: var(--tchmi-foreground-color-1);
+    box-shadow: var(--tchmi-card-shadow);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl label {
+    color: var(--tchmi-motion-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .TcHmi_Controls_Beckhoff_TcHmiCheckbox-label {
+    color: var(--tchmi-motion-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiTextblock.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value {
+    background: var(--tchmi-motion-textblock-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiTextblock.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Textblock-Value.tchmi-error {
+    background: var(--tchmi-motion-invalid-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiCheckbox.TcHmi_Controls_System_TcHmiControl-disabled {
+    color: var(--tchmi-motion-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: var(--tchmi-disabled-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Header {
+    background: var(--tchmi-motion-header-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Online {
+    background-color: var(--tchmi-motion-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Buttons {
+    background-color: var(--tchmi-motion-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Status,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Information,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start {
+    background-color: var(--tchmi-motion-container-background);
+    border: 1px solid var(--tchmi-motion-border-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Animation {
+    border-color: var(--tchmi-motion-border-color);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Enabling,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Status-phys,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Status-log,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General-Container-1,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-General-Container-2,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start-Container,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Extended-Start-Info-Container {
+    background-color: var(--tchmi-motion-status-background);
+    border-color: var(--tchmi-motion-border-color);
+    border-width: 1px;
+    border-style: none;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-DataScroll {
+    background-color: var(--tchmi-motion-background);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Animation-Part-1,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Animation-Part-2,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Animation-Part-3,
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl .Animation-Part-4 {
+    border-width: 0px;
+    border-style: outset;
+    background-color: var(--tchmi-motion-animation);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiCheckbox.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-user-input
+    > svg {
+    background: var(--tchmi-motion-user-input-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiCheckbox-active.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-user-input
+    > svg {
+    background:
+        url(Images/checkbox.svg) center / 100% no-repeat,
+        var(--tchmi-motion-user-input-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl
+    .TcHmi_Controls_Beckhoff_TcHmiNumericInput.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-user-input
+    > div
+    > input {
+    background: var(--tchmi-motion-user-input-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Stop {
+    background: var(--tchmi-motion-stop-button-background);
+    color: var(--tchmi-motion-stop-button-color);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-Button-Stop.down {
+    background: var(--tchmi-motion-stop-button-background-pressed);
+    color: var(--tchmi-motion-stop-button-color-pressed);
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiMotion_TcHmiMotionControl-banner {
+    color: var(--tchmi-motion-color);
+}

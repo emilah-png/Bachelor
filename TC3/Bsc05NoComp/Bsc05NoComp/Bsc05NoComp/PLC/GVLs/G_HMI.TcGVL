@@ -1,14 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <GVL Name="HMI" Id="{b996835f-f8a5-4024-a4ba-b87619fe1b4e}">
+  <GVL Name="G_HMI" Id="{247e71a7-fde8-4926-9ce7-401ca48c630d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	Action1:BOOL;
-	Action2:BOOL;
-	Action3:BOOL;
-	Action4:BOOL;
-	bstepp_button:BOOL;
-	nCounter : INT := 2;
+	// Mode Select
+	nCounter				: INT;
+	nHomingMode				: INT;
+	nManuelMode				: INT;
+	nAutoMode				: INT;
+	nMotionMode				: INT;
+	
+	// Value Inputs
+	fNumPad1				: LREAL;
+	fNumPad2				: LREAL;
+	
+	// HMI Buttons
+	bHoldButton_HMI			: BOOL;
+	bstepp_button			: BOOL;
+	bButton_Cylinder_1		: BOOL;
+	bButton_Cylinder_2		: BOOL;
+	bFlowShare				: BOOL;
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

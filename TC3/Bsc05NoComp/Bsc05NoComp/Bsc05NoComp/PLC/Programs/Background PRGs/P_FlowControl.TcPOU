@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_FlowControl" Id="{02257286-ea62-4045-8238-7992179f10c6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_FlowControl
+VAR
+	fbFlowControlMain : FB_FlowControl;
+	fbFlowControlJib : FB_FlowControl;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// 
+// 
+// fbFlowControlMain(
+// 	fArea1 := G_Parameters.fAreaMain,
+// 	fArea2 := G_Parameters.fAreaJib,
+// 	fFlow1 := G_OPC.fMainFlowA,
+// 	fFlow2 := G_OPC.fJibFlowA,
+// 	bEqualSpeed := TRUE,
+// 	
+// 	fSpeedRef1 => G_OPC.fFlowTest1,
+// 	fSpeedRef2 => G_OPC.fFlowTest2
+// );
+// 
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

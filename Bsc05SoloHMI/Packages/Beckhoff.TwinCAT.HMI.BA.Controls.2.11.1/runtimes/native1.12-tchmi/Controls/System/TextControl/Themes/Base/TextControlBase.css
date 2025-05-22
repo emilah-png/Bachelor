@@ -1,0 +1,10 @@
+﻿/* Base theme. */
+.TcHmi_BuildingAutomation_Controls_System_TextControl {
+    --tchmi-ba-text-color: var(--tchmi-ba-global-text-color);
+    --tchmi-ba-text-decoration-color: var(--tchmi-ba-global-text-color);
+}
+
+.tchmi-ba-text-handler {
+    --tchmi-ba-text-color: var(--tchmi-ba-global-text-color);
+    --tchmi-ba-text-decoration-color: var(--tchmi-ba-global-text-color);
+}

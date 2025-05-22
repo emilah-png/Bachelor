@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Step" Id="{0aea8e66-d7a8-409b-9f89-3625b52daf60}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Step
+VAR_INPUT
+	bEnable : BOOL;
+	fTime : LREAL;
+	fSignal : LREAL;
+	fTimeConst : LREAL;
+	fDivider : LREAL;
+END_VAR
+VAR_OUTPUT
+	fOutput : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF bEnable THEN
+	fOutput := fSignal;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

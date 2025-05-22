@@ -1,0 +1,24 @@
+﻿.TcHmi_BuildingAutomation_Controls_System_TextControl {
+    --tchmi-ba-font-size: 12px;
+    --tchmi-ba-font-weight: normal;
+    --tchmi-ba-font-style: normal;
+    --tchmi-ba-font-family: initial;
+    --tchmi-ba-text-vertical-alignment: center;
+    --tchmi-ba-text-horizontal-alignment: left;
+    --tchmi-ba-user-select: none;
+    --tchmi-ba-text-decoration-line: initial;
+    --tchmi-ba-text-decoration-style: initial;
+    --tchmi-ba-content-padding: 0 0 0 5px;
+    color: var(--tchmi-ba-text-color);
+    align-items: var(--tchmi-ba-text-vertical-alignment);
+    font-size: var(--tchmi-ba-font-size);
+    font-weight: var(--tchmi-ba-font-weight);
+    font-style: var(--tchmi-ba-font-style);
+    font-family: var(--tchmi-ba-font-family);
+    display: flex;
+}
+
+    .TcHmi_BuildingAutomation_Controls_System_TextControl > div.tchmi-ba-text-handler {
+        width: 100%;
+        height: 100%;
+    }

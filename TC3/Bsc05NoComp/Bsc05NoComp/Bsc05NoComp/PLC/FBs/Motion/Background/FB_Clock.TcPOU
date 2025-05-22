@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Clock" Id="{b3566c58-5184-42a7-935d-777afebc62bf}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Clock
+VAR_INPUT
+	bStartEnable 	: BOOL;
+	bEnableInt		: BOOL;
+END_VAR
+VAR_OUTPUT
+	fTime 			: LREAL;
+	nTime			: UINT;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT(bStartEnable) THEN
+	fTime := 0.0;
+	nTime := 0;
+ELSE
+	fTime := fTime + G_Parameters.fTimeStep;
+END_IF
+
+IF bEnableInt THEN
+	nTime := LREAL_TO_UINT(fTime);
+ELSE
+	nTime := 0;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

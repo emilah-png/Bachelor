@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DeadBand" Id="{b17f7937-cf2d-4500-9946-ab7a5f687a16}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DeadBand
+VAR_INPUT
+	fSignal : LREAL;
+	fDeadBandUp : LREAL;
+	fDeadBandDown : LREAL;
+	fXDotRef : LREAL;
+END_VAR
+VAR_OUTPUT
+	fCompansatedSignal : LREAL;
+END_VAR
+VAR
+	fSignalUp : LREAL;
+	fSignalDown : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fXDotRef > 0 THEN
+	fCompansatedSignal := fSignal + fDeadBandUp;
+ELSIF fXDotRef < 0 THEN
+	fCompansatedSignal := fSignal - fDeadBandDown;
+ELSE
+	fCompansatedSignal := 0.0;
+END_IF
+
+IF fCompansatedSignal < -1.0 THEN
+	fCompansatedSignal := -1.0;
+ELSIF fCompansatedSignal > 1.0 THEN
+	fCompansatedSignal := 1.0;
+ELSE
+	fCompansatedSignal := fCompansatedSignal;
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

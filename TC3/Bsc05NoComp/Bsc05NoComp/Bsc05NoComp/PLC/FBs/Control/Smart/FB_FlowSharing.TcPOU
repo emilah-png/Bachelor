@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_FlowSharing" Id="{9750c49f-cfc9-448f-a54d-f6210237a638}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlowSharing
+VAR_INPUT
+	fUAdjMain			: LREAL;
+	fUAdjJib			: LREAL;
+	fMainAreaUp			: LREAL;
+	fMainAreaDown		: LREAL;
+	fJibAreaUp			: LREAL;
+	fJibAreaDown		: LREAL;
+	fCd					: LREAL;
+	fRho				: LREAL;
+	fMaxFlow			: LREAL;
+	fMainPa				: LREAL;
+	fMainPb				: LREAL;
+	fJibPa				: LREAL;
+	fJibPb				: LREAL;
+	fPs					: LREAL;
+END_VAR
+VAR_OUTPUT
+	fShareCoff 			: LREAL;
+	fFlowRef			: LREAL;
+END_VAR
+VAR
+	fFlowRefSI			: LREAL;
+	fDeltaPressure 		: LREAL;
+	fKJib				: LREAL;
+	fKMain				: LREAL;
+	fFlowRefJib			: LREAL;
+	fFlowRefMain		: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF fUAdjJib > 0 THEN
+	
+	fDeltaPressure := (fPs - fJibPa) * 1E5;
+	
+	IF fDeltaPressure <= 100 THEN
+		fDeltaPressure := 100;
+	END_IF
+	
+	fKJib := fJibAreaUp * 1E-6 * fCd * SQRT(2/fRho);
+	fFlowRefJib := fKJib * fUAdjJib * SQRT(fDeltaPressure);
+	
+ELSIF fUAdjJib < 0 THEN
+	
+	fDeltaPressure := (fPs - fJibPb) * 1E5;
+	
+	IF fDeltaPressure <= 100 THEN
+		fDeltaPressure := 100;
+	END_IF
+	
+	fKJib :=fJibAreaDown * 1E-6 * fCd * SQRT(2/fRho);
+	fFlowRefJib := fKJib * fUAdjJib * SQRT(fDeltaPressure);
+	
+ELSE
+	
+	fFlowRefJib := 0.0;
+	
+END_IF
+
+IF fUAdjMain > 0 THEN
+	
+	fDeltaPressure := (fPs - fMainPa) * 1E5;
+	
+	IF fDeltaPressure <= 100 THEN
+		fDeltaPressure := 100;
+	END_IF
+	
+	fKMain := fMainAreaUp * 1E-6 * fCd * SQRT(2/fRho);
+	fFlowRefMain := fKMain * fUAdjMain * SQRT(fDeltaPressure);
+	
+ELSIF fUAdjMain < 0 THEN
+	
+	fDeltaPressure := (fPs - fMainPb) * 1E5;
+	
+	IF fDeltaPressure <= 100 THEN
+		fDeltaPressure := 100;
+	END_IF
+	
+	fKMain := fMainAreaDown * 1E-6 * fCd * SQRT(2/fRho);
+	fFlowRefMain := fKMain * fUAdjMain * SQRT(fDeltaPressure);
+	
+ELSE
+	
+	fFlowRefMain := 0.0;
+	
+END_IF
+
+fFlowRefSI := (ABS(fFlowRefJib) + ABS(fFlowRefMain));
+fFlowRef := (ABS(fFlowRefJib) + ABS(fFlowRefMain)) * 6E4;
+
+IF fFlowRef <= 0.0 THEN
+	fShareCoff := 1.0;
+ELSE
+	fShareCoff := fMaxFlow/fFlowRef;
+END_IF
+
+IF fShareCoff > 1.0 THEN
+	fShareCoff := 1.0;
+ELSIF fShareCoff < 0.0 THEN
+	fShareCoff:= 0.0;
+ELSE 
+	fShareCoff := fShareCoff;
+END_IF
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

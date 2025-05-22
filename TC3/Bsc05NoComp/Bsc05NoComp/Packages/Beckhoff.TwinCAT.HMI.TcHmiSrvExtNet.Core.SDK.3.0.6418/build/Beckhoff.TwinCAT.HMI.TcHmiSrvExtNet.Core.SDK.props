@@ -1,0 +1,14 @@
+<!-- Copyright (c) Beckhoff Automation GmbH & Co. KG. All Rights Reserved. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(TcHmiDisableMSBuildWarningsAsMessages)'!='true'">
+    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TcHmiEnableFastUpToDateCheck)'!='true'">
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TcHmiDisableDefaultPackageOutputPath)'!='true' AND '$(OS)'=='Windows_NT'">
+    <PackageOutputPath Condition="'$(PackageOutputPath)'==''">$(ProgramData)\Beckhoff\NuGetPackages</PackageOutputPath>
+  </PropertyGroup>
+</Project>

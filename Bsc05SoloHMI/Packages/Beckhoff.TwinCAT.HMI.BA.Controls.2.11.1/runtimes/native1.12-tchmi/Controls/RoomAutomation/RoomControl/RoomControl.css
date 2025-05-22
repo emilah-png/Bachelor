@@ -1,0 +1,338 @@
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    border: var(--tchmi-ba-global-control-border);
+    border-bottom: initial;
+    background: var(--tchmi-ba-global-button-background);
+    box-shadow: var(--tchmi-ba-global-control-box-shadow);
+    cursor: pointer;
+}
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.read-only {
+        box-shadow: initial;
+        background: var(--tchmi-ba-global-light-grey);
+        cursor: initial;
+    }
+
+    /* Access */
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.TcHmi_Controls_System_TcHmiControl-operate-disallowed {
+        cursor: not-allowed;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.TcHmi_Controls_System_TcHmiControl-operate-disallowed::after,
+        .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.TcHmi_Controls_System_TcHmiControl-disabled::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 100;
+        }
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl.down {
+        box-shadow: var(--tchmi-ba-global-button-inset-box-shadow);
+        background: var(--tchmi-ba-global-button-background-pressed);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base-node.control-unit {
+        flex: auto;
+        position: relative;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--tchmi-ba-global-control-border-color);
+        max-height: var(--control-unit-height);
+        min-height: var(--control-unit-height);
+    }
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl div.tchmi-ba-control-container > div.tchmi-ba-base.fixed-size {
+        max-width: calc(var(--control-unit-height) - 6px);
+        min-width: calc(var(--control-unit-height) - 6px);
+        max-height: calc(var(--control-unit-height) - 6px);
+        min-height: calc(var(--control-unit-height) - 6px);
+        margin: 3px;
+        background: var(--tchmi-ba-global-tchmi-dark-grey);
+        border-radius: 2px;
+    }
+
+    /* ControlUnit */
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        align-items: initial;
+    }
+
+        .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit > div.icon-container {
+            flex: auto;
+            position: relative;
+            max-width: var(--control-unit-height);
+            min-width: var(--control-unit-height);
+            border-right: 1px solid var(--tchmi-ba-global-control-border-color);
+            display: flex;
+        }
+
+            .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit > div.icon-container > div.icon {
+                flex: auto;
+                position: relative;
+                margin: 3px;
+                background: var(--tchmi-ba-global-tchmi-dark-grey);
+                border-radius: 2px;
+            }
+
+        .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit > div.information-container {
+            position: relative;
+            flex: auto;
+        }
+
+            .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit > div.information-container > div.tchmi-ba-base.textblock {
+                margin: initial;
+            }
+
+/* SideMenu */
+.tchmi-ba-room-control-side-menu {
+    --tchmi-ba-room-control-side-menu-top-offset: 60px;
+    --tchmi-ba-room-control-side-menu-entry-height: 60px;
+    right: 0;
+    bottom: 0;
+    top: var(--tchmi-ba-room-control-side-menu-top-offset);
+    width: 0;
+    position: absolute;
+    z-index: 1000;
+    background: var(--tchmi-ba-global-tchmi-dark-grey);
+    border: 1px solid var(--tchmi-ba-global-control-border-color);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container {
+        flex: auto;
+        max-height: var(--tchmi-ba-room-control-side-menu-entry-height);
+        min-height: var(--tchmi-ba-room-control-side-menu-entry-height);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        align-items: center;
+    }
+
+        .tchmi-ba-room-control-side-menu > div.side-control-container:first-of-type > div.tchmi-ba-control-container:first-of-type > div.tchmi-ba-base.textblock {
+            --tchmi-ba-font-size: 20px;
+            --tchmi-ba-font-weight: bold;
+            position: absolute;
+            width: 100%;
+        }
+
+        .tchmi-ba-room-control-side-menu > div.side-control-container:first-of-type > div.tchmi-ba-control-container:first-of-type > div.tchmi-ba-base.button:last-of-type {
+            position: absolute;
+            right: 0;
+        }
+
+        .tchmi-ba-room-control-side-menu > div.side-control-container.last {
+            margin-bottom: 10px;
+        }
+
+            .tchmi-ba-room-control-side-menu > div.side-control-container.last::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 5%;
+                width: 90%;
+                border-bottom: 2px solid var(--tchmi-ba-global-control-border-color);
+            }
+
+        .tchmi-ba-room-control-side-menu > div.side-control-container > div.tchmi-ba-control-container {
+            position: relative;
+            flex: auto;
+            width: 100%;
+            align-items: center;
+            max-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2);
+            min-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2);
+            overflow: visible;
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+
+    .tchmi-ba-room-control-side-menu div.tchmi-ba-control-container > div.tchmi-ba-base.fixed-size {
+        max-width: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 10px);
+        min-width: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 10px);
+        max-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 10px);
+        min-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 10px);
+        margin: 5px;
+    }
+
+    .tchmi-ba-room-control-side-menu div.tchmi-ba-control-container > div.tchmi-ba-base.button.fixed-size {
+        max-width: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 5px);
+        min-width: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 5px);
+        max-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 5px);
+        min-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2 - 5px);
+        z-index: 1;
+    }
+
+    .tchmi-ba-room-control-side-menu div.tchmi-ba-control-container > div.tchmi-ba-base.fixed-size:first-of-type {
+        margin-left: 0;
+    }
+
+    .tchmi-ba-room-control-side-menu div.tchmi-ba-control-container > div.tchmi-ba-base.fixed-size:last-of-type {
+        margin-right: 0;
+    }
+
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container,
+    .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.controls {
+        transition: max-height .4s, min-height .4s;
+    }
+
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.controls::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 5%;
+            width: 90%;
+            border-bottom: 1px dashed var(--tchmi-ba-global-control-border-color);
+        }
+
+        .tchmi-ba-room-control-side-menu > div.side-control-container.collapse,
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.controls.collapse {
+            max-height: 0;
+            min-height: 0;
+            overflow: hidden;
+            margin: 0;
+        }
+
+    .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container {
+        flex: auto;
+        margin-top: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+        align-items: center;
+        position: relative;
+        overflow: visible;
+        max-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2);
+        min-height: calc(var(--tchmi-ba-room-control-side-menu-entry-height) / 2);
+    }
+
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline.collapse {
+            margin-bottom: 10px;
+        }
+
+            .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline.collapse::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 5%;
+                width: 90%;
+                border-bottom: 2px solid var(--tchmi-ba-global-control-border-color);
+            }
+
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline > div.tchmi-ba-text-handler.textblock {
+            --tchmi-ba-font-size: 20px;
+            --tchmi-ba-font-weight: bold;
+            flex: initial;
+            cursor: pointer;
+        }
+
+            .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline > div.tchmi-ba-text-handler.textblock:after {
+                content: "\2B9F";
+            }
+
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline.collapse > div.tchmi-ba-text-handler.textblock:after {
+            content: "\2B9E";
+        }
+
+        .tchmi-ba-room-control-side-menu > div.tchmi-ba-control-container.control-units-header.headline > div.tchmi-ba-text-handler.button {
+            position: absolute;
+            right: 0;
+            margin-right: 0px;
+        }
+
+
+/* Lights */
+
+/*.tchmi-ba-room-control-side-menu > div.side-control-container.light.use-priority-icon > div.tchmi-ba-control-container:nth-child(2) {
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container.light.use-priority-icon.boolean-brightness > div.tchmi-ba-control-container:nth-child(2) {
+        justify-content: flex-start;
+        padding-left: 60px;
+        width: calc(100% - 60px)
+    }
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container.light > div.tchmi-ba-control-container:nth-child(2) > div.tchmi-ba-text-handler.textblock {
+        max-width: 50px;
+    }*/
+
+/* Windows */
+
+/*.tchmi-ba-room-control-side-menu > div.side-control-container.window.use-priority-icon > div.tchmi-ba-control-container:nth-child(2) {
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container.window.use-priority-icon.boolean-position > div.tchmi-ba-control-container:nth-child(2) {
+        justify-content: flex-start;
+        padding-left: 60px;
+        width: calc(100% - 60px)
+    }
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container.window > div.tchmi-ba-control-container:nth-child(2) > div.tchmi-ba-text-handler.textblock {
+        max-width: 50px;
+    }*/
+
+/* Sunblinds */
+/*.tchmi-ba-room-control-side-menu > div.side-control-container.sunblind.use-priority-icon > div.tchmi-ba-control-container:nth-child(2) {
+        justify-content: flex-start;
+        padding-left: 10px;
+        width: calc(100% - 10px)
+    }*/
+
+/* Heating Cooling */
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit.hc-control > div.zones-outer-container {
+    position: relative;
+    flex: auto;
+    display: flex;
+    padding: 5px;
+}
+
+    .TcHmi_BuildingAutomation_Controls_RoomAutomation_RoomControl > div.tchmi-ba-base.control-unit.hc-control > div.zones-outer-container > div.tchmi-ba-base.temp-adjust-slider {
+        position: relative;
+        flex: auto;
+    }
+
+.tchmi-ba-room-control-side-menu > div.side-control-container.hc > div.tchmi-ba-control-container > div.temp-adjust-slider {
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+/* Alarms */
+.tchmi-ba-room-control-side-menu > div.side-control-container > div.tchmi-ba-room-control-side-menu-alarm-container {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 3px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 100;
+}
+
+    .tchmi-ba-room-control-side-menu > div.side-control-container > div.tchmi-ba-room-control-side-menu-alarm-container > .tchmi-ba-base.tchmi-ba-room-control-side-menu-alarm-icon {
+        flex: auto;
+        height: 30px;
+        max-width: 30px;
+        position: relative;
+        background-color: var(--tchmi-ba-global-tchmi-dark-grey);
+        margin-right: 5px;
+    }

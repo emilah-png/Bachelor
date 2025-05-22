@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "MenuOptions": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "MenuOptions",
+      "type": "array",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/MenuProperties"
+      }
+    }
+  }
+}

@@ -1,0 +1,421 @@
+{
+    "$schema": "../../TcHmiFramework/Schema/ControlDescription.Schema.json",
+    "apiVersion": 1,
+    "name": "TcHmiStateMachineV2",
+    "namespace": "TcHmi.Controls.Beckhoff.TcHmiPackML",
+    "displayName": "State Machine V2",
+    "version": {
+        "full": "14.2.90.0",
+        "major": 14,
+        "minor": 2,
+        "build": 90,
+        "revision": 0
+    },
+    "visible": true,
+    "themeable": "Standard",
+    "base": "TcHmi.Controls.System.TcHmiControl",
+    "description": "Control for displaying the active state on the PackML V2 state model.",
+    "defaultDesignerEvent": "",
+    "properties": {
+        "containerControl": false,
+        "geometry": {
+            "width": 860,
+            "height": 360
+        }
+    },
+    "template": "Template.html",
+    "icons": [
+        {
+            "name": "Icons/16x16.png",
+            "width": 16,
+            "height": 16
+        }
+    ],
+    "dependencyFiles": [
+        {
+            "name": "TcHmiStateMachineV2.js",
+            "type": "JavaScript",
+            "description": "Contains all the main logic."
+        },
+        {
+            "name": "Style.css",
+            "type": "Stylesheet",
+            "description": "Theme independent style"
+        }
+    ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Defaults.theme",
+                    "type": "ThemedValues",
+                    "description": ""
+                },
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": ""
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Defaults.theme",
+                    "type": "ThemedValues",
+                    "description": ""
+                },
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    "attributes": [
+        {
+            "name": "data-tchmi-state-current",
+            "propertyName": "StateCurrent",
+            "propertySetterName": "setStateCurrent",
+            "propertyGetterName": "getStateCurrent",
+            "displayName": "State Current",
+            "visible": true,
+            "themeable": "Advanced",
+            "displayPriority": 10,
+            "type": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2.State",
+            "category": "Common",
+            "description": "Attribute to get the current state from the PLC. Please create a binding with the property StateCurrent in the PackTags (ST_PMLs > StateCurrent).",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "OneWay",
+            "defaultValue": null,
+            "defaultValueInternal": "Undefined"
+        },
+        {
+            "name": "data-tchmi-command",
+            "propertyName": "Command",
+            "propertySetterName": "setCommand",
+            "propertyGetterName": "getCommand",
+            "displayName": "CntrlCmd",
+            "visible": true,
+            "themeable": "Advanced",
+            "displayPriority": 10,
+            "type": "tchmi:framework#/definitions/Symbol",
+            "category": "Common",
+            "description": "A Symbol to get and set the command from the PLC. The property CntrlCmd can be found in the PackTags (ST_PMLc > CntrlCmd).",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "TwoWay",
+            "defaultValue": null,
+            "defaultValueInternal": null
+        },
+        {
+            "name": "data-tchmi-unit-mode-current",
+            "propertyName": "UnitModeCurrent",
+            "propertySetterName": "setUnitModeCurrent",
+            "propertyGetterName": "getUnitModeCurrent",
+            "displayName": "Unit Mode Current",
+            "visible": true,
+            "themeable": "Advanced",
+            "displayPriority": 10,
+            "type": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiPackML.TcHmiStateMachineV2.UnitMode",
+            "category": "Common",
+            "description": "Attribute to get the current unit mode. Please create a binding with the property UnitModeCurrent in the PackTags (ST_PMLs > UnitModeCurrent).",
+            "readOnly": false,
+            "bindable": true,
+            "heritable": true,
+            "defaultBindingMode": "OneWay",
+            "defaultValue": null,
+            "defaultValueInternal": "Invalid"
+        }
+    ],
+    "attributeCategories": [],
+    "themedResources": [
+        {
+            "name": "fontFamily",
+            "displayName": "Font Family",
+            "description": "The font Family of the text.",
+            "type": "tchmi:framework#/definitions/String"
+        },
+        {
+            "name": "states/Clearing/color",
+            "displayName": "States/Clearing/Color",
+            "description": "Color of the state Clearing",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Clearing/highlightColor",
+            "displayName": "States/Clearing/Highlight Color",
+            "description": "Highlight Color of the state Clearing",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Stopped/color",
+            "displayName": "States/Stopped/Color",
+            "description": "Color of the state Stopped",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Stopped/highlightColor",
+            "displayName": "States/Stopped/Highlight Color",
+            "description": "Highlight Color of the state Stopped",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Starting/color",
+            "displayName": "States/Starting/Color",
+            "description": "Color of the state Starting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Starting/highlightColor",
+            "displayName": "States/Starting/Highlight Color",
+            "description": "Highlight Color of the state Starting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Idle/color",
+            "displayName": "States/Idle/Color",
+            "description": "Color of the state Idle",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Idle/highlightColor",
+            "displayName": "States/Idle/Highlight Color",
+            "description": "Highlight Color of the state Idle",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Suspended/color",
+            "displayName": "States/Suspended/Color",
+            "description": "Color of the state Suspended",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Suspended/highlightColor",
+            "displayName": "States/Suspended/Highlight Color",
+            "description": "Highlight Color of the state Suspended",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Execute/color",
+            "displayName": "States/Execute/Color",
+            "description": "Color of the state Execute",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Execute/highlightColor",
+            "displayName": "States/Execute/Highlight Color",
+            "description": "Highlight Color of the state Execute",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Stopping/color",
+            "displayName": "States/Stopping/Color",
+            "description": "Color of the state Stopping",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Stopping/highlightColor",
+            "displayName": "States/Stopping/Highlight Color",
+            "description": "Highlight Color of the state Stopping",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Aborting/color",
+            "displayName": "States/Aborting/Color",
+            "description": "Color of the state Aborting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Aborting/highlightColor",
+            "displayName": "States/Aborting/Highlight Color",
+            "description": "Highlight Color of the state Aborting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Aborted/color",
+            "displayName": "States/Aborted/Color",
+            "description": "Color of the state Aborted",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Aborted/highlightColor",
+            "displayName": "States/Aborted/Highlight Color",
+            "description": "Highlight Color of the state Aborted",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Holding/color",
+            "displayName": "States/Holding/Color",
+            "description": "Color of the state Holding",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Holding/highlightColor",
+            "displayName": "States/Holding/Highlight Color",
+            "description": "Highlight Color of the state Holding",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Held/color",
+            "displayName": "States/Held/Color",
+            "description": "Color of the state Held",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Held/highlightColor",
+            "displayName": "States/Held/Highlight Color",
+            "description": "Highlight Color of the state Held",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Unholding/color",
+            "displayName": "States/Unholding/Color",
+            "description": "Color of the state Unholding",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Unholding/highlightColor",
+            "displayName": "States/Unholding/Highlight Color",
+            "description": "Highlight Color of the state Unholding",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Suspending/color",
+            "displayName": "States/Suspending/Color",
+            "description": "Color of the state Suspending",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Suspending/highlightColor",
+            "displayName": "States/Suspending/Highlight Color",
+            "description": "Highlight Color of the state Suspending",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Unsuspending/color",
+            "displayName": "States/Unsuspending/Color",
+            "description": "Color of the state Unsuspending",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Unsuspending/highlightColor",
+            "displayName": "States/Unsuspending/Highlight Color",
+            "description": "Highlight Color of the state Unsuspending",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Resetting/color",
+            "displayName": "States/Resetting/Color",
+            "description": "Color of the state Resetting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Resetting/highlightColor",
+            "displayName": "States/Resetting/Highlight Color",
+            "description": "Highlight Color of the state Resetting",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Completing/color",
+            "displayName": "States/Completing/Color",
+            "description": "Color of the state Completing",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Completing/highlightColor",
+            "displayName": "States/Completing/Highlight Color",
+            "description": "Highlight Color of the state Completing",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Complete/color",
+            "displayName": "States/Complete/Color",
+            "description": "Color of the state Complete",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "states/Complete/highlightColor",
+            "displayName": "States/Complete/Highlight Color",
+            "description": "Highlight Color of the state Complete",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "stateTextcolor",
+            "displayName": "State Textcolor",
+            "description": "Text color of a state.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "stateTextcolorHovered",
+            "displayName": "State Textcolor Hovered",
+            "description": "Text color of a hovered state.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "stateColorHovered",
+            "displayName": "State Color Hovered",
+            "description": "Color of a hovered state.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "stateBorderColor",
+            "displayName": "State Border Color",
+            "description": "Color of the state borders.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "transitionColor",
+            "displayName": "Transition Color",
+            "description": "Color of a transition.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "transitionTextColor",
+            "displayName": "Transition Text Color",
+            "description": "Text color of a transition.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "borderColor",
+            "displayName": "Border Color",
+            "description": "Color of the borders.",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "baseColor",
+            "displayName": "Base Color",
+            "description": "Color of the Base of the model",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        },
+        {
+            "name": "innerBaseColor",
+            "displayName": "Inner Base Color",
+            "description": "Color of the inner Base of the model",
+            "type": "tchmi:framework#/definitions/SolidColor"
+        }
+    ],
+    "functions": [],
+    "events": [],
+    "dataTypes": [
+        {
+            "schema": "Schema/Types.Schema.json"
+        }
+    ],
+    "access": [
+        {
+            "name": "AllowStateChange",
+            "displayName": "Allow state change",
+            "description": "Controls if state changes are allowed. This defaults to true. \nThis has no effect if the \"operate\" right is denied.",
+            "visible": true,
+            "defaultValueInternal": true,
+            "dependsOn": [
+                "operate"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Ramp" Id="{24537590-876d-48d5-932f-90f8f70c547d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Ramp
+VAR_INPUT
+	bEnable 	: BOOL;
+
+	fTime 		: LREAL;
+	fMaxSpeed 	: LREAL;
+	fHeight		: LREAL;
+	
+	fSignalStr	: LREAL;
+END_VAR
+VAR_OUTPUT
+	fXDotRef 	: LREAL;
+	fConst		: LREAL;
+END_VAR
+VAR
+	fStartTime 	: LREAL := 1.0; // [s]
+	fHoldTime 	: LREAL := 8.0; // [s]
+	fRampTime 	: LREAL := 2.0; // [s]
+	fSpeedRef	: LREAL;
+	
+	
+	t1 			: LREAL;
+	t2 			: LREAL;
+	t3 			: LREAL;
+	t35			: LREAL;
+	t4 			: LREAL;
+	t5 			: LREAL;
+	t6 			: LREAL;
+	t7 			: LREAL;
+	t75			: LREAL;
+	t8 			: LREAL;
+	t9 			: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fSpeedRef := fHeight/fRampTime;
+
+IF fSpeedRef > fMaxSpeed THEN
+    fSpeedRef := fMaxSpeed;
+END_IF
+ 
+t1  := fStartTime;
+t2  := t1 + fRampTime;
+t3  := t2 + fHoldTime/2;
+t35 := t3 + fHoldTime/2;
+t4  := t35 + fRampTime; 
+t5  := t4 + fStartTime;
+t6  := t5 + fRampTime;
+t7  := t6 + fHoldTime/2; 
+t75 := t7 + fHoldTime/2;
+t8  := t75 + fRampTime;
+t9  := t8 + fStartTime;
+
+IF fTime = 0 THEN
+	fXDotRef := 0.0;
+	fConst := 0.0;
+ELSIF fTime < t1 THEN // Start Delay
+	fXDotRef := 0.0;
+ELSIF fTime < t2 THEN // Ramp Up
+	fXDotRef := -fSpeedRef * (fTime-t1);
+ELSIF fTime < t3 THEN // Const Speed
+	fXDotRef := -fSpeedRef * fRampTime;
+ELSIF fTime < t35 THEN
+	fXDotRef := -fSpeedRef * fRampTime;
+	fConst := -fSignalStr;
+ELSIF fTime < t4 THEN // Ramp Down
+	fXDotRef := -fSpeedRef * fRampTime + fSpeedRef*(fTime-t35);
+	fConst := 0.0;
+ELSIF fTime < t5 THEN // Hold Time
+	fXDotRef := 0.0;
+ELSIF fTime < t6 THEN // Ramp Down
+	fXDotRef := fSpeedRef * (fTime-t5);;
+ELSIF fTime < t7 THEN // Const Speed
+	fXDotRef := fSpeedRef * fRampTime;
+ELSIF fTime < t75 THEN
+	fXDotRef := fSpeedRef * fRampTime;
+	fConst := fSignalStr;
+ELSIF fTime < t8 THEN // Ramp Up
+	fXDotRef := fSpeedRef * fRampTime - fSpeedRef * (fTime-t75);
+	fConst := 0.0;
+ELSIF fTime < t9 THEN // Stop
+	fXDotRef := 0.0;
+END_IF
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

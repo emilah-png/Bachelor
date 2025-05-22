@@ -1,0 +1,47 @@
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.connection.flow,
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.connection.return {
+    top: 115px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.connection.flow {
+    left: calc(28% - 18px);
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.connection.return {
+    left: calc(28% + 12px);
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Common_UiIcon.main {
+    left: calc(28% - 25px);
+    top: 45px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_SensorAnalog.flow-temp-sensor {
+    top: 165px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_SensorAnalog.return-temp-sensor {
+    right: 118px;
+    top: 165px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_Pump.pump {
+    left: calc(28% - 18px + 3px - 20px);
+    top: 240px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_Valve.valve {
+    left: calc(28% - 18px + 3px - 20px);
+    top: 315px;
+}
+
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_SensorBinary.frost-thermostat {
+    width: 40px;
+    height: 40px;
+    right: 80px;
+}
+.TcHmi_BuildingAutomation_Controls_Plants_PreHeater > div.TcHmi_BuildingAutomation_Controls_Plants_SensorAnalog.t-frost {
+    width: 40px;
+    height: 40px;
+    right: 0px;
+}

@@ -1,0 +1,5 @@
+.tchmi-ba-base.manual-override-binary {
+    --tchmi-ba-manual-override-binary-auto-color-active: linear-gradient(to top left, rgb(0, 130, 0), rgb(0, 70, 0));
+    --tchmi-ba-manual-override-binary-off-color-active: linear-gradient(to top left, rgb(70, 70, 71), rgb(112, 106, 119));
+    --tchmi-ba-manual-override-binary-on-color-active: linear-gradient(to top left, rgb(200, 200, 0), rgb(130, 130, 0));
+}

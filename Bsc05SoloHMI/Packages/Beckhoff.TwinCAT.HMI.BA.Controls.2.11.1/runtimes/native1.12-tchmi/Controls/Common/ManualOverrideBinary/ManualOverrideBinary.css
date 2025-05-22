@@ -1,0 +1,8 @@
+.TcHmi_BuildingAutomation_Controls_Common_ManualOverrideBinary {
+    overflow: visible;
+}
+
+    .TcHmi_BuildingAutomation_Controls_Common_ManualOverrideBinary > div.tchmi-ba-base.manual-override-binary {
+        width: 100%;
+        height: 100%;
+    }

@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.HeatingCooling": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseRoomControl",
+      "frameworkControlType": "HeatingCooling",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.RoomAutomation"
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.HeatingCooling.EnergyLevel": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": [
+        {
+          "label": "protection",
+          "value": 1
+        },
+        {
+          "label": "economy",
+          "value": 2
+        },
+        {
+          "label": "preComfort",
+          "value": 3
+        },
+        {
+          "label": "comfort",
+          "value": 4
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.HeatingCooling.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "description": "Name of the HeatingCooling. (Default: sName, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "error",
+          "displayName": "Error",
+          "description": "Defines if an error has occured or not. The error will be displayed. (Default: bErr_Out, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "roomTemp",
+          "displayName": "Room temperature",
+          "description": "The current room temperature. (Default: fRmT_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "roomTempAdjust",
+          "displayName": "Room temperature adjustment",
+          "description": "The adjustment of the temperature setpoint. (Default: fRmTAdj_In, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "roomTempAdjustRange",
+          "displayName": "Room temperature adjustment range",
+          "description": "The range of the adjustment of the temperature setpoint. (Default: fRmTAdjLimit_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "heatingSetpoint",
+          "displayName": "Heating setpoint",
+          "description": "The setpoint for heating. (Default: fSPHtg_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "heatingActive",
+          "displayName": "Heating active",
+          "description": "Defines if the heating is active or not. (Default: fCtrlValHtg_Out, DataType: boolean / number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "coolingSetpoint",
+          "displayName": "Cooling setpoint",
+          "description": "The setpoint for cooling. (Default: fSPCol_Out, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "coolingActive",
+          "displayName": "Cooling active",
+          "description": "Defines if the cooling is active or not. (Default: fCtrlValCol_Out, DataType: boolean / number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "energyLevel",
+          "displayName": "Energy level",
+          "description": "The energy level of the HeatingCooling. (Default: eActualEnergyLevel_Out, DataType: integer)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "roomTemp": {
+          "type": "string"
+        },
+        "roomTempAdjust": {
+          "type": "string"
+        },
+        "roomTempAdjustRange": {
+          "type": "string"
+        },
+        "heatingSetpoint": {
+          "type": "string"
+        },
+        "heatingActive": {
+          "type": "string"
+        },
+        "coolingSetpoint": {
+          "type": "string"
+        },
+        "coolingActive": {
+          "type": "string"
+        },
+        "energyLevel": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

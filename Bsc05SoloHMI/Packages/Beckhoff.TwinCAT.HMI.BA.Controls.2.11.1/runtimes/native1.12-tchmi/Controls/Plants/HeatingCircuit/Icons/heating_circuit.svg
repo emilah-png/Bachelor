@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   style="stroke-width:6px;stroke-linecap:round"
+   id="svg8"
+   sodipodi:docname="heating_circuit.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="C:\GIT\TcHmiBa\Source\TcHmiBa\TcHmiBaControls\Controls\Plants\HeatingCircuit\Icons\16x16.png"
+   inkscape:export-xdpi="15.36"
+   inkscape:export-ydpi="15.36"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="true"
+     inkscape:zoom="5.72"
+     inkscape:cx="45.541958"
+     inkscape:cy="75.087413"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g6">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1192" />
+  </sodipodi:namedview>
+  <g
+     id="g6">
+    <rect
+       x="3.4281526"
+       y="3.4281526"
+       rx="1.9817806"
+       width="93.1437"
+       height="93.1437"
+       id="rect2"
+       style="fill:#f0eff1;fill-opacity:1;stroke:#424242;stroke-width:6.8563;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="C:\GIT\TcHmiBa\Source\TcHmiBa\TcHmiBaControls\Controls\Plants\PreHeater\Icons\16x16.png"
+       inkscape:export-xdpi="15.36"
+       inkscape:export-ydpi="15.36" />
+    <path
+       style="fill:none;stroke:#424242;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 5,95 95,5 v 0"
+       id="path1227" />
+    <path
+       style="fill:none;stroke:#424242;stroke-width:7;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 32.5,12.5 v 25"
+       id="path1360" />
+    <path
+       style="fill:none;stroke:#424242;stroke-width:7;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 45,25 H 20"
+       id="path1360-3" />
+  </g>
+</svg>

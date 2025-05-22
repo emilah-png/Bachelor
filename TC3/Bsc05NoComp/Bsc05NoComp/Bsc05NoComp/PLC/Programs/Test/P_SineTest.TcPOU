@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_SineTest" Id="{0f3f7576-0249-4f93-9831-a33ae6263c98}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_SineTest
+VAR
+	fbSin  : FB_SineMotionRef;
+	fbCos  : FB_SineMotionRef;
+	fbNSin : FB_SineMotionRef;
+	fbNCos : FB_SineMotionRef;
+	
+	fSinX : LREAL;
+	fCosX : LREAL;
+	fNSinX : LREAL;
+	fNCosX : LREAL;
+	
+	fSinV : LREAL;
+	fCosV : LREAL;
+	fNSinV : LREAL;
+	fNCosV : LREAL;
+	
+	bStart : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+fbSin(
+	bNegative := FALSE,
+	bCOS := FALSE,
+	bEnableMotion := bStart,
+	fTime := G_OPC.fTime,
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fFrequency := G_Parameters.fMainFrequency,
+	fInitialPos := 0.0,
+	
+	fXDotRef => fSinV,
+	fXRef => fSinX
+);
+
+fbCos(
+	bNegative := FALSE,
+	bCOS := TRUE,
+	bEnableMotion := bStart,
+	fTime := G_OPC.fTime,
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fFrequency := G_Parameters.fMainFrequency,
+	fInitialPos := 0.0,
+	
+	fXDotRef => fCosV,
+	fXRef => fCosX
+);
+
+fbNSin(
+	bNegative := TRUE,
+	bCOS := FALSE,
+	bEnableMotion := bStart,
+	fTime := G_OPC.fTime,
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fFrequency := G_Parameters.fMainFrequency,
+	fInitialPos := 0.0,
+	
+	fXDotRef => fNSinV,
+	fXRef => fNSinX
+);
+
+fbNCos(
+	bNegative := TRUE,
+	bCOS := TRUE,
+	bEnableMotion := bStart,
+	fTime := G_OPC.fTime,
+	fAmplitude := G_Parameters.fMainAmplitude,
+	fFrequency := G_Parameters.fMainFrequency,
+	fInitialPos := 0.0,
+	
+	fXDotRef => fNCosV,
+	fXRef => fNCosX
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,136 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.ColorPicker": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "ColorPicker",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.ColorPicker.ColorPlateType": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [ 0, 1, 2, 3 ],
+      "options": [
+        {
+          "label": "hslRect1",
+          "value": 0
+        },
+        {
+          "label": "hslRectAll",
+          "value": 1
+        },
+        {
+          "label": "hsvCircle",
+          "value": 2
+        },
+        {
+          "label": "hslRing",
+          "value": 3
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Color.RGBAColor": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "RGBAColor",
+      "propertiesMeta": [
+        {
+          "name": "r",
+          "category": "Common",
+          "displayName": "Red",
+          "displayPriority": 10,
+          "description": "Red 0-255",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "g",
+          "category": "Common",
+          "displayName": "Green",
+          "displayPriority": 10,
+          "description": "Green 0-255",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "b",
+          "category": "Common",
+          "displayName": "Blue",
+          "displayPriority": 10,
+          "description": "Blue 0-255",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "a",
+          "category": "Common",
+          "displayName": "Alpha",
+          "displayPriority": 10,
+          "description": "Alpha 0-1",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "r": {
+          "type": "number"
+        },
+        "g": {
+          "type": "number"
+        },
+        "b": {
+          "type": "number"
+        },
+        "a": {
+          "type": "number"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.HSLColor": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "HSLColor",
+      "propertiesMeta": [
+        {
+          "name": "h",
+          "category": "Common",
+          "displayName": "Hue",
+          "displayPriority": 10,
+          "description": "Hue 0-1",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "s",
+          "category": "Common",
+          "displayName": "Saturation",
+          "displayPriority": 10,
+          "description": "Saturation 0-1",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "l",
+          "category": "Common",
+          "displayName": "Lightness",
+          "displayPriority": 10,
+          "description": "Lightness 0-1",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "h": {
+          "type": "number"
+        },
+        "s": {
+          "type": "number"
+        },
+        "l": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

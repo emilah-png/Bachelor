@@ -1,0 +1,60 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Plants.ErcRotation": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseTemplate",
+      "frameworkControlType": "ErcRotation",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Plants"
+    },
+    "TcHmi.BuildingAutomation.Controls.Plants.ErcRotation.BaTemplateDescription": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaTemplateDescription",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "diffPrssSwi",
+          "displayName": "Differential pressure",
+          "description": "The differential pressure of the energy recovery. (Default: DiffPrssSwi, DataType: SensorBinary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "The feedback of the energy recovery. (Default: Motor::Fdb, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "setpoint",
+          "displayName": "Setpoint",
+          "description": "The setpoint of the energy recovery. (Default: Motor::Mdlt, DataType: Analog)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "command",
+          "displayName": "Command",
+          "description": "The command of the energy recovery. (Default: Motor::Cmd, DataType: Binary)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "diffPrssSwi": {
+          "type": "string"
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "setpoint": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

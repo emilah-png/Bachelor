@@ -1,0 +1,7 @@
+.TcHmi_BuildingAutomation_Controls_Common_Icon {
+    overflow: hidden;
+}
+    .TcHmi_BuildingAutomation_Controls_Common_Icon > div.tchmi-ba-base {
+        width: 100%;
+        height: 100%;
+    }

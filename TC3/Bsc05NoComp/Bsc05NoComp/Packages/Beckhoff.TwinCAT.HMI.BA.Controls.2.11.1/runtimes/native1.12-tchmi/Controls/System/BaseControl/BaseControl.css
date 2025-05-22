@@ -1,0 +1,32 @@
+﻿.TcHmi_BuildingAutomation_Controls_System_BaseControl {
+    max-width: 100%;
+    max-height: 100%;
+    --tchmi-ba-content-padding: initial;
+}
+
+.TcHmi_Controls_System_TcHmiUserControlHost {
+    overflow: visible;
+}
+
+.TcHmi_Controls_System_TcHmiPartial {
+    overflow: visible
+}
+
+.TcHmi_Controls_System_TcHmiPartial-template {    
+    overflow: visible;
+}
+
+/* Access */
+.TcHmi_Controls_System_TcHmiControl-operate-disallowed {
+    cursor: not-allowed;
+}
+    .TcHmi_Controls_System_TcHmiControl-operate-disallowed::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: 100;
+    }

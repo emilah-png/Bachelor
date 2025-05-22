@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Control" Id="{0440d2ef-e1d2-4ea5-a6de-0c9a70c43301}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Control
+VAR_INPUT
+	fFF 			: LREAL;
+	fPID			: LREAL;
+	fDeadBandUp		: LREAL;
+	fDeadBandDown	: LREAL;
+	fKFF			: LREAL;
+	fFlowSharing	: LREAL;
+	
+	bPID			: BOOL;
+	bFF				: BOOL;
+	bU				: BOOL;
+	bValve			: BOOL;
+	bFlowShare		: BOOL;
+END_VAR
+VAR_OUTPUT
+	fU				: LREAL;
+	fUAdj			: LREAL;
+END_VAR
+VAR
+	FF				: LREAL;
+	PID				: LREAL;
+	fMaxOutput		: LREAL := 1.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bFlowShare THEN
+	fFlowSharing := G_OPC.fFlowShareCoefficient;
+ELSE
+	fFlowSharing := 1.0;
+END_IF
+
+FF := fFF * fKFF * TO_INT(bFF);//* fMaxOutput;
+
+PID := fPID * fMaxOutput * TO_INT(bPID);
+
+fUAdj := (FF+PID)*TO_INT(bValve);
+
+IF (fUAdj > 0.0) THEN
+	fU := fUAdj*fFlowSharing + fDeadBandUp;
+ELSIF (fUAdj < 0.0) THEN
+	fU := fUAdj*fFlowSharing - fDeadBandDown;
+ELSE
+	fU := 0.0;
+END_IF
+
+IF fU < -1.0 THEN
+	fU := -1.0;
+ELSIF fU > 1.0 THEN
+	fU := 1.0;
+ELSE
+	fU := fU;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

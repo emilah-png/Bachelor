@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Integrator" Id="{1200ebea-d33a-4080-b39f-2edfc1602a4c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Integrator
+VAR_INPUT
+	ssMethodType				: SINT;
+	fSignal						: LREAL;
+	nReset						: SINT;
+END_VAR
+VAR_OUTPUT
+	fSignalIntegrated			: LREAL;
+END_VAR
+VAR
+	c_DiscreteTimeIntegrator_Pr	: SINT;
+	c_DiscreteTimeIntegrator_DS	: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Integrator' *)
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := 0.0;
+		c_DiscreteTimeIntegrator_Pr := 0;
+        (* End of SystemInitialize for SubSystem: '<Root>/Integrator' *)
+    SS_STEP: 
+        (* Outputs for Atomic SubSystem: '<Root>/Integrator' *)
+        (* Outport: '<Root>/fSignalIntegrated' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        IF (nReset <> 0.0) OR (c_DiscreteTimeIntegrator_Pr <> 0) THEN 
+			c_DiscreteTimeIntegrator_DS := 0.0;
+        END_IF;
+
+		fSignalIntegrated := c_DiscreteTimeIntegrator_DS;
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := (0.01 * fSignal) + c_DiscreteTimeIntegrator_DS;
+		
+        IF nReset > 0.0 THEN 
+             c_DiscreteTimeIntegrator_Pr := 1;
+        ELSIF nReset < 0.0 THEN 
+            c_DiscreteTimeIntegrator_Pr := -1;
+        ELSIF nReset = 0.0 THEN 
+             c_DiscreteTimeIntegrator_Pr := 0;
+        ELSE 
+             c_DiscreteTimeIntegrator_Pr := 2;
+        END_IF;(* End of Outputs for SubSystem: '<Root>/Integrator' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

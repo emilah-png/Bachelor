@@ -1,0 +1,133 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Slider": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.TextControl",
+      "frameworkControlType": "Slider",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Slider.SliderRanges": {
+      "type": "array",
+      "title": "SliderRanges",
+      "items": {
+        "type": "object",
+        "title": "SliderRange",
+        "description": "Defines a slider range",
+        "engineeringColumns": [
+          "start",
+          "end"
+        ],
+        "propertiesMeta": [
+          {
+            "name": "color",
+            "category": "Color",
+            "displayName": "Color"
+          },
+          {
+            "name": "start",
+            "category": "Common",
+            "displayName": "Start           ",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          },
+          {
+            "name": "end",
+            "category": "Common",
+            "displayName": "End",
+            "defaultValue": null,
+            "defaultValueInternal": null
+          }
+        ],
+        "properties": {
+          "color": {
+            "$ref": "tchmi:framework#/definitions/SolidColor"
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          }
+        },
+        "required": [ "start", "color" ]
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Slider.KnobAppearance": {
+      "type": "string",
+      "enum": [
+        0,
+        1
+      ],
+      "options": [
+        {
+          "label": "rectangle",
+          "value": 0
+        },
+        {
+          "label": "round",
+          "value": 1
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Common.Slider.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "description": "The symbol to set the value. (Default: Value, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "valueFeedback",
+          "displayName": "Value feedback",
+          "description": "The feedback for the value. (Default: ValueFeedback, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "description": "Unit for an analog value. (Default: Unit, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "minVal",
+          "displayName": "Minimum value",
+          "description": "Minimum value for an analog value. (Default: MinVal, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "maxVal",
+          "displayName": "Maximum value",
+          "description": "Maximum value for an analog value. (Default: MaxVal, DataType: number)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueFeedback": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "minVal": {
+          "type": "string"
+        },
+        "maxVal": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

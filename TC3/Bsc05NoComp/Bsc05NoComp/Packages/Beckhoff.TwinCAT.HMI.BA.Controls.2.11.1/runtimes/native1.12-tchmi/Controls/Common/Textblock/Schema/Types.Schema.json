@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Common.Textblock": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.TextControl",
+      "frameworkControlType": "Textblock",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Common"
+    }
+  }
+}

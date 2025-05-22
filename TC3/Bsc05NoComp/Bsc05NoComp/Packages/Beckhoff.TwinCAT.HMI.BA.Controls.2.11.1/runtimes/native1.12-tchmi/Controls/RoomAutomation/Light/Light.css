@@ -1,0 +1,12 @@
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Light.show-displays > div.tchmi-ba-text-handler {
+    align-items: flex-end;
+}
+
+.tchmi-ba-base.tchmi-ba-text-handler.button.light-icon.filled-display-mode {
+    --tchmi-ba-background-styler-background-gradient: initial;
+}
+
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Light .tchmi-ba-control-container > div.tchmi-ba-text-handler.slider,
+.TcHmi_BuildingAutomation_Controls_RoomAutomation_Light .tchmi-ba-control-container > div.tchmi-ba-text-handler.slider.round-knob {
+    margin: 0 15px 0 15px;
+}

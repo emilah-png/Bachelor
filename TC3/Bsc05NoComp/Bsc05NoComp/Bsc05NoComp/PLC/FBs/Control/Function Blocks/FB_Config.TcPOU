@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Config" Id="{12c3bed6-157f-4ecb-8ae9-c71efbabb25b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Config
+VAR_INPUT
+	bEnable : BOOL;
+	fSignal : LREAL;
+END_VAR
+VAR_OUTPUT
+	fAverage : LREAL;
+END_VAR
+VAR
+	nIndex : SINT;
+	fSum : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnable THEN
+	nIndex := 0;
+	WHILE nIndex > G_Config.nArrayLength DO
+		nIndex := nIndex + 1;
+		G_Config.faMeasurement[nIndex] := fSignal;
+		fSum := fSum + G_Config.faMeasurement[nIndex];
+	END_WHILE
+	fAverage := fSum / nIndex;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

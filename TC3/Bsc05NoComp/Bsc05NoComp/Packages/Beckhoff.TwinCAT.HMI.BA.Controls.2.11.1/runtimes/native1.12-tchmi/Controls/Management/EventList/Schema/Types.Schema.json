@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.Management.EventList": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseControl",
+      "frameworkControlType": "EventList",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.Management"
+    },
+    "TcHmi.BuildingAutomation.Controls.Management.EventList.Columns": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "Columns",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "options": [
+        {
+          "label": "baIdentifier",
+          "value": 0
+        },
+        {
+          "label": "event",
+          "value": 1
+        },
+        {
+          "label": "timestamp",
+          "value": 2
+        },
+        {
+          "label": "device",
+          "value": 3
+        },
+        {
+          "label": "objectName",
+          "value": 4
+        },
+        {
+          "label": "instancePath",
+          "value": 5
+        },
+        {
+          "label": "description",
+          "value": 6
+        },
+        {
+          "label": "eventClass",
+          "value": 7
+        },
+        {
+          "label": "eventClassInstanceDescription",
+          "value": 8
+        },
+        {
+          "label": "eventClassDescription",
+          "value": 9
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.Management.EventList.ColumnSorting": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "ColumnSorting",
+      "type": "array",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Management.EventList.Columns"
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Management.EventList.Column": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "object",
+      "title": "Column",
+      "description": "Define a column",
+      "engineeringColumns": [
+        "column"
+      ],
+      "propertiesMeta": [
+        {
+          "name": "type",
+          "category": "Common",
+          "displayName": "Column                                           ",
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "width",
+          "category": "Common",
+          "displayName": "Width",
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "widthUnit",
+          "category": "Common",
+          "displayName": "WidthUnit",
+          "refTo": "width",
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "type": {
+          "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Management.EventList.Columns"
+        },
+        "width": {
+          "$ref": "tchmi:framework#/definitions/MeasurementValue"
+        },
+        "widthUnit": {
+          "$ref": "tchmi:framework#/definitions/MeasurementUnitOrFactor"
+        }
+      }
+    },
+    "TcHmi.BuildingAutomation.Controls.Management.EventList.ColumnList": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "array",
+      "title": "ColumnList",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/TcHmi.BuildingAutomation.Controls.Management.EventList.Column"
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "SemiRadialProgressBar",
+  "namespace": "TcHmi.Controls.ElektroCode",
+  "displayName": "SemiRadialProgressBar",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "Icons/24x24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "name": "Icons/32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "Icons/64x64.png",
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "SemiRadialProgressBar.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-custom-pie-value",
+      "displayName": "Value",
+      "propertyName": "pieValue",
+      "propertySetterName": "setPieValue",
+      "propertyGetterName": "getPieValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "Progress Bar",
+      "description": "Value",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": 0,
+      "defaultValueInternal": 0
+    },
+    {
+      "name": "data-tchmi-custom-pie-value-birim",
+      "displayName": "Birim",
+      "propertyName": "pieValueBirim",
+      "propertySetterName": "setPieValueBirim",
+      "propertyGetterName": "getPieValueBirim",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Progress Bar",
+      "description": "Birim",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": "%",
+      "defaultValueInternal": "%"
+    },
+    {
+      "name": "data-tchmi-custom-pie-cizgi-kalinlik-1",
+      "displayName": "Stroke Width",
+      "propertyName": "strokeWidth",
+      "propertySetterName": "setStrokeWidth",
+      "propertyGetterName": "getStrokeWidth",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "Progress Bar",
+      "description": "Stroke Width",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": 4,
+      "defaultValueInternal": 4
+    },
+    {
+      "name": "data-tchmi-custom-pie-cizgi-kalinlik-2",
+      "displayName": "Stroke Width Value",
+      "propertyName": "strokeWidthValue",
+      "propertySetterName": "setStrokeWidthValue",
+      "propertyGetterName": "getStrokeWidthValue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "Progress Bar",
+      "description": "Stroke Width Value",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": 6,
+      "defaultValueInternal": 6
+    },
+    {
+      "name": "data-tchmi-custom-pie-duration",
+      "displayName": "Duration",
+      "propertyName": "duration",
+      "propertySetterName": "setDuration",
+      "propertyGetterName": "getDuration",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "Progress Bar",
+      "description": "Duration",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": 16,
+      "defaultValueInternal": 16
+    },
+
+    {
+      "name": "data-tchmi-custom-font-size",
+      "displayName": "Font Size",
+      "propertyName": "fontSize",
+      "propertySetterName": "setFontSize",
+      "propertyGetterName": "getFontSize",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "Progress Bar",
+      "description": "Font Size",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": 32,
+      "defaultValueInternal": 32
+    },
+    {
+      "name": "data-tchmi-custom-start-color",
+      "displayName": "Start Color",
+      "propertyName": "pieStartColor",
+      "propertySetterName": "setPieStartColor",
+      "propertyGetterName": "getPieStartColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/SolidColor",
+      "category": "Prpgress Colors",
+      "description": "Start Color",
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-custom-end-color",
+      "displayName": "End Color",
+      "propertyName": "endColor",
+      "propertySetterName": "setEndColor",
+      "propertyGetterName": "getEndColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/SolidColor",
+      "category": "Prpgress Colors",
+      "description": "End Color",
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-custom-pie-value-color",
+      "displayName": "Value Color",
+      "propertyName": "valueBackColor",
+      "propertySetterName": "setValueBackColor",
+      "propertyGetterName": "getValueBackColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/SolidColor",
+      "category": "Prpgress Colors",
+      "description": "ValueColor",
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+    "$schema": "./../../../Packages/Beckhoff.TwinCAT.HMI.Framework.14.2.110/runtimes/native1.12-tchmi/Schema/ThemeDescription.Schema.json",
+    "controlClassValues":
+    {
+        "background-container":
+        {
+            "attributes": {
+                "BackgroundColor": {
+                    "color": "rgba(27, 27, 31, 1)"
+                },
+                "TextColor": {
+                    "color": "rgba(255, 255, 255, 1)"
+                },
+                "BoxShadow": [
+                    {
+                        "color": {
+                            "color": "rgba(0, 0, 0, 0.3)"
+                        },
+                        "offsetX": 0.0,
+                        "offsetXUnit": "px",
+                        "offsetY": 1.0,
+                        "offsetYUnit": "px",
+                        "inset": false,
+                        "blur": 6.0,
+                        "blurUnit": "px",
+                        "spread": 1.0,
+                        "spreadUnit": "px"
+                    }
+                ]
+            },
+            "themedResources":
+            {
+            }
+        },
+        "background-header":
+        {
+            "attributes": {
+                "BackgroundColor": {
+                    "angle": 90.0,
+                    "stopPoints": [
+                        {
+                            "color": "rgba(229, 0, 0, 1)",
+                            "stop": "0%"
+                        },
+                        {
+                            "color": "rgba(163, 0, 0, 1)",
+                            "stop": "100%"
+                        }
+                    ]
+                },
+                "TextColor": {
+                    "color": "rgba(42, 56, 69, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "Breadcrumb":
+        {
+            "attributes":
+            {
+                "StartPageImage": "Images/startpage_pressed.svg"
+            },
+            "themedResources":
+            {
+            }
+        },
+        "Logo":
+        {
+            "attributes":
+            {
+                "Src": "Images/Beckhoff_white.png"
+            },
+            "themedResources":
+            {
+            }
+        },
+        "headline-1":
+        {
+            "attributes":
+            {
+                "TextFontSize": 26.0,
+                "TextColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "headline-2":
+        {
+            "attributes":
+            {
+                "TextFontSize": 22.0,
+                "TextColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "headline-3":
+        {
+            "attributes":
+            {
+                "TextFontSize": 18.0,
+                "TextColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "language-selection":
+        {
+            "attributes":
+            {
+                "HighLightColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                },
+                "FontColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "text-centered":
+        {
+            "attributes":
+            {
+                "TextHorizontalAlignment": "Center",
+                "TextVerticalAlignment": "Center",
+                "TextPadding":
+                {
+                    "left": 8,
+                    "right": 8,
+                    "top": 0,
+                    "bottom": 0,
+                    "leftUnit": "px",
+                    "rightUnit": "px",
+                    "topUnit": "px",
+                    "bottomUnit": "px"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "text-color-container":
+        {
+            "attributes":
+            {
+                "TextColor":
+                {
+                    "color": "rgba(255, 255, 255, 1)"
+                }
+            },
+            "themedResources":
+            {
+            }
+        },
+        "text-size-default":
+        {
+            "attributes":
+            {
+                "TextFontSize": 16.0,
+                "TextFontSizeUnit": "px"
+            },
+            "themedResources":
+            {
+            }
+        }
+    }
+}

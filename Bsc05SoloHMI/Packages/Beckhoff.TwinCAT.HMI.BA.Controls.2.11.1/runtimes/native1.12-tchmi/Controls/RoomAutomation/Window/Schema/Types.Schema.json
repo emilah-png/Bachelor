@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Window": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.BuildingAutomation.Controls.System.BaseRoomControl",
+      "frameworkControlType": "Window",
+      "frameworkControlNamespace": "TcHmi.BuildingAutomation.Controls.RoomAutomation"
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Window.DisplayMode": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "type": "string",
+      "enum": [
+        0,
+        1
+      ],
+      "options": [
+        {
+          "label": "standard",
+          "value": 0
+        },
+        {
+          "label": "roofDome",
+          "value": 1
+        }
+      ]
+    },
+    "TcHmi.BuildingAutomation.Controls.RoomAutomation.Window.BaInterfaceSymbolNames": {
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "BaInterfaceSymbolNames",
+      "type": "object",
+      "propertiesMeta": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "description": "Name of the window. (Default: sName, DataType: string)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "error",
+          "displayName": "Error",
+          "description": "Defines if an error has occured or not. The error will be displayed. (Default: bErr_Out, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "description": "Priority of the window. (Default: eActualPrio_Out, DataType: integer)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "commandOpen",
+          "displayName": "Command open",
+          "description": "Command to open the window. (Default: cmdOpen, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "commandClose",
+          "displayName": "Command close",
+          "description": "Command to close the window. (Default: cmdClose, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "feedback",
+          "displayName": "Feedback",
+          "description": "Feedback about the window position. (Default: feedback, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "name": "resetManual",
+          "displayName": "Reset Manual",
+          "description": "Symbol to reset the window into automatic mode. (Default: bResetManual_In, DataType: boolean)",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "commandOpen": {
+          "type": "string"
+        },
+        "commandClose": {
+          "type": "string"
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "resetManual": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

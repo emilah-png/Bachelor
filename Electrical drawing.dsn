@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--This file was written by TinyCAD 3.00.04 develop
+If you wish to view this file go to https://www.tinycad.net to
+download the executable.-->
+<TinyCADSheets>
+	<TinyCAD>
+		<NAME>Sheet 1</NAME>
+		<DETAILS>
+			<Size width='1485' height='1050'/>
+			<GUIDES horiz='7' vert='5'/>
+			<TITLE></TITLE>
+			<AUTHOR></AUTHOR>
+			<REVISION>1.0</REVISION>
+			<DOCNUMBER></DOCNUMBER>
+			<ORGANISATION></ORGANISATION>
+			<SHEETS>1 of 1</SHEETS>
+			<SHOWS>1</SHOWS>
+			<DATE></DATE>
+			<GRID spacing='100.00000' snap='1'/>
+		</DETAILS>
+		<FONT id='1'>
+			<HEIGHT>-10</HEIGHT>
+			<WIDTH>0</WIDTH>
+			<WEIGHT>400</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='3'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
+			<WEIGHT>400</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='4'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
+			<WEIGHT>400</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='5'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
+			<WEIGHT>400</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='6'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='7'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='8'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='9'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='10'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='11'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='12'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='13'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='14'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='15'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='16'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='17'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='18'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='19'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='20'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='21'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='22'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='23'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='24'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='25'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='26'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='27'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='28'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
+			<WEIGHT>400</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='29'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<FONT id='30'>
+			<HEIGHT>-19</HEIGHT>
+			<WIDTH>9</WIDTH>
+			<WEIGHT>700</WEIGHT>
+			<ITALIC>0</ITALIC>
+			<UNDERLINE>0</UNDERLINE>
+			<STRIKEOUT>0</STRIKEOUT>
+			<CHARSET>0</CHARSET>
+			<FACENAME>Arial</FACENAME>
+		</FONT>
+		<STYLE id='2'>
+			<STYLE>0</STYLE>
+			<COLOR>0000FF</COLOR>
+			<THICKNESS>1</THICKNESS>
+		</STYLE>
+		<STYLE id='3'>
+			<STYLE>0</STYLE>
+			<COLOR>00FFFF</COLOR>
+			<THICKNESS>1</THICKNESS>
+		</STYLE>
+		<STYLE id='4'>
+			<STYLE>0</STYLE>
+			<COLOR>000000</COLOR>
+			<THICKNESS>1</THICKNESS>
+		</STYLE>
+		<STYLE id='5'>
+			<STYLE>0</STYLE>
+			<COLOR>000000</COLOR>
+			<THICKNESS>4</THICKNESS>
+		</STYLE>
+		<STYLE id='6'>
+			<STYLE>0</STYLE>
+			<COLOR>0000FF</COLOR>
+			<THICKNESS>4</THICKNESS>
+		</STYLE>
+		<STYLE id='7'>
+			<STYLE>0</STYLE>
+			<COLOR>000000</COLOR>
+			<THICKNESS>1</THICKNESS>
+		</STYLE>
+		<FILL id='0'>
+			<INDEX>-1</INDEX>
+			<COLOR>000000</COLOR>
+		</FILL>
+		<OPTIONS>
+			<GRID>0</GRID>
+			<UNITS>0</UNITS>
+			<COLOR_WIRE>FF0000</COLOR_WIRE>
+			<COLOR_BUS>0000FF</COLOR_BUS>
+			<COLOR_JUNCTION>000000</COLOR_JUNCTION>
+			<COLOR_NOCONNECT>000000</COLOR_NOCONNECT>
+			<COLOR_LABEL>208000</COLOR_LABEL>
+			<COLOR_POWER>000000</COLOR_POWER>
+			<COLOR_PIN>4040C0</COLOR_PIN>
+			<COLOR_HIDDEN_PIN>208020</COLOR_HIDDEN_PIN>
+			<COLOR_BACKGROUND>FFFFFF</COLOR_BACKGROUND>
+			<COLOR_NOTETEXT_FILL>AFFFFF</COLOR_NOTETEXT_FILL>
+			<COLOR_NOTETEXT_LINE>FF0000</COLOR_NOTETEXT_LINE>
+			<COLOR_NOTETEXT_TEXT>FF0000</COLOR_NOTETEXT_TEXT>
+		</OPTIONS>
+		<RECTANGLE a='212.00000,16.00000' b='232.00000,36.00000' style='7' fill='0'/>
+		<LABEL pos='212.00000,20.00000' direction='2' font='5' color='208000' style='3'>1</LABEL>
+		<LABEL pos='212.00000,24.00000' direction='2' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='212.00000,28.00000' direction='2' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='212.00000,32.00000' direction='2' font='4' color='208000' style='3'>4</LABEL>
+		<RECTANGLE a='212.00000,42.00000' b='232.00000,62.00000' style='7' fill='0'/>
+		<LABEL pos='212.00000,46.00000' direction='2' font='5' color='208000' style='3'>1</LABEL>
+		<LABEL pos='212.00000,50.00000' direction='2' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='212.00000,54.00000' direction='2' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='212.00000,58.00000' direction='2' font='4' color='208000' style='3'>4</LABEL>
+		<RECTANGLE a='46.00000,92.00000' b='26.00000,72.00000' style='7' fill='0'/>
+		<LABEL pos='46.00000,88.00000' direction='3' font='5' color='208000' style='3'>4</LABEL>
+		<LABEL pos='46.00000,84.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='46.00000,80.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='46.00000,76.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<RECTANGLE a='48.00000,62.00000' b='26.00000,14.00000' style='7' fill='0'/>
+		<LABEL pos='48.00000,30.00000' direction='3' font='5' color='208000' style='3'>4</LABEL>
+		<LABEL pos='48.00000,26.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='48.00000,22.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='48.00000,18.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<RECTANGLE a='212.00000,92.00000' b='232.00000,116.00000' style='7' fill='0'/>
+		<LABEL pos='212.00000,96.00000' direction='2' font='5' color='208000' style='3'>1</LABEL>
+		<LABEL pos='212.00000,100.00000' direction='2' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='212.00000,104.00000' direction='2' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='212.00000,108.00000' direction='2' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='212.00000,112.00000' direction='2' font='4' color='208000' style='3'>5</LABEL>
+		<RECTANGLE a='212.00000,66.00000' b='232.00000,90.00000' style='7' fill='0'/>
+		<LABEL pos='212.00000,70.00000' direction='2' font='5' color='208000' style='3'>1</LABEL>
+		<LABEL pos='212.00000,74.00000' direction='2' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='212.00000,78.00000' direction='2' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='212.00000,82.00000' direction='2' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='212.00000,86.00000' direction='2' font='4' color='208000' style='3'>5</LABEL>
+		<RECTANGLE a='46.00000,120.00000' b='26.00000,96.00000' style='7' fill='0'/>
+		<LABEL pos='46.00000,116.00000' direction='3' font='5' color='208000' style='3'>5</LABEL>
+		<LABEL pos='46.00000,112.00000' direction='3' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='46.00000,108.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='46.00000,104.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='46.00000,100.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<RECTANGLE a='46.00000,148.00000' b='26.00000,124.00000' style='7' fill='0'/>
+		<LABEL pos='46.00000,144.00000' direction='3' font='5' color='208000' style='3'>5</LABEL>
+		<LABEL pos='46.00000,140.00000' direction='3' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='46.00000,136.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='46.00000,132.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='46.00000,128.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<RECTANGLE a='46.00000,178.00000' b='26.00000,154.00000' style='7' fill='0'/>
+		<LABEL pos='46.00000,174.00000' direction='3' font='5' color='208000' style='3'>5</LABEL>
+		<LABEL pos='46.00000,170.00000' direction='3' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='46.00000,166.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='46.00000,162.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='46.00000,158.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<RECTANGLE a='106.00000,24.00000' b='154.00000,60.00000' style='7' fill='0'/>
+		<RECTANGLE a='106.00000,60.00000' b='154.00000,96.00000' style='7' fill='0'/>
+		<LABEL pos='106.00000,44.00000' direction='2' font='4' color='208000' style='3'>7</LABEL>
+		<LABEL pos='106.00000,48.00000' direction='2' font='4' color='208000' style='3'>8</LABEL>
+		<LABEL pos='106.00000,52.00000' direction='2' font='4' color='208000' style='3'>9</LABEL>
+		<LABEL pos='106.00000,56.00000' direction='2' font='4' color='208000' style='3'>10</LABEL>
+		<LABEL pos='106.00000,66.00000' direction='3' font='8' color='208000' style='0'>1</LABEL>
+		<LABEL pos='106.00000,72.00000' direction='3' font='7' color='208000' style='0'>2</LABEL>
+		<BUS style='6' a='130.00000,64.00000' b='130.00000,92.00000'/>
+		<RECTANGLE a='106.00000,132.00000' b='154.00000,170.00000' style='7' fill='0'/>
+		<LABEL pos='106.00000,28.00000' direction='2' font='4' color='208000' style='3'>1</LABEL>
+		<LABEL pos='106.00000,32.00000' direction='2' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='106.00000,36.00000' direction='2' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='106.00000,40.00000' direction='2' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='106.00000,78.00000' direction='3' font='9' color='208000' style='0'>3</LABEL>
+		<LABEL pos='106.00000,84.00000' direction='3' font='10' color='208000' style='0'>4</LABEL>
+		<LABEL pos='106.00000,90.00000' direction='3' font='11' color='208000' style='0'>5</LABEL>
+		<LABEL pos='154.00000,66.00000' direction='2' font='17' color='208000' style='0'>1</LABEL>
+		<LABEL pos='154.00000,72.00000' direction='2' font='18' color='208000' style='0'>2</LABEL>
+		<LABEL pos='154.00000,78.00000' direction='2' font='19' color='208000' style='0'>3</LABEL>
+		<LABEL pos='154.00000,84.00000' direction='2' font='20' color='208000' style='0'>4</LABEL>
+		<LABEL pos='154.00000,90.00000' direction='2' font='21' color='208000' style='0'>5</LABEL>
+		<WIRE style='2' a='154.00000,78.00000' b='106.00000,78.00000'/>
+		<RECTANGLE a='106.00000,96.00000' b='154.00000,132.00000' style='7' fill='0'/>
+		<LABEL pos='106.00000,102.00000' direction='3' font='12' color='208000' style='0'>1</LABEL>
+		<LABEL pos='106.00000,108.00000' direction='3' font='13' color='208000' style='0'>2</LABEL>
+		<BUS style='5' a='130.00000,100.00000' b='130.00000,128.00000'/>
+		<LABEL pos='106.00000,114.00000' direction='3' font='14' color='208000' style='0'>3</LABEL>
+		<LABEL pos='106.00000,120.00000' direction='3' font='15' color='208000' style='0'>4</LABEL>
+		<LABEL pos='106.00000,126.00000' direction='3' font='16' color='208000' style='0'>5</LABEL>
+		<LABEL pos='154.00000,102.00000' direction='2' font='22' color='208000' style='0'>1</LABEL>
+		<LABEL pos='154.00000,108.00000' direction='2' font='23' color='208000' style='0'>2</LABEL>
+		<LABEL pos='154.00000,114.00000' direction='2' font='24' color='208000' style='0'>3</LABEL>
+		<LABEL pos='154.00000,120.00000' direction='2' font='25' color='208000' style='0'>4</LABEL>
+		<LABEL pos='154.00000,126.00000' direction='2' font='26' color='208000' style='0'>5</LABEL>
+		<LABEL pos='154.00000,44.00000' direction='3' font='4' color='208000' style='3'>7</LABEL>
+		<LABEL pos='154.00000,48.00000' direction='3' font='4' color='208000' style='3'>8</LABEL>
+		<LABEL pos='154.00000,52.00000' direction='3' font='4' color='208000' style='3'>9</LABEL>
+		<LABEL pos='154.00000,56.00000' direction='3' font='4' color='208000' style='3'>10</LABEL>
+		<LABEL pos='154.00000,28.00000' direction='3' font='4' color='208000' style='3'>1</LABEL>
+		<LABEL pos='154.00000,32.00000' direction='3' font='4' color='208000' style='3'>2</LABEL>
+		<LABEL pos='154.00000,36.00000' direction='3' font='4' color='208000' style='3'>3</LABEL>
+		<LABEL pos='154.00000,40.00000' direction='3' font='4' color='208000' style='3'>4</LABEL>
+		<LABEL pos='106.00000,136.00000' direction='3' font='6' color='208000' style='0'>1</LABEL>
+		<LABEL pos='106.00000,140.00000' direction='3' font='6' color='208000' style='0'>2</LABEL>
+		<LABEL pos='106.00000,144.00000' direction='3' font='6' color='208000' style='0'>3</LABEL>
+		<LABEL pos='106.00000,148.00000' direction='3' font='6' color='208000' style='0'>4</LABEL>
+		<LABEL pos='106.00000,152.00000' direction='3' font='6' color='208000' style='0'>5</LABEL>
+		<LABEL pos='106.00000,156.00000' direction='3' font='6' color='208000' style='0'>6</LABEL>
+		<LABEL pos='106.00000,160.00000' direction='3' font='6' color='208000' style='0'>7</LABEL>
+		<LABEL pos='106.00000,164.00000' direction='3' font='6' color='208000' style='0'>8</LABEL>
+		<LABEL pos='106.00000,168.00000' direction='3' font='6' color='208000' style='0'>9</LABEL>
+		<LABEL pos='154.00000,136.00000' direction='2' font='6' color='208000' style='0'>1</LABEL>
+		<LABEL pos='154.00000,140.00000' direction='2' font='6' color='208000' style='0'>2</LABEL>
+		<LABEL pos='154.00000,144.00000' direction='2' font='6' color='208000' style='0'>3</LABEL>
+		<LABEL pos='154.00000,148.00000' direction='2' font='6' color='208000' style='0'>4</LABEL>
+		<LABEL pos='154.00000,152.00000' direction='2' font='6' color='208000' style='0'>5</LABEL>
+		<LABEL pos='154.00000,156.00000' direction='2' font='6' color='208000' style='0'>6</LABEL>
+		<LABEL pos='154.00000,160.00000' direction='2' font='6' color='208000' style='0'>7</LABEL>
+		<LABEL pos='154.00000,164.00000' direction='2' font='6' color='208000' style='0'>8</LABEL>
+		<LABEL pos='154.00000,168.00000' direction='2' font='6' color='208000' style='0'>9</LABEL>
+		<NOCONNECT pos='106.00000,136.00000'/>
+		<NOCONNECT pos='106.00000,140.00000'/>
+		<NOCONNECT pos='106.00000,144.00000'/>
+		<NOCONNECT pos='106.00000,148.00000'/>
+		<NOCONNECT pos='106.00000,152.00000'/>
+		<NOCONNECT pos='106.00000,156.00000'/>
+		<NOCONNECT pos='106.00000,160.00000'/>
+		<NOCONNECT pos='106.00000,164.00000'/>
+		<NOCONNECT pos='106.00000,168.00000'/>
+		<NOCONNECT pos='154.00000,168.00000'/>
+		<NOCONNECT pos='154.00000,164.00000'/>
+		<NOCONNECT pos='154.00000,160.00000'/>
+		<NOCONNECT pos='154.00000,156.00000'/>
+		<NOCONNECT pos='154.00000,152.00000'/>
+		<NOCONNECT pos='154.00000,148.00000'/>
+		<NOCONNECT pos='154.00000,144.00000'/>
+		<NOCONNECT pos='154.00000,140.00000'/>
+		<NOCONNECT pos='154.00000,136.00000'/>
+		<LABEL pos='48.00000,34.00000' direction='3' font='4' color='208000' style='3'>5</LABEL>
+		<LABEL pos='48.00000,38.00000' direction='3' font='4' color='208000' style='3'>6</LABEL>
+		<LABEL pos='48.00000,42.00000' direction='3' font='4' color='208000' style='3'>7</LABEL>
+		<LABEL pos='48.00000,46.00000' direction='3' font='4' color='208000' style='3'>8</LABEL>
+		<LABEL pos='48.00000,50.00000' direction='3' font='4' color='208000' style='3'>9</LABEL>
+		<LABEL pos='48.00000,54.00000' direction='3' font='4' color='208000' style='3'>10</LABEL>
+		<LABEL pos='48.00000,58.00000' direction='3' font='4' color='208000' style='3'>11</LABEL>
+		<ELLIPSE a='98.00000,176.00000' b='122.00000,202.00000' style='7' fill='0'/>
+		<ELLIPSE a='102.00000,182.00000' b='106.00000,186.00000' style='7' fill='0'/>
+		<ELLIPSE a='114.00000,182.00000' b='118.00000,186.00000' style='7' fill='0'/>
+		<ELLIPSE a='102.00000,192.00000' b='106.00000,196.00000' style='7' fill='0'/>
+		<ELLIPSE a='114.00000,192.00000' b='118.00000,196.00000' style='7' fill='0'/>
+		<RECTANGLE a='108.00000,176.00000' b='112.00000,182.00000' style='7' fill='0'/>
+		<TEXT pos='104.00000,182.00000' direction='3' font='3' color='000000'>1</TEXT>
+		<TEXT pos='116.00000,182.00000' direction='3' font='3' color='000000'>2</TEXT>
+		<TEXT pos='116.00000,192.00000' direction='3' font='28' color='000000'>3</TEXT>
+		<TEXT pos='106.00000,192.00000' direction='3' font='3' color='000000'>4</TEXT>
+		<ELLIPSE a='134.00000,176.00000' b='158.00000,202.00000' style='7' fill='0'/>
+		<ELLIPSE a='138.00000,182.00000' b='142.00000,186.00000' style='7' fill='0'/>
+		<ELLIPSE a='150.00000,182.00000' b='154.00000,186.00000' style='7' fill='0'/>
+		<ELLIPSE a='138.00000,192.00000' b='142.00000,196.00000' style='7' fill='0'/>
+		<ELLIPSE a='150.00000,192.00000' b='154.00000,196.00000' style='7' fill='0'/>
+		<RECTANGLE a='144.00000,176.00000' b='148.00000,182.00000' style='7' fill='0'/>
+		<TEXT pos='140.00000,182.00000' direction='3' font='3' color='000000'>1</TEXT>
+		<TEXT pos='152.00000,182.00000' direction='3' font='3' color='000000'>2</TEXT>
+		<TEXT pos='152.00000,192.00000' direction='3' font='3' color='000000'>3</TEXT>
+		<TEXT pos='142.00000,194.00000' direction='3' font='3' color='000000'>4</TEXT>
+		<ELLIPSE a='144.00000,186.00000' b='148.00000,190.00000' style='7' fill='0'/>
+		<TEXT pos='146.00000,186.00000' direction='3' font='3' color='000000'>5</TEXT>
+		<WIRE style='4' a='46.00000,108.00000' b='56.00000,108.00000'/>
+		<WIRE style='4' a='56.00000,108.00000' b='56.00000,120.00000'/>
+		<WIRE style='2' a='46.00000,100.00000' b='90.00000,100.00000'/>
+		<WIRE style='2' a='90.00000,100.00000' b='90.00000,84.00000'/>
+		<WIRE style='4' a='106.00000,114.00000' b='154.00000,114.00000'/>
+		<NOCONNECT pos='46.00000,112.00000'/>
+		<NOCONNECT pos='46.00000,116.00000'/>
+		<NOCONNECT pos='46.00000,104.00000'/>
+		<WIRE a='46.00000,128.00000' b='78.00000,128.00000'/>
+		<WIRE a='78.00000,128.00000' b='78.00000,44.00000'/>
+		<WIRE a='78.00000,44.00000' b='106.00000,44.00000'/>
+		<WIRE style='4' a='46.00000,132.00000' b='90.00000,132.00000'/>
+		<WIRE style='4' a='46.00000,136.00000' b='90.00000,136.00000'/>
+		<WIRE style='4' a='90.00000,132.00000' b='90.00000,108.00000'/>
+		<WIRE style='4' a='90.00000,136.00000' b='90.00000,132.00000'/>
+		<NOCONNECT pos='46.00000,140.00000'/>
+		<NOCONNECT pos='46.00000,144.00000'/>
+		<WIRE style='4' a='46.00000,162.00000' b='96.00000,162.00000'/>
+		<WIRE style='4' a='46.00000,166.00000' b='96.00000,166.00000'/>
+		<WIRE a='46.00000,158.00000' b='84.00000,158.00000'/>
+		<WIRE a='84.00000,158.00000' b='84.00000,48.00000'/>
+		<WIRE a='84.00000,48.00000' b='106.00000,48.00000'/>
+		<NOCONNECT pos='46.00000,170.00000'/>
+		<NOCONNECT pos='46.00000,174.00000'/>
+		<TEXT pos='236.00000,106.00000' direction='3' font='27' color='000000'>PA</TEXT>
+		<TEXT pos='236.00000,80.00000' direction='3' font='27' color='000000'>PB</TEXT>
+		<WIRE a='212.00000,100.00000' b='182.00000,100.00000'/>
+		<WIRE a='182.00000,100.00000' b='182.00000,52.00000'/>
+		<WIRE a='182.00000,52.00000' b='154.00000,52.00000'/>
+		<WIRE style='2' a='212.00000,96.00000' b='206.00000,96.00000'/>
+		<WIRE style='2' a='206.00000,96.00000' b='206.00000,90.00000'/>
+		<WIRE style='2' a='206.00000,90.00000' b='106.00000,90.00000'/>
+		<WIRE style='4' a='212.00000,104.00000' b='202.00000,104.00000'/>
+		<WIRE style='4' a='202.00000,104.00000' b='202.00000,126.00000'/>
+		<WIRE style='4' a='202.00000,126.00000' b='106.00000,126.00000'/>
+		<NOCONNECT pos='212.00000,108.00000'/>
+		<NOCONNECT pos='212.00000,112.00000'/>
+		<WIRE style='4' a='212.00000,78.00000' b='198.00000,78.00000'/>
+		<WIRE style='4' a='198.00000,78.00000' b='198.00000,120.00000'/>
+		<WIRE style='4' a='198.00000,120.00000' b='56.00000,120.00000'/>
+		<WIRE style='2' a='212.00000,70.00000' b='206.00000,70.00000'/>
+		<WIRE style='2' a='206.00000,70.00000' b='206.00000,84.00000'/>
+		<WIRE style='2' a='206.00000,84.00000' b='90.00000,84.00000'/>
+		<WIRE a='212.00000,74.00000' b='178.00000,74.00000'/>
+		<WIRE a='178.00000,74.00000' b='178.00000,56.00000'/>
+		<WIRE a='178.00000,56.00000' b='154.00000,56.00000'/>
+		<NOCONNECT pos='212.00000,86.00000'/>
+		<NOCONNECT pos='212.00000,82.00000'/>
+		<WIRE style='2' a='212.00000,46.00000' b='200.00000,46.00000'/>
+		<WIRE style='2' a='200.00000,46.00000' b='200.00000,72.00000'/>
+		<WIRE style='2' a='200.00000,72.00000' b='106.00000,72.00000'/>
+		<WIRE a='212.00000,50.00000' b='198.00000,50.00000'/>
+		<WIRE a='198.00000,50.00000' b='198.00000,32.00000'/>
+		<WIRE a='198.00000,32.00000' b='154.00000,32.00000'/>
+		<WIRE style='4' a='212.00000,54.00000' b='194.00000,54.00000'/>
+		<WIRE style='4' a='194.00000,54.00000' b='194.00000,108.00000'/>
+		<WIRE style='4' a='194.00000,108.00000' b='90.00000,108.00000'/>
+		<WIRE a='212.00000,58.00000' b='190.00000,58.00000'/>
+		<WIRE a='190.00000,58.00000' b='190.00000,40.00000'/>
+		<WIRE a='190.00000,40.00000' b='154.00000,40.00000'/>
+		<WIRE style='2' a='212.00000,20.00000' b='206.00000,20.00000'/>
+		<WIRE style='2' a='206.00000,20.00000' b='206.00000,66.00000'/>
+		<WIRE style='2' a='206.00000,66.00000' b='106.00000,66.00000'/>
+		<WIRE a='212.00000,24.00000' b='182.00000,24.00000'/>
+		<WIRE a='182.00000,24.00000' b='182.00000,28.00000'/>
+		<WIRE a='182.00000,28.00000' b='154.00000,28.00000'/>
+		<WIRE style='4' a='212.00000,28.00000' b='186.00000,28.00000'/>
+		<WIRE style='4' a='186.00000,28.00000' b='186.00000,102.00000'/>
+		<WIRE style='4' a='186.00000,102.00000' b='96.00000,102.00000'/>
+		<WIRE a='212.00000,32.00000' b='202.00000,32.00000'/>
+		<WIRE a='202.00000,32.00000' b='202.00000,36.00000'/>
+		<WIRE a='202.00000,36.00000' b='154.00000,36.00000'/>
+		<WIRE style='4' a='96.00000,162.00000' b='96.00000,102.00000'/>
+		<JUNCTION pos='96.00000,162.00000'/>
+		<WIRE style='4' a='96.00000,166.00000' b='96.00000,162.00000'/>
+		<JUNCTION pos='90.00000,132.00000'/>
+		<TEXT pos='128.00000,40.00000' direction='3' font='27' color='000000'>X4</TEXT>
+		<TEXT pos='122.00000,64.00000' direction='3' font='27' color='000000'>X5</TEXT>
+		<TEXT pos='122.00000,102.00000' direction='3' font='27' color='000000'>X6</TEXT>
+		<TEXT pos='124.00000,138.00000' direction='3' font='27' color='000000'>X57</TEXT>
+		<TEXT pos='236.00000,28.00000' direction='3' font='29' color='000000'>X101 V1</TEXT>
+		<TEXT pos='236.00000,54.00000' direction='3' font='30' color='000000'>X101 V2</TEXT>
+		<TEXT pos='8.00000,138.00000' direction='3' font='30' color='000000'>103 V1</TEXT>
+		<TEXT pos='8.00000,166.00000' direction='3' font='30' color='000000'>103 V2</TEXT>
+		<TEXT pos='8.00000,84.00000' direction='3' font='30' color='000000'>Supply</TEXT>
+		<TEXT pos='8.00000,40.00000' direction='3' font='30' color='000000'>Signals</TEXT>
+		<WIRE style='3' a='48.00000,58.00000' b='54.00000,58.00000'/>
+		<POWER pos='54.00000,58.00000' which='4' direction='1'></POWER>
+		<TEXT pos='28.00000,20.00000' direction='3' font='30' color='000000'>Red</TEXT>
+		<TEXT pos='28.00000,24.00000' direction='3' font='30' color='000000'>Blue</TEXT>
+		<TEXT pos='28.00000,32.00000' direction='3' font='30' color='000000'>Green</TEXT>
+		<TEXT pos='28.00000,40.00000' direction='3' font='30' color='000000'>Yellow</TEXT>
+		<TEXT pos='28.00000,52.00000' direction='3' font='30' color='000000'>Brown</TEXT>
+		<TEXT pos='28.00000,56.00000' direction='3' font='30' color='000000'>White</TEXT>
+		<TEXT pos='28.00000,48.00000' direction='3' font='30' color='000000'>Pink</TEXT>
+		<TEXT pos='28.00000,44.00000' direction='3' font='30' color='000000'>Purple</TEXT>
+		<TEXT pos='28.00000,28.00000' direction='3' font='30' color='000000'>Black</TEXT>
+		<TEXT pos='28.00000,36.00000' direction='3' font='30' color='000000'>Grey</TEXT>
+		<TEXT pos='28.00000,60.00000' direction='3' font='30' color='000000'>GND</TEXT>
+		<WIRE a='48.00000,18.00000' b='172.00000,18.00000'/>
+		<WIRE a='172.00000,18.00000' b='172.00000,48.00000'/>
+		<WIRE a='172.00000,48.00000' b='154.00000,48.00000'/>
+		<WIRE a='154.00000,44.00000' b='164.00000,44.00000'/>
+		<WIRE a='164.00000,44.00000' b='164.00000,22.00000'/>
+		<WIRE a='164.00000,22.00000' b='48.00000,22.00000'/>
+		<WIRE a='48.00000,38.00000' b='86.00000,38.00000'/>
+		<WIRE a='86.00000,38.00000' b='86.00000,40.00000'/>
+		<WIRE a='86.00000,40.00000' b='106.00000,40.00000'/>
+		<WIRE a='48.00000,30.00000' b='92.00000,30.00000'/>
+		<WIRE a='92.00000,30.00000' b='92.00000,32.00000'/>
+		<WIRE a='92.00000,32.00000' b='106.00000,32.00000'/>
+		<WIRE a='48.00000,26.00000' b='102.00000,26.00000'/>
+		<WIRE a='102.00000,26.00000' b='102.00000,28.00000'/>
+		<WIRE a='102.00000,28.00000' b='106.00000,28.00000'/>
+		<WIRE a='48.00000,34.00000' b='90.00000,34.00000'/>
+		<WIRE a='90.00000,34.00000' b='90.00000,36.00000'/>
+		<WIRE a='90.00000,36.00000' b='106.00000,36.00000'/>
+		<WIRE a='48.00000,42.00000' b='74.00000,42.00000'/>
+		<WIRE a='74.00000,42.00000' b='74.00000,52.00000'/>
+		<WIRE a='74.00000,52.00000' b='106.00000,52.00000'/>
+		<WIRE a='48.00000,46.00000' b='70.00000,46.00000'/>
+		<WIRE a='70.00000,46.00000' b='70.00000,56.00000'/>
+		<WIRE a='70.00000,56.00000' b='106.00000,56.00000'/>
+		<NOCONNECT pos='48.00000,50.00000'/>
+		<NOCONNECT pos='48.00000,54.00000'/>
+	</TinyCAD>
+</TinyCADSheets>

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "LOG_PAGE_MAX_ENTRIES": {
+      "type": "integer",
+      "configDescription": "DESC_LOG_PAGE_MAX_ENTRIES",
+      "default": 200,
+      "minimum": 10
+    },
+    "HTML_ERRORS": {
+      "configDescription": "DESC_HTML_ERRORS",
+      "type": "boolean",
+      "default": false
+    },
+    "SCRIPT_TIMEOUT": {
+      "configDescription": "DESC_SCRIPT_TIMEOUT",
+      "type": "string",
+      "format": "timespan",
+      "default": "PT10S",
+      "formatMinimum": "PT5S"
+    }
+  },
+  "required": [ "LOG_PAGE_MAX_ENTRIES", "HTML_ERRORS", "SCRIPT_TIMEOUT" ],
+  "type": "object",
+  "additionalProperties": false
+}

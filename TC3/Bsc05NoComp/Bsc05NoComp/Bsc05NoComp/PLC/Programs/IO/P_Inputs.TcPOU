@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P_Inputs" Id="{94ed4cce-6a16-4a20-9eff-b4a1e6338584}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Inputs
+VAR
+	// Supply
+	fbNormPs 					: FB_Normalize;
+	
+	// Main
+	fbNormMainPaDCV				: FB_Normalize;
+	fbNormMainPbDCV				: FB_Normalize;
+	fbNormMainPaCyl 			: FB_Normalize;
+	fbNormMainPistonPosition 	: FB_PositionInputScaling;
+	
+	// Jib
+	fbNormJibPaDCV 				: FB_Normalize;
+	fbNormJibPbDCV 				: FB_Normalize;
+	fbNormJibPaCyl	 			: FB_Normalize;
+	fbNormJibPbCyl	 			: FB_Normalize;
+	fbNormJibPistonPosition 	: FB_PositionInputScaling;
+
+	// Winch
+	fbNormWinchPa 				: FB_Normalize;
+	fbNormWinchPb 				: FB_Normalize;
+	fbNormWinchEncoder			: FB_WinchDistance;
+
+	// Joystick
+	fbJoystickWinch 			: FB_JoystickInputScaling;
+	fbJoystickRotation 			: FB_JoystickInputScaling;
+	fbJoystickMain 				: FB_JoystickInputScaling;
+	fbJoystickJib 				: FB_JoystickInputScaling;
+	fbJoystickExtrude 			: FB_JoystickInputScaling;	
+	
+	fbWinchDistance				: FB_WinchDistance;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[G_Enables.bEmergencyButton := G_Inputs.bEmergencySwitch;
+
+IF G_Inputs.bEnableButton THEN
+	G_Enables.bHoldButton := G_Inputs.bEnableButton;
+ELSIF G_HMI.bHoldButton_HMI THEN
+	G_Enables.bHoldButton := G_HMI.bHoldButton_HMI;
+ELSE
+	G_Enables.bHoldButton := FALSE;
+END_IF
+
+// Supply
+fbNormPs(
+	nRawInput := G_Inputs.nRawSupplyPs,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fPs.fSignal
+);
+
+// Main
+fbNormMainPaDCV(
+	nRawInput := G_Inputs.nRawMainPaDCV,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fMainPaDCV.fSignal
+);
+
+fbNormMainPbDCV(
+	nRawInput := G_Inputs.nRawMainPbDCV,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fMainPbDCV.fSignal
+);
+
+fbNormMainPaCyl(
+	nRawInput := G_Inputs.nRawMainPaCyl,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fMainPaCyl.fSignal
+);
+
+fbNormMainPistonPosition(
+	nRawInput := G_Inputs.nRawMainPistonPosition,
+	fMaxOutputValue := G_Parameters.fMaxStrokeMain,
+	fMaxInputValue := 25990.0,
+	fMinInputValue := 6639.0,
+	fMinOutputValue := 0.081,
+	fOffset := 0.0,
+	fOutput => G_OPC.fMainPistonPosition.fSignal
+);
+	
+// Jib
+fbNormJibPaDCV(
+	nRawInput := G_Inputs.nRawJibPaDCV,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPaDCV.fSignal
+);
+
+fbNormJibPbDCV(
+	nRawInput := G_Inputs.nRawJibPbDCV,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPbDCV.fSignal
+);
+
+fbNormJibPaCyl(
+	nRawInput := G_Inputs.nRawJibPaCyl,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPaCyl.fSignal
+);
+
+fbNormJibPbCyl(
+	nRawInput := G_Inputs.nRawJibPbCyl,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fJibPbCyl.fSignal
+);
+
+fbNormJibPistonPosition(
+	nRawInput := G_Inputs.nRawJibPistonPosition,
+	fMaxOutputValue := G_Parameters.fMaxStrokeJib,
+	fMaxInputValue := 24925.0,
+	fMinInputValue := 3065.0,
+	fMinOutputValue := 0.0,
+	fOffset := 0.0,
+	fOutput => G_OPC.fJibPistonPosition.fSignal
+);
+
+// Winch
+fbNormWinchPa(
+	nRawInput := G_Inputs.nRawWinchPa,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPa.fSignal
+);
+
+fbNormWinchPb(
+	nRawInput := G_Inputs.nRawWinchPb,
+	fMaxValue := 400.0, 			// [Bar]
+	fNormalizedInput => G_OPC.fWinchPb.fSignal
+);
+
+fbNormWinchEncoder(
+	nWinchRaw := G_Inputs.nRawWinchEncoder,
+	fWinchDistance => G_OPC.fWinchDistance.fSignal
+);
+
+// Joystick
+fbJoystickWinch(
+	nRawInput := G_Inputs.nRawJoystickWinch,
+	bEnable := TRUE,
+	fBitArray := G_Joystick.aWinch,
+	fOutput => G_OPC.fJoystickWinch
+);
+
+fbJoystickRotation(
+	nRawInput := G_Inputs.nRawJoystickRotation,
+	bEnable := TRUE,
+	fBitArray := G_Joystick.aRotation,
+	fOutput => G_OPC.fJoystickRotation
+);
+
+fbJoystickMain(
+	nRawInput := G_Inputs.nRawJoystickMain,
+	bEnable := TRUE,
+	fBitArray := G_Joystick.aMainCyl,
+	fOutput => G_OPC.fJoystickMain
+);
+
+fbJoystickJib(
+	nRawInput := G_Inputs.nRawJoystickJib,
+	bEnable := TRUE,
+	bInverse := TRUE,
+	fBitArray := G_Joystick.aJibCyl,
+	fOutput => G_OPC.fJoystickJib
+);
+
+fbJoystickExtrude(
+	nRawInput := G_Inputs.nRawJoystickExtrude,
+	bEnable := TRUE,
+	fBitArray := G_Joystick.aExtrude,
+	fOutput => G_OPC.fJoystickExtrude
+);
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
