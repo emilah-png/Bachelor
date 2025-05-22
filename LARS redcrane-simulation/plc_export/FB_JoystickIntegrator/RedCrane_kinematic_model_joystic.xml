@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <!--(*
+ *
+ * File: RedCrane_kinematic_model_joystic.xml
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "RedCrane_kinematic_model_joystic/FB_JoystickIntegrator"
+ *
+ * Model name                      : RedCrane_kinematic_model_joystic
+ * Model version                   : 2.76
+ * Model creator                   : sindr
+ * Model last modified by          : larso
+ * Model last modified on          : Fri Jan 17 16:44:14 2025
+ * Model sample time               : 0.001s
+ * Subsystem name                  : RedCrane_kinematic_model_joystic/FB_JoystickIntegrator
+ * Subsystem sample time           : 0.001s
+ * Simulink PLC Coder version      : 24.1 (R2024a) 19-Nov-2023
+ * ST code generated on            : Fri Jan 17 17:14:40 2025
+ *
+ * Target IDE selection            : Beckhoff TwinCAT 3
+ * Test Bench included             : No
+ *
+ *)
+-->
+  <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2025-01-17T17:14:40" productName="Simulink PLC Coder" productRelease="(R2024a)" productVersion="24.1"/>
+  <contentHeader name="RedCrane_kinematic_model_joystic">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="0" y="0"/>
+      </fbd>
+      <ld>
+        <scaling x="0" y="0"/>
+      </ld>
+      <sfc>
+        <scaling x="0" y="0"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="FB_JoystickIntegrator" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="fJoyX">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fJoyY">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fJoyZ">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fCartesianVMax">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fTs">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fXPosFeedBack">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fYPosFeedBack">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fZPosFeedBack">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="fXRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fYRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fZRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fXVelRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fYVelRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fZVelRef">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </outputVars>
+          <localVars/>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+(* Outputs for Atomic SubSystem: '<Root>/FB_JoystickIntegrator' *)
+(* MATLAB Function: '<S1>/MATLAB Function' *)
+(* MATLAB Function 'FB_JoystickIntegrator/MATLAB Function': '<S2>:1' *)
+(* '<S2>:1:3' fXVelRef = fCartesianVMax*fJoyX; *)
+fXVelRef := fCartesianVMax * fJoyX;
+(* '<S2>:1:4' fYVelRef = fCartesianVMax*fJoyY; *)
+fYVelRef := fCartesianVMax * fJoyY;
+(* '<S2>:1:5' fZVelRef = fCartesianVMax*fJoyZ; *)
+fZVelRef := fCartesianVMax * fJoyZ;
+(* Outport: '<Root>/fXRef' incorporates:
+ *  MATLAB Function: '<S1>/MATLAB Function' *)
+(* '<S2>:1:7' fXRef = fXPosFeedBack + fXVelRef*fTs; *)
+(* '<S2>:1:8' fYRef = fYPosFeedBack + fYVelRef*fTs; *)
+(* '<S2>:1:9' fZRef = fZPosFeedBack + fZVelRef*fTs; *)
+fXRef := (fXVelRef * fTs) + fXPosFeedBack;
+(* Outport: '<Root>/fYRef' incorporates:
+ *  MATLAB Function: '<S1>/MATLAB Function' *)
+fYRef := (fYVelRef * fTs) + fYPosFeedBack;
+(* Outport: '<Root>/fZRef' incorporates:
+ *  MATLAB Function: '<S1>/MATLAB Function' *)
+fZRef := (fZVelRef * fTs) + fZPosFeedBack;
+(* End of Outputs for SubSystem: '<Root>/FB_JoystickIntegrator' *)
+
+]]></xhtml>
+          </ST>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations/>
+  </instances>
+</project>

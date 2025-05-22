@@ -1,0 +1,34 @@
+Mass properties of Jib+telescope
+     Configuration: Version K4 (arme ude)
+     Coordinate system: Point C
+
+* Includes the mass properties of one or more hidden components/bodies.
+
+Mass = 842.2 kilograms
+
+Volume = 0.1092 cubic meters
+
+Surface area = 38.6 square meters
+
+Center of mass: ( meters )
+	X = 0.9806
+	Y = 0.1814
+	Z = -0.2939
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.9996,  0.0179, -0.0211)   	Px = 31.34
+	 Iy = (-0.0174,  0.9995,  0.0264)   	Py = 566.5
+	 Iz = ( 0.0215, -0.026,  0.9994)   	Pz = 573.4
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 31.75	Lxy = 9.588	Lxz = -11.42
+	Lyx = 9.588	Lyy = 566.3	Lyz = -0.0237
+	Lzx = -11.42	Lzy = -0.0237	Lzz = 573.1
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 132.2	Ixy = 159.4	Ixz = -254.1
+	Iyx = 159.4	Iyy = 1449	Iyz = -44.91
+	Izx = -254.1	Izy = -44.91	Izz = 1411

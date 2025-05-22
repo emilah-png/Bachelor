@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <!--(*
+ *
+ * File: RedCrane_kinematic_model.xml
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "RedCrane_kinematic_model/FB_AngleToStroke"
+ *
+ * Model name                      : RedCrane_kinematic_model
+ * Model version                   : 2.78
+ * Model creator                   : sindr
+ * Model last modified by          : larso
+ * Model last modified on          : Mon Jan 20 08:44:51 2025
+ * Model sample time               : 0.001s
+ * Subsystem name                  : RedCrane_kinematic_model/FB_AngleToStroke
+ * Subsystem sample time           : 0.001s
+ * Simulink PLC Coder version      : 24.1 (R2024a) 19-Nov-2023
+ * ST code generated on            : Mon Jan 20 08:49:57 2025
+ *
+ * Target IDE selection            : Beckhoff TwinCAT 3
+ * Test Bench included             : No
+ *
+ *)
+-->
+  <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2025-01-20T08:49:57" productName="Simulink PLC Coder" productRelease="(R2024a)" productVersion="24.1"/>
+  <contentHeader name="RedCrane_kinematic_model">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="0" y="0"/>
+      </fbd>
+      <ld>
+        <scaling x="0" y="0"/>
+      </ld>
+      <sfc>
+        <scaling x="0" y="0"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="FB_AngleToStroke" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="fMainAngle">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fKnuckleAngle">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fMainAngleVel">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fKnuckleAngleVel">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="fMainStroke">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fKnuckleStroke">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fMainStrokeVel">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="fKnuckleStrokeVel">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="idx">
+              <type>
+                <DINT/>
+              </type>
+            </variable>
+            <variable name="c_rtb_knuckle_angle_to_stro">
+              <type>
+                <LREAL/>
+              </type>
+            </variable>
+            <variable name="c_main_angle_to_stroke_dot_">
+              <type>
+                <array>
+                  <dimension lower="0" upper="8"/>
+                  <baseType>
+                    <LREAL/>
+                  </baseType>
+                </array>
+              </type>
+              <initialValue>
+                <arrayValue>
+                  <value>
+                    <simpleValue value="-0.0001230733184656039"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.00011178316829555629"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.0032259350168467762"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.014266753640861714"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.013352428649641276"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.053256045623198495"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.14417827320961887"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.049080418441319086"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.34710603970852111"/>
+                  </value>
+                </arrayValue>
+              </initialValue>
+            </variable>
+            <variable name="main_angle_to_stroke1_Coefs">
+              <type>
+                <array>
+                  <dimension lower="0" upper="9"/>
+                  <baseType>
+                    <LREAL/>
+                  </baseType>
+                </array>
+              </type>
+              <initialValue>
+                <arrayValue>
+                  <value>
+                    <simpleValue value="-1.3674813162844878E-5"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-1.3972896036944537E-5"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.00046084785954953947"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.0023777922734769526"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.0026704857299282552"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.013314011405799624"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.048059424403206291"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.024540209220659543"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.34710603970852111"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.25110492964217662"/>
+                  </value>
+                </arrayValue>
+              </initialValue>
+            </variable>
+            <variable name="c_knuckle_angle_to_stroke_d">
+              <type>
+                <array>
+                  <dimension lower="0" upper="8"/>
+                  <baseType>
+                    <LREAL/>
+                  </baseType>
+                </array>
+              </type>
+              <initialValue>
+                <arrayValue>
+                  <value>
+                    <simpleValue value="-0.00043617962422908875"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.0048110162502983554"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.020237721842070049"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.0454986986379932"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.070481387555638444"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.055543542370713711"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.0077182455137611728"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.023777493235108842"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.30462783944131627"/>
+                  </value>
+                </arrayValue>
+              </initialValue>
+            </variable>
+            <variable name="c_knuckle_angle_to_stroke1_">
+              <type>
+                <array>
+                  <dimension lower="0" upper="9"/>
+                  <baseType>
+                    <LREAL/>
+                  </baseType>
+                </array>
+              </type>
+              <initialValue>
+                <arrayValue>
+                  <value>
+                    <simpleValue value="-4.846440269212097E-5"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.00060137703128729442"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.0028911031202957212"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.0075831164396655331"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.014096277511127688"/>
+                  </value>
+                  <value>
+                    <simpleValue value="-0.013885885592678428"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.0025727485045870576"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.011888746617554421"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.30462783944131627"/>
+                  </value>
+                  <value>
+                    <simpleValue value="0.77384539409105124"/>
+                  </value>
+                </arrayValue>
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+(* Outputs for Atomic SubSystem: '<Root>/FB_AngleToStroke' *)
+(* Polyval: '<S1>/main_angle_to_stroke_dot' *)
+c_rtb_knuckle_angle_to_stro := -0.0001230733184656039;
+
+FOR idx := 0 TO 7 DO 
+    c_rtb_knuckle_angle_to_stro := (c_rtb_knuckle_angle_to_stro * fMainAngle) + c_main_angle_to_stroke_dot_[idx + 1];
+END_FOR;
+
+(* End of Polyval: '<S1>/main_angle_to_stroke_dot' *)
+
+
+(* Outport: '<Root>/fMainStrokeVel' incorporates:
+ *  Product: '<S1>/Product' *)
+fMainStrokeVel := fMainAngleVel * c_rtb_knuckle_angle_to_stro;
+(* Polyval: '<S1>/main_angle_to_stroke1' *)
+fMainStroke := -1.3674813162844878E-5;
+
+FOR idx := 0 TO 8 DO 
+    fMainStroke := (fMainStroke * fMainAngle) + main_angle_to_stroke1_Coefs[idx + 1];
+END_FOR;
+
+(* End of Polyval: '<S1>/main_angle_to_stroke1' *)
+
+
+(* Polyval: '<S1>/knuckle_angle_to_stroke_dot' *)
+c_rtb_knuckle_angle_to_stro := -0.00043617962422908875;
+
+FOR idx := 0 TO 7 DO 
+    c_rtb_knuckle_angle_to_stro := (c_rtb_knuckle_angle_to_stro * fKnuckleAngle) + c_knuckle_angle_to_stroke_d[idx + 1];
+END_FOR;
+
+(* End of Polyval: '<S1>/knuckle_angle_to_stroke_dot' *)
+
+
+(* Polyval: '<S1>/knuckle_angle_to_stroke1' *)
+fKnuckleStroke := -4.846440269212097E-5;
+
+FOR idx := 0 TO 8 DO 
+    fKnuckleStroke := (fKnuckleStroke * fKnuckleAngle) + c_knuckle_angle_to_stroke1_[idx + 1];
+END_FOR;
+
+(* End of Polyval: '<S1>/knuckle_angle_to_stroke1' *)
+
+
+(* Outport: '<Root>/fKnuckleStrokeVel' incorporates:
+ *  Product: '<S1>/Product1' *)
+fKnuckleStrokeVel := fKnuckleAngleVel * c_rtb_knuckle_angle_to_stro;
+(* End of Outputs for SubSystem: '<Root>/FB_AngleToStroke' *)
+
+]]></xhtml>
+          </ST>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations/>
+  </instances>
+</project>

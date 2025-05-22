@@ -1,0 +1,65 @@
+Mass properties of selected components
+     Coordinate system: Point A
+
+The center of mass and the moments of inertia are output in the coordinate system of Column
+Mass = 239.4 kilograms
+
+Volume = 0.0305 cubic meters
+
+Surface area = 5.914 square meters
+
+Center of mass: ( meters )
+	X = -0.1007
+	Y = 0.0001
+	Z = 0.4351
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.2023,  0.0003,  0.9793)   	Px = 4.549
+	 Iy = (-0.9793,  0.0087, -0.2023)   	Py = 113.5
+	 Iz = (-0.0086, -1, -0.0015)   	Pz = 114
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 109	Lxy = -0.0113	Lxz = -21.59
+	Lyx = -0.0113	Lyy = 114	Lyz = 0.0319
+	Lzx = -21.59	Lzy = 0.0319	Lzz = 9.009
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 154.4	Ixy = -0.0129	Ixz = -32.07
+	Iyx = -0.0129	Iyy = 161.8	Iyz = 0.0387
+	Izx = -32.07	Izy = 0.0387	Izz = 11.43
+------------------------------------------OLD----------------------------------------------
+Mass properties of selected components
+     Coordinate system: Point A
+
+The center of mass and the moments of inertia are output in the coordinate system of Column
+Mass = 124309.05 grams
+
+Volume = 15835547.83 cubic millimeters
+
+Surface area = 4786100.42  square millimeters
+
+Center of mass: ( millimeters )
+	X = -179.08
+	Y = -0.16
+	Z = 863.41
+
+Principal axes of inertia and principal moments of inertia: ( grams *  square millimeters )
+Taken at the center of mass.
+	 Ix = (-0.24,  0.00,  0.97)   	Px = 2664380507.15
+	 Iy = (-0.97,  0.08, -0.24)   	Py = 38089241176.53
+	 Iz = (-0.08, -1.00, -0.02)   	Pz = 38125566988.60
+
+Moments of inertia: ( grams *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 36021356621.12	Lxy = -4060815.46	Lxz = -8305779624.24
+	Lyx = -4060815.46	Lyy = 38125338329.30	Lyz = 4438621.54
+	Lzx = -8305779624.24	Lzy = 4438621.54	Lzz = 4732493721.86
+
+Moments of inertia: ( grams *  square millimeters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 128690092707.69	Ixy = -477201.72	Ixz = -27526279311.20
+	Iyx = -477201.72	Iyy = 134780611171.81	Iyz = -12839230.23
+	Izx = -27526279311.20	Izy = -12839230.23	Izz = 8719036920.61

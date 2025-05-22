@@ -1,0 +1,139 @@
+------------------------------------Main cylinder rod------------------------------------
+
+Mass properties of selected components
+     Coordinate system: Coordinate System1
+
+The center of mass and the moments of inertia are output in the coordinate system of 1700_vipcylinder_rev_d_kpl
+Mass = 43.9329 kilograms
+
+Volume = 0.0056 cubic meters
+
+Surface area = 0.7987 square meters
+
+Center of mass: ( meters )
+	X = 0.0000
+	Y = 0.0000
+	Z = -0.4290
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.0000,  0.0000,  1.0000)   	Px = 0.1401
+	 Iy = ( 0.0009, -1.0000,  0.0000)   	Py = 5.9633
+	 Iz = ( 1.0000,  0.0009,  0.0000)   	Pz = 6.0014
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 6.0014	Lxy = 0.0000	Lxz = -0.0001
+	Lyx = 0.0000	Lyy = 5.9633	Lyz = 0.0000
+	Lzx = -0.0001	Lzy = 0.0000	Lzz = 0.1401
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 14.0887	Ixy = 0.0000	Ixz = -0.0001
+	Iyx = 0.0000	Iyy = 14.0506	Iyz = 0.0000
+	Izx = -0.0001	Izy = 0.0000	Izz = 0.1401
+
+
+------------------------------------Main cylinder bottom------------------------------------
+
+Mass properties of selected components
+     Coordinate system: Coordinate System2
+
+The center of mass and the moments of inertia are output in the coordinate system of 1700_vipcylinder_rev_d_kpl
+Mass = 57.9561 kilograms
+
+Volume = 0.0074 cubic meters
+
+Surface area = 1.3981 square meters
+
+Center of mass: ( meters )
+	X = 0.0081
+	Y = -0.0010
+	Z = 0.4125
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.0264, -0.0018,  0.9996)   	Px = 0.3931
+	 Iy = (-0.9996,  0.0090, -0.0264)   	Py = 7.2107
+	 Iz = (-0.0089, -1.0000, -0.0021)   	Pz = 7.2304
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 7.2059	Lxy = 0.0002	Lxz = -0.1802
+	Lyx = 0.0002	Lyy = 7.2304	Lyz = -0.0126
+	Lzx = -0.1802	Lzy = -0.0126	Lzz = 0.3979
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 17.0673	Ixy = -0.0003	Ixz = 0.0135
+	Iyx = -0.0003	Iyy = 17.0956	Iyz = -0.0363
+	Izx = 0.0135	Izy = -0.0363	Izz = 0.4018
+
+------------------------------------Knuckle cylinder rod ------------------------------------
+Mass properties of selected components
+     Coordinate system: Coordinate System2
+
+The center of mass and the moments of inertia are output in the coordinate system of 1700_knaekcylinder_rev_d_kpl
+Mass = 45.8854 kilograms
+
+Volume = 0.0059 cubic meters
+
+Surface area = 0.8551 square meters
+
+Center of mass: ( meters )
+	X = 0.0000
+	Y = 0.0000
+	Z = -0.4694
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.0000,  0.0000,  1.0000)   	Px = 0.1401
+	 Iy = ( 0.0009, -1.0000,  0.0000)   	Py = 7.3864
+	 Iz = ( 1.0000,  0.0009,  0.0000)   	Pz = 7.4245
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 7.4245	Lxy = 0.0000	Lxz = -0.0001
+	Lyx = 0.0000	Lyy = 7.3864	Lyz = 0.0000
+	Lzx = -0.0001	Lzy = 0.0000	Lzz = 0.1401
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 17.5365	Ixy = 0.0000	Ixz = -0.0001
+	Iyx = 0.0000	Iyy = 17.4984	Iyz = 0.0000
+	Izx = -0.0001	Izy = 0.0000	Izz = 0.1401
+
+------------------------------------Knuckle cylinder bottom------------------------------------
+
+Mass properties of selected components
+     Coordinate system: Coordinate System1
+
+The center of mass and the moments of inertia are output in the coordinate system of 1700_knaekcylinder_rev_d_kpl
+Mass = 55.7738 kilograms
+
+Volume = 0.0071 cubic meters
+
+Surface area = 1.4164 square meters
+
+Center of mass: ( meters )
+	X = 0.0038
+	Y = 0.0022
+	Z = 0.4468
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.0129, -0.0015,  0.9999)   	Px = 0.3594
+	 Iy = (-0.0969, -0.9953, -0.0027)   	Py = 8.3473
+	 Iz = ( 0.9952, -0.0969,  0.0127)   	Pz = 8.3796
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system. (Using positive tensor notation.)
+	Lxx = 8.3780	Lxy = 0.0033	Lxz = -0.1037
+	Lyx = 0.0033	Lyy = 8.3476	Lyz = -0.0119
+	Lzx = -0.1037	Lzy = -0.0119	Lzz = 0.3607
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system. (Using positive tensor notation.)
+	Ixx = 19.5100	Ixy = 0.0037	Ixz = -0.0086
+	Iyx = 0.0037	Iyy = 19.4802	Iyz = 0.0431
+	Izx = -0.0086	Izy = 0.0431	Izz = 0.3618

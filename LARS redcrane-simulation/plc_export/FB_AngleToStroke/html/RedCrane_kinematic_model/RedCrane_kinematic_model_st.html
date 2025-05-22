@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - RedCrane_kinematic_model.st</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="file:///plc_export/FB_AngleToStroke/RedCrane_kinematic_model.st" target="rtwreport_document_frame" id="linkToText_plain">RedCrane_kinematic_model.st</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">(*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * File: RedCrane_kinematic_model.st</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> * IEC 61131-3 Structured Text (ST) code generated for subsystem "RedCrane_kinematic_model/FB_AngleToStroke"</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Model name                      : RedCrane_kinematic_model</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Model version                   : 2.78</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * Model creator                   : sindr</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model last modified by          : larso</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Model last modified on          : Mon Jan 20 08:44:51 2025</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Model sample time               : 0.001s</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Subsystem name                  : RedCrane_kinematic_model/FB_AngleToStroke</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Subsystem sample time           : 0.001s</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Simulink PLC Coder version      : 24.1 (R2024a) 19-Nov-2023</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * ST code generated on            : Mon Jan 20 08:49:58 2025</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Target IDE selection            : Beckhoff TwinCAT 3</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Test Bench included             : No</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *)</span>
+</span><span><a class="LN" name="22">   22   </a><span class="KW">FUNCTION_BLOCK</span> FB_AngleToStroke
+</span><span><a class="LN" name="23">   23   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="24">   24   </a>    fMainAngle: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="25">   25   </a>    fKnuckleAngle: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="26">   26   </a>    fMainAngleVel: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="27">   27   </a>    fKnuckleAngleVel: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="28">   28   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="29">   29   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="30">   30   </a>    fMainStroke: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="31">   31   </a>    fKnuckleStroke: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="32">   32   </a>    fMainStrokeVel: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="33">   33   </a>    fKnuckleStrokeVel: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="34">   34   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="35">   35   </a><span class="KW">VAR</span>
+</span><span><a class="LN" name="36">   36   </a>    c_main_angle_to_stroke_dot_: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">LREAL</span> := -0.0001230733184656039,-0.00011178316829555629,
+</span><span><a class="LN" name="37">   37   </a>        0.0032259350168467762,-0.014266753640861714,0.013352428649641276,0.053256045623198495,-0.14417827320961887,
+</span><span><a class="LN" name="38">   38   </a>        0.049080418441319086,0.34710603970852111;
+</span><span><a class="LN" name="39">   39   </a>    main_angle_to_stroke1_Coefs: <span class="KW">ARRAY</span> [0..9] <span class="KW">OF</span> <span class="KW">LREAL</span> := -1.3674813162844878E-5,-1.3972896036944537E-5,
+</span><span><a class="LN" name="40">   40   </a>        0.00046084785954953947,-0.0023777922734769526,0.0026704857299282552,0.013314011405799624,
+</span><span><a class="LN" name="41">   41   </a>        -0.048059424403206291,0.024540209220659543,0.34710603970852111,0.25110492964217662;
+</span><span><a class="LN" name="42">   42   </a>    c_knuckle_angle_to_stroke_d: <span class="KW">ARRAY</span> [0..8] <span class="KW">OF</span> <span class="KW">LREAL</span> := -0.00043617962422908875,-0.0048110162502983554,
+</span><span><a class="LN" name="43">   43   </a>        -0.020237721842070049,-0.0454986986379932,-0.070481387555638444,-0.055543542370713711,0.0077182455137611728,
+</span><span><a class="LN" name="44">   44   </a>        0.023777493235108842,0.30462783944131627;
+</span><span><a class="LN" name="45">   45   </a>    c_knuckle_angle_to_stroke1_: <span class="KW">ARRAY</span> [0..9] <span class="KW">OF</span> <span class="KW">LREAL</span> := -4.846440269212097E-5,-0.00060137703128729442,
+</span><span><a class="LN" name="46">   46   </a>        -0.0028911031202957212,-0.0075831164396655331,-0.014096277511127688,-0.013885885592678428,
+</span><span><a class="LN" name="47">   47   </a>        0.0025727485045870576,0.011888746617554421,0.30462783944131627,0.77384539409105124;
+</span><span><a class="LN" name="48">   48   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="49">   49   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="50">   50   </a>    idx: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="51">   51   </a>    c_rtb_knuckle_angle_to_stro: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="52">   52   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="53">   53   </a><span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_AngleToStroke' *)</span>
+</span><span><a class="LN" name="54">   54   </a><span class="CT">(* Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:938')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/main_angle_to_stroke_dot</i></font></a>' *)</span>
+</span><span><a class="LN" name="55">   55   </a>c_rtb_knuckle_angle_to_stro := -0.0001230733184656039;
+</span><span><a class="LN" name="56">   56   </a><span class="KW">FOR</span> idx := 0 <span class="KW">TO</span> 7 <span class="KW">DO</span> 
+</span><span><a class="LN" name="57">   57   </a>    c_rtb_knuckle_angle_to_stro := (c_rtb_knuckle_angle_to_stro * fMainAngle) + c_main_angle_to_stroke_dot_[idx + 1];
+</span><span><a class="LN" name="58">   58   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="59">   59   </a><span class="CT">(* End of Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:938')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/main_angle_to_stroke_dot</i></font></a>' *)</span>
+</span><span><a class="LN" name="60">   60   </a><span class="CT">(* Outport: '&lt;Root&gt;/fMainStrokeVel' incorporates:</span>
+</span><span><a class="LN" name="61">   61   </a><span class="CT"> *  Product: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:941')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Product</i></font></a>' *)</span>
+</span><span><a class="LN" name="62">   62   </a>fMainStrokeVel := fMainAngleVel * c_rtb_knuckle_angle_to_stro;
+</span><span><a class="LN" name="63">   63   </a><span class="CT">(* Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:946')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/main_angle_to_stroke1</i></font></a>' *)</span>
+</span><span><a class="LN" name="64">   64   </a>fMainStroke := -1.3674813162844878E-5;
+</span><span><a class="LN" name="65">   65   </a><span class="KW">FOR</span> idx := 0 <span class="KW">TO</span> 8 <span class="KW">DO</span> 
+</span><span><a class="LN" name="66">   66   </a>    fMainStroke := (fMainStroke * fMainAngle) + main_angle_to_stroke1_Coefs[idx + 1];
+</span><span><a class="LN" name="67">   67   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="68">   68   </a><span class="CT">(* End of Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:946')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/main_angle_to_stroke1</i></font></a>' *)</span>
+</span><span><a class="LN" name="69">   69   </a><span class="CT">(* Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:943')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/knuckle_angle_to_stroke_dot</i></font></a>' *)</span>
+</span><span><a class="LN" name="70">   70   </a>c_rtb_knuckle_angle_to_stro := -0.00043617962422908875;
+</span><span><a class="LN" name="71">   71   </a><span class="KW">FOR</span> idx := 0 <span class="KW">TO</span> 7 <span class="KW">DO</span> 
+</span><span><a class="LN" name="72">   72   </a>    c_rtb_knuckle_angle_to_stro := (c_rtb_knuckle_angle_to_stro * fKnuckleAngle) + c_knuckle_angle_to_stroke_d[idx + 1];
+</span><span><a class="LN" name="73">   73   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="74">   74   </a><span class="CT">(* End of Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:943')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/knuckle_angle_to_stroke_dot</i></font></a>' *)</span>
+</span><span><a class="LN" name="75">   75   </a><span class="CT">(* Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:945')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/knuckle_angle_to_stroke1</i></font></a>' *)</span>
+</span><span><a class="LN" name="76">   76   </a>fKnuckleStroke := -4.846440269212097E-5;
+</span><span><a class="LN" name="77">   77   </a><span class="KW">FOR</span> idx := 0 <span class="KW">TO</span> 8 <span class="KW">DO</span> 
+</span><span><a class="LN" name="78">   78   </a>    fKnuckleStroke := (fKnuckleStroke * fKnuckleAngle) + c_knuckle_angle_to_stroke1_[idx + 1];
+</span><span><a class="LN" name="79">   79   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="80">   80   </a><span class="CT">(* End of Polyval: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:945')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/knuckle_angle_to_stroke1</i></font></a>' *)</span>
+</span><span><a class="LN" name="81">   81   </a><span class="CT">(* Outport: '&lt;Root&gt;/fKnuckleStrokeVel' incorporates:</span>
+</span><span><a class="LN" name="82">   82   </a><span class="CT"> *  Product: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model:944')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Product1</i></font></a>' *)</span>
+</span><span><a class="LN" name="83">   83   </a>fKnuckleStrokeVel := fKnuckleAngleVel * c_rtb_knuckle_angle_to_stro;
+</span><span><a class="LN" name="84">   84   </a><span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_AngleToStroke' *)</span>
+</span><span><a class="LN" name="85">   85   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="86">   86   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

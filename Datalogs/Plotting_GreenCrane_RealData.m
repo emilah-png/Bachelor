@@ -7,7 +7,7 @@ clc; clear; close all;
  %    -added into subplot logic
  % - added into "subplot" and into "singular plot" if statement
 %% inserting data
-load SinusHorisontalStartMedFlow.mat
+load FlowTest.mat
 Run = data;
 Pa_CBV_DCV = Run{6}.extractTimetable;
 Pa_CBV_Cyl = Run{5}.extractTimetable;
@@ -41,7 +41,7 @@ minerror = min(error.Variables)-0.005;
 %% ploting parameters
 %----------------------------------------
 singular_plot = true;
-subplot_enable = false;
+subplot_enable = true;
 
 %subplot parameter
 subplot_xplot = 2; %max 2
@@ -53,8 +53,8 @@ subplot_ysize = 790;
 pressure_plasement = 1;     plot_pressure = true;
 stroke_plasement   = 2;     plot_stroke   = true;
 signal_plasement   = 3;     plot_signal   = true;
-flow_plasement     = 4;     plot_flow     = true;
-error_plasement    = 5;     plot_error    = true;
+flow_plasement     = 4;     plot_flow     = false;
+error_plasement    = 4;     plot_error    = true;
 
 % control signal
 flip_U = false;

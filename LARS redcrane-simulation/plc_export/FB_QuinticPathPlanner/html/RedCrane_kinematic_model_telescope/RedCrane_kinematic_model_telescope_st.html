@@ -1,0 +1,1355 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - RedCrane_kinematic_model_telescope.st</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="file:///plc_export/FB_QuinticPathPlanner/RedCrane_kinematic_model_telescope.st" target="rtwreport_document_frame" id="linkToText_plain">RedCrane_kinematic_model_telescope.st</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">(*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * File: RedCrane_kinematic_model_telescope.st</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> * IEC 61131-3 Structured Text (ST) code generated for subsystem "RedCrane_kinematic_model_telescope/FB_QuinticPathPlanner"</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Model name                      : RedCrane_kinematic_model_telescope</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Model version                   : 2.94</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * Model creator                   : sindr</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model last modified by          : larso</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Model last modified on          : Tue Jan 28 15:09:52 2025</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Model sample time               : 0.001s</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Subsystem name                  : RedCrane_kinematic_model_telescope/FB_QuinticPathPlanner</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Subsystem sample time           : 0.001s</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Simulink PLC Coder version      : 24.1 (R2024a) 19-Nov-2023</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * ST code generated on            : Tue Jan 28 15:12:24 2025</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Target IDE selection            : Beckhoff TwinCAT 3</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Test Bench included             : No</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *)</span>
+</span><span><a class="LN" name="22">   22   </a><span class="KW">FUNCTION_BLOCK</span> FB_QuinticPathPlanner
+</span><span><a class="LN" name="23">   23   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="24">   24   </a>    ssMethodType: <span class="KW">SINT</span>;
+</span><span><a class="LN" name="25">   25   </a>    bEnable: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="26">   26   </a>    nPointSetNumber: <span class="KW">UINT</span>;
+</span><span><a class="LN" name="27">   27   </a>    fT: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="28">   28   </a>    p1: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="29">   29   </a>    p2: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="30">   30   </a>    p3: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="31">   31   </a>    p4: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="32">   32   </a>    fMaxVel: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="33">   33   </a>    fXFeedback: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="34">   34   </a>    fYFeedback: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="35">   35   </a>    fZFeedback: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="36">   36   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="37">   37   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="38">   38   </a>    fXRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="39">   39   </a>    fYRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="40">   40   </a>    fZRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="41">   41   </a>    fXDotRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="42">   42   </a>    fYDotRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="43">   43   </a>    fZDotRef: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="44">   44   </a>    bFinished: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="45">   45   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="46">   46   </a><span class="KW">VAR</span>
+</span><span><a class="LN" name="47">   47   </a>    posRefMemory_not_empty: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="48">   48   </a>    bEnableMemory: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="49">   49   </a>    pointSetNumberMemory: <span class="KW">UINT</span>;
+</span><span><a class="LN" name="50">   50   </a>    t0Memory: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="51">   51   </a>    coeffXMemory: <span class="KW">ARRAY</span> [0..17] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="52">   52   </a>    coeffYMemory: <span class="KW">ARRAY</span> [0..17] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="53">   53   </a>    coeffZMemory: <span class="KW">ARRAY</span> [0..17] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="54">   54   </a>    timeSlotsMemory: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="55">   55   </a>    accRefMemory: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="56">   56   </a>    velRefMemory: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="57">   57   </a>    i0_F4: F4;
+</span><span><a class="LN" name="58">   58   </a>    i0_xgetrfs: xgetrfs;
+</span><span><a class="LN" name="59">   59   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="60">   60   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="61">   61   </a>    bFirsCykle: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="62">   62   </a>    bNewPointSet: <span class="KW">BOOL</span>;
+</span><span><a class="LN" name="63">   63   </a>    maxVel3D: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="64">   64   </a>    t1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="65">   65   </a>    tLocal: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="66">   66   </a>    A: <span class="KW">ARRAY</span> [0..323] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="67">   67   </a>    A_tmp: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="68">   68   </a>    A_tmp_0: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">SINT</span>;
+</span><span><a class="LN" name="69">   69   </a>    A_tmp_1: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">SINT</span>;
+</span><span><a class="LN" name="70">   70   </a>    A_tmp_tmp: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="71">   71   </a>    A_tmp_2: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="72">   72   </a>    A_tmp_3: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="73">   73   </a>    A_tmp_4: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="74">   74   </a>    A_tmp_5: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="75">   75   </a>    A_tmp_6: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="76">   76   </a>    A_tmp_7: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="77">   77   </a>    A_tmp_8: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="78">   78   </a>    A_tmp_9: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="79">   79   </a>    i: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="80">   80   </a>    xPoints: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="81">   81   </a>    xPoints_0: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="82">   82   </a>    xPoints_1: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="83">   83   </a>    A_tmp_a: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="84">   84   </a>    A_tmp_tmp_0: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="85">   85   </a>    A_tmp_idx_3: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="86">   86   </a>    A_tmp_idx_2: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="87">   87   </a>    A_tmp_idx_3_0: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="88">   88   </a>    A_tmp_idx_3_1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="89">   89   </a>    A_tmp_idx_3_2: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="90">   90   </a>    A_tmp_idx_2_0: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="91">   91   </a>    A_tmp_idx_2_1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="92">   92   </a>    A_tmp_idx_3_3: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="93">   93   </a>    A_tmp_idx_3_4: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="94">   94   </a>    A_tmp_idx_3_5: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="95">   95   </a>    timeSlotsMemory_tmp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="96">   96   </a>    A_tmp_idx_2_tmp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="97">   97   </a>    A_tmp_idx_2_tmp_0: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="98">   98   </a>    A_tmp_idx_3_tmp: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="99">   99   </a>    A_tmp_idx_2_tmp_1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="100">  100   </a>    A_tmp_idx_3_tmp_0: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="101">  101   </a>    A_tmp_tmp_1: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="102">  102   </a>    A_tmp_b: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="103">  103   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="104">  104   </a><span class="KW">CASE</span> ssMethodType <span class="KW">OF</span>
+</span><span><a class="LN" name="105">  105   </a>    SS_INITIALIZE: 
+</span><span><a class="LN" name="106">  106   </a>        <span class="CT">(* SystemInitialize for Atomic SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="107">  107   </a>        <span class="CT">(* SystemInitialize for MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' *)</span>
+</span><span><a class="LN" name="108">  108   </a>        posRefMemory_not_empty := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="109">  109   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:21')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:21</i></font></a>' , *)</span>
+</span><span><a class="LN" name="110">  110   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:21')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:21</i></font></a>' bEnableMemory       = false; *)</span>
+</span><span><a class="LN" name="111">  111   </a>        bEnableMemory := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="112">  112   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:22')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:22</i></font></a>' , *)</span>
+</span><span><a class="LN" name="113">  113   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:22')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:22</i></font></a>' pointSetNumberMemory= uint16(0); *)</span>
+</span><span><a class="LN" name="114">  114   </a>        pointSetNumberMemory := 0;
+</span><span><a class="LN" name="115">  115   </a>        <span class="CT">(* End of SystemInitialize for SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="116">  116   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:24')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:24</i></font></a>' , *)</span>
+</span><span><a class="LN" name="117">  117   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:24')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:24</i></font></a>' p1Memory            = zeros(3,1); *)</span>
+</span><span><a class="LN" name="118">  118   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:25')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:25</i></font></a>' , *)</span>
+</span><span><a class="LN" name="119">  119   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:25')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:25</i></font></a>' p2Memory            = zeros(3,1); *)</span>
+</span><span><a class="LN" name="120">  120   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:26')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:26</i></font></a>' , *)</span>
+</span><span><a class="LN" name="121">  121   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:26')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:26</i></font></a>' p3Memory            = zeros(3,1); *)</span>
+</span><span><a class="LN" name="122">  122   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:27')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:27</i></font></a>' , *)</span>
+</span><span><a class="LN" name="123">  123   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:27')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:27</i></font></a>' p4Memory            = zeros(3,1); *)</span>
+</span><span><a class="LN" name="124">  124   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:29')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:29</i></font></a>' , *)</span>
+</span><span><a class="LN" name="125">  125   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:29')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:29</i></font></a>' timeSlotsMemory     = [0 1 2 3 4]; *)</span>
+</span><span><a class="LN" name="126">  126   </a>        <span class="CT">(* SystemInitialize for Atomic SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="127">  127   </a>        <span class="CT">(* SystemInitialize for MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' *)</span>
+</span><span><a class="LN" name="128">  128   </a>        <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="129">  129   </a>            timeSlotsMemory[i] := DINT_TO_LREAL(i);
+</span><span><a class="LN" name="130">  130   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="131">  131   </a>        <span class="CT">(* End of SystemInitialize for SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="132">  132   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:30')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:30</i></font></a>' , *)</span>
+</span><span><a class="LN" name="133">  133   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:30')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:30</i></font></a>' coeffXMemory        = zeros(18,1); *)</span>
+</span><span><a class="LN" name="134">  134   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:31')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:31</i></font></a>' , *)</span>
+</span><span><a class="LN" name="135">  135   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:31')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:31</i></font></a>' coeffYMemory        = zeros(18,1); *)</span>
+</span><span><a class="LN" name="136">  136   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:32')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:32</i></font></a>' , *)</span>
+</span><span><a class="LN" name="137">  137   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:32')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:32</i></font></a>' coeffZMemory        = zeros(18,1); *)</span>
+</span><span><a class="LN" name="138">  138   </a>        <span class="CT">(* SystemInitialize for Atomic SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="139">  139   </a>        <span class="CT">(* SystemInitialize for MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' *)</span>
+</span><span><a class="LN" name="140">  140   </a>        <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="141">  141   </a>            coeffXMemory[i] := 0.0;
+</span><span><a class="LN" name="142">  142   </a>            coeffYMemory[i] := 0.0;
+</span><span><a class="LN" name="143">  143   </a>            coeffZMemory[i] := 0.0;
+</span><span><a class="LN" name="144">  144   </a>        <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="145">  145   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:35')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:35</i></font></a>' , *)</span>
+</span><span><a class="LN" name="146">  146   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:35')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:35</i></font></a>' velRefMemory        = zeros(3,1); *)</span>
+</span><span><a class="LN" name="147">  147   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:36')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:36</i></font></a>' , *)</span>
+</span><span><a class="LN" name="148">  148   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:36')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:36</i></font></a>' accRefMemory        = zeros(3,1); *)</span>
+</span><span><a class="LN" name="149">  149   </a>        velRefMemory[0] := 0.0;
+</span><span><a class="LN" name="150">  150   </a>        accRefMemory[0] := 0.0;
+</span><span><a class="LN" name="151">  151   </a>        velRefMemory[1] := 0.0;
+</span><span><a class="LN" name="152">  152   </a>        accRefMemory[1] := 0.0;
+</span><span><a class="LN" name="153">  153   </a>        velRefMemory[2] := 0.0;
+</span><span><a class="LN" name="154">  154   </a>        accRefMemory[2] := 0.0;
+</span><span><a class="LN" name="155">  155   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:38')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:38</i></font></a>' , *)</span>
+</span><span><a class="LN" name="156">  156   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:38')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:38</i></font></a>' t0Memory            = 0; *)</span>
+</span><span><a class="LN" name="157">  157   </a>        t0Memory := 0.0;
+</span><span><a class="LN" name="158">  158   </a>        <span class="CT">(* End of SystemInitialize for SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="159">  159   </a>    SS_STEP: 
+</span><span><a class="LN" name="160">  160   </a>        <span class="CT">(* Outputs for Atomic SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="161">  161   </a>        <span class="CT">(* Outport: '&lt;Root&gt;/fXRef' incorporates:</span>
+</span><span><a class="LN" name="162">  162   </a><span class="CT">         *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>'</span>
+</span><span><a class="LN" name="163">  163   </a><span class="CT">         *  SignalConversion: '&lt;S2&gt;/TmpSignal ConversionAt SFunction Inport9' *)</span>
+</span><span><a class="LN" name="164">  164   </a>        fXRef := fXFeedback;
+</span><span><a class="LN" name="165">  165   </a>        <span class="CT">(* Outport: '&lt;Root&gt;/fYRef' incorporates:</span>
+</span><span><a class="LN" name="166">  166   </a><span class="CT">         *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>'</span>
+</span><span><a class="LN" name="167">  167   </a><span class="CT">         *  SignalConversion: '&lt;S2&gt;/TmpSignal ConversionAt SFunction Inport9' *)</span>
+</span><span><a class="LN" name="168">  168   </a>        fYRef := fYFeedback;
+</span><span><a class="LN" name="169">  169   </a>        <span class="CT">(* Outport: '&lt;Root&gt;/fZRef' incorporates:</span>
+</span><span><a class="LN" name="170">  170   </a><span class="CT">         *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>'</span>
+</span><span><a class="LN" name="171">  171   </a><span class="CT">         *  SignalConversion: '&lt;S2&gt;/TmpSignal ConversionAt SFunction Inport9' *)</span>
+</span><span><a class="LN" name="172">  172   </a>        fZRef := fZFeedback;
+</span><span><a class="LN" name="173">  173   </a>        <span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' *)</span>
+</span><span><a class="LN" name="174">  174   </a>        <span class="CT">(* QUINTICGENERATOR *)</span>
+</span><span><a class="LN" name="175">  175   </a>        <span class="CT">(* Generates piecewise polynomial references (pos/vel/acc) for up to 4 segments. *)</span>
+</span><span><a class="LN" name="176">  176   </a>        <span class="CT">(* Re-computes polynomials only when nPointSetNumber increments (signaling *)</span>
+</span><span><a class="LN" name="177">  177   </a>        <span class="CT">(* a new waypoint set), and only if bEnable == true. *)</span>
+</span><span><a class="LN" name="178">  178   </a>        
+</span><span><a class="LN" name="179">  179   </a>        <span class="CT">(* If bEnable is false, outputs a stationary reference at posFeedback. *)</span>
+</span><span><a class="LN" name="180">  180   </a>        <span class="CT">(* MATLAB Function 'FB_QuinticPathPlanner/Quintic': '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1</i></font></a>' *)</span>
+</span><span><a class="LN" name="181">  181   </a>        <span class="CT">(* %% PERSISTENT VARIABLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% *)</span>
+</span><span><a class="LN" name="182">  182   </a>        <span class="CT">(* Remember last enable state *)</span>
+</span><span><a class="LN" name="183">  183   </a>        <span class="CT">(* Remember last waypoint-set counter *)</span>
+</span><span><a class="LN" name="184">  184   </a>        <span class="CT">(* Local start time offset *)</span>
+</span><span><a class="LN" name="185">  185   </a>        <span class="CT">(* Initialize persistent variables if empty *)</span>
+</span><span><a class="LN" name="186">  186   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:21')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:21</i></font></a>' if isempty(bEnableMemory) *)</span>
+</span><span><a class="LN" name="187">  187   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:22')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:22</i></font></a>' if isempty(pointSetNumberMemory) *)</span>
+</span><span><a class="LN" name="188">  188   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:24')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:24</i></font></a>' if isempty(p1Memory) *)</span>
+</span><span><a class="LN" name="189">  189   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:25')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:25</i></font></a>' if isempty(p2Memory) *)</span>
+</span><span><a class="LN" name="190">  190   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:26')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:26</i></font></a>' if isempty(p3Memory) *)</span>
+</span><span><a class="LN" name="191">  191   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:27')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:27</i></font></a>' if isempty(p4Memory) *)</span>
+</span><span><a class="LN" name="192">  192   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:29')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:29</i></font></a>' if isempty(timeSlotsMemory) *)</span>
+</span><span><a class="LN" name="193">  193   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:30')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:30</i></font></a>' if isempty(coeffXMemory) *)</span>
+</span><span><a class="LN" name="194">  194   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:31')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:31</i></font></a>' if isempty(coeffYMemory) *)</span>
+</span><span><a class="LN" name="195">  195   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:32')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:32</i></font></a>' if isempty(coeffZMemory) *)</span>
+</span><span><a class="LN" name="196">  196   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:34')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:34</i></font></a>' if isempty(posRefMemory) *)</span>
+</span><span><a class="LN" name="197">  197   </a>        <span class="KW">IF</span>  <span class="KW">NOT</span> posRefMemory_not_empty <span class="KW">THEN</span> 
+</span><span><a class="LN" name="198">  198   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:34')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:34</i></font></a>' , *)</span>
+</span><span><a class="LN" name="199">  199   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:34')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:34</i></font></a>' posRefMemory        = posFeedback; *)</span>
+</span><span><a class="LN" name="200">  200   </a>            posRefMemory_not_empty := <span class="KW">TRUE</span>;
+</span><span><a class="LN" name="201">  201   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="202">  202   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:35')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:35</i></font></a>' if isempty(velRefMemory) *)</span>
+</span><span><a class="LN" name="203">  203   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:36')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:36</i></font></a>' if isempty(accRefMemory) *)</span>
+</span><span><a class="LN" name="204">  204   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:38')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:38</i></font></a>' if isempty(t0Memory) *)</span>
+</span><span><a class="LN" name="205">  205   </a>        <span class="CT">(* %% DEFAULT OUTPUTS (if bEnable == false) %%%%%%%%%%%%%%%%%%%%%%%%%%%% *)</span>
+</span><span><a class="LN" name="206">  206   </a>        <span class="CT">(* Stationary reference at the current feedback position *)</span>
+</span><span><a class="LN" name="207">  207   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:42')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:42</i></font></a>' posRef    = posFeedback; *)</span>
+</span><span><a class="LN" name="208">  208   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:43')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:43</i></font></a>' velRef    = zeros(3,1); *)</span>
+</span><span><a class="LN" name="209">  209   </a>        fXDotRef := 0.0;
+</span><span><a class="LN" name="210">  210   </a>        fYDotRef := 0.0;
+</span><span><a class="LN" name="211">  211   </a>        fZDotRef := 0.0;
+</span><span><a class="LN" name="212">  212   </a>        <span class="CT">(* Outport: '&lt;Root&gt;/bFinished' incorporates:</span>
+</span><span><a class="LN" name="213">  213   </a><span class="CT">         *  MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' *)</span>
+</span><span><a class="LN" name="214">  214   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:44')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:44</i></font></a>' accRef    = zeros(3,1); *)</span>
+</span><span><a class="LN" name="215">  215   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:45')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:45</i></font></a>' bFinished = true; *)</span>
+</span><span><a class="LN" name="216">  216   </a>        bFinished := <span class="KW">TRUE</span>;
+</span><span><a class="LN" name="217">  217   </a>        <span class="CT">(* MATLAB Function: '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Quintic</i></font></a>' incorporates:</span>
+</span><span><a class="LN" name="218">  218   </a><span class="CT">         *  SignalConversion: '&lt;S2&gt;/TmpSignal ConversionAt SFunction Inport9' *)</span>
+</span><span><a class="LN" name="219">  219   </a>        <span class="CT">(* Not actively running any trajectory *)</span>
+</span><span><a class="LN" name="220">  220   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:46')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:46</i></font></a>' bFirsCykle = false; *)</span>
+</span><span><a class="LN" name="221">  221   </a>        bFirsCykle := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="222">  222   </a>        <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="223">  223   </a>        <span class="CT">(* 1) CHECK IF DISABLED =&gt; Return a stationary reference immediately *)</span>
+</span><span><a class="LN" name="224">  224   </a>        <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="225">  225   </a>        <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:50')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:50</i></font></a>' if ~bEnable *)</span>
+</span><span><a class="LN" name="226">  226   </a>        <span class="KW">IF</span>  <span class="KW">NOT</span> bEnable <span class="KW">THEN</span> 
+</span><span><a class="LN" name="227">  227   </a>            <span class="CT">(* Make sure to remember we are now disabled *)</span>
+</span><span><a class="LN" name="228">  228   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:52')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:52</i></font></a>' bEnableMemory = false; *)</span>
+</span><span><a class="LN" name="229">  229   </a>            bEnableMemory := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="230">  230   </a>        <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="231">  231   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="232">  232   </a>            <span class="CT">(* 2) IF WE GET HERE =&gt; bEnable == true *)</span>
+</span><span><a class="LN" name="233">  233   </a>            <span class="CT">(* We want to see if we just transitioned from false-&gt;true *)</span>
+</span><span><a class="LN" name="234">  234   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="235">  235   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:60')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:60</i></font></a>' if bEnable && ~bEnableMemory *)</span>
+</span><span><a class="LN" name="236">  236   </a>            <span class="KW">IF</span>  <span class="KW">NOT</span> bEnableMemory <span class="KW">THEN</span> 
+</span><span><a class="LN" name="237">  237   </a>                <span class="CT">(* Rising edge of bEnable =&gt; reset local start time *)</span>
+</span><span><a class="LN" name="238">  238   </a>                <span class="CT">(* t0Memory = t; *)</span>
+</span><span><a class="LN" name="239">  239   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:63')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:63</i></font></a>' bFirsCykle = true; *)</span>
+</span><span><a class="LN" name="240">  240   </a>                bFirsCykle := <span class="KW">TRUE</span>;
+</span><span><a class="LN" name="241">  241   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="242">  242   </a>            <span class="CT">(* Update bEnableMemory to reflect the current state *)</span>
+</span><span><a class="LN" name="243">  243   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:67')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:67</i></font></a>' bEnableMemory = true; *)</span>
+</span><span><a class="LN" name="244">  244   </a>            bEnableMemory := <span class="KW">TRUE</span>;
+</span><span><a class="LN" name="245">  245   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="246">  246   </a>            <span class="CT">(* 3) Check if nPointSetNumber has incremented =&gt; new waypoints *)</span>
+</span><span><a class="LN" name="247">  247   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="248">  248   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:72')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:72</i></font></a>' if nPointSetNumber &gt; pointSetNumberMemory *)</span>
+</span><span><a class="LN" name="249">  249   </a>            <span class="KW">IF</span> nPointSetNumber &gt; pointSetNumberMemory <span class="KW">THEN</span> 
+</span><span><a class="LN" name="250">  250   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:73')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:73</i></font></a>' bNewPointSet = true; *)</span>
+</span><span><a class="LN" name="251">  251   </a>                bNewPointSet := <span class="KW">TRUE</span>;
+</span><span><a class="LN" name="252">  252   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:74')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:74</i></font></a>' pointSetNumberMemory = nPointSetNumber; *)</span>
+</span><span><a class="LN" name="253">  253   </a>                pointSetNumberMemory := nPointSetNumber;
+</span><span><a class="LN" name="254">  254   </a>            <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="255">  255   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:75')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:75</i></font></a>' else *)</span>
+</span><span><a class="LN" name="256">  256   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:76')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:76</i></font></a>' bNewPointSet = false; *)</span>
+</span><span><a class="LN" name="257">  257   </a>                bNewPointSet := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="258">  258   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="259">  259   </a>            <span class="CT">(* reset local start time *)</span>
+</span><span><a class="LN" name="260">  260   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:80')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:80</i></font></a>' if bFirsCykle | bNewPointSet *)</span>
+</span><span><a class="LN" name="261">  261   </a>            <span class="KW">IF</span> bFirsCykle <span class="KW">OR</span> bNewPointSet <span class="KW">THEN</span> 
+</span><span><a class="LN" name="262">  262   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:81')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:81</i></font></a>' t0Memory = t; *)</span>
+</span><span><a class="LN" name="263">  263   </a>                t0Memory := fT;
+</span><span><a class="LN" name="264">  264   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="265">  265   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="266">  266   </a>            <span class="CT">(* 4) If new points, compute new polynomials *)</span>
+</span><span><a class="LN" name="267">  267   </a>            <span class="CT">(* We only do this if we are enabled (which we are)  *)</span>
+</span><span><a class="LN" name="268">  268   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="269">  269   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:89')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:89</i></font></a>' if bNewPointSet *)</span>
+</span><span><a class="LN" name="270">  270   </a>            <span class="KW">IF</span> bNewPointSet <span class="KW">THEN</span> 
+</span><span><a class="LN" name="271">  271   </a>                <span class="CT">(* Save new waypoints *)</span>
+</span><span><a class="LN" name="272">  272   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:91')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:91</i></font></a>' p1Memory = p1; *)</span>
+</span><span><a class="LN" name="273">  273   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:92')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:92</i></font></a>' p2Memory = p2; *)</span>
+</span><span><a class="LN" name="274">  274   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:93')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:93</i></font></a>' p3Memory = p3; *)</span>
+</span><span><a class="LN" name="275">  275   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:94')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:94</i></font></a>' p4Memory = p4; *)</span>
+</span><span><a class="LN" name="276">  276   </a>                <span class="CT">(* We can choose velocity/accel for start from the *old* memory  *)</span>
+</span><span><a class="LN" name="277">  277   </a>                <span class="CT">(* or from zero. Example: from memory *)</span>
+</span><span><a class="LN" name="278">  278   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:98')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:98</i></font></a>' v0x = velRefMemory(1); *)</span>
+</span><span><a class="LN" name="279">  279   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:98')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:98</i></font></a>' a0x = accRefMemory(1); *)</span>
+</span><span><a class="LN" name="280">  280   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:99')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:99</i></font></a>' v0y = velRefMemory(2); *)</span>
+</span><span><a class="LN" name="281">  281   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:99')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:99</i></font></a>' a0y = accRefMemory(2); *)</span>
+</span><span><a class="LN" name="282">  282   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:100')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:100</i></font></a>' v0z = velRefMemory(3); *)</span>
+</span><span><a class="LN" name="283">  283   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:100')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:100</i></font></a>' a0z = accRefMemory(3); *)</span>
+</span><span><a class="LN" name="284">  284   </a>                <span class="CT">(* Build vectors of 5 points in each dimension *)</span>
+</span><span><a class="LN" name="285">  285   </a>                <span class="CT">(* Start from the current feedback (or last posRefMemory), *)</span>
+</span><span><a class="LN" name="286">  286   </a>                <span class="CT">(* but commonly we use posFeedback for a fresh start. *)</span>
+</span><span><a class="LN" name="287">  287   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:105')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:105</i></font></a>' xPoints = [posFeedback(1), p1(1), p2(1), p3(1), p4(1)]; *)</span>
+</span><span><a class="LN" name="288">  288   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:106')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:106</i></font></a>' yPoints = [posFeedback(2), p1(2), p2(2), p3(2), p4(2)]; *)</span>
+</span><span><a class="LN" name="289">  289   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:107')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:107</i></font></a>' zPoints = [posFeedback(3), p1(3), p2(3), p3(3), p4(3)]; *)</span>
+</span><span><a class="LN" name="290">  290   </a>                <span class="CT">(* Time computations *)</span>
+</span><span><a class="LN" name="291">  291   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:110')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:110</i></font></a>' maxVel3D = maxVel / sqrt(3); *)</span>
+</span><span><a class="LN" name="292">  292   </a>                maxVel3D := fMaxVel / 1.7320508075688772;
+</span><span><a class="LN" name="293">  293   </a>                <span class="CT">(* if you want sqrt(vx^2 + vy^2 + vz^2) = maxVel *)</span>
+</span><span><a class="LN" name="294">  294   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:111')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:111</i></font></a>' dTemp1 = [xPoints(1), yPoints(1), zPoints(1)] - [xPoints(2), yPoints(2), zPoints(2)]; *)</span>
+</span><span><a class="LN" name="295">  295   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:112')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:112</i></font></a>' dTemp2 = [xPoints(2), yPoints(2), zPoints(2)] - [xPoints(3), yPoints(3), zPoints(3)]; *)</span>
+</span><span><a class="LN" name="296">  296   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:113')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:113</i></font></a>' dTemp3 = [xPoints(3), yPoints(3), zPoints(3)] - [xPoints(4), yPoints(4), zPoints(4)]; *)</span>
+</span><span><a class="LN" name="297">  297   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:114')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:114</i></font></a>' dTemp4 = [xPoints(4), yPoints(4), zPoints(4)] - [xPoints(5), yPoints(5), zPoints(5)]; *)</span>
+</span><span><a class="LN" name="298">  298   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:116')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:116</i></font></a>' t1 = norm(dTemp1) / maxVel3D; *)</span>
+</span><span><a class="LN" name="299">  299   </a>                xPoints[0] := fXFeedback - p1[0];
+</span><span><a class="LN" name="300">  300   </a>                xPoints[1] := fYFeedback - p1[1];
+</span><span><a class="LN" name="301">  301   </a>                xPoints[2] := fZFeedback - p1[2];
+</span><span><a class="LN" name="302">  302   </a>                t1 := norm(x := xPoints) / maxVel3D;
+</span><span><a class="LN" name="303">  303   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:117')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:117</i></font></a>' t2 = norm(dTemp2) / maxVel3D; *)</span>
+</span><span><a class="LN" name="304">  304   </a>                xPoints[0] := p1[0] - p2[0];
+</span><span><a class="LN" name="305">  305   </a>                xPoints[1] := p1[1] - p2[1];
+</span><span><a class="LN" name="306">  306   </a>                xPoints[2] := p1[2] - p2[2];
+</span><span><a class="LN" name="307">  307   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:118')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:118</i></font></a>' t3 = norm(dTemp3) / maxVel3D; *)</span>
+</span><span><a class="LN" name="308">  308   </a>                xPoints_0[0] := p2[0] - p3[0];
+</span><span><a class="LN" name="309">  309   </a>                xPoints_0[1] := p2[1] - p3[1];
+</span><span><a class="LN" name="310">  310   </a>                xPoints_0[2] := p2[2] - p3[2];
+</span><span><a class="LN" name="311">  311   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:119')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:119</i></font></a>' t4 = norm(dTemp4) / maxVel3D; *)</span>
+</span><span><a class="LN" name="312">  312   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:121')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:121</i></font></a>' timeSlots = [0, t1, t1 + t2, t1 + t2 + t3, t1 + t2 + t3 + t4]; *)</span>
+</span><span><a class="LN" name="313">  313   </a>                xPoints_1[0] := p3[0] - p4[0];
+</span><span><a class="LN" name="314">  314   </a>                xPoints_1[1] := p3[1] - p4[1];
+</span><span><a class="LN" name="315">  315   </a>                xPoints_1[2] := p3[2] - p4[2];
+</span><span><a class="LN" name="316">  316   </a>                timeSlotsMemory[0] := 0.0;
+</span><span><a class="LN" name="317">  317   </a>                timeSlotsMemory[1] := t1;
+</span><span><a class="LN" name="318">  318   </a>                timeSlotsMemory_tmp := t1 + (norm(x := xPoints) / maxVel3D);
+</span><span><a class="LN" name="319">  319   </a>                timeSlotsMemory[2] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="320">  320   </a>                timeSlotsMemory_tmp := timeSlotsMemory_tmp + (norm(x := xPoints_0) / maxVel3D);
+</span><span><a class="LN" name="321">  321   </a>                timeSlotsMemory[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="322">  322   </a>                timeSlotsMemory[4] := timeSlotsMemory_tmp + (norm(x := xPoints_1) / maxVel3D);
+</span><span><a class="LN" name="323">  323   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:122')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:122</i></font></a>' timeSlotsMemory = timeSlots; *)</span>
+</span><span><a class="LN" name="324">  324   </a>                <span class="CT">(* Compute polynomials (Quintic) *)</span>
+</span><span><a class="LN" name="325">  325   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:125')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:125</i></font></a>' coeffX = Quintic(timeSlots, xPoints, v0x, a0x); *)</span>
+</span><span><a class="LN" name="326">  326   </a>                <span class="CT">(* 'Quintic:2' A = zeros(18, 18); *)</span>
+</span><span><a class="LN" name="327">  327   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 323 <span class="KW">DO</span> 
+</span><span><a class="LN" name="328">  328   </a>                    A[i] := 0.0;
+</span><span><a class="LN" name="329">  329   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="330">  330   </a>                <span class="CT">(* 'Quintic:3' B = zeros(18,1); *)</span>
+</span><span><a class="LN" name="331">  331   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="332">  332   </a>                    coeffXMemory[i] := 0.0;
+</span><span><a class="LN" name="333">  333   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="334">  334   </a>                <span class="CT">(* 'Quintic:5' A(1, 1:5) = F4(t(1)); *)</span>
+</span><span><a class="LN" name="335">  335   </a>                i0_F4(t := 0.0);
+</span><span><a class="LN" name="336">  336   </a>                A_tmp := i0_F4.output;
+</span><span><a class="LN" name="337">  337   </a>                <span class="CT">(* 'Quintic:6' A(2, 1:5) = F4Dot(t(1)); *)</span>
+</span><span><a class="LN" name="338">  338   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="339">  339   </a>                A_tmp_0[0] := 0;
+</span><span><a class="LN" name="340">  340   </a>                A_tmp_0[1] := 1;
+</span><span><a class="LN" name="341">  341   </a>                A_tmp_0[2] := 0;
+</span><span><a class="LN" name="342">  342   </a>                A_tmp_0[3] := 0;
+</span><span><a class="LN" name="343">  343   </a>                A_tmp_0[4] := 0;
+</span><span><a class="LN" name="344">  344   </a>                <span class="CT">(* 'Quintic:7' A(3, 1:5) = F4DotDot(t(1)); *)</span>
+</span><span><a class="LN" name="345">  345   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="346">  346   </a>                A_tmp_1[0] := 0;
+</span><span><a class="LN" name="347">  347   </a>                A_tmp_1[1] := 0;
+</span><span><a class="LN" name="348">  348   </a>                A_tmp_1[2] := 2;
+</span><span><a class="LN" name="349">  349   </a>                A_tmp_1[3] := 0;
+</span><span><a class="LN" name="350">  350   </a>                A_tmp_1[4] := 0;
+</span><span><a class="LN" name="351">  351   </a>                <span class="CT">(* 'Quintic:8' A(4, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="352">  352   </a>                i0_F4(t := timeSlotsMemory[1]);
+</span><span><a class="LN" name="353">  353   </a>                A_tmp_tmp := i0_F4.output;
+</span><span><a class="LN" name="354">  354   </a>                <span class="CT">(* 'Quintic:9' A(5, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="355">  355   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="356">  356   </a>                    A[18 * i] := A_tmp[i];
+</span><span><a class="LN" name="357">  357   </a>                    A[(18 * i) + 1] := SINT_TO_LREAL(A_tmp_0[i]);
+</span><span><a class="LN" name="358">  358   </a>                    A[(18 * i) + 2] := SINT_TO_LREAL(A_tmp_1[i]);
+</span><span><a class="LN" name="359">  359   </a>                    A_tmp_tmp_0 := A_tmp_tmp[i];
+</span><span><a class="LN" name="360">  360   </a>                    A[(18 * i) + 3] := A_tmp_tmp_0;
+</span><span><a class="LN" name="361">  361   </a>                    A[(18 * i) + 4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="362">  362   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="363">  363   </a>                <span class="CT">(* 'Quintic:9' A(5, 6:9) = -F3(t(2)); *)</span>
+</span><span><a class="LN" name="364">  364   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="365">  365   </a>                timeSlotsMemory_tmp := <span class="KW">EXPT</span>(timeSlotsMemory[1], 3.0);
+</span><span><a class="LN" name="366">  366   </a>                A_tmp_idx_2_tmp := timeSlotsMemory[1] * timeSlotsMemory[1];
+</span><span><a class="LN" name="367">  367   </a>                A_tmp_idx_3 :=  -timeSlotsMemory_tmp;
+</span><span><a class="LN" name="368">  368   </a>                A[94] := -1.0;
+</span><span><a class="LN" name="369">  369   </a>                A[112] :=  -timeSlotsMemory[1];
+</span><span><a class="LN" name="370">  370   </a>                A[130] :=  -A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="371">  371   </a>                A[148] :=  -timeSlotsMemory_tmp;
+</span><span><a class="LN" name="372">  372   </a>                <span class="CT">(* 'Quintic:10' A(6, 1:5) = F4Dot(t(2)); *)</span>
+</span><span><a class="LN" name="373">  373   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="374">  374   </a>                A_tmp_2[0] := 0.0;
+</span><span><a class="LN" name="375">  375   </a>                A_tmp_2[1] := 1.0;
+</span><span><a class="LN" name="376">  376   </a>                A_tmp_2[2] := 2.0 * timeSlotsMemory[1];
+</span><span><a class="LN" name="377">  377   </a>                A_tmp_tmp_0 := A_tmp_idx_2_tmp * 3.0;
+</span><span><a class="LN" name="378">  378   </a>                A_tmp_2[3] := A_tmp_tmp_0;
+</span><span><a class="LN" name="379">  379   </a>                A_tmp_2[4] := 4.0 * timeSlotsMemory_tmp;
+</span><span><a class="LN" name="380">  380   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="381">  381   </a>                    A[(18 * i) + 5] := A_tmp_2[i];
+</span><span><a class="LN" name="382">  382   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="383">  383   </a>                <span class="CT">(* 'Quintic:10' A(6, 6:9) = -F3Dot(t(2)); *)</span>
+</span><span><a class="LN" name="384">  384   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="385">  385   </a>                A_tmp_idx_2 :=  -(2.0 * timeSlotsMemory[1]);
+</span><span><a class="LN" name="386">  386   </a>                A[95] := -0.0;
+</span><span><a class="LN" name="387">  387   </a>                A[113] := -1.0;
+</span><span><a class="LN" name="388">  388   </a>                A[131] := A_tmp_idx_2;
+</span><span><a class="LN" name="389">  389   </a>                A[149] :=  -A_tmp_tmp_0;
+</span><span><a class="LN" name="390">  390   </a>                <span class="CT">(* 'Quintic:11' A(7, 1:5) = F4DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="391">  391   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="392">  392   </a>                A_tmp_3[0] := 0.0;
+</span><span><a class="LN" name="393">  393   </a>                A_tmp_3[1] := 0.0;
+</span><span><a class="LN" name="394">  394   </a>                A_tmp_3[2] := 2.0;
+</span><span><a class="LN" name="395">  395   </a>                A_tmp_3[3] := 6.0 * timeSlotsMemory[1];
+</span><span><a class="LN" name="396">  396   </a>                A_tmp_3[4] := A_tmp_idx_2_tmp * 12.0;
+</span><span><a class="LN" name="397">  397   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="398">  398   </a>                    A[(18 * i) + 6] := A_tmp_3[i];
+</span><span><a class="LN" name="399">  399   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="400">  400   </a>                <span class="CT">(* 'Quintic:11' A(7, 6:9) = -F3DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="401">  401   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="402">  402   </a>                A_tmp_idx_3_0 :=  -(6.0 * timeSlotsMemory[1]);
+</span><span><a class="LN" name="403">  403   </a>                <span class="CT">(* 'Quintic:12' A(8, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="404">  404   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="405">  405   </a>                timeSlotsMemory_tmp := <span class="KW">EXPT</span>(timeSlotsMemory[2], 3.0);
+</span><span><a class="LN" name="406">  406   </a>                A_tmp_idx_2_tmp_0 := timeSlotsMemory[2] * timeSlotsMemory[2];
+</span><span><a class="LN" name="407">  407   </a>                A_tmp_idx_3_1 := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="408">  408   </a>                <span class="CT">(* 'Quintic:13' A(9, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="409">  409   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="410">  410   </a>                <span class="CT">(* 'Quintic:13' A(9, 10:13) = -F3(t(3)); *)</span>
+</span><span><a class="LN" name="411">  411   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="412">  412   </a>                A_tmp_idx_3_2 :=  -timeSlotsMemory_tmp;
+</span><span><a class="LN" name="413">  413   </a>                <span class="CT">(* 'Quintic:14' A(10, 6:9) = F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="414">  414   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="415">  415   </a>                A_tmp_idx_2_0 := 2.0 * timeSlotsMemory[2];
+</span><span><a class="LN" name="416">  416   </a>                A_tmp_idx_3_tmp := A_tmp_idx_2_tmp_0 * 3.0;
+</span><span><a class="LN" name="417">  417   </a>                <span class="CT">(* 'Quintic:14' A(10, 10:13) = -F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="418">  418   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="419">  419   </a>                A_tmp_idx_2_1 :=  -(2.0 * timeSlotsMemory[2]);
+</span><span><a class="LN" name="420">  420   </a>                <span class="CT">(* 'Quintic:15' A(11, 6:9) = F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="421">  421   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="422">  422   </a>                A_tmp_idx_3_3 := 6.0 * timeSlotsMemory[2];
+</span><span><a class="LN" name="423">  423   </a>                <span class="CT">(* 'Quintic:15' A(11, 10:13) = -F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="424">  424   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="425">  425   </a>                A_tmp_idx_3_4 :=  -(6.0 * timeSlotsMemory[2]);
+</span><span><a class="LN" name="426">  426   </a>                <span class="CT">(* 'Quintic:16' A(12, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="427">  427   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="428">  428   </a>                timeSlotsMemory_tmp := <span class="KW">EXPT</span>(timeSlotsMemory[3], 3.0);
+</span><span><a class="LN" name="429">  429   </a>                A_tmp_idx_2_tmp_1 := timeSlotsMemory[3] * timeSlotsMemory[3];
+</span><span><a class="LN" name="430">  430   </a>                <span class="CT">(* 'Quintic:17' A(13, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="431">  431   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="432">  432   </a>                A[96] := -0.0;
+</span><span><a class="LN" name="433">  433   </a>                A[97] := 1.0;
+</span><span><a class="LN" name="434">  434   </a>                A[98] := 1.0;
+</span><span><a class="LN" name="435">  435   </a>                A[170] := -1.0;
+</span><span><a class="LN" name="436">  436   </a>                A[99] := 0.0;
+</span><span><a class="LN" name="437">  437   </a>                A[171] := -0.0;
+</span><span><a class="LN" name="438">  438   </a>                A[100] := 0.0;
+</span><span><a class="LN" name="439">  439   </a>                A[172] := -0.0;
+</span><span><a class="LN" name="440">  440   </a>                A[173] := 1.0;
+</span><span><a class="LN" name="441">  441   </a>                A[174] := 1.0;
+</span><span><a class="LN" name="442">  442   </a>                A[114] := -0.0;
+</span><span><a class="LN" name="443">  443   </a>                A[115] := timeSlotsMemory[2];
+</span><span><a class="LN" name="444">  444   </a>                A[116] := timeSlotsMemory[2];
+</span><span><a class="LN" name="445">  445   </a>                A[188] :=  -timeSlotsMemory[2];
+</span><span><a class="LN" name="446">  446   </a>                A[117] := 1.0;
+</span><span><a class="LN" name="447">  447   </a>                A[189] := -1.0;
+</span><span><a class="LN" name="448">  448   </a>                A[118] := 0.0;
+</span><span><a class="LN" name="449">  449   </a>                A[190] := -0.0;
+</span><span><a class="LN" name="450">  450   </a>                A[191] := timeSlotsMemory[3];
+</span><span><a class="LN" name="451">  451   </a>                A[192] := timeSlotsMemory[3];
+</span><span><a class="LN" name="452">  452   </a>                A[132] := -2.0;
+</span><span><a class="LN" name="453">  453   </a>                A[133] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="454">  454   </a>                A[134] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="455">  455   </a>                A[206] :=  -A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="456">  456   </a>                A[135] := A_tmp_idx_2_0;
+</span><span><a class="LN" name="457">  457   </a>                A[207] := A_tmp_idx_2_1;
+</span><span><a class="LN" name="458">  458   </a>                A[136] := 2.0;
+</span><span><a class="LN" name="459">  459   </a>                A[208] := -2.0;
+</span><span><a class="LN" name="460">  460   </a>                A[209] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="461">  461   </a>                A[210] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="462">  462   </a>                A[150] := A_tmp_idx_3_0;
+</span><span><a class="LN" name="463">  463   </a>                A[151] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="464">  464   </a>                A[152] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="465">  465   </a>                A[224] := A_tmp_idx_3_2;
+</span><span><a class="LN" name="466">  466   </a>                A[153] := A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="467">  467   </a>                A[225] :=  -A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="468">  468   </a>                A[154] := A_tmp_idx_3_3;
+</span><span><a class="LN" name="469">  469   </a>                A[226] := A_tmp_idx_3_4;
+</span><span><a class="LN" name="470">  470   </a>                A[227] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="471">  471   </a>                A[228] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="472">  472   </a>                <span class="CT">(* 'Quintic:17' A(13, 14:18) = -F4(t(4)); *)</span>
+</span><span><a class="LN" name="473">  473   </a>                i0_F4(t := timeSlotsMemory[3]);
+</span><span><a class="LN" name="474">  474   </a>                A_tmp_5 := i0_F4.output;
+</span><span><a class="LN" name="475">  475   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="476">  476   </a>                    A_tmp_a :=  -A_tmp_5[i];
+</span><span><a class="LN" name="477">  477   </a>                    A_tmp_4[i] := A_tmp_a;
+</span><span><a class="LN" name="478">  478   </a>                    A[(18 * (i + 13)) + 12] := A_tmp_a;
+</span><span><a class="LN" name="479">  479   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="480">  480   </a>                <span class="CT">(* 'Quintic:18' A(14, 10:13) = F3Dot(t(4)); *)</span>
+</span><span><a class="LN" name="481">  481   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="482">  482   </a>                A_tmp_a := 2.0 * timeSlotsMemory[3];
+</span><span><a class="LN" name="483">  483   </a>                A_tmp_idx_3_tmp_0 := A_tmp_idx_2_tmp_1 * 3.0;
+</span><span><a class="LN" name="484">  484   </a>                A[175] := 0.0;
+</span><span><a class="LN" name="485">  485   </a>                A[193] := 1.0;
+</span><span><a class="LN" name="486">  486   </a>                A[211] := A_tmp_a;
+</span><span><a class="LN" name="487">  487   </a>                A[229] := A_tmp_idx_3_tmp_0;
+</span><span><a class="LN" name="488">  488   </a>                <span class="CT">(* 'Quintic:18' A(14, 14:18) = -F4Dot(t(4)); *)</span>
+</span><span><a class="LN" name="489">  489   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="490">  490   </a>                A_tmp_5[0] := -0.0;
+</span><span><a class="LN" name="491">  491   </a>                A_tmp_5[1] := -1.0;
+</span><span><a class="LN" name="492">  492   </a>                A_tmp_5[2] :=  -(2.0 * timeSlotsMemory[3]);
+</span><span><a class="LN" name="493">  493   </a>                A_tmp_5[3] :=  -A_tmp_idx_3_tmp_0;
+</span><span><a class="LN" name="494">  494   </a>                A_tmp_5[4] :=  -(4.0 * timeSlotsMemory_tmp);
+</span><span><a class="LN" name="495">  495   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="496">  496   </a>                    A[(18 * (i + 13)) + 13] := A_tmp_5[i];
+</span><span><a class="LN" name="497">  497   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="498">  498   </a>                <span class="CT">(* 'Quintic:19' A(15, 10:13) = F3DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="499">  499   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="500">  500   </a>                A_tmp_idx_3_5 := 6.0 * timeSlotsMemory[3];
+</span><span><a class="LN" name="501">  501   </a>                A[176] := 0.0;
+</span><span><a class="LN" name="502">  502   </a>                A[194] := 0.0;
+</span><span><a class="LN" name="503">  503   </a>                A[212] := 2.0;
+</span><span><a class="LN" name="504">  504   </a>                A[230] := A_tmp_idx_3_5;
+</span><span><a class="LN" name="505">  505   </a>                <span class="CT">(* 'Quintic:19' A(15, 14:18) = -F4DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="506">  506   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="507">  507   </a>                A_tmp_6[0] := -0.0;
+</span><span><a class="LN" name="508">  508   </a>                A_tmp_6[1] := -0.0;
+</span><span><a class="LN" name="509">  509   </a>                A_tmp_6[2] := -2.0;
+</span><span><a class="LN" name="510">  510   </a>                A_tmp_6[3] :=  -(6.0 * timeSlotsMemory[3]);
+</span><span><a class="LN" name="511">  511   </a>                A_tmp_6[4] :=  -(A_tmp_idx_2_tmp_1 * 12.0);
+</span><span><a class="LN" name="512">  512   </a>                <span class="CT">(* 'Quintic:20' A(16, 14:18) = F4(t(5)); *)</span>
+</span><span><a class="LN" name="513">  513   </a>                i0_F4(t := timeSlotsMemory[4]);
+</span><span><a class="LN" name="514">  514   </a>                A_tmp_7 := i0_F4.output;
+</span><span><a class="LN" name="515">  515   </a>                <span class="CT">(* 'Quintic:21' A(17, 14:18) = F4Dot(t(5)); *)</span>
+</span><span><a class="LN" name="516">  516   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="517">  517   </a>                A_tmp_8[0] := 0.0;
+</span><span><a class="LN" name="518">  518   </a>                A_tmp_8[1] := 1.0;
+</span><span><a class="LN" name="519">  519   </a>                A_tmp_8[2] := 2.0 * timeSlotsMemory[4];
+</span><span><a class="LN" name="520">  520   </a>                A_tmp_tmp_1 := timeSlotsMemory[4] * timeSlotsMemory[4];
+</span><span><a class="LN" name="521">  521   </a>                A_tmp_8[3] := A_tmp_tmp_1 * 3.0;
+</span><span><a class="LN" name="522">  522   </a>                A_tmp_8[4] := 4.0 * <span class="KW">EXPT</span>(timeSlotsMemory[4], 3.0);
+</span><span><a class="LN" name="523">  523   </a>                <span class="CT">(* 'Quintic:22' A(18, 14:18) = F4DotDot(t(5)); *)</span>
+</span><span><a class="LN" name="524">  524   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="525">  525   </a>                A_tmp_9[0] := 0.0;
+</span><span><a class="LN" name="526">  526   </a>                A_tmp_9[1] := 0.0;
+</span><span><a class="LN" name="527">  527   </a>                A_tmp_9[2] := 2.0;
+</span><span><a class="LN" name="528">  528   </a>                A_tmp_9[3] := 6.0 * timeSlotsMemory[4];
+</span><span><a class="LN" name="529">  529   </a>                A_tmp_9[4] := A_tmp_tmp_1 * 12.0;
+</span><span><a class="LN" name="530">  530   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="531">  531   </a>                    A_tmp_b := 18 * (i + 13);
+</span><span><a class="LN" name="532">  532   </a>                    A[A_tmp_b + 14] := A_tmp_6[i];
+</span><span><a class="LN" name="533">  533   </a>                    A[A_tmp_b + 15] := A_tmp_7[i];
+</span><span><a class="LN" name="534">  534   </a>                    A[A_tmp_b + 16] := A_tmp_8[i];
+</span><span><a class="LN" name="535">  535   </a>                    A[A_tmp_b + 17] := A_tmp_9[i];
+</span><span><a class="LN" name="536">  536   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="537">  537   </a>                <span class="CT">(* 'Quintic:24' B(1) = p(1); *)</span>
+</span><span><a class="LN" name="538">  538   </a>                coeffXMemory[0] := fXFeedback;
+</span><span><a class="LN" name="539">  539   </a>                <span class="CT">(* 'Quintic:25' B(2) = v0; *)</span>
+</span><span><a class="LN" name="540">  540   </a>                coeffXMemory[1] := velRefMemory[0];
+</span><span><a class="LN" name="541">  541   </a>                <span class="CT">(* 'Quintic:26' B(3) = acc0; *)</span>
+</span><span><a class="LN" name="542">  542   </a>                coeffXMemory[2] := accRefMemory[0];
+</span><span><a class="LN" name="543">  543   </a>                <span class="CT">(* 'Quintic:27' B(4) = p(2); *)</span>
+</span><span><a class="LN" name="544">  544   </a>                coeffXMemory[3] := p1[0];
+</span><span><a class="LN" name="545">  545   </a>                <span class="CT">(* 'Quintic:28' B(8) = p(3); *)</span>
+</span><span><a class="LN" name="546">  546   </a>                coeffXMemory[7] := p2[0];
+</span><span><a class="LN" name="547">  547   </a>                <span class="CT">(* 'Quintic:29' B(12) = p(4); *)</span>
+</span><span><a class="LN" name="548">  548   </a>                coeffXMemory[11] := p3[0];
+</span><span><a class="LN" name="549">  549   </a>                <span class="CT">(* 'Quintic:30' B(16) = p(5); *)</span>
+</span><span><a class="LN" name="550">  550   </a>                coeffXMemory[15] := p4[0];
+</span><span><a class="LN" name="551">  551   </a>                <span class="CT">(* 'Quintic:32' coeff = A\B; *)</span>
+</span><span><a class="LN" name="552">  552   </a>                i0_xgetrfs(A := A, B := coeffXMemory);
+</span><span><a class="LN" name="553">  553   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:126')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:126</i></font></a>' coeffY = Quintic(timeSlots, yPoints, v0y, a0y); *)</span>
+</span><span><a class="LN" name="554">  554   </a>                <span class="CT">(* 'Quintic:2' A = zeros(18, 18); *)</span>
+</span><span><a class="LN" name="555">  555   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 323 <span class="KW">DO</span> 
+</span><span><a class="LN" name="556">  556   </a>                    A[i] := 0.0;
+</span><span><a class="LN" name="557">  557   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="558">  558   </a>                <span class="CT">(* 'Quintic:3' B = zeros(18,1); *)</span>
+</span><span><a class="LN" name="559">  559   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="560">  560   </a>                    coeffYMemory[i] := 0.0;
+</span><span><a class="LN" name="561">  561   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="562">  562   </a>                <span class="CT">(* 'Quintic:5' A(1, 1:5) = F4(t(1)); *)</span>
+</span><span><a class="LN" name="563">  563   </a>                <span class="CT">(* 'Quintic:6' A(2, 1:5) = F4Dot(t(1)); *)</span>
+</span><span><a class="LN" name="564">  564   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="565">  565   </a>                <span class="CT">(* 'Quintic:7' A(3, 1:5) = F4DotDot(t(1)); *)</span>
+</span><span><a class="LN" name="566">  566   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="567">  567   </a>                <span class="CT">(* 'Quintic:8' A(4, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="568">  568   </a>                <span class="CT">(* 'Quintic:9' A(5, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="569">  569   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="570">  570   </a>                    A[18 * i] := A_tmp[i];
+</span><span><a class="LN" name="571">  571   </a>                    A[(18 * i) + 1] := SINT_TO_LREAL(A_tmp_0[i]);
+</span><span><a class="LN" name="572">  572   </a>                    A[(18 * i) + 2] := SINT_TO_LREAL(A_tmp_1[i]);
+</span><span><a class="LN" name="573">  573   </a>                    A_tmp_tmp_1 := A_tmp_tmp[i];
+</span><span><a class="LN" name="574">  574   </a>                    A[(18 * i) + 3] := A_tmp_tmp_1;
+</span><span><a class="LN" name="575">  575   </a>                    A[(18 * i) + 4] := A_tmp_tmp_1;
+</span><span><a class="LN" name="576">  576   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="577">  577   </a>                <span class="CT">(* 'Quintic:9' A(5, 6:9) = -F3(t(2)); *)</span>
+</span><span><a class="LN" name="578">  578   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="579">  579   </a>                A[94] := -1.0;
+</span><span><a class="LN" name="580">  580   </a>                A[112] :=  -timeSlotsMemory[1];
+</span><span><a class="LN" name="581">  581   </a>                A[130] :=  -A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="582">  582   </a>                A[148] := A_tmp_idx_3;
+</span><span><a class="LN" name="583">  583   </a>                <span class="CT">(* 'Quintic:10' A(6, 1:5) = F4Dot(t(2)); *)</span>
+</span><span><a class="LN" name="584">  584   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="585">  585   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="586">  586   </a>                    A[(18 * i) + 5] := A_tmp_2[i];
+</span><span><a class="LN" name="587">  587   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="588">  588   </a>                <span class="CT">(* 'Quintic:10' A(6, 6:9) = -F3Dot(t(2)); *)</span>
+</span><span><a class="LN" name="589">  589   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="590">  590   </a>                A[95] := -0.0;
+</span><span><a class="LN" name="591">  591   </a>                A[113] := -1.0;
+</span><span><a class="LN" name="592">  592   </a>                A[131] := A_tmp_idx_2;
+</span><span><a class="LN" name="593">  593   </a>                A[149] :=  -A_tmp_tmp_0;
+</span><span><a class="LN" name="594">  594   </a>                <span class="CT">(* 'Quintic:11' A(7, 1:5) = F4DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="595">  595   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="596">  596   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="597">  597   </a>                    A[(18 * i) + 6] := A_tmp_3[i];
+</span><span><a class="LN" name="598">  598   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="599">  599   </a>                <span class="CT">(* 'Quintic:11' A(7, 6:9) = -F3DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="600">  600   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="601">  601   </a>                <span class="CT">(* 'Quintic:12' A(8, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="602">  602   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="603">  603   </a>                <span class="CT">(* 'Quintic:13' A(9, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="604">  604   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="605">  605   </a>                <span class="CT">(* 'Quintic:13' A(9, 10:13) = -F3(t(3)); *)</span>
+</span><span><a class="LN" name="606">  606   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="607">  607   </a>                <span class="CT">(* 'Quintic:14' A(10, 6:9) = F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="608">  608   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="609">  609   </a>                <span class="CT">(* 'Quintic:14' A(10, 10:13) = -F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="610">  610   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="611">  611   </a>                <span class="CT">(* 'Quintic:15' A(11, 6:9) = F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="612">  612   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="613">  613   </a>                <span class="CT">(* 'Quintic:15' A(11, 10:13) = -F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="614">  614   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="615">  615   </a>                <span class="CT">(* 'Quintic:16' A(12, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="616">  616   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="617">  617   </a>                <span class="CT">(* 'Quintic:17' A(13, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="618">  618   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="619">  619   </a>                A[96] := -0.0;
+</span><span><a class="LN" name="620">  620   </a>                A[97] := 1.0;
+</span><span><a class="LN" name="621">  621   </a>                A[98] := 1.0;
+</span><span><a class="LN" name="622">  622   </a>                A[170] := -1.0;
+</span><span><a class="LN" name="623">  623   </a>                A[99] := 0.0;
+</span><span><a class="LN" name="624">  624   </a>                A[171] := -0.0;
+</span><span><a class="LN" name="625">  625   </a>                A[100] := 0.0;
+</span><span><a class="LN" name="626">  626   </a>                A[172] := -0.0;
+</span><span><a class="LN" name="627">  627   </a>                A[173] := 1.0;
+</span><span><a class="LN" name="628">  628   </a>                A[174] := 1.0;
+</span><span><a class="LN" name="629">  629   </a>                A[114] := -0.0;
+</span><span><a class="LN" name="630">  630   </a>                A[115] := timeSlotsMemory[2];
+</span><span><a class="LN" name="631">  631   </a>                A[116] := timeSlotsMemory[2];
+</span><span><a class="LN" name="632">  632   </a>                A[188] :=  -timeSlotsMemory[2];
+</span><span><a class="LN" name="633">  633   </a>                A[117] := 1.0;
+</span><span><a class="LN" name="634">  634   </a>                A[189] := -1.0;
+</span><span><a class="LN" name="635">  635   </a>                A[118] := 0.0;
+</span><span><a class="LN" name="636">  636   </a>                A[190] := -0.0;
+</span><span><a class="LN" name="637">  637   </a>                A[191] := timeSlotsMemory[3];
+</span><span><a class="LN" name="638">  638   </a>                A[192] := timeSlotsMemory[3];
+</span><span><a class="LN" name="639">  639   </a>                A[132] := -2.0;
+</span><span><a class="LN" name="640">  640   </a>                A[133] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="641">  641   </a>                A[134] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="642">  642   </a>                A[206] :=  -A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="643">  643   </a>                A[135] := A_tmp_idx_2_0;
+</span><span><a class="LN" name="644">  644   </a>                A[207] := A_tmp_idx_2_1;
+</span><span><a class="LN" name="645">  645   </a>                A[136] := 2.0;
+</span><span><a class="LN" name="646">  646   </a>                A[208] := -2.0;
+</span><span><a class="LN" name="647">  647   </a>                A[209] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="648">  648   </a>                A[210] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="649">  649   </a>                A[150] := A_tmp_idx_3_0;
+</span><span><a class="LN" name="650">  650   </a>                A[151] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="651">  651   </a>                A[152] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="652">  652   </a>                A[224] := A_tmp_idx_3_2;
+</span><span><a class="LN" name="653">  653   </a>                A[153] := A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="654">  654   </a>                A[225] :=  -A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="655">  655   </a>                A[154] := A_tmp_idx_3_3;
+</span><span><a class="LN" name="656">  656   </a>                A[226] := A_tmp_idx_3_4;
+</span><span><a class="LN" name="657">  657   </a>                A[227] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="658">  658   </a>                A[228] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="659">  659   </a>                <span class="CT">(* 'Quintic:17' A(13, 14:18) = -F4(t(4)); *)</span>
+</span><span><a class="LN" name="660">  660   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="661">  661   </a>                    A[(18 * (i + 13)) + 12] := A_tmp_4[i];
+</span><span><a class="LN" name="662">  662   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="663">  663   </a>                <span class="CT">(* 'Quintic:18' A(14, 10:13) = F3Dot(t(4)); *)</span>
+</span><span><a class="LN" name="664">  664   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="665">  665   </a>                A[175] := 0.0;
+</span><span><a class="LN" name="666">  666   </a>                A[193] := 1.0;
+</span><span><a class="LN" name="667">  667   </a>                A[211] := A_tmp_a;
+</span><span><a class="LN" name="668">  668   </a>                A[229] := A_tmp_idx_3_tmp_0;
+</span><span><a class="LN" name="669">  669   </a>                <span class="CT">(* 'Quintic:18' A(14, 14:18) = -F4Dot(t(4)); *)</span>
+</span><span><a class="LN" name="670">  670   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="671">  671   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="672">  672   </a>                    A[(18 * (i + 13)) + 13] := A_tmp_5[i];
+</span><span><a class="LN" name="673">  673   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="674">  674   </a>                <span class="CT">(* 'Quintic:19' A(15, 10:13) = F3DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="675">  675   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="676">  676   </a>                A[176] := 0.0;
+</span><span><a class="LN" name="677">  677   </a>                A[194] := 0.0;
+</span><span><a class="LN" name="678">  678   </a>                A[212] := 2.0;
+</span><span><a class="LN" name="679">  679   </a>                A[230] := A_tmp_idx_3_5;
+</span><span><a class="LN" name="680">  680   </a>                <span class="CT">(* 'Quintic:19' A(15, 14:18) = -F4DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="681">  681   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="682">  682   </a>                <span class="CT">(* 'Quintic:20' A(16, 14:18) = F4(t(5)); *)</span>
+</span><span><a class="LN" name="683">  683   </a>                <span class="CT">(* 'Quintic:21' A(17, 14:18) = F4Dot(t(5)); *)</span>
+</span><span><a class="LN" name="684">  684   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="685">  685   </a>                <span class="CT">(* 'Quintic:22' A(18, 14:18) = F4DotDot(t(5)); *)</span>
+</span><span><a class="LN" name="686">  686   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="687">  687   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="688">  688   </a>                    A_tmp_b := 18 * (i + 13);
+</span><span><a class="LN" name="689">  689   </a>                    A[A_tmp_b + 14] := A_tmp_6[i];
+</span><span><a class="LN" name="690">  690   </a>                    A[A_tmp_b + 15] := A_tmp_7[i];
+</span><span><a class="LN" name="691">  691   </a>                    A[A_tmp_b + 16] := A_tmp_8[i];
+</span><span><a class="LN" name="692">  692   </a>                    A[A_tmp_b + 17] := A_tmp_9[i];
+</span><span><a class="LN" name="693">  693   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="694">  694   </a>                <span class="CT">(* 'Quintic:24' B(1) = p(1); *)</span>
+</span><span><a class="LN" name="695">  695   </a>                coeffYMemory[0] := fYFeedback;
+</span><span><a class="LN" name="696">  696   </a>                <span class="CT">(* 'Quintic:25' B(2) = v0; *)</span>
+</span><span><a class="LN" name="697">  697   </a>                coeffYMemory[1] := velRefMemory[1];
+</span><span><a class="LN" name="698">  698   </a>                <span class="CT">(* 'Quintic:26' B(3) = acc0; *)</span>
+</span><span><a class="LN" name="699">  699   </a>                coeffYMemory[2] := accRefMemory[1];
+</span><span><a class="LN" name="700">  700   </a>                <span class="CT">(* 'Quintic:27' B(4) = p(2); *)</span>
+</span><span><a class="LN" name="701">  701   </a>                coeffYMemory[3] := p1[1];
+</span><span><a class="LN" name="702">  702   </a>                <span class="CT">(* 'Quintic:28' B(8) = p(3); *)</span>
+</span><span><a class="LN" name="703">  703   </a>                coeffYMemory[7] := p2[1];
+</span><span><a class="LN" name="704">  704   </a>                <span class="CT">(* 'Quintic:29' B(12) = p(4); *)</span>
+</span><span><a class="LN" name="705">  705   </a>                coeffYMemory[11] := p3[1];
+</span><span><a class="LN" name="706">  706   </a>                <span class="CT">(* 'Quintic:30' B(16) = p(5); *)</span>
+</span><span><a class="LN" name="707">  707   </a>                coeffYMemory[15] := p4[1];
+</span><span><a class="LN" name="708">  708   </a>                <span class="CT">(* 'Quintic:32' coeff = A\B; *)</span>
+</span><span><a class="LN" name="709">  709   </a>                i0_xgetrfs(A := A, B := coeffYMemory);
+</span><span><a class="LN" name="710">  710   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:127')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:127</i></font></a>' coeffZ = Quintic(timeSlots, zPoints, v0z, a0z); *)</span>
+</span><span><a class="LN" name="711">  711   </a>                <span class="CT">(* 'Quintic:2' A = zeros(18, 18); *)</span>
+</span><span><a class="LN" name="712">  712   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 323 <span class="KW">DO</span> 
+</span><span><a class="LN" name="713">  713   </a>                    A[i] := 0.0;
+</span><span><a class="LN" name="714">  714   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="715">  715   </a>                <span class="CT">(* 'Quintic:3' B = zeros(18,1); *)</span>
+</span><span><a class="LN" name="716">  716   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="717">  717   </a>                    coeffZMemory[i] := 0.0;
+</span><span><a class="LN" name="718">  718   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="719">  719   </a>                <span class="CT">(* 'Quintic:5' A(1, 1:5) = F4(t(1)); *)</span>
+</span><span><a class="LN" name="720">  720   </a>                <span class="CT">(* 'Quintic:6' A(2, 1:5) = F4Dot(t(1)); *)</span>
+</span><span><a class="LN" name="721">  721   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="722">  722   </a>                <span class="CT">(* 'Quintic:7' A(3, 1:5) = F4DotDot(t(1)); *)</span>
+</span><span><a class="LN" name="723">  723   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="724">  724   </a>                <span class="CT">(* 'Quintic:8' A(4, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="725">  725   </a>                <span class="CT">(* 'Quintic:9' A(5, 1:5) = F4(t(2)); *)</span>
+</span><span><a class="LN" name="726">  726   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="727">  727   </a>                    A[18 * i] := A_tmp[i];
+</span><span><a class="LN" name="728">  728   </a>                    A[(18 * i) + 1] := SINT_TO_LREAL(A_tmp_0[i]);
+</span><span><a class="LN" name="729">  729   </a>                    A[(18 * i) + 2] := SINT_TO_LREAL(A_tmp_1[i]);
+</span><span><a class="LN" name="730">  730   </a>                    A_tmp_tmp_1 := A_tmp_tmp[i];
+</span><span><a class="LN" name="731">  731   </a>                    A[(18 * i) + 3] := A_tmp_tmp_1;
+</span><span><a class="LN" name="732">  732   </a>                    A[(18 * i) + 4] := A_tmp_tmp_1;
+</span><span><a class="LN" name="733">  733   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="734">  734   </a>                <span class="CT">(* 'Quintic:9' A(5, 6:9) = -F3(t(2)); *)</span>
+</span><span><a class="LN" name="735">  735   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="736">  736   </a>                A[94] := -1.0;
+</span><span><a class="LN" name="737">  737   </a>                A[112] :=  -timeSlotsMemory[1];
+</span><span><a class="LN" name="738">  738   </a>                A[130] :=  -A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="739">  739   </a>                A[148] := A_tmp_idx_3;
+</span><span><a class="LN" name="740">  740   </a>                <span class="CT">(* 'Quintic:10' A(6, 1:5) = F4Dot(t(2)); *)</span>
+</span><span><a class="LN" name="741">  741   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="742">  742   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="743">  743   </a>                    A[(18 * i) + 5] := A_tmp_2[i];
+</span><span><a class="LN" name="744">  744   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="745">  745   </a>                <span class="CT">(* 'Quintic:10' A(6, 6:9) = -F3Dot(t(2)); *)</span>
+</span><span><a class="LN" name="746">  746   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="747">  747   </a>                A[95] := -0.0;
+</span><span><a class="LN" name="748">  748   </a>                A[113] := -1.0;
+</span><span><a class="LN" name="749">  749   </a>                A[131] := A_tmp_idx_2;
+</span><span><a class="LN" name="750">  750   </a>                A[149] :=  -A_tmp_tmp_0;
+</span><span><a class="LN" name="751">  751   </a>                <span class="CT">(* 'Quintic:11' A(7, 1:5) = F4DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="752">  752   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="753">  753   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="754">  754   </a>                    A[(18 * i) + 6] := A_tmp_3[i];
+</span><span><a class="LN" name="755">  755   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="756">  756   </a>                <span class="CT">(* 'Quintic:11' A(7, 6:9) = -F3DotDot(t(2)); *)</span>
+</span><span><a class="LN" name="757">  757   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="758">  758   </a>                <span class="CT">(* 'Quintic:12' A(8, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="759">  759   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="760">  760   </a>                <span class="CT">(* 'Quintic:13' A(9, 6:9) = F3(t(3)); *)</span>
+</span><span><a class="LN" name="761">  761   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="762">  762   </a>                <span class="CT">(* 'Quintic:13' A(9, 10:13) = -F3(t(3)); *)</span>
+</span><span><a class="LN" name="763">  763   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="764">  764   </a>                <span class="CT">(* 'Quintic:14' A(10, 6:9) = F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="765">  765   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="766">  766   </a>                <span class="CT">(* 'Quintic:14' A(10, 10:13) = -F3Dot(t(3)); *)</span>
+</span><span><a class="LN" name="767">  767   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="768">  768   </a>                <span class="CT">(* 'Quintic:15' A(11, 6:9) = F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="769">  769   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="770">  770   </a>                <span class="CT">(* 'Quintic:15' A(11, 10:13) = -F3DotDot(t(3)); *)</span>
+</span><span><a class="LN" name="771">  771   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="772">  772   </a>                <span class="CT">(* 'Quintic:16' A(12, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="773">  773   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="774">  774   </a>                <span class="CT">(* 'Quintic:17' A(13, 10:13) = F3(t(4)); *)</span>
+</span><span><a class="LN" name="775">  775   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="776">  776   </a>                A[96] := -0.0;
+</span><span><a class="LN" name="777">  777   </a>                A[97] := 1.0;
+</span><span><a class="LN" name="778">  778   </a>                A[98] := 1.0;
+</span><span><a class="LN" name="779">  779   </a>                A[170] := -1.0;
+</span><span><a class="LN" name="780">  780   </a>                A[99] := 0.0;
+</span><span><a class="LN" name="781">  781   </a>                A[171] := -0.0;
+</span><span><a class="LN" name="782">  782   </a>                A[100] := 0.0;
+</span><span><a class="LN" name="783">  783   </a>                A[172] := -0.0;
+</span><span><a class="LN" name="784">  784   </a>                A[173] := 1.0;
+</span><span><a class="LN" name="785">  785   </a>                A[174] := 1.0;
+</span><span><a class="LN" name="786">  786   </a>                A[114] := -0.0;
+</span><span><a class="LN" name="787">  787   </a>                A[115] := timeSlotsMemory[2];
+</span><span><a class="LN" name="788">  788   </a>                A[116] := timeSlotsMemory[2];
+</span><span><a class="LN" name="789">  789   </a>                A[188] :=  -timeSlotsMemory[2];
+</span><span><a class="LN" name="790">  790   </a>                A[117] := 1.0;
+</span><span><a class="LN" name="791">  791   </a>                A[189] := -1.0;
+</span><span><a class="LN" name="792">  792   </a>                A[118] := 0.0;
+</span><span><a class="LN" name="793">  793   </a>                A[190] := -0.0;
+</span><span><a class="LN" name="794">  794   </a>                A[191] := timeSlotsMemory[3];
+</span><span><a class="LN" name="795">  795   </a>                A[192] := timeSlotsMemory[3];
+</span><span><a class="LN" name="796">  796   </a>                A[132] := -2.0;
+</span><span><a class="LN" name="797">  797   </a>                A[133] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="798">  798   </a>                A[134] := A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="799">  799   </a>                A[206] :=  -A_tmp_idx_2_tmp_0;
+</span><span><a class="LN" name="800">  800   </a>                A[135] := A_tmp_idx_2_0;
+</span><span><a class="LN" name="801">  801   </a>                A[207] := A_tmp_idx_2_1;
+</span><span><a class="LN" name="802">  802   </a>                A[136] := 2.0;
+</span><span><a class="LN" name="803">  803   </a>                A[208] := -2.0;
+</span><span><a class="LN" name="804">  804   </a>                A[209] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="805">  805   </a>                A[210] := A_tmp_idx_2_tmp_1;
+</span><span><a class="LN" name="806">  806   </a>                A[150] := A_tmp_idx_3_0;
+</span><span><a class="LN" name="807">  807   </a>                A[151] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="808">  808   </a>                A[152] := A_tmp_idx_3_1;
+</span><span><a class="LN" name="809">  809   </a>                A[224] := A_tmp_idx_3_2;
+</span><span><a class="LN" name="810">  810   </a>                A[153] := A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="811">  811   </a>                A[225] :=  -A_tmp_idx_3_tmp;
+</span><span><a class="LN" name="812">  812   </a>                A[154] := A_tmp_idx_3_3;
+</span><span><a class="LN" name="813">  813   </a>                A[226] := A_tmp_idx_3_4;
+</span><span><a class="LN" name="814">  814   </a>                A[227] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="815">  815   </a>                A[228] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="816">  816   </a>                <span class="CT">(* 'Quintic:17' A(13, 14:18) = -F4(t(4)); *)</span>
+</span><span><a class="LN" name="817">  817   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="818">  818   </a>                    A[(18 * (i + 13)) + 12] := A_tmp_4[i];
+</span><span><a class="LN" name="819">  819   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="820">  820   </a>                <span class="CT">(* 'Quintic:18' A(14, 10:13) = F3Dot(t(4)); *)</span>
+</span><span><a class="LN" name="821">  821   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="822">  822   </a>                A[175] := 0.0;
+</span><span><a class="LN" name="823">  823   </a>                A[193] := 1.0;
+</span><span><a class="LN" name="824">  824   </a>                A[211] := A_tmp_a;
+</span><span><a class="LN" name="825">  825   </a>                A[229] := A_tmp_idx_3_tmp_0;
+</span><span><a class="LN" name="826">  826   </a>                <span class="CT">(* 'Quintic:18' A(14, 14:18) = -F4Dot(t(4)); *)</span>
+</span><span><a class="LN" name="827">  827   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="828">  828   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="829">  829   </a>                    A[(18 * (i + 13)) + 13] := A_tmp_5[i];
+</span><span><a class="LN" name="830">  830   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="831">  831   </a>                <span class="CT">(* 'Quintic:19' A(15, 10:13) = F3DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="832">  832   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="833">  833   </a>                A[176] := 0.0;
+</span><span><a class="LN" name="834">  834   </a>                A[194] := 0.0;
+</span><span><a class="LN" name="835">  835   </a>                A[212] := 2.0;
+</span><span><a class="LN" name="836">  836   </a>                A[230] := A_tmp_idx_3_5;
+</span><span><a class="LN" name="837">  837   </a>                <span class="CT">(* 'Quintic:19' A(15, 14:18) = -F4DotDot(t(4)); *)</span>
+</span><span><a class="LN" name="838">  838   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="839">  839   </a>                <span class="CT">(* 'Quintic:20' A(16, 14:18) = F4(t(5)); *)</span>
+</span><span><a class="LN" name="840">  840   </a>                <span class="CT">(* 'Quintic:21' A(17, 14:18) = F4Dot(t(5)); *)</span>
+</span><span><a class="LN" name="841">  841   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="842">  842   </a>                <span class="CT">(* 'Quintic:22' A(18, 14:18) = F4DotDot(t(5)); *)</span>
+</span><span><a class="LN" name="843">  843   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="844">  844   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="845">  845   </a>                    A_tmp_b := 18 * (i + 13);
+</span><span><a class="LN" name="846">  846   </a>                    A[A_tmp_b + 14] := A_tmp_6[i];
+</span><span><a class="LN" name="847">  847   </a>                    A[A_tmp_b + 15] := A_tmp_7[i];
+</span><span><a class="LN" name="848">  848   </a>                    A[A_tmp_b + 16] := A_tmp_8[i];
+</span><span><a class="LN" name="849">  849   </a>                    A[A_tmp_b + 17] := A_tmp_9[i];
+</span><span><a class="LN" name="850">  850   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="851">  851   </a>                <span class="CT">(* 'Quintic:24' B(1) = p(1); *)</span>
+</span><span><a class="LN" name="852">  852   </a>                coeffZMemory[0] := fZFeedback;
+</span><span><a class="LN" name="853">  853   </a>                <span class="CT">(* 'Quintic:25' B(2) = v0; *)</span>
+</span><span><a class="LN" name="854">  854   </a>                coeffZMemory[1] := velRefMemory[2];
+</span><span><a class="LN" name="855">  855   </a>                <span class="CT">(* 'Quintic:26' B(3) = acc0; *)</span>
+</span><span><a class="LN" name="856">  856   </a>                coeffZMemory[2] := accRefMemory[2];
+</span><span><a class="LN" name="857">  857   </a>                <span class="CT">(* 'Quintic:27' B(4) = p(2); *)</span>
+</span><span><a class="LN" name="858">  858   </a>                coeffZMemory[3] := p1[2];
+</span><span><a class="LN" name="859">  859   </a>                <span class="CT">(* 'Quintic:28' B(8) = p(3); *)</span>
+</span><span><a class="LN" name="860">  860   </a>                coeffZMemory[7] := p2[2];
+</span><span><a class="LN" name="861">  861   </a>                <span class="CT">(* 'Quintic:29' B(12) = p(4); *)</span>
+</span><span><a class="LN" name="862">  862   </a>                coeffZMemory[11] := p3[2];
+</span><span><a class="LN" name="863">  863   </a>                <span class="CT">(* 'Quintic:30' B(16) = p(5); *)</span>
+</span><span><a class="LN" name="864">  864   </a>                coeffZMemory[15] := p4[2];
+</span><span><a class="LN" name="865">  865   </a>                <span class="CT">(* 'Quintic:32' coeff = A\B; *)</span>
+</span><span><a class="LN" name="866">  866   </a>                i0_xgetrfs(A := A, B := coeffZMemory);
+</span><span><a class="LN" name="867">  867   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:129')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:129</i></font></a>' coeffXMemory = coeffX; *)</span>
+</span><span><a class="LN" name="868">  868   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:130')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:130</i></font></a>' coeffYMemory = coeffY; *)</span>
+</span><span><a class="LN" name="869">  869   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:131')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:131</i></font></a>' coeffZMemory = coeffZ; *)</span>
+</span><span><a class="LN" name="870">  870   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="871">  871   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="872">  872   </a>            <span class="CT">(* 5) Evaluate polynomials at local time =&gt; tLocal = t - t0Memory *)</span>
+</span><span><a class="LN" name="873">  873   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="874">  874   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:137')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:137</i></font></a>' tLocal = t - t0Memory; *)</span>
+</span><span><a class="LN" name="875">  875   </a>            tLocal := fT - t0Memory;
+</span><span><a class="LN" name="876">  876   </a>            <span class="CT">(* If local time is beyond the final timeSlot =&gt; clamp & declare finished *)</span>
+</span><span><a class="LN" name="877">  877   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:140')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:140</i></font></a>' timeSlots = timeSlotsMemory; *)</span>
+</span><span><a class="LN" name="878">  878   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:141')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:141</i></font></a>' if tLocal &gt;= timeSlots(end) *)</span>
+</span><span><a class="LN" name="879">  879   </a>            <span class="KW">IF</span> tLocal &gt;= timeSlotsMemory[4] <span class="KW">THEN</span> 
+</span><span><a class="LN" name="880">  880   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:142')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:142</i></font></a>' tLocal = timeSlots(end); *)</span>
+</span><span><a class="LN" name="881">  881   </a>                tLocal := timeSlotsMemory[4];
+</span><span><a class="LN" name="882">  882   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:143')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:143</i></font></a>' bFinished = true; *)</span>
+</span><span><a class="LN" name="883">  883   </a>            <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="884">  884   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/bFinished' *)</span>
+</span><span><a class="LN" name="885">  885   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:144')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:144</i></font></a>' else *)</span>
+</span><span><a class="LN" name="886">  886   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:145')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:145</i></font></a>' bFinished = false; *)</span>
+</span><span><a class="LN" name="887">  887   </a>                bFinished := <span class="KW">FALSE</span>;
+</span><span><a class="LN" name="888">  888   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="889">  889   </a>            <span class="CT">(* Retrieve precomputed coefficients *)</span>
+</span><span><a class="LN" name="890">  890   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:149')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:149</i></font></a>' coeffX = coeffXMemory; *)</span>
+</span><span><a class="LN" name="891">  891   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:150')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:150</i></font></a>' coeffY = coeffYMemory; *)</span>
+</span><span><a class="LN" name="892">  892   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:151')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:151</i></font></a>' coeffZ = coeffZMemory; *)</span>
+</span><span><a class="LN" name="893">  893   </a>            <span class="CT">(* Decide which segment to evaluate *)</span>
+</span><span><a class="LN" name="894">  894   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:154')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:154</i></font></a>' if tLocal &lt; timeSlots(2) *)</span>
+</span><span><a class="LN" name="895">  895   </a>            <span class="KW">IF</span> tLocal &lt; timeSlotsMemory[1] <span class="KW">THEN</span> 
+</span><span><a class="LN" name="896">  896   </a>                <span class="CT">(* Segment 1 (4th order) *)</span>
+</span><span><a class="LN" name="897">  897   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:156')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:156</i></font></a>' posRef = [F4(tLocal)*coeffX(1:5); *)</span>
+</span><span><a class="LN" name="898">  898   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:157')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:157</i></font></a>'                   F4(tLocal)*coeffY(1:5); *)</span>
+</span><span><a class="LN" name="899">  899   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:158')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:158</i></font></a>'                   F4(tLocal)*coeffZ(1:5)]; *)</span>
+</span><span><a class="LN" name="900">  900   </a>                i0_F4(t := tLocal);
+</span><span><a class="LN" name="901">  901   </a>                A_tmp := i0_F4.output;
+</span><span><a class="LN" name="902">  902   </a>                fXRef := 0.0;
+</span><span><a class="LN" name="903">  903   </a>                fYRef := 0.0;
+</span><span><a class="LN" name="904">  904   </a>                fZRef := 0.0;
+</span><span><a class="LN" name="905">  905   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="906">  906   </a>                    timeSlotsMemory_tmp := A_tmp[i];
+</span><span><a class="LN" name="907">  907   </a>                    fXRef := (timeSlotsMemory_tmp * coeffXMemory[i]) + fXRef;
+</span><span><a class="LN" name="908">  908   </a>                    fYRef := (timeSlotsMemory_tmp * coeffYMemory[i]) + fYRef;
+</span><span><a class="LN" name="909">  909   </a>                    fZRef := (timeSlotsMemory_tmp * coeffZMemory[i]) + fZRef;
+</span><span><a class="LN" name="910">  910   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="911">  911   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:160')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:160</i></font></a>' velRef = [F4Dot(tLocal)*coeffX(1:5); *)</span>
+</span><span><a class="LN" name="912">  912   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:161')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:161</i></font></a>'                   F4Dot(tLocal)*coeffY(1:5); *)</span>
+</span><span><a class="LN" name="913">  913   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:162')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:162</i></font></a>'                   F4Dot(tLocal)*coeffZ(1:5)]; *)</span>
+</span><span><a class="LN" name="914">  914   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="915">  915   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="916">  916   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="917">  917   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="918">  918   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="919">  919   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="920">  920   </a>                A_tmp_idx_2_tmp := tLocal * tLocal;
+</span><span><a class="LN" name="921">  921   </a>                timeSlotsMemory_tmp := A_tmp_idx_2_tmp * 3.0;
+</span><span><a class="LN" name="922">  922   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="923">  923   </a>                A_tmp_tmp_0 := 4.0 * <span class="KW">EXPT</span>(tLocal, 3.0);
+</span><span><a class="LN" name="924">  924   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="925">  925   </a>                fXDotRef := 0.0;
+</span><span><a class="LN" name="926">  926   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="927">  927   </a>                    fXDotRef := (A_tmp_5[i] * coeffXMemory[i]) + fXDotRef;
+</span><span><a class="LN" name="928">  928   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="929">  929   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="930">  930   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="931">  931   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="932">  932   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="933">  933   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="934">  934   </a>                fYDotRef := 0.0;
+</span><span><a class="LN" name="935">  935   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="936">  936   </a>                    fYDotRef := (A_tmp_5[i] * coeffYMemory[i]) + fYDotRef;
+</span><span><a class="LN" name="937">  937   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="938">  938   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="939">  939   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="940">  940   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="941">  941   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="942">  942   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="943">  943   </a>                fZDotRef := 0.0;
+</span><span><a class="LN" name="944">  944   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="945">  945   </a>                    fZDotRef := (A_tmp_5[i] * coeffZMemory[i]) + fZDotRef;
+</span><span><a class="LN" name="946">  946   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="947">  947   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:164')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:164</i></font></a>' accRef = [F4DotDot(tLocal)*coeffX(1:5); *)</span>
+</span><span><a class="LN" name="948">  948   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:165')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:165</i></font></a>'                   F4DotDot(tLocal)*coeffY(1:5); *)</span>
+</span><span><a class="LN" name="949">  949   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:166')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:166</i></font></a>'                   F4DotDot(tLocal)*coeffZ(1:5)]; *)</span>
+</span><span><a class="LN" name="950">  950   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="951">  951   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="952">  952   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="953">  953   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="954">  954   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="955">  955   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="956">  956   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="957">  957   </a>                timeSlotsMemory_tmp := A_tmp_idx_2_tmp * 12.0;
+</span><span><a class="LN" name="958">  958   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="959">  959   </a>                A_tmp_tmp_0 := 0.0;
+</span><span><a class="LN" name="960">  960   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="961">  961   </a>                    A_tmp_tmp_0 := (A_tmp_5[i] * coeffXMemory[i]) + A_tmp_tmp_0;
+</span><span><a class="LN" name="962">  962   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="963">  963   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="964">  964   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="965">  965   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="966">  966   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="967">  967   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="968">  968   </a>                A_tmp_idx_2_tmp := 0.0;
+</span><span><a class="LN" name="969">  969   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="970">  970   </a>                    A_tmp_idx_2_tmp := (A_tmp_5[i] * coeffYMemory[i]) + A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="971">  971   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="972">  972   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="973">  973   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="974">  974   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="975">  975   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="976">  976   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="977">  977   </a>                timeSlotsMemory_tmp := 0.0;
+</span><span><a class="LN" name="978">  978   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="979">  979   </a>                    timeSlotsMemory_tmp := (A_tmp_5[i] * coeffZMemory[i]) + timeSlotsMemory_tmp;
+</span><span><a class="LN" name="980">  980   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="981">  981   </a>                accRefMemory[0] := A_tmp_tmp_0;
+</span><span><a class="LN" name="982">  982   </a>                accRefMemory[1] := A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="983">  983   </a>                accRefMemory[2] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="984">  984   </a>            <span class="KW">ELSIF</span> tLocal &lt; timeSlotsMemory[2] <span class="KW">THEN</span> 
+</span><span><a class="LN" name="985">  985   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:168')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:168</i></font></a>' elseif tLocal &lt; timeSlots(3) *)</span>
+</span><span><a class="LN" name="986">  986   </a>                <span class="CT">(* Segment 2 (3rd order) *)</span>
+</span><span><a class="LN" name="987">  987   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:170')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:170</i></font></a>' posRef = [F3(tLocal)*coeffX(6:9); *)</span>
+</span><span><a class="LN" name="988">  988   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:171')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:171</i></font></a>'                   F3(tLocal)*coeffY(6:9); *)</span>
+</span><span><a class="LN" name="989">  989   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:172')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:172</i></font></a>'                   F3(tLocal)*coeffZ(6:9)]; *)</span>
+</span><span><a class="LN" name="990">  990   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="991">  991   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="992">  992   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="993">  993   </a>                timeSlotsMemory_tmp := tLocal * tLocal;
+</span><span><a class="LN" name="994">  994   </a>                A_tmp_tmp_0 := <span class="KW">EXPT</span>(tLocal, 3.0);
+</span><span><a class="LN" name="995">  995   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fXRef' *)</span>
+</span><span><a class="LN" name="996">  996   </a>                fXRef := (((tLocal * coeffXMemory[6]) + coeffXMemory[5]) + (timeSlotsMemory_tmp * coeffXMemory[7])) + (A_tmp_tmp_0 * coeffXMemory[8]);
+</span><span><a class="LN" name="997">  997   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fYRef' *)</span>
+</span><span><a class="LN" name="998">  998   </a>                fYRef := (((tLocal * coeffYMemory[6]) + coeffYMemory[5]) + (timeSlotsMemory_tmp * coeffYMemory[7])) + (A_tmp_tmp_0 * coeffYMemory[8]);
+</span><span><a class="LN" name="999">  999   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fZRef' *)</span>
+</span><span><a class="LN" name="1000"> 1000   </a>                fZRef := (((tLocal * coeffZMemory[6]) + coeffZMemory[5]) + (timeSlotsMemory_tmp * coeffZMemory[7])) + (A_tmp_tmp_0 * coeffZMemory[8]);
+</span><span><a class="LN" name="1001"> 1001   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:174')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:174</i></font></a>' velRef = [F3Dot(tLocal)*coeffX(6:9); *)</span>
+</span><span><a class="LN" name="1002"> 1002   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:175')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:175</i></font></a>'                   F3Dot(tLocal)*coeffY(6:9); *)</span>
+</span><span><a class="LN" name="1003"> 1003   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:176')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:176</i></font></a>'                   F3Dot(tLocal)*coeffZ(6:9)]; *)</span>
+</span><span><a class="LN" name="1004"> 1004   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1005"> 1005   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1006"> 1006   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1007"> 1007   </a>                timeSlotsMemory_tmp := timeSlotsMemory_tmp * 3.0;
+</span><span><a class="LN" name="1008"> 1008   </a>                fXDotRef := (((2.0 * tLocal) * coeffXMemory[7]) + coeffXMemory[6]) + (timeSlotsMemory_tmp * coeffXMemory[8]);
+</span><span><a class="LN" name="1009"> 1009   </a>                fYDotRef := (((2.0 * tLocal) * coeffYMemory[7]) + coeffYMemory[6]) + (timeSlotsMemory_tmp * coeffYMemory[8]);
+</span><span><a class="LN" name="1010"> 1010   </a>                fZDotRef := (((2.0 * tLocal) * coeffZMemory[7]) + coeffZMemory[6]) + (timeSlotsMemory_tmp * coeffZMemory[8]);
+</span><span><a class="LN" name="1011"> 1011   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:178')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:178</i></font></a>' accRef = [F3DotDot(tLocal)*coeffX(6:9); *)</span>
+</span><span><a class="LN" name="1012"> 1012   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:179')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:179</i></font></a>'                   F3DotDot(tLocal)*coeffY(6:9); *)</span>
+</span><span><a class="LN" name="1013"> 1013   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:180')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:180</i></font></a>'                   F3DotDot(tLocal)*coeffZ(6:9)]; *)</span>
+</span><span><a class="LN" name="1014"> 1014   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1015"> 1015   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1016"> 1016   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1017"> 1017   </a>                accRefMemory[0] := ((6.0 * tLocal) * coeffXMemory[8]) + (2.0 * coeffXMemory[7]);
+</span><span><a class="LN" name="1018"> 1018   </a>                accRefMemory[1] := ((6.0 * tLocal) * coeffYMemory[8]) + (2.0 * coeffYMemory[7]);
+</span><span><a class="LN" name="1019"> 1019   </a>                accRefMemory[2] := ((6.0 * tLocal) * coeffZMemory[8]) + (2.0 * coeffZMemory[7]);
+</span><span><a class="LN" name="1020"> 1020   </a>            <span class="KW">ELSIF</span> tLocal &lt; timeSlotsMemory[3] <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1021"> 1021   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:182')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:182</i></font></a>' elseif tLocal &lt; timeSlots(4) *)</span>
+</span><span><a class="LN" name="1022"> 1022   </a>                <span class="CT">(* Segment 3 (3rd order) *)</span>
+</span><span><a class="LN" name="1023"> 1023   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:184')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:184</i></font></a>' posRef = [F3(tLocal)*coeffX(10:13); *)</span>
+</span><span><a class="LN" name="1024"> 1024   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:185')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:185</i></font></a>'                   F3(tLocal)*coeffY(10:13); *)</span>
+</span><span><a class="LN" name="1025"> 1025   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:186')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:186</i></font></a>'                   F3(tLocal)*coeffZ(10:13)]; *)</span>
+</span><span><a class="LN" name="1026"> 1026   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="1027"> 1027   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="1028"> 1028   </a>                <span class="CT">(* 'F3:2' output = [1 t t^2 t^3]; *)</span>
+</span><span><a class="LN" name="1029"> 1029   </a>                timeSlotsMemory_tmp := tLocal * tLocal;
+</span><span><a class="LN" name="1030"> 1030   </a>                A_tmp_tmp_0 := <span class="KW">EXPT</span>(tLocal, 3.0);
+</span><span><a class="LN" name="1031"> 1031   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fXRef' *)</span>
+</span><span><a class="LN" name="1032"> 1032   </a>                fXRef := (((tLocal * coeffXMemory[10]) + coeffXMemory[9]) + (timeSlotsMemory_tmp * coeffXMemory[11])) + (A_tmp_tmp_0 * coeffXMemory[12]);
+</span><span><a class="LN" name="1033"> 1033   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fYRef' *)</span>
+</span><span><a class="LN" name="1034"> 1034   </a>                fYRef := (((tLocal * coeffYMemory[10]) + coeffYMemory[9]) + (timeSlotsMemory_tmp * coeffYMemory[11])) + (A_tmp_tmp_0 * coeffYMemory[12]);
+</span><span><a class="LN" name="1035"> 1035   </a>                <span class="CT">(* Outport: '&lt;Root&gt;/fZRef' *)</span>
+</span><span><a class="LN" name="1036"> 1036   </a>                fZRef := (((tLocal * coeffZMemory[10]) + coeffZMemory[9]) + (timeSlotsMemory_tmp * coeffZMemory[11])) + (A_tmp_tmp_0 * coeffZMemory[12]);
+</span><span><a class="LN" name="1037"> 1037   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:188')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:188</i></font></a>' velRef = [F3Dot(tLocal)*coeffX(10:13); *)</span>
+</span><span><a class="LN" name="1038"> 1038   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:189')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:189</i></font></a>'                   F3Dot(tLocal)*coeffY(10:13); *)</span>
+</span><span><a class="LN" name="1039"> 1039   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:190')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:190</i></font></a>'                   F3Dot(tLocal)*coeffZ(10:13)]; *)</span>
+</span><span><a class="LN" name="1040"> 1040   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1041"> 1041   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1042"> 1042   </a>                <span class="CT">(* 'F3Dot:2' output = [0 1 2*t 3*t^2]; *)</span>
+</span><span><a class="LN" name="1043"> 1043   </a>                timeSlotsMemory_tmp := (tLocal * tLocal) * 3.0;
+</span><span><a class="LN" name="1044"> 1044   </a>                fXDotRef := (((2.0 * tLocal) * coeffXMemory[11]) + coeffXMemory[10]) + (timeSlotsMemory_tmp * coeffXMemory[12]);
+</span><span><a class="LN" name="1045"> 1045   </a>                fYDotRef := (((2.0 * tLocal) * coeffYMemory[11]) + coeffYMemory[10]) + (timeSlotsMemory_tmp * coeffYMemory[12]);
+</span><span><a class="LN" name="1046"> 1046   </a>                fZDotRef := (((2.0 * tLocal) * coeffZMemory[11]) + coeffZMemory[10]) + (timeSlotsMemory_tmp * coeffZMemory[12]);
+</span><span><a class="LN" name="1047"> 1047   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:192')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:192</i></font></a>' accRef = [F3DotDot(tLocal)*coeffX(10:13); *)</span>
+</span><span><a class="LN" name="1048"> 1048   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:193')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:193</i></font></a>'                   F3DotDot(tLocal)*coeffY(10:13); *)</span>
+</span><span><a class="LN" name="1049"> 1049   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:194')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:194</i></font></a>'                   F3DotDot(tLocal)*coeffZ(10:13)]; *)</span>
+</span><span><a class="LN" name="1050"> 1050   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1051"> 1051   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1052"> 1052   </a>                <span class="CT">(* 'F3DotDot:2' output = [0 0 2 6*t]; *)</span>
+</span><span><a class="LN" name="1053"> 1053   </a>                accRefMemory[0] := ((6.0 * tLocal) * coeffXMemory[12]) + (2.0 * coeffXMemory[11]);
+</span><span><a class="LN" name="1054"> 1054   </a>                accRefMemory[1] := ((6.0 * tLocal) * coeffYMemory[12]) + (2.0 * coeffYMemory[11]);
+</span><span><a class="LN" name="1055"> 1055   </a>                accRefMemory[2] := ((6.0 * tLocal) * coeffZMemory[12]) + (2.0 * coeffZMemory[11]);
+</span><span><a class="LN" name="1056"> 1056   </a>            <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="1057"> 1057   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:196')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:196</i></font></a>' else *)</span>
+</span><span><a class="LN" name="1058"> 1058   </a>                <span class="CT">(* Segment 4 (4th order) *)</span>
+</span><span><a class="LN" name="1059"> 1059   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:198')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:198</i></font></a>' posRef = [F4(tLocal)*coeffX(14:18); *)</span>
+</span><span><a class="LN" name="1060"> 1060   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:199')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:199</i></font></a>'                   F4(tLocal)*coeffY(14:18); *)</span>
+</span><span><a class="LN" name="1061"> 1061   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:200')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:200</i></font></a>'                   F4(tLocal)*coeffZ(14:18)]; *)</span>
+</span><span><a class="LN" name="1062"> 1062   </a>                i0_F4(t := tLocal);
+</span><span><a class="LN" name="1063"> 1063   </a>                A_tmp_5 := i0_F4.output;
+</span><span><a class="LN" name="1064"> 1064   </a>                fXRef := 0.0;
+</span><span><a class="LN" name="1065"> 1065   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1066"> 1066   </a>                    fXRef := (coeffXMemory[i + 13] * A_tmp_5[i]) + fXRef;
+</span><span><a class="LN" name="1067"> 1067   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1068"> 1068   </a>                i0_F4(t := tLocal);
+</span><span><a class="LN" name="1069"> 1069   </a>                A_tmp_5 := i0_F4.output;
+</span><span><a class="LN" name="1070"> 1070   </a>                fYRef := 0.0;
+</span><span><a class="LN" name="1071"> 1071   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1072"> 1072   </a>                    fYRef := (coeffYMemory[i + 13] * A_tmp_5[i]) + fYRef;
+</span><span><a class="LN" name="1073"> 1073   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1074"> 1074   </a>                i0_F4(t := tLocal);
+</span><span><a class="LN" name="1075"> 1075   </a>                A_tmp_5 := i0_F4.output;
+</span><span><a class="LN" name="1076"> 1076   </a>                fZRef := 0.0;
+</span><span><a class="LN" name="1077"> 1077   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1078"> 1078   </a>                    fZRef := (coeffZMemory[i + 13] * A_tmp_5[i]) + fZRef;
+</span><span><a class="LN" name="1079"> 1079   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1080"> 1080   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:202')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:202</i></font></a>' velRef = [F4Dot(tLocal)*coeffX(14:18); *)</span>
+</span><span><a class="LN" name="1081"> 1081   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:203')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:203</i></font></a>'                   F4Dot(tLocal)*coeffY(14:18); *)</span>
+</span><span><a class="LN" name="1082"> 1082   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:204')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:204</i></font></a>'                   F4Dot(tLocal)*coeffZ(14:18)]; *)</span>
+</span><span><a class="LN" name="1083"> 1083   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="1084"> 1084   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="1085"> 1085   </a>                <span class="CT">(* 'F4Dot:2' output = [0 1 2*t 3*t^2 4*t^3]; *)</span>
+</span><span><a class="LN" name="1086"> 1086   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1087"> 1087   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="1088"> 1088   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="1089"> 1089   </a>                timeSlotsMemory_tmp := (tLocal * tLocal) * 3.0;
+</span><span><a class="LN" name="1090"> 1090   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1091"> 1091   </a>                A_tmp_tmp_0 := 4.0 * <span class="KW">EXPT</span>(tLocal, 3.0);
+</span><span><a class="LN" name="1092"> 1092   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="1093"> 1093   </a>                fXDotRef := 0.0;
+</span><span><a class="LN" name="1094"> 1094   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1095"> 1095   </a>                    fXDotRef := (coeffXMemory[i + 13] * A_tmp_5[i]) + fXDotRef;
+</span><span><a class="LN" name="1096"> 1096   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1097"> 1097   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1098"> 1098   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="1099"> 1099   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="1100"> 1100   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1101"> 1101   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="1102"> 1102   </a>                fYDotRef := 0.0;
+</span><span><a class="LN" name="1103"> 1103   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1104"> 1104   </a>                    fYDotRef := (coeffYMemory[i + 13] * A_tmp_5[i]) + fYDotRef;
+</span><span><a class="LN" name="1105"> 1105   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1106"> 1106   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1107"> 1107   </a>                A_tmp_5[1] := 1.0;
+</span><span><a class="LN" name="1108"> 1108   </a>                A_tmp_5[2] := 2.0 * tLocal;
+</span><span><a class="LN" name="1109"> 1109   </a>                A_tmp_5[3] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1110"> 1110   </a>                A_tmp_5[4] := A_tmp_tmp_0;
+</span><span><a class="LN" name="1111"> 1111   </a>                fZDotRef := 0.0;
+</span><span><a class="LN" name="1112"> 1112   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1113"> 1113   </a>                    fZDotRef := (coeffZMemory[i + 13] * A_tmp_5[i]) + fZDotRef;
+</span><span><a class="LN" name="1114"> 1114   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1115"> 1115   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:206')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:206</i></font></a>' accRef = [F4DotDot(tLocal)*coeffX(14:18); *)</span>
+</span><span><a class="LN" name="1116"> 1116   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:207')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:207</i></font></a>'                   F4DotDot(tLocal)*coeffY(14:18); *)</span>
+</span><span><a class="LN" name="1117"> 1117   </a>                <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:208')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:208</i></font></a>'                   F4DotDot(tLocal)*coeffZ(14:18)]; *)</span>
+</span><span><a class="LN" name="1118"> 1118   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="1119"> 1119   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="1120"> 1120   </a>                <span class="CT">(* 'F4DotDot:2' output = [0 0 2 6*t 12*t^2]; *)</span>
+</span><span><a class="LN" name="1121"> 1121   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1122"> 1122   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="1123"> 1123   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="1124"> 1124   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="1125"> 1125   </a>                timeSlotsMemory_tmp := (tLocal * tLocal) * 12.0;
+</span><span><a class="LN" name="1126"> 1126   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1127"> 1127   </a>                A_tmp_tmp_0 := 0.0;
+</span><span><a class="LN" name="1128"> 1128   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1129"> 1129   </a>                    A_tmp_tmp_0 := (coeffXMemory[i + 13] * A_tmp_5[i]) + A_tmp_tmp_0;
+</span><span><a class="LN" name="1130"> 1130   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1131"> 1131   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1132"> 1132   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="1133"> 1133   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="1134"> 1134   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="1135"> 1135   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1136"> 1136   </a>                A_tmp_idx_2_tmp := 0.0;
+</span><span><a class="LN" name="1137"> 1137   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1138"> 1138   </a>                    A_tmp_idx_2_tmp := (coeffYMemory[i + 13] * A_tmp_5[i]) + A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="1139"> 1139   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1140"> 1140   </a>                A_tmp_5[0] := 0.0;
+</span><span><a class="LN" name="1141"> 1141   </a>                A_tmp_5[1] := 0.0;
+</span><span><a class="LN" name="1142"> 1142   </a>                A_tmp_5[2] := 2.0;
+</span><span><a class="LN" name="1143"> 1143   </a>                A_tmp_5[3] := 6.0 * tLocal;
+</span><span><a class="LN" name="1144"> 1144   </a>                A_tmp_5[4] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1145"> 1145   </a>                timeSlotsMemory_tmp := 0.0;
+</span><span><a class="LN" name="1146"> 1146   </a>                <span class="KW">FOR</span> i := 0 <span class="KW">TO</span> 4 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1147"> 1147   </a>                    timeSlotsMemory_tmp := (coeffZMemory[i + 13] * A_tmp_5[i]) + timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1148"> 1148   </a>                <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1149"> 1149   </a>                accRefMemory[0] := A_tmp_tmp_0;
+</span><span><a class="LN" name="1150"> 1150   </a>                accRefMemory[1] := A_tmp_idx_2_tmp;
+</span><span><a class="LN" name="1151"> 1151   </a>                accRefMemory[2] := timeSlotsMemory_tmp;
+</span><span><a class="LN" name="1152"> 1152   </a>            <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1153"> 1153   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="1154"> 1154   </a>            <span class="CT">(* 6) Save references to memory for next cycle *)</span>
+</span><span><a class="LN" name="1155"> 1155   </a>            <span class="CT">(* ---------------------------------------------------------------------- *)</span>
+</span><span><a class="LN" name="1156"> 1156   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:214')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:214</i></font></a>' posRefMemory = posRef; *)</span>
+</span><span><a class="LN" name="1157"> 1157   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:215')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:215</i></font></a>' velRefMemory = velRef; *)</span>
+</span><span><a class="LN" name="1158"> 1158   </a>            velRefMemory[0] := fXDotRef;
+</span><span><a class="LN" name="1159"> 1159   </a>            velRefMemory[1] := fYDotRef;
+</span><span><a class="LN" name="1160"> 1160   </a>            velRefMemory[2] := fZDotRef;
+</span><span><a class="LN" name="1161"> 1161   </a>            <span class="CT">(* '<a href="matlab:coder.internal.code2model('RedCrane_kinematic_model_telescope:1075:1:216')" name="code2model"><font color="#117755"><i>&lt;S2&gt;:1:216</i></font></a>' accRefMemory = accRef; *)</span>
+</span><span><a class="LN" name="1162"> 1162   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1163"> 1163   </a>        <span class="CT">(* End of Outputs for SubSystem: '&lt;Root&gt;/FB_QuinticPathPlanner' *)</span>
+</span><span><a class="LN" name="1164"> 1164   </a><span class="KW">END_CASE</span>;
+</span><span><a class="LN" name="1165"> 1165   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="1166"> 1166   </a><span class="KW">FUNCTION_BLOCK</span> xgetrfs
+</span><span><a class="LN" name="1167"> 1167   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="1168"> 1168   </a>    info: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1169"> 1169   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1170"> 1170   </a><span class="KW">VAR_IN_OUT</span>
+</span><span><a class="LN" name="1171"> 1171   </a>    A: <span class="KW">ARRAY</span> [0..323] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1172"> 1172   </a>    B: <span class="KW">ARRAY</span> [0..17] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1173"> 1173   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1174"> 1174   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="1175"> 1175   </a>    ipiv: <span class="KW">ARRAY</span> [0..17] <span class="KW">OF</span> <span class="KW">SINT</span>;
+</span><span><a class="LN" name="1176"> 1176   </a>    jj: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1177"> 1177   </a>    j: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1178"> 1178   </a>    ix: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1179"> 1179   </a>    smax: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1180"> 1180   </a>    b_s: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1181"> 1181   </a>    b_ix: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1182"> 1182   </a>    jA: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1183"> 1183   </a>    c_ix: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1184"> 1184   </a>    b_d: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1185"> 1185   </a>    ijA: <span class="KW">DINT</span>;
+</span><span><a class="LN" name="1186"> 1186   </a>    ipiv_0: <span class="KW">SINT</span>;
+</span><span><a class="LN" name="1187"> 1187   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1188"> 1188   </a><span class="KW">FOR</span> j := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1189"> 1189   </a>    ipiv[j] := DINT_TO_SINT(j + 1);
+</span><span><a class="LN" name="1190"> 1190   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1191"> 1191   </a>info := 0;
+</span><span><a class="LN" name="1192"> 1192   </a><span class="KW">FOR</span> j := 0 <span class="KW">TO</span> 16 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1193"> 1193   </a>    jj := j * 19;
+</span><span><a class="LN" name="1194"> 1194   </a>    jA := 0;
+</span><span><a class="LN" name="1195"> 1195   </a>    ix := jj;
+</span><span><a class="LN" name="1196"> 1196   </a>    smax := <span class="KW">ABS</span>(A[jj]);
+</span><span><a class="LN" name="1197"> 1197   </a>    b_ix := 2;
+</span><span><a class="LN" name="1198"> 1198   </a>    <span class="KW">WHILE</span> b_ix &lt;= (18 - j) <span class="KW">DO</span>
+</span><span><a class="LN" name="1199"> 1199   </a>        ix := ix + 1;
+</span><span><a class="LN" name="1200"> 1200   </a>        b_s := <span class="KW">ABS</span>(A[ix]);
+</span><span><a class="LN" name="1201"> 1201   </a>        <span class="KW">IF</span> b_s &gt; smax <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1202"> 1202   </a>            jA := b_ix - 1;
+</span><span><a class="LN" name="1203"> 1203   </a>            smax := b_s;
+</span><span><a class="LN" name="1204"> 1204   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1205"> 1205   </a>        b_ix := b_ix + 1;
+</span><span><a class="LN" name="1206"> 1206   </a>    <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1207"> 1207   </a>    <span class="KW">IF</span> A[jj + jA] &lt;&gt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1208"> 1208   </a>        <span class="KW">IF</span> jA &lt;&gt; 0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1209"> 1209   </a>            ix := j + jA;
+</span><span><a class="LN" name="1210"> 1210   </a>            ipiv[j] := DINT_TO_SINT(ix + 1);
+</span><span><a class="LN" name="1211"> 1211   </a>            <span class="KW">FOR</span> jA := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1212"> 1212   </a>                b_ix := (jA * 18) + j;
+</span><span><a class="LN" name="1213"> 1213   </a>                smax := A[b_ix];
+</span><span><a class="LN" name="1214"> 1214   </a>                A[b_ix] := A[(jA * 18) + ix];
+</span><span><a class="LN" name="1215"> 1215   </a>                A[ix + (jA * 18)] := smax;
+</span><span><a class="LN" name="1216"> 1216   </a>            <span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1217"> 1217   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1218"> 1218   </a>        jA := (jj - j) + 18;
+</span><span><a class="LN" name="1219"> 1219   </a>        ix := jj + 1;
+</span><span><a class="LN" name="1220"> 1220   </a>        <span class="KW">WHILE</span> (ix + 1) &lt;= jA <span class="KW">DO</span>
+</span><span><a class="LN" name="1221"> 1221   </a>            A[ix] := A[ix] / A[jj];
+</span><span><a class="LN" name="1222"> 1222   </a>            ix := ix + 1;
+</span><span><a class="LN" name="1223"> 1223   </a>        <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1224"> 1224   </a>    <span class="KW">ELSE</span> 
+</span><span><a class="LN" name="1225"> 1225   </a>        info := j + 1;
+</span><span><a class="LN" name="1226"> 1226   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1227"> 1227   </a>    jA := jj;
+</span><span><a class="LN" name="1228"> 1228   </a>    ix := jj + 18;
+</span><span><a class="LN" name="1229"> 1229   </a>    b_ix := 0;
+</span><span><a class="LN" name="1230"> 1230   </a>    <span class="KW">WHILE</span> b_ix &lt;= (16 - j) <span class="KW">DO</span>
+</span><span><a class="LN" name="1231"> 1231   </a>        <span class="KW">IF</span> A[ix] &lt;&gt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1232"> 1232   </a>            smax :=  -A[ix];
+</span><span><a class="LN" name="1233"> 1233   </a>            c_ix := jj + 1;
+</span><span><a class="LN" name="1234"> 1234   </a>            ijA := jA + 19;
+</span><span><a class="LN" name="1235"> 1235   </a>            b_d := (jA - j) + 36;
+</span><span><a class="LN" name="1236"> 1236   </a>            <span class="KW">WHILE</span> (ijA + 1) &lt;= b_d <span class="KW">DO</span>
+</span><span><a class="LN" name="1237"> 1237   </a>                A[ijA] := (A[c_ix] * smax) + A[ijA];
+</span><span><a class="LN" name="1238"> 1238   </a>                c_ix := c_ix + 1;
+</span><span><a class="LN" name="1239"> 1239   </a>                ijA := ijA + 1;
+</span><span><a class="LN" name="1240"> 1240   </a>            <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1241"> 1241   </a>        <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1242"> 1242   </a>        ix := ix + 18;
+</span><span><a class="LN" name="1243"> 1243   </a>        jA := jA + 18;
+</span><span><a class="LN" name="1244"> 1244   </a>        b_ix := b_ix + 1;
+</span><span><a class="LN" name="1245"> 1245   </a>    <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1246"> 1246   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1247"> 1247   </a><span class="KW">IF</span> info = 0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1248"> 1248   </a>    <span class="KW">IF</span> A[323] = 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1249"> 1249   </a>        info := 18;
+</span><span><a class="LN" name="1250"> 1250   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1251"> 1251   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1252"> 1252   </a><span class="KW">FOR</span> j := 0 <span class="KW">TO</span> 16 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1253"> 1253   </a>    ipiv_0 := ipiv[j];
+</span><span><a class="LN" name="1254"> 1254   </a>    <span class="KW">IF</span> (j + 1) &lt;&gt; SINT_TO_DINT(ipiv_0) <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1255"> 1255   </a>        smax := B[j];
+</span><span><a class="LN" name="1256"> 1256   </a>        B[j] := B[SINT_TO_DINT(ipiv_0) - 1];
+</span><span><a class="LN" name="1257"> 1257   </a>        B[SINT_TO_DINT(ipiv_0) - 1] := smax;
+</span><span><a class="LN" name="1258"> 1258   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1259"> 1259   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1260"> 1260   </a><span class="KW">FOR</span> j := 0 <span class="KW">TO</span> 17 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1261"> 1261   </a>    jj := 18 * j;
+</span><span><a class="LN" name="1262"> 1262   </a>    <span class="KW">IF</span> B[j] &lt;&gt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1263"> 1263   </a>        jA := j + 1;
+</span><span><a class="LN" name="1264"> 1264   </a>        <span class="KW">WHILE</span> (jA + 1) &lt; 19 <span class="KW">DO</span>
+</span><span><a class="LN" name="1265"> 1265   </a>            B[jA] := B[jA] - (A[jA + jj] * B[j]);
+</span><span><a class="LN" name="1266"> 1266   </a>            jA := jA + 1;
+</span><span><a class="LN" name="1267"> 1267   </a>        <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1268"> 1268   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1269"> 1269   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1270"> 1270   </a><span class="KW">FOR</span> j := 17 <span class="KW">TO</span> 0 <span class="KW">BY</span> -1 <span class="KW">DO</span> 
+</span><span><a class="LN" name="1271"> 1271   </a>    jj := 18 * j;
+</span><span><a class="LN" name="1272"> 1272   </a>    smax := B[j];
+</span><span><a class="LN" name="1273"> 1273   </a>    <span class="KW">IF</span> smax &lt;&gt; 0.0 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1274"> 1274   </a>        B[j] := smax / A[j + jj];
+</span><span><a class="LN" name="1275"> 1275   </a>        jA := 0;
+</span><span><a class="LN" name="1276"> 1276   </a>        <span class="KW">WHILE</span> jA &lt;= (j - 1) <span class="KW">DO</span>
+</span><span><a class="LN" name="1277"> 1277   </a>            B[jA] := B[jA] - (A[jA + jj] * B[j]);
+</span><span><a class="LN" name="1278"> 1278   </a>            jA := jA + 1;
+</span><span><a class="LN" name="1279"> 1279   </a>        <span class="KW">END_WHILE</span>;
+</span><span><a class="LN" name="1280"> 1280   </a>    <span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1281"> 1281   </a><span class="KW">END_FOR</span>;
+</span><span><a class="LN" name="1282"> 1282   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="1283"> 1283   </a><span class="KW">FUNCTION</span> norm: <span class="KW">LREAL</span>
+</span><span><a class="LN" name="1284"> 1284   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="1285"> 1285   </a>    x: <span class="KW">ARRAY</span> [0..2] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1286"> 1286   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1287"> 1287   </a><span class="KW">VAR_TEMP</span>
+</span><span><a class="LN" name="1288"> 1288   </a>    scale: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1289"> 1289   </a>    absxk: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1290"> 1290   </a>    t: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1291"> 1291   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1292"> 1292   </a>scale := 3.3121686421112381E-170;
+</span><span><a class="LN" name="1293"> 1293   </a>absxk := <span class="KW">ABS</span>(x[0]);
+</span><span><a class="LN" name="1294"> 1294   </a><span class="KW">IF</span> absxk &gt; 3.3121686421112381E-170 <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1295"> 1295   </a>    norm := 1.0;
+</span><span><a class="LN" name="1296"> 1296   </a>    scale := absxk;
+</span><span><a class="LN" name="1297"> 1297   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="1298"> 1298   </a>    t := absxk / 3.3121686421112381E-170;
+</span><span><a class="LN" name="1299"> 1299   </a>    norm := t * t;
+</span><span><a class="LN" name="1300"> 1300   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1301"> 1301   </a>absxk := <span class="KW">ABS</span>(x[1]);
+</span><span><a class="LN" name="1302"> 1302   </a><span class="KW">IF</span> absxk &gt; scale <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1303"> 1303   </a>    t := scale / absxk;
+</span><span><a class="LN" name="1304"> 1304   </a>    norm := ((norm * t) * t) + 1.0;
+</span><span><a class="LN" name="1305"> 1305   </a>    scale := absxk;
+</span><span><a class="LN" name="1306"> 1306   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="1307"> 1307   </a>    t := absxk / scale;
+</span><span><a class="LN" name="1308"> 1308   </a>    norm := (t * t) + norm;
+</span><span><a class="LN" name="1309"> 1309   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1310"> 1310   </a>absxk := <span class="KW">ABS</span>(x[2]);
+</span><span><a class="LN" name="1311"> 1311   </a><span class="KW">IF</span> absxk &gt; scale <span class="KW">THEN</span> 
+</span><span><a class="LN" name="1312"> 1312   </a>    t := scale / absxk;
+</span><span><a class="LN" name="1313"> 1313   </a>    norm := ((norm * t) * t) + 1.0;
+</span><span><a class="LN" name="1314"> 1314   </a>    scale := absxk;
+</span><span><a class="LN" name="1315"> 1315   </a><span class="KW">ELSE</span> 
+</span><span><a class="LN" name="1316"> 1316   </a>    t := absxk / scale;
+</span><span><a class="LN" name="1317"> 1317   </a>    norm := (t * t) + norm;
+</span><span><a class="LN" name="1318"> 1318   </a><span class="KW">END_IF</span>;
+</span><span><a class="LN" name="1319"> 1319   </a>norm := scale * <span class="KW">SQRT</span>(norm);
+</span><span><a class="LN" name="1320"> 1320   </a><span class="KW">END_FUNCTION</span>
+</span><span><a class="LN" name="1321"> 1321   </a><span class="KW">FUNCTION_BLOCK</span> F4
+</span><span><a class="LN" name="1322"> 1322   </a><span class="KW">VAR_INPUT</span>
+</span><span><a class="LN" name="1323"> 1323   </a>    t: <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1324"> 1324   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1325"> 1325   </a><span class="KW">VAR_OUTPUT</span>
+</span><span><a class="LN" name="1326"> 1326   </a>    output: <span class="KW">ARRAY</span> [0..4] <span class="KW">OF</span> <span class="KW">LREAL</span>;
+</span><span><a class="LN" name="1327"> 1327   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1328"> 1328   </a><span class="CT">(* 'F4:2' output = [1 t t.^2 t.^3 t.^4]; *)</span>
+</span><span><a class="LN" name="1329"> 1329   </a>output[0] := 1.0;
+</span><span><a class="LN" name="1330"> 1330   </a>output[1] := t;
+</span><span><a class="LN" name="1331"> 1331   </a>output[2] := t * t;
+</span><span><a class="LN" name="1332"> 1332   </a>output[3] := <span class="KW">EXPT</span>(t, 3.0);
+</span><span><a class="LN" name="1333"> 1333   </a>output[4] := <span class="KW">EXPT</span>(t, 4.0);
+</span><span><a class="LN" name="1334"> 1334   </a><span class="KW">END_FUNCTION_BLOCK</span>
+</span><span><a class="LN" name="1335"> 1335   </a><span class="KW">VAR_GLOBAL</span> <span class="KW">CONSTANT</span>
+</span><span><a class="LN" name="1336"> 1336   </a>    SS_INITIALIZE: <span class="KW">SINT</span> := 0;
+</span><span><a class="LN" name="1337"> 1337   </a>    SS_STEP: <span class="KW">SINT</span> := 1;
+</span><span><a class="LN" name="1338"> 1338   </a><span class="KW">END_VAR</span>
+</span><span><a class="LN" name="1339"> 1339   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

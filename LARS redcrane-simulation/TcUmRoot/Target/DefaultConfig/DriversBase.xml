@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBootProject>
+	<Drivers>
+		<Driver>
+			<Type>1</Type>
+			<ServiceName>TCIO</ServiceName>
+		</Driver>
+		<Driver>
+			<Type>1</Type>
+			<ServiceName>TCRTSOBJECTS</ServiceName>
+		</Driver>
+		<Driver>
+			<Type>1</Type>
+			<ServiceName>TCIOETH</ServiceName>
+		</Driver>
+		<Driver>
+			<Type>1</Type>
+			<ServiceName>TCIOECAT</ServiceName>
+		</Driver>
+		<Driver>
+			<Type>1</Type>
+			<ServiceName>TCIODRIVERS</ServiceName>
+		</Driver>
+	</Drivers>
+	<InitCmds/>
+</TcBootProject>
