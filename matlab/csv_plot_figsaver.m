@@ -3,8 +3,10 @@ clc; clear; close all;
 csv_path = 'CSV plotter\';
 PNG_path = 'csv_figures\PNG\';
 EPS_path = 'csv_figures\EPS\';
-file="Adjusted_RampDisturbanceTest_230425"; %write file name including .csv
+file="Adjusted_10ms_Dual2Test_090525"; %write file name including .csv
+file2="Adjusted_5ms_Dual2Test_090525"; %write file name including .csv
 Data = readtable(csv_path+file+'.csv');
+data = readtable(csv_path+file2+'.csv');
 % Data = readtable("JibSTDTest2_270325.csv" );
 
 %% Reading data
@@ -12,7 +14,7 @@ Data = readtable(csv_path+file+'.csv');
 Time = Data.time;
 % Main cylinder signals
 Main.PaDCV   = Data.MainPaDCV;
-Main.PaCyl   = Data.MainPaCyl;
+Main.PaCyl   = data.MainPaCyl;
 Main.Pb      = Data.MainPbDCV;
 Supply_pressure = Data.Ps;
 Main.Xref    = Data.MainXRef;
@@ -23,14 +25,14 @@ Main.FlowA   = Data.MainFlowA;
 Main.FlowB   = Data.MainFlowB;
 Main.FF      = Data.MainFF;
 Main.PID     = Data.MainPID;
-Main.U       = Data.MainU;
+Main.U       = Data.MainOutSignal;
 Main.Error   = Data.MainError;
 
 % Jib cylinder signals
 Jib.PaDCV    = Data.JibPaDCV;
-Jib.PaCyl    = Data.JibPaCyl;
+Jib.PaCyl    = data.JibPaCyl;
 Jib.PbDCV    = Data.JibPbDCV;
-Jib.PbCyl    = Data.JibPbCyl;
+Jib.PbCyl    = data.JibPbCyl;
 Jib.Xref     = Data.JibXRef;
 Jib.Xreal    = Data.JibPistonPosition;
 Jib.Vref     = Data.JibXDotRef;
@@ -39,7 +41,7 @@ Jib.FlowA    = Data.JibFlowA;
 Jib.FlowB    = Data.JibFlowB;
 Jib.FF       = Data.JibFF;
 Jib.PID      = Data.JibPID;
-Jib.U        = Data.JibU;
+Jib.U        = Data.JibOutSignal;
 Jib.Error    = Data.JibError;
 %% Choosing Plots
 Enable.All = 1;
@@ -49,9 +51,9 @@ Enable.Main_Position = 0;
 Enable.Main_Velocity = 0;
 Enable.Main_Flow = 0;
 Enable.Main_ControlSignal = 1;
-Enable.Jib_Pressure = 1;
+Enable.Jib_Pressure = 0;
 Enable.Jib_Position = 0;
-Enable.Jib_Velocity = 1;
+Enable.Jib_Velocity = 0;
 Enable.Jib_Flow = 0;
 Enable.Jib_ControlSignal = 1;
 else
@@ -124,10 +126,11 @@ hold on; grid on
 plot(Time, Main.PID)
 plot(Time, Main.U)
 title('Real Control Signals for Main DCV')
-legend('Feedforward', 'PID', 'Output Signal')
+legend('Feedforward', 'Feedback', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.5 0.5])
+%ylim([-0.5 0.5])
+xlim([40 85])
 end
 % ------------ Jib Cylinder Plots ---------------
 if Enable.Jib_Pressure
@@ -157,15 +160,13 @@ ylim([0 1])
 end
 if Enable.Jib_Velocity
 % Velocity (Vref vs Vreal)
-Velocity = figure('Name','Velocity of Jib cylinder');
+figure('Name','Velocity of Jib cylinder')
 plot(Time, Jib.Vref)
 hold on; grid on
-plot(Time, smooth(Jib.Vreal,100))
+plot(Time, Jib.Vreal)
 title('Velocity of Jib cylinder')
 legend('V_{ref}', 'V_{real}')
-xlim([4 26])
-ylim([-0.025 0.025])
-fontsize(Velocity,13,'points')
+ylim([0 1])
 end
 if Enable.Jib_Flow
 % Flow (FlowA vs FlowB)
@@ -180,19 +181,17 @@ end
 if Enable.Jib_ControlSignal
 % Control Signals (FF, PID, U)
 Jib_controlsignal = figure('Name','Control Signals for Jib cylinder');
-% plot(Time, Jib.FF)
+plot(Time, Jib.FF)
 hold on; grid on
-% plot(Time, Jib.PID)
+plot(Time, Jib.PID)
 plot(Time, Jib.U)
-plot(Time, Main.U)
-title('Control Signals for DCV')
-legend('u_{jib}','u_{main}')
+title('Control Signals for Jib DCV with disturbance')
+legend('Feedforward', 'Feedback', 'Output Signal')
 xlabel('Time [s]')
 ylabel('Control Signal')
-ylim([-0.55 0.45])
-fontsize(Jib_controlsignal,13,'points')
+%ylim([-0.5 0.5])
+xlim([40 85])
 end
-
 
 %% Gernral sub plot
 % f = figure;
@@ -251,16 +250,11 @@ end
 % saveas(Main_pressure,PNG_path+file+'_main_pressure.png') 
 % saveas(Main_pressure,EPS_path+file+'_main_pressure.eps') 
 
-% saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
-% saveas(Main_controlsignal,EPS_path+file+'_main_controlsignal.eps')
+saveas(Main_controlsignal,PNG_path+file+'_main_controlsignal.png')
+saveas(Main_controlsignal,EPS_path+file+'_main_cs.eps')
 
 % saveas(Jib_pressure,PNG_path+file+'_jib_pressure.png') 
 % saveas(Jib_pressure,EPS_path+file+'_jib_pressure.eps') 
 
-saveas(Jib_controlsignal,PNG_path+file+'controlsignal.png')
-saveas(Jib_controlsignal,EPS_path+file+'controlsignal','epsc')
-
-% Velocity
-
-saveas(Velocity,PNG_path+file+'_jib_velocity.png')
-saveas(Velocity,EPS_path+file+'_jib_velocity','epsc')
+saveas(Jib_controlsignal,PNG_path+file+'_jib_controlsignal.png')
+saveas(Jib_controlsignal,EPS_path+file+'_jib_cs.eps')

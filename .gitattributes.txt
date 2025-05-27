@@ -1,0 +1,4 @@
+*.eps binary
+*.svg binary
+*.dwl binary
+*.dwl2 binary
