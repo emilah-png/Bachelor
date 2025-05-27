@@ -2,7 +2,7 @@ clc; clear; close all;
 file_path = 'Simulink_Data\';
 PNG_path = 'Simulink_figures\PNG\'; 
 EPS_path = 'Simulink_figures\EPS\Step\';
-file = "Simulink_Dual_StepPressure_24042025";
+file = "Simulink_Dual_StepPressure_down_24042025";
 file_name = file_path+file+'.mat';
 Data = load(file_name);
 
@@ -78,11 +78,12 @@ plot(Time, Main.PaDCV)   % Main Pressure at Directional Control Valve A port
 plot(Time, Main.Pb)      % Main Pressure at Directional Control Valve B port
 % plot(Time, Main.PaCyl)   % Main Pressure at Counter Balance Valve A port
 title('Simulated Pressure at Main cylinder')
-legend('Supply pressure', 'Pa @DCV', 'Pb @DCV', 'Pa @Cylinder')
+legend('Supply pressure', 'Pa', 'Pb')
 xlabel('Time [s]')
 ylabel('Pressure [bar]')
-xlim([0 50])
-ylim([0 210])
+fontsize(Main_pressure,11,'points')
+xlim([0 52])
+ylim([0 200])
 end 
 
 % Position (Xref vs Xreal)
@@ -104,8 +105,11 @@ hold on; grid on
 plot(Time, Main.Vreal)
 title('Simulated Velocity of Main cylinder')
 legend('V_{ref}', 'V_{real}')
-xlim([0 50])
-ylim([-0.015 0.02])
+xlabel('Time [s]')
+ylabel('Cylinder velocity [m/s]')
+fontsize(Main_velocity,11,'points')
+xlim([0 52])
+ylim([-0.015 0.015])
 end 
 
 % Control Signals (FF, PID, U)
@@ -147,8 +151,9 @@ title('Simulated Pressure at Jib cylinder')
 legend('Supply pressure', 'Pa', 'Pb')
 xlabel('Time [s]')
 ylabel('Pressure [bar]')
-xlim([0 50])
-ylim([0 215])
+fontsize(Jib_pressure,11,'points')
+xlim([0 52])
+ylim([0 200])
 end
 
 % Position (Xref vs Xreal)
@@ -170,8 +175,12 @@ hold on; grid on
 plot(Time, Jib.Vreal)
 title('Simulated Velocity of Jib cylinder')
 legend('V_{ref}', 'V_{real}')
-xlim([0 50])
-ylim([-0.02 0.025])
+xlabel('Time [s]')
+ylabel('Cylinder velocity [m/s]')
+% Cylinder velocity m/s
+fontsize(Jib_velocity,11,'points')
+xlim([0 52])
+ylim([-0.022 0.02])
 end
 
 % Control Signals (FF, PID, U)
