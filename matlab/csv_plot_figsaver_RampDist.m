@@ -163,7 +163,9 @@ hold on; grid on
 plot(Time, smooth(Jib.Vreal,100))
 title('Velocity of Jib cylinder')
 legend('V_{ref}', 'V_{real}')
-xlim([4 26])
+xlabel('Time [s]')
+ylabel('Cylinder velocity [m/s]')
+xlim([4 30])
 ylim([-0.025 0.025])
 fontsize(Velocity,13,'points')
 end
@@ -180,16 +182,17 @@ end
 if Enable.Jib_ControlSignal
 % Control Signals (FF, PID, U)
 Jib_controlsignal = figure('Name','Control Signals for Jib cylinder');
-% plot(Time, Jib.FF)
+plot(Time, Jib.FF)
 hold on; grid on
 % plot(Time, Jib.PID)
-plot(Time, Jib.U)
+% plot(Time, Jib.U)
 plot(Time, Main.U)
 title('Control Signals for DCV')
 legend('u_{jib}','u_{main}')
 xlabel('Time [s]')
 ylabel('Control Signal')
 ylim([-0.55 0.45])
+xlim([4 30])
 fontsize(Jib_controlsignal,13,'points')
 end
 
