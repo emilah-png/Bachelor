@@ -4,14 +4,10 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	bTemp : BOOL;
-	
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-// P_Filtering();
-// P_DanielFiltering();
-// P_Inputs();
 P_Clock();
 P_HMI();
 P_DeadBand();
@@ -22,7 +18,6 @@ P_Control();
 P_Motion();
 P_Output();
 P_Truck();
-P_FlowControl();
 
 // Test Programs
 //P_SineTest();]]></ST>

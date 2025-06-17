@@ -186,9 +186,6 @@
     <Compile Include="Programs\Background PRGs\P_Filtering.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Programs\Background PRGs\P_FlowControl.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Programs\Background PRGs\P_Convetions.TcPOU">
       <SubType>Code</SubType>
     </Compile>
